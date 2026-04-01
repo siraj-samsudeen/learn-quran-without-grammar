@@ -36,42 +36,6 @@
     <p class="footer-trans"><em>wa-la-dhikru llāhi akbar</em> &mdash; &ldquo;And the remembrance of Allah is greater&rdquo; &nbsp;(29:45)</p>
   </footer>
 
-  <!-- Word-by-word phrase player for Qur'anic fragments -->
-  <script>
-  function playPhrase(words, btn) {
-    // Stop any currently playing phrase
-    if (window._activeAudio) {
-      window._activeAudio.onended = null;
-      window._activeAudio.pause();
-      window._activeAudio = null;
-    }
-    if (window._activeBtn && window._activeBtn !== btn) {
-      window._activeBtn.disabled = false;
-      window._activeBtn.innerHTML = '&#9654; Play';
-    }
-    if (btn) {
-      btn.disabled = true;
-      btn.innerHTML = '&#9646;&#9646; Playing&hellip;';
-      window._activeBtn = btn;
-    }
-    let index = 0;
-    const base = 'https://audio.qurancdn.com/wbw/';
-    function playNext() {
-      if (index >= words.length) {
-        if (btn) { btn.disabled = false; btn.innerHTML = '&#9654; Play'; }
-        window._activeAudio = null;
-        window._activeBtn = null;
-        return;
-      }
-      const a = new Audio(base + words[index] + '.mp3');
-      window._activeAudio = a;
-      a.onended = () => { index++; playNext(); };
-      a.onerror  = () => { index++; playNext(); };
-      a.play().catch(() => { index++; playNext(); });
-    }
-    playNext();
-  }
-  </script>
 
 </body>
 </html>
