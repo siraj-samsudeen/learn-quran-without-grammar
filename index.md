@@ -44,8 +44,8 @@ There are **no grammar terms**, no heavy explanations, no memorisation pressure.
 
 ## Lessons
 
-<div class="lesson-card" markdown="0" onclick="location.href='{{ '/Lesson-01-Allahu-Akbar' | relative_url }}';">
-<div class="lesson-card-title"><a href="{{ '/Lesson-01-Allahu-Akbar' | relative_url }}">Lesson 1 — The Opening Call</a></div>
+<div class="lesson-card" markdown="0" onclick="location.href='{{ '/lessons/lesson-01-allahu-akbar' | relative_url }}';">
+<div class="lesson-card-title"><a href="{{ '/lessons/lesson-01-allahu-akbar' | relative_url }}">Lesson 1 — The Opening Call</a></div>
 <div class="lesson-card-arabic">اللَّهُ أَكْبَرُ</div>
 <div class="lesson-card-meta">Root: ك ب ر &nbsp;·&nbsp; Greatness &amp; Grandeur &nbsp;·&nbsp; Anchor: First phrase of the Adhān</div>
 </div>

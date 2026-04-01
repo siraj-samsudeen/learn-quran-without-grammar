@@ -16,8 +16,10 @@ plugins:
 
 # Exclude source files that are not pages
 exclude:
-  - "Course Intro.md"
+  - course_intro.md
   - README.md
+  - CLAUDE.md
+  - docs/
   - Gemfile
   - Gemfile.lock
   - vendor/
