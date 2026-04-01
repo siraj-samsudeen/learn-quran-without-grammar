@@ -60,43 +60,6 @@ The forms are grouped below by their morphological family (بَاب):
 
 ---
 
-## Minimal Contrast
-
-Place these two phrases side by side. Same root. Different feel.
-
-| | Arabic | Transliteration | Where It Appears |
-|---|--------|----------------|-----------------|
-| **A** | هُوَ الْمُتَكَبِّرُ | huwa l-Mutakabbir | 59:23 — Allah's name |
-| **B** | إِنَّهُ لَا يُحِبُّ الْمُسْتَكْبِرِينَ | innahu lā yuḥibbu l-mustakbirīn | 16:23 — He does not love the arrogant |
-
-<p class="audio-label">🔊 Phrase A — 59:23 · ٱلْعَزِيزُ ٱلْجَبَّارُ ٱلْمُتَكَبِّرُ</p>
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/059023.mp3#t=11,17"></audio>
-
-<p class="audio-label">🔊 Phrase B — 16:23 · إِنَّهُۥ لَا يُحِبُّ ٱلْمُسْتَكْبِرِينَ</p>
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/016023.mp3#t=14.5,23.5"></audio>
-
-**Teacher cue:** "Same root — ك ب ر. When Allah is great, it's beautiful. When a person *tries* to be great… listen to how the Qur'an responds."
-
----
-
-## Comparison Pattern (Cross-Root)
-
-Now compare **أَكْبَرُ** with another root using the same shape:
-
-| | Arabic | Transliteration | Root | Meaning |
-|---|--------|----------------|------|---------|
-| **A** | اللهُ أَكْبَرُ | Allāhu Akbar | ك ب ر | Allah is greater |
-| **B** | أَنَا خَيْرٌ مِنْهُ | anā khayrun minhu | خ ي ر | I am better than him |
-
-Phrase **B** is from **7:12** — Iblīs speaking. He uses the same kind of comparison — "I am more X than him" — but from the root خ ي ر (goodness).
-
-<p class="audio-label">🔊 Al-Aʿrāf 7:12 · قَالَ أَنَا۠ خَيْرٌ مِّنْهُ خَلَقْتَنِى مِن نَّارٍ وَخَلَقْتَهُۥ مِن طِينٍ</p>
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/007012.mp3#t=8,21"></audio>
-
-**Teacher cue:** "Iblīs said 'I am better.' We say 'Allah is greater.' Same shape of words — but one is the beginning of prayer, and the other is the beginning of the first sin."
-
----
-
 ## Qur'anic Ayahs by Family
 
 ### بَاب ١ — Base Forms (Form I)
