@@ -1,0 +1,23 @@
+title: Learn Qur'an Without Grammar
+description: Root-based Quranic Arabic — the language of your salah
+baseurl: "/learn-quran-without-grammar"
+url: "https://siraj-samsudeen.github.io"
+author: Siraj Samsudeen
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  parse_block_html: true
+  hard_wrap: false
+
+# Plugins supported by GitHub Pages
+plugins:
+  - jekyll-seo-tag
+
+# Exclude source files that are not pages
+exclude:
+  - "Course Intro.md"
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/

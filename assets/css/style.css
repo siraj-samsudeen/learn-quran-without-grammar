@@ -1,0 +1,297 @@
+/* ============================================================
+   Learn Qur'an Without Grammar — Stylesheet
+   Mobile-first, Arabic-ready, clean educational design
+   ============================================================ */
+
+:root {
+  --green:        #1a6b3a;
+  --green-dark:   #0f4425;
+  --green-light:  #e8f5ee;
+  --gold:         #b8930a;
+  --gold-light:   #f5e8a0;
+  --cream:        #fdfcf7;
+  --white:        #ffffff;
+  --text:         #1c1c1e;
+  --muted:        #636366;
+  --border:       #ddd9ce;
+  --table-stripe: #f7f5ee;
+  --warn-bg:      #fef9ec;
+  --warn-border:  #e6a817;
+  --font-arabic:  'Amiri', 'Scheherazade New', 'Traditional Arabic', 'Arabic Typesetting', serif;
+  --font-ui:      'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+img { max-width: 100%; display: block; }
+
+/* ── Base ── */
+body {
+  font-family: var(--font-ui);
+  background-color: var(--cream);
+  color: var(--text);
+  line-height: 1.75;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Header ── */
+.site-header {
+  background: var(--green);
+  padding: 0.8rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+}
+.nav-container {
+  max-width: 880px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+.site-logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.logo-arabic {
+  font-family: var(--font-arabic);
+  font-size: 1.35rem;
+  color: var(--gold-light);
+  line-height: 1;
+}
+.logo-divider {
+  color: rgba(255,255,255,0.3);
+  font-weight: 300;
+}
+.logo-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.92);
+  letter-spacing: 0.01em;
+}
+
+/* ── Main ── */
+.main-content {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 5rem;
+}
+
+/* ── Article spacing ── */
+.lesson-body > * + * { margin-top: 1.2rem; }
+
+/* ── Headings ── */
+.lesson-body h1 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1.2;
+  margin-bottom: 0.15rem;
+}
+.lesson-body h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--green);
+  padding-bottom: 0.35rem;
+  border-bottom: 2.5px solid var(--gold);
+  margin-top: 2.5rem;
+}
+.lesson-body h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--green-dark);
+  margin-top: 2rem;
+}
+.lesson-body h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ── Paragraphs ── */
+.lesson-body p { line-height: 1.8; }
+
+/* ── Horizontal rule ── */
+.lesson-body hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
+}
+
+/* ── Bold/emphasis ── */
+.lesson-body strong { font-weight: 700; }
+.lesson-body em { font-style: italic; }
+
+/* ── Links ── */
+.lesson-body a { color: var(--green); text-decoration: underline; }
+.lesson-body a:hover { color: var(--gold); }
+
+/* ── Lists ── */
+.lesson-body ul,
+.lesson-body ol {
+  padding-left: 1.5rem;
+  line-height: 1.8;
+}
+.lesson-body li + li { margin-top: 0.25rem; }
+
+/* ── Blockquotes (hadith, teacher cues, notes) ── */
+.lesson-body blockquote {
+  background: var(--warn-bg);
+  border-left: 4px solid var(--warn-border);
+  padding: 0.85rem 1.25rem;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.95rem;
+  color: #4a3e10;
+}
+.lesson-body blockquote > p + p { margin-top: 0.5rem; }
+
+/* First blockquote = verification warning */
+/* (naturally styled by the rule above) */
+
+/* ── Tables ── */
+.lesson-body table {
+  font-size: 0.92rem;
+  margin: 1rem 0;
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: block;        /* enables horizontal scroll on mobile */
+  overflow-x: auto;
+  width: 100%;
+}
+.lesson-body th {
+  background: var(--green);
+  color: white;
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.lesson-body td {
+  padding: 0.65rem 0.9rem;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+  /* Amiri covers both Arabic Unicode and Latin — applies to all cells */
+  font-family: var(--font-arabic);
+  font-size: 1rem;
+  line-height: 2;        /* generous for Arabic diacritics */
+}
+.lesson-body tr:last-child td { border-bottom: none; }
+.lesson-body tr:nth-child(even) td { background: var(--table-stripe); }
+.lesson-body tr:hover td { background: #eeeae0; transition: background 0.1s; }
+
+/* ── Anchor Arabic display ── */
+/* The big central Arabic phrase in the Anchor section */
+.lesson-body h2 + p strong,
+.anchor-phrase {
+  font-family: var(--font-arabic);
+}
+
+/* Inline Arabic text (naturally renders via font) */
+/* Amiri handles Arabic Unicode ranges automatically */
+
+/* ── Audio player ── */
+.lesson-body audio {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  height: 42px;
+  margin: 0.4rem 0 0.8rem;
+  border-radius: 6px;
+  background: var(--green-light);
+}
+
+/* Audio container label */
+.audio-label {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 0.2rem;
+}
+
+/* ── Code ── */
+.lesson-body code {
+  font-family: 'SFMono-Regular', Consolas, 'Courier New', monospace;
+  background: #eeebe1;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.87em;
+}
+
+/* ── Star ayah call-out ── */
+/* ⭐ renders as Unicode — no extra styling needed */
+
+/* ── Teacher cue lines ── */
+/* **Teacher cue:** "..." — bold label is enough */
+
+/* ── Footer ── */
+.site-footer {
+  background: var(--green-dark);
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+.footer-arabic {
+  font-family: var(--font-arabic);
+  font-size: 1.6rem;
+  color: var(--gold-light);
+  margin-bottom: 0.4rem;
+}
+.footer-trans {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.6);
+}
+
+/* ── Homepage cards ── */
+.lesson-card {
+  display: block;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  text-decoration: none;
+  color: var(--text);
+  transition: box-shadow 0.15s, border-color 0.15s;
+  margin-bottom: 1rem;
+}
+.lesson-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  border-color: var(--green);
+  color: var(--text);
+}
+.lesson-card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 0.25rem;
+}
+.lesson-card-arabic {
+  font-family: var(--font-arabic);
+  font-size: 1.5rem;
+  color: var(--green-dark);
+  line-height: 2;
+}
+.lesson-card-meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .main-content   { padding: 1.5rem 1rem 3rem; }
+  .lesson-body h1 { font-size: 1.45rem; }
+  .lesson-body h2 { font-size: 1.15rem; }
+  .lesson-body td,
+  .lesson-body th { padding: 0.5rem 0.65rem; font-size: 0.88rem; }
+  .logo-arabic    { font-size: 1.15rem; }
+  .logo-text      { font-size: 0.82rem; }
+  .footer-arabic  { font-size: 1.3rem; }
+}

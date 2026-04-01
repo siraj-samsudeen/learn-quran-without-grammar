@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }} — {{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+
+  <!-- Arabic + Latin fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Scheherazade+New:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav-container">
+      <a href="{{ '/' | relative_url }}" class="site-logo">
+        <span class="logo-arabic">بِسْمِ اللَّهِ</span>
+        <span class="logo-divider">|</span>
+        <span class="logo-text">{{ site.title }}</span>
+      </a>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <article class="lesson-body">
+      {{ content }}
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-arabic">وَلَذِكْرُ اللَّهِ أَكْبَرُ</p>
+    <p class="footer-trans"><em>wa-la-dhikru llāhi akbar</em> &mdash; &ldquo;And the remembrance of Allah is greater&rdquo; &nbsp;(29:45)</p>
+  </footer>
+
+</body>
+</html>
