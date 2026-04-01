@@ -20,8 +20,8 @@ description: Explore the root ك ب ر — the three letters behind Allāhu Akba
 
 <p class="audio-label">🔊 Adhān — opening phrase (Makkah recitation)</p>
 <audio controls preload="none">
-  <source src="https://www.islamicfinder.org/prayer-times/azan/makkah_fajr.mp3" type="audio/mpeg">
-  <a href="https://www.youtube.com/results?search_query=allahu+akbar+adhan+makkah" target="_blank">▶ Listen to Adhān on YouTube</a>
+  <source src="https://www.downloads.trinimuslims.com/Adhan/fahr_adhan_makkah.mp3" type="audio/mpeg">
+  <a href="https://www.downloads.trinimuslims.com/Adhan/fahr_adhan_makkah.mp3">▶ Listen to Adhān</a>
 </audio>
 
 You say this every single day. Before Fajr, before Ẓuhr, before every ṣalāh. You raise your hands and say it. The muezzin opens with it. It is the first thing you hear when prayer is called, and the first thing you say when you stand before Allah.
@@ -461,8 +461,8 @@ This is the **most frequent** form of the root ك ب ر in the Qur'an (~46 occur
 
 <p class="audio-label">🔊 Adhān — return to the opening (listen again with fresh ears)</p>
 <audio controls preload="none">
-  <source src="https://www.islamicfinder.org/prayer-times/azan/makkah_fajr.mp3" type="audio/mpeg">
-  <a href="https://www.youtube.com/results?search_query=allahu+akbar+adhan+makkah" target="_blank">▶ Listen to Adhān on YouTube</a>
+  <source src="https://www.downloads.trinimuslims.com/Adhan/fahr_adhan_makkah.mp3" type="audio/mpeg">
+  <a href="https://www.downloads.trinimuslims.com/Adhan/fahr_adhan_makkah.mp3">▶ Listen to Adhān</a>
 </audio>
 
 We began with **اللهُ أَكْبَرُ**. Now you have heard this root — ك ب ر — move through the entire Qur'an.
