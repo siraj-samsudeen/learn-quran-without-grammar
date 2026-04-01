@@ -256,15 +256,21 @@ body {
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 1.25rem 1.5rem;
-  text-decoration: none;
   color: var(--text);
+  cursor: pointer;
   transition: box-shadow 0.15s, border-color 0.15s;
   margin-bottom: 1rem;
 }
 .lesson-card:hover {
   box-shadow: 0 4px 16px rgba(0,0,0,0.1);
   border-color: var(--green);
-  color: var(--text);
+}
+.lesson-card .lesson-card-title a {
+  text-decoration: none;
+  color: var(--green);
+}
+.lesson-card:hover .lesson-card-title a {
+  text-decoration: underline;
 }
 .lesson-card-title {
   font-size: 1.1rem;

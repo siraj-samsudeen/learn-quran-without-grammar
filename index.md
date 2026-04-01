@@ -44,11 +44,11 @@ There are **no grammar terms**, no heavy explanations, no memorisation pressure.
 
 ## Lessons
 
-<a class="lesson-card" href="{{ '/Lesson-01-Allahu-Akbar' | relative_url }}">
-  <div class="lesson-card-title">Lesson 1 — The Opening Call</div>
-  <div class="lesson-card-arabic">اللَّهُ أَكْبَرُ</div>
-  <div class="lesson-card-meta">Root: ك ب ر &nbsp;·&nbsp; Greatness &amp; Grandeur &nbsp;·&nbsp; Anchor: First phrase of the Adhān</div>
-</a>
+<div class="lesson-card" onclick="location.href='{{ '/Lesson-01-Allahu-Akbar' | relative_url }}';">
+<div class="lesson-card-title"><a href="{{ '/Lesson-01-Allahu-Akbar' | relative_url }}">Lesson 1 — The Opening Call</a></div>
+<div class="lesson-card-arabic">اللَّهُ أَكْبَرُ</div>
+<div class="lesson-card-meta">Root: ك ب ر &nbsp;·&nbsp; Greatness &amp; Grandeur &nbsp;·&nbsp; Anchor: First phrase of the Adhān</div>
+</div>
 
 *More lessons coming soon — adhan → salah, phrase by phrase.*
 
