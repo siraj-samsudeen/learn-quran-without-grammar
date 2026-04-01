@@ -27,39 +27,6 @@ Today, we open up this one word: **أَكْبَرُ** — and the root underneat
 
 ---
 
-## Root Hub: ك ب ر
-
-The root **ك ب ر** carries a core meaning: **something is great, large, or grows.**
-
-From this one root, the Qur'an builds many forms — each one a different shade of "greatness." Some describe Allah's majesty. Some describe human arrogance. Some describe old age. Some describe great sins. All come from the same three letters.
-
-**Total Qur'anic occurrences: 161 across 18 forms**
-
-The forms are grouped below by their morphological family (بَاب):
-
-| Family | Pattern | Arabic | Transliteration | Meaning Hint | Count |
-|--------|---------|--------|-----------------|--------------|-------|
-| **Base** | كَبُرَ | كَبُرَ | kabura | it was great / heavy / difficult | 8 |
-| | أَكْبَرُ | أَكْبَرُ | akbar | greater / greatest | 24 |
-| | كَبِير | كَبِيرٌ | kabīr | great / big / aged | 40 |
-| | كُبْرَى | كُبْرَى | kubrā | greatest (feminine) | 7 |
-| | كَبِيرَة / كَبَائِر | كَبِيرَةً / كَبَائِرَ | kabīrah / kabā'ir | great thing / great sins | 7 |
-| | كِبَر | كِبَرِ | kibar | old age | 6 |
-| | كِبْر | كِبْرٌ | kibr | pride / greater share | 2 |
-| | كِبْرِيَاء | كِبْرِيَاءَ | kibriyā' | supreme majesty | 2 |
-| | كُبَّار | كُبَّارًا | kubbār | immensely great (intensive) | 1 |
-| | كُبَرَاء | كُبَرَاءَنَا | kubarā' | great ones / leaders | 1 |
-| **II** | كَبَّرَ | فَكَبِّرْ | kabbara | magnify / declare great | 4 |
-| | تَكْبِير | تَكْبِيرًا | takbīr | magnification (verbal noun) | 1 |
-| **IV** | أَكْبَرَ | أَكْبَرْنَهُ | akbara | were astonished by his greatness | 1 |
-| **V** | تَكَبَّرَ | تَتَكَبَّرَ | takabbara | acted great / was arrogant | 2 |
-| | مُتَكَبِّر | الْمُتَكَبِّرُ | mutakabbir | the Supremely Great / arrogant one | 7 |
-| **X** | اسْتَكْبَرَ | اسْتَكْبَرَ | istakbara | puffed up / refused out of pride | 40 |
-| | مُسْتَكْبِر | مُسْتَكْبِرِينَ | mustakbir | one who seeks to be great | 6 |
-| | اسْتِكْبَار | اسْتِكْبَارًا | istikbār | seeking greatness for oneself | 2 |
-
----
-
 ## Qur'anic Ayahs by Family
 
 ### بَاب ١ — Base Forms (Form I)
@@ -298,6 +265,39 @@ Form X often means to seek or claim the quality of the root for oneself. So اس
 | **35:43** | **اسْتِكْبَارًا** فِي الْأَرْضِ وَمَكْرَ السَّيِّئِ | Arrogance in the land and plotting of evil | Arrogance and evil go hand in hand |
 
 > Also: 71:7 (see above — اسْتَكْبَرُوا اسْتِكْبَارًا)
+
+---
+
+## Root Hub: ك ب ر
+
+The root **ك ب ر** carries a core meaning: **something is great, large, or grows.**
+
+From this one root, the Qur'an builds many forms — each one a different shade of "greatness." Some describe Allah's majesty. Some describe human arrogance. Some describe old age. Some describe great sins. All come from the same three letters.
+
+**Total Qur'anic occurrences: 161 across 18 forms**
+
+The forms are grouped below by their morphological family (بَاب):
+
+| Family | Pattern | Arabic | Transliteration | Meaning Hint | Count |
+|--------|---------|--------|-----------------|--------------|-------|
+| **Base** | كَبُرَ | كَبُرَ | kabura | it was great / heavy / difficult | 8 |
+| | أَكْبَرُ | أَكْبَرُ | akbar | greater / greatest | 24 |
+| | كَبِير | كَبِيرٌ | kabīr | great / big / aged | 40 |
+| | كُبْرَى | كُبْرَى | kubrā | greatest (feminine) | 7 |
+| | كَبِيرَة / كَبَائِر | كَبِيرَةً / كَبَائِرَ | kabīrah / kabā'ir | great thing / great sins | 7 |
+| | كِبَر | كِبَرِ | kibar | old age | 6 |
+| | كِبْر | كِبْرٌ | kibr | pride / greater share | 2 |
+| | كِبْرِيَاء | كِبْرِيَاءَ | kibriyā' | supreme majesty | 2 |
+| | كُبَّار | كُبَّارًا | kubbār | immensely great (intensive) | 1 |
+| | كُبَرَاء | كُبَرَاءَنَا | kubarā' | great ones / leaders | 1 |
+| **II** | كَبَّرَ | فَكَبِّرْ | kabbara | magnify / declare great | 4 |
+| | تَكْبِير | تَكْبِيرًا | takbīr | magnification (verbal noun) | 1 |
+| **IV** | أَكْبَرَ | أَكْبَرْنَهُ | akbara | were astonished by his greatness | 1 |
+| **V** | تَكَبَّرَ | تَتَكَبَّرَ | takabbara | acted great / was arrogant | 2 |
+| | مُتَكَبِّر | الْمُتَكَبِّرُ | mutakabbir | the Supremely Great / arrogant one | 7 |
+| **X** | اسْتَكْبَرَ | اسْتَكْبَرَ | istakbara | puffed up / refused out of pride | 40 |
+| | مُسْتَكْبِر | مُسْتَكْبِرِينَ | mustakbir | one who seeks to be great | 6 |
+| | اسْتِكْبَار | اسْتِكْبَارًا | istikbār | seeking greatness for oneself | 2 |
 
 ---
 
