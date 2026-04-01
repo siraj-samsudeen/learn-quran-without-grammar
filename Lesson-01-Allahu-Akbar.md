@@ -67,13 +67,21 @@ Place these two phrases side by side. Same root. Different feel.
 | **A** | هُوَ الْمُتَكَبِّرُ | huwa l-Mutakabbir | 59:23 — Allah's name |
 | **B** | إِنَّهُ لَا يُحِبُّ الْمُسْتَكْبِرِينَ | innahu lā yuḥibbu l-mustakbirīn | 16:23 — He does not love the arrogant |
 
+<div markdown="0">
+
 <p class="audio-label">🔊 Phrase A — 59:23 · ٱلْعَزِيزُ ٱلْجَبَّارُ ٱلْمُتَكَبِّرُ</p>
-<button class="play-btn" onclick="playPhrase(['059_023_013','059_023_014','059_023_015'], this)">&#9654; Word-by-word</button>
-&nbsp;<small><em>(test) flowing:</em></small> <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/059023.mp3#t=11,17" style="display:inline;width:220px;height:32px;vertical-align:middle;"></audio>
+<p><strong>Option 1 — word-by-word (JS):</strong><br>
+<button class="play-btn" onclick="playPhrase(['059_023_013','059_023_014','059_023_015'], this)">&#9654; Play</button></p>
+<p><strong>Option 2 — flowing recitation (HTML fragment):</strong><br>
+<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/059023.mp3#t=11,17"></audio></p>
 
 <p class="audio-label">🔊 Phrase B — 16:23 · إِنَّهُۥ لَا يُحِبُّ ٱلْمُسْتَكْبِرِينَ</p>
-<button class="play-btn" onclick="playPhrase(['016_023_010','016_023_011','016_023_012','016_023_013'], this)">&#9654; Word-by-word</button>
-&nbsp;<small><em>(test) flowing:</em></small> <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/016023.mp3#t=14.5,23.5" style="display:inline;width:220px;height:32px;vertical-align:middle;"></audio>
+<p><strong>Option 1 — word-by-word (JS):</strong><br>
+<button class="play-btn" onclick="playPhrase(['016_023_010','016_023_011','016_023_012','016_023_013'], this)">&#9654; Play</button></p>
+<p><strong>Option 2 — flowing recitation (HTML fragment):</strong><br>
+<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/016023.mp3#t=14.5,23.5"></audio></p>
+
+</div>
 
 **Teacher cue:** "Same root — ك ب ر. When Allah is great, it's beautiful. When a person *tries* to be great… listen to how the Qur'an responds."
 
@@ -90,9 +98,15 @@ Now compare **أَكْبَرُ** with another root using the same shape:
 
 Phrase **B** is from **7:12** — Iblīs speaking. He uses the same kind of comparison — "I am more X than him" — but from the root خ ي ر (goodness).
 
+<div markdown="0">
+
 <p class="audio-label">🔊 Al-Aʿrāf 7:12 · قَالَ أَنَا۠ خَيْرٌ مِّنْهُ خَلَقْتَنِى مِن نَّارٍ وَخَلَقْتَهُۥ مِن طِينٍ</p>
-<button class="play-btn" onclick="playPhrase(['007_012_008','007_012_009','007_012_010','007_012_011','007_012_012','007_012_013','007_012_014','007_012_015','007_012_016','007_012_017'], this)">&#9654; Word-by-word</button>
-&nbsp;<small><em>(test) flowing:</em></small> <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/007012.mp3#t=8,21" style="display:inline;width:220px;height:32px;vertical-align:middle;"></audio>
+<p><strong>Option 1 — word-by-word (JS):</strong><br>
+<button class="play-btn" onclick="playPhrase(['007_012_008','007_012_009','007_012_010','007_012_011','007_012_012','007_012_013','007_012_014','007_012_015','007_012_016','007_012_017'], this)">&#9654; Play</button></p>
+<p><strong>Option 2 — flowing recitation (HTML fragment):</strong><br>
+<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/007012.mp3#t=8,21"></audio></p>
+
+</div>
 
 **Teacher cue:** "Iblīs said 'I am better.' We say 'Allah is greater.' Same shape of words — but one is the beginning of prayer, and the other is the beginning of the first sin."
 
