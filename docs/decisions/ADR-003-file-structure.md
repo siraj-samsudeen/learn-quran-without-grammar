@@ -32,7 +32,7 @@ Rules:
 **Resulting URLs:** `/lessons/lesson-01-allahu-akbar/` — clean, lowercase, unambiguous.
 
 **Non-lesson files in root** also follow lowercase-with-underscores:
-- `course_intro.md` — underscores for non-URL files (never served as pages)
+- `course_intro.md` — published page (full course introduction, linked from homepage)
 - `CLAUDE.md`, `README.md` — all-caps for convention files (excluded from build)
 
 ## Consequences

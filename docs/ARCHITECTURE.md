@@ -67,6 +67,7 @@ The `relative_url` filter prepends the Jekyll `baseurl` (`/learn-quran-without-g
 | File | Jekyll URL |
 |------|-----------|
 | `index.md` | `/` |
+| `course_intro.md` | `/course_intro/` |
 | `lessons/lesson-01-allahu-akbar.md` | `/lessons/lesson-01-allahu-akbar/` |
 | `lessons/lesson-02-bismillah.md` | `/lessons/lesson-02-bismillah/` |
 
@@ -78,7 +79,6 @@ The `relative_url` filter prepends the Jekyll `baseurl` (`/learn-quran-without-g
 
 Files in `_config.yml`'s `exclude:` list are not processed or published:
 
-- `course_intro.md` — draft prose, not a page
 - `README.md` — GitHub display only
 - `CLAUDE.md` — AI assistant context only
 - `docs/` — architecture docs, not course content

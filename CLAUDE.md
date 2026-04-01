@@ -18,7 +18,7 @@ Live site: **https://siraj-samsudeen.github.io/learn-quran-without-grammar/**
 learn-quran-without-grammar/
 ├── CLAUDE.md                        ← (this file) AI assistant context
 ├── README.md                        ← Human-readable project overview
-├── course_intro.md                  ← Draft prose intro (excluded from Jekyll build)
+├── course_intro.md                  ← Full course introduction (published page, linked from homepage)
 ├── _config.yml                      ← Jekyll config + exclude list
 ├── index.md                         ← Home page with lesson cards
 ├── lessons/

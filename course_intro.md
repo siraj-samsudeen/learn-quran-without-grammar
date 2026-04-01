@@ -1,4 +1,10 @@
-Learn Qur’an Without Grammar Using Anchors & Patterns
+---
+layout: default
+title: Course Introduction
+description: The full story behind this Quranic Arabic course — anchors, roots, and pattern recognition
+---
+
+# Learn Qur’an Without Grammar Using Anchors & Patterns
 
 This course is built on a simple idea:
 You don’t need to study grammar to begin understanding the Qur’an—you need to learn how to recognize it.

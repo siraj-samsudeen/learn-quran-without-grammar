@@ -42,6 +42,25 @@ There are **no grammar terms**, no heavy explanations, no memorisation pressure.
 
 ---
 
+## Why This Approach Works
+
+Think of a long road journey — you recognise familiar landmarks, not every street and detail. In the same way, you begin to recognise key words and phrases that act as **landmarks in the Qur'an**.
+
+Instead of trying to understand everything at once, you learn to listen for specific anchors. This transforms passive listening into **active recognition**.
+
+The method brings together ideas inspired by the **Assimil** and **Michel Thomas** language methods, adapted for Qur'anic learning. It's like *Word Power Made Easy* by Norman Lewis — building intuition through roots and patterns, but for the Qur'an.
+
+What you build over time:
+- **Intuitive understanding** — not rule-based translation
+- **Pattern recognition** — the same roots appearing across verses
+- **A personal connection** with the Qur'an
+
+And gradually, something deeper begins to happen — what you hear in Ṣalāh no longer feels distant. You begin to understand more and more.
+
+[Read the full course introduction →]({{ '/course_intro' | relative_url }})
+
+---
+
 ## Lessons
 
 <div class="lesson-card" markdown="0" onclick="location.href='{{ '/lessons/lesson-01-allahu-akbar' | relative_url }}';">

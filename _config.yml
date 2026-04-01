@@ -16,7 +16,6 @@ plugins:
 
 # Exclude source files that are not pages
 exclude:
-  - course_intro.md
   - README.md
   - CLAUDE.md
   - docs/
