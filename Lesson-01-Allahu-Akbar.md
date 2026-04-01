@@ -18,11 +18,8 @@ description: Explore the root ك ب ر — the three letters behind Allāhu Akba
 **اللهُ أَكْبَرُ**
 **Allāhu Akbar**
 
-<p class="audio-label">🔊 Adhān — opening phrase (Makkah recitation)</p>
-<audio controls preload="none">
-  <source src="https://www.downloads.trinimuslims.com/Adhan/fahr_adhan_makkah.mp3" type="audio/mpeg">
-  <a href="https://www.downloads.trinimuslims.com/Adhan/fahr_adhan_makkah.mp3">▶ Listen to Adhān</a>
-</audio>
+<p class="audio-label">🔊 Adhān — opening call · اللهُ أَكْبَرُ اللهُ أَكْبَرُ</p>
+<audio controls preload="none" src="{{ '/assets/audio/adhan-allahu-akbar.mp3' | relative_url }}"></audio>
 
 You say this every single day. Before Fajr, before Ẓuhr, before every ṣalāh. You raise your hands and say it. The muezzin opens with it. It is the first thing you hear when prayer is called, and the first thing you say when you stand before Allah.
 
@@ -70,16 +67,10 @@ Place these two phrases side by side. Same root. Different feel.
 | **A** | هُوَ الْمُتَكَبِّرُ | huwa l-Mutakabbir | 59:23 — Allah's name |
 | **B** | إِنَّهُ لَا يُحِبُّ الْمُسْتَكْبِرِينَ | innahu lā yuḥibbu l-mustakbirīn | 16:23 — He does not love the arrogant |
 
-<p class="audio-label">🔊 Phrase A — Al-Ḥashr 59:23 (al-Mutakabbir — Allah's name)</p>
-<audio controls preload="none">
-  <source src="https://everyayah.com/data/Husary_128kbps/059023.mp3" type="audio/mpeg">
-  <a href="https://everyayah.com/data/Husary_128kbps/059023.mp3">▶ Listen</a>
-</audio>
-<p class="audio-label">🔊 Phrase B — An-Naḥl 16:23 (lā yuḥibbu l-mustakbirīn)</p>
-<audio controls preload="none">
-  <source src="https://everyayah.com/data/Husary_128kbps/016023.mp3" type="audio/mpeg">
-  <a href="https://everyayah.com/data/Husary_128kbps/016023.mp3">▶ Listen</a>
-</audio>
+<p class="audio-label">🔊 Phrase A — 59:23 · ٱلْعَزِيزُ ٱلْجَبَّارُ ٱلْمُتَكَبِّرُ (the three names leading to al-Mutakabbir)</p>
+<button class="play-btn" onclick="playPhrase(['059_023_013','059_023_014','059_023_015'], this)">&#9654; Play</button>
+<p class="audio-label">🔊 Phrase B — 16:23 · إِنَّهُۥ لَا يُحِبُّ ٱلْمُسْتَكْبِرِينَ</p>
+<button class="play-btn" onclick="playPhrase(['016_023_010','016_023_011','016_023_012','016_023_013'], this)">&#9654; Play</button>
 
 **Teacher cue:** "Same root — ك ب ر. When Allah is great, it's beautiful. When a person *tries* to be great… listen to how the Qur'an responds."
 
@@ -96,11 +87,8 @@ Now compare **أَكْبَرُ** with another root using the same shape:
 
 Phrase **B** is from **7:12** — Iblīs speaking. He uses the same kind of comparison — "I am more X than him" — but from the root خ ي ر (goodness).
 
-<p class="audio-label">🔊 Al-Aʿrāf 7:12 — Iblīs says "anā khayrun minhu…"</p>
-<audio controls preload="none">
-  <source src="https://everyayah.com/data/Husary_128kbps/007012.mp3" type="audio/mpeg">
-  <a href="https://everyayah.com/data/Husary_128kbps/007012.mp3">▶ Listen</a>
-</audio>
+<p class="audio-label">🔊 Al-Aʿrāf 7:12 · قَالَ أَنَا۠ خَيْرٌ مِّنْهُ خَلَقْتَنِى مِن نَّارٍ وَخَلَقْتَهُۥ مِن طِينٍ</p>
+<button class="play-btn" onclick="playPhrase(['007_012_008','007_012_009','007_012_010','007_012_011','007_012_012','007_012_013','007_012_014','007_012_015','007_012_016','007_012_017'], this)">&#9654; Play</button>
 
 **Teacher cue:** "Iblīs said 'I am better.' We say 'Allah is greater.' Same shape of words — but one is the beginning of prayer, and the other is the beginning of the first sin."
 
@@ -459,11 +447,8 @@ This is the **most frequent** form of the root ك ب ر in the Qur'an (~46 occur
 
 **Return to anchor:**
 
-<p class="audio-label">🔊 Adhān — return to the opening (listen again with fresh ears)</p>
-<audio controls preload="none">
-  <source src="https://www.downloads.trinimuslims.com/Adhan/fahr_adhan_makkah.mp3" type="audio/mpeg">
-  <a href="https://www.downloads.trinimuslims.com/Adhan/fahr_adhan_makkah.mp3">▶ Listen to Adhān</a>
-</audio>
+<p class="audio-label">🔊 Adhān — listen again with fresh ears</p>
+<audio controls preload="none" src="{{ '/assets/audio/adhan-allahu-akbar.mp3' | relative_url }}"></audio>
 
 We began with **اللهُ أَكْبَرُ**. Now you have heard this root — ك ب ر — move through the entire Qur'an.
 

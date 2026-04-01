@@ -210,6 +210,29 @@ body {
   background: var(--green-light);
 }
 
+/* ── Word-by-word play button ── */
+.play-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--green);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 1.1rem;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+  margin: 0.25rem 0 0.9rem;
+}
+.play-btn:hover:not(:disabled) { background: var(--green-dark); }
+.play-btn:disabled {
+  background: var(--muted);
+  cursor: wait;
+}
+
 /* Audio container label */
 .audio-label {
   font-size: 0.82rem;
