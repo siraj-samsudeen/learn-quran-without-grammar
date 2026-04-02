@@ -6,3 +6,7 @@ _site/
 *.swp
 Gemfile.lock
 vendor/
+
+# Audio build artifacts
+assets/audio/lessons/*/.cache/
+assets/audio/lessons/test-*/

@@ -18,18 +18,82 @@ Both modes share the same underlying assets: individual sentence-pair MP3 files 
 
 ## Table of Contents
 
-1. [Arabic Clip Extraction](#1-arabic-clip-extraction)
-2. [Asset Structure](#2-asset-structure)
-3. [Lesson Audio Definition Format](#3-lesson-audio-definition-format)
-4. [Build Script Design](#4-build-script-design)
-5. [Web Player Design](#5-web-player-design)
-6. [Cross-Lesson Manifest & Cumulative Review](#6-cross-lesson-manifest--cumulative-review)
-7. [File Size Estimates](#7-file-size-estimates)
-8. [Open Questions](#8-open-questions)
+1. [English TTS Setup](#1-english-tts-setup)
+2. [Arabic Clip Extraction](#2-arabic-clip-extraction)
+3. [Asset Structure](#3-asset-structure)
+4. [Lesson Audio Definition Format](#4-lesson-audio-definition-format)
+5. [Build Script Design](#5-build-script-design)
+6. [Web Player Design](#6-web-player-design)
+7. [Cross-Lesson Manifest & Cumulative Review](#7-cross-lesson-manifest--cumulative-review)
+8. [File Size Estimates](#8-file-size-estimates)
+9. [Open Questions](#9-open-questions)
 
 ---
 
-## 1. Arabic Clip Extraction
+## 1. English TTS Setup
+
+### Technology: edge-tts (Microsoft Azure Neural TTS)
+
+**Why edge-tts:** Free, no API key, no account, excellent neural voice quality (same as Edge browser's Read Aloud). 400+ voices with rate/pitch control. Tested and compared against macOS `say` (robotic), gTTS (decent), OpenAI TTS (best but costs money), and Google Cloud TTS (overkill setup).
+
+**Installation:**
+```bash
+pip3 install edge-tts
+```
+
+**Recommended voice:** `en-US-AvaNeural` — female, expressive, warm. Alternatives: `en-US-AndrewNeural` (male), `en-US-JennyNeural` (female, friendly), `en-GB-SoniaNeural` (British).
+
+### Scripts in `tools/`
+
+#### `tools/generate-tts.sh` — Single sentence
+
+```bash
+# Basic usage
+./tools/generate-tts.sh "And the remembrance of Allah is greater" output.mp3
+
+# With specific voice
+./tools/generate-tts.sh "And the remembrance of Allah is greater" output.mp3 en-US-AvaNeural
+```
+
+If no voice is specified, picks randomly from a pool of male voices (Andrew, Brian, Christopher) for variety.
+
+#### `tools/generate-tts-batch.py` — Batch generation
+
+```bash
+# Single file
+python3 tools/generate-tts-batch.py "Text here" output.mp3
+
+# Batch from JSON
+python3 tools/generate-tts-batch.py --batch sentences.json --outdir ./audio/
+
+# With specific voice for all files
+python3 tools/generate-tts-batch.py --batch sentences.json --outdir ./audio/ --voice en-US-AvaNeural
+```
+
+**Batch JSON format:**
+```json
+[
+  {"text": "And the remembrance of Allah is greater", "filename": "29-45-en.mp3"},
+  {"text": "Grave is the word that comes out of their mouths", "filename": "18-5-en.mp3"}
+]
+```
+
+### Direct edge-tts usage
+
+```bash
+# Basic
+edge-tts --voice en-US-AvaNeural --text "Your text here" --write-media output.mp3
+
+# Slower rate (for educational audio)
+edge-tts --voice en-US-AvaNeural --rate=-10% --text "Your text here" --write-media output.mp3
+
+# List all available voices
+edge-tts --list-voices
+```
+
+---
+
+## 2. Arabic Clip Extraction
 
 ### Source
 
@@ -138,7 +202,7 @@ ffmpeg -y -i hadith-arabic.mp3 -ar 44100 -ac 1 -c:a libmp3lame -q:a 2 hadith-ara
 
 ---
 
-## 2. Asset Structure
+## 3. Asset Structure
 
 ### Decision: Store BOTH individual pair MP3s AND a combined sequential MP3
 
@@ -206,7 +270,7 @@ Total: ~21 sentence pairs per lesson.
 
 ---
 
-## 3. Lesson Audio Definition Format
+## 4. Lesson Audio Definition Format
 
 Each lesson has a YAML definition file at `tools/lesson-audio/lesson-NN.yaml`. This is the single source of truth for what audio to build.
 
@@ -303,7 +367,7 @@ The build script should validate:
 
 ---
 
-## 4. Build Script Design
+## 5. Build Script Design
 
 **File:** `tools/build-lesson-audio.py`  
 **Already exists** with a working implementation. The design below documents the architecture and any refinements needed.
@@ -454,7 +518,7 @@ assets/audio/lessons/lesson-01/
 
 ---
 
-## 5. Web Player Design
+## 6. Web Player Design
 
 **File:** `assets/js/shuffle-player.js`  
 **Already exists** with a working implementation. The design below documents the architecture.
@@ -606,7 +670,7 @@ function setFilter(role) { roleFilter = role; buildPlaylist(); updateUI(); }
 
 ---
 
-## 6. Cross-Lesson Manifest & Cumulative Review
+## 7. Cross-Lesson Manifest & Cumulative Review
 
 ### Problem
 
@@ -744,7 +808,7 @@ The `initCumulative` method would:
 
 ---
 
-## 7. File Size Estimates
+## 8. File Size Estimates
 
 ### Per sentence pair
 
@@ -782,7 +846,7 @@ The shuffle player loads one sentence pair at a time (~250 KB). Even on a slow c
 
 ---
 
-## 8. Open Questions
+## 9. Open Questions
 
 ### Q1: Should the anchor phrase have audio?
 
