@@ -290,6 +290,9 @@ body {
   text-align: right;
   margin-bottom: 0.75rem;
 }
+.verse-card .verse-english strong {
+  color: var(--green);
+}
 .verse-card .verse-hook {
   font-size: 0.85rem;
   color: #888;
