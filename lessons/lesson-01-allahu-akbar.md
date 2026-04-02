@@ -30,9 +30,9 @@ The root **أ ل ه** gives us **إِلَٰه** — *god, deity* — and the nam
 
 ### 1 · لَا إِلَٰهَ إِلَّا — 21:87
 
-فَنَادَىٰ فِي الظُّلُمَاتِ أَن لَّا **إِلَٰهَ** إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ
+وَذَا النُّونِ إِذ ذَّهَبَ مُغَاضِبًا فَظَنَّ أَن لَّن نَّقْدِرَ عَلَيْهِ فَنَادَىٰ فِي الظُّلُمَاتِ أَن لَّا **إِلَٰهَ** إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ
 
-"He called out in the darkness: There is no god but You, glory to You — I was among the wrongdoers"
+"And [mention] the man of the fish, when he went off in anger and thought that We would not decree upon him. Then he called out in the darkness: There is no god but You, glory to You — I was among the wrongdoers"
 
 <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/021087.mp3"></audio>
 
@@ -58,7 +58,7 @@ Story of Yūnus in the whale — one of the most beloved duʿās. The phrase ل�
 
 "And when Ibrāhīm said to his father Āzar: Do you take idols as gods?"
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/006074.mp3"></audio>
+<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/006074.mp3#t=0,22"></audio>
 
 Story — Ibrāhīm challenges his father. آلِهَة is the plural of إِلَٰه — "gods" — used in the Qur'an for false deities.
 
@@ -70,7 +70,7 @@ Story — Ibrāhīm challenges his father. آلِهَة is the plural of إِل�
 
 "O my people, worship Allah — you have no god other than Him"
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/007059.mp3"></audio>
+<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/007059.mp3#t=11,19"></audio>
 
 Nūḥ's call — the same words repeated by every prophet. Every prophet in the Qur'an says this exact phrase: مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ.
 
@@ -114,7 +114,7 @@ Saying and not doing — deeply hated by Allah. كَبُرَ is the simplest for
 
 "And the remembrance of Allah is greater"
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/029045.mp3"></audio>
+<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/029045.mp3#t=27.5,33.5"></audio>
 
 Repeated in the Jumuʿah Khutbah — this is the word from اللهُ أَكْبَرُ. The أَفْعَل pattern is used for comparison — "greater" or "greatest." This is the word you say in every adhān and ṣalāh.
 
@@ -150,7 +150,7 @@ Mūsā showed Pharaoh the greatest miracle. كُبْرَى is the feminine form 
 
 "Except Iblīs — he refused and was arrogant and became of the disbelievers"
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/002034.mp3"></audio>
+<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/002034.mp3#t=8.5"></audio>
 
 The origin story of arrogance — Iblīs refusing to bow to Ādam. The prefix اسْتَ (Form X) means to seek or claim the root quality for oneself. اسْتَكْبَرَ = "to seek greatness for oneself" = to be arrogant. This is the most frequent form of ك ب ر in the Qur'an — 40 occurrences.
 
@@ -166,7 +166,7 @@ The origin story of arrogance — Iblīs refusing to bow to Ādam. The prefix ا
 
 "Know that there is no god but Allah, and seek forgiveness for your sin"
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/047019.mp3"></audio>
+<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/047019.mp3#t=0,12"></audio>
 
 ---
 
@@ -176,7 +176,7 @@ The origin story of arrogance — Iblīs refusing to bow to Ādam. The prefix ا
 
 "Say: I am only a man like you — it is revealed to me that your God is one God"
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/018110.mp3"></audio>
+<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/018110.mp3#t=0,18"></audio>
 
 ---
 
@@ -186,7 +186,7 @@ The origin story of arrogance — Iblīs refusing to bow to Ādam. The prefix ا
 
 "They said: O Mūsā, make for us a god just as they have gods"
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/007138.mp3"></audio>
+<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/007138.mp3#t=26,39"></audio>
 
 ---
 
@@ -196,7 +196,7 @@ The origin story of arrogance — Iblīs refusing to bow to Ādam. The prefix ا
 
 "And Pharaoh said: O chiefs, I know of no god for you other than me"
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/028038.mp3"></audio>
+<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/028038.mp3#t=0,24"></audio>
 
 ---
 
@@ -206,7 +206,7 @@ The origin story of arrogance — Iblīs refusing to bow to Ādam. The prefix ا
 
 "Say: O Allah, Owner of sovereignty — You give sovereignty to whom You will and take it from whom You will"
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/003026.mp3"></audio>
+<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/003026.mp3#t=0,12"></audio>
 
 ---
 
@@ -220,7 +220,7 @@ The origin story of arrogance — Iblīs refusing to bow to Ādam. The prefix ا
 
 "Grave is the word that comes out of their mouths — they speak nothing but a lie"
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/018005.mp3"></audio>
+<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/018005.mp3#t=10"></audio>
 
 ---
 
@@ -230,7 +230,7 @@ The origin story of arrogance — Iblīs refusing to bow to Ādam. The prefix ا
 
 "When he saw the sun rising, he said: This is my lord — this is greater"
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/006078.mp3"></audio>
+<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/006078.mp3#t=0,15"></audio>
 
 ---
 
@@ -240,7 +240,7 @@ The origin story of arrogance — Iblīs refusing to bow to Ādam. The prefix ا
 
 "They ask you about wine and gambling. Say: In them is great sin and some benefit, but their sin is greater than their benefit"
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/002219.mp3"></audio>
+<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/002219.mp3#t=0,17"></audio>
 
 ---
 
@@ -260,7 +260,7 @@ The origin story of arrogance — Iblīs refusing to bow to Ādam. The prefix ا
 
 "As for ʿĀd, they were arrogant upon the earth without right and said: Who is mightier than us in strength? Did they not see that Allah who created them is mightier than them in strength?"
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/041015.mp3"></audio>
+<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/041015.mp3#t=0,16"></audio>
 
 ---
 
