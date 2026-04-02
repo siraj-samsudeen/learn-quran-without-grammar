@@ -106,6 +106,15 @@ Each form or pattern that has a Learn sentence also gets exactly **one Practice 
 
 For Lesson 2+: additionally mix in sentences from previous lessons' roots for spaced review.
 
+### Step 7: Feed the pipeline
+
+After completing a lesson's selections, update `docs/selections/pipeline.md` with:
+- **Ready to place** — verses the teacher approved for a specific future lesson
+- **Strong candidates** — good verses not yet assigned
+- **Deferred forms** — forms from this root not covered in this lesson
+
+The pipeline is the **single source of truth** for queued material. When starting a new lesson, the agent should **check pipeline.md first** before pulling fresh from the corpus.
+
 ---
 
 ## Spillover & Revisiting
