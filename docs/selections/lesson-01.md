@@ -66,7 +66,11 @@ Roots: **ك ب ر** (akbar) · **أ ل ه** (Allāh / ilāh)
 | **Practice** | 2:219 | يَسْأَلُونَكَ عَنِ الْخَمْرِ وَالْمَيْسِرِ ۖ قُلْ فِيهِمَا إِثْمٌ **كَبِيرٌ** وَمَنَافِعُ لِلنَّاسِ وَإِثْمُهُمَا أَكْبَرُ مِن نَّفْعِهِمَا | **Famous ruling verse — wine and gambling** |
 
 #### اسْتَكْبَرَ (istakbara)
-*Selection pending*
+
+| Role | Ref | Arabic Context | Reason |
+|------|-----|---------------|--------|
+| **Learn** | 2:34 | إِلَّا إِبْلِيسَ أَبَىٰ وَ**اسْتَكْبَرَ** وَكَانَ مِنَ الْكَافِرِينَ | **Story — the origin of arrogance, Iblīs refusing to bow** |
+| **Practice** | 41:15 | فَأَمَّا عَادٌ فَ**اسْتَكْبَرُوا** فِي الْأَرْضِ بِغَيْرِ الْحَقِّ وَقَالُوا مَنْ أَشَدُّ مِنَّا قُوَّةً ۖ أَوَلَمْ يَرَوْا أَنَّ اللَّهَ الَّذِي خَلَقَهُمْ هُوَ أَشَدُّ مِنْهُمْ قُوَّةً | **Story of ʿĀd — "Who is mightier than us?" then Allah's reply. Emotional — shows arrogance and its answer in one verse** |
 
 ---
 

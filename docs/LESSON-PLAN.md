@@ -130,6 +130,7 @@ These patterns guide sentence selection. This list grows as new preferences emer
 2. **Complete self-contained sentences preferred** — the fragment must be memorizable with its meaning. If the key word sits in a clause that doesn't stand alone, include more context.
 3. **Emotional resonance matters** — verses that hit the heart (Ibrāhīm's duʿā, the parents verse, warnings that make you stop) are preferred over dry or technical ones.
 4. **Daily-practice connection** — verses tied to things the student already does (adhān, ṣalāh, post-prayer dhikr, Ramaḍān) anchor the learning in lived experience.
+5. **Stories for Learn, practical/famous verses for Practice** — Learn sentences favour narrative verses (prophets' stories — Ibrāhīm, Mūsā, Nūḥ, Iblīs) because stories are easier to remember and emotionally engaging. Practice sentences favour well-known rulings, famous āyāt, or verses from frequently-recited surahs.
 
 > This list is updated whenever a new preference pattern is identified during lesson selection. See `docs/selections/` for per-lesson decision logs.
 
