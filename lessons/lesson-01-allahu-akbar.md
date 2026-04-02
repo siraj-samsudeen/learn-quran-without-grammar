@@ -168,6 +168,8 @@ The origin story of arrogance — Iblīs refusing to bow to Ādam. The prefix ا
 
 <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/047019.mp3#t=0,12"></audio>
 
+A direct command to the Prophet ﷺ — often cited as the most concise statement of tawḥīd and istighfār in one breath.
+
 ---
 
 ### 12 · إِلَٰهٌ وَاحِدٌ — 18:110
@@ -177,6 +179,8 @@ The origin story of arrogance — Iblīs refusing to bow to Ādam. The prefix ا
 "Say: I am only a man like you — it is revealed to me that your God is one God"
 
 <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/018110.mp3#t=0,18"></audio>
+
+The closing words of Surah Al-Kahf — recited every Friday. A powerful ending you already hear weekly.
 
 ---
 
@@ -188,6 +192,8 @@ The origin story of arrogance — Iblīs refusing to bow to Ādam. The prefix ا
 
 <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/007138.mp3#t=26,39"></audio>
 
+The Israelites' shocking request — right after being saved from Pharaoh, they pass by idol-worshippers and immediately ask for the same thing.
+
 ---
 
 ### 14 · إِلَٰهٍ غَيْرُهُ — 28:38
@@ -198,6 +204,8 @@ The origin story of arrogance — Iblīs refusing to bow to Ādam. The prefix ا
 
 <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/028038.mp3#t=0,24"></audio>
 
+The anti-version of Nūḥ's call. Every prophet said مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ — Pharaoh flips it: مَا عَلِمْتُ لَكُم مِّنْ إِلَٰهٍ غَيْرِي. Same words, ultimate arrogance.
+
 ---
 
 ### 15 · اللَّهُمَّ — 3:26
@@ -207,6 +215,8 @@ The origin story of arrogance — Iblīs refusing to bow to Ādam. The prefix ا
 "Say: O Allah, Owner of sovereignty — You give sovereignty to whom You will and take it from whom You will"
 
 <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/003026.mp3#t=0,12"></audio>
+
+اللَّهُمَّ — the prayer address form of Allah's name. This is how you call upon Him directly.
 
 ---
 
@@ -222,6 +232,8 @@ The origin story of arrogance — Iblīs refusing to bow to Ādam. The prefix ا
 
 <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/018005.mp3#t=10"></audio>
 
+From Surah Al-Kahf — recited every Friday. About those who claim Allah has a son.
+
 ---
 
 ### 17 · أَكْبَرُ — 6:78
@@ -231,6 +243,8 @@ The origin story of arrogance — Iblīs refusing to bow to Ādam. The prefix ا
 "When he saw the sun rising, he said: This is my lord — this is greater"
 
 <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/006078.mp3#t=0,15"></audio>
+
+Story of Ibrāhīm searching for God — he looks at the stars, the moon, and finally الشَّمْس (the sun). Each time, he says "this is greater" — until they all set and he turns to the One who never sets.
 
 ---
 
@@ -242,6 +256,8 @@ The origin story of arrogance — Iblīs refusing to bow to Ādam. The prefix ا
 
 <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/002219.mp3#t=0,17"></audio>
 
+The famous ruling verse on wine and gambling. Notice this verse uses both كَبِير and أَكْبَر — two forms from the same root in one sentence.
+
 ---
 
 ### 19 · كُبْرَى — 87:12
@@ -252,6 +268,8 @@ The origin story of arrogance — Iblīs refusing to bow to Ādam. The prefix ا
 
 <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/087012.mp3"></audio>
 
+From Surah Al-A'la — one of the most frequently recited surahs in ṣalāh. You already know this by ear.
+
 ---
 
 ### 20 · اسْتَكْبَرَ — 41:15
@@ -261,6 +279,8 @@ The origin story of arrogance — Iblīs refusing to bow to Ādam. The prefix ا
 "As for ʿĀd, they were arrogant upon the earth without right and said: Who is mightier than us in strength? Did they not see that Allah who created them is mightier than them in strength?"
 
 <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/041015.mp3#t=0,16"></audio>
+
+The people of ʿĀd — they boasted "مَنْ أَشَدُّ مِنَّا قُوَّةً" (who is mightier than us?), and Allah answers with the same words flipped back: هُوَ أَشَدُّ مِنْهُمْ قُوَّةً (He is mightier than them). Arrogance answered in its own language.
 
 ---
 
