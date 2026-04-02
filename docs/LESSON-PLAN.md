@@ -110,6 +110,19 @@ The Arabic context shown for each sentence should follow these rules:
 
 ---
 
+## Teacher Selection Preferences
+
+These patterns guide sentence selection. This list grows as new preferences emerge from lesson-building sessions.
+
+1. **Frequently-recited surahs get priority** — if a form appears in a surah commonly heard in ṣalāh (Al-Fātiḥah, Al-A'la, short surahs of juz' 30, etc.), prefer that verse. The student already has it in their ear.
+2. **Complete self-contained sentences preferred** — the fragment must be memorizable with its meaning. If the key word sits in a clause that doesn't stand alone, include more context.
+3. **Emotional resonance matters** — verses that hit the heart (Ibrāhīm's duʿā, the parents verse, warnings that make you stop) are preferred over dry or technical ones.
+4. **Daily-practice connection** — verses tied to things the student already does (adhān, ṣalāh, post-prayer dhikr, Ramaḍān) anchor the learning in lived experience.
+
+> This list is updated whenever a new preference pattern is identified during lesson selection. See `docs/selections/` for per-lesson decision logs.
+
+---
+
 ## Verification
 
 All verse references must be verified against:
