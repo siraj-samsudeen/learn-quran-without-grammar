@@ -48,7 +48,7 @@ The root **أ ل ه** gives us **إِلَٰه** — *god, deity* — and the nam
 
 لَّا **إِلَٰهَ** إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ
 
-Al-Anbiyā' 21:87 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/021087.mp3"></audio>
+Al-Anbiyā' 21:87 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/021087.mp3#t=14.9"></audio>
 
 "And [mention] the man of the fish, when he went off in anger and thought that We would not decree upon him. Then he called out in the darkness: There is no **god** but You, glory to You — I was among the wrongdoers"
 
@@ -290,7 +290,7 @@ From Surah Al-A'lā — one of the most frequently recited surahs in ṣalāh. Y
 
 فَأَمَّا عَادٌ فَ**اسْتَكْبَرُوا** فِي الْأَرْضِ بِغَيْرِ الْحَقِّ
 
-Fuṣṣilat 41:15 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/041015.mp3#t=0,16"></audio>
+Fuṣṣilat 41:15 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/041015.mp3#t=0,15"></audio>
 
 "As for ʿĀd, they were **arrogant** upon the earth without right and said: Who is mightier than us in strength? Did they not see that Allah who created them is mightier than them in strength?"
 
