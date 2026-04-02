@@ -80,17 +80,17 @@
     </p>
   </div>
 
-  <script src="../assets/js/shuffle-player.js"></script>
+  <script src="/assets/js/shuffle-player.js"></script>
   <script>
     // Initialize the player with one or more lesson manifests.
     // For production, these paths will be relative to the site root.
     // For local testing with `python -m http.server`, adjust paths as needed.
     ShufflePlayer.init('shuffle-player', {
       manifests: [
-        // Test build output:
-        '../assets/audio/lessons/test-3/manifest.json',
+        // Test build output (absolute path from server root):
+        '/assets/audio/lessons/test-3/manifest.json',
         // Full lesson 01 (after building):
-        // '../assets/audio/lessons/lesson-01/manifest.json',
+        // '/assets/audio/lessons/lesson-01/manifest.json',
       ]
     });
   </script>
