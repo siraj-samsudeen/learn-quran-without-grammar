@@ -48,6 +48,17 @@ Verses flagged as good but not yet assigned to a specific lesson. Pick these whe
 
 ---
 
+## Hadith & Duas
+
+| Title | Content Summary | Root words | Reason | Flagged in |
+|-------|----------------|------------|--------|------------|
+| Danger of Kibr — An Atom's Weight | لَا يَدْخُلُ الْجَنَّةَ مَنْ كَانَ فِي قَلْبِهِ مِثْقَالُ ذَرَّةٍ مِنْ كِبْرٍ + "Kibr is rejecting truth and looking down on people" | كَبُرَ | Connects to اسْتَكْبَرَ; unforgettable definition of kibr | Lesson 1 |
+| Kibr is Allah's Cloak (Qudsī) | الْكِبْرِيَاءُ رِدَائِي وَالْعَظَمَةُ إِزَارِي | كَبُرَ | كِبْرِيَاء belongs to Allah exclusively — powerful | Lesson 1 |
+| Twelve Angels Rushed | اللهُ أَكْبَرُ كَبِيرًا وَالْحَمْدُ لِلَّهِ كَثِيرًا — "gates of heaven opened" | كَبُرَ | أَكْبَرُ + كَبِيرًا together; beautiful story | Lesson 1 |
+| Sins Washed Like Sea Foam | مَنْ سَبَّحَ اللهَ...وَكَبَّرَ اللهَ — "sins forgiven like foam of the sea" | كَبُرَ | Has كَبَّرَ (Form II); powerful reward | Lesson 1 |
+
+---
+
 ## Deferred Forms
 
 Morphological forms from past roots that haven't been introduced yet. Candidates for Learn slots in future lessons.

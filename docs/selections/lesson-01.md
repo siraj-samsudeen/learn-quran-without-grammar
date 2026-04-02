@@ -132,6 +132,12 @@ This root has only 3 derived forms: إِلَٰه (147), اللَّه (2,699), ا
 | **Learn** | 114:1–3 | قُلْ أَعُوذُ بِرَبِّ النَّاسِ · مَلِكِ النَّاسِ · **إِلَٰهِ** النَّاسِ | **Surah An-Nās — recited daily in ṣalāh and before sleep** |
 | **Practice** | 3:26 | قُلِ **اللَّهُمَّ** مَالِكَ الْمُلْكِ تُؤْتِي الْمُلْكَ مَن تَشَاءُ | اللَّهُمَّ form — powerful duʿā about sovereignty |
 
+### Hadith & Dua selection
+
+| Role | Title | Content | Reason |
+|------|-------|---------|--------|
+| **Lesson** | Words Beloved to Allah | سُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ وَلَا إِلَهَ إِلَّا اللَّهُ وَاللهُ أَكْبَرُ | **Bridges both roots — has اللهُ أَكْبَرُ AND لَا إِلَٰهَ إِلَّا اللّٰه in one hadith** |
+
 ### Parked for future lessons
 
 | Ref | Arabic Context | Notes |
