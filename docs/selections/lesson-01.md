@@ -42,7 +42,7 @@ Roots: **ك ب ر** (akbar) · **أ ل ه** (Allāh / ilāh)
 | Role | Ref | Arabic Context | Reason |
 |------|-----|---------------|--------|
 | **Learn** | 61:3 | كَبُرَ مَقْتًا عِندَ اللَّهِ أَن تَقُولُوا مَا لَا تَفْعَلُونَ | Complete sentence, powerful meaning, universally relatable |
-| **Practice** | 18:5 | كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ ۚ إِن يَقُولُونَ إِلَّا كَذِبًا | Strong alternative — "Grave is the word that comes out of their mouths" |
+| **Practice** | 18:5 | كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ ۚ إِن يَقُولُونَ إِلَّا كَذِبًا | **Surah Al Kahf — recited on Fridays, stronger frequency of use** |
 
 #### كُبْرَى (kubrā)
 
@@ -55,8 +55,8 @@ Roots: **ك ب ر** (akbar) · **أ ل ه** (Allāh / ilāh)
 
 | Role | Ref | Arabic Context | Reason |
 |------|-----|---------------|--------|
-| **Learn** | 29:45 | وَلَذِكْرُ اللَّهِ **أَكْبَرُ** | Ties directly to anchor — dhikr = ṣalāh = where you say Allahu Akbar |
-| **Practice** | 9:72 | وَرِضْوَانٌ مِّنَ اللَّهِ **أَكْبَرُ** ۚ ذَٰلِكَ هُوَ الْفَوْزُ الْعَظِيمُ | **Surah At-Tawbah — recited on Fridays, stronger frequency of use** |
+| **Learn** | 29:45 | وَلَذِكْرُ اللَّهِ **أَكْبَرُ** | **Repeated in the Jumuʿah Khutbah** — ties directly to anchor (dhikr = ṣalāh = where you say Allahu Akbar) |
+| **Practice** | 6:78 | فَلَمَّا رَأَى الشَّمْسَ بَازِغَةً قَالَ هَٰذَا رَبِّي هَٰذَا **أَكْبَرُ** | **Story of Ibrāhīm — easier to remember; mentions الشَّمْس (sun), one of the most repeated words in the Qur'an** |
 
 #### كَبِير (kabīr)
 *Selection pending*
