@@ -925,3 +925,8 @@ git add assets/audio/lessons/ tools/lesson-audio/
 git commit -m "Add lesson 01 audio assets"
 git push
 ```
+
+
+## Known Issues
+
+1. **Time fragment extraction mismatch (29:45)** — The Arabic clip for 29:45 with `start: 30.0, end: 36.0` does not accurately capture the fragment وَلَذِكْرُ اللَّهِ أَكْبَرُ. The start/end times need to be fine-tuned by listening to the full ayah and adjusting. This applies to any sentence that uses time fragments rather than full ayahs — each needs manual verification.
