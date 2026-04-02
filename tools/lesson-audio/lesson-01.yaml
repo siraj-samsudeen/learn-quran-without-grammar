@@ -32,6 +32,9 @@ sentences:
     arabic_source:
       surah: 21
       ayah: 87
+      # Fragment: "فَنَادَىٰ فِي الظُّلُمَاتِ..." — second half of ayah
+      # Full ayah starts with "وَذَا النُّونِ إِذ ذَّهَبَ مُغَاضِبًا..."
+      start: 14.5
     arabic_text: "فَنَادَىٰ فِي الظُّلُمَاتِ أَن لَّا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ"
     english: "He called out in the darkness: There is no god but You, glory to You — I was among the wrongdoers"
 
@@ -54,6 +57,8 @@ sentences:
     arabic_source:
       surah: 6
       ayah: 74
+      # Fragment: ayah continues with "إِنِّي أَرَاكَ وَقَوْمَكَ فِي ضَلَالٍ مُبِينٍ"
+      end: 22.0
     arabic_text: "وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ أَتَتَّخِذُ أَصْنَامًا آلِهَةً"
     english: "And when Ibrahim said to his father Azar: Do you take idols as gods?"
 
@@ -65,6 +70,10 @@ sentences:
     arabic_source:
       surah: 7
       ayah: 59
+      # Fragment: ayah starts with "لَقَدْ أَرْسَلْنَا نُوحًا إِلَىٰ قَوْمِهِ فَقَالَ..."
+      # and continues with "إِنِّي أَخَافُ عَلَيْكُمْ عَذَابَ يَوْمٍ عَظِيمٍ"
+      start: 11.0
+      end: 19.0
     arabic_text: "يَا قَوْمِ اعْبُدُوا اللَّهَ مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ"
     english: "O my people, worship Allah — you have no god other than Him"
 
@@ -118,10 +127,9 @@ sentences:
       surah: 29
       ayah: 45
       # Fragment: "وَلَذِكْرُ اللَّهِ أَكْبَرُ" — near the end of the ayah
-      # Full ayah is ~43s. This phrase occurs approximately at 30-36s.
-      # ⚠️ Fine-tune these values by listening to the audio.
-      start: 30.0
-      end: 36.0
+      # Full ayah is ~43s. Silence analysis: phrase at 27.8-32.0s
+      start: 27.5
+      end: 33.5
     arabic_text: "وَلَذِكْرُ اللَّهِ أَكْبَرُ"
     english: "And the remembrance of Allah is greater"
 
@@ -145,8 +153,8 @@ sentences:
       surah: 2
       ayah: 34
       # Fragment: the second half of the ayah about Iblis
-      # Full ayah ~20s. Fragment starts around 8s.
-      start: 8.0
+      # Full ayah ~26s. Silence gap after فَسَجَدُوا at 8.45-8.87s.
+      start: 8.5
     arabic_text: "إِلَّا إِبْلِيسَ أَبَىٰ وَاسْتَكْبَرَ وَكَانَ مِنَ الْكَافِرِينَ"
     english: "Except Iblis — he refused and was arrogant and became of the disbelievers"
 
@@ -163,7 +171,7 @@ sentences:
       surah: 47
       ayah: 19
       # Fragment: "فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنبِكَ"
-      # This is the opening of the ayah.
+      # This is the opening of the ayah. Silence gap at 10.0-12.0s.
       end: 12.0
     arabic_text: "فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنبِكَ"
     english: "So know that there is no god but Allah, and seek forgiveness for your sins"
@@ -177,7 +185,7 @@ sentences:
       surah: 18
       ayah: 110
       # Fragment: "قُلْ إِنَّمَا أَنَا بَشَرٌ مِّثْلُكُمْ يُوحَىٰ إِلَيَّ أَنَّمَا إِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ"
-      # Opening portion of the ayah
+      # Opening portion of the ayah. Silence gap at 17.7-19.6s.
       end: 18.0
     arabic_text: "قُلْ إِنَّمَا أَنَا بَشَرٌ مِّثْلُكُمْ يُوحَىٰ إِلَيَّ أَنَّمَا إِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ"
     english: "Say: I am only a man like you. It is revealed to me that your God is one God"
@@ -191,8 +199,9 @@ sentences:
       surah: 7
       ayah: 138
       # Fragment: "قَالُوا يَا مُوسَى اجْعَل لَّنَا إِلَٰهًا كَمَا لَهُمْ آلِهَةٌ"
-      start: 8.0
-      end: 18.0
+      # Phrase starts after long silence (21.9-26.2s) at the ۚ waqf mark.
+      start: 26.0
+      end: 39.0
     arabic_text: "قَالُوا يَا مُوسَى اجْعَل لَّنَا إِلَٰهًا كَمَا لَهُمْ آلِهَةٌ"
     english: "They said: O Musa, make for us a god just as they have gods"
 
@@ -205,7 +214,8 @@ sentences:
       surah: 28
       ayah: 38
       # Fragment: Pharaoh saying "مَا عَلِمْتُ لَكُم مِّنْ إِلَٰهٍ غَيْرِي"
-      end: 12.0
+      # Includes "يَا أَيُّهَا الْمَلَأُ" in audio. Silence gap at 23.6-26.8s.
+      end: 24.0
     arabic_text: "وَقَالَ فِرْعَوْنُ مَا عَلِمْتُ لَكُم مِّنْ إِلَٰهٍ غَيْرِي"
     english: "And Pharaoh said: I do not know of any god for you other than myself"
 
@@ -218,7 +228,8 @@ sentences:
       surah: 3
       ayah: 26
       # Fragment: "قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ تُؤْتِي الْمُلْكَ مَن تَشَاءُ"
-      end: 14.0
+      # First clause only (4 parallel "مَن تَشَاءُ" clauses follow). Pause at ~11.7s.
+      end: 12.0
     arabic_text: "قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ تُؤْتِي الْمُلْكَ مَن تَشَاءُ"
     english: "Say: O Allah, Owner of all sovereignty, You give sovereignty to whom You will"
 
@@ -234,6 +245,9 @@ sentences:
     arabic_source:
       surah: 18
       ayah: 5
+      # Fragment: ayah starts with "مَّا لَهُم بِهِ مِنْ عِلْمٍ وَلَا لِآبَائِهِمْ"
+      # Silence gap at 8.7-10.3s (ۚ waqf mark).
+      start: 10.0
     arabic_text: "كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ ۚ إِن يَقُولُونَ إِلَّا كَذِبًا"
     english: "Grave is the word that comes out of their mouths — they speak nothing but a lie"
 
@@ -256,8 +270,9 @@ sentences:
     arabic_source:
       surah: 6
       ayah: 78
-      # Fragment: Ibrahim seeing the sun
-      end: 14.0
+      # Fragment: Ibrahim seeing the sun — "هَٰذَا أَكْبَرُ" ends at ~14.0s
+      # Nudged to 15.0 to avoid last-syllable cutoff. Silence gap 14.0-17.0s.
+      end: 15.0
     arabic_text: "فَلَمَّا رَأَى الشَّمْسَ بَازِغَةً قَالَ هَٰذَا رَبِّي هَٰذَا أَكْبَرُ"
     english: "When he saw the sun rising, he said: This is my Lord — this is greater"
 
@@ -269,8 +284,9 @@ sentences:
     arabic_source:
       surah: 2
       ayah: 219
-      # Fragment: question about wine and gambling
-      end: 18.0
+      # Fragment: question about wine and gambling — "كَبِيرٌ" ends at ~16.4s
+      # Silence gap 16.4-18.3s before "وَمَنَافِعُ".
+      end: 17.0
     arabic_text: "يَسْأَلُونَكَ عَنِ الْخَمْرِ وَالْمَيْسِرِ ۖ قُلْ فِيهِمَا إِثْمٌ كَبِيرٌ"
     english: "They ask you about wine and gambling. Say: In them is great sin"
 

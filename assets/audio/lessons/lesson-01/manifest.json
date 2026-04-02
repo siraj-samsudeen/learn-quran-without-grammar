@@ -1,0 +1,240 @@
+{
+  "lesson_id": "lesson-01",
+  "title": "Lesson 1: Allāhu Akbar",
+  "slug": "lesson-01-allahu-akbar",
+  "full_audio": "lesson-01-full.mp3",
+  "full_duration": 506.6,
+  "sentences": [
+    {
+      "id": "learn-ilah-01",
+      "file": "learn-ilah-01.mp3",
+      "role": "learn",
+      "root": "إِلَٰه",
+      "form": "لَا إِلَٰهَ إِلَّا",
+      "ref": "21:87",
+      "arabic_text": "فَنَادَىٰ فِي الظُّلُمَاتِ أَن لَّا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ",
+      "english": "He called out in the darkness: There is no god but You, glory to You — I was among the wrongdoers",
+      "duration": 30.5
+    },
+    {
+      "id": "learn-ilah-02",
+      "file": "learn-ilah-02.mp3",
+      "role": "learn",
+      "root": "إِلَٰه",
+      "form": "إِلَٰهٌ وَاحِدٌ",
+      "ref": "2:163",
+      "arabic_text": "وَإِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ ۖ لَا إِلَٰهَ إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ",
+      "english": "And your God is one God — there is no god but He, the Most Merciful, the Most Compassionate",
+      "duration": 25.5
+    },
+    {
+      "id": "learn-ilah-03",
+      "file": "learn-ilah-03.mp3",
+      "role": "learn",
+      "root": "إِلَٰه",
+      "form": "آلِهَة",
+      "ref": "6:74",
+      "arabic_text": "وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ أَتَتَّخِذُ أَصْنَامًا آلِهَةً",
+      "english": "And when Ibrahim said to his father Azar: Do you take idols as gods?",
+      "duration": 28.5
+    },
+    {
+      "id": "learn-ilah-04",
+      "file": "learn-ilah-04.mp3",
+      "role": "learn",
+      "root": "إِلَٰه",
+      "form": "مِنْ إِلَٰهٍ غَيْرُهُ",
+      "ref": "7:59",
+      "arabic_text": "يَا قَوْمِ اعْبُدُوا اللَّهَ مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ",
+      "english": "O my people, worship Allah — you have no god other than Him",
+      "duration": 14.0
+    },
+    {
+      "id": "learn-ilah-05",
+      "file": "learn-ilah-05.mp3",
+      "role": "learn",
+      "root": "إِلَٰه",
+      "form": "إِلَٰهِ النَّاسِ",
+      "ref": "114:1-3",
+      "arabic_text": "قُلْ أَعُوذُ بِرَبِّ النَّاسِ · مَلِكِ النَّاسِ · إِلَٰهِ النَّاسِ",
+      "english": "Say: I seek refuge in the Lord of mankind, the King of mankind, the God of mankind",
+      "duration": 26.2
+    },
+    {
+      "id": "learn-kabura-01",
+      "file": "learn-kabura-01.mp3",
+      "role": "learn",
+      "root": "كَبُرَ",
+      "form": "كَبُرَ",
+      "ref": "61:3",
+      "arabic_text": "كَبُرَ مَقْتًا عِندَ اللَّهِ أَن تَقُولُوا مَا لَا تَفْعَلُونَ",
+      "english": "Greatly hateful in the sight of Allah that you say what you do not do",
+      "duration": 18.0
+    },
+    {
+      "id": "learn-kabura-02",
+      "file": "learn-kabura-02.mp3",
+      "role": "learn",
+      "root": "كَبُرَ",
+      "form": "كُبْرَى",
+      "ref": "79:20",
+      "arabic_text": "فَأَرَاهُ الْآيَةَ الْكُبْرَىٰ",
+      "english": "And he showed him the greatest sign",
+      "duration": 11.8
+    },
+    {
+      "id": "learn-kabura-03",
+      "file": "learn-kabura-03.mp3",
+      "role": "learn",
+      "root": "كَبُرَ",
+      "form": "أَكْبَرُ",
+      "ref": "29:45",
+      "arabic_text": "وَلَذِكْرُ اللَّهِ أَكْبَرُ",
+      "english": "And the remembrance of Allah is greater",
+      "duration": 10.5
+    },
+    {
+      "id": "learn-kabura-04",
+      "file": "learn-kabura-04.mp3",
+      "role": "learn",
+      "root": "كَبُرَ",
+      "form": "كَبِير",
+      "ref": "21:63",
+      "arabic_text": "قَالَ بَلْ فَعَلَهُ كَبِيرُهُمْ هَٰذَا فَاسْأَلُوهُمْ إِن كَانُوا يَنطِقُونَ",
+      "english": "He said: Rather, this — the biggest of them — did it. So ask them, if they can speak",
+      "duration": 24.5
+    },
+    {
+      "id": "learn-kabura-05",
+      "file": "learn-kabura-05.mp3",
+      "role": "learn",
+      "root": "كَبُرَ",
+      "form": "اسْتَكْبَرَ",
+      "ref": "2:34",
+      "arabic_text": "إِلَّا إِبْلِيسَ أَبَىٰ وَاسْتَكْبَرَ وَكَانَ مِنَ الْكَافِرِينَ",
+      "english": "Except Iblis — he refused and was arrogant and became of the disbelievers",
+      "duration": 25.4
+    },
+    {
+      "id": "practice-ilah-01",
+      "file": "practice-ilah-01.mp3",
+      "role": "practice",
+      "root": "إِلَٰه",
+      "form": "لَا إِلَٰهَ إِلَّا",
+      "ref": "47:19",
+      "arabic_text": "فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنبِكَ",
+      "english": "So know that there is no god but Allah, and seek forgiveness for your sins",
+      "duration": 18.7
+    },
+    {
+      "id": "practice-ilah-02",
+      "file": "practice-ilah-02.mp3",
+      "role": "practice",
+      "root": "إِلَٰه",
+      "form": "إِلَٰهٌ وَاحِدٌ",
+      "ref": "18:110",
+      "arabic_text": "قُلْ إِنَّمَا أَنَا بَشَرٌ مِّثْلُكُمْ يُوحَىٰ إِلَيَّ أَنَّمَا إِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ",
+      "english": "Say: I am only a man like you. It is revealed to me that your God is one God",
+      "duration": 25.6
+    },
+    {
+      "id": "practice-ilah-03",
+      "file": "practice-ilah-03.mp3",
+      "role": "practice",
+      "root": "إِلَٰه",
+      "form": "آلِهَة",
+      "ref": "7:138",
+      "arabic_text": "قَالُوا يَا مُوسَى اجْعَل لَّنَا إِلَٰهًا كَمَا لَهُمْ آلِهَةٌ",
+      "english": "They said: O Musa, make for us a god just as they have gods",
+      "duration": 19.8
+    },
+    {
+      "id": "practice-ilah-04",
+      "file": "practice-ilah-04.mp3",
+      "role": "practice",
+      "root": "إِلَٰه",
+      "form": "مِنْ إِلَٰهٍ غَيْرِي",
+      "ref": "28:38",
+      "arabic_text": "وَقَالَ فِرْعَوْنُ مَا عَلِمْتُ لَكُم مِّنْ إِلَٰهٍ غَيْرِي",
+      "english": "And Pharaoh said: I do not know of any god for you other than myself",
+      "duration": 30.6
+    },
+    {
+      "id": "practice-ilah-05",
+      "file": "practice-ilah-05.mp3",
+      "role": "practice",
+      "root": "إِلَٰه",
+      "form": "اللَّهُمَّ",
+      "ref": "3:26",
+      "arabic_text": "قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ تُؤْتِي الْمُلْكَ مَن تَشَاءُ",
+      "english": "Say: O Allah, Owner of all sovereignty, You give sovereignty to whom You will",
+      "duration": 19.1
+    },
+    {
+      "id": "practice-kabura-01",
+      "file": "practice-kabura-01.mp3",
+      "role": "practice",
+      "root": "كَبُرَ",
+      "form": "كَبُرَ",
+      "ref": "18:5",
+      "arabic_text": "كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ ۚ إِن يَقُولُونَ إِلَّا كَذِبًا",
+      "english": "Grave is the word that comes out of their mouths — they speak nothing but a lie",
+      "duration": 22.4
+    },
+    {
+      "id": "practice-kabura-02",
+      "file": "practice-kabura-02.mp3",
+      "role": "practice",
+      "root": "كَبُرَ",
+      "form": "كُبْرَى",
+      "ref": "87:12",
+      "arabic_text": "الَّذِي يَصْلَى النَّارَ الْكُبْرَىٰ",
+      "english": "The one who will burn in the greatest Fire",
+      "duration": 11.7
+    },
+    {
+      "id": "practice-kabura-03",
+      "file": "practice-kabura-03.mp3",
+      "role": "practice",
+      "root": "كَبُرَ",
+      "form": "أَكْبَرُ",
+      "ref": "6:78",
+      "arabic_text": "فَلَمَّا رَأَى الشَّمْسَ بَازِغَةً قَالَ هَٰذَا رَبِّي هَٰذَا أَكْبَرُ",
+      "english": "When he saw the sun rising, he said: This is my Lord — this is greater",
+      "duration": 21.8
+    },
+    {
+      "id": "practice-kabura-04",
+      "file": "practice-kabura-04.mp3",
+      "role": "practice",
+      "root": "كَبُرَ",
+      "form": "كَبِير",
+      "ref": "2:219",
+      "arabic_text": "يَسْأَلُونَكَ عَنِ الْخَمْرِ وَالْمَيْسِرِ ۖ قُلْ فِيهِمَا إِثْمٌ كَبِيرٌ",
+      "english": "They ask you about wine and gambling. Say: In them is great sin",
+      "duration": 23.7
+    },
+    {
+      "id": "practice-kabura-05",
+      "file": "practice-kabura-05.mp3",
+      "role": "practice",
+      "root": "كَبُرَ",
+      "form": "اسْتَكْبَرَ",
+      "ref": "41:15",
+      "arabic_text": "فَأَمَّا عَادٌ فَاسْتَكْبَرُوا فِي الْأَرْضِ بِغَيْرِ الْحَقِّ وَقَالُوا مَنْ أَشَدُّ مِنَّا قُوَّةً",
+      "english": "As for Aad, they were arrogant in the land without right and said: Who is mightier than us in strength?",
+      "duration": 24.6
+    },
+    {
+      "id": "hadith-01",
+      "file": "hadith-01.mp3",
+      "role": "hadith",
+      "root": "كَبُرَ + إِلَٰه",
+      "form": "",
+      "ref": "Sahih Muslim",
+      "arabic_text": "سُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ وَلَا إِلَهَ إِلَّا اللَّهُ وَاللهُ أَكْبَرُ",
+      "english": "Glory be to Allah, praise be to Allah, there is no god but Allah, and Allah is the Greatest",
+      "duration": 13.8
+    }
+  ]
+}
