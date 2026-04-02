@@ -9,8 +9,16 @@ This document defines how each lesson is structured, how sentences are selected,
 Every lesson starts from a **phrase every Muslim already knows** (adhān, ṣalāh, common duʿā). From that phrase, we extract the Arabic roots, and from those roots we select Qur'anic sentences for study.
 
 **Example — Lesson 1: اللهُ أَكْبَرُ**
-- Root 1: **أ ل ه** (behind اللّٰه / إِلَٰه)
-- Root 2: **ك ب ر** (behind أَكْبَرُ)
+- Root word 1: **إِلَٰه** (ilāh) — behind اللّٰه
+- Root word 2: **كَبُرَ** (kabura) — behind أَكْبَرُ
+
+### Root word convention
+
+We identify each root by a **representative root word** rather than the bare three-letter root. The root word is the form closest to the root's base meaning — typically the Form I verb or the most basic noun. Examples:
+- Three-letter root ك ب ر → root word **كَبُرَ** (kabura) — the Form I verb
+- Three-letter root أ ل ه → root word **إِلَٰه** (ilāh) — the base noun "god/deity"
+
+This is more intuitive for students and teachers than abstract three-letter combinations.
 
 ---
 

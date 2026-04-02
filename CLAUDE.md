@@ -112,7 +112,7 @@ GitHub Actions builds Jekyll and deploys to GitHub Pages automatically. Live in 
 
 | File | Topic |
 |------|-------|
-| `docs/LESSON-PLAN.md` | **Lesson structure, sentence selection process, teacher preferences** |
+| `docs/LESSON-PLAN.md` | **Lesson structure, root word convention, sentence selection, teacher preferences** |
 | `docs/selections/lesson-NN.md` | Per-lesson selection logs — what was picked and why |
 | `docs/ARCHITECTURE.md` | Tech stack, deployment, roadmap |
 | `docs/decisions/ADR-001-hosting.md` | Why GitHub Pages + Jekyll |

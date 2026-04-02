@@ -1,11 +1,11 @@
 # Lesson 1 — Selection Log: اللهُ أَكْبَرُ
 
 Anchor phrase: **اللهُ أَكْبَرُ**
-Roots: **ك ب ر** (akbar) · **أ ل ه** (Allāh / ilāh)
+Root words: **كَبُرَ** (kabura) · **إِلَٰه** (ilāh)
 
 ---
 
-## Root 1: ك ب ر — 161 occurrences, 18 forms
+## Root word 1: كَبُرَ (kabura) — root ك ب ر — 161 occurrences, 18 forms
 
 ### Forms selected (5 of 18)
 
@@ -74,5 +74,6 @@ Roots: **ك ب ر** (akbar) · **أ ل ه** (Allāh / ilāh)
 
 ---
 
-## Root 2: أ ل ه
+## Root word 2: إِلَٰه (ilāh) — root أ ل ه — 2,851 occurrences, 3 forms
+
 *Selection pending*
