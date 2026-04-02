@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verse Layout Options</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; background: #fafafa; color: #222; }
+  h1 { font-size: 1.3rem; color: #555; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; }
+  h2 { font-size: 1rem; color: #888; margin-top: 3rem; text-transform: uppercase; letter-spacing: 0.1em; }
+  .arabic { font-family: 'Amiri', 'Scheherazade New', 'Traditional Arabic', 'Arabic Typesetting', serif; font-size: 1.6rem; line-height: 2.2; direction: rtl; text-align: right; }
+  .arabic b { color: #1a6b3c; }
+  audio { height: 32px; vertical-align: middle; }
+  audio::-webkit-media-controls-panel { background: #f0f0f0; }
+
+  /* ── Option A: Clean Card ── */
+  .option-a { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 1.5rem; margin: 1rem 0; }
+  .option-a .header-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; }
+  .option-a .num { font-size: 0.8rem; color: #aaa; font-weight: 600; margin-right: 0.4rem; }
+  .option-a .form-name { font-size: 1.1rem; font-weight: 600; color: #333; }
+  .option-a .ref { font-size: 0.82rem; color: #aaa; display: flex; align-items: center; gap: 0.4rem; }
+  .option-a .ref audio { height: 28px; }
+  .option-a .arabic { margin-bottom: 0.6rem; text-align: right; }
+  .option-a .english { font-size: 0.95rem; color: #555; font-style: italic; margin-bottom: 0.8rem; line-height: 1.6; text-align: right; direction: ltr; }
+  .option-a .ref-row { margin-bottom: 0.8rem; }
+  .option-a .hook { font-size: 0.85rem; color: #666; line-height: 1.5; border-left: 3px solid #e8e8e8; padding-left: 0.8rem; }
+
+  /* ── Option B: Minimal / Magazine ── */
+  .option-b { margin: 1.5rem 0; padding: 1.5rem 0; border-bottom: 1px solid #eee; }
+  .option-b .header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.8rem; }
+  .option-b .form-name { font-size: 0.9rem; font-weight: 600; color: #1a6b3c; }
+  .option-b .ref { font-size: 0.8rem; color: #aaa; }
+  .option-b .arabic { margin-bottom: 0.6rem; font-size: 1.5rem; }
+  .option-b .english { font-size: 0.95rem; color: #555; margin-bottom: 0.6rem; line-height: 1.6; }
+  .option-b .bottom-row { display: flex; align-items: center; gap: 1rem; }
+  .option-b .hook { font-size: 0.82rem; color: #888; line-height: 1.5; flex: 1; }
+  .option-b audio { flex-shrink: 0; }
+
+  /* ── Option C: Tight / Study Card ── */
+  .option-c { background: #fff; border-left: 4px solid #1a6b3c; padding: 1rem 1.2rem; margin: 1rem 0; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .option-c .top-line { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem; }
+  .option-c .form-name { font-size: 0.85rem; font-weight: 700; color: #1a6b3c; text-transform: uppercase; letter-spacing: 0.03em; }
+  .option-c .ref { font-size: 0.78rem; color: #aaa; }
+  .option-c .arabic { font-size: 1.4rem; margin-bottom: 0.4rem; }
+  .option-c .english { font-size: 0.9rem; color: #555; margin-bottom: 0.5rem; line-height: 1.5; }
+  .option-c .footer { display: flex; align-items: center; gap: 0.6rem; }
+  .option-c .hook { font-size: 0.8rem; color: #999; flex: 1; line-height: 1.4; }
+  .option-c audio { height: 28px; flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+<h1>Verse Layout — 3 Options</h1>
+<p style="color:#888; font-size:0.9rem;">Same verse (7:59) shown three ways. Which feels right?</p>
+
+<!-- ════════════════════════════════════════════ -->
+<h2>Option A — Clean Card (revised)</h2>
+
+<div class="option-a">
+  <div class="header-row">
+    <div>
+      <span class="num">4</span>
+      <span class="form-name">إِلَٰهٍ غَيْرُهُ</span>
+    </div>
+    <span class="ref">Al-A'rāf 7:59 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/007059.mp3#t=11,19"></audio></span>
+  </div>
+  <div class="arabic">
+    يَا قَوْمِ اعْبُدُوا اللَّهَ مَا لَكُم مِّنْ <b>إِلَٰهٍ</b> غَيْرُهُ
+  </div>
+  <div class="english">"O my people, worship Allah — you have no god other than Him"</div>
+  <div class="hook">Nūḥ's call — the same words repeated by every prophet. Every prophet in the Qur'an says this exact phrase: مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ.</div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<h2>Option B — Minimal / Magazine</h2>
+
+<div class="option-b">
+  <div class="header">
+    <span class="form-name">4 · إِلَٰهٍ غَيْرُهُ</span>
+    <span class="ref">Al-A'rāf 7:59</span>
+  </div>
+  <div class="arabic">
+    يَا قَوْمِ اعْبُدُوا اللَّهَ مَا لَكُم مِّنْ <b>إِلَٰهٍ</b> غَيْرُهُ
+  </div>
+  <div class="english">"O my people, worship Allah — you have no god other than Him"</div>
+  <div class="bottom-row">
+    <div class="hook">Nūḥ's call — the same words repeated by every prophet. Every prophet in the Qur'an says this exact phrase: مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ.</div>
+    <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/007059.mp3#t=11,19"></audio>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════ -->
+<h2>Option C — Study Card</h2>
+
+<div class="option-c">
+  <div class="top-line">
+    <span class="form-name">4 · إِلَٰهٍ غَيْرُهُ</span>
+    <span class="ref">Al-A'rāf 7:59</span>
+  </div>
+  <div class="arabic">
+    يَا قَوْمِ اعْبُدُوا اللَّهَ مَا لَكُم مِّنْ <b>إِلَٰهٍ</b> غَيْرُهُ
+  </div>
+  <div class="english">"O my people, worship Allah — you have no god other than Him"</div>
+  <div class="footer">
+    <div class="hook">Nūḥ's call — every prophet says this exact phrase.</div>
+    <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/007059.mp3#t=11,19"></audio>
+  </div>
+</div>
+
+<hr style="margin-top:3rem;">
+<p style="color:#aaa; font-size:0.8rem;">
+  <b>A</b> = structured card, clear sections, generous spacing<br>
+  <b>B</b> = magazine-style, content-first, audio tucked to the side<br>
+  <b>C</b> = compact study card, green accent, everything tight
+</p>
+
+</body>
+</html>

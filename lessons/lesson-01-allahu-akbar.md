@@ -7,19 +7,6 @@ audio_download: /assets/audio/lessons/lesson-01/lesson-01-full.mp3
 ---
 # Lesson 1: Allāhu Akbar
 
-| Arabic | English |
-|--------|---------|
-| إِلَٰه | god, deity |
-| اللّٰه | Allah (God) |
-| إِلَٰهٌ وَاحِدٌ | one God |
-| آلِهَة | gods (plural) |
-| اللَّهُمَّ | O Allah |
-| كَبُرَ | was great |
-| أَكْبَرُ | greater, greatest |
-| كَبِير | great, big |
-| كُبْرَى | greatest (fem.) |
-| اسْتَكْبَرَ | was arrogant |
-
 ## Anchor
 
 **اللهُ أَكْبَرُ**
@@ -27,13 +14,27 @@ audio_download: /assets/audio/lessons/lesson-01/lesson-01-full.mp3
 <p class="audio-label">🔊 Adhān — opening call · اللهُ أَكْبَرُ اللهُ أَكْبَرُ</p>
 <audio controls preload="none" src="{{ '/assets/audio/adhan-allahu-akbar.mp3' | relative_url }}"></audio>
 
-You say this every single day. Before Fajr, before Ẓuhr, before every ṣalāh. You raise your hands and say it. The muezzin opens with it. It is the first thing you hear when prayer is called, and the first thing you say when you stand before Allah.
-
-Two words. Two roots. Let's open them up.
+You say this every single day. Before Fajr, before Ẓuhr, before every ṣalāh. You raise your hands and say it. The muaddhin opens with it. It is the first thing you hear when prayer is called, and the first thing you say when you stand before Allah.
 
 **اللّٰه** comes from the root **أ ل ه** — giving us **إِلَٰه**, meaning *god* or *deity*. It is the word at the centre of tawḥīd.
 
+| Arabic   | English       |
+| -------- | ------------- |
+| إِلَٰه      | god, deity    |
+| اللّٰه     | Allah (God)   |
+| إِلَٰهٌ وَاحِدٌ | one God       |
+| آلِهَة     | gods (plural) |
+| اللَّهُمَّ    | O Allah       |
+
 **أَكْبَرُ** comes from the root **ك ب ر** — carrying the meaning of *greatness*. Everything great, growing, or grand in the Qur'an traces back to these three letters.
+
+| Arabic | English           |
+| ------ | ----------------- |
+| كَبُرَ    | was great         |
+| أَكْبَرُ   | greater, greatest |
+| كَبِير   | great, big        |
+| كُبْرَى   | greatest (fem.)   |
+| اسْتَكْبَرَ | was arrogant      |
 
 ---
 
