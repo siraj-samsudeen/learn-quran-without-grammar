@@ -54,12 +54,14 @@ Example for ك ب ر:
 | 3 | Verb (IV) | أَكْبَرْ | akbar | to admire greatly | 1 |
 | ... | ... | ... | ... | ... | ... |
 
-### Step 2: Select 5 forms to focus on
+### Step 2: Select 5 forms (or 5 patterns) to focus on
 
 Selection criteria (in order of priority):
 1. **Frequency** — forms with the most occurrences are generally preferred
 2. **Pedagogical importance** — the teacher may override frequency if a form is especially meaningful (e.g., a Name of Allah, a famous verse, a form that directly connects to the anchor phrase)
 3. **Verse quality** — does the form appear in a verse that is a complete, memorable, self-contained sentence?
+
+**When a root has few morphological forms** (e.g., root أ ل ه has only 3 forms, with one being اللَّه appearing 2,699 times), select 5 distinct **sentence patterns** instead of 5 distinct forms. For example, إِلَٰه appears in patterns like لَا إِلَٰهَ إِلَّا, إِلَٰهٌ وَاحِدٌ, آلِهَة, مِنْ إِلَٰهٍ غَيْرُهُ, etc. — each teaches a different way the Qur'an uses the word.
 
 ### Step 3: For each selected form, list ALL occurrences
 
@@ -96,13 +98,13 @@ This distinction matters: when a future agent reads the selection log, bolded re
 
 Same process. The result is **5 forms × 1 sentence × 2 roots = 10 Learn sentences**.
 
-### Step 6: Select 10 Practice sentences
+### Step 6: Select 10 Practice sentences — one per form/pattern
 
-For Lesson 1: pick additional verses from the same roots — either:
-- Different verses of the same forms already introduced (more exposure)
-- Verses from forms not selected for Learn (preview/bonus)
+Each form or pattern that has a Learn sentence also gets exactly **one Practice sentence**. This gives a clean 1:1 pairing — the student sees the form introduced in Learn, then reinforced with a different verse in Practice.
 
-For Lesson 2+: mix in sentences from previous lessons' roots for spaced review.
+**5 forms × 1 practice sentence × 2 roots = 10 Practice sentences.**
+
+For Lesson 2+: additionally mix in sentences from previous lessons' roots for spaced review.
 
 ---
 
@@ -139,6 +141,7 @@ These patterns guide sentence selection. This list grows as new preferences emer
 3. **Emotional resonance matters** — verses that hit the heart (Ibrāhīm's duʿā, the parents verse, warnings that make you stop) are preferred over dry or technical ones.
 4. **Daily-practice connection** — verses tied to things the student already does (adhān, ṣalāh, post-prayer dhikr, Ramaḍān) anchor the learning in lived experience.
 5. **Stories for Learn, practical/famous verses for Practice** — Learn sentences favour narrative verses (prophets' stories — Ibrāhīm, Mūsā, Nūḥ, Iblīs) because stories are easier to remember and emotionally engaging. Practice sentences favour well-known rulings, famous āyāt, or verses from frequently-recited surahs.
+6. **Learn and Practice are paired by form/pattern** — each form or pattern has exactly one Learn sentence and one Practice sentence. No pattern should appear in Practice without first appearing in Learn. No duplication of patterns across the two sections.
 
 > This list is updated whenever a new preference pattern is identified during lesson selection. See `docs/selections/` for per-lesson decision logs.
 

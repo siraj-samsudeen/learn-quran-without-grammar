@@ -76,4 +76,67 @@ Root words: **كَبُرَ** (kabura) · **إِلَٰه** (ilāh)
 
 ## Root word 2: إِلَٰه (ilāh) — root أ ل ه — 2,851 occurrences, 3 forms
 
-*Selection pending*
+This root has only 3 derived forms: إِلَٰه (147), اللَّه (2,699), اللَّهُمَّ (5). Since اللَّه appears everywhere, the teaching material comes from إِلَٰه — selected by **sentence pattern** rather than distinct morphological forms.
+
+### Patterns selected (5 of ~7 distinct usage patterns)
+
+| Pattern | Example | Why selected |
+|---------|---------|-------------|
+| لَا إِلَٰهَ إِلَّا | There is no god but… | The Tawḥīd formula — shahādah, most important |
+| إِلَٰهٌ وَاحِدٌ | One God | Core tawḥīd concept |
+| آلِهَة | gods (plural) | False gods / idols — contrast with tawḥīd |
+| مِنْ إِلَٰهٍ غَيْرُهُ | no god other than Him | Every prophet's repeated call |
+| إِلَٰهِ النَّاسِ / اللَّهُمَّ | God of mankind / O Allah | Prayer forms — daily use |
+
+### Patterns deferred (for future lessons)
+
+| Pattern | Notes |
+|---------|-------|
+| إِلَٰهَهُ هَوَاهُ | "took his desire as his god" (25:43, 45:23) |
+| أَإِلَٰهٌ مَعَ اللّٰه | "Is there a god with Allah?" — five rhetorical questions in 27:60–64 |
+
+### Sentence selections
+
+#### لَا إِلَٰهَ إِلَّا — "There is no god but…"
+
+| Role | Ref | Arabic Context | Reason |
+|------|-----|---------------|--------|
+| **Learn** | 21:87 | فَنَادَىٰ فِي الظُّلُمَاتِ أَن لَّا **إِلَٰهَ** إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ | **Story of Yūnus in the whale + istighfār — one of the most useful duʿās to memorize** |
+| **Practice** | 47:19 | فَاعْلَمْ أَنَّهُ لَا **إِلَٰهَ** إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنبِكَ | Direct command — famous, often cited |
+
+#### إِلَٰهٌ وَاحِدٌ — "One God"
+
+| Role | Ref | Arabic Context | Reason |
+|------|-----|---------------|--------|
+| **Learn** | 2:163 | وَ**إِلَٰهُكُمْ** **إِلَٰهٌ** وَاحِدٌ ۖ لَا **إِلَٰهَ** إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ | **إِلَٰه appears three times in one verse — complete tawḥīd statement** |
+| **Practice** | 18:110 | قُلْ إِنَّمَا أَنَا بَشَرٌ مِّثْلُكُمْ يُوحَىٰ إِلَيَّ أَنَّمَا **إِلَٰهُكُمْ** **إِلَٰهٌ** وَاحِدٌ | **End of Surah Al-Kahf — recited every Friday, powerful ending** |
+
+#### آلِهَة — "gods" (false gods / idols)
+
+| Role | Ref | Arabic Context | Reason |
+|------|-----|---------------|--------|
+| **Learn** | 6:74 | وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ أَتَتَّخِذُ أَصْنَامًا **آلِهَةً** | **Story — Ibrāhīm challenges his father about idols** |
+| **Practice** | 7:138 | قَالُوا يَا مُوسَى اجْعَل لَّنَا **إِلَٰهًا** كَمَا لَهُمْ **آلِهَةٌ** | Story — Israelites' shocking request right after being saved |
+
+#### مِنْ إِلَٰهٍ غَيْرُهُ — "no god other than Him"
+
+| Role | Ref | Arabic Context | Reason |
+|------|-----|---------------|--------|
+| **Learn** | 7:59 | يَا قَوْمِ اعْبُدُوا اللَّهَ مَا لَكُم مِّنْ **إِلَٰهٍ** غَيْرُهُ | **Story — Nūḥ's call, the same words repeated by every prophet** |
+| **Practice** | 28:38 | وَقَالَ فِرْعَوْنُ مَا عَلِمْتُ لَكُم مِّنْ **إِلَٰهٍ** غَيْرِي | Pharaoh claiming to be god — the anti-version of Nūḥ's call, bridges to كَبُرَ (arrogance) |
+
+#### إِلَٰهِ النَّاسِ / اللَّهُمَّ — prayer forms
+
+| Role | Ref | Arabic Context | Reason |
+|------|-----|---------------|--------|
+| **Learn** | 114:1–3 | قُلْ أَعُوذُ بِرَبِّ النَّاسِ · مَلِكِ النَّاسِ · **إِلَٰهِ** النَّاسِ | **Surah An-Nās — recited daily in ṣalāh and before sleep** |
+| **Practice** | 3:26 | قُلِ **اللَّهُمَّ** مَالِكَ الْمُلْكِ تُؤْتِي الْمُلْكَ مَن تَشَاءُ | اللَّهُمَّ form — powerful duʿā about sovereignty |
+
+### Parked for future lessons
+
+| Ref | Arabic Context | Notes |
+|-----|---------------|-------|
+| 3:18 | شَهِدَ اللَّهُ أَنَّهُ لَا **إِلَٰهَ** إِلَّا هُوَ وَالْمَلَائِكَةُ وَأُولُو الْعِلْمِ | **For Lesson 2 (Ashhadu) — أَشْهَدُ root will connect here** |
+| 20:14 | إِنَّنِي أَنَا اللَّهُ لَا **إِلَٰهَ** إِلَّا أَنَا فَاعْبُدْنِي | Allah speaking directly to Mūsā at the burning bush |
+| 37:35 | إِذَا قِيلَ لَهُمْ لَا **إِلَٰهَ** إِلَّا اللَّهُ يَسْتَكْبِرُونَ | Bridges لَا إِلَٰهَ إِلَّا اللّٰه + اسْتَكْبَرَ from root 1 |
+| 38:5 | أَجَعَلَ الْآلِهَةَ **إِلَٰهًا** وَاحِدًا | Quraysh mocking "One God?!" — dramatic |
