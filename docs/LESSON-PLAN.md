@@ -55,13 +55,16 @@ Selection criteria (in order of priority):
 
 ### Step 3: For each selected form, list ALL occurrences
 
-Present every occurrence in a table following the Corpus format:
+Present every occurrence in a table, ordered by recommendation (best candidate first). Include a **Why** column explaining the recommendation reasoning — this helps the teacher scan and decide quickly.
 
-| # | Ref | Arabic Context | Translation |
-|---|-----|---------------|-------------|
-| 1 | 29:45 | وَلَذِكْرُ ٱللَّهِ **أَكْبَرُ** | And the remembrance of Allah is greater |
-| 2 | 9:72 | وَرِضْوَانٌ مِّنَ ٱللَّهِ **أَكْبَرُ** | And approval from Allah is greater |
-| ... | ... | ... | ... |
+- If the form has **≤ 10 occurrences**: list all of them
+- If the form has **> 10 occurrences**: list the top 10 ranked candidates and provide a corpus link for the rest
+
+| # | Ref | Arabic Context | Translation | Why |
+|---|-----|---------------|-------------|-----|
+| 1 | 29:45 | وَلَذِكْرُ ٱللَّهِ **أَكْبَرُ** | And the remembrance of Allah is greater | Ties directly to anchor — dhikr = ṣalāh |
+| 2 | 9:72 | وَرِضْوَانٌ مِّنَ ٱللَّهِ **أَكْبَرُ** | And approval from Allah is greater | Allah's pleasure > Paradise itself |
+| ... | ... | ... | ... | ... |
 
 The target word is **bolded** in the Arabic context.
 
@@ -71,6 +74,15 @@ The teacher picks the best sentence for learning. Criteria:
 - The fragment must be **long enough to make sense on its own** — a student should be able to memorize it with its meaning
 - If the target word appears mid-sentence and the fragment doesn't stand alone, **include more context** (e.g., include the preceding clause)
 - Prefer sentences that are **emotionally resonant**, **well-known**, or **connected to daily practice**
+
+### Selection log conventions
+
+Every pick is recorded in `docs/selections/lesson-NN.md` with a Reason column. Two types of reasons appear:
+
+- **AI-recommended reasons** — written in normal text (e.g., "Complete sentence, powerful meaning, universally relatable")
+- **Teacher-override reasons** — written in **bold text** (e.g., "**Surah Al-A'la — frequently recited in ṣalāh, student already knows it by ear**")
+
+This distinction matters: when a future agent reads the selection log, bolded reasons reveal the teacher's personal priorities and patterns — which surahs they value, which daily practices they want to connect to, which contexts matter most to them. These bolded reasons are the strongest signal for learning the teacher's preferences.
 
 ### Step 5: Repeat for the second root
 

@@ -52,7 +52,11 @@ Roots: **ك ب ر** (akbar) · **أ ل ه** (Allāh / ilāh)
 | **Practice** | 87:12 | الَّذِي يَصْلَى النَّارَ الْكُبْرَىٰ | **Surah Al-A'la — frequently recited in ṣalāh, student already knows it by ear** |
 
 #### أَكْبَر (akbar)
-*Selection pending*
+
+| Role | Ref | Arabic Context | Reason |
+|------|-----|---------------|--------|
+| **Learn** | 29:45 | وَلَذِكْرُ اللَّهِ **أَكْبَرُ** | Ties directly to anchor — dhikr = ṣalāh = where you say Allahu Akbar |
+| **Practice** | 9:72 | وَرِضْوَانٌ مِّنَ اللَّهِ **أَكْبَرُ** ۚ ذَٰلِكَ هُوَ الْفَوْزُ الْعَظِيمُ | **Surah At-Tawbah — recited on Fridays, stronger frequency of use** |
 
 #### كَبِير (kabīr)
 *Selection pending*
