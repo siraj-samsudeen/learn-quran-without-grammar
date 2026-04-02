@@ -28,63 +28,61 @@ The root **أ ل ه** gives us **إِلَٰه** — *god, deity* — and the nam
 
 ---
 
-### 1 · لَا إِلَٰهَ إِلَّا — 21:87
+### 1 · لَا إِلَٰهَ إِلَّا
 
 وَذَا النُّونِ إِذ ذَّهَبَ مُغَاضِبًا فَظَنَّ أَن لَّن نَّقْدِرَ عَلَيْهِ فَنَادَىٰ فِي الظُّلُمَاتِ أَن لَّا **إِلَٰهَ** إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ
 
-"And [mention] the man of the fish, when he went off in anger and thought that We would not decree upon him. Then he called out in the darkness: There is no god but You, glory to You — I was among the wrongdoers"
+Al-Anbiyā' 21:87 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/021087.mp3"></audio>
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/021087.mp3"></audio>
+"And [mention] the man of the fish, when he went off in anger and thought that We would not decree upon him. Then he called out in the darkness: There is no god but You, glory to You — I was among the wrongdoers"
 
 Story of Yūnus in the whale — one of the most beloved duʿās. The phrase لَا إِلَٰهَ إِلَّا — "there is no god but…" — is the heart of tawḥīd.
 
 ---
 
-### 2 · إِلَٰهٌ وَاحِدٌ — 2:163
+### 2 · إِلَٰهٌ وَاحِدٌ
 
 وَ**إِلَٰهُكُمْ** **إِلَٰهٌ** وَاحِدٌ ۖ لَا **إِلَٰهَ** إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ
 
-"And your God is one God — there is no god but He, the Most Merciful, the Most Compassionate"
+Al-Baqarah 2:163 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/002163.mp3"></audio>
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/002163.mp3"></audio>
+"And your God is one God — there is no god but He, the Most Merciful, the Most Compassionate"
 
 إِلَٰه appears three times in one verse — the complete tawḥīd statement.
 
 ---
 
-### 3 · آلِهَة (plural) — 6:74
+### 3 · آلِهَة (plural)
 
 وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ أَتَتَّخِذُ أَصْنَامًا **آلِهَةً**
 
-"And when Ibrāhīm said to his father Āzar: Do you take idols as gods?"
+Al-An'ām 6:74 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/006074.mp3#t=0,22"></audio>
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/006074.mp3#t=0,22"></audio>
+"And when Ibrāhīm said to his father Āzar: Do you take idols as gods?"
 
 Story — Ibrāhīm challenges his father. آلِهَة is the plural of إِلَٰه — "gods" — used in the Qur'an for false deities.
 
 ---
 
-### 4 · إِلَٰهٍ غَيْرُهُ — 7:59
+### 4 · إِلَٰهٍ غَيْرُهُ
 
 يَا قَوْمِ اعْبُدُوا اللَّهَ مَا لَكُم مِّنْ **إِلَٰهٍ** غَيْرُهُ
 
-"O my people, worship Allah — you have no god other than Him"
+Al-A'rāf 7:59 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/007059.mp3#t=11,19"></audio>
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/007059.mp3#t=11,19"></audio>
+"O my people, worship Allah — you have no god other than Him"
 
 Nūḥ's call — the same words repeated by every prophet. Every prophet in the Qur'an says this exact phrase: مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ.
 
 ---
 
-### 5 · إِلَٰهِ النَّاسِ — 114:1–3
+### 5 · إِلَٰهِ النَّاسِ
 
 قُلْ أَعُوذُ بِرَبِّ النَّاسِ · مَلِكِ النَّاسِ · **إِلَٰهِ** النَّاسِ
 
-"Say: I seek refuge in the Lord of mankind, the King of mankind, the God of mankind"
+An-Nās 114:1–3 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/114001.mp3"></audio> <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/114002.mp3"></audio> <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/114003.mp3"></audio>
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/114001.mp3"></audio>
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/114002.mp3"></audio>
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/114003.mp3"></audio>
+"Say: I seek refuge in the Lord of mankind, the King of mankind, the God of mankind"
 
 Surah An-Nās — you recite this every day in ṣalāh and before sleep.
 
@@ -96,61 +94,61 @@ The root **ك ب ر** carries a core meaning: *something is great, large, or gro
 
 ---
 
-### 6 · كَبُرَ — 61:3
+### 6 · كَبُرَ
 
 **كَبُرَ** مَقْتًا عِندَ اللَّهِ أَن تَقُولُوا مَا لَا تَفْعَلُونَ
 
-"Greatly hateful in the sight of Allah that you say what you do not do"
+Aṣ-Ṣaff 61:3 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/061003.mp3"></audio>
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/061003.mp3"></audio>
+"Greatly hateful in the sight of Allah that you say what you do not do"
 
 Saying and not doing — deeply hated by Allah. كَبُرَ is the simplest form of the root — just the three letters acting as a verb: "it was great."
 
 ---
 
-### 7 · أَكْبَرُ — 29:45
+### 7 · أَكْبَرُ
 
 وَلَذِكْرُ اللَّهِ **أَكْبَرُ**
 
-"And the remembrance of Allah is greater"
+Al-'Ankabūt 29:45 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/029045.mp3#t=27.5,33.5"></audio>
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/029045.mp3#t=27.5,33.5"></audio>
+"And the remembrance of Allah is greater"
 
 Repeated in the Jumuʿah Khutbah — this is the word from اللهُ أَكْبَرُ. The أَفْعَل pattern is used for comparison — "greater" or "greatest." This is the word you say in every adhān and ṣalāh.
 
 ---
 
-### 8 · كَبِير — 21:63
+### 8 · كَبِير
 
 قَالَ بَلْ فَعَلَهُ **كَبِيرُهُمْ** هَٰذَا فَاسْأَلُوهُمْ إِن كَانُوا يَنطِقُونَ
 
-"He said: Rather, their chief did it — so ask them, if they can speak"
+Al-Anbiyā' 21:63 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/021063.mp3"></audio>
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/021063.mp3"></audio>
+"He said: Rather, their chief did it — so ask them, if they can speak"
 
 Story — Ibrāhīm's wit when questioned about smashing the idols. كَبِير follows the فَعِيل pattern — a common adjective form meaning "great" or "big." الكَبِير is also one of Allah's Beautiful Names.
 
 ---
 
-### 9 · كُبْرَى — 79:20
+### 9 · كُبْرَى
 
 فَأَرَاهُ الْآيَةَ **الْكُبْرَىٰ**
 
-"And he showed him the greatest sign"
+An-Nāzi'āt 79:20 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/079020.mp3"></audio>
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/079020.mp3"></audio>
+"And he showed him the greatest sign"
 
 Mūsā showed Pharaoh the greatest miracle. كُبْرَى is the feminine form of أَكْبَر — used because آيَة (sign) is feminine.
 
 ---
 
-### 10 · اسْتَكْبَرَ (Form X) — 2:34
+### 10 · اسْتَكْبَرَ
 
 إِلَّا إِبْلِيسَ أَبَىٰ وَ**اسْتَكْبَرَ** وَكَانَ مِنَ الْكَافِرِينَ
 
-"Except Iblīs — he refused and was arrogant and became of the disbelievers"
+Al-Baqarah 2:34 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/002034.mp3#t=8.5"></audio>
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/002034.mp3#t=8.5"></audio>
+"Except Iblīs — he refused and was arrogant and became of the disbelievers"
 
 The origin story of arrogance — Iblīs refusing to bow to Ādam. The prefix اسْتَ (Form X) means to seek or claim the root quality for oneself. اسْتَكْبَرَ = "to seek greatness for oneself" = to be arrogant. This is the most frequent form of ك ب ر in the Qur'an — 40 occurrences.
 
@@ -160,61 +158,61 @@ The origin story of arrogance — Iblīs refusing to bow to Ādam. The prefix ا
 
 ---
 
-### 11 · لَا إِلَٰهَ إِلَّا — 47:19
+### 11 · لَا إِلَٰهَ إِلَّا
 
 فَاعْلَمْ أَنَّهُ لَا **إِلَٰهَ** إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنبِكَ
 
-"Know that there is no god but Allah, and seek forgiveness for your sin"
+Muḥammad 47:19 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/047019.mp3#t=0,12"></audio>
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/047019.mp3#t=0,12"></audio>
+"Know that there is no god but Allah, and seek forgiveness for your sin"
 
 A direct command to the Prophet ﷺ — often cited as the most concise statement of tawḥīd and istighfār in one breath.
 
 ---
 
-### 12 · إِلَٰهٌ وَاحِدٌ — 18:110
+### 12 · إِلَٰهٌ وَاحِدٌ
 
 قُلْ إِنَّمَا أَنَا بَشَرٌ مِّثْلُكُمْ يُوحَىٰ إِلَيَّ أَنَّمَا **إِلَٰهُكُمْ** **إِلَٰهٌ** وَاحِدٌ
 
-"Say: I am only a man like you — it is revealed to me that your God is one God"
+Al-Kahf 18:110 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/018110.mp3#t=0,18"></audio>
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/018110.mp3#t=0,18"></audio>
+"Say: I am only a man like you — it is revealed to me that your God is one God"
 
 The closing words of Surah Al-Kahf — recited every Friday. A powerful ending you already hear weekly.
 
 ---
 
-### 13 · آلِهَة — 7:138
+### 13 · آلِهَة
 
 قَالُوا يَا مُوسَى اجْعَل لَّنَا **إِلَٰهًا** كَمَا لَهُمْ **آلِهَةٌ**
 
-"They said: O Mūsā, make for us a god just as they have gods"
+Al-A'rāf 7:138 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/007138.mp3#t=26,39"></audio>
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/007138.mp3#t=26,39"></audio>
+"They said: O Mūsā, make for us a god just as they have gods"
 
 The Israelites' shocking request — right after being saved from Pharaoh, they pass by idol-worshippers and immediately ask for the same thing.
 
 ---
 
-### 14 · إِلَٰهٍ غَيْرُهُ — 28:38
+### 14 · إِلَٰهٍ غَيْرُهُ
 
 وَقَالَ فِرْعَوْنُ يَا أَيُّهَا الْمَلَأُ مَا عَلِمْتُ لَكُم مِّنْ **إِلَٰهٍ** غَيْرِي
 
-"And Pharaoh said: O chiefs, I know of no god for you other than me"
+Al-Qaṣaṣ 28:38 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/028038.mp3#t=0,24"></audio>
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/028038.mp3#t=0,24"></audio>
+"And Pharaoh said: O chiefs, I know of no god for you other than me"
 
 The anti-version of Nūḥ's call. Every prophet said مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ — Pharaoh flips it: مَا عَلِمْتُ لَكُم مِّنْ إِلَٰهٍ غَيْرِي. Same words, ultimate arrogance.
 
 ---
 
-### 15 · اللَّهُمَّ — 3:26
+### 15 · اللَّهُمَّ
 
 قُلِ **اللَّهُمَّ** مَالِكَ الْمُلْكِ تُؤْتِي الْمُلْكَ مَن تَشَاءُ وَتَنزِعُ الْمُلْكَ مِمَّن تَشَاءُ
 
-"Say: O Allah, Owner of sovereignty — You give sovereignty to whom You will and take it from whom You will"
+Āl 'Imrān 3:26 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/003026.mp3#t=0,12"></audio>
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/003026.mp3#t=0,12"></audio>
+"Say: O Allah, Owner of sovereignty — You give sovereignty to whom You will and take it from whom You will"
 
 اللَّهُمَّ — the prayer address form of Allah's name. This is how you call upon Him directly.
 
@@ -224,61 +222,61 @@ The anti-version of Nūḥ's call. Every prophet said مَا لَكُم مِّن
 
 ---
 
-### 16 · كَبُرَ — 18:5
+### 16 · كَبُرَ
 
 **كَبُرَتْ** كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ ۚ إِن يَقُولُونَ إِلَّا كَذِبًا
 
-"Grave is the word that comes out of their mouths — they speak nothing but a lie"
+Al-Kahf 18:5 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/018005.mp3#t=10"></audio>
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/018005.mp3#t=10"></audio>
+"Grave is the word that comes out of their mouths — they speak nothing but a lie"
 
 From Surah Al-Kahf — recited every Friday. About those who claim Allah has a son.
 
 ---
 
-### 17 · أَكْبَرُ — 6:78
+### 17 · أَكْبَرُ
 
 فَلَمَّا رَأَى الشَّمْسَ بَازِغَةً قَالَ هَٰذَا رَبِّي هَٰذَا **أَكْبَرُ**
 
-"When he saw the sun rising, he said: This is my lord — this is greater"
+Al-An'ām 6:78 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/006078.mp3#t=0,15"></audio>
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/006078.mp3#t=0,15"></audio>
+"When he saw the sun rising, he said: This is my lord — this is greater"
 
 Story of Ibrāhīm searching for God — he looks at the stars, the moon, and finally الشَّمْس (the sun). Each time, he says "this is greater" — until they all set and he turns to the One who never sets.
 
 ---
 
-### 18 · كَبِير — 2:219
+### 18 · كَبِير
 
 يَسْأَلُونَكَ عَنِ الْخَمْرِ وَالْمَيْسِرِ ۖ قُلْ فِيهِمَا إِثْمٌ **كَبِيرٌ** وَمَنَافِعُ لِلنَّاسِ وَإِثْمُهُمَا أَكْبَرُ مِن نَّفْعِهِمَا
 
-"They ask you about wine and gambling. Say: In them is great sin and some benefit, but their sin is greater than their benefit"
+Al-Baqarah 2:219 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/002219.mp3#t=0,17"></audio>
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/002219.mp3#t=0,17"></audio>
+"They ask you about wine and gambling. Say: In them is great sin and some benefit, but their sin is greater than their benefit"
 
 The famous ruling verse on wine and gambling. Notice this verse uses both كَبِير and أَكْبَر — two forms from the same root in one sentence.
 
 ---
 
-### 19 · كُبْرَى — 87:12
+### 19 · كُبْرَى
 
 الَّذِي يَصْلَى النَّارَ **الْكُبْرَىٰ**
 
+Al-A'lā 87:12 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/087012.mp3"></audio>
+
 "Who will enter the greatest Fire"
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/087012.mp3"></audio>
-
-From Surah Al-A'la — one of the most frequently recited surahs in ṣalāh. You already know this by ear.
+From Surah Al-A'lā — one of the most frequently recited surahs in ṣalāh. You already know this by ear.
 
 ---
 
-### 20 · اسْتَكْبَرَ — 41:15
+### 20 · اسْتَكْبَرَ
 
 فَأَمَّا عَادٌ فَ**اسْتَكْبَرُوا** فِي الْأَرْضِ بِغَيْرِ الْحَقِّ وَقَالُوا مَنْ أَشَدُّ مِنَّا قُوَّةً ۖ أَوَلَمْ يَرَوْا أَنَّ اللَّهَ الَّذِي خَلَقَهُمْ هُوَ أَشَدُّ مِنْهُمْ قُوَّةً
 
-"As for ʿĀd, they were arrogant upon the earth without right and said: Who is mightier than us in strength? Did they not see that Allah who created them is mightier than them in strength?"
+Fuṣṣilat 41:15 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/041015.mp3#t=0,16"></audio>
 
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/041015.mp3#t=0,16"></audio>
+"As for ʿĀd, they were arrogant upon the earth without right and said: Who is mightier than us in strength? Did they not see that Allah who created them is mightier than them in strength?"
 
 The people of ʿĀd — they boasted "مَنْ أَشَدُّ مِنَّا قُوَّةً" (who is mightier than us?), and Allah answers with the same words flipped back: هُوَ أَشَدُّ مِنْهُمْ قُوَّةً (He is mightier than them). Arrogance answered in its own language.
 
