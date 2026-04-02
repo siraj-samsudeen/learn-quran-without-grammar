@@ -301,7 +301,7 @@ const ShufflePlayer = (() => {
       font-size: 1.5rem;
       line-height: 2.2;
       color: #f0c040;
-      font-family: 'KFGQPC Uthmanic Script HAFS', 'Scheherazade New', 'Amiri', serif;
+      font-family: 'Amiri', 'Scheherazade New', 'Traditional Arabic', serif;
       margin-bottom: 0.6rem;
     }
 

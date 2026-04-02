@@ -1,0 +1,14 @@
+---
+layout: default
+---
+{{ content }}
+
+<script src="{{ '/assets/js/lesson-cards.js' | relative_url }}"></script>
+{% if page.audio_manifest %}
+<script src="{{ '/assets/js/shuffle-player.js' | relative_url }}"></script>
+<script>
+ShufflePlayer.init('shuffle-player', {
+  manifests: ['{{ page.audio_manifest | relative_url }}']
+});
+</script>
+{% endif %}
