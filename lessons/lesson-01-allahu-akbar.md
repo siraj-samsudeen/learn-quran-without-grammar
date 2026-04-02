@@ -7,6 +7,19 @@ audio_download: /assets/audio/lessons/lesson-01/lesson-01-full.mp3
 ---
 # Lesson 1: Allāhu Akbar
 
+| Arabic | English |
+|--------|---------|
+| إِلَٰه | god, deity |
+| اللّٰه | Allah (God) |
+| إِلَٰهٌ وَاحِدٌ | one God |
+| آلِهَة | gods (plural) |
+| اللَّهُمَّ | O Allah |
+| كَبُرَ | was great |
+| أَكْبَرُ | greater, greatest |
+| كَبِير | great, big |
+| كُبْرَى | greatest (fem.) |
+| اسْتَكْبَرَ | was arrogant |
+
 ## Anchor
 
 **اللهُ أَكْبَرُ**
