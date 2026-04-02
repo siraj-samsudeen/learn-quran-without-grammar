@@ -96,7 +96,7 @@ Nūḥ's call — the same words repeated by every prophet. Every prophet in the
 
 قُلْ أَعُوذُ بِرَبِّ النَّاسِ · مَلِكِ النَّاسِ · **إِلَٰهِ** النَّاسِ
 
-An-Nās 114:1–3 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/114001.mp3"></audio> <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/114002.mp3"></audio> <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/114003.mp3"></audio>
+An-Nās 114:1–3 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/114001.mp3"></audio>
 
 "Say: I seek refuge in the Lord of mankind, the King of mankind, the **God** of mankind"
 
