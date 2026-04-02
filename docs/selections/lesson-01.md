@@ -59,7 +59,11 @@ Roots: **ك ب ر** (akbar) · **أ ل ه** (Allāh / ilāh)
 | **Practice** | 6:78 | فَلَمَّا رَأَى الشَّمْسَ بَازِغَةً قَالَ هَٰذَا رَبِّي هَٰذَا **أَكْبَرُ** | **Story of Ibrāhīm — easier to remember; mentions الشَّمْس (sun), one of the most repeated words in the Qur'an** |
 
 #### كَبِير (kabīr)
-*Selection pending*
+
+| Role | Ref | Arabic Context | Reason |
+|------|-----|---------------|--------|
+| **Learn** | 21:63 | قَالَ بَلْ فَعَلَهُ **كَبِيرُهُمْ** هَٰذَا فَاسْأَلُوهُمْ إِن كَانُوا يَنطِقُونَ | **Story of Ibrāhīm and the idols — vivid, memorable** |
+| **Practice** | 2:219 | يَسْأَلُونَكَ عَنِ الْخَمْرِ وَالْمَيْسِرِ ۖ قُلْ فِيهِمَا إِثْمٌ **كَبِيرٌ** وَمَنَافِعُ لِلنَّاسِ وَإِثْمُهُمَا أَكْبَرُ مِن نَّفْعِهِمَا | **Famous ruling verse — wine and gambling** |
 
 #### اسْتَكْبَرَ (istakbara)
 *Selection pending*
