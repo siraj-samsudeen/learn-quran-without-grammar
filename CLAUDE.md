@@ -105,10 +105,12 @@ GitHub Actions builds Jekyll and deploys to GitHub Pages automatically. Live in 
 
 ---
 
-## Deeper Context → ADRs
+## Deeper Context → Docs & ADRs
 
 | File | Topic |
 |------|-------|
+| `docs/LESSON-PLAN.md` | **Lesson structure, sentence selection process, curriculum design** |
+| `docs/ARCHITECTURE.md` | Tech stack, deployment, roadmap |
 | `docs/decisions/ADR-001-hosting.md` | Why GitHub Pages + Jekyll |
 | `docs/decisions/ADR-002-audio.md` | Why HTML5 `#t=` fragments + EveryAyah |
 | `docs/decisions/ADR-003-file-structure.md` | Naming conventions + `lessons/` folder |
