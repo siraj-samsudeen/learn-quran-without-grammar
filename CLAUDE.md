@@ -30,8 +30,16 @@ learn-quran-without-grammar/
 │   │   └── adhan-allahu-akbar.mp3   ← Trimmed local MP3 for non-Quranic audio
 │   └── css/
 │       └── style.css
+├── tools/
+│   ├── build-lesson-audio.py        ← Builds sequential MP3 + individual pairs from YAML
+│   ├── generate-tts.sh              ← Single-sentence English TTS (edge-tts)
+│   ├── generate-tts-batch.py        ← Batch English TTS generation
+│   ├── shuffle-player-demo.html     ← Web player prototype (random repeat mode)
+│   └── lesson-audio/
+│       └── lesson-01.yaml           ← Audio definition for Lesson 1
 └── docs/
     ├── ARCHITECTURE.md              ← Tech stack, deployment, roadmap
+    ├── AUDIO-SYSTEM.md              ← Audio pipeline design (TTS, compilation, web player)
     ├── LESSON-PLAN.md               ← Lesson structure + teacher selection preferences
     ├── selections/
     │   ├── lesson-01.md             ← Selection log: what was picked and why
@@ -116,6 +124,9 @@ GitHub Actions builds Jekyll and deploys to GitHub Pages automatically. Live in 
 | `docs/LESSON-PLAN.md` | **Lesson structure, root word convention, sentence selection, teacher preferences** |
 | `docs/selections/lesson-NN.md` | Per-lesson selection logs — what was picked and why |
 | `docs/selections/pipeline.md` | **Sentence pipeline — check this FIRST when starting a new lesson** |
+| `docs/AUDIO-SYSTEM.md` | Audio pipeline: TTS, clip extraction, sequential MP3, web shuffle player |
+| `tools/build-lesson-audio.py` | Builds all audio assets from a lesson YAML definition |
+| `tools/lesson-audio/lesson-01.yaml` | Audio definition for Lesson 1 (all 20 sentences + hadith) |
 | `docs/ARCHITECTURE.md` | Tech stack, deployment, roadmap |
 | `docs/decisions/ADR-001-hosting.md` | Why GitHub Pages + Jekyll |
 | `docs/decisions/ADR-002-audio.md` | Why HTML5 `#t=` fragments + EveryAyah |

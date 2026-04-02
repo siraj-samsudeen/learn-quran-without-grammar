@@ -1,0 +1,304 @@
+# Lesson 01 — Audio Definition
+# Root: ك ب ر (kabura) + إِلَٰه (ilāh)
+# Anchor: اللهُ أَكْبَرُ
+#
+# This file defines all sentences for audio compilation.
+# Order matters: this is the playback order for the sequential MP3.
+#
+# arabic_source fields:
+#   surah: 3-digit surah number
+#   ayah:  3-digit ayah number
+#   start: (optional) start time in seconds for fragment
+#   end:   (optional) end time in seconds for fragment
+#   If start/end omitted, the full ayah audio is used.
+#
+# For multi-ayah sources, use a list under arabic_source.
+
+lesson_id: lesson-01
+title: "Lesson 1: Allāhu Akbar"
+slug: lesson-01-allahu-akbar
+
+sentences:
+
+  # ============================================================
+  # LEARN — إِلَٰه patterns (5 sentences)
+  # ============================================================
+
+  - id: learn-ilah-01
+    role: learn
+    root: إِلَٰه
+    form: "لَا إِلَٰهَ إِلَّا"
+    ref: "21:87"
+    arabic_source:
+      surah: 21
+      ayah: 87
+    arabic_text: "فَنَادَىٰ فِي الظُّلُمَاتِ أَن لَّا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ"
+    english: "He called out in the darkness: There is no god but You, glory to You — I was among the wrongdoers"
+
+  - id: learn-ilah-02
+    role: learn
+    root: إِلَٰه
+    form: "إِلَٰهٌ وَاحِدٌ"
+    ref: "2:163"
+    arabic_source:
+      surah: 2
+      ayah: 163
+    arabic_text: "وَإِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ ۖ لَا إِلَٰهَ إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ"
+    english: "And your God is one God — there is no god but He, the Most Merciful, the Most Compassionate"
+
+  - id: learn-ilah-03
+    role: learn
+    root: إِلَٰه
+    form: "آلِهَة"
+    ref: "6:74"
+    arabic_source:
+      surah: 6
+      ayah: 74
+    arabic_text: "وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ أَتَتَّخِذُ أَصْنَامًا آلِهَةً"
+    english: "And when Ibrahim said to his father Azar: Do you take idols as gods?"
+
+  - id: learn-ilah-04
+    role: learn
+    root: إِلَٰه
+    form: "مِنْ إِلَٰهٍ غَيْرُهُ"
+    ref: "7:59"
+    arabic_source:
+      surah: 7
+      ayah: 59
+    arabic_text: "يَا قَوْمِ اعْبُدُوا اللَّهَ مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ"
+    english: "O my people, worship Allah — you have no god other than Him"
+
+  - id: learn-ilah-05
+    role: learn
+    root: إِلَٰه
+    form: "إِلَٰهِ النَّاسِ"
+    ref: "114:1-3"
+    arabic_source:
+      - surah: 114
+        ayah: 1
+      - surah: 114
+        ayah: 2
+      - surah: 114
+        ayah: 3
+    arabic_text: "قُلْ أَعُوذُ بِرَبِّ النَّاسِ · مَلِكِ النَّاسِ · إِلَٰهِ النَّاسِ"
+    english: "Say: I seek refuge in the Lord of mankind, the King of mankind, the God of mankind"
+
+  # ============================================================
+  # LEARN — كَبُرَ forms (5 sentences)
+  # ============================================================
+
+  - id: learn-kabura-01
+    role: learn
+    root: كَبُرَ
+    form: كَبُرَ
+    ref: "61:3"
+    arabic_source:
+      surah: 61
+      ayah: 3
+    arabic_text: "كَبُرَ مَقْتًا عِندَ اللَّهِ أَن تَقُولُوا مَا لَا تَفْعَلُونَ"
+    english: "Greatly hateful in the sight of Allah that you say what you do not do"
+
+  - id: learn-kabura-02
+    role: learn
+    root: كَبُرَ
+    form: كُبْرَى
+    ref: "79:20"
+    arabic_source:
+      surah: 79
+      ayah: 20
+    arabic_text: "فَأَرَاهُ الْآيَةَ الْكُبْرَىٰ"
+    english: "And he showed him the greatest sign"
+
+  - id: learn-kabura-03
+    role: learn
+    root: كَبُرَ
+    form: أَكْبَرُ
+    ref: "29:45"
+    arabic_source:
+      surah: 29
+      ayah: 45
+      # Fragment: "وَلَذِكْرُ اللَّهِ أَكْبَرُ" — near the end of the ayah
+      # Full ayah is ~43s. This phrase occurs approximately at 30-36s.
+      # ⚠️ Fine-tune these values by listening to the audio.
+      start: 30.0
+      end: 36.0
+    arabic_text: "وَلَذِكْرُ اللَّهِ أَكْبَرُ"
+    english: "And the remembrance of Allah is greater"
+
+  - id: learn-kabura-04
+    role: learn
+    root: كَبُرَ
+    form: كَبِير
+    ref: "21:63"
+    arabic_source:
+      surah: 21
+      ayah: 63
+    arabic_text: "قَالَ بَلْ فَعَلَهُ كَبِيرُهُمْ هَٰذَا فَاسْأَلُوهُمْ إِن كَانُوا يَنطِقُونَ"
+    english: "He said: Rather, this — the biggest of them — did it. So ask them, if they can speak"
+
+  - id: learn-kabura-05
+    role: learn
+    root: كَبُرَ
+    form: اسْتَكْبَرَ
+    ref: "2:34"
+    arabic_source:
+      surah: 2
+      ayah: 34
+      # Fragment: the second half of the ayah about Iblis
+      # Full ayah ~20s. Fragment starts around 8s.
+      start: 8.0
+    arabic_text: "إِلَّا إِبْلِيسَ أَبَىٰ وَاسْتَكْبَرَ وَكَانَ مِنَ الْكَافِرِينَ"
+    english: "Except Iblis — he refused and was arrogant and became of the disbelievers"
+
+  # ============================================================
+  # PRACTICE — إِلَٰه patterns (5 sentences)
+  # ============================================================
+
+  - id: practice-ilah-01
+    role: practice
+    root: إِلَٰه
+    form: "لَا إِلَٰهَ إِلَّا"
+    ref: "47:19"
+    arabic_source:
+      surah: 47
+      ayah: 19
+      # Fragment: "فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنبِكَ"
+      # This is the opening of the ayah.
+      end: 12.0
+    arabic_text: "فَاعْلَمْ أَنَّهُ لَا إِلَٰهَ إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنبِكَ"
+    english: "So know that there is no god but Allah, and seek forgiveness for your sins"
+
+  - id: practice-ilah-02
+    role: practice
+    root: إِلَٰه
+    form: "إِلَٰهٌ وَاحِدٌ"
+    ref: "18:110"
+    arabic_source:
+      surah: 18
+      ayah: 110
+      # Fragment: "قُلْ إِنَّمَا أَنَا بَشَرٌ مِّثْلُكُمْ يُوحَىٰ إِلَيَّ أَنَّمَا إِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ"
+      # Opening portion of the ayah
+      end: 18.0
+    arabic_text: "قُلْ إِنَّمَا أَنَا بَشَرٌ مِّثْلُكُمْ يُوحَىٰ إِلَيَّ أَنَّمَا إِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ"
+    english: "Say: I am only a man like you. It is revealed to me that your God is one God"
+
+  - id: practice-ilah-03
+    role: practice
+    root: إِلَٰه
+    form: "آلِهَة"
+    ref: "7:138"
+    arabic_source:
+      surah: 7
+      ayah: 138
+      # Fragment: "قَالُوا يَا مُوسَى اجْعَل لَّنَا إِلَٰهًا كَمَا لَهُمْ آلِهَةٌ"
+      start: 8.0
+      end: 18.0
+    arabic_text: "قَالُوا يَا مُوسَى اجْعَل لَّنَا إِلَٰهًا كَمَا لَهُمْ آلِهَةٌ"
+    english: "They said: O Musa, make for us a god just as they have gods"
+
+  - id: practice-ilah-04
+    role: practice
+    root: إِلَٰه
+    form: "مِنْ إِلَٰهٍ غَيْرِي"
+    ref: "28:38"
+    arabic_source:
+      surah: 28
+      ayah: 38
+      # Fragment: Pharaoh saying "مَا عَلِمْتُ لَكُم مِّنْ إِلَٰهٍ غَيْرِي"
+      end: 12.0
+    arabic_text: "وَقَالَ فِرْعَوْنُ مَا عَلِمْتُ لَكُم مِّنْ إِلَٰهٍ غَيْرِي"
+    english: "And Pharaoh said: I do not know of any god for you other than myself"
+
+  - id: practice-ilah-05
+    role: practice
+    root: إِلَٰه
+    form: "اللَّهُمَّ"
+    ref: "3:26"
+    arabic_source:
+      surah: 3
+      ayah: 26
+      # Fragment: "قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ تُؤْتِي الْمُلْكَ مَن تَشَاءُ"
+      end: 14.0
+    arabic_text: "قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ تُؤْتِي الْمُلْكَ مَن تَشَاءُ"
+    english: "Say: O Allah, Owner of all sovereignty, You give sovereignty to whom You will"
+
+  # ============================================================
+  # PRACTICE — كَبُرَ forms (5 sentences)
+  # ============================================================
+
+  - id: practice-kabura-01
+    role: practice
+    root: كَبُرَ
+    form: كَبُرَ
+    ref: "18:5"
+    arabic_source:
+      surah: 18
+      ayah: 5
+    arabic_text: "كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ ۚ إِن يَقُولُونَ إِلَّا كَذِبًا"
+    english: "Grave is the word that comes out of their mouths — they speak nothing but a lie"
+
+  - id: practice-kabura-02
+    role: practice
+    root: كَبُرَ
+    form: كُبْرَى
+    ref: "87:12"
+    arabic_source:
+      surah: 87
+      ayah: 12
+    arabic_text: "الَّذِي يَصْلَى النَّارَ الْكُبْرَىٰ"
+    english: "The one who will burn in the greatest Fire"
+
+  - id: practice-kabura-03
+    role: practice
+    root: كَبُرَ
+    form: أَكْبَرُ
+    ref: "6:78"
+    arabic_source:
+      surah: 6
+      ayah: 78
+      # Fragment: Ibrahim seeing the sun
+      end: 14.0
+    arabic_text: "فَلَمَّا رَأَى الشَّمْسَ بَازِغَةً قَالَ هَٰذَا رَبِّي هَٰذَا أَكْبَرُ"
+    english: "When he saw the sun rising, he said: This is my Lord — this is greater"
+
+  - id: practice-kabura-04
+    role: practice
+    root: كَبُرَ
+    form: كَبِير
+    ref: "2:219"
+    arabic_source:
+      surah: 2
+      ayah: 219
+      # Fragment: question about wine and gambling
+      end: 18.0
+    arabic_text: "يَسْأَلُونَكَ عَنِ الْخَمْرِ وَالْمَيْسِرِ ۖ قُلْ فِيهِمَا إِثْمٌ كَبِيرٌ"
+    english: "They ask you about wine and gambling. Say: In them is great sin"
+
+  - id: practice-kabura-05
+    role: practice
+    root: كَبُرَ
+    form: اسْتَكْبَرَ
+    ref: "41:15"
+    arabic_source:
+      surah: 41
+      ayah: 15
+      # Fragment: the people of 'Ad
+      end: 16.0
+    arabic_text: "فَأَمَّا عَادٌ فَاسْتَكْبَرُوا فِي الْأَرْضِ بِغَيْرِ الْحَقِّ وَقَالُوا مَنْ أَشَدُّ مِنَّا قُوَّةً"
+    english: "As for Aad, they were arrogant in the land without right and said: Who is mightier than us in strength?"
+
+  # ============================================================
+  # HADITH
+  # ============================================================
+
+  - id: hadith-01
+    role: hadith
+    root: "كَبُرَ + إِلَٰه"
+    ref: "Sahih Muslim"
+    arabic_source:
+      # For hadith, we use TTS for Arabic too (no EveryAyah source)
+      # Set use_arabic_tts: true
+      use_arabic_tts: true
+    arabic_text: "سُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ وَلَا إِلَهَ إِلَّا اللَّهُ وَاللهُ أَكْبَرُ"
+    english: "Glory be to Allah, praise be to Allah, there is no god but Allah, and Allah is the Greatest"
+    note: "Words Beloved to Allah — bridges both roots"

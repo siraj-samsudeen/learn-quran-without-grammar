@@ -1,0 +1,42 @@
+# Test file — 3 sentences to validate the build pipeline
+# Run: python tools/build-lesson-audio.py tools/lesson-audio/test-3-sentences.yaml
+
+lesson_id: test-3
+title: "Test: 3 Sample Sentences"
+slug: test-3-sentences
+
+sentences:
+  - id: test-01-yunus
+    role: learn
+    root: إِلَٰه
+    form: "لَا إِلَٰهَ إِلَّا"
+    ref: "21:87"
+    arabic_source:
+      surah: 21
+      ayah: 87
+    arabic_text: "فَنَادَىٰ فِي الظُّلُمَاتِ أَن لَّا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ"
+    english: "He called out in the darkness: There is no god but You, glory to You — I was among the wrongdoers"
+
+  - id: test-02-dhikr
+    role: learn
+    root: كَبُرَ
+    form: أَكْبَرُ
+    ref: "29:45"
+    arabic_source:
+      surah: 29
+      ayah: 45
+      start: 30.0
+      end: 36.0
+    arabic_text: "وَلَذِكْرُ اللَّهِ أَكْبَرُ"
+    english: "And the remembrance of Allah is greater"
+
+  - id: test-03-kabura
+    role: learn
+    root: كَبُرَ
+    form: كَبُرَ
+    ref: "61:3"
+    arabic_source:
+      surah: 61
+      ayah: 3
+    arabic_text: "كَبُرَ مَقْتًا عِندَ اللَّهِ أَن تَقُولُوا مَا لَا تَفْعَلُونَ"
+    english: "Greatly hateful in the sight of Allah that you say what you do not do"
