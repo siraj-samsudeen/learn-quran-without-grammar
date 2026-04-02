@@ -114,7 +114,7 @@ Al-'Ankabūt 29:45 · <audio controls preload="none" src="https://everyayah.com/
 
 "And the remembrance of Allah is greater"
 
-Repeated in the Jumuʿah Khutbah — this is the word from اللهُ أَكْبَرُ. The أَفْعَل pattern is used for comparison — "greater" or "greatest." This is the word you say in every adhān and ṣalāh.
+Repeated in the Jumuʿah Khutbah — this is the word from اللهُ أَكْبَرُ. أَكْبَرُ means "greater" or "greatest." This is the word you say in every adhān and ṣalāh.
 
 ---
 
@@ -126,7 +126,7 @@ Al-Anbiyā' 21:63 · <audio controls preload="none" src="https://everyayah.com/d
 
 "He said: Rather, their chief did it — so ask them, if they can speak"
 
-Story — Ibrāhīm's wit when questioned about smashing the idols. كَبِير follows the فَعِيل pattern — a common adjective form meaning "great" or "big." الكَبِير is also one of Allah's Beautiful Names.
+Story — Ibrāhīm's wit when questioned about smashing the idols. كَبِير means "great" or "big." الكَبِير is also one of Allah's Beautiful Names.
 
 ---
 
@@ -150,7 +150,7 @@ Al-Baqarah 2:34 · <audio controls preload="none" src="https://everyayah.com/dat
 
 "Except Iblīs — he refused and was arrogant and became of the disbelievers"
 
-The origin story of arrogance — Iblīs refusing to bow to Ādam. The prefix اسْتَ (Form X) means to seek or claim the root quality for oneself. اسْتَكْبَرَ = "to seek greatness for oneself" = to be arrogant. This is the most frequent form of ك ب ر in the Qur'an — 40 occurrences.
+The origin story of arrogance — Iblīs refusing to bow to Ādam. The prefix اسْتَ means to seek or claim something for oneself. اسْتَكْبَرَ = "to seek greatness for oneself" = to be arrogant. This is the most frequent form of ك ب ر in the Qur'an — 40 occurrences.
 
 ---
 
