@@ -46,7 +46,7 @@ Root words: **إِلَٰه** (ilāh) · **كَبُرَ** (kabura)
 
 | # | Ref | Arabic | Form taught | English | Why chosen |
 |---|-----|--------|------------|---------|-----------|
-| 1 | 6:74 (trimmed) | أَتَتَّخِذُ أَصْنَامًا **آلِهَةً** | آلِهَة | Do you take idols as gods? | Ibrahim challenging his father — memorable story, introduces plural. Short when trimmed. |
+| 1 | 6:74 | وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ أَتَتَّخِذُ أَصْنَامًا **آلِهَةً** | آلِهَة | And when Ibrahim said to his father Azar: Do you take idols as gods? | Story context principle — the intro "when Ibrahim said to his father" gives the story hook. Trimmed ending (dropped إِنِّي أَرَاكَ وَقَوْمَكَ فِي ضَلَالٍ مُبِينٍ). |
 | 2 | 3:26 (trimmed) | قُلِ **اللَّهُمَّ** مَالِكَ الْمُلْكِ | اللَّهُمَّ | Say: O Allah, Owner of sovereignty | Introduces the prayer-address form. Trimmed to keep short. |
 
 ---
@@ -75,7 +75,7 @@ Root words: **إِلَٰه** (ilāh) · **كَبُرَ** (kabura)
 |---|-----|--------|------------|---------|-----------|
 | 1 | 79:20 | فَأَرَاهُ الْآيَةَ **الْكُبْرَىٰ** | كُبْرَى | He showed him the greatest sign | Tiny — 4 words. Mūsā showed Pharaoh the greatest miracle. |
 | 2 | 61:3 | **كَبُرَ** مَقْتًا عِندَ اللَّهِ أَن تَقُولُوا مَا لَا تَفْعَلُونَ | كَبُرَ | Greatly hateful in the sight of Allah that you say what you do not do | Base verb form. Saying and not doing — deeply hated by Allah. |
-| 3 | 2:34 (trimmed) | إِلَّا إِبْلِيسَ أَبَىٰ وَ**اسْتَكْبَرَ** | اسْتَكْبَرَ | Except Iblis — he refused and was arrogant | Trimmed (dropped وَكَانَ مِنَ الْكَافِرِينَ). Iblis origin story. Short and punchy. |
+| 3 | 2:34 (full ayah) | وَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ فَسَجَدُوا إِلَّا إِبْلِيسَ أَبَىٰ وَ**اسْتَكْبَرَ** وَكَانَ مِنَ الْكَافِرِينَ | اسْتَكْبَرَ | Full ayah — story context principle. The full origin story is far more memorable than a trimmed fragment. |
 
 ---
 
@@ -113,5 +113,21 @@ Root words: **إِلَٰه** (ilāh) · **كَبُرَ** (kabura)
 
 - **Lesson audio opens with اللهُ أَكْبَرُ** adhān clip as part of the combined lesson MP3
 - **English TTS:** switch to male voice pool (AndrewNeural / BrianNeural / ChristopherNeural)
-- **Quranic reciters:** 11 approved reciters, randomly assigned per phrase (see ADR-005)
-- **All 20 original phrases downloaded** for all 11 reciters — unused audio saved for future lessons
+- **All 20 original phrases downloaded** for all reciters — unused audio saved for future lessons
+
+### Reciter assignments (one per phrase, matched by speed to segment length)
+
+| # | Ref | Reciter | Fragment | Notes |
+|---|-----|---------|----------|-------|
+| ⭐ | 59:22 | Hani Rifai | `#t=0,7` | Hard-cut — first clause only, no natural pause |
+| 1 | 6:74 | Abu Bakr Ash-Shatri | `#t=0,12` | Starts at intro, cut after آلِهَةً |
+| 2 | 3:26 | Al-Hudhaifi | `#t=0,5` | Hard-cut — first 4 words only |
+| ⭐ | teaching | Arabic TTS | — | Made-up كَبُرَ anchor phrase |
+| 3 | 79:20 | Husary | full ayah | 7.3s, short ayah |
+| 4 | 61:3 | Alafasy | full ayah | 9.4s |
+| 5 | 2:34 | Abdul Basit Mujawwad | full ayah | 30.9s — slow melodic style suits the dramatic story |
+| 6 | 2:163 | Yasser Ad-Dussary ⭐ | full ayah | 18.3s, Siraj's favourite reciter |
+| 7 | 21:63 | Maher Al-Muaiqly | full ayah | 7.8s |
+| 8 | 29:45 | Abdul Basit Murattal | `#t=24.2,29` | Clean pause before last clause |
+| 9 | 18:5 | Saad Al-Ghamdi | `#t=7.5` | Clean pause at 7.5s, second clause onwards |
+| 10 | 41:15 | As-Sudais | full ayah | 19.7s |

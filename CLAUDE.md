@@ -72,6 +72,7 @@ description: One-sentence description for SEO/social sharing.
 ### Lesson content — use Markdown, not HTML
 - **Tables**: always use standard markdown pipe syntax (`| Arabic | English |`), never HTML `<table>` tags
 - Use Kramdown IAL to add CSS classes: `{: .root-table}` after the table
+- Root table columns: **Arabic | English | Meaning** (not "Transliteration" — saves mobile space)
 - **Verse sections**: use the `### N · form-name (english)` heading pattern — `lesson-cards.js` transforms these into styled verse cards
 - Anchor phrase headings use `### ⭐ Anchor · description` (no number, so JS skips them)
 - Keep everything in Markdown — HTML is only for `<audio>` tags, `<p class="audio-label">` labels, and `<div>` blocks explicitly needed (with `markdown="0"`)
