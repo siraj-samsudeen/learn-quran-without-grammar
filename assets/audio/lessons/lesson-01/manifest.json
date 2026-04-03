@@ -3,7 +3,7 @@
   "title": "Lesson 1: Allāhu Akbar",
   "slug": "lesson-01-allahu-akbar",
   "full_audio": "lesson-01-full.mp3",
-  "full_duration": 289.9,
+  "full_duration": 212.5,
   "sentences": [
     {
       "id": "anchor-ilah",
@@ -14,7 +14,7 @@
       "ref": "59:22",
       "arabic_text": "هُوَ اللَّهُ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ",
       "english": "He is Allah — there is no god but He",
-      "duration": 9.9
+      "duration": 8.4
     },
     {
       "id": "learn-ilah-01",
@@ -25,7 +25,7 @@
       "ref": "6:74",
       "arabic_text": "وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ أَتَتَّخِذُ أَصْنَامًا آلِهَةً",
       "english": "And when Ibrahim said to his father Azar: Do you take idols as gods?",
-      "duration": 16.1
+      "duration": 15.0
     },
     {
       "id": "learn-ilah-02",
@@ -35,8 +35,8 @@
       "form": "اللَّهُمَّ",
       "ref": "3:26",
       "arabic_text": "قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ",
-      "english": "Say: O Allah, Owner of all sovereignty",
-      "duration": 10.5
+      "english": "Say: O Allah, King of kings",
+      "duration": 8.2
     },
     {
       "id": "anchor-kabura",
@@ -47,7 +47,7 @@
       "ref": "teaching-phrase",
       "arabic_text": "هُوَ كَبِيرٌ. أَنَا أَكْبَرُ مِنْهُ. وَاللَّهُ أَكْبَرُ مِنَّا، بَلْ، مِنْ كُلِّ شَيْءٍ",
       "english": "He is great. I am greater than him. And Allah is greater than us — rather, than everything.",
-      "duration": 18.3
+      "duration": 16.8
     },
     {
       "id": "learn-kabura-01",
@@ -58,7 +58,7 @@
       "ref": "79:20",
       "arabic_text": "فَأَرَاهُ الْآيَةَ الْكُبْرَىٰ",
       "english": "And he showed him the greatest sign",
-      "duration": 11.6
+      "duration": 10.1
     },
     {
       "id": "learn-kabura-02",
@@ -69,7 +69,7 @@
       "ref": "61:3",
       "arabic_text": "كَبُرَ مَقْتًا عِندَ اللَّهِ أَن تَقُولُوا مَا لَا تَفْعَلُونَ",
       "english": "Greatly hateful in the sight of Allah — that you say what you do not do",
-      "duration": 19.0
+      "duration": 14.2
     },
     {
       "id": "learn-kabura-03",
@@ -80,51 +80,51 @@
       "ref": "2:34",
       "arabic_text": "وَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ فَسَجَدُوا إِلَّا إِبْلِيسَ أَبَىٰ وَاسْتَكْبَرَ وَكَانَ مِنَ الْكَافِرِينَ",
       "english": "And when We said to the angels: Prostrate to Adam — they all prostrated, except Iblis. He refused and was arrogant, and became of the disbelievers.",
-      "duration": 38.4
+      "duration": 41.4
     },
     {
       "id": "practice-01",
       "file": "practice-01.mp3",
-      "role": "practice",
-      "root": "إِلَٰه",
-      "form": "إِلَٰه (×3)",
-      "ref": "2:163",
-      "arabic_text": "وَإِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ ۖ لَا إِلَٰهَ إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ",
-      "english": "And your God is one God — there is no god but He, the Most Merciful, the Most Compassionate",
-      "duration": 25.8
-    },
-    {
-      "id": "practice-02",
-      "file": "practice-02.mp3",
-      "role": "practice",
-      "root": "كَبُرَ",
-      "form": "كَبِير",
-      "ref": "21:63",
-      "arabic_text": "قَالَ بَلْ فَعَلَهُ كَبِيرُهُمْ هَٰذَا فَاسْأَلُوهُمْ إِن كَانُوا يَنطِقُونَ",
-      "english": "He said: Rather, their chief did it — ask them, if they can speak",
-      "duration": 23.1
-    },
-    {
-      "id": "practice-03",
-      "file": "practice-03.mp3",
       "role": "practice",
       "root": "كَبُرَ",
       "form": "أَكْبَرُ",
       "ref": "29:45",
       "arabic_text": "وَلَذِكْرُ اللَّهِ أَكْبَرُ",
       "english": "And the remembrance of Allah is greater",
-      "duration": 8.8
+      "duration": 7.1
     },
     {
-      "id": "practice-04",
-      "file": "practice-04.mp3",
+      "id": "practice-02",
+      "file": "practice-02.mp3",
       "role": "practice",
       "root": "كَبُرَ",
       "form": "كَبُرَ",
       "ref": "18:5",
       "arabic_text": "كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ ۚ إِن يَقُولُونَ إِلَّا كَذِبًا",
       "english": "How great a word that comes from their mouths — they speak nothing but a lie",
-      "duration": 24.9
+      "duration": 13.3
+    },
+    {
+      "id": "practice-03",
+      "file": "practice-03.mp3",
+      "role": "practice",
+      "root": "كَبُرَ",
+      "form": "كَبِير",
+      "ref": "21:63",
+      "arabic_text": "قَالَ بَلْ فَعَلَهُ كَبِيرُهُمْ هَٰذَا فَاسْأَلُوهُمْ إِن كَانُوا يَنطِقُونَ",
+      "english": "He said: Rather, their chief did it — ask them, if they can speak",
+      "duration": 13.0
+    },
+    {
+      "id": "practice-04",
+      "file": "practice-04.mp3",
+      "role": "practice",
+      "root": "إِلَٰه",
+      "form": "إِلَٰه (×3)",
+      "ref": "2:163",
+      "arabic_text": "وَإِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ ۖ لَا إِلَٰهَ إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ",
+      "english": "And your God is one God — there is no god but He, the Most Merciful, the Continuously Merciful",
+      "duration": 25.9
     },
     {
       "id": "practice-05",
@@ -135,7 +135,7 @@
       "ref": "41:15",
       "arabic_text": "فَأَمَّا عَادٌ فَاسْتَكْبَرُوا فِي الْأَرْضِ بِغَيْرِ الْحَقِّ وَقَالُوا مَنْ أَشَدُّ مِنَّا قُوَّةً ۖ أَوَلَمْ يَرَوْا أَنَّ اللَّهَ الَّذِي خَلَقَهُمْ هُوَ أَشَدُّ مِنْهُمْ قُوَّةً",
       "english": "As for ʿĀd, they were arrogant on earth without right and said: Who is mightier than us in strength? Did they not see that Allah who created them is mightier than them in strength?",
-      "duration": 50.4
+      "duration": 28.0
     }
   ]
 }

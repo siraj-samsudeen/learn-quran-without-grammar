@@ -70,7 +70,7 @@ sentences:
       surah: 3
       ayah: 26
     arabic_text: "قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ"
-    english: "Say: O Allah, Owner of all sovereignty"
+    english: "Say: O Allah, King of kings"
 
   # ============================================================
   # ROOT 2 — كَبُرَ: anchor phrase + 3 learning phrases
@@ -125,33 +125,10 @@ sentences:
 
   # ============================================================
   # PRACTICE — 5 phrases, mixed roots, no notes
+  # Order matches the lesson page: shortest first, longest last
   # ============================================================
 
   - id: practice-01
-    role: practice
-    root: إِلَٰه
-    form: "إِلَٰه (×3)"
-    ref: "2:163"
-    reciter: Yasser_Ad-Dussary_128kbps
-    arabic_source:
-      surah: 2
-      ayah: 163
-    arabic_text: "وَإِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ ۖ لَا إِلَٰهَ إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ"
-    english: "And your God is one God — there is no god but He, the Most Merciful, the Most Compassionate"
-
-  - id: practice-02
-    role: practice
-    root: كَبُرَ
-    form: كَبِير
-    ref: "21:63"
-    reciter: MaherAlMuaiqly128kbps
-    arabic_source:
-      surah: 21
-      ayah: 63
-    arabic_text: "قَالَ بَلْ فَعَلَهُ كَبِيرُهُمْ هَٰذَا فَاسْأَلُوهُمْ إِن كَانُوا يَنطِقُونَ"
-    english: "He said: Rather, their chief did it — ask them, if they can speak"
-
-  - id: practice-03
     role: practice
     root: كَبُرَ
     form: أَكْبَرُ
@@ -169,7 +146,7 @@ sentences:
     arabic_text: "وَلَذِكْرُ اللَّهِ أَكْبَرُ"
     english: "And the remembrance of Allah is greater"
 
-  - id: practice-04
+  - id: practice-02
     role: practice
     root: كَبُرَ
     form: كَبُرَ
@@ -186,6 +163,30 @@ sentences:
     arabic_text: "كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ ۚ إِن يَقُولُونَ إِلَّا كَذِبًا"
     english: "How great a word that comes from their mouths — they speak nothing but a lie"
 
+  - id: practice-03
+    role: practice
+    root: كَبُرَ
+    form: كَبِير
+    ref: "21:63"
+    reciter: MaherAlMuaiqly128kbps
+    arabic_source:
+      surah: 21
+      ayah: 63
+    arabic_text: "قَالَ بَلْ فَعَلَهُ كَبِيرُهُمْ هَٰذَا فَاسْأَلُوهُمْ إِن كَانُوا يَنطِقُونَ"
+    english: "He said: Rather, their chief did it — ask them, if they can speak"
+
+  - id: practice-04
+    role: practice
+    root: إِلَٰه
+    form: "إِلَٰه (×3)"
+    ref: "2:163"
+    reciter: Yasser_Ad-Dussary_128kbps
+    arabic_source:
+      surah: 2
+      ayah: 163
+    arabic_text: "وَإِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ ۖ لَا إِلَٰهَ إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ"
+    english: "And your God is one God — there is no god but He, the Most Merciful, the Continuously Merciful"
+
   - id: practice-05
     role: practice
     root: كَبُرَ
@@ -195,5 +196,7 @@ sentences:
     arabic_source:
       surah: 41
       ayah: 15
+      # First clause only — cut at 16s to match lesson page fragment
+      end: 16
     arabic_text: "فَأَمَّا عَادٌ فَاسْتَكْبَرُوا فِي الْأَرْضِ بِغَيْرِ الْحَقِّ وَقَالُوا مَنْ أَشَدُّ مِنَّا قُوَّةً ۖ أَوَلَمْ يَرَوْا أَنَّ اللَّهَ الَّذِي خَلَقَهُمْ هُوَ أَشَدُّ مِنْهُمْ قُوَّةً"
     english: "As for ʿĀd, they were arrogant on earth without right and said: Who is mightier than us in strength? Did they not see that Allah who created them is mightier than them in strength?"

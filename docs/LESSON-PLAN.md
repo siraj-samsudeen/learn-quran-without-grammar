@@ -187,6 +187,29 @@ These patterns guide sentence selection. This list grows as new preferences emer
 
 ---
 
+## Translation Style
+
+English translations should be **simple, everyday language** — the kind of English a non-academic Muslim would naturally use. Avoid formal or theological register when a simpler phrase exists.
+
+### Specific conventions
+
+| Arabic | ✗ Avoid | ✓ Use |
+|--------|---------|-------|
+| مَالِكَ الْمُلْكِ | Owner of all sovereignty | King of kings |
+| الرَّحِيمُ | the Most Compassionate | the Continuously Merciful |
+| الرَّحْمَٰنُ | the Most Gracious | the Most Merciful / the Intensely Merciful |
+
+### Guiding principles
+
+1. **Use the simplest English that is still accurate** — if a five-year-old can understand it, that's better than a university textbook phrasing.
+2. **Prefer concrete over abstract** — "King of kings" paints a picture; "Owner of all sovereignty" is legalistic.
+3. **Ar-Raḥmān = intensely/most merciful** (the nature/attribute), **Ar-Raḥīm = continuously merciful** (the ongoing action). Keep this distinction consistent across all lessons.
+4. **Be consistent** — once a translation is chosen for a term, use it everywhere. Students build recognition through repetition.
+
+> This table grows as new translation decisions are made. Check here before translating common Qur'anic terms.
+
+---
+
 ## Verification
 
 All verse references must be verified against:

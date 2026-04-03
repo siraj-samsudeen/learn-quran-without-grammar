@@ -7,7 +7,7 @@ audio_download: /assets/audio/lessons/lesson-01/lesson-01-full.mp3
 ---
 # Lesson 1: Allāhu Akbar
 
-In this series of lessons, we will walk through each of the sentences in the Adhan (Call to prayer) and use the words there as our hooks to get into the Quran using the beautiful concept of roots in Arabic language. 
+In this series of lessons, we will walk through each of the sentences in the Adhan (Call to prayer) and use the words there as our **hooks** to get into the Quran using the beautiful concept of **roots** in Arabic language. 
 
 <p class="lesson-preview">In the first lesson, you will meet <strong>8 Arabic words</strong> from two root families — the roots behind <strong>اللهُ أَكْبَرُ</strong> — through 11 ayahs from the Quran plus 1 teaching phrase.</p>
 
@@ -22,7 +22,7 @@ You say this every single day. Before every ṣalāh. You raise your hands and s
 
 ---
 
-## Root word: إِلَٰه (god)
+## Root word 1 : إِلَٰه (god)
 
 **اللّٰه** comes from the root <strong>**أ ل ه** (alif lām hā)</strong>. 
 Every time you say *Lā ilāha illallāh*, you are using this word. 
@@ -73,13 +73,13 @@ Ibrāhīm's challenge to his own father — one of the bravest questions in the 
 
 (Āl 'Imrān 3:26) · <audio controls preload="none" src="https://everyayah.com/data/Hudhaify_128kbps/003026.mp3#t=0,5"></audio>
 
-"Say: O **Allah**, Owner of all sovereignty"
+"Say: O **Allah**, King of kings"
 
 This is how you call upon Him directly. Every duʿā you make that begins with اللَّهُمَّ carries this root.
 
 ---
 
-## Root word 1: كَبُرَ (greatness)
+## Root word 2: كَبُرَ (greatness)
 
 The root **ك ب ر** (kāf bā rā) carries one core meaning: *something is big or great.* Think of it like a seed of greatness — plant it in different soil and it grows into different words. It can mean simply *big*. It can mean *the greatest*. And when someone claims that greatness for himself — when he puffs himself up and refuses to bow — it becomes *arrogance*.
 
@@ -202,7 +202,7 @@ The origin story of arrogance. When the angels were commanded to bow, every sing
 
 (Al-Baqarah 2:163) · <audio controls preload="none" src="https://everyayah.com/data/Yasser_Ad-Dussary_128kbps/002163.mp3"></audio>
 
-"And your **God** is one **God** — there is no **god** but He, the Most Merciful, the Most Compassionate"
+"And your **God** is one **God** — there is no **god** but He, the Most Merciful, the Continuously Merciful"
 
 ---
 
@@ -210,7 +210,7 @@ The origin story of arrogance. When the angels were commanded to bow, every sing
 
 فَأَمَّا عَادٌ فَ**اسْتَكْبَرُوا** فِي الْأَرْضِ بِغَيْرِ الْحَقِّ وَقَالُوا مَنْ أَشَدُّ مِنَّا قُوَّةً ۖ أَوَلَمْ يَرَوْا أَنَّ اللَّهَ الَّذِي خَلَقَهُمْ هُوَ أَشَدُّ مِنْهُمْ قُوَّةً
 
-(Fuṣṣilat 41:15) · <audio controls preload="none" src="https://everyayah.com/data/Abdurrahmaan_As-Sudais_192kbps/041015.mp3"></audio>
+(Fuṣṣilat 41:15) · <audio controls preload="none" src="https://everyayah.com/data/Abdurrahmaan_As-Sudais_192kbps/041015.mp3#t=0,16"></audio>
 
 "As for ʿĀd, they were **arrogant** on earth without right and said: Who is mightier than us in strength? Did they not see that Allah who created them is mightier than them in strength?"
 
@@ -252,7 +252,7 @@ The origin story of arrogance. When the angels were commanded to bow, every sing
 | --- | --- |
 | هُوَ اللَّهُ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ · (59:22) | He is Allah — there is no god but He |
 | وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ أَتَتَّخِذُ أَصْنَامًا آلِهَةً · (6:74) | And when Ibrahim said to his father: Do you take idols as gods? |
-| قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ · (3:26) | Say: O Allah, Owner of all sovereignty |
+| قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ · (3:26) | Say: O Allah, King of kings |
 | هُوَ كَبِيرٌ. أَنَا أَكْبَرُ مِنْهُ. وَاللَّهُ أَكْبَرُ مِنَّا، بَلْ، مِنْ كُلِّ شَيْءٍ | He is great. I am greater than him. And Allah is greater than us — rather, than everything. |
 | فَأَرَاهُ الْآيَةَ الْكُبْرَىٰ · (79:20) | He showed him the greatest sign |
 | كَبُرَ مَقْتًا عِندَ اللَّهِ أَن تَقُولُوا مَا لَا تَفْعَلُونَ · (61:3) | Greatly hateful in the sight of Allah — that you say what you do not do |

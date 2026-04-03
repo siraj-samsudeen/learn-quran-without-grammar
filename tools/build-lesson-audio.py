@@ -55,8 +55,8 @@ RECITER_POOL = [
     "Abdurrahmaan_As-Sudais_192kbps",
     "Abu_Bakr_Ash-Shaatree_128kbps",
 ]
-ARABIC_ENGLISH_PAUSE = 2    # seconds of silence between Arabic and English
-SENTENCE_GAP = 3            # seconds of silence between sentence pairs
+ARABIC_ENGLISH_PAUSE = 0.5  # seconds of silence between Arabic and English
+SENTENCE_GAP = 1            # seconds of silence between sentence pairs
 SAMPLE_RATE = 44100
 CHANNELS = 1                # mono — keeps file sizes small
 MP3_QUALITY = 2             # lame VBR quality (2 ≈ 190kbps, excellent)
@@ -180,26 +180,36 @@ def concat_files(file_list: list, output_path: str, tmpdir: str) -> None:
 
 # ── Arabic Audio Processing ───────────────────────────────────────────────
 
-def download_ayah(surah: int, ayah: int, cache_dir: str) -> str:
-    """Download an ayah MP3 (using cache). Returns the file path."""
+def download_ayah(surah: int, ayah: int, cache_dir: str,
+                   reciter: str = None) -> str:
+    """Download an ayah MP3 (using cache). Returns the file path.
+
+    Cache key includes reciter name to avoid collisions when the same
+    ayah is downloaded from different reciters.
+    """
+    # Organise cache by reciter so different reciters don't overwrite each other
+    effective_reciter = reciter or "Husary_128kbps"
+    reciter_cache = os.path.join(cache_dir, effective_reciter)
+    os.makedirs(reciter_cache, exist_ok=True)
+
     filename = f"{surah:03d}{ayah:03d}.mp3"
-    cache_path = os.path.join(cache_dir, filename)
+    cache_path = os.path.join(reciter_cache, filename)
     if not os.path.exists(cache_path):
-        download_file(everyayah_url(surah, ayah), cache_path)
+        download_file(everyayah_url(surah, ayah, reciter=effective_reciter), cache_path)
     else:
-        print(f"    ✓ Cached: {filename}")
+        print(f"    ✓ Cached: {effective_reciter}/{filename}")
     return cache_path
 
 
 def process_single_source(source: dict, tmpdir: str, cache_dir: str,
-                          idx: int) -> str:
+                          idx: int, reciter: str = None) -> str:
     """Process one Arabic audio source entry → normalized MP3 clip."""
     surah = source["surah"]
     ayah = source["ayah"]
     start = source.get("start")
     end = source.get("end")
 
-    raw_path = download_ayah(surah, ayah, cache_dir)
+    raw_path = download_ayah(surah, ayah, cache_dir, reciter=reciter)
     output_path = os.path.join(tmpdir, f"arabic_{idx}.mp3")
 
     if start is not None or end is not None:
@@ -214,6 +224,7 @@ def process_arabic_audio(sentence: dict, tmpdir: str, cache_dir: str,
                          sentence_idx: int) -> str:
     """Process the arabic_source field (single or list) → one normalized MP3."""
     source = sentence["arabic_source"]
+    reciter = sentence.get("reciter")  # per-sentence reciter from YAML
 
     # Handle Arabic TTS for hadith / non-Quranic content
     if isinstance(source, dict) and source.get("use_arabic_tts"):
@@ -225,14 +236,16 @@ def process_arabic_audio(sentence: dict, tmpdir: str, cache_dir: str,
 
     # Single source
     if isinstance(source, dict):
-        return process_single_source(source, tmpdir, cache_dir, sentence_idx)
+        return process_single_source(source, tmpdir, cache_dir, sentence_idx,
+                                     reciter=reciter)
 
     # Multiple sources (e.g., multi-ayah like 114:1-3) — concat them
     if isinstance(source, list):
         parts = []
         for i, src in enumerate(source):
             sub_idx = sentence_idx * 100 + i  # unique index
-            part = process_single_source(src, tmpdir, cache_dir, sub_idx)
+            part = process_single_source(src, tmpdir, cache_dir, sub_idx,
+                                         reciter=reciter)
             parts.append(part)
 
         combined = os.path.join(tmpdir, f"arabic_multi_{sentence_idx}.mp3")
