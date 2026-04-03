@@ -24,13 +24,14 @@
     var h3s = Array.from(body.querySelectorAll('h3'));
 
     h3s.forEach(function (h3) {
-      // Parse heading: "N · form-name"
+      // Parse heading: "N · form-name" or "⭐ · anchor-name"
       var text = h3.textContent.trim();
-      var match = text.match(/^(\d+)\s*·\s*(.+)$/);
-      if (!match) return; // skip non-verse h3s (e.g. hadith heading)
+      var match = text.match(/^([\d⭐]+)\s*·\s*(.+)$/);
+      if (!match) return; // skip non-verse h3s
 
       var num = match[1];
       var form = match[2].trim();
+      var isAnchor = num.indexOf('⭐') >= 0;
 
       // Collect sibling elements until next section boundary
       var siblings = [];
@@ -67,7 +68,7 @@
       // ── Build card ──────────────────────────────────────────────
 
       var card = document.createElement('div');
-      card.className = 'verse-card';
+      card.className = isAnchor ? 'verse-card anchor-card' : 'verse-card';
 
       // Header row: label (left) + ref with audio (right)
       var headerRow = document.createElement('div');
@@ -92,7 +93,6 @@
       }
 
       headerRow.appendChild(label);
-      headerRow.appendChild(ref);
       card.appendChild(headerRow);
 
       // Arabic text
@@ -117,6 +117,12 @@
         hookDiv.className = 'verse-hook';
         hookDiv.innerHTML = hookP.innerHTML;
         card.appendChild(hookDiv);
+      }
+
+      // Reference + audio at the bottom
+      if (refP) {
+        ref.className = 'verse-ref-bottom';
+        card.appendChild(ref);
       }
 
       // ── Swap into DOM ───────────────────────────────────────────

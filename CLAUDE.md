@@ -81,6 +81,12 @@ description: One-sentence description for SEO/social sharing.
 - **Learn phrases should be as short as possible** — they must be memorizable, even by weaker students
 - **Practice phrases can be longer** — the student has already met the words
 - **Story context principle**: include enough text so the phrase has a story hook (who said what to whom), but trim anything beyond that. Example: "And when Ibrahim said to his father Azar: Do you take idols as gods?" keeps the story, while "I see you and your people in clear error" is extra detail to cut.
+- **Hook text principle**: the note/hook beneath each phrase should explain **what we are teaching** (the language aspect, the root, the form) — NOT the meaning of the verse. The student can read the meaning in the translation. The hook should help them notice the word or pattern.
+- **Practice order**: shortest phrases first, longest last — progressive difficulty
+- **Headings**: always a single word form, never multi-word phrases (e.g., `### 6 · إِلَٰه (god)` not `### 6 · إِلَٰهٌ وَاحِدٌ (one God)`)
+- **Surah references**: in brackets at the end — `(Al-Baqarah 2:34)` — not before the Arabic text
+- **Review audio uses full ayahs**: learning cards on the page use trimmed fragments for precision, but the review audio (Review in Order / Review Shuffled) plays the full ayah — this trains recognition in context, mimicking real ṣalāh experience
+- **Root letters**: show both Arabic and English — `**أ ل ه** (alif lām hā)` — for students who can't read Arabic well on mobile
 - See `docs/LESSON-PLAN.md` → "Story Context Principle" for the full rule
 
 ### Audio — two sources

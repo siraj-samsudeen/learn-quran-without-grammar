@@ -106,6 +106,16 @@ The teacher picks the best sentence for learning. Criteria:
 
 **This also affects audio fragments:** if the story context requires the full ayah, play the full ayah. Don't cut the audio to match a short fragment — let the audio match the story.
 
+#### Review Audio Uses Full Ayahs (added 2025-06-04)
+
+The learning cards on the page use **trimmed fragments** — short, precise clips that isolate the word being taught. But the review audio (Review in Order / Review Shuffled) should play the **full ayah** for each phrase.
+
+Why: by the time the student reaches review, they've already met the word in isolation. Now they need to practise **spotting it inside a longer recitation** — which is exactly what happens in ṣalāh. Hearing the full ayah trains recognition in context.
+
+In the YAML, each sentence can have two audio definitions:
+- `arabic_source` — the trimmed fragment used for the learning card (inline on the page)
+- `arabic_source_full` — the full ayah used for the review audio build (sequential MP3 + shuffle player)
+
 ### Selection log conventions
 
 Every pick is recorded in `docs/selections/lesson-NN.md` with a Reason column. Two types of reasons appear:

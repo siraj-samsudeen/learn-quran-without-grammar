@@ -5,6 +5,11 @@
 # Structure: 2 anchor phrases + 5 learning phrases + 5 practice phrases = 12 total
 # Each Quranic phrase uses a DIFFERENT reciter (see ADR-005).
 # See docs/selections/lesson-01.md for selection rationale.
+#
+# Audio sources:
+#   arabic_source — trimmed fragment for learning cards (inline on the page)
+#   arabic_source_full — full ayah for review audio (Review in Order / Review Shuffled)
+#   If arabic_source_full is omitted, the build script uses arabic_source for both.
 
 lesson_id: lesson-01
 title: "Lesson 1: Allāhu Akbar"
@@ -25,8 +30,11 @@ sentences:
     arabic_source:
       surah: 59
       ayah: 22
-      # First clause only — hard-cut (no natural pause at this point)
-      end: 7.0
+      # First clause only — hard-cut at 5.5s
+      end: 5.5
+    arabic_source_full:
+      surah: 59
+      ayah: 22
     arabic_text: "هُوَ اللَّهُ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ"
     english: "He is Allah — there is no god but He"
 
@@ -41,6 +49,9 @@ sentences:
       ayah: 74
       # Full intro + question, cut before إِنِّي أَرَاكَ...
       end: 12.0
+    arabic_source_full:
+      surah: 6
+      ayah: 74
     arabic_text: "وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ أَتَتَّخِذُ أَصْنَامًا آلِهَةً"
     english: "And when Ibrahim said to his father Azar: Do you take idols as gods?"
 
@@ -55,6 +66,9 @@ sentences:
       ayah: 26
       # First 4 words only — hard-cut
       end: 5.0
+    arabic_source_full:
+      surah: 3
+      ayah: 26
     arabic_text: "قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ"
     english: "Say: O Allah, Owner of all sovereignty"
 
@@ -149,6 +163,9 @@ sentences:
       # Last clause — clean pause before it at 24.2s
       start: 24.2
       end: 29.0
+    arabic_source_full:
+      surah: 29
+      ayah: 45
     arabic_text: "وَلَذِكْرُ اللَّهِ أَكْبَرُ"
     english: "And the remembrance of Allah is greater"
 
@@ -163,6 +180,9 @@ sentences:
       ayah: 5
       # Second clause — clean pause at 7.5s
       start: 7.5
+    arabic_source_full:
+      surah: 18
+      ayah: 5
     arabic_text: "كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ ۚ إِن يَقُولُونَ إِلَّا كَذِبًا"
     english: "How great a word that comes from their mouths — they speak nothing but a lie"
 

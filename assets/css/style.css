@@ -124,7 +124,15 @@ body {
 }
 
 /* ── Bold/emphasis ── */
-.lesson-body strong { font-weight: 700; }
+/* Arabic text appears in bold (**word**) throughout lessons.
+   Amiri font + larger size ensures Arabic renders at card-quality
+   even when inline with English text. */
+.lesson-body strong {
+  font-weight: 700;
+  font-size: 1.2em;
+  font-family: var(--font-arabic), var(--font-ui);
+  line-height: 2;
+}
 .lesson-body em { font-style: italic; }
 
 /* ── Links ── */
@@ -182,7 +190,7 @@ body {
   border-bottom: 1px solid var(--border);
   /* Amiri covers both Arabic Unicode and Latin — applies to all cells */
   font-family: var(--font-arabic);
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 2;        /* generous for Arabic diacritics */
 }
 .lesson-body tr:last-child td { border-bottom: none; }
@@ -299,6 +307,33 @@ body {
   line-height: 1.5;
   border-left: 3px solid var(--border);
   padding-left: 0.75rem;
+}
+.verse-card .verse-ref-bottom {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.verse-card .verse-ref-bottom audio {
+  display: inline-block;
+  width: 220px;
+  height: 28px;
+  margin: 0;
+  background: transparent;
+  vertical-align: middle;
+  border-radius: 4px;
+  max-width: none;
+}
+
+/* ── Anchor card variant ── */
+.anchor-card {
+  border-left: 4px solid var(--gold);
+  background: linear-gradient(to right, #fdf8e8, var(--white) 30%);
+}
+.anchor-card .verse-num {
+  color: var(--gold);
 }
 
 /* Download link */
