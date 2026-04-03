@@ -19,9 +19,9 @@ Go through the lesson at a relaxed pace. For each phrase:
 1. **Read** the Arabic phrase — just look at it, and try to read it out loud. 
 2. **Listen** to the audio — can you hear the root word inside the recitation?
 3. **Look** at the highlighted word — see it in isolation and in the full verse
-4. **Say it yourself** — repeat the Arabic word 3–5 times out loud. This matters more than you think. Your mouth needs to learn it, not just your eyes.
-5. **Read the hook** — the short note beneath each phrase. It connects the word to a story or idea that will help you remember.
-6. **Move on** — don't get stuck trying to memorise. Come back tomorrow.
+4. **Say it yourself** — repeat the Arabic word 3–5 times out loud exactly like the Qari(reciter), stopping where he stops and mimicking his as much as possible - this is wonderful for long-term memory and retention. This matters more than you think. Your mouth needs to learn it, not just your eyes.
+5. **Read the hook** — the short note beneath each phrase. It connects the word to a story or idea that will help you remember. See you whether find any personal association/hooks for this word or this ayah. 
+6. **Move on** — don't get stuck trying to memorise. Don't try to learn the meaning of individual words - just take the whole sentence as a whole and move on. Your brain is very good at memorising large chunks, instead of small words.
 
 ---
 
@@ -53,12 +53,10 @@ When you *can* pay attention — even for 30 seconds — try to catch the root w
 
 ## Suggested Schedule
 
-| Day | What to do | Time |
-|-----|-----------|------|
-| **Day 1** | Go through the full lesson + download the audio | 15 min |
-| **Day 2–3** | Listen to the audio 2–3× (passive) + one quick review of the lesson | 5 min active |
-| **Day 4–6** | Audio on repeat in the background + try the Quiz with translations hidden | 5 min active |
-| **Day 7** | Test yourself: how many words can you recall? Then start the next lesson | 10 min |
+- **Day 1** — Go through the full lesson + download the audio *(15 min)*
+- **Day 2–3** — Listen to the audio 2–3× (passive) + one quick review of the lesson *(5 min active)*
+- **Day 4–6** — Audio on repeat in the background + try the Quiz with translations hidden *(5 min active)*
+- **Day 7** — Test yourself: how many words can you recall? Then start the next lesson *(10 min)*
 
 The ideal time is **at the start of your day**, when your energy is high. But any consistent time works — the key is showing up daily, even for 5 minutes.
 

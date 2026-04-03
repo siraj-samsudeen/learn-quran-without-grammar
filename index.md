@@ -59,6 +59,8 @@ And gradually, something deeper begins to happen — what you hear in Ṣalāh n
 
 [Read the full course introduction →]({{ '/course_intro' | relative_url }})
 
+[📖 How to study a lesson →]({{ '/how-to-study' | relative_url }})
+
 ---
 
 ## Lessons

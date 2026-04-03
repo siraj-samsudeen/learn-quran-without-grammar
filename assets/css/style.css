@@ -561,6 +561,210 @@ body {
   margin-top: 0.25rem;
 }
 
+/* ── Lesson Map ── */
+.lesson-map {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem 0.15rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0 1.25rem;
+  font-size: 0.88rem;
+}
+.lesson-map a {
+  color: var(--green);
+  text-decoration: none;
+  font-weight: 500;
+  font-family: var(--font-arabic), var(--font-ui);
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  transition: background 0.15s;
+}
+.lesson-map a:hover {
+  background: var(--green-light);
+  text-decoration: underline;
+}
+.lesson-map .map-arrow {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+.lesson-map .map-detail {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* ── Study Tip (collapsible) ── */
+.study-tip {
+  background: var(--green-light);
+  border: 1px solid #c5e0ce;
+  border-radius: 8px;
+  padding: 0.75rem 1.25rem;
+  margin: 0.5rem 0 1.5rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.study-tip summary {
+  font-weight: 600;
+  color: var(--green);
+  cursor: pointer;
+  font-size: 0.92rem;
+}
+.study-tip summary:hover { text-decoration: underline; }
+.study-tip p { margin-top: 0.5rem; }
+.study-tip a { color: var(--green); }
+
+/* ── Back to Top ── */
+.back-to-top {
+  text-align: right;
+  margin-top: 1.5rem;
+  font-size: 0.82rem;
+}
+.back-to-top a {
+  color: var(--muted);
+  text-decoration: none;
+}
+.back-to-top a:hover {
+  color: var(--green);
+  text-decoration: underline;
+}
+
+/* ── Quiz Section ── */
+.quiz-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+.quiz-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+}
+.quiz-arabic {
+  font-family: var(--font-arabic);
+  font-size: 1.4rem;
+  line-height: 2.2;
+  direction: rtl;
+  text-align: right;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+.quiz-arabic b,
+.quiz-arabic strong {
+  color: var(--green);
+}
+.quiz-reveal {
+  font-size: 0.9rem;
+}
+.quiz-reveal summary {
+  cursor: pointer;
+  color: var(--green);
+  font-weight: 500;
+  padding: 0.3rem 0;
+}
+.quiz-reveal summary:hover { text-decoration: underline; }
+.quiz-reveal summary b,
+.quiz-reveal summary strong {
+  font-family: var(--font-arabic);
+  font-size: 1.1rem;
+  color: var(--green);
+}
+.quiz-answer {
+  display: inline-block;
+  margin-top: 0.35rem;
+  font-weight: 600;
+  color: var(--green-dark);
+  background: var(--green-light);
+  padding: 0.2rem 0.75rem;
+  border-radius: 4px;
+}
+
+/* ── Translation Toggle Bar ── */
+.translation-bar {
+  position: sticky;
+  top: 52px;              /* just below site header */
+  z-index: 99;
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 880px;
+  margin: 0 auto 1rem;
+}
+.translation-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--green);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  font-family: var(--font-ui);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.translation-toggle:hover {
+  background: var(--green-light);
+  border-color: var(--green);
+}
+.translation-toggle.active {
+  background: var(--green);
+  color: var(--white);
+  border-color: var(--green);
+}
+.translation-bar-hint {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* Hidden translations */
+.translations-hidden .verse-english,
+.translations-hidden .pair-table td:nth-child(2),
+.translations-hidden .quiz-answer {
+  visibility: hidden;
+  position: relative;
+}
+.translations-hidden .verse-english::after,
+.translations-hidden .pair-table td:nth-child(2)::after {
+  content: 'tap to reveal';
+  visibility: visible;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-style: italic;
+  cursor: pointer;
+  text-align: right;
+}
+.translations-hidden .verse-english.revealed,
+.translations-hidden .pair-table td.revealed {
+  visibility: visible;
+}
+.translations-hidden .verse-english.revealed::after,
+.translations-hidden .pair-table td.revealed::after {
+  display: none;
+}
+
+/* Scroll margin for anchor links (avoid sticky header) */
+h2[id], h3[id], .lesson-map, #lesson-map {
+  scroll-margin-top: 80px;
+}
+
 /* ── Responsive ── */
 @media (max-width: 640px) {
   .main-content   { padding: 1.5rem 1rem 3rem; }
@@ -575,4 +779,6 @@ body {
   .verse-card .header-row { flex-wrap: wrap; }
   .verse-card audio { width: 180px; height: 26px; }
   .verse-card .verse-arabic { font-size: 1.3rem; }
+  .translation-bar { padding: 0.4rem 1rem; top: 46px; }
+  .translation-bar-hint { font-size: 0.75rem; }
 }

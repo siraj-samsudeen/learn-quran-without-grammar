@@ -20,19 +20,20 @@ In this series of lessons, we will walk through each of the sentences in the Adh
   <span class="map-arrow">→</span>
   <a href="#practice">Practice</a>
   <span class="map-arrow">→</span>
-  <a href="#quiz">Quiz</a>
-  <span class="map-arrow">→</span>
   <a href="#review-in-order">Review</a>
   <span class="map-arrow">→</span>
   <a href="#summary">Summary</a>
+  <span class="map-arrow">→</span>
+  <a href="#quiz">Quiz</a>
 </div>
 
-<details class="study-tip">
+<div markdown="0">
+<details>
 <summary>📖 First time? How to study this lesson</summary>
 
-For each phrase: **read** the Arabic → **listen** to the audio → **say the word** 3–5 times yourself → **move on**. In the Practice section, try to predict meanings before reading the English. Download the audio and play it on repeat through your day — passive listening is the secret weapon. [Read the full study guide →]({{ '/how-to-study' | relative_url }})
-
+<p>For each phrase: <strong>read</strong> the Arabic → <strong>listen</strong> to the audio → <strong>say the word</strong> 3–5 times yourself → <strong>move on</strong>. In the Practice section, try to predict meanings before reading the English. Download the audio and play it on repeat through your day — passive listening is the secret weapon. <a href="{{ '/how-to-study' | relative_url }}">Read the full study guide →</a></p>
 </details>
+</div>
 
 ## Anchor
 {: #anchor}
