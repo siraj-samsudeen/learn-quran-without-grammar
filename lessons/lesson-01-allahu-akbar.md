@@ -26,7 +26,7 @@ You say this every single day. Before Fajr, before Ẓuhr, before every ṣalāh
 
 **إِلَٰه** means *a god* — one god. When the Qur'an talks about the idols people carved and worshipped, it uses **آلِهَة** — *gods*, many of them. And when you call upon Allah directly in your duʿā, you say **اللَّهُمَّ** — *O Allah* — the most intimate way to address your Creator.
 
-| Arabic | Transliteration | English |
+| Arabic | English | Meaning |
 |:---:|:---:|:---:|
 | إِلَٰه | *ilāh* | god |
 | آلِهَة | *āliha* | gods |
@@ -77,7 +77,7 @@ The root **ك ب ر** carries one core meaning: *something is great, large, or g
 
 Every time you say اللهُ أَكْبَرُ, you are reaching into this root and pulling out its highest meaning: Allah is greater. Greater than your fear. Greater than your distraction. Greater than anything standing in front of you.
 
-| Arabic | Transliteration | English |
+| Arabic | English | Meaning |
 |:---:|:---:|:---:|
 | كَبُرَ | *kabura* | was great |
 | اسْتَكْبَرَ | *istakbara* | was arrogant |
@@ -138,26 +138,71 @@ The origin story of arrogance. When the angels were commanded to bow, every sing
 
 ## Practice
 
+---
+
+### 6 · إِلَٰهٌ وَاحِدٌ (one God)
+
+وَ**إِلَٰهُكُمْ** **إِلَٰهٌ** وَاحِدٌ ۖ لَا **إِلَٰهَ** إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ
+
+Al-Baqarah 2:163 · <audio controls preload="none" src="https://everyayah.com/data/Yasser_Ad-Dussary_128kbps/002163.mp3"></audio>
+
+"And your **God** is one **God** — there is no **god** but He, the Most Merciful, the Most Compassionate"
+
+---
+
+### 7 · كَبِير (great, big)
+
+قَالَ بَلْ فَعَلَهُ **كَبِيرُهُمْ** هَٰذَا فَاسْأَلُوهُمْ إِن كَانُوا يَنطِقُونَ
+
+Al-Anbiyā' 21:63 · <audio controls preload="none" src="https://everyayah.com/data/MaherAlMuaiqly128kbps/021063.mp3"></audio>
+
+"He said: Rather, their **chief** did it — ask them, if they can speak"
+
+---
+
+### 8 · أَكْبَرُ (greater)
+
+وَلَذِكْرُ اللَّهِ **أَكْبَرُ**
+
+Al-'Ankabūt 29:45 · <audio controls preload="none" src="https://everyayah.com/data/Abdul_Basit_Murattal_192kbps/029045.mp3#t=24.2,29"></audio>
+
+"And the remembrance of Allah is **greater**"
+
+---
+
+### 9 · كَبُرَتْ (how great)
+
+**كَبُرَتْ** كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ ۚ إِن يَقُولُونَ إِلَّا كَذِبًا
+
+Al-Kahf 18:5 · <audio controls preload="none" src="https://everyayah.com/data/Ghamadi_40kbps/018005.mp3#t=7.5"></audio>
+
+"How **great** a word that comes from their mouths — they speak nothing but a lie"
+
+---
+
+### 10 · اسْتَكْبَرُوا (were arrogant)
+
+فَأَمَّا عَادٌ فَ**اسْتَكْبَرُوا** فِي الْأَرْضِ بِغَيْرِ الْحَقِّ وَقَالُوا مَنْ أَشَدُّ مِنَّا قُوَّةً ۖ أَوَلَمْ يَرَوْا أَنَّ اللَّهَ الَّذِي خَلَقَهُمْ هُوَ أَشَدُّ مِنْهُمْ قُوَّةً
+
+Fuṣṣilat 41:15 · <audio controls preload="none" src="https://everyayah.com/data/Abdurrahmaan_As-Sudais_192kbps/041015.mp3"></audio>
+
+"As for ʿĀd, they were **arrogant** on earth without right and said: Who is mightier than us in strength? Did they not see that Allah who created them is mightier than them in strength?"
+
+---
+
 <div id="shuffle-player"></div>
 
 ---
 
 ## Summary
 
-Everything you met in this lesson — words and phrases — in one view.
+#### Words
 
-#### Words from root أ ل ه
-
-| Arabic | Transliteration | English |
+| Arabic | English | Meaning |
 |:---:|:---:|:---:|
 | إِلَٰه | *ilāh* | god |
 | آلِهَة | *āliha* | gods |
 | اللَّهُمَّ | *Allāhumma* | O Allah |
-
-#### Words from root ك ب ر
-
-| Arabic | Transliteration | English |
-|:---:|:---:|:---:|
 | كَبُرَ | *kabura* | was great |
 | اسْتَكْبَرَ | *istakbara* | was arrogant |
 | كَبِير | *kabīr* | great, big |
@@ -166,20 +211,20 @@ Everything you met in this lesson — words and phrases — in one view.
 
 #### Phrases
 
-| Arabic | English | Ref |
-|---:|---|:---:|
-| هُوَ اللَّهُ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ | He is Allah — there is no god but He | 59:22 |
-| هُوَ كَبِيرٌ. أَنَا أَكْبَرُ مِنْهُ. وَاللَّهُ أَكْبَرُ مِنَّا، بَلْ، مِنْ كُلِّ شَيْءٍ | He is great. I am greater than him. And Allah is greater than us — rather, than everything. | — |
-| وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ أَتَتَّخِذُ أَصْنَامًا آلِهَةً | And when Ibrahim said to his father: Do you take idols as gods? | 6:74 |
-| قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ | Say: O Allah, Owner of all sovereignty | 3:26 |
-| فَأَرَاهُ الْآيَةَ الْكُبْرَىٰ | He showed him the greatest sign | 79:20 |
-| كَبُرَ مَقْتًا عِندَ اللَّهِ أَن تَقُولُوا مَا لَا تَفْعَلُونَ | Greatly hateful in the sight of Allah — that you say what you do not do | 61:3 |
-| وَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ فَسَجَدُوا إِلَّا إِبْلِيسَ أَبَىٰ وَاسْتَكْبَرَ وَكَانَ مِنَ الْكَافِرِينَ | When We said to the angels: Prostrate — they all did, except Iblis. He refused and was arrogant. | 2:34 |
-| وَإِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ لَا إِلَٰهَ إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ | Your God is one God — there is no god but He, the Most Merciful | 2:163 |
-| قَالَ بَلْ فَعَلَهُ كَبِيرُهُمْ هَٰذَا فَاسْأَلُوهُمْ إِن كَانُوا يَنطِقُونَ | He said: Rather, their chief did it — ask them, if they can speak | 21:63 |
-| وَلَذِكْرُ اللَّهِ أَكْبَرُ | And the remembrance of Allah is greater | 29:45 |
-| كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ | How great a word that comes from their mouths | 18:5 |
-| فَأَمَّا عَادٌ فَاسْتَكْبَرُوا فِي الْأَرْضِ بِغَيْرِ الْحَقِّ وَقَالُوا مَنْ أَشَدُّ مِنَّا قُوَّةً | As for ʿĀd, they were arrogant on earth and said: Who is mightier than us? | 41:15 |
+| Arabic | English |
+|---:|---|
+| هُوَ اللَّهُ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ · Al-Ḥashr 59:22 | He is Allah — there is no god but He |
+| هُوَ كَبِيرٌ. أَنَا أَكْبَرُ مِنْهُ. وَاللَّهُ أَكْبَرُ مِنَّا، بَلْ، مِنْ كُلِّ شَيْءٍ | He is great. I am greater than him. And Allah is greater than us — rather, than everything. |
+| وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ أَتَتَّخِذُ أَصْنَامًا آلِهَةً · Al-An'ām 6:74 | And when Ibrahim said to his father: Do you take idols as gods? |
+| قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ · Āl 'Imrān 3:26 | Say: O Allah, Owner of all sovereignty |
+| فَأَرَاهُ الْآيَةَ الْكُبْرَىٰ · An-Nāzi'āt 79:20 | He showed him the greatest sign |
+| كَبُرَ مَقْتًا عِندَ اللَّهِ أَن تَقُولُوا مَا لَا تَفْعَلُونَ · Aṣ-Ṣaff 61:3 | Greatly hateful in the sight of Allah — that you say what you do not do |
+| وَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ فَسَجَدُوا إِلَّا إِبْلِيسَ أَبَىٰ وَاسْتَكْبَرَ وَكَانَ مِنَ الْكَافِرِينَ · Al-Baqarah 2:34 | When We said to the angels: Prostrate — they all did, except Iblis. He refused and was arrogant. |
+| وَإِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ لَا إِلَٰهَ إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ · Al-Baqarah 2:163 | Your God is one God — there is no god but He, the Most Merciful |
+| قَالَ بَلْ فَعَلَهُ كَبِيرُهُمْ هَٰذَا فَاسْأَلُوهُمْ إِن كَانُوا يَنطِقُونَ · Al-Anbiyā' 21:63 | He said: Rather, their chief did it — ask them, if they can speak |
+| وَلَذِكْرُ اللَّهِ أَكْبَرُ · Al-'Ankabūt 29:45 | And the remembrance of Allah is greater |
+| كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ · Al-Kahf 18:5 | How great a word that comes from their mouths |
+| فَأَمَّا عَادٌ فَاسْتَكْبَرُوا فِي الْأَرْضِ بِغَيْرِ الْحَقِّ وَقَالُوا مَنْ أَشَدُّ مِنَّا قُوَّةً · Fuṣṣilat 41:15 | As for ʿĀd, they were arrogant on earth and said: Who is mightier than us? |
 
 ---
 
