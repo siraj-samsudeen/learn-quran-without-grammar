@@ -561,6 +561,41 @@ body {
   margin-top: 0.25rem;
 }
 
+/* ── Phrases Summary List (stacked) ── */
+.phrases-list {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+.phrase-row {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.phrase-row:last-child {
+  border-bottom: none;
+}
+.phrase-arabic {
+  font-family: var(--font-arabic);
+  font-size: 1.3rem;
+  line-height: 2.2;
+  direction: rtl;
+  text-align: right;
+  color: var(--text);
+}
+.phrase-english {
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-top: 0.15rem;
+}
+.phrase-ref {
+  font-style: normal;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
 /* ── Lesson Map ── */
 .lesson-map {
   display: flex;
@@ -663,17 +698,12 @@ body {
 }
 .quiz-reveal summary {
   cursor: pointer;
-  color: var(--green);
-  font-weight: 500;
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 0.85rem;
   padding: 0.3rem 0;
 }
-.quiz-reveal summary:hover { text-decoration: underline; }
-.quiz-reveal summary b,
-.quiz-reveal summary strong {
-  font-family: var(--font-arabic);
-  font-size: 1.1rem;
-  color: var(--green);
-}
+.quiz-reveal summary:hover { color: var(--green); }
 .quiz-answer {
   display: inline-block;
   margin-top: 0.35rem;

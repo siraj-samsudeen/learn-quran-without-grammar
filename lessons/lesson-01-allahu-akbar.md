@@ -256,10 +256,10 @@ Three times in one ayah — **إِلَٰه** appears three times. This single ve
 
 An entire civilisation that said: "Who is mightier than us?" The Qur'an's answer is devastating. Notice **اسْتَكْبَرُوا** — the same word as Iblīs, but now it's a whole nation.
 
+---
+
 [↑ Back to top](#lesson-map)
 {: .back-to-top}
-
----
 
 ## Review in Order
 {: #review-in-order}
@@ -299,20 +299,56 @@ An entire civilisation that said: "Who is mightier than us?" The Qur'an's answer
 
 #### Phrases
 
-| Arabic | English |
-| --- | --- |
-| هُوَ اللَّهُ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ · (59:22) | He is Allah — there is no god but He |
-| وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ أَتَتَّخِذُ أَصْنَامًا آلِهَةً · (6:74) | And when Ibrahim said to his father: Do you take idols as gods? |
-| قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ · (3:26) | Say: O Allah, King of kings |
-| هُوَ كَبِيرٌ. أَنَا أَكْبَرُ مِنْهُ. وَاللَّهُ أَكْبَرُ مِنَّا، بَلْ، مِنْ كُلِّ شَيْءٍ | He is great. I am greater than him. And Allah is greater than us — rather, than everything. |
-| فَأَرَاهُ الْآيَةَ الْكُبْرَىٰ · (79:20) | He showed him the greatest sign |
-| كَبُرَ مَقْتًا عِندَ اللَّهِ أَن تَقُولُوا مَا لَا تَفْعَلُونَ · (61:3) | Greatly hateful in the sight of Allah — that you say what you do not do |
-| وَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ فَسَجَدُوا إِلَّا إِبْلِيسَ أَبَىٰ وَاسْتَكْبَرَ وَكَانَ مِنَ الْكَافِرِينَ · (2:34) | When We said to the angels: Prostrate — they all did, except Iblis. He refused and was arrogant. |
-| وَلَذِكْرُ اللَّهِ أَكْبَرُ · (29:45) | And the remembrance of Allah is greater |
-| كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ · (18:5) | How great a word that comes from their mouths |
-| قَالَ بَلْ فَعَلَهُ كَبِيرُهُمْ هَٰذَا فَاسْأَلُوهُمْ إِن كَانُوا يَنطِقُونَ · (21:63) | He said: Rather, their chief did it — ask them, if they can speak |
-| وَإِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ لَا إِلَٰهَ إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ · (2:163) | Your God is one God — there is no god but He, the Most Merciful |
-| فَأَمَّا عَادٌ فَاسْتَكْبَرُوا فِي الْأَرْضِ بِغَيْرِ الْحَقِّ وَقَالُوا مَنْ أَشَدُّ مِنَّا قُوَّةً · (41:15) | As for ʿĀd, they were arrogant on earth and said: Who is mightier than us? |
+<div class="phrases-list" markdown="0">
+  <div class="phrase-row">
+    <div class="phrase-arabic">هُوَ اللَّهُ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ</div>
+    <div class="phrase-english">He is Allah — there is no god but He <span class="phrase-ref">(59:22)</span></div>
+  </div>
+  <div class="phrase-row">
+    <div class="phrase-arabic">وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ أَتَتَّخِذُ أَصْنَامًا آلِهَةً</div>
+    <div class="phrase-english">And when Ibrahim said to his father: Do you take idols as gods? <span class="phrase-ref">(6:74)</span></div>
+  </div>
+  <div class="phrase-row">
+    <div class="phrase-arabic">قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ</div>
+    <div class="phrase-english">Say: O Allah, King of kings <span class="phrase-ref">(3:26)</span></div>
+  </div>
+  <div class="phrase-row">
+    <div class="phrase-arabic">هُوَ كَبِيرٌ. أَنَا أَكْبَرُ مِنْهُ. وَاللَّهُ أَكْبَرُ مِنَّا، بَلْ، مِنْ كُلِّ شَيْءٍ</div>
+    <div class="phrase-english">He is great. I am greater than him. And Allah is greater than us — rather, than everything.</div>
+  </div>
+  <div class="phrase-row">
+    <div class="phrase-arabic">فَأَرَاهُ الْآيَةَ الْكُبْرَىٰ</div>
+    <div class="phrase-english">He showed him the greatest sign <span class="phrase-ref">(79:20)</span></div>
+  </div>
+  <div class="phrase-row">
+    <div class="phrase-arabic">كَبُرَ مَقْتًا عِندَ اللَّهِ أَن تَقُولُوا مَا لَا تَفْعَلُونَ</div>
+    <div class="phrase-english">Greatly hateful in the sight of Allah — that you say what you do not do <span class="phrase-ref">(61:3)</span></div>
+  </div>
+  <div class="phrase-row">
+    <div class="phrase-arabic">وَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ فَسَجَدُوا إِلَّا إِبْلِيسَ أَبَىٰ وَاسْتَكْبَرَ وَكَانَ مِنَ الْكَافِرِينَ</div>
+    <div class="phrase-english">When We said to the angels: Prostrate — they all did, except Iblis. He refused and was arrogant. <span class="phrase-ref">(2:34)</span></div>
+  </div>
+  <div class="phrase-row">
+    <div class="phrase-arabic">وَلَذِكْرُ اللَّهِ أَكْبَرُ</div>
+    <div class="phrase-english">And the remembrance of Allah is greater <span class="phrase-ref">(29:45)</span></div>
+  </div>
+  <div class="phrase-row">
+    <div class="phrase-arabic">كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ</div>
+    <div class="phrase-english">How great a word that comes from their mouths <span class="phrase-ref">(18:5)</span></div>
+  </div>
+  <div class="phrase-row">
+    <div class="phrase-arabic">قَالَ بَلْ فَعَلَهُ كَبِيرُهُمْ هَٰذَا فَاسْأَلُوهُمْ إِن كَانُوا يَنطِقُونَ</div>
+    <div class="phrase-english">He said: Rather, their chief did it — ask them, if they can speak <span class="phrase-ref">(21:63)</span></div>
+  </div>
+  <div class="phrase-row">
+    <div class="phrase-arabic">وَإِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ لَا إِلَٰهَ إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ</div>
+    <div class="phrase-english">Your God is one God — there is no god but He, the Most Merciful <span class="phrase-ref">(2:163)</span></div>
+  </div>
+  <div class="phrase-row">
+    <div class="phrase-arabic">فَأَمَّا عَادٌ فَاسْتَكْبَرُوا فِي الْأَرْضِ بِغَيْرِ الْحَقِّ وَقَالُوا مَنْ أَشَدُّ مِنَّا قُوَّةً</div>
+    <div class="phrase-english">As for ʿĀd, they were arrogant on earth and said: Who is mightier than us? <span class="phrase-ref">(41:15)</span></div>
+  </div>
+</div>
 
 [↑ Back to top](#lesson-map)
 {: .back-to-top}
@@ -328,42 +364,42 @@ Look at the highlighted word in each ayah. Can you recall its meaning? Click to 
 
 <div class="quiz-item">
   <div class="quiz-arabic">هُوَ اللَّهُ الَّذِي لَا <b>إِلَٰهَ</b> إِلَّا هُوَ</div>
-  <details class="quiz-reveal"><summary>What does <b>إِلَٰهَ</b> mean?</summary><span class="quiz-answer">god</span></details>
+  <details class="quiz-reveal"><summary>إِلَٰهَ means…</summary><span class="quiz-answer">god</span></details>
 </div>
 
 <div class="quiz-item">
   <div class="quiz-arabic">أَتَتَّخِذُ أَصْنَامًا <b>آلِهَةً</b></div>
-  <details class="quiz-reveal"><summary>What does <b>آلِهَةً</b> mean?</summary><span class="quiz-answer">gods (plural)</span></details>
+  <details class="quiz-reveal"><summary>آلِهَةً means…</summary><span class="quiz-answer">gods (plural)</span></details>
 </div>
 
 <div class="quiz-item">
   <div class="quiz-arabic">قُلِ <b>اللَّهُمَّ</b> مَالِكَ الْمُلْكِ</div>
-  <details class="quiz-reveal"><summary>What does <b>اللَّهُمَّ</b> mean?</summary><span class="quiz-answer">O Allah</span></details>
+  <details class="quiz-reveal"><summary>اللَّهُمَّ means…</summary><span class="quiz-answer">O Allah</span></details>
 </div>
 
 <div class="quiz-item">
   <div class="quiz-arabic">فَأَرَاهُ الْآيَةَ <b>الْكُبْرَىٰ</b></div>
-  <details class="quiz-reveal"><summary>What does <b>الْكُبْرَىٰ</b> mean?</summary><span class="quiz-answer">the greatest</span></details>
+  <details class="quiz-reveal"><summary>الْكُبْرَىٰ means…</summary><span class="quiz-answer">the greatest</span></details>
 </div>
 
 <div class="quiz-item">
   <div class="quiz-arabic"><b>كَبُرَ</b> مَقْتًا عِندَ اللَّهِ أَن تَقُولُوا مَا لَا تَفْعَلُونَ</div>
-  <details class="quiz-reveal"><summary>What does <b>كَبُرَ</b> mean?</summary><span class="quiz-answer">was great / greatly</span></details>
+  <details class="quiz-reveal"><summary>كَبُرَ means…</summary><span class="quiz-answer">was great / greatly</span></details>
 </div>
 
 <div class="quiz-item">
   <div class="quiz-arabic">أَبَىٰ وَ<b>اسْتَكْبَرَ</b> وَكَانَ مِنَ الْكَافِرِينَ</div>
-  <details class="quiz-reveal"><summary>What does <b>اسْتَكْبَرَ</b> mean?</summary><span class="quiz-answer">was arrogant</span></details>
+  <details class="quiz-reveal"><summary>اسْتَكْبَرَ means…</summary><span class="quiz-answer">was arrogant</span></details>
 </div>
 
 <div class="quiz-item">
   <div class="quiz-arabic">وَلَذِكْرُ اللَّهِ <b>أَكْبَرُ</b></div>
-  <details class="quiz-reveal"><summary>What does <b>أَكْبَرُ</b> mean?</summary><span class="quiz-answer">greater / greatest</span></details>
+  <details class="quiz-reveal"><summary>أَكْبَرُ means…</summary><span class="quiz-answer">greater / greatest</span></details>
 </div>
 
 <div class="quiz-item">
   <div class="quiz-arabic">قَالَ بَلْ فَعَلَهُ <b>كَبِيرُهُمْ</b> هَٰذَا</div>
-  <details class="quiz-reveal"><summary>What does <b>كَبِيرُهُمْ</b> mean?</summary><span class="quiz-answer">their chief / their biggest</span></details>
+  <details class="quiz-reveal"><summary>كَبِيرُهُمْ means…</summary><span class="quiz-answer">their chief / their biggest</span></details>
 </div>
 
 </div>
