@@ -16,7 +16,7 @@ Think of it like the Assimil method: a short daily session, then let the audio d
 
 Go through the lesson at a relaxed pace. For each phrase:
 
-1. **Read** the Arabic phrase — just look at it, get familiar with the shape
+1. **Read** the Arabic phrase — just look at it, and try to read it out loud. 
 2. **Listen** to the audio — can you hear the root word inside the recitation?
 3. **Look** at the highlighted word — see it in isolation and in the full verse
 4. **Say it yourself** — repeat the Arabic word 3–5 times out loud. This matters more than you think. Your mouth needs to learn it, not just your eyes.
