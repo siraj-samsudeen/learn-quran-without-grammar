@@ -22,20 +22,29 @@ This is more intuitive for students and teachers than abstract three-letter comb
 
 ---
 
-## Lesson Structure: Learn 10 + Practice 10
+## Lesson Structure (v2 — revised 2025-06-04)
 
-Each lesson contains exactly **20 sentences**:
+Each lesson contains **2 anchor phrases + 5 learning phrases + 5 practice phrases = 12 total**.
 
-### Learn Section (10 sentences)
-- **5 sentences from Root 1** — one sentence per form
-- **5 sentences from Root 2** — one sentence per form
-- These introduce **new forms** the student hasn't seen before
+### Anchor Phrases (1 per root, separate from the 5 learning phrases)
+- Each root gets **one anchor phrase** — the key phrase the student must memorize
+- Anchor phrases should be **short** — even weaker students must be able to commit them to memory
+- Can be Qur'anic or teacher-made (teaching phrases, clearly labelled as non-Qur'anic)
 
-### Practice Section (10 sentences)
-- **Lesson 1:** all 10 come from the current lesson's roots (since there's no past material)
-- **Lesson 2+:** a mix of:
-  - Sentences from the **current lesson's roots** (new forms or additional examples of forms just introduced in the Learn section)
-  - Sentences from **previous lessons' roots** — revisiting forms already introduced, with new verse examples to deepen familiarity
+### Learn Section (5 phrases total, split across roots)
+- Each learning phrase introduces a **form from the root table** that is NOT already covered by the anchor phrases
+- Learning phrases should be **as short as possible** while retaining story context (see Story Context Principle below)
+- The split between roots depends on how many uncovered forms each root has (e.g., 2 + 3, or 3 + 2)
+
+### Practice Section (5 phrases, mixed order)
+- **No notes or explanations** — audio flashcard style only (shuffle player)
+- Words from **both roots mixed** in random order
+- Practice phrases **can be longer** than learning phrases
+- **Lesson 2+:** mix in phrases from previous lessons' roots for spaced review
+
+### Summary Table
+- One combined table at the bottom: all words + all phrases
+- "Tell them what you told them" — the bird's-eye review
 
 ---
 
@@ -84,6 +93,18 @@ The teacher picks the best sentence for learning. Criteria:
 - The fragment must be **long enough to make sense on its own** — a student should be able to memorize it with its meaning
 - If the target word appears mid-sentence and the fragment doesn't stand alone, **include more context** (e.g., include the preceding clause)
 - Prefer sentences that are **emotionally resonant**, **well-known**, or **connected to daily practice**
+
+#### The "Story Context" Principle (added 2025-06-04)
+
+**Always include enough text to form a story the student can hook into.** A fragment like أَتَتَّخِذُ أَصْنَامًا آلِهَةً ("Do you take idols as gods?") is abstract on its own. But when you include وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ ("And when Ibrahim said to his father Azar"), it becomes a *story* — Ibrahim confronting his father — and stories are far easier to memorize than abstract phrases.
+
+**When deciding how much text to include:**
+- Err on the side of more context, not less
+- Include the subject/speaker ("Ibrahim said...", "Pharaoh said...", "They said to Musa...")
+- The story anchors the phrase in the student's memory — without it, memorization is much harder
+- This may mean showing the full ayah even when only one word is being taught
+
+**This also affects audio fragments:** if the story context requires the full ayah, play the full ayah. Don't cut the audio to match a short fragment — let the audio match the story.
 
 ### Selection log conventions
 

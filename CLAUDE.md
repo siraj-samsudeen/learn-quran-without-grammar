@@ -69,13 +69,28 @@ description: One-sentence description for SEO/social sharing.
 ---
 ```
 
+### Lesson content — use Markdown, not HTML
+- **Tables**: always use standard markdown pipe syntax (`| Arabic | English |`), never HTML `<table>` tags
+- Use Kramdown IAL to add CSS classes: `{: .root-table}` after the table
+- **Verse sections**: use the `### N · form-name (english)` heading pattern — `lesson-cards.js` transforms these into styled verse cards
+- Anchor phrase headings use `### ⭐ Anchor · description` (no number, so JS skips them)
+- Keep everything in Markdown — HTML is only for `<audio>` tags, `<p class="audio-label">` labels, and `<div>` blocks explicitly needed (with `markdown="0"`)
+
+### Learning section — keep phrases short
+- **Learn phrases should be as short as possible** — they must be memorizable, even by weaker students
+- **Practice phrases can be longer** — the student has already met the words
+- **Story context principle**: include enough text so the phrase has a story hook (who said what to whom), but trim anything beyond that. Example: "And when Ibrahim said to his father Azar: Do you take idols as gods?" keeps the story, while "I see you and your people in clear error" is extra detail to cut.
+- See `docs/LESSON-PLAN.md` → "Story Context Principle" for the full rule
+
 ### Audio — two sources
-1. **EveryAyah CDN** for Qur'anic verses:
+1. **EveryAyah CDN** for Qur'anic verses — **use different reciters** (see `docs/decisions/ADR-005-reciters.md`):
    ```html
-   <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/SSSAAA.mp3#t=START,END"></audio>
+   <audio controls preload="none" src="https://everyayah.com/data/{RECITER_FOLDER}/SSSAAA.mp3#t=START,END"></audio>
    ```
    Format: `SSSAAA.mp3` where SSS = surah (3 digits), AAA = ayah (3 digits).
    Time fragments `#t=START,END` trim to the specific phrase (seconds, decimals OK).
+   Match reciter speed to segment length: slow reciters for short segments, faster reciters for longer ones.
+   Use `tools/find-audio-fragment.py` to analyze silence points and find correct time fragments.
    ⚠️ CDN cache is ~296 days — existing URLs are stable; avoid unnecessary changes.
 
 2. **Local MP3s** in `assets/audio/` for non-Quranic content (adhān, duʿā, etc.):

@@ -12,21 +12,27 @@ Siraj tested all candidates on [tanzil.net/#5:110](https://tanzil.net/#5:110) an
 
 ## Decision
 
-### Approved Reciter Pool (randomly pick per phrase)
+### Approved Reciter Pool (one per phrase, matched by segment length)
 
-| # | Reciter | EveryAyah Folder | Bitrate | Notes |
-|---|---------|-----------------|---------|-------|
-| 1 | **Mahmoud Khalil Al-Husary** | `Husary_128kbps` | 128kbps | Classic, deliberate. Previously the only reciter used. |
-| 2 | **Abdul Basit (Mujawwad)** | `Abdul_Basit_Mujawwad_128kbps` | 128kbps | Melodic/ornamental style |
-| 3 | **Abdul Basit (Murattal)** | `Abdul_Basit_Murattal_192kbps` | 192kbps | Plain recitation, highest audio quality |
-| 4 | **Mishary Rashid Alafasy** | `Alafasy_128kbps` | 128kbps | Modern, crystal-clear, beloved worldwide |
-| 5 | **Ali Al-Hudhaifi** | `Hudhaify_128kbps` | 128kbps | Madinah imam, very measured tajweed |
-| 6 | **Saad Al-Ghamdi** | `Ghamadi_40kbps` | 40kbps | Clear and moderate pace (low bitrate) |
-| 7 | **Abdullaah Al-Juhainy** | `Abdullaah_3awwaad_Al-Juhaynee_128kbps` | 128kbps | |
-| 8 | **Maher Al-Muaiqly** | `MaherAlMuaiqly128kbps` | 128kbps | Imam of Haram |
-| 9 | **Hani Ar-Rifai** | `Hani_Rifai_192kbps` | 192kbps | |
-| 10 | **Abdurrahman As-Sudais** | `Abdurrahmaan_As-Sudais_192kbps` | 192kbps | Imam of Haram |
-| 11 | **Abu Bakr Ash-Shatri** | `Abu_Bakr_Ash-Shaatree_128kbps` | 128kbps | |
+| # | Reciter | EveryAyah Folder | Bitrate | Speed | Best for |
+|---|---------|-----------------|---------|-------|----------|
+| 1 | **Mahmoud Khalil Al-Husary** | `Husary_128kbps` | 128kbps | 🐢 Slow | Short segments |
+| 2 | **Abdul Basit (Mujawwad)** | `Abdul_Basit_Mujawwad_128kbps` | 128kbps | 🐢 Slow | Short segments (melodic) |
+| 3 | **Abdul Basit (Murattal)** | `Abdul_Basit_Murattal_192kbps` | 192kbps | 🐢 Slow | Short segments |
+| 4 | **Hani Ar-Rifai** | `Hani_Rifai_192kbps` | 192kbps | 🐢 Slow | Short segments |
+| 5 | **Ali Al-Hudhaifi** | `Hudhaify_128kbps` | 128kbps | 🚶 Moderate | Short–medium segments |
+| 6 | **Mishary Rashid Alafasy** | `Alafasy_128kbps` | 128kbps | 🚶 Moderate | Medium segments |
+| 7 | **Abu Bakr Ash-Shatri** | `Abu_Bakr_Ash-Shaatree_128kbps` | 128kbps | 🚶 Moderate | Medium segments |
+| 8 | **Abdullaah Al-Juhainy** | `Abdullaah_3awwaad_Al-Juhaynee_128kbps` | 128kbps | 🏃 Faster | Longer segments |
+| 9 | **Maher Al-Muaiqly** | `MaherAlMuaiqly128kbps` | 128kbps | 🏃 Faster | Longer segments |
+| 10 | **Saad Al-Ghamdi** | `Ghamadi_40kbps` | 40kbps | 🏃 Faster | Longer segments (low bitrate) |
+| 11 | **Abdurrahman As-Sudais** | `Abdurrahmaan_As-Sudais_192kbps` | 192kbps | 🏃 Faster | Longer segments |
+| 12 | **Yasser Ad-Dussary** ⭐ | `Yasser_Ad-Dussary_128kbps` | 128kbps | 🏃 Faster | Longer segments (Siraj's favourite) |
+
+### Speed matching rule
+- **Short segments** (≤5 words): assign slow reciters — their deliberate pace makes short phrases feel complete
+- **Medium segments** (6–10 words): assign moderate reciters
+- **Longer segments** (11+ words): assign faster reciters — keeps the audio from dragging
 
 ### URL Pattern
 ```

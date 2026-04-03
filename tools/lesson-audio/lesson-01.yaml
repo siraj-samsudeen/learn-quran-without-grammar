@@ -3,15 +3,8 @@
 # Anchor: اللهُ أَكْبَرُ
 #
 # Structure: 2 anchor phrases + 5 learning phrases + 5 practice phrases = 12 total
+# Each Quranic phrase uses a DIFFERENT reciter (see ADR-005).
 # See docs/selections/lesson-01.md for selection rationale.
-#
-# v2 changes (2025-06-04):
-#   - Reduced from 20+1 → 12 phrases
-#   - Added anchor phrases (59:22 + made-up teaching phrase)
-#   - Dropped hadith section
-#   - Retranslated 18:5 ("great" not "grave")
-#   - Trimmed 2:34 (dropped وَكَانَ مِنَ الْكَافِرِينَ)
-#   - Full 41:15 with question + response
 
 lesson_id: lesson-01
 title: "Lesson 1: Allāhu Akbar"
@@ -28,11 +21,12 @@ sentences:
     root: إِلَٰه
     form: "إِلَٰه"
     ref: "59:22"
+    reciter: Hani_Rifai_192kbps
     arabic_source:
       surah: 59
       ayah: 22
-      # First clause only: هُوَ اللَّهُ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ
-      end: 8.0
+      # First clause only — hard-cut (no natural pause at this point)
+      end: 7.0
     arabic_text: "هُوَ اللَّهُ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ"
     english: "He is Allah — there is no god but He"
 
@@ -41,24 +35,25 @@ sentences:
     root: إِلَٰه
     form: "آلِهَة"
     ref: "6:74"
+    reciter: Abu_Bakr_Ash-Shaatree_128kbps
     arabic_source:
       surah: 6
       ayah: 74
-      # Trimmed to the question: أَتَتَّخِذُ أَصْنَامًا آلِهَةً
-      start: 9.0
-      end: 22.0
-    arabic_text: "أَتَتَّخِذُ أَصْنَامًا آلِهَةً"
-    english: "Do you take idols as gods?"
+      # Full intro + question, cut before إِنِّي أَرَاكَ...
+      end: 12.0
+    arabic_text: "وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ أَتَتَّخِذُ أَصْنَامًا آلِهَةً"
+    english: "And when Ibrahim said to his father Azar: Do you take idols as gods?"
 
   - id: learn-ilah-02
     role: learn
     root: إِلَٰه
     form: "اللَّهُمَّ"
     ref: "3:26"
+    reciter: Hudhaify_128kbps
     arabic_source:
       surah: 3
       ayah: 26
-      # First clause: قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ
+      # First 4 words only — hard-cut
       end: 5.0
     arabic_text: "قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ"
     english: "Say: O Allah, Owner of all sovereignty"
@@ -73,7 +68,6 @@ sentences:
     form: "كَبِير + أَكْبَر"
     ref: "teaching-phrase"
     arabic_source:
-      # Made-up teaching phrase — use Arabic TTS
       use_arabic_tts: true
     arabic_text: "هُوَ كَبِيرٌ. أَنَا أَكْبَرُ مِنْهُ. وَاللَّهُ أَكْبَرُ مِنَّا، بَلْ، مِنْ كُلِّ شَيْءٍ"
     english: "He is great. I am greater than him. And Allah is greater than us — rather, than everything."
@@ -83,6 +77,7 @@ sentences:
     root: كَبُرَ
     form: كُبْرَى
     ref: "79:20"
+    reciter: Husary_128kbps
     arabic_source:
       surah: 79
       ayah: 20
@@ -94,6 +89,7 @@ sentences:
     root: كَبُرَ
     form: كَبُرَ
     ref: "61:3"
+    reciter: Alafasy_128kbps
     arabic_source:
       surah: 61
       ayah: 3
@@ -105,14 +101,13 @@ sentences:
     root: كَبُرَ
     form: اسْتَكْبَرَ
     ref: "2:34"
+    reciter: Abdul_Basit_Mujawwad_128kbps
     arabic_source:
       surah: 2
       ayah: 34
-      # Trimmed: إِلَّا إِبْلِيسَ أَبَىٰ وَاسْتَكْبَرَ (dropped وَكَانَ مِنَ الْكَافِرِينَ)
-      start: 8.5
-      end: 14.0
-    arabic_text: "إِلَّا إِبْلِيسَ أَبَىٰ وَاسْتَكْبَرَ"
-    english: "Except Iblis — he refused and was arrogant"
+      # Full ayah — Mujawwad style, 30.9s
+    arabic_text: "وَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ فَسَجَدُوا إِلَّا إِبْلِيسَ أَبَىٰ وَاسْتَكْبَرَ وَكَانَ مِنَ الْكَافِرِينَ"
+    english: "And when We said to the angels: Prostrate to Adam — they all prostrated, except Iblis. He refused and was arrogant, and became of the disbelievers."
 
   # ============================================================
   # PRACTICE — 5 phrases, mixed roots, no notes
@@ -123,6 +118,7 @@ sentences:
     root: إِلَٰه
     form: "إِلَٰه (×3)"
     ref: "2:163"
+    reciter: Yasser_Ad-Dussary_128kbps
     arabic_source:
       surah: 2
       ayah: 163
@@ -134,6 +130,7 @@ sentences:
     root: كَبُرَ
     form: كَبِير
     ref: "21:63"
+    reciter: MaherAlMuaiqly128kbps
     arabic_source:
       surah: 21
       ayah: 63
@@ -145,12 +142,13 @@ sentences:
     root: كَبُرَ
     form: أَكْبَرُ
     ref: "29:45"
+    reciter: Abdul_Basit_Murattal_192kbps
     arabic_source:
       surah: 29
       ayah: 45
-      # Fragment: وَلَذِكْرُ اللَّهِ أَكْبَرُ — near end of ayah
-      start: 27.5
-      end: 33.5
+      # Last clause — clean pause before it at 24.2s
+      start: 24.2
+      end: 29.0
     arabic_text: "وَلَذِكْرُ اللَّهِ أَكْبَرُ"
     english: "And the remembrance of Allah is greater"
 
@@ -159,23 +157,23 @@ sentences:
     root: كَبُرَ
     form: كَبُرَ
     ref: "18:5"
+    reciter: Ghamadi_40kbps
     arabic_source:
       surah: 18
       ayah: 5
-      # Fragment: كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ
-      start: 10.0
+      # Second clause — clean pause at 7.5s
+      start: 7.5
     arabic_text: "كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ ۚ إِن يَقُولُونَ إِلَّا كَذِبًا"
     english: "How great a word that comes from their mouths — they speak nothing but a lie"
-    note: "Retranslated: 'great' not 'grave' to keep root connection visible"
 
   - id: practice-05
     role: practice
     root: كَبُرَ
     form: اسْتَكْبَرَ
     ref: "41:15"
+    reciter: Abdurrahmaan_As-Sudais_192kbps
     arabic_source:
       surah: 41
       ayah: 15
-      # Full verse — includes the boast + Allah's response
     arabic_text: "فَأَمَّا عَادٌ فَاسْتَكْبَرُوا فِي الْأَرْضِ بِغَيْرِ الْحَقِّ وَقَالُوا مَنْ أَشَدُّ مِنَّا قُوَّةً ۖ أَوَلَمْ يَرَوْا أَنَّ اللَّهَ الَّذِي خَلَقَهُمْ هُوَ أَشَدُّ مِنْهُمْ قُوَّةً"
     english: "As for ʿĀd, they were arrogant on earth without right and said: Who is mightier than us in strength? Did they not see that Allah who created them is mightier than them in strength?"

@@ -8,5 +8,6 @@ Gemfile.lock
 vendor/
 
 # Audio build artifacts
+.cache/
 assets/audio/lessons/*/.cache/
 assets/audio/lessons/test-*/
