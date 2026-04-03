@@ -253,8 +253,11 @@ const ShufflePlayer = (() => {
       return;
     }
 
-    // Create audio element
-    audio = new Audio();
+    // Create audio element (appended to container so document-level
+    // play listeners can detect it for mutual-exclusion)
+    audio = document.createElement('audio');
+    audio.style.display = 'none';
+    containerEl.appendChild(audio);
     audio.addEventListener('ended', onEnded);
     audio.addEventListener('timeupdate', updateProgress);
     audio.addEventListener('pause', () => { isPlaying = false; updateUI(); });

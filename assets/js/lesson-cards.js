@@ -138,6 +138,18 @@
     });
   });
 
+  // ── Mutual-exclusion: playing one audio pauses all others ──────────
+
+  document.addEventListener('play', function (e) {
+    if (e.target.tagName !== 'AUDIO') return;
+    var audios = document.querySelectorAll('audio');
+    for (var i = 0; i < audios.length; i++) {
+      if (audios[i] !== e.target) {
+        audios[i].pause();
+      }
+    }
+  }, true); // capture phase — catches all audio elements in the DOM
+
   // ── Helpers ─────────────────────────────────────────────────────────
 
   function isBoundary(el) {
