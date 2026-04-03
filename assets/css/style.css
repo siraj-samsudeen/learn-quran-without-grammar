@@ -302,7 +302,7 @@ body {
   color: var(--green);
 }
 .verse-card .verse-hook {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: #888;
   line-height: 1.5;
   border-left: 3px solid var(--border);
@@ -336,6 +336,82 @@ body {
   color: var(--gold);
 }
 
+/* ── Phrase-pair table (Option B) — Arabic | English side-by-side ── */
+.pair-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.5rem 0;
+}
+.pair-table td {
+  padding: 0.5rem 0.75rem;
+  vertical-align: top;
+  border-bottom: 1px solid #eee;
+}
+.pair-table tr:last-child td { border-bottom: none; }
+.pair-table td:first-child {
+  font-family: var(--font-arabic);
+  font-size: 1.4rem;
+  line-height: 2;
+  direction: rtl;
+  text-align: right;
+  width: 55%;
+  color: var(--text);
+}
+.pair-table td:first-child strong { color: var(--green); }
+.pair-table td:nth-child(2) {
+  font-size: 0.92rem;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.7;
+  vertical-align: middle;
+}
+.pair-table td:nth-child(2) strong { color: var(--green); }
+.pair-table td.pair-audio {
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle;
+  padding-left: 0.25rem;
+}
+.pair-table td.pair-audio audio {
+  width: 140px;
+  height: 28px;
+}
+
+/* ── Phrase-pair stacked with dividers (Option C — spare) ── */
+.phrase-pairs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0.5rem 0;
+}
+.phrase-pair .pair-arabic {
+  font-family: var(--font-arabic);
+  font-size: 1.5rem;
+  line-height: 2.2;
+  direction: rtl;
+  text-align: right;
+  color: var(--text);
+}
+.phrase-pair .pair-arabic strong { color: var(--green); }
+.phrase-pair .pair-english {
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-style: italic;
+  text-align: right;
+  line-height: 1.6;
+}
+.phrase-pair .pair-english strong { color: var(--green); }
+.phrase-pairs-divided .phrase-pair {
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 0.75rem;
+}
+.phrase-pairs-divided .phrase-pair:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
 /* Download link */
 .download-link {
   display: inline-block;
@@ -360,9 +436,13 @@ body {
   display: table !important;    /* override block to allow centering */
   width: auto !important;
 }
-.root-table th,
-.root-table td {
-  text-align: center;
+.root-table th:nth-child(1),
+.root-table td:nth-child(1) {
+  text-align: right;
+}
+.root-table th:nth-child(n+2),
+.root-table td:nth-child(n+2) {
+  text-align: left;
 }
 /* Transliteration column — UI font, italic */
 .root-table td:nth-child(2) {

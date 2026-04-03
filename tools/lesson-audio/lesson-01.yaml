@@ -48,7 +48,7 @@ sentences:
       surah: 6
       ayah: 74
       # Full intro + question, cut before إِنِّي أَرَاكَ...
-      end: 12.0
+      end: 9.5
     arabic_source_full:
       surah: 6
       ayah: 74
@@ -160,9 +160,9 @@ sentences:
     arabic_source:
       surah: 29
       ayah: 45
-      # Last clause — clean pause before it at 24.2s
-      start: 24.2
-      end: 29.0
+      # Last clause — clean pause before it at 20.2s
+      start: 20.2
+      end: 24
     arabic_source_full:
       surah: 29
       ayah: 45
