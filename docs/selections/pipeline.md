@@ -14,6 +14,31 @@ Verses already approved by the teacher, assigned to a specific future lesson or 
 
 ---
 
+## Previously Used — Dropped from Lesson 1 v2
+
+These were live in Lesson 1 v1 (fully tested with a student). Dropped during the v2 restructure (20 → 12 phrases). All have audio already downloaded for 11 reciters. **High priority for reuse** — they're battle-tested.
+
+| Ref | Arabic (key part) | Root word | Form | Original explanation | Why dropped | Flagged in |
+|-----|-------------------|-----------|------|---------------------|------------|------------|
+| 21:87 | لَّا **إِلَٰهَ** إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ | إِلَٰه | لَا إِلَٰهَ إِلَّا | Story of Yūnus in the whale — one of the most beloved duʿās. The phrase لَا إِلَٰهَ إِلَّا — "there is no god but…" — is the heart of tawḥīd. | Too long for a beginner's first phrase. Student found it overwhelming. | Lesson 1 v1 |
+| 7:59 | يَا قَوْمِ اعْبُدُوا اللَّهَ مَا لَكُم مِّنْ **إِلَٰهٍ** غَيْرُهُ | إِلَٰه | إِلَٰهٍ غَيْرُهُ | Nūḥ's call — the same words repeated by every prophet. Every prophet in the Qur'an says this exact phrase: مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ. | Pattern dropped from v2 table. | Lesson 1 v1 |
+| 114:1–3 | قُلْ أَعُوذُ بِرَبِّ النَّاسِ · مَلِكِ النَّاسِ · **إِلَٰهِ** النَّاسِ | إِلَٰه | إِلَٰهِ النَّاسِ | Surah An-Nās — you recite this every day in ṣalāh and before sleep. | Pattern dropped from v2 table. Could revisit in a surah-based lesson. | Lesson 1 v1 |
+| 47:19 | فَاعْلَمْ أَنَّهُ لَا **إِلَٰهَ** إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنبِكَ | إِلَٰه | لَا إِلَٰهَ إِلَّا | A direct command to the Prophet ﷺ — often cited as the most concise statement of tawḥīd and istighfār in one breath. | Slot went to shorter phrases. | Lesson 1 v1 |
+| 18:110 | قُلْ إِنَّمَا أَنَا بَشَرٌ مِّثْلُكُمْ يُوحَىٰ إِلَيَّ أَنَّمَا **إِلَٰهُكُمْ** **إِلَٰهٌ** وَاحِدٌ | إِلَٰه | إِلَٰهٌ وَاحِدٌ | The closing words of Surah Al-Kahf — recited every Friday. A powerful ending you already hear weekly. | Too long. Pattern dropped from v2 table. | Lesson 1 v1 |
+| 7:138 | قَالُوا يَا مُوسَى اجْعَل لَّنَا **إِلَٰهًا** كَمَا لَهُمْ **آلِهَةٌ** | إِلَٰه | آلِهَة + إِلَٰه | The Israelites' shocking request — right after being saved from Pharaoh, they pass by idol-worshippers and immediately ask for the same thing. Has both singular and plural in one phrase. | Replaced by shorter 6:74 fragment for آلِهَة. | Lesson 1 v1 |
+| 28:38 | وَقَالَ فِرْعَوْنُ... مَا عَلِمْتُ لَكُم مِّنْ **إِلَٰهٍ** غَيْرِي | إِلَٰه | إِلَٰهٍ غَيْرِي | The anti-version of Nūḥ's call. Every prophet said مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ — Pharaoh flips it: مَا عَلِمْتُ لَكُم مِّنْ إِلَٰهٍ غَيْرِي. Same words, ultimate arrogance. | Very long. Pattern dropped from v2 table. | Lesson 1 v1 |
+| 6:78 | فَلَمَّا رَأَى الشَّمْسَ بَازِغَةً قَالَ هَٰذَا رَبِّي هَٰذَا **أَكْبَرُ** | كَبُرَ | أَكْبَر | Story of Ibrāhīm searching for God — stars, moon, sun. Each time "this is greater" — until they all set and he turns to the One who never sets. | Already have أَكْبَر in anchor phrase and practice (29:45). | Lesson 1 v1 |
+| 2:219 | يَسْأَلُونَكَ عَنِ الْخَمْرِ وَالْمَيْسِرِ... إِثْمٌ **كَبِيرٌ**... **أَكْبَرُ** مِن نَّفْعِهِمَا | كَبُرَ | كَبِير + أَكْبَر | The famous ruling verse on wine and gambling. Uses both كَبِير and أَكْبَر — two forms from the same root in one sentence. | Very long. Both forms already covered elsewhere. | Lesson 1 v1 |
+| 87:12 | الَّذِي يَصْلَى النَّارَ **الْكُبْرَىٰ** | كَبُرَ | كُبْرَى | From Surah Al-A'lā — one of the most frequently recited surahs in ṣalāh. You already know this by ear. | كُبْرَى already covered by 79:20 in learning. | Lesson 1 v1 |
+
+### Hadith dropped from Lesson 1 v2
+
+| Title | Arabic | Root words | Original explanation | Why dropped | Flagged in |
+|-------|--------|------------|---------------------|------------|------------|
+| Words Beloved to Allah (Muslim) | أَحَبُّ الْكَلَامِ إِلَى اللَّهِ أَرْبَعٌ: سُبْحَانَ اللَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا اللَّهُ، وَاللهُ أَكْبَرُ | إِلَٰه + كَبُرَ | Bridges both root words from the lesson — لَا إِلَٰهَ إِلَّا اللّٰه and اللهُ أَكْبَرُ together in one sentence. | Hadith section dropped entirely in v2 restructure. | Lesson 1 v1 |
+
+---
+
 ## Strong Candidates
 
 Verses flagged as good but not yet assigned to a specific lesson. Pick these when a slot opens.

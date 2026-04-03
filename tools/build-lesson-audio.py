@@ -21,6 +21,7 @@ Requirements:
 import argparse
 import json
 import os
+import random
 import subprocess
 import sys
 import tempfile
@@ -32,7 +33,28 @@ import yaml
 # ── Configuration ──────────────────────────────────────────────────────────
 
 EVERYAYAH_BASE = "https://everyayah.com/data/Husary_128kbps"
-EDGE_TTS_VOICE = "en-US-AvaNeural"
+
+# Male English TTS voice pool — randomly rotated per sentence
+EDGE_TTS_VOICES = [
+    "en-US-AndrewNeural",       # warm, confident
+    "en-US-BrianNeural",        # approachable, casual
+    "en-US-ChristopherNeural",  # reliable, authoritative
+]
+
+# Approved Quranic reciters — see docs/decisions/ADR-005-reciters.md
+RECITER_POOL = [
+    "Husary_128kbps",
+    "Abdul_Basit_Mujawwad_128kbps",
+    "Abdul_Basit_Murattal_192kbps",
+    "Alafasy_128kbps",
+    "Hudhaify_128kbps",
+    "Ghamadi_40kbps",
+    "Abdullaah_3awwaad_Al-Juhaynee_128kbps",
+    "MaherAlMuaiqly128kbps",
+    "Hani_Rifai_192kbps",
+    "Abdurrahmaan_As-Sudais_192kbps",
+    "Abu_Bakr_Ash-Shaatree_128kbps",
+]
 ARABIC_ENGLISH_PAUSE = 2    # seconds of silence between Arabic and English
 SENTENCE_GAP = 3            # seconds of silence between sentence pairs
 SAMPLE_RATE = 44100
@@ -42,9 +64,13 @@ MP3_QUALITY = 2             # lame VBR quality (2 ≈ 190kbps, excellent)
 
 # ── Helper Functions ───────────────────────────────────────────────────────
 
-def everyayah_url(surah: int, ayah: int) -> str:
-    """Build EveryAyah CDN URL for a surah/ayah."""
-    return f"{EVERYAYAH_BASE}/{surah:03d}{ayah:03d}.mp3"
+def everyayah_url(surah: int, ayah: int, reciter: str = None) -> str:
+    """Build EveryAyah CDN URL for a surah/ayah, optionally with a specific reciter."""
+    if reciter:
+        base = f"https://everyayah.com/data/{reciter}"
+    else:
+        base = EVERYAYAH_BASE
+    return f"{base}/{surah:03d}{ayah:03d}.mp3"
 
 
 def download_file(url: str, dest: str) -> None:
@@ -110,11 +136,12 @@ def extract_fragment(input_path: str, output_path: str,
 
 
 def generate_tts(text: str, output_path: str) -> None:
-    """Generate English TTS audio using edge-tts."""
+    """Generate English TTS audio using edge-tts with random male voice."""
+    voice = random.choice(EDGE_TTS_VOICES)
     display = text[:70] + ("…" if len(text) > 70 else "")
-    print(f"    🗣 TTS: \"{display}\"")
+    print(f"    🗣 TTS ({voice.split('-')[2].replace('Neural','')}): \"{display}\"")
     result = subprocess.run(
-        ["edge-tts", "--voice", EDGE_TTS_VOICE,
+        ["edge-tts", "--voice", voice,
          "--text", text, "--write-media", output_path],
         capture_output=True, text=True,
     )

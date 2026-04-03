@@ -318,6 +318,61 @@ body {
   color: white !important;
 }
 
+/* ── Centered root-word tables ── */
+.root-table {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: table !important;    /* override block to allow centering */
+  width: auto !important;
+}
+.root-table th,
+.root-table td {
+  text-align: center;
+}
+/* Transliteration column — UI font, italic */
+.root-table td:nth-child(2) {
+  font-family: var(--font-ui);
+  font-style: italic;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+/* English column — UI font */
+.root-table td:nth-child(3) {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ── Summary table ── */
+.summary-table {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.summary-table td:nth-child(2) {
+  font-family: var(--font-ui);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+.summary-table td:nth-child(3) {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+}
+.summary-table td:nth-child(4) {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+/* ── Preview line ── */
+.lesson-preview {
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-style: italic;
+  border-left: 3px solid var(--gold);
+  padding-left: 1rem;
+  margin: 1rem 0 1.5rem;
+}
+
 /* ── Code ── */
 .lesson-body code {
   font-family: 'SFMono-Regular', Consolas, 'Courier New', monospace;

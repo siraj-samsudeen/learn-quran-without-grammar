@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: "Lesson 1: Allāhu Akbar"
-description: Two root words behind Allāhu Akbar — إِلَٰه (god) and كَبُرَ (greatness) — traced through 20 Qur'anic sentences.
+description: Two root words behind Allāhu Akbar — إِلَٰه (god) and كَبُرَ (greatness) — 8 words through 12 Qur'anic phrases.
 audio_manifest: /assets/audio/lessons/lesson-01/manifest.json
 audio_download: /assets/audio/lessons/lesson-01/lesson-01-full.mp3
 ---
@@ -16,137 +16,91 @@ audio_download: /assets/audio/lessons/lesson-01/lesson-01-full.mp3
 
 You say this every single day. Before Fajr, before Ẓuhr, before every ṣalāh. You raise your hands and say it. The muaddhin opens with it. It is the first thing you hear when prayer is called, and the first thing you say when you stand before Allah.
 
-**اللّٰه** comes from the root **أ ل ه** — giving us **إِلَٰه**, meaning *god* or *deity*. It is the word at the centre of tawḥīd.
-
-| Arabic   | English       |
-| -------- | ------------- |
-| إِلَٰه      | god, deity    |
-| اللّٰه     | Allah (God)   |
-| إِلَٰهٌ وَاحِدٌ | one God       |
-| آلِهَة     | gods (plural) |
-| اللَّهُمَّ    | O Allah       |
-
-**أَكْبَرُ** comes from the root **ك ب ر** — carrying the meaning of *greatness*. Everything great, growing, or grand in the Qur'an traces back to these three letters.
-
-| Arabic | English           |
-| ------ | ----------------- |
-| كَبُرَ    | was great         |
-| أَكْبَرُ   | greater, greatest |
-| كَبِير   | great, big        |
-| كُبْرَى   | greatest (fem.)   |
-| اسْتَكْبَرَ | was arrogant      |
+<p class="lesson-preview">In this lesson, you will meet <strong>8 Arabic words</strong> from two root families — the roots behind <strong>اللهُ أَكْبَرُ</strong> — through 12 Qur'anic phrases.</p>
 
 ---
 
-## Learn — Root word: إِلَٰه (god)
+## Root word: إِلَٰه (god)
 
-The root **أ ل ه** gives us **إِلَٰه** — *god, deity* — and the name **اللّٰه** itself.
+**اللّٰه** comes from the root **أ ل ه**. At its core, this root means *god* — something worshipped. Every time you say *Lā ilāha illallāh*, you are using this word. The Qur'an uses it when speaking about the One true God, and when challenging the false ones.
 
----
+**إِلَٰه** means *a god* — one god. When the Qur'an talks about the idols people carved and worshipped, it uses **آلِهَة** — *gods*, many of them. And when you call upon Allah directly in your duʿā, you say **اللَّهُمَّ** — *O Allah* — the most intimate way to address your Creator.
 
-### 1 · لَا إِلَٰهَ إِلَّا (there is no god but)
-
-لَّا **إِلَٰهَ** إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ
-
-Al-Anbiyā' 21:87 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/021087.mp3#t=14.9"></audio>
-
-"And [mention] the man of the fish, when he went off in anger and thought that We would not decree upon him. Then he called out in the darkness: There is no **god** but You, glory to You — I was among the wrongdoers"
-
-Story of Yūnus in the whale — one of the most beloved duʿās. The phrase لَا إِلَٰهَ إِلَّا — "there is no god but…" — is the heart of tawḥīd.
+<table class="root-table" markdown="0">
+<tr><th>Arabic</th><th>Transliteration</th><th>English</th></tr>
+<tr><td>إِلَٰه</td><td>ilāh</td><td>god</td></tr>
+<tr><td>آلِهَة</td><td>āliha</td><td>gods</td></tr>
+<tr><td>اللَّهُمَّ</td><td>Allāhumma</td><td>O Allah</td></tr>
+</table>
 
 ---
 
-### 2 · إِلَٰهٌ وَاحِدٌ (one God)
+### ⭐ Anchor phrase
 
-وَ**إِلَٰهُكُمْ** **إِلَٰهٌ** وَاحِدٌ ۖ لَا **إِلَٰهَ** إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ
+هُوَ اللَّهُ الَّذِي لَا **إِلَٰهَ** إِلَّا هُوَ
 
-Al-Baqarah 2:163 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/002163.mp3"></audio>
+Al-Ḥashr 59:22 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/059022.mp3#t=0,8"></audio>
 
-"And your **God** is one **God** — there is no **god** but He, the Most Merciful, the Most Compassionate"
+"He is Allah — there is no **god** but He"
 
-إِلَٰه appears three times in one verse — the complete tawḥīd statement.
-
----
-
-### 3 · آلِهَة (gods)
-
-وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ أَتَتَّخِذُ أَصْنَامًا **آلِهَةً**
-
-Al-An'ām 6:74 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/006074.mp3#t=0,22"></audio>
-
-"And when Ibrāhīm said to his father Āzar: Do you take idols as **gods**?"
-
-Story — Ibrāhīm challenges his father. آلِهَة is the plural of إِلَٰه — "gods" — used in the Qur'an for false deities.
+This is the phrase to carry with you. Six words that contain the entire message of tawḥīd.
 
 ---
 
-### 4 · إِلَٰهٍ غَيْرُهُ (god other than Him)
+### آلِهَة — gods
 
-يَا قَوْمِ اعْبُدُوا اللَّهَ مَا لَكُم مِّنْ **إِلَٰهٍ** غَيْرُهُ
+أَتَتَّخِذُ أَصْنَامًا **آلِهَةً**
 
-Al-A'rāf 7:59 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/007059.mp3#t=11,19"></audio>
+Al-An'ām 6:74 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/006074.mp3#t=9"></audio>
 
-"O my people, worship Allah — you have no **god** other than Him"
+"Do you take idols as **gods**?"
 
-Nūḥ's call — the same words repeated by every prophet. Every prophet in the Qur'an says this exact phrase: مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ.
-
----
-
-### 5 · إِلَٰهِ النَّاسِ (God of mankind)
-
-قُلْ أَعُوذُ بِرَبِّ النَّاسِ · مَلِكِ النَّاسِ · **إِلَٰهِ** النَّاسِ
-
-An-Nās 114:1–3 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/114001.mp3"></audio>
-
-"Say: I seek refuge in the Lord of mankind, the King of mankind, the **God** of mankind"
-
-Surah An-Nās — you recite this every day in ṣalāh and before sleep.
+Ibrāhīm's challenge to his own father — one of the bravest questions in the Qur'an.
 
 ---
 
-## Learn — Root word: كَبُرَ (greatness)
+### اللَّهُمَّ — O Allah
 
-The root **ك ب ر** carries a core meaning: *something is great, large, or grows.*
+قُلِ **اللَّهُمَّ** مَالِكَ الْمُلْكِ
 
----
+Āl 'Imrān 3:26 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/003026.mp3#t=0,5"></audio>
 
-### 6 · كَبُرَ (was great)
+"Say: O **Allah**, Owner of all sovereignty"
 
-**كَبُرَ** مَقْتًا عِندَ اللَّهِ أَن تَقُولُوا مَا لَا تَفْعَلُونَ
-
-Aṣ-Ṣaff 61:3 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/061003.mp3"></audio>
-
-"**Greatly** hateful in the sight of Allah that you say what you do not do"
-
-Saying and not doing — deeply hated by Allah. كَبُرَ is the simplest form of the root — just the three letters acting as a verb: "it was great."
+This is how you call upon Him directly. Every duʿā you make that begins with اللَّهُمَّ carries this root.
 
 ---
 
-### 7 · أَكْبَرُ (greater)
+## Root word: كَبُرَ (greatness)
 
-وَلَذِكْرُ اللَّهِ **أَكْبَرُ**
+The root **ك ب ر** carries one core meaning: *something is great, large, or grows.* Think of it like a seed of greatness — plant it in different soil and it grows into different words. It can mean simply *big*. It can mean *the greatest*. And when someone claims that greatness for himself — when he puffs himself up and refuses to bow — it becomes *arrogance*.
 
-Al-'Ankabūt 29:45 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/029045.mp3#t=27.5,33.5"></audio>
+Every time you say اللهُ أَكْبَرُ, you are reaching into this root and pulling out its highest meaning: Allah is greater. Greater than your fear. Greater than your distraction. Greater than anything standing in front of you.
 
-"And the remembrance of Allah is **greater**"
-
-Repeated in the Jumuʿah Khutbah — this is the word from اللهُ أَكْبَرُ. أَكْبَرُ means "greater" or "greatest." This is the word you say in every adhān and ṣalāh.
-
----
-
-### 8 · كَبِير (great, big)
-
-قَالَ بَلْ فَعَلَهُ **كَبِيرُهُمْ** هَٰذَا فَاسْأَلُوهُمْ إِن كَانُوا يَنطِقُونَ
-
-Al-Anbiyā' 21:63 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/021063.mp3"></audio>
-
-"He said: Rather, their **chief** did it — so ask them, if they can speak"
-
-Story — Ibrāhīm's wit when questioned about smashing the idols. كَبِير means "great" or "big." الكَبِير is also one of Allah's Beautiful Names.
+<table class="root-table" markdown="0">
+<tr><th>Arabic</th><th>Transliteration</th><th>English</th></tr>
+<tr><td>كَبُرَ</td><td>kabura</td><td>was great</td></tr>
+<tr><td>اسْتَكْبَرَ</td><td>istakbara</td><td>was arrogant</td></tr>
+<tr><td>كَبِير</td><td>kabīr</td><td>great, big</td></tr>
+<tr><td>كُبْرَى</td><td>kubrā</td><td>greatest</td></tr>
+<tr><td>أَكْبَرُ</td><td>Akbar</td><td>greater, greatest</td></tr>
+</table>
 
 ---
 
-### 9 · كُبْرَى (greatest)
+### ⭐ Anchor phrase
+
+هُوَ كَبِيرٌ. أَنَا أَكْبَرُ مِنْهُ. وَاللَّهُ أَكْبَرُ مِنَّا، بَلْ، مِنْ كُلِّ شَيْءٍ.
+
+<p class="audio-label">🔊 Teaching phrase (not a Qur'anic verse)</p>
+
+"He is great. I am greater than him. And Allah is greater than us — rather, than everything."
+
+Listen to how the root moves: **كَبِير** → **أَكْبَر** → **أَكْبَر**. It starts between two people, then lifts to Allah. That is the word you say in every ṣalāh.
+
+---
+
+### كُبْرَى — greatest
 
 فَأَرَاهُ الْآيَةَ **الْكُبْرَىٰ**
 
@@ -154,169 +108,70 @@ An-Nāzi'āt 79:20 · <audio controls preload="none" src="https://everyayah.com/
 
 "And he showed him the **greatest** sign"
 
-Mūsā showed Pharaoh the greatest miracle. كُبْرَى is the feminine form of أَكْبَر — used because آيَة (sign) is feminine.
+Mūsā showed Pharaoh something so overwhelming that this root had to be used — *the greatest*.
 
 ---
 
-### 10 · اسْتَكْبَرَ (was arrogant)
+### كَبُرَ — was great
 
-إِلَّا إِبْلِيسَ أَبَىٰ وَ**اسْتَكْبَرَ** وَكَانَ مِنَ الْكَافِرِينَ
+**كَبُرَ** مَقْتًا عِندَ اللَّهِ أَن تَقُولُوا مَا لَا تَفْعَلُونَ
 
-Al-Baqarah 2:34 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/002034.mp3#t=8.5"></audio>
+Aṣ-Ṣaff 61:3 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/061003.mp3"></audio>
 
-"Except Iblīs — he refused and was **arrogant** and became of the disbelievers"
+"**Greatly** hateful in the sight of Allah — that you say what you do not do"
 
-The origin story of arrogance — Iblīs refusing to bow to Ādam. The prefix اسْتَ means to seek or claim something for oneself. اسْتَكْبَرَ = "to seek greatness for oneself" = to be arrogant. This is the most frequent form of ك ب ر in the Qur'an — 40 occurrences.
-
----
-
-## Practice — Root word: إِلَٰه (god)
+Saying one thing and doing another — deeply hated by Allah. The root here means the hatred is *great*, immense, enormous.
 
 ---
 
-### 11 · لَا إِلَٰهَ إِلَّا (there is no god but)
+### اسْتَكْبَرَ — was arrogant
 
-فَاعْلَمْ أَنَّهُ لَا **إِلَٰهَ** إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنبِكَ
+إِلَّا إِبْلِيسَ أَبَىٰ وَ**اسْتَكْبَرَ**
 
-Muḥammad 47:19 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/047019.mp3#t=0,12"></audio>
+Al-Baqarah 2:34 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/002034.mp3#t=8.5,14"></audio>
 
-"Know that there is no **god** but Allah, and seek forgiveness for your sin"
+"Except Iblīs — he refused and was **arrogant**"
 
-A direct command to the Prophet ﷺ — often cited as the most concise statement of tawḥīd and istighfār in one breath.
-
----
-
-### 12 · إِلَٰهٌ وَاحِدٌ (one God)
-
-قُلْ إِنَّمَا أَنَا بَشَرٌ مِّثْلُكُمْ يُوحَىٰ إِلَيَّ أَنَّمَا **إِلَٰهُكُمْ** **إِلَٰهٌ** وَاحِدٌ
-
-Al-Kahf 18:110 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/018110.mp3#t=0,18"></audio>
-
-"Say: I am only a man like you — it is revealed to me that your **God** is one **God**"
-
-The closing words of Surah Al-Kahf — recited every Friday. A powerful ending you already hear weekly.
+The origin story of arrogance. When greatness is claimed by someone who has no right to it — that is what this word means. Iblīs took the idea of *great* and twisted it into pride.
 
 ---
 
-### 13 · آلِهَة (gods)
-
-قَالُوا يَا مُوسَى اجْعَل لَّنَا **إِلَٰهًا** كَمَا لَهُمْ **آلِهَةٌ**
-
-Al-A'rāf 7:138 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/007138.mp3#t=26,39"></audio>
-
-"They said: O Mūsā, make for us a **god** just as they have **gods**"
-
-The Israelites' shocking request — right after being saved from Pharaoh, they pass by idol-worshippers and immediately ask for the same thing.
-
----
-
-### 14 · إِلَٰهٍ غَيْرُهُ (god other than Him)
-
-وَقَالَ فِرْعَوْنُ يَا أَيُّهَا الْمَلَأُ مَا عَلِمْتُ لَكُم مِّنْ **إِلَٰهٍ** غَيْرِي
-
-Al-Qaṣaṣ 28:38 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/028038.mp3#t=0,24"></audio>
-
-"And Pharaoh said: O chiefs, I know of no **god** for you other than me"
-
-The anti-version of Nūḥ's call. Every prophet said مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ — Pharaoh flips it: مَا عَلِمْتُ لَكُم مِّنْ إِلَٰهٍ غَيْرِي. Same words, ultimate arrogance.
-
----
-
-### 15 · اللَّهُمَّ (O Allah)
-
-قُلِ **اللَّهُمَّ** مَالِكَ الْمُلْكِ تُؤْتِي الْمُلْكَ مَن تَشَاءُ وَتَنزِعُ الْمُلْكَ مِمَّن تَشَاءُ
-
-Āl 'Imrān 3:26 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/003026.mp3#t=0,12"></audio>
-
-"Say: O **Allah**, Owner of sovereignty — You give sovereignty to whom You will and take it from whom You will"
-
-اللَّهُمَّ — the prayer address form of Allah's name. This is how you call upon Him directly.
-
----
-
-## Practice — Root word: كَبُرَ (greatness)
-
----
-
-### 16 · كَبُرَ (was great)
-
-**كَبُرَتْ** كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ ۚ إِن يَقُولُونَ إِلَّا كَذِبًا
-
-Al-Kahf 18:5 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/018005.mp3#t=10"></audio>
-
-"**Grave** is the word that comes out of their mouths — they speak nothing but a lie"
-
-From Surah Al-Kahf — recited every Friday. About those who claim Allah has a son.
-
----
-
-### 17 · أَكْبَرُ (greater)
-
-فَلَمَّا رَأَى الشَّمْسَ بَازِغَةً قَالَ هَٰذَا رَبِّي هَٰذَا **أَكْبَرُ**
-
-Al-An'ām 6:78 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/006078.mp3#t=0,15"></audio>
-
-"When he saw the sun rising, he said: This is my lord — this is **greater**"
-
-Story of Ibrāhīm searching for God — he looks at the stars, the moon, and finally الشَّمْس (the sun). Each time, he says "this is greater" — until they all set and he turns to the One who never sets.
-
----
-
-### 18 · كَبِير (great, big)
-
-يَسْأَلُونَكَ عَنِ الْخَمْرِ وَالْمَيْسِرِ ۖ قُلْ فِيهِمَا إِثْمٌ **كَبِيرٌ** وَمَنَافِعُ لِلنَّاسِ وَإِثْمُهُمَا أَكْبَرُ مِن نَّفْعِهِمَا
-
-Al-Baqarah 2:219 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/002219.mp3#t=0,17"></audio>
-
-"They ask you about wine and gambling. Say: In them is **great** sin and some benefit, but their sin is **greater** than their benefit"
-
-The famous ruling verse on wine and gambling. Notice this verse uses both كَبِير and أَكْبَر — two forms from the same root in one sentence.
-
----
-
-### 19 · كُبْرَى (greatest)
-
-الَّذِي يَصْلَى النَّارَ **الْكُبْرَىٰ**
-
-Al-A'lā 87:12 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/087012.mp3"></audio>
-
-"Who will enter the **greatest** Fire"
-
-From Surah Al-A'lā — one of the most frequently recited surahs in ṣalāh. You already know this by ear.
-
----
-
-### 20 · اسْتَكْبَرَ (was arrogant)
-
-فَأَمَّا عَادٌ فَ**اسْتَكْبَرُوا** فِي الْأَرْضِ بِغَيْرِ الْحَقِّ
-
-Fuṣṣilat 41:15 · <audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/041015.mp3#t=0,15"></audio>
-
-"As for ʿĀd, they were **arrogant** upon the earth without right and said: Who is mightier than us in strength? Did they not see that Allah who created them is mightier than them in strength?"
-
-The people of ʿĀd — they boasted "مَنْ أَشَدُّ مِنَّا قُوَّةً" (who is mightier than us?), and Allah answers with the same words flipped back: هُوَ أَشَدُّ مِنْهُمْ قُوَّةً (He is mightier than them). Arrogance answered in its own language.
-
----
-
-## Connection — Hadith
-
-### Words Beloved to Allah
-
-> أَحَبُّ الْكَلَامِ إِلَى اللَّهِ أَرْبَعٌ: سُبْحَانَ اللَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا اللَّهُ، وَاللهُ أَكْبَرُ
->
-> "The most beloved words to Allah are four: SubḥānAllāh, Alḥamdulillāh, Lā ilāha illallāh, and Allāhu Akbar."
->
-> — Ṣaḥīḥ Muslim
-
-This hadith bridges both root words from the lesson — لَا إِلَٰهَ إِلَّا اللّٰه and اللهُ أَكْبَرُ together in one sentence.
-
----
-
-## Listen & Review
-
-<a class="download-link" href="{{ '/assets/audio/lessons/lesson-01/lesson-01-full.mp3' | relative_url }}" download>📥 Download full lesson audio (8 min)</a>
+## Practice
 
 <div id="shuffle-player"></div>
+
+---
+
+## Summary
+
+Everything you met in this lesson — words and phrases — in one view.
+
+<table class="summary-table" markdown="0">
+<tr><th>Arabic</th><th>Transliteration</th><th>English</th><th>Source</th></tr>
+<tr><td colspan="4" style="background: var(--green-light); font-family: var(--font-ui); font-weight: 600; font-size: 0.85rem; text-align: left; color: var(--green-dark);">Words from root أ ل ه</td></tr>
+<tr><td>إِلَٰه</td><td>ilāh</td><td>god</td><td></td></tr>
+<tr><td>آلِهَة</td><td>āliha</td><td>gods</td><td></td></tr>
+<tr><td>اللَّهُمَّ</td><td>Allāhumma</td><td>O Allah</td><td></td></tr>
+<tr><td colspan="4" style="background: var(--green-light); font-family: var(--font-ui); font-weight: 600; font-size: 0.85rem; text-align: left; color: var(--green-dark);">Words from root ك ب ر</td></tr>
+<tr><td>كَبُرَ</td><td>kabura</td><td>was great</td><td></td></tr>
+<tr><td>اسْتَكْبَرَ</td><td>istakbara</td><td>was arrogant</td><td></td></tr>
+<tr><td>كَبِير</td><td>kabīr</td><td>great, big</td><td></td></tr>
+<tr><td>كُبْرَى</td><td>kubrā</td><td>greatest</td><td></td></tr>
+<tr><td>أَكْبَرُ</td><td>Akbar</td><td>greater, greatest</td><td></td></tr>
+<tr><td colspan="4" style="background: var(--green-light); font-family: var(--font-ui); font-weight: 600; font-size: 0.85rem; text-align: left; color: var(--green-dark);">Phrases</td></tr>
+<tr><td>هُوَ اللَّهُ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ</td><td></td><td>He is Allah — there is no god but He</td><td>59:22</td></tr>
+<tr><td>هُوَ كَبِيرٌ. أَنَا أَكْبَرُ مِنْهُ. وَاللَّهُ أَكْبَرُ مِنَّا، بَلْ، مِنْ كُلِّ شَيْءٍ</td><td></td><td>He is great. I am greater than him. And Allah is greater than us — rather, than everything.</td><td>Teaching phrase</td></tr>
+<tr><td>أَتَتَّخِذُ أَصْنَامًا آلِهَةً</td><td></td><td>Do you take idols as gods?</td><td>6:74</td></tr>
+<tr><td>قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ</td><td></td><td>Say: O Allah, Owner of all sovereignty</td><td>3:26</td></tr>
+<tr><td>فَأَرَاهُ الْآيَةَ الْكُبْرَىٰ</td><td></td><td>He showed him the greatest sign</td><td>79:20</td></tr>
+<tr><td>كَبُرَ مَقْتًا عِندَ اللَّهِ أَن تَقُولُوا مَا لَا تَفْعَلُونَ</td><td></td><td>Greatly hateful in the sight of Allah — that you say what you do not do</td><td>61:3</td></tr>
+<tr><td>إِلَّا إِبْلِيسَ أَبَىٰ وَاسْتَكْبَرَ</td><td></td><td>Except Iblis — he refused and was arrogant</td><td>2:34</td></tr>
+<tr><td>وَإِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ لَا إِلَٰهَ إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ</td><td></td><td>Your God is one God — there is no god but He, the Most Merciful</td><td>2:163</td></tr>
+<tr><td>قَالَ بَلْ فَعَلَهُ كَبِيرُهُمْ هَٰذَا فَاسْأَلُوهُمْ إِن كَانُوا يَنطِقُونَ</td><td></td><td>He said: Rather, their chief did it — ask them, if they can speak</td><td>21:63</td></tr>
+<tr><td>وَلَذِكْرُ اللَّهِ أَكْبَرُ</td><td></td><td>And the remembrance of Allah is greater</td><td>29:45</td></tr>
+<tr><td>كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ</td><td></td><td>How great a word that comes from their mouths</td><td>18:5</td></tr>
+<tr><td>فَأَمَّا عَادٌ فَاسْتَكْبَرُوا فِي الْأَرْضِ بِغَيْرِ الْحَقِّ وَقَالُوا مَنْ أَشَدُّ مِنَّا قُوَّةً</td><td></td><td>As for ʿĀd, they were arrogant on earth and said: Who is mightier than us?</td><td>41:15</td></tr>
+</table>
 
 ---
 
@@ -325,6 +180,6 @@ This hadith bridges both root words from the lesson — لَا إِلَٰهَ إ
 <p class="audio-label">🔊 Adhān — listen again with fresh ears</p>
 <audio controls preload="none" src="{{ '/assets/audio/adhan-allahu-akbar.mp3' | relative_url }}"></audio>
 
-You started this lesson knowing two words: اللهُ أَكْبَرُ. Now you've heard the roots behind them move through the Qur'an — in the duʿā of Yūnus, in the call of every prophet, in the story of Ibrāhīm smashing idols, in the arrogance of Iblīs.
+You started this lesson knowing two words: اللهُ أَكْبَرُ. Now you've heard the roots behind them move through the Qur'an — in the call of Ibrāhīm to his father, in the greatest sign shown to Pharaoh, in the arrogance of Iblīs, and in that simple, devastating phrase: *the remembrance of Allah is greater.*
 
 Next time you hear the adhān or raise your hands for ṣalāh, these verses travel with you. Not as grammar — as recognition. A familiar voice you now understand a little more deeply.
