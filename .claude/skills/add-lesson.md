@@ -125,49 +125,88 @@ audio_download: /assets/audio/lessons/lesson-NN/lesson-NN-full.mp3
 
 **Lesson structure** (see `docs/LESSON-PLAN.md` for full detail):
 
+```
+2 anchor phrases + 5 learning phrases + 5 practice phrases = 12 total
+```
+
 ```markdown
 # Lesson N: Title
 
-[lesson-map nav bar]
-[collapsible study tip]
+<p class="lesson-preview">In this lesson...</p>
 
 ## Anchor
-[anchor phrase, local MP3 audio]
+[anchor phrase اللهُ أَكْبَرُ + adhān audio]
 
 ## Root word 1: Arabic (english)
-{: #root-slug}
-[curiosity gap paragraph]
-[root table]
-[5 learning phrase cards]
+[flowing description — no grammar terms]
+[root table: Arabic | English | Meaning — centered with {: .root-table}]
 
-## Root word 2: Arabic (english)
-{: #root-slug}
+### ⭐ · Anchor Phrase
+[anchor phrase + audio]
+[translation]
+[hook — 1–2 sentences about teaching intent]
+
+### 1 · form-word (english)
+[arabic text with **root word** bolded]
+(Surah Name N:N) · <audio>
+"English translation"
+Hook note — about the language/pattern, NOT the verse meaning
+
+### 2 · form-word (english)
 [same pattern]
 
----
-[↑ Back to top](#lesson-map)
+## Root word 2: Arabic (english)
+[same pattern — anchor + 3 learning phrases]
 
-## Practice — Can You Spot the Roots?
-[orienting line]
-[5 practice phrase cards per root]
+## Practice
 
----
-[↑ Back to top](#lesson-map)
+### 6 · form-word (english)   ← shortest phrase first
+...
+### 10 · form-word (english)  ← longest phrase last
+
+## Review in Order
+<audio player> + download link
+
+## Review Shuffled
+<div id="shuffle-player"></div>
 
 ## Summary
-[summary table — all words]
-[phrases list — stacked layout]
 
-## Quick Check
-[one quiz item per taught word]
+#### Words
+[flat table: Arabic | English | Meaning — {: .root-table} — all 8 words, no root subheaders]
 
-### What's Next?
-[2–3 sentence tease of next lesson]
+#### Phrases
+[table: Arabic · Surah Name N:N | English — no separate Ref column]
+
+## Closing
+[encouraging paragraph — invite student to spot roots in salah/Quran/Arabic anywhere]
 ```
 
 ---
 
-## Step 3 — HTML conventions inside the lesson file
+## Step 3 — Content principles
+
+### No grammar terminology
+Strip: "singular", "plural", "feminine", "Form X", "prefix", "occurs N times in Quran". Replace with plain flowing English about meaning and function.
+
+### Hook text = language, not meaning
+The note beneath each phrase should help the student notice the word/root/pattern — not explain what the verse means. The translation already does that.
+
+### Story Context Principle
+Include enough text to form a story hook (who said what to whom). Example: include "And when Ibrahim said to his father Azar:" before "Do you take idols as gods?" — the story makes the fragment memorable. But trim extra detail that doesn't serve the hook.
+
+- **Learn phrases**: as short as possible while retaining the story hook
+- **Practice phrases**: can be longer
+
+### Root letter format
+Always show both Arabic and English: `**أ ل ه** (alif lām hā)` — mobile students may not read Arabic well.
+
+### Reciter assignment
+Each Qur'anic phrase gets a **different reciter** from the approved pool. Match speed to segment length. See `.claude/skills/lesson-audio.md` → "Reciter assignment".
+
+---
+
+## Step 4 — HTML conventions inside the lesson file
 
 ### Any div containing Arabic text or audio → add `markdown="0"`
 
@@ -333,19 +372,23 @@ GitHub Pages rebuilds automatically — live in ~1 minute.
 
 ## Pre-flight checklist
 
-Before pushing, verify:
+See `.claude/skills/lesson-review-checklist.md` for the full checklist. Quick summary:
 
 - [ ] File at `lessons/lesson-NN-slug.md` — all lowercase, no spaces
 - [ ] `layout: lesson` in front matter (not `layout: default`)
-- [ ] `audio_manifest` and `audio_download` paths correct in front matter
-- [ ] All divs with Arabic text have `markdown="0"`
+- [ ] No grammar terminology in descriptions
+- [ ] Hook text explains language/pattern, not verse meaning
+- [ ] All headings single-word form: `### 3 · كُبْرَى (greatest)`
+- [ ] Anchor headings: `### ⭐ · Anchor Phrase` (no Arabic in heading)
+- [ ] Surah references: `(Al-Baqarah 2:34)` at end, never before Arabic text
+- [ ] Root letters: show both Arabic + English: `**أ ل ه** (alif lām hā)`
+- [ ] Practice phrases ordered shortest → longest
+- [ ] Each Qur'anic phrase uses a different reciter
+- [ ] `arabic_source_full` in YAML for any trimmed phrase
 - [ ] All `<audio>` tags have `preload="none"`
-- [ ] All `<audio>` tags have a `<p class="audio-label">` immediately above them
-- [ ] Back-to-top links placed AFTER `---` separators
-- [ ] Verse card headings are single-word forms, not full phrases
-- [ ] Surah references at end of line, in parentheses
 - [ ] YAML `english:` fields are plain ASCII (no ā ī ū ṣ ʿ etc.)
-- [ ] `validate-lesson-consistency.py` passes with no errors
+- [ ] Summary: two tables (Words + Phrases), no root subheaders, inline refs
+- [ ] Review sections: "Review in Order" + "Review Shuffled"
 - [ ] Lesson card added to `index.md`
 - [ ] Selection log created in `docs/selections/lesson-NN.md`
 - [ ] `pipeline.md` updated with deferred forms

@@ -15,6 +15,69 @@ Each lesson has audio assets built from a YAML definition. The pipeline:
 | `assets/audio/lessons/lesson-NN/manifest.json` | Metadata for the shuffle player |
 | `lessons/lesson-NN-slug.md` | Lesson page — has inline `<audio>` tags with EveryAyah CDN URLs |
 
+---
+
+## Reciter assignment — one per phrase
+
+Every Qur'anic phrase must use a **different reciter** from the approved pool. Never repeat the same reciter twice in one lesson. Match reciter speed to segment length:
+
+| Speed | Reciters | Use for |
+|---|---|---|
+| 🐢 Slow | Husary, Abdul Basit (both), Hani Rifai | Short segments (≤5 words) |
+| 🚶 Moderate | Al-Hudhaifi, Alafasy, Abu Bakr Ash-Shatri | Medium segments (6–10 words) |
+| 🏃 Faster | Yasser Ad-Dussary ⭐, As-Sudais, Maher Al-Muaiqly, Al-Juhainy, Saad Al-Ghamdi | Longer segments (11+ words) |
+
+Full reciter pool with folder names: see `docs/decisions/ADR-005-reciters.md`.
+
+**Yasser Ad-Dussary is the teacher's favourite** — prefer him for longer, emotionally resonant phrases.
+
+---
+
+## Two audio sources per sentence
+
+Each trimmed sentence has **two audio definitions**:
+
+```yaml
+arabic_source:
+  surah: 59
+  ayah: 22
+  end: 5.5                  # trimmed fragment — used for the learning card inline player
+arabic_source_full:
+  surah: 59
+  ayah: 22                  # full ayah — used for Review in Order / Review Shuffled
+```
+
+- `arabic_source` — the precise clip shown on the lesson page (may be trimmed for precision)
+- `arabic_source_full` — the complete ayah for the review audio build
+- If `arabic_source_full` is omitted, the build script falls back to `arabic_source` for both
+- Sentences that already use the full ayah (no trimming) only need `arabic_source`
+
+**Why**: Learning cards train with precision (isolated target word). Review audio trains recognition in context — the student hears the full ayah and must spot the word, which mirrors real ṣalāh experience.
+
+---
+
+## Finding correct time fragments
+
+Use `tools/find-audio-fragment.py` to detect natural pause points:
+
+```bash
+python tools/find-audio-fragment.py 59:22 --reciter Hani_Rifai_192kbps
+python tools/find-audio-fragment.py 2:34 29:45 --reciter Husary_128kbps
+```
+
+Output shows silence start/end times and suggested `#t=` fragments. Use the midpoint of a natural pause as your cut point.
+
+If no natural pause exists in any reciter:
+1. Try a different reciter (some have waqf pauses others don't)
+2. Use a hard cut — estimate based on word count proportion
+3. Or extend the displayed text to the next natural pause boundary
+
+**Fragment precision**: HTML5 `#t=` has ~0.5s browser variance. Buffer your cuts:
+- Start: 0.2–0.5s **before** target word
+- End: 0.5–1.0s **after** target word
+
+---
+
 ## Common tasks
 
 ### Changing a translation, timing, or reciter
@@ -28,20 +91,12 @@ Each lesson has audio assets built from a YAML definition. The pipeline:
 ### Changing reciter for a sentence
 
 Update **both** files:
-- YAML: change `reciter:` field AND update `start:`/`end:` if the new reciter has different pacing
+- YAML: change `reciter:` field AND recalibrate `start:`/`end:` for the new reciter's pacing
 - Lesson MD: change the EveryAyah URL reciter folder AND the `#t=` fragment
 
-**Critical**: timings are reciter-specific. A `start: 20.2` for Abdul Basit points to a completely different word in Husary.
+**Critical**: timings are reciter-specific. A `start: 24.2` for Abdul Basit points to a completely different word in Husary. Always re-run `find-audio-fragment.py` for the new reciter.
 
-### Adding a new sentence
-
-1. Add entry to YAML with: id, role, root, form, ref, reciter, arabic_source, arabic_text, english
-2. Add the verse card to the lesson `.md` (follow existing heading pattern)
-3. Validate + rebuild
-
-### Reordering practice sentences
-
-The YAML order determines the audio playback order (both full sequential and shuffle manifest). It **must match** the lesson page order. Always validate after reordering.
+---
 
 ## Debugging Jekyll audio issues
 
@@ -50,8 +105,8 @@ The YAML order determines the audio playback order (both full sequential and shu
 **Fix**: Restart Jekyll server + hard-refresh browser.
 
 ### Problem: 0-byte MP3 in `_site/`
-**Cause**: Jekyll's live-reload detects a changed MP3 but writes a 0-byte copy to `_site/`. This is a known WEBrick bug with large binary files during incremental regeneration.
-**Fix**: The `rebuild-lesson-audio.sh` script handles this — it copies all files to `_site/` after building. If you rebuild manually, always copy:
+**Cause**: Jekyll's live-reload detects a changed MP3 but writes a 0-byte copy to `_site/`.
+**Fix**: The `rebuild-lesson-audio.sh` script handles this. If rebuilding manually:
 ```bash
 cp assets/audio/lessons/lesson-NN/*.mp3 _site/assets/audio/lessons/lesson-NN/
 cp assets/audio/lessons/lesson-NN/manifest.json _site/assets/audio/lessons/lesson-NN/
@@ -62,35 +117,27 @@ cp assets/audio/lessons/lesson-NN/manifest.json _site/assets/audio/lessons/lesso
 **Fix**: Hard-refresh (`⌘+Shift+R`) or open incognito window.
 
 ### Problem: Audio plays wrong part of the ayah
-**Cause**: Almost certainly a reciter mismatch — the YAML specifies timings calibrated for one reciter but the audio was downloaded from a different reciter. Run:
-```bash
-python tools/validate-lesson-consistency.py lesson-NN
-```
+**Cause**: Reciter mismatch — timings calibrated for a different reciter than the URL uses.
+**Fix**: Run `python tools/validate-lesson-consistency.py lesson-NN`
 
 ### Problem: TTS produces gibberish for a word
-**Cause**: Special transliteration characters (ʿ ā ī ū ṣ ḍ ṭ ẓ ḥ) in the YAML `english:` field. Edge-tts can't pronounce them.
-**Fix**: Use plain ASCII in YAML `english:` (e.g., `Aad` not `ʿĀd`). The lesson page `.md` can still use proper transliteration. The validator catches this:
-```bash
-python tools/validate-lesson-consistency.py lesson-NN
-```
+**Cause**: Special transliteration characters (ʿ ā ī ū ṣ ḍ ṭ ẓ ḥ) in the YAML `english:` field.
+**Fix**: Use plain ASCII in YAML `english:` (e.g., `Aad` not `ʿĀd`). The lesson `.md` page can use proper transliteration; the YAML cannot.
+
+---
 
 ## TTS voice preferences
 
 | Language | Voice | ID | Notes |
 |----------|-------|----|-------|
 | English | Andrew, Brian, Christopher | `en-US-AndrewNeural`, `en-US-BrianNeural`, `en-US-ChristopherNeural` | Randomly rotated per sentence by build script |
-| Arabic | Hamed (Saudi) | `ar-SA-HamedNeural` | Preferred male Arabic voice for teaching phrases and non-Qur'anic content |
+| Arabic | Hamed (Saudi) | `ar-SA-HamedNeural` | For teaching phrases and non-Qur'anic content |
 
-Other Arabic male voices available but not preferred: `ar-AE-HamdanNeural` (Emirati), `ar-EG-ShakirNeural` (Egyptian).
-
-To generate Arabic TTS manually:
-```bash
-edge-tts --voice ar-SA-HamedNeural --text "Arabic text here" --write-media output.mp3
-```
+---
 
 ## Inline audio on the lesson page
 
-The lesson `.md` file contains its own `<audio>` tags separate from the build pipeline. These are **always** EveryAyah CDN URLs — the pipeline MP3s are for the sequential/shuffle players, not inline cards.
+The lesson `.md` file contains its own `<audio>` tags separate from the build pipeline. These are **always** EveryAyah CDN URLs — the pipeline MP3s are for the sequential/shuffle players only.
 
 ### URL construction
 
@@ -98,81 +145,45 @@ The lesson `.md` file contains its own `<audio>` tags separate from the build pi
 https://everyayah.com/data/{RECITER_FOLDER}/SSSAAA.mp3#t=START,END
 ```
 
-- `SSS` = surah number, zero-padded to **3 digits** (e.g., surah 7 → `007`)
-- `AAA` = ayah number, zero-padded to **3 digits** (e.g., ayah 12 → `012`)
-- `#t=START,END` = HTML5 Media Fragment — seconds, decimals OK (e.g., `#t=8,21`)
-- `RECITER_FOLDER` must match the YAML `reciter:` for that sentence — timings are reciter-specific
+- `SSS` = surah number, zero-padded to 3 digits
+- `AAA` = ayah number, zero-padded to 3 digits
+- `RECITER_FOLDER` must match the YAML `reciter:` for that sentence
 
-### Required conventions
+The reference line in markdown goes **after** the audio tag in the pattern:
 
-Every inline audio block must follow this exact structure:
-
-```html
-<p class="audio-label">🔊 Description · Arabic phrase</p>
-<audio controls preload="none" src="https://everyayah.com/data/Husary_128kbps/007012.mp3#t=8,21"></audio>
+```markdown
+(Al-ʿAnkabūt 29:45) · <audio controls preload="none" src="..."></audio>
 ```
 
-- `preload="none"` — always. Never omit. Prevents the browser loading all audio on page load.
-- `<p class="audio-label">` — always immediately above the `<audio>` tag. Never audio without a label.
-- The label describes what the clip is: recitation reference, Arabic phrase or translation hint.
+`lesson-cards.js` picks up the audio element and moves the reference to the bottom of the card.
 
 ### ⚠️ 296-day CDN cache warning
 
-EveryAyah sets `Cache-Control: max-age=25574400` (~296 days). Once a student's browser loads an audio file, it is cached locally for almost a year.
+EveryAyah sets ~296-day cache. Once a student loads an audio file, it cannot be corrected remotely for nearly a year. **Verify timestamps before pushing** using `find-audio-fragment.py` and test in incognito.
 
-**This means:** a wrong `#t=` fragment pushed to production **cannot be corrected** in students' browsers until the cache expires. There is no way to invalidate it remotely.
+---
 
-**Before pushing any audio timestamp change:**
-1. Use `tools/find-audio-fragment.py` (or listen manually) to verify start/end seconds
-2. Test in an incognito window (no cache) to confirm the clip
-3. Only push when confident — treat timestamps as near-irreversible once live
+## Review sections on the lesson page
 
-**Existing timestamps:** do not adjust them without a clear reason. A ±0.5s drift is acceptable — browsers have ~0.5s tolerance variance anyway. Only change timestamps if a clip is audibly wrong (wrong word, cut off, missing context).
+Each lesson has two review sections after the practice cards:
 
-### Fragment precision
+```markdown
+## Review in Order
 
-HTML5 Media Fragments (`#t=`) are a W3C standard but browser playback has ~0.5s variance. This is expected behaviour, not a bug. Choose start/end times with a small buffer:
-- Start: 0.2–0.5s **before** the target word
-- End: 0.5–1.0s **after** the target word ends
+<audio controls preload="none" src="{{ '/assets/audio/lessons/lesson-NN/lesson-NN-full.mp3' | relative_url }}"></audio>
 
-## Fragment verification workflow
+<a class="download-link" href="{{ '/assets/audio/lessons/lesson-NN/lesson-NN-full.mp3' | relative_url }}" download>📥 Download full lesson audio</a>
 
-When a sentence uses a time fragment (`#t=START,END`), the displayed text must match exactly what the audio plays. Mismatches are the most common audio bug.
+---
 
-### How to verify a fragment
+## Review Shuffled
 
-```bash
-# 1. Download the full ayah
-curl -o /tmp/ayah.mp3 "https://everyayah.com/data/Husary_128kbps/007059.mp3"
-
-# 2. Check total duration
-ffprobe -v quiet -show_entries format=duration -of csv=p=0 /tmp/ayah.mp3
-
-# 3. Extract a test clip to listen
-ffmpeg -y -i /tmp/ayah.mp3 -ss 11 -to 19 -acodec copy /tmp/test-clip.mp3
-
-# 4. Play and verify
-open /tmp/test-clip.mp3
+<div id="shuffle-player"></div>
 ```
 
-### Common problems and fixes
-
-| Problem | Cause | Fix |
-|---------|-------|-----|
-| Audio starts too early — plays words before the displayed text | `start` too low | Increase start by 0.5–1s, find the silence gap |
-| Audio cuts off mid-word | `end` too tight | Increase end by 0.5–1s |
-| Audio plays a completely different part of the ayah | Wrong start/end entirely | Re-listen to full ayah, find correct timestamps |
-| Displayed text is a fragment but audio plays the full ayah | Missing `#t=` in the lesson `.md` URL | Add `#t=START,END` matching the YAML values |
-
-### The text-audio match rule
-
-**Every sentence must satisfy:** what the student reads = what the student hears.
-
-- If the lesson shows a fragment of the ayah → the audio URL MUST have `#t=` to match
-- If the lesson shows the full ayah → no `#t=` needed
-- When in doubt, show the full ayah (expanding the text is safer than trimming audio)
-
-This was the single most common bug in Lesson 1: 13 sentences had fragment text but full-ayah audio URLs (no `#t=`).
+- **Review in Order** — sequential MP3 with audio player + download link
+- **Review Shuffled** — JavaScript shuffle player from manifest.json
+- Both use **full ayahs** (not trimmed fragments) — trains recognition in context
 
 ---
 
@@ -180,6 +191,6 @@ This was the single most common bug in Lesson 1: 13 sentences had fragment text 
 
 - **Arabic audio**: downloaded from EveryAyah CDN per reciter, cached at `.cache/{reciter}/{SSSAAA}.mp3`
 - **English TTS**: edge-tts with random male voice from pool (Andrew, Brian, Christopher)
-- **Pair MP3**: Arabic + 0.5s silence + English
-- **Full MP3**: all pairs concatenated with 1s silence between sentences
+- **Pair MP3**: Arabic + 2s silence + English
+- **Full MP3**: all pairs concatenated with 3s silence between sentences
 - **Cache**: use `--clean` flag to clear: `tools/rebuild-lesson-audio.sh lesson-NN --clean`
