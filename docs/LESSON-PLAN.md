@@ -210,6 +210,48 @@ English translations should be **simple, everyday language** — the kind of Eng
 
 ---
 
+## Learning Science Conventions
+
+These conventions were established through a 4-lens learning science review of Lesson 1 (encoding & retrieval, emotional engagement, cognitive load, Islamic pedagogy) and apply to **every lesson going forward**. Each convention includes the learning science principle behind it so future reviewers understand the *why*, not just the rule.
+
+### Page Structure & Navigation
+
+1. **Lesson map at top** — A compact clickable map after the lesson preview: `Anchor → Root 1 → Root 2 → Practice → Review → Summary → Quiz`. Each item links to its section via `id` attributes. *(Principle: Segmenting + Advance Organizer — reduces scroll anxiety, gives the student a mental scaffold before content begins)*
+
+2. **Collapsible study tip** — A `<details>` block after the lesson map: "📖 First time? How to study this lesson" with a short summary + link to the full How to Study page. *(Principle: Progressive Disclosure — helps first-timers without cluttering the view for returning students)*
+
+3. **Back-to-top links** — Place `[↑ Back to top](#lesson-map)` at section boundaries: after Practice, after Review Shuffled, after Summary, after Quiz. **Important**: these must be placed AFTER the `---` HR separator, not before it, or `lesson-cards.js` will consume them as "extras" and delete them. *(Principle: Scannability — on mobile the lesson is 15+ screens of scrolling)*
+
+4. **Stacked phrases layout in Summary** — The phrases summary uses a stacked layout (Arabic full-width on top, English below in muted italic) rather than a side-by-side table. Use the `.phrases-list` / `.phrase-row` HTML structure. *(Principle: Cognitive Load — side-by-side tables cramp Arabic text, especially on mobile)*
+
+### Root Sections
+
+5. **Curiosity gap before each root** — Before the root explanation prose, add 1–2 sentences that open a question the student wants answered. Example: *"The same three letters that praise Allah's greatness also describe the worst sin in the Qur'an. Let's see how."* *(Principle: Curiosity Gaps (Loewenstein) — creates information gaps that pull the learner forward)*
+
+### Practice Section
+
+6. **Renamed Practice header** — Use `## Practice — Can You Spot the Roots?` instead of plain `## Practice`. Add an orienting line beneath: *"You've met all the words. Now see if you can spot them on your own — try to predict the meaning of the highlighted word before reading the English."* *(Principle: Signaling + Generation Effect — marks the pedagogical shift from encoding to retrieval, primes the student to predict rather than passively read)*
+
+7. **Hook text on every Practice ayah** — Each Practice phrase gets 1–2 sentences of story/emotional context, shorter than the Learn section hooks. The Practice section should sustain the emotional temperature, not drop to zero. *(Principle: Emotional Tagging (Cahill) — memory consolidation is enhanced when emotional arousal is sustained, not just spiked once)*
+
+### Quiz Section
+
+8. **Format A quiz after Summary** — A `## Quick Check` section with one quiz item per taught word. Each item shows a verse fragment with the target word highlighted, and a `<details>` click-to-reveal: `إِلَٰهَ means…` → `god`. Keep the question text subtle (small muted font), not bold — the Arabic verse is the visual focus. *(Principle: Testing Effect (Roediger & Karpicke) — a single retrieval attempt produces more long-term retention than equivalent re-study time)*
+
+### Closing
+
+9. **Name the narrative arc** — The Closing should explicitly name the journey the lesson took. Example: *"This lesson moved through one question — what is truly great? The first root asked what you worship. The second asked what you consider great. The Qur'an's answer came in the voice of prophets, in the fall of Iblīs, and in the phrase you already carry: اللهُ أَكْبَرُ."* *(Principle: Narrative Transportation (Green & Brock) — explicit arc increases transportation and recall; the student should feel they went on a journey, not just through vocabulary)*
+
+10. **"What's Next?" tease** — After the Closing, a `### What's Next?` section with 2–3 sentences teasing the next lesson's anchor phrase and root, opening a curiosity gap. Example: *"You'll discover that أَشْهَدُ doesn't just mean 'I testify.' Its root will take you somewhere unexpected."* *(Principle: Curiosity Gap — creates forward pull between lessons)*
+
+### Global Features
+
+11. **Translation toggle** — Every lesson has a floating bottom-right `🔒 Hide translations` button (built by `translation-toggle.js`). When active, all English translations are hidden and individually tap-to-reveal. State persists in localStorage. Mention this in the collapsible study tip. *(Principle: Generation Effect + Desirable Difficulty — transforms passive reading into active recall)*
+
+12. **How to Study page** — A dedicated `how-to-study.md` page linked from the study tip in every lesson and from the homepage. Contains: 15-minute session ritual, passive listening tips, suggested 7-day schedule, "Share It" protégé effect tip, metacognitive "struggle is learning" note. *(Principles: Spaced Repetition, Protégé Effect, Desirable Difficulties metacognition)*
+
+---
+
 ## Verification
 
 All verse references must be verified against:

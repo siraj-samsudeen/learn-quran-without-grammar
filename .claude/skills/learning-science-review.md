@@ -94,6 +94,10 @@ After all decisions are collected:
 4. Verify the changes don't break existing functionality (especially `lesson-cards.js` which processes `### N ·` headings)
 5. Commit and push when the user confirms
 
+## Existing Conventions
+
+Before running a review, read **`docs/LESSON-PLAN.md` → "Learning Science Conventions"** section. This documents the patterns already established (lesson map, curiosity gaps, practice hooks, quiz format, narrative arc, etc.) with their learning science rationale. The review should check whether the lesson implements these conventions, and look for *new* improvements beyond them.
+
 ## Important Caveats
 
 - **lesson-cards.js compatibility**: The JS collects `<p>` siblings after `### N · form-name` headings until it hits a boundary (HR, H2, H3). Any new content added within a verse card zone must be either: (a) a `<p>` that fits the classification (arabic/english/hook/ref), or (b) placed AFTER the `---` HR boundary. Otherwise the JS will eat it as "extras" and remove it.

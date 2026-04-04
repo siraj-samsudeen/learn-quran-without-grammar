@@ -145,7 +145,7 @@ GitHub Actions builds Jekyll and deploys to GitHub Pages automatically. Live in 
 
 | File | Topic |
 |------|-------|
-| `docs/LESSON-PLAN.md` | **Lesson structure, root word convention, sentence selection, teacher preferences** |
+| `docs/LESSON-PLAN.md` | **Lesson structure, root word convention, sentence selection, teacher preferences, learning science conventions** |
 | `docs/selections/lesson-NN.md` | Per-lesson selection logs — what was picked and why |
 | `docs/selections/pipeline.md` | **Sentence pipeline — check this FIRST when starting a new lesson** |
 | `docs/AUDIO-SYSTEM.md` | Audio pipeline: TTS, clip extraction, sequential MP3, web shuffle player |
@@ -156,3 +156,5 @@ GitHub Actions builds Jekyll and deploys to GitHub Pages automatically. Live in 
 | `docs/decisions/ADR-002-audio.md` | Why HTML5 `#t=` fragments + EveryAyah |
 | `docs/decisions/ADR-003-file-structure.md` | Naming conventions + `lessons/` folder |
 | `docs/decisions/ADR-004-jekyll-html.md` | `markdown="0"` for HTML blocks |
+| `how-to-study.md` | Study guide page — 15-min session, passive listening, spaced schedule |
+| `.claude/skills/learning-science-review.md` | **Skill: 4-lens learning science review for lessons** |
