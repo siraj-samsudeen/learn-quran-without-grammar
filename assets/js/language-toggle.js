@@ -44,8 +44,10 @@
     toggleContainer.appendChild(btnTa);
 
     // Place inside the floating container alongside the Hide translations button
+    // translation-toggle.js creates .translation-toggle-float first (loaded before this script)
     var floatContainer = document.querySelector('.translation-toggle-float');
     if (floatContainer) {
+      // Insert before the translation toggle button so lang toggle is on the left
       floatContainer.insertBefore(toggleContainer, floatContainer.firstChild);
     } else {
       // Fallback: create own floating container
