@@ -16,9 +16,9 @@
     var lessonBody = document.querySelector('.lesson-body');
     if (!lessonBody) return;
 
-    // Create sticky bar
-    var bar = document.createElement('div');
-    bar.className = 'translation-bar';
+    // Create floating container
+    var float = document.createElement('div');
+    float.className = 'translation-toggle-float';
 
     // Create toggle button
     var btn = document.createElement('button');
@@ -27,16 +27,8 @@
     btn.setAttribute('aria-pressed', 'false');
     updateButtonText(btn, false);
 
-    // Create hint text
-    var hint = document.createElement('span');
-    hint.className = 'translation-bar-hint';
-    hint.textContent = 'Challenge mode: hide translations and try to recall meanings';
-
-    bar.appendChild(btn);
-    bar.appendChild(hint);
-
-    // Insert at the very top of the lesson body
-    lessonBody.insertBefore(bar, lessonBody.firstChild);
+    float.appendChild(btn);
+    document.body.appendChild(float);
 
     // Check saved state
     var saved = localStorage.getItem(STORAGE_KEY);

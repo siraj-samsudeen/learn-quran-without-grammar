@@ -31,7 +31,7 @@ In this series of lessons, we will walk through each of the sentences in the Adh
 <details>
 <summary>📖 First time? How to study this lesson</summary>
 
-<p>For each phrase: <strong>read</strong> the Arabic → <strong>listen</strong> to the audio → <strong>say the word</strong> 3–5 times yourself → <strong>move on</strong>. In the Practice section, try to predict meanings before reading the English. Download the audio and play it on repeat through your day — passive listening is the secret weapon. <a href="{{ '/how-to-study' | relative_url }}">Read the full study guide →</a></p>
+<p>For each phrase: <strong>read</strong> the Arabic → <strong>listen</strong> to the audio → <strong>say the word</strong> 3–5 times yourself → <strong>move on</strong>. In the Practice section, try to predict meanings before reading the English. Download the audio and play it on repeat through your day — passive listening is the secret weapon. Use the <strong>🔒 Hide translations</strong> button (bottom-right) to challenge yourself. <a href="{{ '/how-to-study' | relative_url }}">Read the full study guide →</a></p>
 </details>
 </div>
 
