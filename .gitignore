@@ -7,7 +7,7 @@ _site/
 Gemfile.lock
 vendor/
 
-# Audio build artifacts
+# Audio build artifacts & API caches
 .cache/
 assets/audio/lessons/*/.cache/
 assets/audio/lessons/test-*/
