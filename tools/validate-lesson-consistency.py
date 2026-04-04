@@ -11,7 +11,6 @@ Catches the kinds of bugs we've hit in practice:
 
 Usage:
     python tools/validate-lesson-consistency.py lesson-01
-    python tools/validate-lesson-consistency.py lesson-01 --fix-order  # show suggested YAML reorder
 """
 
 import argparse
@@ -68,7 +67,7 @@ def extract_page_audio_refs(md_text: str) -> list[dict]:
     # Track which section we're in
     section = "learn"
     for line in md_text.split('\n'):
-        if re.match(r'^## Practice', line):
+        if re.match(r'^#{1,3}.*[Pp]ractice', line):
             section = "practice"
 
         m = pattern.search(line)
@@ -262,6 +261,7 @@ def main():
     )
     parser.add_argument("lesson_id", help="Lesson ID (e.g., lesson-01)")
     args = parser.parse_args()
+    # Note: --fix-order was previously documented but never implemented; removed.
 
     lesson_id = args.lesson_id
     print(f"\n{'='*60}")

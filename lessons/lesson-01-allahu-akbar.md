@@ -127,8 +127,6 @@ Every time you say اللهُ أَكْبَرُ, you are reaching into this root 
 
 ### ⭐ · 4 Anchor Phrase
 
-| | |
-|---|---|
 | هُوَ **كَبِيرٌ** | "He is **great**" |
 | أَنَا **أَكْبَرُ** مِنْهُ | "I am **greater** than him" |
 | وَاللَّهُ **أَكْبَرُ** مِنَّا، بَلْ، مِنْ كُلِّ شَيْءٍ | "And Allah is **greater** than us — rather, than everything" |

@@ -159,3 +159,4 @@ GitHub Actions builds Jekyll and deploys to GitHub Pages automatically. Live in 
 | `docs/decisions/ADR-004-jekyll-html.md` | `markdown="0"` for HTML blocks |
 | `how-to-study.md` | Study guide page — 15-min session, passive listening, spaced schedule |
 | `.claude/skills/learning-science-review.md` | **Skill: 4-lens learning science review for lessons** |
+| `.claude/skills/jekyll-publish-page.md` | **Skill: Checklist for publishing a draft/excluded file as a Jekyll page** |
