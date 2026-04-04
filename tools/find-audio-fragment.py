@@ -13,6 +13,10 @@ Usage:
     python tools/find-audio-fragment.py 59:22 6:74 3:26    # multiple ayahs
 
 Output includes silence points and suggested clause fragments.
+
+    # Write the chosen fragment back to a lesson markdown file:
+    python tools/find-audio-fragment.py 21:87 --write lessons/lesson-01-allahu-akbar.md
+    python tools/find-audio-fragment.py 41:15 --write lessons/lesson-01-allahu-akbar.md --play
 """
 
 import argparse
@@ -175,7 +179,8 @@ def detect_silences(path: Path, noise: str, duration: str) -> list[dict]:
 # Analysis & reporting
 # ---------------------------------------------------------------------------
 
-def analyse_ayah(surah: int, ayah: int, reciter: str) -> None:
+def analyse_ayah(surah: int, ayah: int, reciter: str,
+                 write_path: Path = None, play: bool = False) -> None:
     """Download, analyse, and print a full report for one ayah."""
     ref = f"{surah}:{ayah}"
     url = build_url(reciter, surah, ayah)
@@ -228,18 +233,86 @@ def analyse_ayah(surah: int, ayah: int, reciter: str) -> None:
     total_rounded = round(total_dur)
 
     print(f"\nSuggested fragments:")
+    boundaries: list = []
     if not cut_points:
         print(f"  Full ayah:     #t=0,{total_rounded}  (no internal pauses found)")
+        boundaries = [0, total_rounded]
     else:
         boundaries = [0] + cut_points + [total_rounded]
         for i in range(len(boundaries) - 1):
-            start = int(boundaries[i]) if boundaries[i] == int(boundaries[i]) else boundaries[i]
-            end = int(boundaries[i + 1]) if boundaries[i + 1] == int(boundaries[i + 1]) else boundaries[i + 1]
+            t_s = boundaries[i]
+            t_e = boundaries[i + 1]
             label = ORDINALS[i] if i < len(ORDINALS) else f"{i+1}th"
-            print(f"  {label} clause:{' ' * max(1, 9 - len(label))}#t={start},{end}")
-        print(f"  Full ayah:     (no fragment needed)")
+            print(f"  [{i+1}] {label} clause:{' ' * max(1, 8 - len(label))}#t={t_s},{t_e}")
+        print(f"  [f] Full ayah:     (no fragment needed)")
+
+    # ── --play: play each clause before prompting ──
+    if play and len(boundaries) >= 2:
+        import tempfile
+        print()
+        for i in range(len(boundaries) - 1):
+            label = ORDINALS[i] if i < len(ORDINALS) else f"{i+1}th"
+            input(f"  Press Enter to play {label} clause ({boundaries[i]}–{boundaries[i+1]}s) …")
+            with tempfile.NamedTemporaryFile(suffix=".mp3", delete=False) as tmp:
+                tmp_path = tmp.name
+            subprocess.run(
+                ["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
+                 "-ss", str(boundaries[i]), "-to", str(boundaries[i+1]),
+                 "-i", str(local_path), "-c", "copy", tmp_path], check=True)
+            subprocess.run(["afplay", tmp_path])
+            Path(tmp_path).unlink(missing_ok=True)
+
+    # ── --write: ask which clause and patch the markdown file ──
+    if write_path and len(boundaries) >= 2:
+        n_clauses = len(boundaries) - 1
+        prompt = f"\n  Write to {write_path.name} — which clause? "
+        prompt += f"[1–{n_clauses} / f=full / s=start-only / skip]: " if n_clauses > 1 \
+                  else "[f=full / 1=only clause / s=start-only / skip]: "
+        choice = input(prompt).strip().lower()
+
+        if choice in ("skip", ""):
+            print("  Skipped.")
+        elif choice == "f":
+            _patch(write_path, surah, ayah, None, None)
+        elif choice == "s":
+            try:
+                t = float(input("  Start time (seconds): ").strip())
+                _patch(write_path, surah, ayah, t, None)
+            except ValueError:
+                print("  Invalid time, skipped.")
+        elif choice.isdigit() and 0 <= int(choice) - 1 < n_clauses:
+            idx = int(choice) - 1
+            _patch(write_path, surah, ayah, boundaries[idx], boundaries[idx + 1])
+        else:
+            print("  Unrecognised choice, skipped.")
 
     print()
+
+
+def _patch(md_path: Path, surah: int, ayah: int, t_start, t_end) -> None:
+    """Update the #t= fragment for a given ayah in a lesson markdown file."""
+    filename = f"{surah:03d}{ayah:03d}"
+    if t_start is None:
+        frag = ""
+    elif t_end is None:
+        frag = f"#t={t_start}"
+    elif t_start == 0:
+        frag = f"#t=0,{t_end}"
+    else:
+        frag = f"#t={t_start},{t_end}"
+
+    content = md_path.read_text(encoding="utf-8")
+    pattern = re.compile(
+        r'(<audio[^>]+src="https://everyayah\.com/data/[^/]+/'
+        + re.escape(filename) + r'\.mp3)'
+        r'(?:#t=[^"]*)?(")'
+    )
+    new_content, count = pattern.subn(rf'\g<1>{frag}\g<2>', content)
+    if count == 0:
+        print(f"  ✗ No <audio> tag found for {surah}:{ayah} in {md_path.name}")
+    else:
+        md_path.write_text(new_content, encoding="utf-8")
+        print(f"  ✅ Updated {count} tag(s) → {frag or '(full ayah)'}")
 
 
 # ---------------------------------------------------------------------------
@@ -268,8 +341,22 @@ def main():
         help=f"Reciter folder name on everyayah.com (default: {DEFAULT_RECITER}). "
              f"Available: {', '.join(RECITERS)}",
     )
+    parser.add_argument(
+        "--write", metavar="LESSON_MD",
+        help="Lesson markdown file to patch. After analysis, prompts which clause "
+             "to write, then updates the <audio #t=> tag in-place.",
+    )
+    parser.add_argument(
+        "--play", action="store_true",
+        help="Play each detected clause with afplay (macOS) before prompting.",
+    )
 
     args = parser.parse_args()
+
+    write_path = Path(args.write) if args.write else None
+    if write_path and not write_path.exists():
+        print(f"Error: --write path not found: {write_path}", file=sys.stderr)
+        sys.exit(1)
 
     # Verify ffmpeg/ffprobe are available
     for cmd in ("ffmpeg", "ffprobe"):
@@ -284,7 +371,7 @@ def main():
         except ValueError as e:
             print(f"Error: {e}", file=sys.stderr)
             continue
-        analyse_ayah(surah, ayah, args.reciter)
+        analyse_ayah(surah, ayah, args.reciter, write_path=write_path, play=args.play)
 
 
 if __name__ == "__main__":

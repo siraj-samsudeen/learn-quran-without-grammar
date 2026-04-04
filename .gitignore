@@ -11,3 +11,4 @@ vendor/
 .cache/
 assets/audio/lessons/*/.cache/
 assets/audio/lessons/test-*/
+tools/__pycache__/
