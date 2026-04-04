@@ -1,0 +1,514 @@
+{
+  "root_word": "كَبُرَ",
+  "root_word_transliteration": "kabura",
+  "three_letter_root": "ك ب ر",
+  "three_letter_root_english": "kaf ba ra",
+  "corpus_url": "https://corpus.quran.com/qurandictionary.jsp?q=kbr",
+  "fetched_date": "2025-06-01",
+  "total_occurrences_in_quran": 161,
+  "introduced_in_lesson": 1,
+
+  "forms": [
+    {
+      "form_arabic": "كَبُرَ",
+      "form_transliteration": "kabura",
+      "category": "Verb (Form I)",
+      "gloss": "to be great",
+      "count": 8,
+      "taught_in_lesson": 1,
+      "taught_role": "learn"
+    },
+    {
+      "form_arabic": "اسْتَكْبَرَ",
+      "form_transliteration": "istakbara",
+      "category": "Verb (Form X)",
+      "gloss": "to be arrogant",
+      "count": 38,
+      "taught_in_lesson": 1,
+      "taught_role": "learn"
+    },
+    {
+      "form_arabic": "كَبِير",
+      "form_transliteration": "kabir",
+      "category": "Adjective",
+      "gloss": "great, big",
+      "count": 36,
+      "taught_in_lesson": 1,
+      "taught_role": "practice"
+    },
+    {
+      "form_arabic": "كُبْرَى",
+      "form_transliteration": "kubra",
+      "category": "Adjective (fem. superlative)",
+      "gloss": "greatest",
+      "count": 8,
+      "taught_in_lesson": 1,
+      "taught_role": "learn"
+    },
+    {
+      "form_arabic": "أَكْبَرُ",
+      "form_transliteration": "akbar",
+      "category": "Elative (superlative)",
+      "gloss": "greater, greatest",
+      "count": 23,
+      "taught_in_lesson": 1,
+      "taught_role": "anchor"
+    },
+    {
+      "form_arabic": "كَبَّرَ",
+      "form_transliteration": "kabbara",
+      "category": "Verb (Form II)",
+      "gloss": "to magnify (do takbir)",
+      "count": 4,
+      "taught_in_lesson": null,
+      "taught_role": null,
+      "priority": "high",
+      "notes": "Directly means 'do takbir' — strong connection to Lesson 1 anchor"
+    },
+    {
+      "form_arabic": "مُتَكَبِّر",
+      "form_transliteration": "mutakabbir",
+      "category": "Active Participle (Form V)",
+      "gloss": "the Supreme, the Arrogant",
+      "count": 7,
+      "taught_in_lesson": null,
+      "taught_role": null,
+      "priority": "high",
+      "notes": "Name of Allah (59:23) — الْمُتَكَبِّرُ"
+    },
+    {
+      "form_arabic": "كَبِيرَة",
+      "form_transliteration": "kabirat",
+      "category": "Noun",
+      "gloss": "great sin",
+      "count": 7,
+      "taught_in_lesson": null,
+      "taught_role": null,
+      "priority": "medium"
+    },
+    {
+      "form_arabic": "كِبَر",
+      "form_transliteration": "kibar",
+      "category": "Noun",
+      "gloss": "old age",
+      "count": 6,
+      "taught_in_lesson": null,
+      "taught_role": null,
+      "priority": "medium",
+      "notes": "Includes famous parents verse 17:23"
+    },
+    {
+      "form_arabic": "مُسْتَكْبِر",
+      "form_transliteration": "mustakbir",
+      "category": "Active Participle (Form X)",
+      "gloss": "the arrogant ones",
+      "count": 6,
+      "taught_in_lesson": null,
+      "taught_role": null,
+      "priority": "medium"
+    },
+    {
+      "form_arabic": "كِبْر",
+      "form_transliteration": "kibr",
+      "category": "Noun",
+      "gloss": "pride, arrogance",
+      "count": 2,
+      "taught_in_lesson": null,
+      "taught_role": null,
+      "priority": "low"
+    },
+    {
+      "form_arabic": "كِبْرِيَاء",
+      "form_transliteration": "kibriya'",
+      "category": "Noun",
+      "gloss": "supreme majesty",
+      "count": 2,
+      "taught_in_lesson": null,
+      "taught_role": null,
+      "priority": "low"
+    },
+    {
+      "form_arabic": "أَكْبَرَ",
+      "form_transliteration": "akbara",
+      "category": "Verb (Form IV)",
+      "gloss": "to be astonished",
+      "count": 1,
+      "taught_in_lesson": null,
+      "taught_role": null,
+      "priority": "low",
+      "notes": "Only in 12:31 (Yusuf story, memorable)"
+    },
+    {
+      "form_arabic": "تَكْبِير",
+      "form_transliteration": "takbir",
+      "category": "Verbal Noun (Form II)",
+      "gloss": "magnification, takbir",
+      "count": 1,
+      "taught_in_lesson": null,
+      "taught_role": null,
+      "priority": "low",
+      "notes": "Only in 17:111 — with كَبَّرَ"
+    }
+  ],
+
+  "verses": [
+    {
+      "ref": "79:20",
+      "arabic_full": "فَأَرَىٰهُ ٱلْـَٔايَةَ ٱلْكُبْرَىٰ",
+      "translation": "He showed him the greatest sign",
+      "form": "كُبْرَى",
+      "type": "quran",
+      "verified": true,
+      "word_count": 4,
+      "surah_name": "An-Nazi'at",
+      "juz": 30,
+      "status": "used",
+      "lesson": 1,
+      "role": "learn",
+      "reciter": "Husary_128kbps",
+      "audio_fragment": null,
+      "scores": {
+        "curriculum": 0, "length": 2, "story": 2, "worship": 0,
+        "surah_familiarity": 2, "completeness": 1, "emotion": 1,
+        "fit_learn": 1, "fit_practice": 1,
+        "total_learn": 9, "total_practice": 9
+      },
+      "score_notes": "Tiny — 4 words. Musa showed Pharaoh the greatest miracle. Juz' 30."
+    },
+    {
+      "ref": "61:3",
+      "arabic_full": "كَبُرَ مَقْتًا عِندَ ٱللَّهِ أَن تَقُولُوا۟ مَا لَا تَفْعَلُونَ",
+      "translation": "Greatly hateful in the sight of Allah that you say what you do not do",
+      "form": "كَبُرَ",
+      "type": "quran",
+      "verified": true,
+      "word_count": 8,
+      "surah_name": "As-Saff",
+      "juz": 28,
+      "status": "used",
+      "lesson": 1,
+      "role": "learn",
+      "reciter": "Alafasy_128kbps",
+      "audio_fragment": null,
+      "scores": {
+        "curriculum": 0, "length": 1, "story": 0, "worship": 0,
+        "surah_familiarity": 1, "completeness": 1, "emotion": 2,
+        "fit_learn": 1, "fit_practice": 1,
+        "total_learn": 6, "total_practice": 6
+      },
+      "score_notes": "Base verb form. Saying and not doing — deeply hated by Allah."
+    },
+    {
+      "ref": "2:34",
+      "arabic_full": "وَإِذْ قُلْنَا لِلْمَلَـٰٓئِكَةِ ٱسْجُدُوا۟ لِـَٔادَمَ فَسَجَدُوٓا۟ إِلَّآ إِبْلِيسَ أَبَىٰ وَٱسْتَكْبَرَ وَكَانَ مِنَ ٱلْكَـٰفِرِينَ",
+      "translation": "And when We said to the angels: Prostrate to Adam — they prostrated, except Iblis. He refused and was arrogant, and became of the disbelievers.",
+      "form": "اسْتَكْبَرَ",
+      "type": "quran",
+      "verified": true,
+      "word_count": 14,
+      "surah_name": "Al-Baqarah",
+      "juz": 1,
+      "status": "used",
+      "lesson": 1,
+      "role": "learn",
+      "reciter": "Abdul_Basit_Mujawwad_128kbps",
+      "audio_fragment": null,
+      "scores": {
+        "curriculum": 0, "length": 0, "story": 3, "worship": 0,
+        "surah_familiarity": 0, "completeness": 1, "emotion": 2,
+        "fit_learn": 1, "fit_practice": 0,
+        "total_learn": 7, "total_practice": 6
+      },
+      "score_notes": "Full origin story of Iblis — far more memorable than a trimmed fragment. Story context principle."
+    },
+    {
+      "ref": "21:63",
+      "arabic_full": "قَالَ بَلْ فَعَلَهُۥ كَبِيرُهُمْ هَـٰذَا فَسْـَٔلُوهُمْ إِن كَانُوا۟ يَنطِقُونَ",
+      "translation": "He said: Rather, their chief did it — ask them, if they can speak",
+      "form": "كَبِير",
+      "type": "quran",
+      "verified": true,
+      "word_count": 9,
+      "surah_name": "Al-Anbiya",
+      "juz": 17,
+      "status": "used",
+      "lesson": 1,
+      "role": "practice",
+      "reciter": "MaherAlMuaiqly128kbps",
+      "audio_fragment": null,
+      "scores": {
+        "curriculum": 0, "length": 1, "story": 3, "worship": 0,
+        "surah_familiarity": 0, "completeness": 1, "emotion": 2,
+        "fit_learn": 1, "fit_practice": 1,
+        "total_learn": 8, "total_practice": 8
+      },
+      "score_notes": "Ibrahim's wit when questioned about smashing the idols — brilliant story."
+    },
+    {
+      "ref": "29:45",
+      "arabic_full": "ٱتْلُ مَآ أُوحِىَ إِلَيْكَ مِنَ ٱلْكِتَـٰبِ وَأَقِمِ ٱلصَّلَوٰةَ ۖ إِنَّ ٱلصَّلَوٰةَ تَنْهَىٰ عَنِ ٱلْفَحْشَآءِ وَٱلْمُنكَرِ ۗ وَلَذِكْرُ ٱللَّهِ أَكْبَرُ ۗ وَٱللَّهُ يَعْلَمُ مَا تَصْنَعُونَ",
+      "arabic_fragment": "وَلَذِكْرُ ٱللَّهِ أَكْبَرُ",
+      "translation": "And the remembrance of Allah is greater",
+      "form": "أَكْبَرُ",
+      "type": "quran",
+      "verified": true,
+      "word_count": 3,
+      "surah_name": "Al-Ankabut",
+      "juz": 20,
+      "status": "used",
+      "lesson": 1,
+      "role": "practice",
+      "reciter": "Abdul_Basit_Murattal_192kbps",
+      "audio_fragment": "#t=20.2,24",
+      "scores": {
+        "curriculum": 0, "length": 2, "story": 0, "worship": 2,
+        "surah_familiarity": 1, "completeness": 1, "emotion": 1,
+        "fit_learn": 0, "fit_practice": 1,
+        "total_learn": 7, "total_practice": 8
+      },
+      "score_notes": "Tiny, punchy. The word from Allahu Akbar. dhikr = salah."
+    },
+    {
+      "ref": "18:5",
+      "arabic_full": "مَّا لَهُم بِهِۦ مِنْ عِلْمٍ وَلَا لِـَٔابَآئِهِمْ ۚ كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَٰهِهِمْ ۚ إِن يَقُولُونَ إِلَّا كَذِبًا",
+      "arabic_fragment": "كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ",
+      "translation": "How great (terrible) is the word that comes from their mouths",
+      "form": "كَبُرَ",
+      "type": "quran",
+      "verified": true,
+      "word_count": 5,
+      "surah_name": "Al-Kahf",
+      "juz": 15,
+      "status": "used",
+      "lesson": 1,
+      "role": "practice",
+      "reciter": "Ghamadi_40kbps",
+      "audio_fragment": "#t=7.5",
+      "scores": {
+        "curriculum": 0, "length": 2, "story": 0, "worship": 1,
+        "surah_familiarity": 1, "completeness": 1, "emotion": 1,
+        "fit_learn": 0, "fit_practice": 1,
+        "total_learn": 6, "total_practice": 7
+      },
+      "score_notes": "Surah Al-Kahf — retranslated to 'great' not 'grave' to keep root connection visible."
+    },
+    {
+      "ref": "41:15",
+      "arabic_full": "فَأَمَّا عَادٌ فَٱسْتَكْبَرُوا۟ فِى ٱلْأَرْضِ بِغَيْرِ ٱلْحَقِّ وَقَالُوا۟ مَنْ أَشَدُّ مِنَّا قُوَّةً ۖ أَوَلَمْ يَرَوْا۟ أَنَّ ٱللَّهَ ٱلَّذِى خَلَقَهُمْ هُوَ أَشَدُّ مِنْهُمْ قُوَّةً",
+      "translation": "As for Aad, they were arrogant on earth without right and said: 'Who is mightier than us?' Did they not see that Allah who created them is mightier than them?",
+      "form": "اسْتَكْبَرَ",
+      "type": "quran",
+      "verified": true,
+      "word_count": 19,
+      "surah_name": "Fussilat",
+      "juz": 24,
+      "status": "used",
+      "lesson": 1,
+      "role": "practice",
+      "reciter": "Abdurrahmaan_As-Sudais_192kbps",
+      "audio_fragment": null,
+      "scores": {
+        "curriculum": 0, "length": 0, "story": 2, "worship": 0,
+        "surah_familiarity": 0, "completeness": 1, "emotion": 2,
+        "fit_learn": 0, "fit_practice": 1,
+        "total_learn": 5, "total_practice": 6
+      },
+      "score_notes": "Aad's arrogant boast + Allah's comeback — punchy despite length."
+    },
+    {
+      "ref": "6:78",
+      "arabic_full": "فَلَمَّا رَأَى ٱلشَّمْسَ بَازِغَةً قَالَ هَـٰذَا رَبِّى هَـٰذَآ أَكْبَرُ",
+      "translation": "When he saw the sun rising, he said: This is my Lord — this is greater",
+      "form": "أَكْبَرُ",
+      "type": "quran",
+      "verified": true,
+      "word_count": 8,
+      "surah_name": "Al-An'am",
+      "juz": 7,
+      "status": "pipeline",
+      "lesson": null,
+      "role": null,
+      "previously_used_in_lesson_v1": true,
+      "audio_downloaded": true,
+      "scores": {
+        "curriculum": 2, "length": 2, "story": 3, "worship": 0,
+        "surah_familiarity": 1, "completeness": 1, "emotion": 2,
+        "fit_learn": 1, "fit_practice": 1,
+        "total_learn": 12, "total_practice": 12
+      },
+      "score_notes": "Ibrahim searching for God — stars, moon, sun. Each time 'this is greater.' Iconic story. Audio already downloaded.",
+      "rejection_reason": "Already have أَكْبَر in anchor phrase and practice (29:45)."
+    },
+    {
+      "ref": "87:12",
+      "arabic_full": "ٱلَّذِى يَصْلَى ٱلنَّارَ ٱلْكُبْرَىٰ",
+      "translation": "The one who will burn in the greatest Fire",
+      "form": "كُبْرَى",
+      "type": "quran",
+      "verified": true,
+      "word_count": 5,
+      "surah_name": "Al-A'la",
+      "juz": 30,
+      "status": "pipeline",
+      "lesson": null,
+      "role": null,
+      "previously_used_in_lesson_v1": true,
+      "audio_downloaded": true,
+      "scores": {
+        "curriculum": 2, "length": 2, "story": 0, "worship": 3,
+        "surah_familiarity": 2, "completeness": 1, "emotion": 1,
+        "fit_learn": 1, "fit_practice": 1,
+        "total_learn": 12, "total_practice": 12
+      },
+      "score_notes": "From Surah Al-A'la — very frequently recited in salah. Student already knows it by ear. Audio already downloaded.",
+      "rejection_reason": "kubra already covered by 79:20 in learning."
+    },
+    {
+      "ref": "2:219",
+      "arabic_full": "يَسْـَٔلُونَكَ عَنِ ٱلْخَمْرِ وَٱلْمَيْسِرِ ۖ قُلْ فِيهِمَآ إِثْمٌ كَبِيرٌ وَمَنَـٰفِعُ لِلنَّاسِ وَإِثْمُهُمَآ أَكْبَرُ مِن نَّفْعِهِمَا",
+      "translation": "They ask you about wine and gambling. Say: In them is great sin and benefit for people, but their sin is greater than their benefit",
+      "form": "كَبِير + أَكْبَرُ",
+      "type": "quran",
+      "verified": true,
+      "word_count": 16,
+      "surah_name": "Al-Baqarah",
+      "juz": 2,
+      "status": "pipeline",
+      "lesson": null,
+      "role": null,
+      "previously_used_in_lesson_v1": true,
+      "audio_downloaded": true,
+      "scores": {
+        "curriculum": 2, "length": 0, "story": 0, "worship": 0,
+        "surah_familiarity": 0, "completeness": 1, "emotion": 1,
+        "fit_learn": 0, "fit_practice": 1,
+        "total_learn": 4, "total_practice": 5
+      },
+      "score_notes": "Famous ruling verse on wine/gambling. Uses both kabir and akbar — two forms in one sentence. Very long. Audio already downloaded.",
+      "rejection_reason": "Very long. Both forms already covered elsewhere."
+    },
+    {
+      "ref": "40:35",
+      "arabic_full": "كَبُرَ مَقْتًا عِندَ ٱللَّهِ وَعِندَ ٱلَّذِينَ ءَامَنُوا۟",
+      "translation": "Greatly hateful in the sight of Allah and in the sight of those who believe",
+      "form": "كَبُرَ",
+      "type": "quran",
+      "verified": true,
+      "word_count": 7,
+      "surah_name": "Ghafir",
+      "juz": 24,
+      "status": "pipeline",
+      "lesson": null,
+      "role": null,
+      "scores": {
+        "curriculum": 2, "length": 2, "story": 0, "worship": 0,
+        "surah_familiarity": 0, "completeness": 1, "emotion": 1,
+        "fit_learn": 0, "fit_practice": 1,
+        "total_learn": 6, "total_practice": 7
+      },
+      "score_notes": "Nearly identical to 61:3 — same phrase, different context"
+    },
+    {
+      "ref": "9:72",
+      "arabic_full": "وَرِضْوَٰنٌ مِّنَ ٱللَّهِ أَكْبَرُ ۚ ذَٰلِكَ هُوَ ٱلْفَوْزُ ٱلْعَظِيمُ",
+      "translation": "And approval from Allah is greater — that is the great triumph",
+      "form": "أَكْبَرُ",
+      "type": "quran",
+      "verified": true,
+      "word_count": 7,
+      "surah_name": "At-Tawbah",
+      "juz": 10,
+      "status": "pipeline",
+      "lesson": null,
+      "role": null,
+      "scores": {
+        "curriculum": 2, "length": 2, "story": 0, "worship": 0,
+        "surah_familiarity": 0, "completeness": 1, "emotion": 2,
+        "fit_learn": 0, "fit_practice": 1,
+        "total_learn": 7, "total_practice": 8
+      },
+      "score_notes": "Allah's pleasure is greater — beautiful concept"
+    }
+  ],
+
+  "hadith": [
+    {
+      "id": "hadith-kibr-atom",
+      "title": "Danger of Kibr — An Atom's Weight",
+      "source": "Sahih Muslim",
+      "arabic": "لَا يَدْخُلُ الْجَنَّةَ مَنْ كَانَ فِي قَلْبِهِ مِثْقَالُ ذَرَّةٍ مِنْ كِبْرٍ",
+      "translation": "No one will enter Paradise who has an atom's weight of arrogance in his heart",
+      "type": "hadith",
+      "status": "pipeline",
+      "scores": {
+        "curriculum": 2, "length": 1, "story": 0, "worship": 2,
+        "surah_familiarity": 0, "completeness": 1, "emotion": 2,
+        "fit_learn": 0, "fit_practice": 1,
+        "total_learn": 8, "total_practice": 9
+      },
+      "score_notes": "Unforgettable definition of kibr — connects to istakbara"
+    },
+    {
+      "id": "hadith-kibr-cloak",
+      "title": "Kibr is Allah's Cloak (Qudsi)",
+      "source": "Hadith Qudsi",
+      "arabic": "الْكِبْرِيَاءُ رِدَائِي وَالْعَظَمَةُ إِزَارِي",
+      "translation": "Greatness is My cloak and majesty is My garment",
+      "type": "hadith",
+      "status": "pipeline",
+      "scores": {
+        "curriculum": 2, "length": 2, "story": 0, "worship": 1,
+        "surah_familiarity": 0, "completeness": 1, "emotion": 2,
+        "fit_learn": 0, "fit_practice": 1,
+        "total_learn": 8, "total_practice": 9
+      },
+      "score_notes": "kibriya' belongs to Allah exclusively — powerful"
+    },
+    {
+      "id": "hadith-twelve-angels",
+      "title": "Twelve Angels Rushed",
+      "source": "Sahih Muslim",
+      "arabic": "اللهُ أَكْبَرُ كَبِيرًا وَالْحَمْدُ لِلَّهِ كَثِيرًا",
+      "translation": "Allah is the Greatest, greatly, and all praise to Allah, abundantly",
+      "type": "hadith",
+      "status": "pipeline",
+      "scores": {
+        "curriculum": 2, "length": 2, "story": 2, "worship": 3,
+        "surah_familiarity": 0, "completeness": 1, "emotion": 2,
+        "fit_learn": 0, "fit_practice": 1,
+        "total_learn": 12, "total_practice": 13
+      },
+      "score_notes": "akbar + kabiran together — twelve angels rushed to record it, gates of heaven opened. Beautiful story."
+    },
+    {
+      "id": "hadith-sea-foam",
+      "title": "Sins Washed Like Sea Foam",
+      "source": "Sahih Muslim",
+      "arabic": "مَنْ سَبَّحَ اللهَ...وَكَبَّرَ اللهَ",
+      "translation": "Whoever glorifies Allah... and magnifies Allah — sins forgiven like foam of the sea",
+      "type": "hadith",
+      "status": "pipeline",
+      "scores": {
+        "curriculum": 2, "length": 1, "story": 0, "worship": 3,
+        "surah_familiarity": 0, "completeness": 1, "emotion": 2,
+        "fit_learn": 0, "fit_practice": 1,
+        "total_learn": 9, "total_practice": 10
+      },
+      "score_notes": "Has kabbara (Form II) — powerful reward image"
+    }
+  ],
+
+  "teaching_phrases": [
+    {
+      "id": "teaching-kabura-anchor",
+      "arabic": "هُوَ كَبِيرٌ. أَنَا أَكْبَرُ مِنْهُ. وَاللَّهُ أَكْبَرُ مِنَّا، بَلْ، مِنْ كُلِّ شَيْءٍ",
+      "translation": "He is great. I am greater than him. And Allah is greater than us — rather, than everything.",
+      "type": "teaching_phrase",
+      "forms_used": ["كَبِير", "أَكْبَرُ"],
+      "status": "used",
+      "lesson": 1,
+      "role": "anchor",
+      "notes": "Made-up teaching phrase. Uses 3 forms in one flowing sentence. Builds from human comparison to divine."
+    }
+  ]
+}
