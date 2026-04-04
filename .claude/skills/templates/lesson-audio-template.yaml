@@ -1,0 +1,129 @@
+# Lesson {{NN}} Audio Definition
+# ─────────────────────────────
+# This file drives the audio build pipeline.
+# Copy this template, fill in the slots, then run:
+#
+#   tools/rebuild-lesson-audio.sh lesson-{{NN}}
+#
+# Validate afterwards:
+#   python tools/validate-lesson-consistency.py lesson-{{NN}}
+
+lesson_id: lesson-{{NN}}
+title: "Lesson {{N}}: {{Title}}"
+slug: lesson-{{NN}}-{{slug}}
+
+sentences:
+
+  # ── Anchor: Root 1 ──────────────────────────────────────────
+  - id: anchor-{{root1-ascii}}
+    role: anchor
+    root: {{root1-ascii}}               # ASCII slug (e.g., "ilah")
+    form: {{form-ascii}}                # ASCII form name (e.g., "ilah")
+    ref: "{{SS:AA}}"                    # e.g., "59:22"
+    reciter: {{ReciterFolder}}          # Must match EveryAyah folder name
+    arabic_source:
+      surah: {{SSS}}                    # Integer (e.g., 59)
+      ayah: {{AAA}}                     # Integer (e.g., 22)
+      start: null                       # seconds — null for full ayah
+      end: null                         # seconds — null for full ayah
+    arabic_source_full:                 # Full ayah for review audio
+      surah: {{SSS}}                    # Omit this block if no trimming
+      ayah: {{AAA}}
+    arabic_text: "{{Arabic text}}"
+    english: "{{Plain ASCII English}}"  # ⚠️ NO ā ī ū ṣ ʿ — TTS gibberish!
+
+  # ── Anchor: Root 2 ──────────────────────────────────────────
+  - id: anchor-{{root2-ascii}}
+    role: anchor
+    root: {{root2-ascii}}
+    form: {{form-ascii}}
+    ref: ""                             # Empty for teaching phrases
+    reciter: null                       # null for Arabic TTS
+    arabic_source:
+      use_arabic_tts: true              # For non-Qur'anic content
+    arabic_text: "{{Arabic text}}"
+    english: "{{Plain ASCII English}}"
+
+  # ── Learn: Root 1 ───────────────────────────────────────────
+  - id: learn-{{root1}}-01
+    role: learn
+    root: {{root1-ascii}}
+    form: {{form-ascii}}
+    ref: "{{SS:AA}}"
+    reciter: {{ReciterFolder}}          # Different from anchor reciter!
+    arabic_source:
+      surah: {{SSS}}
+      ayah: {{AAA}}
+      start: {{seconds or null}}        # Use auto-timestamps.py to find these
+      end: {{seconds or null}}
+    arabic_source_full:                 # Include if trimmed (learn uses fragment, review uses full)
+      surah: {{SSS}}
+      ayah: {{AAA}}
+    arabic_text: "{{Arabic text}}"
+    english: "{{Plain ASCII English}}"
+
+  - id: learn-{{root1}}-02
+    role: learn
+    # ... same structure ...
+
+  # ── Learn: Root 2 ───────────────────────────────────────────
+  - id: learn-{{root2}}-01
+    role: learn
+    # ... same structure (3 phrases for root 2) ...
+
+  - id: learn-{{root2}}-02
+    role: learn
+    # ...
+
+  - id: learn-{{root2}}-03
+    role: learn
+    # ...
+
+  # ── Practice (mixed roots, shortest → longest) ─────────────
+  - id: practice-01
+    role: practice
+    root: {{either root}}
+    form: {{form-ascii}}
+    ref: "{{SS:AA}}"
+    reciter: {{ReciterFolder}}          # Still unique — no reciter repeats in the lesson!
+    arabic_source:
+      surah: {{SSS}}
+      ayah: {{AAA}}
+    arabic_text: "{{Arabic text}}"
+    english: "{{Plain ASCII English}}"
+
+  - id: practice-02
+    role: practice
+    # ...
+
+  - id: practice-03
+    role: practice
+    # ...
+
+  - id: practice-04
+    role: practice
+    # ...
+
+  - id: practice-05
+    role: practice
+    # ...
+
+# ── Reciter Assignment Checklist ──────────────────────────────
+# Each phrase MUST use a different reciter. Use this checklist:
+#
+# ☐ anchor-root1:   _______________
+# ☐ anchor-root2:   _______________ (or Arabic TTS)
+# ☐ learn-root1-01: _______________
+# ☐ learn-root1-02: _______________
+# ☐ learn-root2-01: _______________
+# ☐ learn-root2-02: _______________
+# ☐ learn-root2-03: _______________
+# ☐ practice-01:    _______________
+# ☐ practice-02:    _______________
+# ☐ practice-03:    _______________
+# ☐ practice-04:    _______________
+# ☐ practice-05:    _______________
+#
+# Speed matching: slow (≤5 words) → Husary, Abdul Basit, Hani Rifai
+#                 medium (6-10)   → Hudhaifi, Alafasy, Abu Bakr
+#                 fast (11+)      → Yasser ⭐, As-Sudais, Maher, Juhainy, Ghamdi

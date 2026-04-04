@@ -325,3 +325,7 @@ def main():
             if not args.download:
                 print("   (Run with --download to also verify fragment bounds and word rate)")
         print()
+
+
+if __name__ == "__main__":
+    main()
