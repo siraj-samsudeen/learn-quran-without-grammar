@@ -45,6 +45,9 @@ Each lesson contains **2 anchor phrases + 5 learning phrases + 5 practice phrase
 ### Summary Table
 - One combined table at the bottom: all words + all phrases
 - "Tell them what you told them" — the bird's-eye review
+- **Words table**: order must match the root tables in the lesson body (Root 1 words first, then Root 2 words, in the same order they appear in each root table)
+- **Phrases table**: order must match lesson section order (sections 1 → 12)
+- **Phrase references**: use `(surah:ayah)` format only — no surah names. Example: `· (59:22)` not `· Al-Ḥashr 59:22`
 
 ---
 

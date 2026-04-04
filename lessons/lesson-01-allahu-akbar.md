@@ -125,33 +125,18 @@ Every time you say اللهُ أَكْبَرُ, you are reaching into this root 
 
 ---
 
-<div class="verse-card anchor-card" markdown="0">
-  <div class="header-row">
-    <div class="verse-label">
-      <span class="verse-num">⭐</span>
-      <span class="verse-form">4 Anchor Phrase</span>
-    </div>
-  </div>
-  <table class="pair-table">
-    <tr>
-      <td>هُوَ <strong>كَبِيرٌ</strong></td>
-      <td>"He is <strong>great</strong>"</td>
-    </tr>
-    <tr>
-      <td>أَنَا <strong>أَكْبَرُ</strong> مِنْهُ</td>
-      <td>"I am <strong>greater</strong> than him"</td>
-    </tr>
-    <tr>
-      <td>وَاللَّهُ <strong>أَكْبَرُ</strong> مِنَّا، بَلْ، مِنْ كُلِّ شَيْءٍ</td>
-      <td>"And Allah is <strong>greater</strong> than us — rather, than everything"</td>
-    </tr>
-  </table>
-  <div class="verse-hook">Listen to how the root moves: <strong>كَبِير</strong> → <strong>أَكْبَر</strong> → <strong>أَكْبَر</strong>. It starts between two people, then lifts to Allah. That is the word you say in every ṣalāh.</div>
-  <br>
-  <div class="verse-ref-bottom">
-    🔊 Teaching phrase · <audio controls preload="none" src="{{ '/assets/audio/lessons/lesson-01/teaching-phrase-full.mp3' | relative_url }}"></audio>
-  </div>
-</div>
+### ⭐ · 4 Anchor Phrase
+
+| | |
+|---|---|
+| هُوَ **كَبِيرٌ** | "He is **great**" |
+| أَنَا **أَكْبَرُ** مِنْهُ | "I am **greater** than him" |
+| وَاللَّهُ **أَكْبَرُ** مِنَّا، بَلْ، مِنْ كُلِّ شَيْءٍ | "And Allah is **greater** than us — rather, than everything" |
+{: .pair-table}
+
+🔊 Teaching phrase · <audio controls preload="none" src="{{ '/assets/audio/lessons/lesson-01/teaching-phrase-full.mp3' | relative_url }}"></audio>
+
+Listen to how the root moves: **كَبِير** → **أَكْبَر** → **أَكْبَر**. It starts between two people, then lifts to Allah. That is the word you say in every ṣalāh.
 
 ---
 

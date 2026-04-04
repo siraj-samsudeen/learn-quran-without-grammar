@@ -74,7 +74,8 @@ description: One-sentence description for SEO/social sharing.
 - Use Kramdown IAL to add CSS classes: `{: .root-table}` after the table
 - Root table columns: **Arabic | English | Meaning** (not "Transliteration" — saves mobile space)
 - **Verse sections**: use the `### N · form-name (english)` heading pattern — `lesson-cards.js` transforms these into styled verse cards
-- Anchor phrase headings use `### ⭐ Anchor · description` (no number, so JS skips them)
+- Anchor phrase headings use `### ⭐ · N description` (star with number in the form text)
+- **Pair-table for multi-phrase cards**: when a verse card needs side-by-side Arabic|English rows (e.g., teaching phrases with multiple parts), use a markdown table with `{: .pair-table}` IAL. `lesson-cards.js` detects `<table class="pair-table">` and moves it into the card. Requires an empty header row: `| | |` then `|---|---|` then data rows.
 - Keep everything in Markdown — HTML is only for `<audio>` tags, `<p class="audio-label">` labels, and `<div>` blocks explicitly needed (with `markdown="0"`)
 
 ### Learning section — keep phrases short

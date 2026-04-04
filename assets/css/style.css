@@ -342,6 +342,7 @@ body {
   border-collapse: collapse;
   margin: 0.5rem 0;
 }
+.pair-table thead { display: none; }
 .pair-table td {
   padding: 0.5rem 0.75rem;
   vertical-align: top;

@@ -26,10 +26,10 @@
     h3s.forEach(function (h3) {
       // Parse heading: "N · form-name" or "⭐ · anchor-name"
       var text = h3.textContent.trim();
-      var match = text.match(/^([\d⭐]+)\s*·\s*(.+)$/);
+      var match = text.match(/^(⭐[\s\d]*|\d+)\s*·\s*(.+)$/);
       if (!match) return; // skip non-verse h3s
 
-      var num = match[1];
+      var num = match[1].trim();
       var form = match[2].trim();
       var isAnchor = num.indexOf('⭐') >= 0;
 
@@ -48,15 +48,20 @@
       var englishP = null;
       var hookP = null;
       var extras = [];
+      var pairTable = null;
 
       siblings.forEach(function (sib) {
+        if (sib.tagName === 'TABLE' && sib.classList.contains('pair-table')) {
+          pairTable = sib;
+          return;
+        }
         if (sib.tagName !== 'P') return;
 
         if (!refP && sib.querySelector('audio')) {
           refP = sib;
-        } else if (!englishP && isQuoted(sib.textContent)) {
+        } else if (!pairTable && !englishP && isQuoted(sib.textContent)) {
           englishP = sib;
-        } else if (!arabicP && hasArabic(sib.textContent)) {
+        } else if (!pairTable && !arabicP && hasArabic(sib.textContent)) {
           arabicP = sib;
         } else if (!hookP) {
           hookP = sib;
@@ -94,6 +99,11 @@
 
       headerRow.appendChild(label);
       card.appendChild(headerRow);
+
+      // Pair table (replaces separate arabic + english for anchor cards)
+      if (pairTable) {
+        card.appendChild(pairTable);
+      }
 
       // Arabic text
       if (arabicP) {

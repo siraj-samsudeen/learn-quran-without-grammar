@@ -74,6 +74,20 @@ python tools/validate-lesson-consistency.py lesson-NN
 python tools/validate-lesson-consistency.py lesson-NN
 ```
 
+## TTS voice preferences
+
+| Language | Voice | ID | Notes |
+|----------|-------|----|-------|
+| English | Andrew, Brian, Christopher | `en-US-AndrewNeural`, `en-US-BrianNeural`, `en-US-ChristopherNeural` | Randomly rotated per sentence by build script |
+| Arabic | Hamed (Saudi) | `ar-SA-HamedNeural` | Preferred male Arabic voice for teaching phrases and non-Qur'anic content |
+
+Other Arabic male voices available but not preferred: `ar-AE-HamdanNeural` (Emirati), `ar-EG-ShakirNeural` (Egyptian).
+
+To generate Arabic TTS manually:
+```bash
+edge-tts --voice ar-SA-HamedNeural --text "Arabic text here" --write-media output.mp3
+```
+
 ## Audio build internals
 
 - **Arabic audio**: downloaded from EveryAyah CDN per reciter, cached at `.cache/{reciter}/{SSSAAA}.mp3`
