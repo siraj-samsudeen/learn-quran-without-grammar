@@ -8,7 +8,84 @@ Read `docs/LESSON-PLAN.md` first. It defines:
 - Teacher selection preferences and translation style
 - Learning science conventions that apply to every lesson
 
-This skill covers the **technical implementation** — how to build the files once content is selected.
+---
+
+## Step 0 — Check the pipeline
+
+**Always check `docs/selections/pipeline.md` first.** It may already have:
+- **Ready to Place** verses assigned to this lesson
+- **Strong Candidates** waiting for a slot
+- **Deferred Forms** from previous roots
+- **Deferred Hadith** flagged for future use
+
+Pull these in before going to the corpus for fresh material.
+
+---
+
+## Step 0.5 — Content selection (interactive with teacher)
+
+This is the most important step. Do NOT skip to file creation until all 20 sentences are locked in.
+
+### Identify root words from the anchor phrase
+
+Extract root words in **word order** from the anchor phrase. Use a representative root word (Form I verb or base noun), not the bare three-letter root:
+- اللهُ أَكْبَرُ → root word 1: **إِلَٰه** (ilāh), root word 2: **كَبُرَ** (kabura)
+
+### Pull root inventory from corpus
+
+For each root word, fetch the complete form inventory from [corpus.quran.com/qurandictionary.jsp](https://corpus.quran.com/qurandictionary.jsp):
+- Present in the **exact order the Corpus uses** (verbs by form, then nominals, then participles)
+- Use **exact counts** — never approximate (~34). Always match the Corpus number.
+- **Verify every verse** against the alquran.cloud API before presenting to the teacher
+
+### Select 5 forms per root
+
+Present the inventory and recommend 5 forms based on:
+1. **Frequency** — highest count forms first
+2. **Pedagogical importance** — teacher may override frequency
+3. **Verse quality** — does it appear in a memorable, self-contained sentence?
+
+When a root has **few morphological forms** (e.g., إِلَٰه has only 3), select 5 distinct **sentence patterns** instead.
+
+### Present candidates with Why column
+
+For each selected form, list ALL occurrences ranked by recommendation:
+- **≤ 10 occurrences**: list all
+- **> 10 occurrences**: list top 10, provide corpus link for the rest
+
+Include a **Why** column explaining the recommendation. The teacher scans and picks.
+
+| # | Ref | Arabic Context | Translation | Why |
+|---|-----|---------------|-------------|-----|
+| 1 | 29:45 | وَلَذِكْرُ ٱللَّهِ **أَكْبَرُ** | And the remembrance of Allah is greater | Ties to anchor — dhikr = ṣalāh |
+
+### Teacher picks Learn + Practice
+
+One sentence per form: **Learn** (stories preferred) + **Practice** (famous/practical verses preferred).
+
+Record in `docs/selections/lesson-NN.md`:
+- **AI-recommended reasons**: plain text
+- **Teacher-override reasons**: **bold text** (these reveal teacher preferences for future agents)
+
+### Select hadith/dua
+
+Present candidates ranked with Why column. Teacher picks (typically 1–3). Unpicked ones go to pipeline.
+
+### Feed the pipeline
+
+After all selections, update `docs/selections/pipeline.md` with:
+- Unpicked strong candidate verses
+- Deferred forms not covered in this lesson
+- Deferred hadith
+
+### Anti-patterns to avoid during selection
+
+| Mistake | Rule |
+|---------|------|
+| Hallucinating verse content | **Always verify against API before presenting** |
+| Approximate counts | **Use exact corpus counts, never approximate** |
+| Presenting without Why column | **Every candidate needs a reason** |
+| Forgetting to check pipeline | **Pipeline is step 0, not an afterthought** |
 
 ---
 

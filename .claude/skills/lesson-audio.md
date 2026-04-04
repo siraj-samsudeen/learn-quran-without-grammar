@@ -135,6 +135,47 @@ HTML5 Media Fragments (`#t=`) are a W3C standard but browser playback has ~0.5s 
 - Start: 0.2–0.5s **before** the target word
 - End: 0.5–1.0s **after** the target word ends
 
+## Fragment verification workflow
+
+When a sentence uses a time fragment (`#t=START,END`), the displayed text must match exactly what the audio plays. Mismatches are the most common audio bug.
+
+### How to verify a fragment
+
+```bash
+# 1. Download the full ayah
+curl -o /tmp/ayah.mp3 "https://everyayah.com/data/Husary_128kbps/007059.mp3"
+
+# 2. Check total duration
+ffprobe -v quiet -show_entries format=duration -of csv=p=0 /tmp/ayah.mp3
+
+# 3. Extract a test clip to listen
+ffmpeg -y -i /tmp/ayah.mp3 -ss 11 -to 19 -acodec copy /tmp/test-clip.mp3
+
+# 4. Play and verify
+open /tmp/test-clip.mp3
+```
+
+### Common problems and fixes
+
+| Problem | Cause | Fix |
+|---------|-------|-----|
+| Audio starts too early — plays words before the displayed text | `start` too low | Increase start by 0.5–1s, find the silence gap |
+| Audio cuts off mid-word | `end` too tight | Increase end by 0.5–1s |
+| Audio plays a completely different part of the ayah | Wrong start/end entirely | Re-listen to full ayah, find correct timestamps |
+| Displayed text is a fragment but audio plays the full ayah | Missing `#t=` in the lesson `.md` URL | Add `#t=START,END` matching the YAML values |
+
+### The text-audio match rule
+
+**Every sentence must satisfy:** what the student reads = what the student hears.
+
+- If the lesson shows a fragment of the ayah → the audio URL MUST have `#t=` to match
+- If the lesson shows the full ayah → no `#t=` needed
+- When in doubt, show the full ayah (expanding the text is safer than trimming audio)
+
+This was the single most common bug in Lesson 1: 13 sentences had fragment text but full-ayah audio URLs (no `#t=`).
+
+---
+
 ## Audio build internals
 
 - **Arabic audio**: downloaded from EveryAyah CDN per reciter, cached at `.cache/{reciter}/{SSSAAA}.mp3`
