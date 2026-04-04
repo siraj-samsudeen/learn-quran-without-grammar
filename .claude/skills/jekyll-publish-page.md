@@ -57,6 +57,28 @@ git diff --stat          # check which files changed
 grep -r "old description" .  # confirm no stale references remain
 ```
 
+## HTML block containers — always `<div>`, never `<a>`
+
+Kramdown classifies HTML elements as block-level or inline based on the HTML spec. `<a>` is an **inline** element, so kramdown does not treat it as an HTML block — it processes the inner content as markdown, causing inner `</div>` closing tags to render as literal text on the page.
+
+**Wrong** — inner `</div>` tags appear as text, all subsequent content falls inside the element:
+```html
+<a class="lesson-card" href="/lessons/lesson-01/">
+  <div class="lesson-card-title">Lesson 1</div>
+  <div class="lesson-card-arabic">اللَّهُ أَكْبَرُ</div>
+</a>
+```
+
+**Correct** — use `<div>` as outer container, link only on the title or via `onclick`:
+```html
+<div class="lesson-card" markdown="0" onclick="location.href='/lessons/lesson-01/';">
+<div class="lesson-card-title"><a href="/lessons/lesson-01/">Lesson 1</a></div>
+<div class="lesson-card-arabic">اللَّهُ أَكْبَرُ</div>
+</div>
+```
+
+`markdown="0"` is still required on the outer `<div>` to prevent inner content being parsed as markdown.
+
 ## Unicode caution
 
 Hand-written files often contain curly quotes (`'` `"` `"`), em dashes (`—`), and other Unicode. If `EditFile` fails on a string that looks correct, diagnose with `cat -v filename | head` and use a shell workaround (e.g. `cat` with prepend) or `WriteFile` instead.

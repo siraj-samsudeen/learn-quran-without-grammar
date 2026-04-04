@@ -76,6 +76,10 @@ If no natural pause exists in any reciter:
 - Start: 0.2–0.5s **before** target word
 - End: 0.5–1.0s **after** target word
 
+**Confirmed working on Android Chrome**: HTML5 `#t=start,end` fragments work correctly on Android Chrome with EveryAyah CDN (verified April 2025). EveryAyah responds with `Accept-Ranges: bytes` which is required for seeking. The browser starts playback at the fragment start and stops at the end.
+
+**Word-by-word audio (Quran Foundation CDN) — rejected for inline players**: `https://audio.qurancdn.com/wbw/SSS_AAA_WWW.mp3` has the same 296-day cache and correct individual word audio, but chaining words produces unnatural, broken-sounding recitation with audible gaps between words. Stick with `#t=` fragments from EveryAyah CDN for all inline players. Word-by-word may still be useful for truly isolated word teaching (e.g., vocabulary cards), but not for phrase-level audio.
+
 ---
 
 ## Common tasks
