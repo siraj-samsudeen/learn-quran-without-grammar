@@ -328,33 +328,13 @@ body {
   max-width: none;
 }
 
-/* Pair audio (Arabic + translation) in verse cards */
-.verse-card .verse-pair-audio {
-  margin-top: 0.4rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.82rem;
-  color: var(--muted);
-}
-.verse-card .verse-pair-audio .pair-audio-label {
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.verse-card .verse-pair-audio audio {
-  display: inline-block;
-  width: 220px;
-  height: 28px;
-  margin: 0;
-  background: transparent;
-  vertical-align: middle;
-  border-radius: 4px;
-  max-width: none;
-}
-/* Language-dependent pair audio visibility */
-.verse-card .verse-pair-audio audio.lang-ta { display: none; }
-.lang-active-ta .verse-card .verse-pair-audio audio.lang-en { display: none; }
-.lang-active-ta .verse-card .verse-pair-audio audio.lang-ta { display: inline-block; }
+/* Language-dependent audio in verse cards */
+.verse-card audio.lang-ta,
+.verse-card .verse-ref-bottom audio.lang-ta { display: none; }
+.lang-active-ta .verse-card audio.lang-en,
+.lang-active-ta .verse-card .verse-ref-bottom audio.lang-en { display: none; }
+.lang-active-ta .verse-card audio.lang-ta,
+.lang-active-ta .verse-card .verse-ref-bottom audio.lang-ta { display: inline-block; }
 
 /* ── Anchor card variant ── */
 .anchor-card {

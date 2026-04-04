@@ -49,7 +49,6 @@
       var tamilP = null;
       var hookP = null;
       var hookTaP = null;
-      var pairAudioP = null;
       var extras = [];
       var pairTable = null;
 
@@ -65,11 +64,6 @@
         }
         if (sib.tagName !== 'P') return;
 
-        // Pair audio (Arabic + translation) — marked with .pair-audio class
-        if (sib.classList.contains('pair-audio')) {
-          pairAudioP = sib;
-          return;
-        }
         // Tamil translation (marked with .ta class by Kramdown IAL)
         if (sib.classList.contains('ta')) {
           tamilP = sib;
@@ -175,13 +169,7 @@
         card.appendChild(ref);
       }
 
-      // Pair audio (Arabic + translation) at the bottom
-      if (pairAudioP) {
-        var pairDiv = document.createElement('div');
-        pairDiv.className = 'verse-pair-audio';
-        pairDiv.innerHTML = pairAudioP.innerHTML;
-        card.appendChild(pairDiv);
-      }
+
 
       // ── Swap into DOM ───────────────────────────────────────────
 
@@ -193,7 +181,6 @@
       if (tamilP) tamilP.remove();
       if (hookP) hookP.remove();
       if (hookTaP) hookTaP.remove();
-      if (pairAudioP) pairAudioP.remove();
       extras.forEach(function (p) { p.remove(); });
       if (trailingHr) trailingHr.remove();
     });
