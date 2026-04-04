@@ -49,8 +49,9 @@
       // Check if click is on a hidden translation element or its ::after pseudo
       var el = e.target;
 
-      // verse-english
-      if (el.classList.contains('verse-english') && !el.classList.contains('revealed')) {
+      // verse-english or verse-tamil
+      if ((el.classList.contains('verse-english') || el.classList.contains('verse-tamil'))
+          && !el.classList.contains('revealed')) {
         el.classList.add('revealed');
         return;
       }

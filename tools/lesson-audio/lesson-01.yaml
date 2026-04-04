@@ -37,6 +37,7 @@ sentences:
       ayah: 22
     arabic_text: "هُوَ اللَّهُ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ"
     english: "He is Allah — there is no god but He"
+    tamil: "அவன் அல்லாஹ் — அவனைத் தவிர வேறு இறைவன் இல்லை"
 
   - id: learn-ilah-01
     role: learn
@@ -54,6 +55,7 @@ sentences:
       ayah: 74
     arabic_text: "وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ أَتَتَّخِذُ أَصْنَامًا آلِهَةً"
     english: "And when Ibrahim said to his father Azar: Do you take idols as gods?"
+    tamil: "இப்ராஹீம் தன் தந்தை ஆஸரிடம் கூறியபோது: நீர் சிலைகளைத் தெய்வங்களாக எடுத்துக்கொள்கிறீரா?"
 
   - id: learn-ilah-02
     role: learn
@@ -71,6 +73,7 @@ sentences:
       ayah: 26
     arabic_text: "قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ"
     english: "Say: O Allah, King of kings"
+    tamil: "கூறுவீராக: அல்லாஹ்வே, ஆட்சியின் அதிபதியே"
 
   # ============================================================
   # ROOT 2 — كَبُرَ: anchor phrase + 3 learning phrases
@@ -85,6 +88,7 @@ sentences:
       use_arabic_tts: true
     arabic_text: "هُوَ كَبِيرٌ. أَنَا أَكْبَرُ مِنْهُ. وَاللَّهُ أَكْبَرُ مِنَّا، بَلْ، مِنْ كُلِّ شَيْءٍ"
     english: "He is great. I am greater than him. And Allah is greater than us — rather, than everything."
+    tamil: "அவன் பெரியவன். நான் அவனை விடப் பெரியவன். அல்லாஹ் நம்மை விட — இல்லை, எல்லாவற்றையும் விடப் பெரியவன்."
 
   - id: learn-kabura-01
     role: learn
@@ -97,6 +101,7 @@ sentences:
       ayah: 20
     arabic_text: "فَأَرَاهُ الْآيَةَ الْكُبْرَىٰ"
     english: "And he showed him the greatest sign"
+    tamil: "அவனுக்கு மிகப் பெரிய அத்தாட்சியைக் காட்டினான்"
 
   - id: learn-kabura-02
     role: learn
@@ -109,6 +114,7 @@ sentences:
       ayah: 3
     arabic_text: "كَبُرَ مَقْتًا عِندَ اللَّهِ أَن تَقُولُوا مَا لَا تَفْعَلُونَ"
     english: "Greatly hateful in the sight of Allah — that you say what you do not do"
+    tamil: "நீங்கள் செய்யாததைச் சொல்வது அல்லாஹ்விடம் மிகவும் வெறுப்புக்குரியது"
 
   - id: learn-kabura-03
     role: learn
@@ -122,6 +128,7 @@ sentences:
       # Full ayah — Mujawwad style, 30.9s
     arabic_text: "وَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ فَسَجَدُوا إِلَّا إِبْلِيسَ أَبَىٰ وَاسْتَكْبَرَ وَكَانَ مِنَ الْكَافِرِينَ"
     english: "And when We said to the angels: Prostrate to Adam — they all prostrated, except Iblis. He refused and was arrogant, and became of the disbelievers."
+    tamil: "மலக்குகளிடம் ஆதமுக்கு சஜ்தா செய்யுங்கள் என்று நாம் கூறியபோது — இப்லீஸைத் தவிர அனைவரும் சஜ்தா செய்தார்கள். அவன் மறுத்தான், ஆணவம் கொண்டான், நிராகரிப்பவர்களில் ஒருவனானான்."
 
   # ============================================================
   # PRACTICE — 5 phrases, mixed roots, no notes
@@ -145,6 +152,7 @@ sentences:
       ayah: 45
     arabic_text: "وَلَذِكْرُ اللَّهِ أَكْبَرُ"
     english: "And the remembrance of Allah is greater"
+    tamil: "அல்லாஹ்வின் நினைவே மிகப் பெரியது"
 
   - id: practice-02
     role: practice
@@ -162,6 +170,7 @@ sentences:
       ayah: 5
     arabic_text: "كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ ۚ إِن يَقُولُونَ إِلَّا كَذِبًا"
     english: "How great a word that comes from their mouths — they speak nothing but a lie"
+    tamil: "அவர்களின் வாயிலிருந்து வரும் வார்த்தை எவ்வளவு பெரியது — அவர்கள் பொய்யைத் தவிர வேறு எதையும் பேசுவதில்லை"
 
   - id: practice-03
     role: practice
@@ -174,6 +183,7 @@ sentences:
       ayah: 63
     arabic_text: "قَالَ بَلْ فَعَلَهُ كَبِيرُهُمْ هَٰذَا فَاسْأَلُوهُمْ إِن كَانُوا يَنطِقُونَ"
     english: "He said: Rather, their chief did it — ask them, if they can speak"
+    tamil: "அவர் கூறினார்: இல்லை, அவர்களின் தலைவன் இதைச் செய்தான் — அவர்கள் பேச முடியுமானால் அவர்களிடமே கேளுங்கள்"
 
   - id: practice-04
     role: practice
@@ -186,6 +196,7 @@ sentences:
       ayah: 163
     arabic_text: "وَإِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ ۖ لَا إِلَٰهَ إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ"
     english: "And your God is one God — there is no god but He, the Most Merciful, the Continuously Merciful"
+    tamil: "உங்கள் இறைவன் ஒரே இறைவன் — அவனைத் தவிர வேறு இறைவன் இல்லை, மிக்க அருளாளன், நிரந்தர அருளாளன்"
 
   - id: practice-05
     role: practice
@@ -200,3 +211,4 @@ sentences:
       end: 16
     arabic_text: "فَأَمَّا عَادٌ فَاسْتَكْبَرُوا فِي الْأَرْضِ بِغَيْرِ الْحَقِّ وَقَالُوا مَنْ أَشَدُّ مِنَّا قُوَّةً ۖ أَوَلَمْ يَرَوْا أَنَّ اللَّهَ الَّذِي خَلَقَهُمْ هُوَ أَشَدُّ مِنْهُمْ قُوَّةً"
     english: "As for Aad, they were arrogant on earth without right and said: Who is mightier than us in strength? Did they not see that Allah who created them is mightier than them in strength?"
+    tamil: "ஆத் சமூகத்தினர் பூமியில் அநியாயமாக ஆணவம் கொண்டு கூறினர்: எங்களை விட வலிமையானவர் யார்? அவர்களைப் படைத்த அல்லாஹ் அவர்களை விட வலிமையானவன் என்பதை அவர்கள் பார்க்கவில்லையா?"

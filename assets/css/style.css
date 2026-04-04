@@ -19,6 +19,7 @@
   --warn-border:  #e6a817;
   --font-arabic:  'Amiri', 'Scheherazade New', 'Traditional Arabic', 'Arabic Typesetting', serif;
   --font-ui:      'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-tamil:   'Noto Sans Tamil', 'Tamil Sangam MN', sans-serif;
 }
 
 /* ── Reset ── */
@@ -786,6 +787,154 @@ h2[id], h3[id], .lesson-map, #lesson-map {
 }
 
 /* ── Responsive ── */
+/* ── Language Toggle Button ── */
+.lang-toggle-container {
+  display: flex;
+  gap: 0;
+  margin: 0.75rem 0 1rem;
+  justify-content: center;
+}
+.lang-toggle-btn {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: var(--font-ui);
+}
+.lang-toggle-btn:first-child {
+  border-radius: 20px 0 0 20px;
+  border-right: none;
+}
+.lang-toggle-btn:last-child {
+  border-radius: 0 20px 20px 0;
+  font-family: var(--font-tamil);
+}
+.lang-toggle-btn.active {
+  background: var(--green);
+  color: var(--white);
+  border-color: var(--green);
+}
+.lang-toggle-btn:hover:not(.active) {
+  background: var(--green-light);
+  border-color: var(--green);
+  color: var(--green);
+}
+
+/* ── Tamil Font Styling ── */
+.lang-ta,
+.verse-tamil,
+.hook-ta,
+.phrase-tamil {
+  font-family: var(--font-tamil);
+  line-height: 1.8;
+}
+
+/* ── Language Visibility: Default = English ── */
+.lang-ta,
+.verse-tamil,
+.hook-ta,
+.phrase-tamil {
+  display: none;
+}
+
+/* ── Language Visibility: Tamil active ── */
+.lang-active-ta .lang-ta,
+.lang-active-ta .verse-tamil,
+.lang-active-ta .hook-ta,
+.lang-active-ta .phrase-tamil {
+  display: block;
+}
+/* Inline Tamil elements (spans inside summaries, etc.) */
+.lang-active-ta span.lang-ta,
+.lang-active-ta a.lang-ta {
+  display: inline;
+}
+.lang-active-ta .lang-en,
+.lang-active-ta .verse-english,
+.lang-active-ta .hook-en,
+.lang-active-ta .phrase-english {
+  display: none;
+}
+/* Inline English elements */
+span.lang-ta, a.lang-ta {
+  display: none;
+}
+
+/* Tamil verse translations in cards */
+.verse-card .verse-tamil {
+  font-family: var(--font-tamil);
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.7;
+  text-align: right;
+  margin-bottom: 0.75rem;
+}
+.verse-card .verse-tamil strong {
+  color: var(--green);
+}
+
+/* Tamil hook text in cards */
+.verse-card .hook-ta {
+  font-family: var(--font-tamil);
+  font-size: 0.95rem;
+  color: #888;
+  line-height: 1.6;
+  border-left: 3px solid var(--border);
+  padding-left: 0.75rem;
+}
+
+/* Tamil quiz answers — quiz answers use lang-en/lang-ta classes */
+.quiz-answer.lang-ta {
+  display: none;
+  font-family: var(--font-tamil);
+}
+.lang-active-ta .quiz-answer.lang-en { display: none; }
+.lang-active-ta .quiz-answer.lang-ta { display: inline-block; }
+
+/* Tamil in pair-table (second column) */
+.pair-table .cell-ta { display: none; }
+.lang-active-ta .pair-table .cell-en { display: none; }
+.lang-active-ta .pair-table .cell-ta { display: table-cell; }
+
+/* Tamil download links */
+.review-audio-ta,
+.download-link-ta { display: none; }
+.lang-active-ta .review-audio-en,
+.lang-active-ta .download-link-en { display: none; }
+.lang-active-ta .review-audio-ta { display: block; }
+.lang-active-ta .download-link-ta { display: inline-block; }
+
+/* ── Translation toggle adjustments for Tamil ── */
+.translations-hidden .verse-tamil {
+  visibility: hidden;
+  position: relative;
+}
+.translations-hidden .verse-tamil::after {
+  content: 'காண தட்டுக';
+  visibility: visible;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-style: italic;
+  cursor: pointer;
+  text-align: right;
+  font-family: var(--font-tamil);
+}
+.translations-hidden .verse-tamil.revealed {
+  visibility: visible;
+}
+.translations-hidden .verse-tamil.revealed::after {
+  display: none;
+}
+
 @media (max-width: 640px) {
   .main-content   { padding: 1.5rem 1rem 3rem; }
   .lesson-body h1 { font-size: 1.45rem; }

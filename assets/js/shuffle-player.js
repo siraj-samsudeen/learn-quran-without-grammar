@@ -35,6 +35,7 @@ const ShufflePlayer = (() => {
   let baseUrls = [];        // base URLs for resolving audio file paths
   let isPlaying = false;
   let roleFilter = 'all';   // 'all', 'learn', 'practice'
+  let activeLang = 'en';    // 'en' or 'ta' — which translation to show/play
 
   // ── Shuffle (Fisher-Yates) ───────────────────────────────────────────
 
@@ -66,6 +67,10 @@ const ShufflePlayer = (() => {
   }
 
   function audioUrl(sentence) {
+    // Use Tamil audio file if available and Tamil is active
+    if (activeLang === 'ta' && sentence.file_tamil) {
+      return sentence._baseUrl + '/' + sentence.file_tamil;
+    }
     return sentence._baseUrl + '/' + sentence.file;
   }
 
@@ -182,7 +187,14 @@ const ShufflePlayer = (() => {
 
     if (s) {
       arabicEl.textContent = s.arabic_text || '';
-      englishEl.textContent = s.english || '';
+      // Show translation based on active language
+      if (activeLang === 'ta' && s.tamil) {
+        englishEl.textContent = s.tamil;
+        englishEl.style.fontFamily = "'Noto Sans Tamil', 'Tamil Sangam MN', sans-serif";
+      } else {
+        englishEl.textContent = s.english || '';
+        englishEl.style.fontFamily = '';
+      }
       const roleLabel = s.role ? s.role.charAt(0).toUpperCase() + s.role.slice(1) : '';
       metaEl.textContent = `${s.ref || ''} · ${roleLabel} · ${s.root || ''}`;
     } else {
@@ -262,6 +274,22 @@ const ShufflePlayer = (() => {
     audio.addEventListener('timeupdate', updateProgress);
     audio.addEventListener('pause', () => { isPlaying = false; updateUI(); });
     audio.addEventListener('play', () => { isPlaying = true; updateUI(); });
+
+    // Read saved language preference
+    try {
+      activeLang = localStorage.getItem('lqwg-language') || 'en';
+    } catch (e) { /* ignore */ }
+
+    // Listen for language changes from language-toggle.js
+    document.addEventListener('languageChanged', function (e) {
+      activeLang = e.detail.lang;
+      // If currently playing, reload current sentence with new language audio
+      if (isPlaying && currentSentence()) {
+        playCurrent();
+      } else {
+        updateUI();
+      }
+    });
 
     // Render UI
     render();

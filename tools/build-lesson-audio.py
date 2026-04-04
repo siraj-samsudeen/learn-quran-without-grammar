@@ -41,6 +41,11 @@ EDGE_TTS_VOICES = [
     "en-US-ChristopherNeural",  # reliable, authoritative
 ]
 
+# Tamil TTS voice pool
+TAMIL_TTS_VOICES = [
+    "ta-IN-ValluvarNeural",     # male Tamil voice
+]
+
 # Approved Quranic reciters — see docs/decisions/ADR-005-reciters.md
 RECITER_POOL = [
     "Husary_128kbps",
@@ -150,6 +155,21 @@ def generate_tts(text: str, output_path: str) -> None:
         raise RuntimeError(f"edge-tts failed for: {text[:50]}")
 
 
+def generate_tamil_tts(text: str, output_path: str) -> None:
+    """Generate Tamil TTS audio using edge-tts with male Tamil voice."""
+    voice = random.choice(TAMIL_TTS_VOICES)
+    display = text[:70] + ("…" if len(text) > 70 else "")
+    print(f"    🗣 Tamil TTS ({voice.split('-')[2]}): \"{display}\"")
+    result = subprocess.run(
+        ["edge-tts", "--voice", voice,
+         "--text", text, "--write-media", output_path],
+        capture_output=True, text=True,
+    )
+    if result.returncode != 0:
+        print(f"  ✗ edge-tts error (Tamil):\n    {result.stderr.strip()}", file=sys.stderr)
+        raise RuntimeError(f"edge-tts (Tamil) failed for: {text[:50]}")
+
+
 def generate_arabic_tts(text: str, output_path: str) -> None:
     """Generate Arabic TTS audio using edge-tts (for hadith/non-Quranic text)."""
     display = text[:70] + ("…" if len(text) > 70 else "")
@@ -257,8 +277,14 @@ def process_arabic_audio(sentence: dict, tmpdir: str, cache_dir: str,
 
 # ── Main Build Function ──────────────────────────────────────────────────
 
-def build_lesson(yaml_path: str, output_dir: str) -> None:
-    """Build all audio assets for a lesson from its YAML definition."""
+def build_lesson(yaml_path: str, output_dir: str, lang: str = "en") -> None:
+    """Build all audio assets for a lesson from its YAML definition.
+
+    Args:
+        yaml_path: Path to the lesson YAML definition.
+        output_dir: Where to write the MP3s and manifest.
+        lang: 'en' (English only), 'ta' (Tamil only), or 'all' (both).
+    """
 
     with open(yaml_path, "r") as f:
         lesson = yaml.safe_load(f)
@@ -267,9 +293,21 @@ def build_lesson(yaml_path: str, output_dir: str) -> None:
     title = lesson["title"]
     sentences = lesson["sentences"]
 
+    build_langs = []
+    if lang in ("en", "all"):
+        build_langs.append("en")
+    if lang in ("ta", "all"):
+        # Check if any sentence has Tamil text
+        has_tamil = any(s.get("tamil") for s in sentences)
+        if has_tamil:
+            build_langs.append("ta")
+        else:
+            print("  ⚠ No tamil: fields found in YAML — skipping Tamil build")
+
     print(f"\n{'='*60}")
     print(f"  Building: {title}")
     print(f"  Sentences: {len(sentences)}")
+    print(f"  Languages: {', '.join(build_langs)}")
     print(f"  Output: {output_dir}")
     print(f"{'='*60}")
 
@@ -287,9 +325,11 @@ def build_lesson(yaml_path: str, output_dir: str) -> None:
         generate_silence(silence_2s, ARABIC_ENGLISH_PAUSE)
         generate_silence(silence_3s, SENTENCE_GAP)
 
-        pair_paths = []       # final sentence-pair MP3 paths (in output_dir)
+        pair_paths_en = []     # English sentence-pair MP3 paths
+        pair_paths_ta = []     # Tamil sentence-pair MP3 paths
         manifest_entries = []  # metadata for each sentence
-        all_parts = []         # all files for the full sequential concat
+        all_parts_en = []      # all files for the English full sequential
+        all_parts_ta = []      # all files for the Tamil full sequential
 
         for i, sentence in enumerate(sentences):
             num = i + 1
@@ -299,48 +339,84 @@ def build_lesson(yaml_path: str, output_dir: str) -> None:
 
             # ── Arabic audio ──
             arabic_path = process_arabic_audio(sentence, tmpdir, cache_dir, i)
-
-            # ── English TTS ──
-            english_raw = os.path.join(tmpdir, f"english_raw_{i}.mp3")
-            generate_tts(sentence["english"], english_raw)
-            english_path = os.path.join(tmpdir, f"english_norm_{i}.mp3")
-            normalize_audio(english_raw, english_path)
-
-            # ── Sentence pair: Arabic → 2s pause → English ──
-            pair_path = os.path.join(output_dir, f"{sid}.mp3")
-            concat_files([arabic_path, silence_2s, english_path], pair_path, tmpdir)
-
-            # Stats
             ar_dur = get_duration(arabic_path)
-            en_dur = get_duration(english_path)
-            pair_dur = get_duration(pair_path)
-            print(f"    ✓ Arabic: {ar_dur:.1f}s  English: {en_dur:.1f}s  "
-                  f"Pair: {pair_dur:.1f}s → {sid}.mp3")
 
-            pair_paths.append(pair_path)
-            manifest_entries.append({
+            entry = {
                 "id": sid,
-                "file": f"{sid}.mp3",
                 "role": sentence.get("role", "learn"),
                 "root": sentence.get("root", ""),
                 "form": sentence.get("form", ""),
                 "ref": ref,
                 "arabic_text": sentence.get("arabic_text", ""),
                 "english": sentence["english"],
-                "duration": round(pair_dur, 1),
-            })
+            }
 
-            # Accumulate for full sequential file
-            if all_parts:
-                all_parts.append(silence_3s)
-            all_parts.append(pair_path)
+            # ── English pair ──
+            if "en" in build_langs:
+                english_raw = os.path.join(tmpdir, f"english_raw_{i}.mp3")
+                generate_tts(sentence["english"], english_raw)
+                english_path = os.path.join(tmpdir, f"english_norm_{i}.mp3")
+                normalize_audio(english_raw, english_path)
 
-        # ── Full sequential MP3 ──
-        full_path = os.path.join(output_dir, f"{lesson_id}-full.mp3")
-        print(f"\n  Building full sequential MP3…")
-        concat_files(all_parts, full_path, tmpdir)
-        full_dur = get_duration(full_path)
-        print(f"  ✓ {lesson_id}-full.mp3 — {full_dur:.1f}s ({full_dur/60:.1f} min)")
+                pair_path = os.path.join(output_dir, f"{sid}.mp3")
+                concat_files([arabic_path, silence_2s, english_path], pair_path, tmpdir)
+
+                en_dur = get_duration(english_path)
+                pair_dur = get_duration(pair_path)
+                print(f"    ✓ EN — Arabic: {ar_dur:.1f}s  English: {en_dur:.1f}s  "
+                      f"Pair: {pair_dur:.1f}s → {sid}.mp3")
+
+                pair_paths_en.append(pair_path)
+                entry["file"] = f"{sid}.mp3"
+                entry["duration"] = round(pair_dur, 1)
+
+                if all_parts_en:
+                    all_parts_en.append(silence_3s)
+                all_parts_en.append(pair_path)
+
+            # ── Tamil pair ──
+            if "ta" in build_langs and sentence.get("tamil"):
+                tamil_raw = os.path.join(tmpdir, f"tamil_raw_{i}.mp3")
+                generate_tamil_tts(sentence["tamil"], tamil_raw)
+                tamil_path = os.path.join(tmpdir, f"tamil_norm_{i}.mp3")
+                normalize_audio(tamil_raw, tamil_path)
+
+                ta_pair_path = os.path.join(output_dir, f"{sid}-ta.mp3")
+                concat_files([arabic_path, silence_2s, tamil_path], ta_pair_path, tmpdir)
+
+                ta_dur = get_duration(tamil_path)
+                ta_pair_dur = get_duration(ta_pair_path)
+                print(f"    ✓ TA — Arabic: {ar_dur:.1f}s  Tamil: {ta_dur:.1f}s  "
+                      f"Pair: {ta_pair_dur:.1f}s → {sid}-ta.mp3")
+
+                pair_paths_ta.append(ta_pair_path)
+                entry["file_tamil"] = f"{sid}-ta.mp3"
+                entry["tamil"] = sentence["tamil"]
+                entry["duration_tamil"] = round(ta_pair_dur, 1)
+
+                if all_parts_ta:
+                    all_parts_ta.append(silence_3s)
+                all_parts_ta.append(ta_pair_path)
+
+            manifest_entries.append(entry)
+
+        # ── Full sequential MP3 (English) ──
+        full_dur = 0
+        if all_parts_en:
+            full_path = os.path.join(output_dir, f"{lesson_id}-full.mp3")
+            print(f"\n  Building full sequential MP3 (English)…")
+            concat_files(all_parts_en, full_path, tmpdir)
+            full_dur = get_duration(full_path)
+            print(f"  ✓ {lesson_id}-full.mp3 — {full_dur:.1f}s ({full_dur/60:.1f} min)")
+
+        # ── Full sequential MP3 (Tamil) ──
+        full_dur_ta = 0
+        if all_parts_ta:
+            full_ta_path = os.path.join(output_dir, f"{lesson_id}-full-ta.mp3")
+            print(f"\n  Building full sequential MP3 (Tamil)…")
+            concat_files(all_parts_ta, full_ta_path, tmpdir)
+            full_dur_ta = get_duration(full_ta_path)
+            print(f"  ✓ {lesson_id}-full-ta.mp3 — {full_dur_ta:.1f}s ({full_dur_ta/60:.1f} min)")
 
         # ── Manifest ──
         manifest = {
@@ -351,6 +427,10 @@ def build_lesson(yaml_path: str, output_dir: str) -> None:
             "full_duration": round(full_dur, 1),
             "sentences": manifest_entries,
         }
+        if all_parts_ta:
+            manifest["full_audio_tamil"] = f"{lesson_id}-full-ta.mp3"
+            manifest["full_duration_tamil"] = round(full_dur_ta, 1)
+
         manifest_path = os.path.join(output_dir, "manifest.json")
         with open(manifest_path, "w") as f:
             json.dump(manifest, f, indent=2, ensure_ascii=False)
@@ -359,8 +439,12 @@ def build_lesson(yaml_path: str, output_dir: str) -> None:
     # Summary
     print(f"\n{'='*60}")
     print(f"  ✅ Build complete!")
-    print(f"     {len(pair_paths)} sentence-pair MP3s")
-    print(f"     1 full sequential MP3 ({full_dur:.0f}s)")
+    if pair_paths_en:
+        print(f"     {len(pair_paths_en)} English sentence-pair MP3s")
+        print(f"     1 English full sequential MP3 ({full_dur:.0f}s)")
+    if pair_paths_ta:
+        print(f"     {len(pair_paths_ta)} Tamil sentence-pair MP3s")
+        print(f"     1 Tamil full sequential MP3 ({full_dur_ta:.0f}s)")
     print(f"     1 manifest.json")
     print(f"     Output: {output_dir}")
     print(f"{'='*60}\n")
@@ -381,6 +465,13 @@ def main():
         "-o", "--output-dir",
         help="Output directory (default: assets/audio/lessons/<lesson-id>/)",
     )
+    parser.add_argument(
+        "--lang",
+        choices=["en", "ta", "all"],
+        default="en",
+        help="Language(s) to build TTS for: 'en' (English only, default), "
+             "'ta' (Tamil only), 'all' (both English and Tamil)",
+    )
 
     args = parser.parse_args()
 
@@ -392,7 +483,7 @@ def main():
         "assets", "audio", "lessons", lesson["lesson_id"]
     )
 
-    build_lesson(args.definition, output_dir)
+    build_lesson(args.definition, output_dir, lang=args.lang)
 
 
 if __name__ == "__main__":

@@ -46,7 +46,9 @@
       var refP = null;
       var arabicP = null;
       var englishP = null;
+      var tamilP = null;
       var hookP = null;
+      var hookTaP = null;
       var extras = [];
       var pairTable = null;
 
@@ -55,7 +57,23 @@
           pairTable = sib;
           return;
         }
+        // Skip non-paragraph elements (but allow div.lang-ta, div.hook-ta)
+        if (sib.tagName === 'DIV' && sib.classList.contains('hook-ta')) {
+          hookTaP = sib;
+          return;
+        }
         if (sib.tagName !== 'P') return;
+
+        // Tamil translation (marked with .ta class by Kramdown IAL)
+        if (sib.classList.contains('ta')) {
+          tamilP = sib;
+          return;
+        }
+        // Tamil hook (marked with .hook-ta class)
+        if (sib.classList.contains('hook-ta')) {
+          hookTaP = sib;
+          return;
+        }
 
         if (!refP && sib.querySelector('audio')) {
           refP = sib;
@@ -121,12 +139,28 @@
         card.appendChild(engDiv);
       }
 
-      // Memory hook
+      // Tamil translation
+      if (tamilP) {
+        var taDiv = document.createElement('div');
+        taDiv.className = 'verse-tamil';
+        taDiv.innerHTML = tamilP.innerHTML;
+        card.appendChild(taDiv);
+      }
+
+      // Memory hook (English)
       if (hookP) {
         var hookDiv = document.createElement('div');
-        hookDiv.className = 'verse-hook';
+        hookDiv.className = 'verse-hook hook-en';
         hookDiv.innerHTML = hookP.innerHTML;
         card.appendChild(hookDiv);
+      }
+
+      // Memory hook (Tamil)
+      if (hookTaP) {
+        var hookTaDiv = document.createElement('div');
+        hookTaDiv.className = 'verse-hook hook-ta';
+        hookTaDiv.innerHTML = hookTaP.innerHTML;
+        card.appendChild(hookTaDiv);
       }
 
       // Reference + audio at the bottom
@@ -142,7 +176,9 @@
       if (arabicP) arabicP.remove();
       if (refP) refP.remove();
       if (englishP) englishP.remove();
+      if (tamilP) tamilP.remove();
       if (hookP) hookP.remove();
+      if (hookTaP) hookTaP.remove();
       extras.forEach(function (p) { p.remove(); });
       if (trailingHr) trailingHr.remove();
     });
