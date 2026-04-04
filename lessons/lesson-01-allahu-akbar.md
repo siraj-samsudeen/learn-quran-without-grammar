@@ -95,19 +95,27 @@ The Qur'an uses it when speaking about the One true God, and when challenging th
 
 </div>
 
+<div class="lang-en" markdown="1">
+
 | Arabic | English | Meaning |
 | --- | --- | --- |
 | إِلَٰه | *ilāh* | god |
 | آلِهَة | *āliha* | gods |
 | اللَّهُمَّ | *Allāhumma* | O Allah |
-{: .root-table .lang-en}
+{: .root-table}
+
+</div>
+
+<div class="lang-ta" markdown="1">
 
 | அரபி | தமிழ் | பொருள் |
 | --- | --- | --- |
 | إِلَٰه | *இலாஹ்* | கடவுள் |
 | آلِهَة | *ஆலிஹா* | கடவுள்கள் |
 | اللَّهُمَّ | *அல்லாஹும்ம* | அல்லாஹ்வே |
-{: .root-table .lang-ta}
+{: .root-table}
+
+</div>
 
 ---
 
@@ -194,6 +202,8 @@ Every time you say اللهُ أَكْبَرُ, you are reaching into this root 
 
 </div>
 
+<div class="lang-en" markdown="1">
+
 | Arabic | English | Meaning |
 | --- | --- | --- |
 | كَبِير | *kabīr* | great, big |
@@ -201,7 +211,11 @@ Every time you say اللهُ أَكْبَرُ, you are reaching into this root 
 | كُبْرَى | *kubrā* | greatest |
 | كَبُرَ | *kabura* | was great |
 | اسْتَكْبَرَ | *istakbara* | was arrogant |
-{: .root-table .lang-en}
+{: .root-table}
+
+</div>
+
+<div class="lang-ta" markdown="1">
 
 | அரபி | தமிழ் | பொருள் |
 | --- | --- | --- |
@@ -210,16 +224,35 @@ Every time you say اللهُ أَكْبَرُ, you are reaching into this root 
 | كُبْرَى | *குப்ரா* | மிகப் பெரிய (பெண்பால்) |
 | كَبُرَ | *கபுர* | பெரியதாக இருந்தது |
 | اسْتَكْبَرَ | *இஸ்தக்பர* | ஆணவம் கொண்டான் |
-{: .root-table .lang-ta}
+{: .root-table}
+
+</div>
 
 ---
 
 ### ⭐ · 4 Anchor Phrase
 
+<div class="lang-en" markdown="1">
+
+| | |
+|---|---|
 | هُوَ **كَبِيرٌ** | "He is **great**" |
 | أَنَا **أَكْبَرُ** مِنْهُ | "I am **greater** than him" |
 | وَاللَّهُ **أَكْبَرُ** مِنَّا، بَلْ، مِنْ كُلِّ شَيْءٍ | "And Allah is **greater** than us — rather, than everything" |
 {: .pair-table}
+
+</div>
+
+<div class="lang-ta" markdown="1">
+
+| | |
+|---|---|
+| هُوَ **كَبِيرٌ** | "அவன் **பெரியவன்**" |
+| أَنَا **أَكْبَرُ** مِنْهُ | "நான் அவனை விட **பெரியவன்**" |
+| وَاللَّهُ **أَكْبَرُ** مِنَّا، بَلْ، مِنْ كُلِّ شَيْءٍ | "அல்லாஹ் நம்மை விட — இல்லை, எல்லாவற்றையும் விட **பெரியவன்**" |
+{: .pair-table}
+
+</div>
 
 🔊 Teaching phrase · <audio controls preload="none" src="{{ '/assets/audio/lessons/lesson-01/teaching-phrase-full.mp3' | relative_url }}"></audio>
 

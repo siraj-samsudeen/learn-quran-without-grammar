@@ -750,6 +750,10 @@ body {
   bottom: 1rem;
   right: 1rem;
   z-index: 99;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0;
 }
 .translation-toggle {
   display: inline-flex;
@@ -815,23 +819,23 @@ h2[id], h3[id], .lesson-map, #lesson-map {
 }
 
 /* ── Responsive ── */
-/* ── Language Toggle Button ── */
+/* ── Language Toggle Button (floating, bottom-right) ── */
 .lang-toggle-container {
   display: flex;
   gap: 0;
-  margin: 0.75rem 0 1rem;
-  justify-content: center;
+  margin-bottom: 0.5rem;
 }
 .lang-toggle-btn {
   background: var(--white);
   border: 1px solid var(--border);
-  padding: 0.4rem 1rem;
-  font-size: 0.85rem;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: var(--muted);
   cursor: pointer;
   transition: all 0.15s;
   font-family: var(--font-ui);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
 .lang-toggle-btn:first-child {
   border-radius: 20px 0 0 20px;

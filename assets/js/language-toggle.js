@@ -43,15 +43,16 @@
     toggleContainer.appendChild(btnEn);
     toggleContainer.appendChild(btnTa);
 
-    // Insert toggle into the lesson map (if it exists) or before the first h2
-    var lessonMap = document.getElementById('lesson-map');
-    if (lessonMap) {
-      lessonMap.parentNode.insertBefore(toggleContainer, lessonMap);
+    // Place inside the floating container alongside the Hide translations button
+    var floatContainer = document.querySelector('.translation-toggle-float');
+    if (floatContainer) {
+      floatContainer.insertBefore(toggleContainer, floatContainer.firstChild);
     } else {
-      var firstH2 = lessonBody.querySelector('h2');
-      if (firstH2) {
-        firstH2.parentNode.insertBefore(toggleContainer, firstH2);
-      }
+      // Fallback: create own floating container
+      var float = document.createElement('div');
+      float.className = 'translation-toggle-float';
+      float.appendChild(toggleContainer);
+      document.body.appendChild(float);
     }
 
     // Read saved preference
