@@ -68,10 +68,35 @@ For each Qur'anic phrase:
 
 ---
 
-## Step 5 — Build the audio
+## Step 5 — Generate Tamil translations
+
+Generate Tamil translations for all lesson content. The teacher writes English only; Tamil is LLM-generated and reviewed by the teacher (who can read Tamil).
+
+**What to translate:**
+- All verse card translations (quoted lines → add `{: .ta}` line after English)
+- All hook paragraphs (add `{: .hook-ta}` paragraph after English hook)
+- Root explanation prose (wrap EN and TA in `<div class="lang-en/ta" markdown="1">`)
+- Root tables — Tamil transliteration + Tamil meaning (wrap in div, NOT IAL on table)
+- Pair-tables (teaching phrases) — wrap in div per language
+- Quiz prompts + answers (inline spans)
+- Summary words table + phrases list
+- Closing and What's Next sections
+- Study tip, lesson preview
+
+**YAML:** Add `tamil:` field alongside `english:` for each sentence in `tools/lesson-audio/lesson-NN.yaml`
+
+**Critical rules:**
+- Tamil table columns: அரபி | தமிழ் | பொருள் (use Tamil script transliteration, not English)
+- Never put `.lang-ta` directly on a `<table>` — wrap in `<div class="lang-ta" markdown="1">`
+- See `CLAUDE.md` → "Multi-Language Support" for all content patterns
+
+---
+
+## Step 6 — Build the audio
 
 ```bash
-tools/rebuild-lesson-audio.sh lesson-NN
+# English + Tamil audio
+python tools/build-lesson-audio.py tools/lesson-audio/lesson-NN.yaml --lang all
 python tools/validate-lesson-consistency.py lesson-NN
 ```
 
@@ -79,7 +104,7 @@ Fix any warnings before proceeding.
 
 ---
 
-## Step 6 — Add a lesson card to `index.md`
+## Step 7 — Add a lesson card to `index.md`
 
 ```html
 <div class="lesson-card" markdown="0" onclick="location.href='{{ '/lessons/lesson-NN-slug' | relative_url }}';">
@@ -91,7 +116,7 @@ Fix any warnings before proceeding.
 
 ---
 
-## Step 7 — Record selections
+## Step 8 — Record selections
 
 1. Create `docs/selections/lesson-NN.md` — see Lesson 1 for format
 2. Update `docs/roots/{root}.json` — set verse statuses and lesson assignments
@@ -99,13 +124,13 @@ Fix any warnings before proceeding.
 
 ---
 
-## Step 8 — Review
+## Step 9 — Review
 
 Run the checklist: `.claude/skills/lesson-review-checklist.md`
 
 ---
 
-## Step 9 — Commit
+## Step 10 — Commit
 
 ```bash
 git add .
@@ -135,4 +160,9 @@ Full checklist: `.claude/skills/lesson-review-checklist.md`
 - [ ] Root JSONs updated in `docs/roots/`
 - [ ] Selection log created
 - [ ] `pipeline.md` updated
+- [ ] Tamil translations for all verse cards, hooks, root explanations, tables, quiz, summary, closing
+- [ ] Tamil `tamil:` field in YAML for all sentences
+- [ ] Audio built with `--lang all` (EN + Tamil MP3 pairs)
+- [ ] Root tables wrapped in `<div class="lang-en/ta">`, NOT IAL on table
+- [ ] Pair-tables (teaching phrases) have Tamil version
 - [ ] Validation passes

@@ -19,6 +19,129 @@ Live site: **https://siraj-samsudeen.github.io/learn-quran-without-grammar/**
 - **Never put transliteration chars in YAML `english:` fields** — no ʿ ā ī ū ṣ ḍ ṭ ẓ ḥ. Use plain ASCII (e.g., `Aad` not `ʿĀd`). TTS produces gibberish.
 - **Never omit `markdown="0"` on divs with Arabic text** — Kramdown wraps Arabic in incorrect `<p>` tags and breaks RTL layout.
 - **Never repeat a reciter in one lesson** — each Qur'anic phrase needs a different reciter from the pool in `docs/decisions/ADR-005-reciters.md`.
+- **Never put `.lang-en` / `.lang-ta` classes directly on a `<table>`** — `.root-table` has `display: table !important` which overrides `display: none`. Wrap tables in `<div class="lang-en/ta" markdown="1">` instead.
+- **Never use two `<summary>` inside `<details>`** — HTML only allows one. Use `<span class="lang-en">` and `<span class="lang-ta">` inside a single `<summary>`.
+- **Script load order in lesson.html matters** — `translation-toggle.js` must load before `language-toggle.js` (language toggle inserts into the float container created by translation toggle).
+
+---
+
+## Multi-Language Support (Tamil)
+
+Lesson 01 has full Tamil translation. The system supports toggling between EN and Tamil.
+
+### How it works
+- **Language toggle**: `EN | தமிழ்` button floats bottom-right alongside Hide translations
+- **CSS classes**: `.lang-en` / `.lang-ta` on elements — CSS shows/hides based on `body.lang-active-ta`
+- **localStorage key**: `lqwg-language` → `'en'` (default) or `'ta'`
+- **Tamil font**: Noto Sans Tamil loaded via Google Fonts, CSS var `--font-tamil`
+
+### Content patterns in lesson .md files
+
+**Prose blocks** (root explanations, hooks, closing):
+```html
+<div class="lang-en" markdown="1">
+English prose here...
+</div>
+
+<div class="lang-ta" markdown="1">
+Tamil prose here...
+</div>
+```
+
+**Verse translations** — Tamil line after English, with `{: .ta}` IAL:
+```markdown
+"He is Allah — there is no **god** but He"
+
+"அவன் அல்லாஹ் — அவனைத் தவிர வேறு **இறைவன்** இல்லை"
+{: .ta}
+```
+
+**Hooks** — Tamil hook with `{: .hook-ta}` IAL:
+```markdown
+This is the English hook text.
+
+Tamil hook text here.
+{: .hook-ta}
+```
+
+**Root tables** — wrap in div, NOT IAL on table (see Common Mistakes):
+```html
+<div class="lang-en" markdown="1">
+
+| Arabic | English | Meaning |
+| --- | --- | --- |
+| إِلَٰه | *ilāh* | god |
+{: .root-table}
+
+</div>
+
+<div class="lang-ta" markdown="1">
+
+| அரபி | தமிழ் | பொருள் |
+| --- | --- | --- |
+| إِلَٰه | *இலாஹ்* | கடவுள் |
+{: .root-table}
+
+</div>
+```
+**Tamil table columns**: அரபி (Arabic) | தமிழ் (Tamil transliteration) | பொருள் (Meaning). Use Tamil script transliteration, NOT English transliteration.
+
+**Pair-tables** (teaching phrases) — wrap in div per language:
+```html
+<div class="lang-en" markdown="1">
+
+| | |
+|---|---|
+| هُوَ **كَبِيرٌ** | "He is **great**" |
+{: .pair-table}
+
+</div>
+
+<div class="lang-ta" markdown="1">
+
+| | |
+|---|---|
+| هُوَ **كَبِيرٌ** | "அவன் **பெரியவன்**" |
+{: .pair-table}
+
+</div>
+```
+
+**Audio in verse cards** — two `<audio>` elements, CSS shows one:
+```markdown
+(Al-Ḥashr 59:22) · <audio class="lang-en" controls preload="none" src="{{ '/assets/audio/lessons/lesson-01/anchor-ilah.mp3' | relative_url }}"></audio><audio class="lang-ta" controls preload="none" src="{{ '/assets/audio/lessons/lesson-01/anchor-ilah-ta.mp3' | relative_url }}"></audio>
+```
+Each card plays a single pair MP3 (Arabic recitation + translation TTS). The `lang-en`/`lang-ta` classes control which one is visible.
+
+**Inline spans** (inside `<summary>`, quiz prompts):
+```html
+<summary><span class="lang-en">إِلَٰهَ means…</span><span class="lang-ta">إِلَٰهَ என்றால்…</span></summary>
+```
+
+**Headings** — use IAL for simple headings:
+```markdown
+#### Phrases
+{: .lang-en}
+
+#### சொற்றொடர்கள்
+{: .lang-ta}
+```
+
+**Review / Download audio** — separate elements per language:
+```markdown
+<audio class="review-audio-en" ...src="lesson-01-full.mp3">
+<audio class="review-audio-ta" ...src="lesson-01-full-ta.mp3">
+```
+
+### Audio pipeline for Tamil
+- **YAML**: add `tamil:` field alongside `english:` for each sentence
+- **Build**: `python tools/build-lesson-audio.py tools/lesson-audio/lesson-NN.yaml --lang all`
+- **Tamil TTS voice**: `ta-IN-ValluvarNeural` (male)
+- **Output**: `{id}-ta.mp3` pair files + `lesson-NN-full-ta.mp3`
+- **Manifest**: includes `file_tamil`, `tamil`, `duration_tamil` fields per sentence
+
+### Shuffle player
+The shuffle player reads `localStorage('lqwg-language')` and plays the matching pair audio (`s.file` for EN, `s.file_tamil` for TA). Text display also switches.
 
 ---
 
@@ -53,6 +176,10 @@ learn-quran-without-grammar/
 │   ├── roots/                       ← Root inventory JSONs (forms + verses + scores)
 │   │   ├── ilah.json                ← Root إِلَٰه — all forms, verses, scores
 │   │   └── kabura.json              ← Root كَبُرَ — all forms, verses, scores
+│   ├── app/
+│   │   ├── RESEARCH-SYNTHESIS.md    ← Companion app research (TTS, SRS, tech, competitors)
+│   │   ├── APP-REQUIREMENTS.md      ← Full app vision + feature requirements
+│   │   └── research-*.md            ← Deep-dive research (Glossika, Expo, methods, platform)
 │   ├── selections/
 │   │   ├── lesson-01.md             ← Selection log: what was picked and why
 │   │   └── pipeline.md              ← Verse queue for future lessons
@@ -73,7 +200,14 @@ learn-quran-without-grammar/
 │   ├── pre-commit-hook.sh           ← Auto-validates lessons before commit
 │   └── lesson-audio/
 │       └── lesson-01.yaml           ← Audio definition for Lesson 1
-├── assets/ (audio/, css/, js/)
+├── assets/
+│   ├── audio/lessons/lesson-01/     ← EN + Tamil MP3 pairs, manifest.json
+│   ├── css/style.css                ← Includes Tamil font + lang toggle CSS
+│   └── js/
+│       ├── lesson-cards.js          ← Verse card builder (handles .ta, .hook-ta)
+│       ├── language-toggle.js       ← EN ↔ Tamil toggle (floating, localStorage)
+│       ├── shuffle-player.js        ← Language-aware audio + text display
+│       └── translation-toggle.js    ← Hide/show translations
 ├── _layouts/ (default.html, lesson.html)
 ├── index.md, course_intro.md, how-to-study.md
 └── _config.yml
@@ -93,8 +227,11 @@ python tools/auto-timestamps.py 29:45 --reciter Abdul_Basit_Murattal_192kbps --w
 # Audio timestamps (fallback — all reciters)
 python tools/find-audio-fragment.py 29:45 --reciter Yasser_Ad-Dussary_128kbps
 
-# Build lesson audio
+# Build lesson audio (English only — default)
 tools/rebuild-lesson-audio.sh lesson-NN
+
+# Build lesson audio (English + Tamil)
+python tools/build-lesson-audio.py tools/lesson-audio/lesson-NN.yaml --lang all
 
 # Validate lesson
 python tools/validate-lesson-consistency.py lesson-NN
@@ -119,3 +256,6 @@ python tools/verify-verse.py 29:45
 | **Publishing a page** | `.claude/skills/jekyll-publish-page.md` |
 | **Starting a new lesson** | Check `docs/selections/pipeline.md` FIRST, then `docs/roots/` for existing inventory |
 | **Scoring verses** | `docs/SCORING.md` — 8-dimension algorithm |
+| **Adding Tamil to a lesson** | `CLAUDE.md` → "Multi-Language Support" section above |
+| **Companion app research** | `docs/app/RESEARCH-SYNTHESIS.md` → then specific `research-*.md` files |
+| **App requirements** | `docs/app/APP-REQUIREMENTS.md` |

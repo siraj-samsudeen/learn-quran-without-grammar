@@ -18,12 +18,25 @@ When the teacher says "let's create a new lesson", "start lesson N", or asks abo
 **Output:** `lessons/lesson-NN-slug.md` draft
 **Gate:** Teacher reviews draft on live site
 
+### Phase 2b: Tamil Translation
+**Reference:** `CLAUDE.md` → "Multi-Language Support"
+**Input:** Completed English lesson draft
+**Output:** All Tamil content added to lesson .md + `tamil:` fields in YAML
+**Steps:**
+1. Generate Tamil translations for all content (LLM-generated, teacher reviews)
+2. Add Tamil verse translations (`{: .ta}`), hooks (`{: .hook-ta}`), prose (`<div class="lang-ta">`)
+3. Wrap root tables and pair-tables in `<div class="lang-en/ta">` containers
+4. Add quiz Tamil prompts + answers, summary, closing
+5. Add `tamil:` field to each sentence in the YAML
+**Gate:** Teacher reviews Tamil text (can read but not type Tamil)
+
 ### Phase 3: Audio Preparation
 **Skill:** `.claude/skills/lesson-audio.md`
 **Template:** `.claude/skills/templates/lesson-audio-template.yaml`
 **Tools:** `tools/auto-timestamps.py` (primary), `tools/find-audio-fragment.py` (fallback)
-**Input:** Draft lesson file with reciter assignments
-**Output:** YAML definition + built MP3s + manifest.json
+**Input:** Draft lesson file with reciter assignments + Tamil translations in YAML
+**Output:** YAML definition + built MP3s (EN + Tamil) + manifest.json
+**Build:** `python tools/build-lesson-audio.py tools/lesson-audio/lesson-NN.yaml --lang all`
 **Gate:** `python tools/validate-lesson-consistency.py lesson-NN` passes
 
 ### Phase 4: Review & Polish

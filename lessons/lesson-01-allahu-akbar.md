@@ -228,8 +228,6 @@ Every time you say اللهُ أَكْبَرُ, you are reaching into this root 
 
 <div class="lang-en" markdown="1">
 
-| | |
-|---|---|
 | هُوَ **كَبِيرٌ** | "He is **great**" |
 | أَنَا **أَكْبَرُ** مِنْهُ | "I am **greater** than him" |
 | وَاللَّهُ **أَكْبَرُ** مِنَّا، بَلْ، مِنْ كُلِّ شَيْءٍ | "And Allah is **greater** than us — rather, than everything" |
@@ -239,8 +237,6 @@ Every time you say اللهُ أَكْبَرُ, you are reaching into this root 
 
 <div class="lang-ta" markdown="1">
 
-| | |
-|---|---|
 | هُوَ **كَبِيرٌ** | "அவன் **பெரியவன்**" |
 | أَنَا **أَكْبَرُ** مِنْهُ | "நான் அவனை விட **பெரியவன்**" |
 | وَاللَّهُ **أَكْبَرُ** مِنَّا، بَلْ، مِنْ كُلِّ شَيْءٍ | "அல்லாஹ் நம்மை விட — இல்லை, எல்லாவற்றையும் விட **பெரியவன்**" |

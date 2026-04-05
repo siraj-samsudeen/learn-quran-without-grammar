@@ -135,7 +135,43 @@ cp assets/audio/lessons/lesson-NN/manifest.json _site/assets/audio/lessons/lesso
 | Language | Voice | ID | Notes |
 |----------|-------|----|-------|
 | English | Andrew, Brian, Christopher | `en-US-AndrewNeural`, `en-US-BrianNeural`, `en-US-ChristopherNeural` | Randomly rotated per sentence by build script |
+| Tamil | Valluvar | `ta-IN-ValluvarNeural` | Male Tamil voice — used for all Tamil TTS |
 | Arabic | Hamed (Saudi) | `ar-SA-HamedNeural` | For teaching phrases and non-Qur'anic content |
+
+## Multi-language audio build
+
+The build script supports `--lang` flag for building audio in multiple languages:
+
+```bash
+# English only (default, backward-compatible)
+python tools/build-lesson-audio.py tools/lesson-audio/lesson-NN.yaml
+
+# Tamil only
+python tools/build-lesson-audio.py tools/lesson-audio/lesson-NN.yaml --lang ta
+
+# Both English and Tamil
+python tools/build-lesson-audio.py tools/lesson-audio/lesson-NN.yaml --lang all
+```
+
+### YAML format for Tamil
+
+Add `tamil:` field alongside `english:` for each sentence:
+
+```yaml
+- id: anchor-ilah
+  english: "He is Allah — there is no god but He"
+  tamil: "அவன் அல்லாஹ் — அவனைத் தவிர வேறு இறைவன் இல்லை"
+```
+
+### Output files
+
+| File | Content |
+|------|---------|
+| `{id}.mp3` | Arabic + English TTS pair |
+| `{id}-ta.mp3` | Arabic + Tamil TTS pair |
+| `lesson-NN-full.mp3` | All EN pairs concatenated |
+| `lesson-NN-full-ta.mp3` | All TA pairs concatenated |
+| `manifest.json` | Includes `file_tamil`, `tamil`, `duration_tamil` per sentence |
 
 ---
 
