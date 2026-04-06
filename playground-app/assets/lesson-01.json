@@ -1,0 +1,425 @@
+{
+  "lesson_id": "lesson-01",
+  "title": "Lesson 1: Allāhu Akbar",
+  "slug": "lesson-01-allahu-akbar",
+  "description": "Two root words behind Allāhu Akbar — إِلَٰه (god) and كَبُرَ (greatness) — 8 words through 12 Qur'anic phrases.\n",
+  "intro": {
+    "en": "In this series of lessons, we will walk through each of the sentences\nin the Adhan (Call to prayer) and use the words there as our **hooks**\nto get into the Quran using the beautiful concept of **roots** in\nArabic language.\n",
+    "ta": "இந்தப் பாடத் தொடரில், அதான் (தொழுகை அழைப்பு) வாக்கியங்களை\nஒவ்வொன்றாகப் பார்ப்போம். அரபி மொழியின் அழகான **வேர்ச்சொல்**\nகருத்தைப் பயன்படுத்தி அவற்றை குர்ஆனுக்குள் நுழைவதற்கான\n**கொக்கிகளாக** பயன்படுத்துவோம்.\n"
+  },
+  "preview": {
+    "en": "In the first lesson, you will meet **8 Arabic words** from two root families — the roots behind **اللهُ أَكْبَرُ** — through 11 ayahs from the Quran plus 1 teaching phrase.\n",
+    "ta": "இந்த முதல் பாடத்தில், நீங்கள் **8 அரபி வார்த்தைகளை** சந்திப்பீர்கள் — **اللهُ أَكْبَرُ** என்பதன் பின்னால் உள்ள இரண்டு வேர்ச்சொல் குடும்பங்களிலிருந்து — குர்ஆனின் 11 ஆயத்துகள் மற்றும் 1 கற்பித்தல் சொற்றொடர் மூலம்.\n"
+  },
+  "anchor": {
+    "arabic": "اللهُ أَكْبَرُ",
+    "en": "Allah is Greater",
+    "ta": "அல்லாஹ் மிகப் பெரியவன்",
+    "context": {
+      "en": "You say this every single day. Before every ṣalāh. You raise your\nhands and say it. The muaddhin opens with it. It is the first thing\nyou hear when prayer is called, and the first thing you say when you\nstand before Allah. It is the most repeated phrase in your life.\n",
+      "ta": "நீங்கள் இதை ஒவ்வொரு நாளும் சொல்கிறீர்கள். ஒவ்வொரு தொழுகைக்கும்\nமுன். உங்கள் கைகளை உயர்த்தி இதைச் சொல்கிறீர்கள். முஅத்தின் இதனால்\nதொடங்குகிறார். தொழுகை அழைக்கப்படும்போது நீங்கள் முதலில் கேட்பது\nஇதுதான், அல்லாஹ்வின் முன் நிற்கும்போது நீங்கள் முதலில் சொல்வதும்\nஇதுதான். இது உங்கள் வாழ்க்கையில் அதிகம் திரும்பத்திரும்ப\nசொல்லப்படும் சொற்றொடர்.\n"
+    },
+    "audio": "adhan-allahu-akbar.mp3"
+  },
+  "roots": [
+    {
+      "id": "root-ilah",
+      "root_letters": "أ ل ه",
+      "root_name": "إِلَٰه",
+      "root_transliteration": "alif lām hā",
+      "meaning": "god",
+      "explanation": {
+        "en": "**اللّٰه** comes from the root **أ ل ه (alif lām hā)**.\nEvery time you say *Lā ilāha illallāh*, you are using this word.\n\nAt its core, this root carries the idea of **worship, devotion,\nand turning to something with complete love and awe.** The word\n**إِلَٰه** is anything that your heart turns to as ultimate —\nanything you worship, depend on, or are deeply attached to. For\nsome of us, it might be our car, our phone, spouse or even\nbusiness or job.\n\nThe Qur'an uses it when speaking about the One true God, and when\nchallenging the false ones.\n",
+        "ta": "**اللّٰه** என்ற வார்த்தை **أ ل ه** (அலிஃப் லாம் ஹா) என்ற\nவேர்ச்சொல்லிலிருந்து வருகிறது. நீங்கள் *லா இலாஹ இல்லல்லாஹ்*\nஎன்று ஒவ்வொரு முறை சொல்லும்போதும், இந்த வார்த்தையைப்\nபயன்படுத்துகிறீர்கள்.\n\nஇந்த வேர்ச்சொல்லின் மையக் கருத்து: **வணக்கம், பக்தி, முழுமையான\nஅன்பு மற்றும் பிரமிப்புடன் ஒன்றை நோக்கித் திரும்புதல்.** **إِلَٰه**\nஎன்பது உங்கள் இதயம் இறுதியானதாகத் திரும்பும் எதையும் குறிக்கிறது —\nநீங்கள் வணங்குவது, சார்ந்திருப்பது, அல்லது ஆழமாக\nஇணைந்திருப்பது. நம்மில் சிலருக்கு அது நமது கார், தொலைபேசி,\nதுணைவர் அல்லது வேலையாகக்கூட இருக்கலாம்.\n\nகுர்ஆன் இதை ஒரே உண்மையான கடவுளைப் பற்றிப் பேசும்போதும்,\nபொய்யான கடவுள்களை மறுக்கும்போதும் பயன்படுத்துகிறது.\n"
+      },
+      "vocabulary": [
+        {
+          "arabic": "إِلَٰه",
+          "transliteration": "ilāh",
+          "en": "god",
+          "ta": "கடவுள்",
+          "ta_transliteration": "இலாஹ்"
+        },
+        {
+          "arabic": "آلِهَة",
+          "transliteration": "āliha",
+          "en": "gods",
+          "ta": "கடவுள்கள்",
+          "ta_transliteration": "ஆலிஹா"
+        },
+        {
+          "arabic": "اللَّهُمَّ",
+          "transliteration": "Allāhumma",
+          "en": "O Allah",
+          "ta": "அல்லாஹ்வே",
+          "ta_transliteration": "அல்லாஹும்ம"
+        }
+      ],
+      "cards": [
+        {
+          "id": "anchor-ilah",
+          "role": "anchor",
+          "form": "إِلَٰه",
+          "ref": "59:22",
+          "reciter": "Hani_Rifai_192kbps",
+          "arabic_source": {
+            "surah": 59,
+            "ayah": 22,
+            "end": 5.5
+          },
+          "arabic_source_full": {
+            "surah": 59,
+            "ayah": 22
+          },
+          "arabic_text": "هُوَ اللَّهُ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ",
+          "en": "He is Allah — there is no god but He",
+          "ta": "அவன் அல்லாஹ் — அவனைத் தவிர வேறு இறைவன் இல்லை",
+          "hook": {
+            "en": "This is the phrase to carry with you. Six words that contain the entire message of tawḥīd.\n",
+            "ta": "இந்தச் சொற்றொடரை உங்களுடன் கொண்டு செல்லுங்கள். தவ்ஹீதின் முழுச் செய்தியும் ஆறு வார்த்தைகளில்.\n"
+          }
+        },
+        {
+          "id": "learn-ilah-01",
+          "role": "learn",
+          "form": "آلِهَة",
+          "ref": "6:74",
+          "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+          "arabic_source": {
+            "surah": 6,
+            "ayah": 74,
+            "end": 9.5
+          },
+          "arabic_source_full": {
+            "surah": 6,
+            "ayah": 74
+          },
+          "arabic_text": "وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ أَتَتَّخِذُ أَصْنَامًا آلِهَةً",
+          "en": "And when Ibrahim said to his father Azar: Do you take idols as gods?",
+          "ta": "இப்ராஹீம் தன் தந்தை ஆஸரிடம் கூறியபோது: நீர் சிலைகளைத் தெய்வங்களாக எடுத்துக்கொள்கிறீரா?",
+          "hook": {
+            "en": "Ibrāhīm's challenge to his own father — one of the bravest questions in the Qur'an.\n",
+            "ta": "இப்ராஹீம் தன் சொந்தத் தந்தைக்கே சவால் விடுகிறார் — குர்ஆனின் மிகத் துணிச்சலான கேள்விகளில் ஒன்று.\n"
+          }
+        },
+        {
+          "id": "learn-ilah-02",
+          "role": "learn",
+          "form": "اللَّهُمَّ",
+          "ref": "3:26",
+          "reciter": "Hudhaify_128kbps",
+          "arabic_source": {
+            "surah": 3,
+            "ayah": 26,
+            "end": 5.0
+          },
+          "arabic_source_full": {
+            "surah": 3,
+            "ayah": 26
+          },
+          "arabic_text": "قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ",
+          "en": "Say: O Allah, King of kings",
+          "ta": "கூறுவீராக: அல்லாஹ்வே, ஆட்சியின் அதிபதியே",
+          "hook": {
+            "en": "This is how you call upon Him directly. Every duʿā you make that begins with اللَّهُمَّ carries this root.\n",
+            "ta": "இப்படித்தான் நீங்கள் அவனை நேரடியாக அழைக்கிறீர்கள். اللَّهُمَّ என்று தொடங்கும் ஒவ்வொரு துஆவிலும் இந்த வேர்ச்சொல் இருக்கிறது.\n"
+          }
+        }
+      ]
+    },
+    {
+      "id": "root-kabur",
+      "root_letters": "ك ب ر",
+      "root_name": "كَبُرَ",
+      "root_transliteration": "kāf bā rā",
+      "meaning": "greatness",
+      "explanation": {
+        "en": "The same three letters that praise Allah's greatness also describe\nthe worst sin in the Qur'an. Let's see how.\n\nThe root **ك ب ر** (kāf bā rā) carries one core meaning:\n*something is big or great.* Think of it like a seed of greatness\n— plant it in different soil and it grows into different words. It\ncan mean simply *big*. It can mean *the greatest*. And when someone\nclaims that greatness for himself — when he puffs himself up and\nrefuses to bow — it becomes *arrogance*.\n\nEvery time you say اللهُ أَكْبَرُ, you are reaching into this root\nand pulling out its highest meaning: Allah is greater. Greater than\nyour fear. Greater than your distraction. Greater than anything\nstanding in front of you.\n",
+        "ta": "அல்லாஹ்வின் மகத்துவத்தைப் புகழும் அதே மூன்று எழுத்துக்கள்,\nகுர்ஆனின் மிக மோசமான பாவத்தையும் விவரிக்கின்றன. எப்படி என்று\nபார்ப்போம்.\n\n**ك ب ر** (காஃப் பா ரா) என்ற வேர்ச்சொல் ஒரே ஒரு மையக்\nகருத்தைக் கொண்டுள்ளது: *ஏதாவது பெரியது அல்லது மகத்தானது.*\nஇதை மகத்துவத்தின் விதையாக நினையுங்கள் — வேறு வேறு மண்ணில்\nநட்டால் வேறு வேறு வார்த்தைகளாக வளரும். இது வெறுமனே *பெரியது*\nஎன்று பொருள்படலாம். *மிகப் பெரியது* என்றும் ஆகலாம். ஒருவன்\nஅந்த மகத்துவத்தை தனக்கென உரிமை கொண்டாடும்போது — தன்னைப்\nபெரிதாக நினைத்து சிரம் பணிய மறுக்கும்போது — அது *ஆணவம்*\nஆகிறது.\n\nநீங்கள் اللهُ أَكْبَرُ என்று சொல்லும் ஒவ்வொரு முறையும், இந்த\nவேர்ச்சொல்லின் மிக உயர்ந்த பொருளை எடுக்கிறீர்கள்: அல்லாஹ்\nமிகப் பெரியவன். உங்கள் பயத்தை விடப் பெரியவன். உங்கள்\nகவனச்சிதறலை விடப் பெரியவன். உங்கள் முன் நிற்கும் எதை விடவும்\nபெரியவன்.\n"
+      },
+      "vocabulary": [
+        {
+          "arabic": "كَبِير",
+          "transliteration": "kabīr",
+          "en": "great, big",
+          "ta": "பெரிய, மகத்தான",
+          "ta_transliteration": "கபீர்"
+        },
+        {
+          "arabic": "أَكْبَرُ",
+          "transliteration": "Akbar",
+          "en": "greater, greatest",
+          "ta": "மிகப் பெரிய",
+          "ta_transliteration": "அக்பர்"
+        },
+        {
+          "arabic": "كُبْرَى",
+          "transliteration": "kubrā",
+          "en": "greatest",
+          "ta": "மிகப் பெரிய (பெண்பால்)",
+          "ta_transliteration": "குப்ரா"
+        },
+        {
+          "arabic": "كَبُرَ",
+          "transliteration": "kabura",
+          "en": "was great",
+          "ta": "பெரியதாக இருந்தது",
+          "ta_transliteration": "கபுர"
+        },
+        {
+          "arabic": "اسْتَكْبَرَ",
+          "transliteration": "istakbara",
+          "en": "was arrogant",
+          "ta": "ஆணவம் கொண்டான்",
+          "ta_transliteration": "இஸ்தக்பர"
+        }
+      ],
+      "cards": [
+        {
+          "id": "anchor-kabura",
+          "role": "anchor",
+          "form": "كَبِير + أَكْبَر",
+          "ref": "teaching-phrase",
+          "arabic_source": {
+            "use_arabic_tts": true
+          },
+          "arabic_text": "هُوَ كَبِيرٌ. أَنَا أَكْبَرُ مِنْهُ. وَاللَّهُ أَكْبَرُ مِنَّا، بَلْ، مِنْ كُلِّ شَيْءٍ",
+          "en": "He is great. I am greater than him. And Allah is greater than us — rather, than everything.",
+          "ta": "அவன் பெரியவன். நான் அவனை விடப் பெரியவன். அல்லாஹ் நம்மை விட — இல்லை, எல்லாவற்றையும் விடப் பெரியவன்.",
+          "hook": {
+            "en": "Listen to how the root moves: **كَبِير** → **أَكْبَر** → **أَكْبَر**. It starts between two people, then lifts to Allah. That is the word you say in every ṣalāh.\n",
+            "ta": "வேர்ச்சொல் எப்படி நகர்கிறது என்று கேளுங்கள்: **كَبِير** → **أَكْبَر** → **أَكْبَر**. இது இரண்டு மனிதர்களுக்கிடையே தொடங்கி, பிறகு அல்லாஹ்வை நோக்கி உயர்கிறது. இதுதான் நீங்கள் ஒவ்வொரு தொழுகையிலும் சொல்லும் வார்த்தை.\n"
+          }
+        },
+        {
+          "id": "learn-kabura-01",
+          "role": "learn",
+          "form": "كُبْرَى",
+          "ref": "79:20",
+          "reciter": "Husary_128kbps",
+          "arabic_source": {
+            "surah": 79,
+            "ayah": 20
+          },
+          "arabic_text": "فَأَرَاهُ الْآيَةَ الْكُبْرَىٰ",
+          "en": "And he showed him the greatest sign",
+          "ta": "அவனுக்கு மிகப் பெரிய அத்தாட்சியைக் காட்டினான்",
+          "hook": {
+            "en": "Mūsā showed Pharaoh something so overwhelming that this root had to be used — *the greatest*.\n",
+            "ta": "மூஸா ஃபிர்அவ்னுக்கு மிகவும் பிரமிக்கத்தக்க ஒன்றைக் காட்டினார் — இந்த வேர்ச்சொல்லைப் பயன்படுத்த வேண்டிய அளவுக்கு — *மிகப் பெரிய*.\n"
+          }
+        },
+        {
+          "id": "learn-kabura-02",
+          "role": "learn",
+          "form": "كَبُرَ",
+          "ref": "61:3",
+          "reciter": "Alafasy_128kbps",
+          "arabic_source": {
+            "surah": 61,
+            "ayah": 3
+          },
+          "arabic_text": "كَبُرَ مَقْتًا عِندَ اللَّهِ أَن تَقُولُوا مَا لَا تَفْعَلُونَ",
+          "en": "Greatly hateful in the sight of Allah — that you say what you do not do",
+          "ta": "நீங்கள் செய்யாததைச் சொல்வது அல்லாஹ்விடம் மிகவும் வெறுப்புக்குரியது",
+          "hook": {
+            "en": "This is the root word itself — **كَبُرَ** — in its simplest form. You can hear the three root letters clearly: kāf, bā, rā.\n",
+            "ta": "இது வேர்ச்சொல்லே — **كَبُرَ** — அதன் எளிமையான வடிவத்தில். மூன்று வேர் எழுத்துக்களைத் தெளிவாகக் கேட்கலாம்: காஃப், பா, ரா.\n"
+          }
+        },
+        {
+          "id": "learn-kabura-03",
+          "role": "learn",
+          "form": "اسْتَكْبَرَ",
+          "ref": "2:34",
+          "reciter": "Abdul_Basit_Mujawwad_128kbps",
+          "arabic_source": {
+            "surah": 2,
+            "ayah": 34
+          },
+          "arabic_text": "وَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ فَسَجَدُوا إِلَّا إِبْلِيسَ أَبَىٰ وَاسْتَكْبَرَ وَكَانَ مِنَ الْكَافِرِينَ",
+          "en": "And when We said to the angels: Prostrate to Adam — they all prostrated, except Iblis. He refused and was arrogant, and became of the disbelievers.",
+          "ta": "மலக்குகளிடம் ஆதமுக்கு சஜ்தா செய்யுங்கள் என்று நாம் கூறியபோது — இப்லீஸைத் தவிர அனைவரும் சஜ்தா செய்தார்கள். அவன் மறுத்தான், ஆணவம் கொண்டான், நிராகரிப்பவர்களில் ஒருவனானான்.",
+          "hook": {
+            "en": "The origin story of arrogance. When the angels were commanded to bow, every single one obeyed — except one. He claimed greatness for himself, and that is what this word means.\n",
+            "ta": "ஆணவத்தின் தோற்றக் கதை. மலக்குகள் சிரம் பணியக் கட்டளையிடப்பட்டபோது, ஒவ்வொருவரும் கீழ்ப்படிந்தார்கள் — ஒருவனைத் தவிர. அவன் தனக்கே மகத்துவத்தை உரிமை கொண்டாடினான் — இந்த வார்த்தையின் பொருள் அதுதான்.\n"
+          }
+        }
+      ]
+    }
+  ],
+  "practice": {
+    "intro": {
+      "en": "You've met all 8 words. Now see if you can spot them on your own — try to predict the meaning of the highlighted word before reading the English.\n",
+      "ta": "நீங்கள் 8 வார்த்தைகளையும் சந்தித்துவிட்டீர்கள். இப்போது நீங்களே அவற்றைக் கண்டுபிடிக்க முடியுமா பாருங்கள் — மொழிபெயர்ப்பைப் படிக்கும் முன் சிறப்பிக்கப்பட்ட வார்த்தையின் பொருளைக் கணிக்க முயற்சியுங்கள்.\n"
+    },
+    "cards": [
+      {
+        "id": "practice-01",
+        "root": "كَبُرَ",
+        "form": "أَكْبَرُ",
+        "ref": "29:45",
+        "reciter": "Abdul_Basit_Murattal_192kbps",
+        "arabic_source": {
+          "surah": 29,
+          "ayah": 45,
+          "start": 20.2,
+          "end": 24
+        },
+        "arabic_source_full": {
+          "surah": 29,
+          "ayah": 45
+        },
+        "arabic_text": "وَلَذِكْرُ اللَّهِ أَكْبَرُ",
+        "en": "And the remembrance of Allah is greater",
+        "ta": "அல்லாஹ்வின் நினைவே மிகப் பெரியது",
+        "hook": {
+          "en": "Your word — **أَكْبَر** — but not in the adhān this time. Allah is telling you what matters most: remembering Him is greater than anything else.\n",
+          "ta": "உங்கள் வார்த்தை — **أَكْبَر** — ஆனால் இம்முறை அதானில் அல்ல. அல்லாஹ் உங்களுக்கு மிக முக்கியமானதைச் சொல்கிறான்: அவனை நினைவுகூர்வது மற்ற எல்லாவற்றையும் விட மிகப் பெரியது.\n"
+        }
+      },
+      {
+        "id": "practice-02",
+        "root": "كَبُرَ",
+        "form": "كَبُرَ",
+        "ref": "18:5",
+        "reciter": "Ghamadi_40kbps",
+        "arabic_source": {
+          "surah": 18,
+          "ayah": 5,
+          "start": 7.5
+        },
+        "arabic_source_full": {
+          "surah": 18,
+          "ayah": 5
+        },
+        "arabic_text": "كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ ۚ إِن يَقُولُونَ إِلَّا كَذِبًا",
+        "en": "How great a word that comes from their mouths — they speak nothing but a lie",
+        "ta": "அவர்களின் வாயிலிருந்து வரும் வார்த்தை எவ்வளவு பெரியது — அவர்கள் பொய்யைத் தவிர வேறு எதையும் பேசுவதில்லை",
+        "hook": {
+          "en": "Notice **كَبُرَتْ** — the same root verb you met earlier, now with a feminine ending. The root letters kāf-bā-rā are right there.\n",
+          "ta": "**كَبُرَتْ** கவனியுங்கள் — நீங்கள் முன்பு சந்தித்த அதே வேர்ச்சொல் வினை, இப்போது பெண்பால் முடிவுடன். வேர் எழுத்துக்கள் காஃப்-பா-ரா அங்கேயே இருக்கின்றன.\n"
+        }
+      },
+      {
+        "id": "practice-03",
+        "root": "كَبُرَ",
+        "form": "كَبِير",
+        "ref": "21:63",
+        "reciter": "MaherAlMuaiqly128kbps",
+        "arabic_source": {
+          "surah": 21,
+          "ayah": 63
+        },
+        "arabic_text": "قَالَ بَلْ فَعَلَهُ كَبِيرُهُمْ هَٰذَا فَاسْأَلُوهُمْ إِن كَانُوا يَنطِقُونَ",
+        "en": "He said: Rather, their chief did it — ask them, if they can speak",
+        "ta": "அவர் கூறினார்: இல்லை, அவர்களின் தலைவன் இதைச் செய்தான் — அவர்கள் பேச முடியுமானால் அவர்களிடமே கேளுங்கள்",
+        "hook": {
+          "en": "Ibrāhīm again — this time using wit. He smashed the idols and blamed the biggest one. Notice **كَبِيرُهُمْ** — \"their biggest/chief.\" Same root, now describing a statue.\n",
+          "ta": "மீண்டும் இப்ராஹீம் — இம்முறை புத்திசாலித்தனமாக. சிலைகளை உடைத்துவிட்டு மிகப் பெரிய சிலையின் மீது பழி போட்டார். **كَبِيرُهُمْ** கவனியுங்கள் — \"அவர்களின் பெரியவன்/தலைவன்.\" அதே வேர்ச்சொல், இப்போது ஒரு சிலையை விவரிக்கிறது.\n"
+        }
+      },
+      {
+        "id": "practice-04",
+        "root": "إِلَٰه",
+        "form": "إِلَٰه (×3)",
+        "ref": "2:163",
+        "reciter": "Yasser_Ad-Dussary_128kbps",
+        "arabic_source": {
+          "surah": 2,
+          "ayah": 163
+        },
+        "arabic_text": "وَإِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ ۖ لَا إِلَٰهَ إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ",
+        "en": "And your God is one God — there is no god but He, the Most Merciful, the Continuously Merciful",
+        "ta": "உங்கள் இறைவன் ஒரே இறைவன் — அவனைத் தவிர வேறு இறைவன் இல்லை, மிக்க அருளாளன், நிரந்தர அருளாளன்",
+        "hook": {
+          "en": "Three times in one ayah — **إِلَٰه** appears three times. This single verse is the Qur'an's most complete statement of tawḥīd.\n",
+          "ta": "ஒரே ஆயத்தில் மூன்று முறை — **إِلَٰه** மூன்று முறை வருகிறது. இந்த ஒற்றை வசனம் தவ்ஹீதின் மிகச் சிறந்த அறிக்கை.\n"
+        }
+      },
+      {
+        "id": "practice-05",
+        "root": "كَبُرَ",
+        "form": "اسْتَكْبَرَ",
+        "ref": "41:15",
+        "reciter": "Abdurrahmaan_As-Sudais_192kbps",
+        "arabic_source": {
+          "surah": 41,
+          "ayah": 15,
+          "end": 16
+        },
+        "arabic_text": "فَأَمَّا عَادٌ فَاسْتَكْبَرُوا فِي الْأَرْضِ بِغَيْرِ الْحَقِّ وَقَالُوا مَنْ أَشَدُّ مِنَّا قُوَّةً ۖ أَوَلَمْ يَرَوْا أَنَّ اللَّهَ الَّذِي خَلَقَهُمْ هُوَ أَشَدُّ مِنْهُمْ قُوَّةً",
+        "en": "As for Aad, they were arrogant on earth without right and said: Who is mightier than us in strength? Did they not see that Allah who created them is mightier than them in strength?",
+        "ta": "ஆத் சமூகத்தினர் பூமியில் அநியாயமாக ஆணவம் கொண்டு கூறினர்: எங்களை விட வலிமையானவர் யார்? அவர்களைப் படைத்த அல்லாஹ் அவர்களை விட வலிமையானவன் என்பதை அவர்கள் பார்க்கவில்லையா?",
+        "hook": {
+          "en": "An entire civilisation that said: \"Who is mightier than us?\" The Qur'an's answer is devastating. Notice **اسْتَكْبَرُوا** — the same word as Iblīs, but now it's a whole nation.\n",
+          "ta": "\"எங்களை விட வலிமையானவர் யார்?\" என்று கேட்ட ஒரு முழு நாகரிகம். குர்ஆனின் பதில் அழிவுகரமானது. **اسْتَكْبَرُوا** கவனியுங்கள் — இப்லீஸின் அதே வார்த்தை, ஆனால் இப்போது ஒரு முழு தேசம்.\n"
+        }
+      }
+    ]
+  },
+  "quiz": {
+    "intro": {
+      "en": "Look at the highlighted word in each ayah. Can you recall its meaning? Click to reveal the answer.\n",
+      "ta": "ஒவ்வொரு ஆயத்திலும் சிறப்பிக்கப்பட்ட வார்த்தையைப் பாருங்கள். அதன் பொருளை நினைவுகூர முடியுமா? பதிலைக் காண கிளிக் செய்யுங்கள்.\n"
+    },
+    "items": [
+      {
+        "arabic_context": "هُوَ اللَّهُ الَّذِي لَا **إِلَٰهَ** إِلَّا هُوَ",
+        "highlighted_word": "إِلَٰهَ",
+        "answer_en": "god",
+        "answer_ta": "கடவுள்"
+      },
+      {
+        "arabic_context": "أَتَتَّخِذُ أَصْنَامًا **آلِهَةً**",
+        "highlighted_word": "آلِهَةً",
+        "answer_en": "gods (plural)",
+        "answer_ta": "கடவுள்கள் (பன்மை)"
+      },
+      {
+        "arabic_context": "قُلِ **اللَّهُمَّ** مَالِكَ الْمُلْكِ",
+        "highlighted_word": "اللَّهُمَّ",
+        "answer_en": "O Allah",
+        "answer_ta": "அல்லாஹ்வே"
+      },
+      {
+        "arabic_context": "فَأَرَاهُ الْآيَةَ **الْكُبْرَىٰ**",
+        "highlighted_word": "الْكُبْرَىٰ",
+        "answer_en": "the greatest",
+        "answer_ta": "மிகப் பெரிய"
+      },
+      {
+        "arabic_context": "**كَبُرَ** مَقْتًا عِندَ اللَّهِ أَن تَقُولُوا مَا لَا تَفْعَلُونَ",
+        "highlighted_word": "كَبُرَ",
+        "answer_en": "was great / greatly",
+        "answer_ta": "பெரியதாக இருந்தது / மிகவும்"
+      },
+      {
+        "arabic_context": "أَبَىٰ وَ**اسْتَكْبَرَ** وَكَانَ مِنَ الْكَافِرِينَ",
+        "highlighted_word": "اسْتَكْبَرَ",
+        "answer_en": "was arrogant",
+        "answer_ta": "ஆணவம் கொண்டான்"
+      },
+      {
+        "arabic_context": "وَلَذِكْرُ اللَّهِ **أَكْبَرُ**",
+        "highlighted_word": "أَكْبَرُ",
+        "answer_en": "greater / greatest",
+        "answer_ta": "மிகப் பெரிய"
+      },
+      {
+        "arabic_context": "قَالَ بَلْ فَعَلَهُ **كَبِيرُهُمْ** هَٰذَا",
+        "highlighted_word": "كَبِيرُهُمْ",
+        "answer_en": "their chief / their biggest",
+        "answer_ta": "அவர்களின் தலைவன் / மிகப் பெரியவன்"
+      }
+    ]
+  },
+  "closing": {
+    "en": "This lesson moved through one question — *what is truly great?* The\nfirst root asked what you worship. The second asked what you consider\ngreat. The Qur'an's answer came in the voice of prophets, in the fall\nof Iblīs, and in the phrase you already carry: **اللهُ أَكْبَرُ**.\n\nYou started this lesson knowing two words. Now you have met the roots\nbehind them — in Ibrāhīm's challenge to his father, in the greatest\nsign shown to Pharaoh, in the arrogance of Iblīs, and in that\nbeautiful phrase: *the remembrance of Allah is greater.*\n\nFrom now on, listen for these roots. When you stand in ṣalāh and hear\nthe Qur'an recited, notice any word that sounds like **إِلَٰه** or\n**كَبُرَ**. When you hear the adhān, when you read Qur'an, even when\nyou hear Arabic anywhere — see if you can spot a word from these two\nfamilies. You will be surprised how often they appear. That moment of\nrecognition — *\"I know this word!\"* — is exactly what we are building,\none root at a time.\n",
+    "ta": "இந்தப் பாடம் ஒரு கேள்வியின் வழியாகச் சென்றது — *உண்மையில்\nமகத்தானது எது?* முதல் வேர்ச்சொல் நீங்கள் எதை வணங்குகிறீர்கள்\nஎன்று கேட்டது. இரண்டாவது நீங்கள் எதை மகத்தானதாகக் கருதுகிறீர்கள்\nஎன்று கேட்டது. குர்ஆனின் பதில் நபிமார்களின் குரலில், இப்லீஸின்\nவீழ்ச்சியில், நீங்கள் ஏற்கனவே சுமந்திருக்கும் அந்தச் சொற்றொடரில்\nவந்தது: **اللهُ أَكْبَرُ**.\n\nஇந்தப் பாடத்தை இரண்டு வார்த்தைகளை மட்டும் அறிந்தவர்களாகத்\nதொடங்கினீர்கள். இப்போது அவற்றின் பின்னால் உள்ள வேர்ச்சொற்களைச்\nசந்தித்துவிட்டீர்கள் — இப்ராஹீமின் தந்தைக்கான சவாலில்,\nஃபிர்அவ்னுக்குக் காட்டப்பட்ட மிகப் பெரிய அத்தாட்சியில், இப்லீஸின்\nஆணவத்தில், அந்த அழகான சொற்றொடரில்: *அல்லாஹ்வின் நினைவே மிகப்\nபெரியது.*\n\nஇனிமேல், இந்த வேர்ச்சொற்களைக் கேளுங்கள். நீங்கள் தொழுகையில்\nநிற்கும்போது குர்ஆன் ஓதப்படுவதைக் கேட்டால், **إِلَٰه** அல்லது\n**كَبُرَ** போல் ஒலிக்கும் எந்த வார்த்தையையும் கவனியுங்கள். அதான்\nகேட்கும்போது, குர்ஆன் படிக்கும்போது, அரபி எங்கே கேட்டாலும் —\nஇந்த இரண்டு குடும்பங்களிலிருந்து ஒரு வார்த்தையைக் கண்டுபிடிக்க\nமுடியுமா பாருங்கள். அவை எவ்வளவு அடிக்கடி தோன்றும் என்று நீங்கள்\nஆச்சரியப்படுவீர்கள். அந்த அங்கீகாரத்தின் தருணம் — *\"இந்த\nவார்த்தை எனக்குத் தெரியும்!\"* — இதுதான் நாம்\nகட்டிக்கொண்டிருக்கிறோம், ஒரு நேரத்தில் ஒரு வேர்ச்சொல்.\n"
+  },
+  "next_lesson": {
+    "en": "In the next lesson, we'll take the second phrase of the adhān —\n**أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ** — and you'll discover\nthat the word **أَشْهَدُ** doesn't just mean \"I testify.\" Its root\nwill take you somewhere unexpected.\n",
+    "ta": "அடுத்த பாடத்தில், அதானின் இரண்டாவது சொற்றொடரை எடுப்போம் —\n**أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ** — **أَشْهَدُ** என்ற\nவார்த்தை வெறுமனே \"நான் சாட்சி அளிக்கிறேன்\" என்று மட்டும்\nபொருள்படாது என்பதை நீங்கள் கண்டுபிடிப்பீர்கள். அதன் வேர்ச்சொல்\nஉங்களை எதிர்பாராத இடத்திற்கு அழைத்துச் செல்லும்.\n"
+  }
+}
