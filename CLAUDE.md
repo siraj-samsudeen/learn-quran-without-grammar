@@ -177,8 +177,9 @@ learn-quran-without-grammar/
 │   │   ├── ilah.json                ← Root إِلَٰه — all forms, verses, scores
 │   │   └── kabura.json              ← Root كَبُرَ — all forms, verses, scores
 │   ├── app/
+│   │   ├── PLATFORM-PRD.md          ← ⭐ Platform vision, architecture, phased roadmap (READ THIS for app work)
 │   │   ├── RESEARCH-SYNTHESIS.md    ← Companion app research (TTS, SRS, tech, competitors)
-│   │   ├── APP-REQUIREMENTS.md      ← Full app vision + feature requirements
+│   │   ├── APP-REQUIREMENTS.md      ← Earlier app requirements (partially superseded by PLATFORM-PRD.md)
 │   │   └── research-*.md            ← Deep-dive research (Glossika, Expo, methods, platform)
 │   ├── selections/
 │   │   ├── lesson-01.md             ← Selection log: what was picked and why
@@ -257,5 +258,6 @@ python tools/verify-verse.py 29:45
 | **Starting a new lesson** | Check `docs/selections/pipeline.md` FIRST, then `docs/roots/` for existing inventory |
 | **Scoring verses** | `docs/SCORING.md` — 8-dimension algorithm |
 | **Adding Tamil to a lesson** | `CLAUDE.md` → "Multi-Language Support" section above |
+| **Platform vision & roadmap** | `docs/app/PLATFORM-PRD.md` — ⭐ start here for all app/platform work |
 | **Companion app research** | `docs/app/RESEARCH-SYNTHESIS.md` → then specific `research-*.md` files |
-| **App requirements** | `docs/app/APP-REQUIREMENTS.md` |
+| **App requirements (earlier)** | `docs/app/APP-REQUIREMENTS.md` (partially superseded by PLATFORM-PRD.md) |
