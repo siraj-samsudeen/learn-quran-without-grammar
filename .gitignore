@@ -7,6 +7,10 @@ _site/
 Gemfile.lock
 vendor/
 
+# Environment variables (API keys, secrets)
+.env
+.env.*
+
 # Audio build artifacts & API caches
 .cache/
 assets/audio/lessons/*/.cache/
