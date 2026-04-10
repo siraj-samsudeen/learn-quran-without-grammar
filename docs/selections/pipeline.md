@@ -8,9 +8,21 @@ Single source of truth for verses queued for future lessons. The future agent sh
 
 Verses already approved by the teacher, assigned to a specific future lesson or context.
 
-| Ref | Arabic Context | Root word | Target lesson / context | Reason | Flagged in |
-|-----|---------------|-----------|------------------------|--------|------------|
-| 3:18 | شَهِدَ اللَّهُ أَنَّهُ لَا **إِلَٰهَ** إِلَّا هُوَ وَالْمَلَائِكَةُ وَأُولُو الْعِلْمِ | إِلَٰه | **Lesson 2 (Ashhadu)** — أَشْهَدُ root connects here | Allah Himself bearing witness — perfect for shahādah lesson | Lesson 1 |
+*(Empty — 3:18 was used in Lesson 2 as Learn phrase 1.)*
+
+---
+
+## Dropped from Lesson 2 → available for future lessons
+
+Verses that were seriously considered for Lesson 2 but moved to pipeline during selection. See `docs/roots/shahida.json` for full scoring and metadata.
+
+| Ref | Arabic (key part) | Root word | Form | Why deferred | Flagged in |
+|-----|-------------------|-----------|------|-------------|------------|
+| 12:26 | وَ**شَهِدَ** **شَاهِدٌ** مِّنْ أَهْلِهَا | شَهِدَ | شَهِدَ + شَاهِد | Yusuf story — initially picked for Practice but Practice already had enough شَاهِد coverage. HIGH priority for future Practice/Recall. | Lesson 2 |
+| 36:65 | وَ**تَشْهَدُ** أَرْجُلُهُم بِمَا كَانُوا۟ يَكْسِبُونَ | شَهِدَ | تَشْهَدُ | Surah Yasin — frequently recited. Considered for Learn 5 but teacher preferred 5:117 (ʿĪsā). HIGH priority for Lesson 3+ Practice. | Lesson 2 |
+| 22:17 | إِنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍ **شَهِيدٌ** | شَهِدَ | شَهِيد | Short declarative — saved for future Practice. | Lesson 2 |
+| 3:98 | وَٱللَّهُ **شَهِيدٌ** عَلَىٰ مَا تَعْمَلُونَ | شَهِدَ | شَهِيد | Parallel to 22:17. Short warning. | Lesson 2 |
+| 7:172 | وَ**أَشْهَدَهُمْ** عَلَىٰٓ أَنفُسِهِمْ ... بَلَىٰ **شَهِدْنَا** | شَهِدَ | أَشْهَدَ (Form IV) | Primordial covenant verse. Introduces Form IV. Teacher preferred 5:117 as Learn 5. **HIGHEST-priority future Learn** — it's the only verse that introduces Form IV alongside a new 1st-person conjugation. | Lesson 2 |
 
 ---
 

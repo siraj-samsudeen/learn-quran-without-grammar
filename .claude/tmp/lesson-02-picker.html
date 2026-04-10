@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2 — Selection Picker</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf8f3;
+    --card: #ffffff;
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --border: #e5e5e5;
+    --learn: #0f766e;
+    --learn-bg: #ccfbf1;
+    --practice: #9333ea;
+    --practice-bg: #f3e8ff;
+    --recall: #d97706;
+    --recall-bg: #fef3c7;
+    --pipeline: #6b7280;
+    --pipeline-bg: #f3f4f6;
+    --none: #cbd5e1;
+    --good: #16a34a;
+    --sidebar-w: 260px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.5;
+  }
+  /* ============ LAYOUT ============ */
+  .layout {
+    display: grid;
+    grid-template-columns: var(--sidebar-w) 1fr;
+    min-height: 100vh;
+  }
+  /* ============ SIDEBAR ============ */
+  .sidebar {
+    background: #ffffff;
+    border-right: 1px solid var(--border);
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  .sidebar-title {
+    padding: 0 1.5rem 1rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1rem;
+  }
+  .sidebar-title h1 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+  .sidebar-title .sub {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: 0.2rem;
+  }
+  .nav-section { margin-bottom: 1.5rem; }
+  .nav-header {
+    padding: 0.25rem 1.5rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.3rem;
+  }
+  .nav-root {
+    padding: 0.4rem 1.5rem;
+    font-family: 'Amiri', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.45rem 1.5rem 0.45rem 2.2rem;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-left: 3px solid transparent;
+    transition: all 0.12s;
+  }
+  .nav-link:hover {
+    background: #f9fafb;
+    color: var(--ink);
+  }
+  .nav-link .nav-count {
+    background: #f3f4f6;
+    color: var(--muted);
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  .nav-link.learn.filled { color: var(--learn); border-left-color: var(--learn); }
+  .nav-link.learn.filled .nav-count { background: var(--learn-bg); color: var(--learn); }
+  .nav-link.practice.filled { color: var(--practice); border-left-color: var(--practice); }
+  .nav-link.practice.filled .nav-count { background: var(--practice-bg); color: var(--practice); }
+  .nav-link.recall.filled { color: var(--recall); border-left-color: var(--recall); }
+  .nav-link.recall.filled .nav-count { background: var(--recall-bg); color: var(--recall); }
+
+  /* ============ MAIN ============ */
+  main {
+    padding: 0 2rem 4rem;
+    max-width: 980px;
+  }
+  .top-bar {
+    position: sticky;
+    top: 0;
+    background: rgba(250, 248, 243, 0.97);
+    backdrop-filter: blur(8px);
+    padding: 1rem 0;
+    margin-bottom: 1.5rem;
+    z-index: 50;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .counters {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .counter {
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    background: white;
+    border: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .counter .label { color: var(--muted); }
+  .counter .count { font-variant-numeric: tabular-nums; }
+  .counter.learn.filled { background: var(--learn-bg); border-color: var(--learn); color: var(--learn); }
+  .counter.practice.filled { background: var(--practice-bg); border-color: var(--practice); color: var(--practice); }
+  .counter.recall.filled { background: var(--recall-bg); border-color: var(--recall); color: var(--recall); }
+  .copy-btn {
+    background: var(--learn);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.4rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .copy-btn:hover { opacity: 0.9; }
+
+  /* ============ CARDS ============ */
+  .group-header {
+    margin: 2.5rem 0 0.25rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
+    scroll-margin-top: 5rem;
+  }
+  .group-header:first-of-type { margin-top: 0.5rem; }
+  .section-header {
+    margin: 1.5rem 0 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink);
+    scroll-margin-top: 5rem;
+  }
+  .section-header.learn { color: var(--learn); }
+  .section-header.practice { color: var(--practice); }
+  .section-header.recall { color: var(--recall); }
+  .section-header.pipeline { color: var(--pipeline); }
+  .section-header.none { color: var(--muted); }
+  .cards { display: grid; gap: 0.9rem; }
+  .card {
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-left: 6px solid var(--none);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    transition: border-color 0.15s;
+  }
+  .card.learn { border-left-color: var(--learn); }
+  .card.practice { border-left-color: var(--practice); }
+  .card.recall { border-left-color: var(--recall); }
+  .card.pipeline { border-left-color: var(--pipeline); }
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.3rem;
+    flex-wrap: wrap;
+  }
+  .card-refs {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .ref { font-weight: 700; font-size: 1rem; }
+  .badge {
+    background: #f3f4f6;
+    color: var(--muted);
+    padding: 0.15rem 0.55rem;
+    border-radius: 5px;
+    font-size: 0.74rem;
+    font-weight: 500;
+  }
+  .badge.score { background: #fef9c3; color: #854d0e; }
+  .badge.score-high { background: #dcfce7; color: var(--good); }
+  .badge.form { background: #e0e7ff; color: #4338ca; }
+  .badge.root-ilah { background: #dbeafe; color: #1e40af; }
+  .badge.root-kabura { background: #fce7f3; color: #9f1239; }
+  .section-buttons { display: flex; gap: 0.3rem; }
+  .section-buttons button {
+    background: white;
+    border: 1.5px solid var(--border);
+    color: var(--muted);
+    padding: 0.3rem 0.65rem;
+    border-radius: 6px;
+    font-size: 0.76rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.1s;
+  }
+  .section-buttons button:hover { border-color: var(--ink); color: var(--ink); }
+  .section-buttons button.active.learn { background: var(--learn); border-color: var(--learn); color: white; }
+  .section-buttons button.active.practice { background: var(--practice); border-color: var(--practice); color: white; }
+  .section-buttons button.active.recall { background: var(--recall); border-color: var(--recall); color: white; }
+  .section-buttons button.active.pipeline { background: var(--pipeline); border-color: var(--pipeline); color: white; }
+  .section-buttons button.active.none { background: var(--none); border-color: var(--none); color: white; }
+  .arabic {
+    font-family: 'Amiri', 'Traditional Arabic', serif;
+    font-size: 1.4rem;
+    line-height: 2;
+    direction: rtl;
+    text-align: right;
+    margin: 0.7rem 0 0.4rem;
+  }
+  .english {
+    font-style: italic;
+    color: #374151;
+    margin: 0 0 0.5rem;
+    font-size: 0.9rem;
+  }
+  .why-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0.5rem 0 0.2rem;
+  }
+  .why {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin: 0;
+    padding: 0.5rem 0.7rem;
+    border: 1.5px dashed transparent;
+    border-radius: 6px;
+    min-height: 1.5rem;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .why:hover {
+    border-color: var(--border);
+    background: #fafafa;
+  }
+  .why:focus {
+    outline: none;
+    border-color: var(--learn);
+    background: white;
+    color: var(--ink);
+  }
+  .why.edited {
+    border-color: var(--learn);
+    background: var(--learn-bg);
+    color: var(--ink);
+  }
+  .why.edited::before {
+    content: "✎ ";
+    color: var(--learn);
+    font-weight: 700;
+  }
+
+  /* ============ TOAST ============ */
+  .toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--ink);
+    color: white;
+    padding: 0.8rem 1.4rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 300;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+  }
+  .toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
+    main { padding: 0 1rem 4rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="sidebar-title">
+      <h1>Lesson 2</h1>
+      <div class="sub">Anchor: أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ</div>
+    </div>
+    <nav id="sidebar-nav"></nav>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main>
+    <div class="top-bar">
+      <div class="counters">
+        <div class="counter learn" id="counter-learn"><span class="label">Learn</span> <span class="count">0/5</span></div>
+        <div class="counter practice" id="counter-practice"><span class="label">Practice</span> <span class="count">0/5</span></div>
+        <div class="counter recall" id="counter-recall"><span class="label">Recall</span> <span class="count">0/5</span></div>
+        <div class="counter" id="counter-pipeline"><span class="label">Pipeline</span> <span class="count">0</span></div>
+      </div>
+      <button class="copy-btn" onclick="copyJson()">Copy JSON</button>
+    </div>
+
+    <div id="cards-container"></div>
+  </main>
+
+</div>
+
+<div class="toast" id="toast">✓ Copied to clipboard</div>
+
+<script>
+// ============ LESSON CONFIG (edit this section to template a new lesson) ============
+const LESSON_CONFIG = {
+  lesson_number: 2,
+  anchor: "أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ",
+  targets: { learn: 5, practice: 5, recall: 5 },
+  current_groups: [
+    { key: "shahida", arabic: "شَهِدَ", title: "شَهِدَ — This lesson" }
+  ],
+  recall_groups: [
+    { key: "ilah", arabic: "إِلَٰه", title: "إِلَٰه — Lesson 1 recall" },
+    { key: "kabura", arabic: "كَبُرَ", title: "كَبُرَ — Lesson 1 recall" }
+  ],
+  verses: [
+    // ---- SHAHIDA root (current lesson) ----
+    { ref: "3:18", group: "shahida", form: "شَهِدَ", score: 12, defaultSection: "learn",
+      arabic: "شَهِدَ ٱللَّهُ أَنَّهُۥ لَآ إِلَٰهَ إِلَّا هُوَ",
+      english: "Allah bears witness that there is no god but He (trimmed)",
+      why: "Allah Himself bearing witness. Bridges إِلَٰه from L1. Teacher: use trimmed form only." },
+    { ref: "6:19", group: "shahida", form: "شَهَادَة (+أَشْهَدُ)", score: 12, defaultSection: "learn",
+      arabic: "قُلْ أَيُّ شَىْءٍ أَكْبَرُ شَهَٰدَةً ۖ قُلِ ٱللَّهُ شَهِيدٌۢ",
+      english: "Say: What is greatest as testimony? Say: Allah is Witness",
+      why: "GOLDMINE — contains أَكْبَرُ from L1 + شَهَادَة + شَهِيد + أَشْهَدُ in one verse." },
+    { ref: "4:79", group: "shahida", form: "شَهِيد", score: 10, defaultSection: "learn",
+      arabic: "وَكَفَىٰ بِٱللَّهِ شَهِيدًا",
+      english: "Allah is sufficient as Witness",
+      why: "Famous short phrase. Appears 4x in the Qur'an." },
+    { ref: "5:117", group: "shahida", form: "شَهِيد", score: 10, defaultSection: "learn",
+      arabic: "وَكُنتُ عَلَيْهِمْ شَهِيدًا مَّا دُمْتُ فِيهِمْ",
+      english: "I was a witness over them while I was among them",
+      why: "ʿĪsā addressing Allah on Judgment Day. Trimmed to first half — personal voice, story-driven." },
+    { ref: "2:185", group: "shahida", form: "شَهِدَ", score: 6, defaultSection: "learn",
+      arabic: "فَمَن شَهِدَ مِنكُمُ ٱلشَّهْرَ فَلْيَصُمْهُ",
+      english: "Whoever witnesses the month (of Ramadan) should fast it",
+      why: "Ramadan verse — witness = 'be present during'. Teaches the root's other shade." },
+    { ref: "3:53", group: "shahida", form: "شَاهِد", score: 10, defaultSection: "practice",
+      arabic: "رَبَّنَآ ءَامَنَّا بِمَآ أَنزَلْتَ وَٱتَّبَعْنَا ٱلرَّسُولَ فَٱكْتُبْنَا مَعَ ٱلشَّٰهِدِينَ",
+      english: "Our Lord, we believe... write us among the witnesses",
+      why: "Disciples of Isa — emotional duʿā with story context." },
+    { ref: "63:1", group: "shahida", form: "نَشْهَدُ + يَشْهَدُ", score: 10, defaultSection: "practice",
+      arabic: "إِذَا جَآءَكَ ٱلْمُنَٰفِقُونَ قَالُوا۟ نَشْهَدُ إِنَّكَ لَرَسُولُ ٱللَّهِ ۗ وَٱللَّهُ يَشْهَدُ إِنَّ ٱلْمُنَٰفِقِينَ لَكَٰذِبُونَ",
+      english: "The hypocrites said: 'We testify you are Allah's Messenger.' But Allah testifies they are liars",
+      why: "Dramatic exposé — two forms in dramatic opposition." },
+    { ref: "41:20", group: "shahida", form: "شَهِدَ", score: 8, defaultSection: "practice",
+      arabic: "شَهِدَ عَلَيْهِمْ سَمْعُهُمْ وَأَبْصَٰرُهُمْ وَجُلُودُهُم بِمَا كَانُوا۟ يَعْمَلُونَ",
+      english: "Their hearing, sight, and skins testified against them",
+      why: "Day of Judgment — body parts testify. Short and powerful." },
+    { ref: "3:81", group: "shahida", form: "اشْهَدُوا + الشَّاهِدِينَ", score: 9, defaultSection: "practice",
+      arabic: "قَالَ فَٱشْهَدُوا۟ وَأَنَا۠ مَعَكُم مِّنَ ٱلشَّٰهِدِينَ",
+      english: "He said: Bear witness, and I am with you among the witnesses",
+      why: "Prophets' covenant — Allah to the prophets." },
+    { ref: "4:69", group: "shahida", form: "شُهَدَاء", score: 7, defaultSection: "practice",
+      arabic: "مَعَ ٱلَّذِينَ أَنْعَمَ ٱللَّهُ عَلَيْهِم مِّنَ ٱلنَّبِيِّـۧنَ وَٱلصِّدِّيقِينَ وَٱلشُّهَدَآءِ وَٱلصَّٰلِحِينَ",
+      english: "With those Allah blessed: prophets, truthful, witnesses, righteous",
+      why: "The famous four ranks verse. Teacher override: too well-known to defer." },
+    { ref: "7:172", group: "shahida", form: "أَشْهَدَ (Form IV) + شَهِدْنَا", score: 10, defaultSection: "pipeline",
+      arabic: "وَإِذْ أَخَذَ رَبُّكَ مِنۢ بَنِىٓ ءَادَمَ ... وَأَشْهَدَهُمْ عَلَىٰٓ أَنفُسِهِمْ أَلَسْتُ بِرَبِّكُمْ ۖ قَالُوا۟ بَلَىٰ شَهِدْنَا",
+      english: "When your Lord made the descendants of Adam testify: 'Am I not your Lord?' They said: 'Yes — we bear witness.'",
+      why: "PRIMORDIAL COVENANT. Introduces Form IV. Strongest future Learn candidate." },
+    { ref: "36:65", group: "shahida", form: "تَشْهَدُ", score: 9, defaultSection: "pipeline",
+      arabic: "ٱلْيَوْمَ نَخْتِمُ عَلَىٰٓ أَفْوَٰهِهِمْ وَتُكَلِّمُنَآ أَيْدِيهِمْ وَتَشْهَدُ أَرْجُلُهُم بِمَا كَانُوا۟ يَكْسِبُونَ",
+      english: "Today We seal their mouths, their hands speak, their feet testify",
+      why: "Surah Yasin — frequently recited. Body parts testify." },
+    { ref: "12:26", group: "shahida", form: "شَهِدَ + شَاهِد", score: 9, defaultSection: "pipeline",
+      arabic: "قَالَ هِىَ رَٰوَدَتْنِى عَن نَّفْسِى ۚ وَشَهِدَ شَاهِدٌۭ مِّنْ أَهْلِهَا",
+      english: "He said: She sought to seduce me. And a witness from her family testified",
+      why: "Yusuf story — two forms in one phrase." },
+    { ref: "22:17", group: "shahida", form: "شَهِيد", score: 7, defaultSection: "pipeline",
+      arabic: "إِنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍ شَهِيدٌ",
+      english: "Indeed Allah is Witness over everything",
+      why: "Short and powerful. Saved for future Practice." },
+    { ref: "3:98", group: "shahida", form: "شَهِيد", score: 7, defaultSection: "pipeline",
+      arabic: "وَٱللَّهُ شَهِيدٌ عَلَىٰ مَا تَعْمَلُونَ",
+      english: "Allah is Witness over what you do",
+      why: "Parallel to 22:17. Short warning verse." },
+
+    // ---- ILAH root (recall) ----
+    { ref: "39:46", group: "ilah", form: "اللَّهُمَّ + الشَّهَادَة", score: 10, defaultSection: "recall",
+      arabic: "قُلِ ٱللَّهُمَّ فَاطِرَ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ عَٰلِمَ ٱلْغَيْبِ وَٱلشَّهَٰدَةِ",
+      english: "Say: O Allah, Creator of heavens and earth, Knower of unseen and seen",
+      why: "BRIDGE verse — has L1 root اللَّهُمَّ AND L2 form الشَّهَادَة in one phrase." },
+    { ref: "38:5", group: "ilah", form: "آلِهَة + إِلَٰه", score: 8, defaultSection: "recall",
+      arabic: "أَجَعَلَ ٱلْءَالِهَةَ إِلَٰهًۭا وَٰحِدًا ۖ إِنَّ هَٰذَا لَشَىْءٌ عُجَابٌ",
+      english: "Has he made all the gods into one God?! This is astonishing!",
+      why: "Quraysh mocking — both singular and plural in one phrase." },
+    { ref: "20:14", group: "ilah", form: "إِلَٰه", score: 9, defaultSection: "pipeline",
+      arabic: "إِنَّنِىٓ أَنَا ٱللَّهُ لَآ إِلَٰهَ إِلَّآ أَنَا۠ فَٱعْبُدْنِى وَأَقِمِ ٱلصَّلَوٰةَ لِذِكْرِىٓ",
+      english: "I am Allah — no god but Me — so worship Me and establish prayer",
+      why: "Allah speaking directly to Mūsā at the burning bush." },
+    { ref: "21:22", group: "ilah", form: "آلِهَة", score: 7, defaultSection: "pipeline",
+      arabic: "لَوْ كَانَ فِيهِمَآ ءَالِهَةٌ إِلَّا ٱللَّهُ لَفَسَدَتَا",
+      english: "If there were gods besides Allah, both would be ruined",
+      why: "Famous logical argument for tawḥīd." },
+
+    // ---- KABURA root (recall) ----
+    { ref: "40:57", group: "kabura", form: "أَكْبَرُ", score: 8, defaultSection: "recall",
+      arabic: "لَخَلْقُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضِ أَكْبَرُ مِنْ خَلْقِ ٱلنَّاسِ",
+      english: "Creating the heavens and earth is greater than creating mankind",
+      why: "Cosmic perspective — mind-expanding scale." },
+    { ref: "54:53", group: "kabura", form: "كَبِير", score: 8, defaultSection: "recall",
+      arabic: "وَكُلُّ صَغِيرٍۢ وَكَبِيرٍۢ مُّسْتَطَرٌ",
+      english: "Every small and great thing is recorded",
+      why: "Ultra-short. From Surah Al-Qamar." },
+    { ref: "9:72", group: "kabura", form: "أَكْبَرُ", score: 8, defaultSection: "pipeline",
+      arabic: "وَرِضْوَٰنٌ مِّنَ ٱللَّهِ أَكْبَرُ",
+      english: "Allah's pleasure is greater",
+      why: "Allah's pleasure > Paradise. Hopeful, short." },
+    { ref: "22:62", group: "kabura", form: "الْكَبِير", score: 7, defaultSection: "pipeline",
+      arabic: "وَأَنَّ ٱللَّهَ هُوَ ٱلْعَلِىُّ ٱلْكَبِيرُ",
+      english: "Allah is the Most High, the Great",
+      why: "Two Names of Allah side by side." },
+    { ref: "6:78", group: "kabura", form: "أَكْبَرُ", score: 9, defaultSection: "pipeline",
+      arabic: "فَلَمَّا رَءَا ٱلشَّمْسَ بَازِغَةً قَالَ هَٰذَا رَبِّى هَٰذَآ أَكْبَرُ",
+      english: "When he saw the sun rising, he said: This is my Lord — this is greater",
+      why: "Ibrāhīm searching for God — stars, moon, sun. Beloved story." },
+  ],
+};
+
+// ============ STATE ============
+const state = {};         // ref -> section
+const whyState = {};      // ref -> current (possibly edited) why text
+const originalWhy = {};   // ref -> original why text (for dirty detection)
+LESSON_CONFIG.verses.forEach(v => {
+  state[v.ref] = v.defaultSection;
+  whyState[v.ref] = v.why;
+  originalWhy[v.ref] = v.why;
+});
+
+// ============ RENDER ============
+function render() {
+  renderSidebar();
+  renderCards();
+  updateCounters();
+}
+
+function renderSidebar() {
+  const nav = document.getElementById("sidebar-nav");
+  nav.innerHTML = "";
+  const counts = sectionCountsByGroup();
+
+  // Current-lesson groups
+  for (const g of LESSON_CONFIG.current_groups) {
+    const section = document.createElement("div");
+    section.className = "nav-section";
+    section.innerHTML = `<div class="nav-header">This lesson</div><div class="nav-root">${g.arabic}</div>`;
+    const sections = ["learn", "practice", "pipeline", "none"];
+    sections.forEach(sec => {
+      const count = counts[g.key]?.[sec] || 0;
+      const target = LESSON_CONFIG.targets[sec];
+      const filled = target && count === target ? "filled" : "";
+      const displayCount = target ? `${count}/${target}` : count;
+      const label = sec.charAt(0).toUpperCase() + sec.slice(1);
+      section.innerHTML += `<a class="nav-link ${sec} ${filled}" href="#${g.key}-${sec}">${label} <span class="nav-count">${displayCount}</span></a>`;
+    });
+    nav.appendChild(section);
+  }
+
+  // Recall groups
+  const recallSection = document.createElement("div");
+  recallSection.className = "nav-section";
+  recallSection.innerHTML = `<div class="nav-header">Recall</div>`;
+  const totalRecall = LESSON_CONFIG.recall_groups.reduce((s, g) => s + (counts[g.key]?.recall || 0), 0);
+  const recallTarget = LESSON_CONFIG.targets.recall;
+  const recallFilled = totalRecall === recallTarget ? "filled" : "";
+  recallSection.innerHTML += `<a class="nav-link recall ${recallFilled}" href="#recall-all"><span>All recall</span> <span class="nav-count">${totalRecall}/${recallTarget}</span></a>`;
+  for (const g of LESSON_CONFIG.recall_groups) {
+    const count = counts[g.key]?.recall || 0;
+    recallSection.innerHTML += `<a class="nav-link" href="#${g.key}-recall">${g.arabic} <span class="nav-count">${count}</span></a>`;
+  }
+  nav.appendChild(recallSection);
+}
+
+function sectionCountsByGroup() {
+  const counts = {};
+  LESSON_CONFIG.verses.forEach(v => {
+    if (!counts[v.group]) counts[v.group] = { learn: 0, practice: 0, recall: 0, pipeline: 0, none: 0 };
+    counts[v.group][state[v.ref]]++;
+  });
+  return counts;
+}
+
+function renderCards() {
+  const container = document.getElementById("cards-container");
+  container.innerHTML = "";
+
+  // Current-lesson groups: render by section sub-header
+  for (const g of LESSON_CONFIG.current_groups) {
+    const h = document.createElement("div");
+    h.className = "group-header";
+    h.id = `group-${g.key}`;
+    h.textContent = g.title;
+    container.appendChild(h);
+
+    const sections = ["learn", "practice", "pipeline", "none"];
+    for (const sec of sections) {
+      const versesInSec = LESSON_CONFIG.verses.filter(v => v.group === g.key && state[v.ref] === sec);
+      if (versesInSec.length === 0) continue;
+      const label = sec.charAt(0).toUpperCase() + sec.slice(1);
+      const sh = document.createElement("div");
+      sh.className = `section-header ${sec}`;
+      sh.id = `${g.key}-${sec}`;
+      sh.textContent = `${label} (${versesInSec.length})`;
+      container.appendChild(sh);
+      const list = document.createElement("div");
+      list.className = "cards";
+      versesInSec.forEach(v => list.appendChild(makeCard(v, "current")));
+      container.appendChild(list);
+    }
+  }
+
+  // Recall groups
+  const recallAll = document.createElement("div");
+  recallAll.className = "group-header";
+  recallAll.id = "recall-all";
+  recallAll.textContent = "Recall — earlier lessons";
+  container.appendChild(recallAll);
+
+  for (const g of LESSON_CONFIG.recall_groups) {
+    const h = document.createElement("div");
+    h.className = "group-header";
+    h.id = `${g.key}-group`;
+    h.style.fontSize = "0.95rem";
+    h.style.marginTop = "1.5rem";
+    h.textContent = g.title;
+    container.appendChild(h);
+
+    const sections = ["recall", "pipeline", "none"];
+    for (const sec of sections) {
+      const versesInSec = LESSON_CONFIG.verses.filter(v => v.group === g.key && state[v.ref] === sec);
+      if (versesInSec.length === 0) continue;
+      const label = sec.charAt(0).toUpperCase() + sec.slice(1);
+      const sh = document.createElement("div");
+      sh.className = `section-header ${sec}`;
+      sh.id = `${g.key}-${sec}`;
+      sh.textContent = `${label} (${versesInSec.length})`;
+      container.appendChild(sh);
+      const list = document.createElement("div");
+      list.className = "cards";
+      versesInSec.forEach(v => list.appendChild(makeCard(v, "recall")));
+      container.appendChild(list);
+    }
+  }
+}
+
+function makeCard(v, kind) {
+  const card = document.createElement("div");
+  card.className = "card " + state[v.ref];
+
+  const scoreClass = v.score >= 10 ? "score-high" : "score";
+  const rootBadge = v.group === "ilah" ? '<span class="badge root-ilah">Root: إِلَٰه</span>' :
+                    v.group === "kabura" ? '<span class="badge root-kabura">Root: كَبُرَ</span>' : '';
+
+  // Buttons depend on kind: current-lesson gets Learn/Practice; recall groups get Recall only
+  const buttons = kind === "current"
+    ? `<button data-sec="none">None</button>
+       <button data-sec="learn">Learn</button>
+       <button data-sec="practice">Practice</button>
+       <button data-sec="pipeline">Pipeline</button>`
+    : `<button data-sec="none">None</button>
+       <button data-sec="recall">Recall</button>
+       <button data-sec="pipeline">Pipeline</button>`;
+
+  const whyEdited = whyState[v.ref] !== originalWhy[v.ref] ? "edited" : "";
+
+  card.innerHTML = `
+    <div class="card-top">
+      <div class="card-refs">
+        <span class="ref">${v.ref}</span>
+        <span class="badge form">${v.form}</span>
+        <span class="badge ${scoreClass}">★ ${v.score}</span>
+        ${rootBadge}
+      </div>
+      <div class="section-buttons" data-ref="${v.ref}">${buttons}</div>
+    </div>
+    <div class="arabic">${v.arabic}</div>
+    <div class="english">${v.english}</div>
+    <span class="why-label">Remark (click to edit)</span>
+    <div class="why ${whyEdited}" contenteditable="true" data-ref="${v.ref}">${escapeHtml(whyState[v.ref])}</div>
+  `;
+
+  card.querySelectorAll(".section-buttons button").forEach(btn => {
+    if (btn.dataset.sec === state[v.ref]) {
+      btn.classList.add("active", state[v.ref]);
+    }
+    btn.addEventListener("click", () => setSection(v.ref, btn.dataset.sec));
+  });
+
+  const whyEl = card.querySelector(".why");
+  whyEl.addEventListener("input", () => {
+    whyState[v.ref] = whyEl.textContent;
+    whyEl.classList.toggle("edited", whyState[v.ref] !== originalWhy[v.ref]);
+  });
+  whyEl.addEventListener("blur", () => {
+    // Nothing special on blur; state already synced
+  });
+
+  return card;
+}
+
+function escapeHtml(str) {
+  const div = document.createElement("div");
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+function setSection(ref, sec) {
+  state[ref] = sec;
+  render();
+}
+
+function updateCounters() {
+  const counts = { learn: 0, practice: 0, recall: 0, pipeline: 0, none: 0 };
+  for (const ref in state) counts[state[ref]]++;
+  const t = LESSON_CONFIG.targets;
+  ["learn", "practice", "recall"].forEach(sec => {
+    const el = document.getElementById("counter-" + sec);
+    el.querySelector(".count").textContent = `${counts[sec]}/${t[sec]}`;
+    el.classList.toggle("filled", counts[sec] === t[sec]);
+  });
+  document.getElementById("counter-pipeline").querySelector(".count").textContent = counts.pipeline;
+}
+
+// ============ COPY JSON ============
+function buildPayload() {
+  const selections = { learn: [], practice: [], recall: [], pipeline: [] };
+  LESSON_CONFIG.verses.forEach(v => {
+    const sec = state[v.ref];
+    if (sec !== "none") {
+      const entry = { ref: v.ref, form: v.form, group: v.group };
+      if (whyState[v.ref] !== originalWhy[v.ref]) {
+        entry.remark = whyState[v.ref];
+      }
+      selections[sec].push(entry);
+    }
+  });
+  return {
+    lesson: LESSON_CONFIG.lesson_number,
+    anchor: LESSON_CONFIG.anchor,
+    selections,
+  };
+}
+
+async function copyJson() {
+  const json = JSON.stringify(buildPayload(), null, 2);
+  try {
+    await navigator.clipboard.writeText(json);
+    showToast("✓ Copied to clipboard");
+  } catch (err) {
+    // Fallback
+    const textarea = document.createElement("textarea");
+    textarea.value = json;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textarea);
+    showToast("✓ Copied (fallback)");
+  }
+}
+
+function showToast(text) {
+  const el = document.getElementById("toast");
+  el.textContent = text;
+  el.classList.add("show");
+  setTimeout(() => el.classList.remove("show"), 2000);
+}
+
+// ============ INIT ============
+render();
+</script>
+</body>
+</html>

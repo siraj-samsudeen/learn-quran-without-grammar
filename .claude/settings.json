@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(open .claude/tmp/lesson-02-picker.html)"
+    ],
+    "additionalDirectories": [
+      "/Users/firoza/Library/CloudStorage/Dropbox/Siraj/Projects/learn-quran-without-grammar/.claude",
+      "/Users/firoza/Library/CloudStorage/Dropbox/Siraj/Projects/learn-quran-without-grammar/.claude/tmp"
+    ]
+  }
+}

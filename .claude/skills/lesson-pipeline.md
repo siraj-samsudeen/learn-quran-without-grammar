@@ -1,15 +1,32 @@
 # Skill: Lesson Creation Pipeline
 
 ## When to Use
-When the teacher says "let's create a new lesson", "start lesson N", or asks about the lesson creation workflow.
+When the teacher says "let's create a new lesson", "start lesson N", "prepare for lesson N", or asks about the lesson creation workflow.
+
+## Phase 1a — Prepare data BEFORE asking the teacher anything
+
+**This happens automatically on "prepare for lesson N" — do not wait for teacher input.**
+
+1. **Check which root(s) the anchor phrase introduces.** For each root:
+   - If `docs/roots/{root}.json` already exists and has `verses` populated with > 20 entries → reuse. No fetching.
+   - Otherwise → fetch complete inventory from `corpus.quran.com` for that root, populate every form + every verse, and save the JSON. Use batch fetching via `tools/fetch-verses.py REF REF REF ...` (accepts many refs in one call).
+2. **Check that previous lessons' roots also have complete JSONs.** These are needed for Recall candidates. If any are thin, fetch and complete them too.
+3. **Generate the picker HTML** by copying `tools/selection-picker/template.html` to `.claude/tmp/lesson-NN-picker.html` and replacing the `LESSON_CONFIG` block with data drawn from the root JSONs:
+   - `verses` array = all candidate verses (current-lesson root + previous-lesson roots for Recall), filtering out verses already `status: "used"` in earlier lessons.
+   - Pre-assign `defaultSection` based on the AI's best guess (top-scored verses → `learn`, next tier → `practice`, existing recall picks → `recall`, rest → `none` or `pipeline`).
+4. **Open the picker** with `open .claude/tmp/lesson-NN-picker.html`.
+5. **Tell the teacher what you did in 2 sentences** and let them work in the picker. Wait for them to paste the JSON back.
+
+**The point:** the teacher should never have to wait for you to fetch verses one-by-one while they're staring at a blank UI. Do all fetching upfront, once, and cache it in the root JSON.
 
 ## Pipeline Phases
 
-### Phase 1: Content Selection (interactive)
+### Phase 1: Content Selection (interactive via HTML picker)
 **Skill:** `.claude/skills/verse-selection.md`
-**Input:** Anchor phrase from teacher
-**Output:** 12 approved phrases (2 anchor + 5 learn + 5 practice)
-**Gate:** Teacher approves all 12 phrases
+**Tool:** `tools/selection-picker/template.html`
+**Input:** Anchor phrase from teacher + pre-populated picker
+**Output:** JSON selections pasted back from picker UI (learn / practice / recall / pipeline)
+**Gate:** Teacher pastes the final JSON
 
 ### Phase 2: Lesson Writing
 **Skill:** `.claude/skills/add-lesson.md` (Steps 1–4)
