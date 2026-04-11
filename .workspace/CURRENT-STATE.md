@@ -6,11 +6,11 @@ _Session handoff document. **Read this first** when starting a new session. Last
 
 ## Status at a glance
 
-We are mid-way through an architectural rethink of the lesson authoring workflow. Goal: move from "LLM-in-every-step" to a JSON-first, script-driven pipeline that lets the teacher work on a phone, where the root JSON is the single source of truth for verse state + explanations, and per-lesson folders hold only non-verse-state artifacts.
+Two sessions deep into the architectural rethink of the lesson authoring workflow. Session 1 produced **D1–D5** (glossary, folder convention, root-JSON-as-ledger). Session 2 (2026-04-11 continued) produced **Q1–Q23 = D6–D20**, plus amendments to D3 (glossary pedagogy rules) and D4 (verses moved to a central store, not root JSONs). Goal is unchanged: move from "LLM-in-every-step" to a JSON-first, script-driven pipeline that lets the teacher work on a phone.
 
-**Nothing has been implemented yet.** All work is architectural — choosing data models, file layouts, stage boundaries. Five decisions are ratified. Three-tier scoring is on the table but the teacher has not yet read the comparison vs the current `docs/SCORING.md`. A handful of smaller questions are pending.
+**Still no code landed.** All work remains architectural. But Session 2's decisions are now locked tightly enough that the next step is migration code, not more design. **Lesson 1 is the migration test case** — pivoted from Lesson 2 (Lesson 2 was mid-flight and wouldn't stress-test the new architecture; Lesson 1 is the reviewed, published, perfected ground-truth lesson).
 
-When the redesign is locked, the plan is to write small cross-linked files under `docs/redesign/` (each ≤8K tokens, one Read), then land executable session prompts under `docs/prompts/`.
+See "**Session 2 update**" section below for the authoritative current state. Older sections (D1–D5, Folder convention, Open questions, Next action) are historical context — they describe how we got here, not current state. Some of them are superseded.
 
 ---
 
@@ -107,6 +107,146 @@ The root JSON holds teacher-authored prose explanations:
   ]
 }
 ```
+
+---
+
+## Session 2 update (2026-04-11 continued) — 23 decisions locked
+
+This section is the **authoritative current state**. Decisions below override anything in older sections.
+
+### Amendments to D1–D5
+
+- **D3 (glossary) amended** — Anchor is **per root, not per form** (Lesson 1's actual practice). The "exactly 5 learn phrases" rule is replaced with a **per-root density rule**: 1 anchor + 2–3 learn per root, 5 practice mixed, 0–3 recall from earlier lessons (L2 onwards), target 10–15 items total, hard cap 15. Captured in `docs/GLOSSARY.md` Constraints section with rationale; committed as `f8ab6af`.
+- **D4 amended** — Verses no longer live in root JSONs. A **central verse store** at `_data/verses/{surah}.json` (Jekyll-native `_data/` location) holds all verse state. Root JSONs become thin teacher-authored metadata at `_data/roots/{slug}.json`. See D10.
+- **Folder convention (from `f8a89f2`) amended** — The `picker.html` file inside each lesson folder is replaced with `picker-config.json`. One shared picker app, per-lesson config. See D9.
+
+### New decisions D6–D20
+
+**D6 — Picker rewrite is part of this redesign** (Q1). Current `lessons/lesson-02-shahida/picker.html` is an artifact of the pre-redesign workflow; it will be replaced by a shared app.
+
+**D7 — Picker is a phone-accessible URL, not local-only** (Q1 follow-up). Teacher opens `https://…/picker/?lesson=NN` on phone, picks verses, hits Save.
+
+**D8 — Auth via GitHub PAT in browser localStorage** (Q2). One-time 5-minute setup: create PAT at github.com, paste into picker, picker remembers it. PAT can be scoped narrowly (see D17).
+
+**D9 — One shared picker app + per-lesson `picker-config.json`** (Q3). The picker is a single JS app under `/picker/` on GitHub Pages. Each lesson folder has a `picker-config.json` (not a full `picker.html`). Bug fixes apply to all lessons at once. Amends D4's folder convention.
+
+**D10 — Central verse store + thin root JSONs** (Q7, Q8, Q9). Verses live in `_data/verses/{surah}.json` (per-surah files, keyed by ref like `"59:22"`). Root JSONs at `_data/roots/{slug}.json` hold only teacher-authored metadata. Both under `_data/` so Jekyll Liquid templates can read them at build time (`site.data.verses["003"]["3:18"]`). Enables D5's "thin `index.md` template" story without custom Jekyll plugins.
+
+**D11 — Verse entry schema (tightened)** (Q10, Q11, Q12). Dropped all derived fields (`word_count`, `juz`, `surah_name`, `total_learn`, `total_practice`, `cross_roots`). Moved `arabic_fragment` inside `lesson_use` (it's lesson-specific, not verse-intrinsic). Dropped legacy cruft (`verified`, `type`, `pattern`, `previously_used_in_lesson_v1`, `audio_downloaded`, `reciter`, `audio_fragment` — audio metadata lives in `audio-plan.yaml`). Kept `roots[]` and `forms[]` as bounded arrays — conscious 1NF denormalization for read performance (picker's primary query is "filter verses by root").
+
+**D12 — `lesson_use` single nullable object** (Q4, Q5, Q6, Q19, Q20). Shape:
+```json
+"lesson_use": {
+  "lesson": 2,
+  "section": "learn",
+  "is_anchor": true,
+  "order": 1,
+  "arabic_fragment": "…",
+  "hook": "Ibrāhīm's challenge to his own father…",
+  "rejection_reason": null
+}
+```
+Sections: `learn | practice | recall | pipeline | rejected`. `null` means untouched. **No verse reuse** — a verse has at most one `lesson_use` in its lifetime. Recall reuses the *form*, not the verse (recall lessons find a different verse containing the same form). Pipeline verses can be promoted to learn/practice later, but learn/practice/recall verses are locked.
+
+**D13 — Root JSON schema (slim)** (Q16). `_data/roots/{slug}.json`:
+```json
+{
+  "slug": "shahida",
+  "root_word": "شَهِدَ",
+  "transliteration": "shahida",
+  "three_letter": "ش ه د",
+  "three_letter_english": "shin ha dal",
+  "introduced_in_lesson": 2,
+  "explanation": "…",
+  "forms": [
+    { "form_arabic": "…", "transliteration": "…", "category": "…", "gloss": "…", "explanation": "…" }
+  ]
+}
+```
+Dropped: `corpus_url`, `fetched_date`, `total_occurrences_in_quran`, per-form `count` / `taught_in_lesson` / `taught_role`, `verses[]` (moved to central store), `sentence_patterns[]` (Q16 — Issue #1 still open, may re-add to absorb orphaned content). `category` kept — grammar terms are allowed in teacher tooling, just not in published lesson pages.
+
+**D14 — `_data/surahs.json` lookup** — small table mapping surah number → name, revelation type, juz boundaries. Used at render time by Liquid to avoid denormalizing `surah_name` into every verse entry.
+
+**D15 — Teaching phrases use synthetic refs** (Q23 / Lesson 1 analysis Issue #5). Non-Qur'anic teaching phrases (e.g., Lesson 1's كَبُرَ anchor) get synthetic refs like `"teaching:kabura:anchor-01"` and live in `_data/verses/teaching.json` using the same verse entry schema. Picker, `lesson_use`, and render code treat teaching phrases identically to Qur'anic verses.
+
+**D16 — Save flow Option C: explicit Save + localStorage draft** (Q13). Picker accumulates changes in `localStorage["lqwg-picker-lesson-NN-draft"]`. A Save button commits all changes. If the tab dies mid-session, picker restores the unsaved draft on reload.
+
+**D17 — Inbox pattern for picker writes** (Q14, Q15). Picker writes one file per save: `.workspace/picker-inbox/lesson-NN-{timestamp}.json`. Simple PAT + `PUT /repos/.../contents/...` — ~15 lines of picker JS. A desktop script `tools/apply-picker-inbox.py` (to be built) reads inbox files, applies changes to `_data/verses/*.json`, deletes the inbox file, and commits. Teacher runs it between picker sessions. Rejected alternatives:
+- **Direct Trees API multi-file commit** — too much picker JS for phone-first simplicity.
+- **InstantDB / Convex / other DB** (Q15) — would break git-as-source-of-truth, break Jekyll `_data/` render path, add vendor dependency, add sync pipeline. Not simpler overall.
+
+**D18 — Anchor per root, not per form** (Q21 / Issue #7). Captured in glossary, committed as `f8ab6af`. Picker UI enforces radio-select at the root level, not the form level.
+
+**D19 — Per-root density rule** (Q22 / Issue #7). Captured in glossary, committed as `f8ab6af`.
+
+**D20 — Form explanations extracted per form** (Q18 / Issue #2). When migrating Lesson 1, each form's bullet-point mini-explanation (currently embedded inside the root-level prose) becomes a standalone `forms[].explanation`. The root `explanation` keeps only the framing paragraphs. Gives D5 its reuse benefit so recall lessons can pull a single form's explanation without dragging the whole root prose.
+
+### Parked for later
+
+- **Three-tier scoring (Q6)** — deferred until Lesson 3 starts. Flat 8-dim scoring stays unchanged for the Lesson 1 migration.
+- **Tamil translation storage** — deferred until render time. The Lesson 1 copy keeps existing Tamil prose inline (as today's lesson does) for the architecture test.
+- **Lesson 1 Issue #1 — `sentence_patterns` fate** — still open. Options: fold into root explanation prose; keep as optional field; drop entirely.
+- **Lesson 1 Issue #6 — section intro prose** — still open. Options: inline in `index.md`; put in `picker-config.json`; share via `_data/section_intros.json`.
+
+### Lesson 1 migration plan (WIP)
+
+Target: `lessons/lesson-01-allahu-akbar-copy/` as a full instantiation of the new architecture. Production (`lessons/lesson-01-allahu-akbar.md`) stays untouched. Audio assets at `assets/audio/lessons/lesson-01/` are shared (no regeneration).
+
+Input files (all read, fully analyzed in this session):
+- `lessons/lesson-01-allahu-akbar.md` — published lesson page (652 lines)
+- `docs/roots/ilah.json` (654 lines), `docs/roots/kabura.json` (514 lines)
+- `docs/selections/lesson-01.md` (133 lines) — selection log; becomes a generated view in the new layout
+- `tools/lesson-audio/lesson-01.yaml` (214 lines) — audio plan
+
+Mapping is mostly mechanical once Issues #1 and #6 are resolved. The teaching phrase (كَبُرَ anchor) gets a synthetic ref per D15.
+
+### Remaining work (ordered)
+
+1. Resolve Issues #1 and #6 (one at a time, in next exchange)
+2. Design `picker-config.json` schema
+3. Design inbox file schema + `apply-picker-inbox.py` behavior
+4. Decide Jekyll exclude rules for the new lesson folder contents
+5. Write migration script: one-shot Python, reads today's files, produces `_data/verses/`, `_data/roots/`, `_data/surahs.json`, and `lessons/lesson-01-allahu-akbar-copy/` (with `picker-config.json`, `audio-plan.yaml`, `sentence.md`, `index.md`)
+6. Infrastructure: `_data/` dirs, Jekyll excludes, `_data/surahs.json` seed data
+7. Run migration, commit result
+8. Build the shared picker app at `/picker/` on Jekyll
+9. Build `tools/apply-picker-inbox.py`
+10. Render Lesson 1 copy end-to-end; compare against production page visually
+11. If test passes: plan production cutover (redirect `/lessons/lesson-01-allahu-akbar.html` → `/lessons/lesson-01-allahu-akbar-copy/`, then swap names)
+12. If test passes: minimal redesign docs (revisit doc structure with teacher first)
+
+### 23 question-answer locks from session 2
+
+| # | Decision | Answer |
+|---|---|---|
+| Q1 | Picker rewrite part of redesign? Phone URL? | Yes + yes |
+| Q2 | PAT-based save? | Yes |
+| Q3 | One shared picker vs per-lesson HTML? | One shared |
+| Q4 | `lesson_use`: single object or array? | Single (X) |
+| Q5 | `lesson_use` fields OK? `deferred` → `rejected` | OK + rename |
+| Q6 | Keep `order` field? | Yes |
+| Q7 | Central verse store vs duplicate across roots? | Central |
+| Q8 | Verse store: one big file / per-surah / per-verse? | Per-surah |
+| Q9 | Root files: per-root or one collapsed? | Per-root |
+| Q10 | Verse entry schema OK? | OK with tightening |
+| Q11 | Tightened schema (drop derived, move arabic_fragment)? | Yes |
+| Q12 | Strict 3NF (junction tables) or pragmatic denorm? | Pragmatic |
+| Q13 | Save flow A/B/C? | C (explicit Save + localStorage) |
+| Q14 | Inbox pattern or Trees API? | Inbox |
+| Q15 | Use InstantDB/Convex to simplify? | No (would break arch) |
+| Q16 | Root JSON schema OK? Keep `category`? Drop `sentence_patterns`? | Yes + keep + drop |
+| Q17 | Execution order: state doc → migrate → picker → docs? | Yes, with Lesson 1 as target |
+| Q18 | Form explanations: extract per form or leave embedded? | Extract |
+| Q19 | Rename `remark` → `hook`? | Yes |
+| Q20 | `rejection_reason` inside `lesson_use`? | Yes |
+| Q21 | Anchor per root (not per form)? | Yes — glossary was wrong |
+| Q22 | Per-root density rule? | Yes |
+| Q23 | Teaching phrases: synthetic refs in `teaching.json`? | Yes |
+
+### Still open from Lesson 1 analysis
+
+- **Issue #1** — `sentence_patterns` content (5 entries in ilah.json) — where does it go?
+- **Issue #6** — section intro prose ("You've met all 8 words…") — where does it live?
 
 ---
 
