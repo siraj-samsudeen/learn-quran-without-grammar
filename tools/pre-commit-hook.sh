@@ -2,8 +2,8 @@
 # Pre-commit hook: validates lesson files before committing
 # Install: cp tools/pre-commit-hook.sh .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
 
-# Find which lessons were modified in this commit
-MODIFIED_LESSONS=$(git diff --cached --name-only | grep '^lessons/' | sed 's|lessons/lesson-\([0-9]*\).*|lesson-\1|' | sort -u)
+# Find which lessons were modified in this commit (only .md files — skip pickers, images, etc.)
+MODIFIED_LESSONS=$(git diff --cached --name-only | grep '^lessons/.*\.md$' | sed 's|lessons/lesson-\([0-9]*\).*|lesson-\1|' | sort -u)
 
 if [ -z "$MODIFIED_LESSONS" ]; then
     exit 0  # No lesson files modified
