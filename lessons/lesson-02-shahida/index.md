@@ -38,15 +38,7 @@ The second line of the adhān opens with one of the most powerful statements a p
   <a href="#quiz">Quiz</a>
 </div>
 
-<div markdown="0">
-<details>
-<summary><span class="lang-en">📖 First time? How to study this lesson</span><span class="lang-ta">📖 முதல் முறையா? இந்தப் பாடத்தை எப்படிப் படிப்பது</span></summary>
-
-<p class="lang-en">For each phrase: <strong>read</strong> the Arabic → <strong>listen</strong> to the audio → <strong>say the word</strong> 3–5 times yourself → <strong>move on</strong>. In the Practice section, try to predict meanings before reading the English. In Recall, see if you can recognise the Lesson 1 words. Download the audio and play it on repeat through your day. Use the <strong>🔒 Hide translations</strong> button (bottom-right) to challenge yourself. <a href="{{ '/how-to-study' | relative_url }}">Read the full study guide →</a></p>
-
-<p class="lang-ta"></p>
-</details>
-</div>
+<p class="lesson-links"><a href="{{ '/course_intro' | relative_url }}">Course introduction</a> · <a href="{{ '/how-to-study' | relative_url }}">How to study a lesson</a></p>
 
 ## Anchor
 {: #anchor}

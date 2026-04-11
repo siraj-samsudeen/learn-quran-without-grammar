@@ -26,15 +26,7 @@ audio_download: /assets/audio/lessons/lesson-{{NN}}/lesson-{{NN}}-full.mp3
   <a href="#quick-check">Quiz</a>
 </div>
 
-<details class="study-tip">
-<summary>📖 First time? How to study this lesson</summary>
-
-**15-minute session**: Listen to each phrase's audio 2-3 times. Read the meaning. Move on. Don't try to memorise — just expose yourself.
-
-After finishing, download the full lesson audio and play it during commute, chores, or before sleep. See the [full study guide]({{ '/how-to-study' | relative_url }}).
-
-🔒 Use the **Hide translations** button (bottom-right) on your second pass to test yourself.
-</details>
+<p class="lesson-links"><a href="{{ '/course_intro' | relative_url }}">Course introduction</a> · <a href="{{ '/how-to-study' | relative_url }}">How to study a lesson</a></p>
 
 ---
 

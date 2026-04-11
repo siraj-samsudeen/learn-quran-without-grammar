@@ -27,6 +27,8 @@ A key part of the method is what we call anchors:
 
 Alongside anchors, the other key idea is roots. A **root** is a three-letter key that unlocks a whole family of related words in Arabic. From one root — like **ك ب ر** (*kāf bā rā*) — you meet *kabīr* ("great"), *akbar* ("greatest"), *kubrā* ("the greatest one"), all sharing the same core meaning. You don't memorise a table of forms. You learn to *feel* the connection, the way a child eventually feels that *run*, *runs*, and *running* belong together.
 
+Each lesson follows the same simple shape: an anchor phrase you already know, one or two roots, a handful of Qur'anic phrases to practice, then a short review.
+
 In a long road journey, you recognize familiar landmarks — not every street and detail. In the same way, you begin to recognize key words and phrases that act as landmarks in the Qur'an.
 
 Instead of trying to understand everything, you learn to listen for specific anchors. This transforms passive listening into active recognition.

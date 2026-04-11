@@ -39,15 +39,7 @@ In this series of lessons, we will walk through each of the sentences in the Adh
   <a href="#quiz">Quiz</a>
 </div>
 
-<div markdown="0">
-<details>
-<summary><span class="lang-en">📖 First time? How to study this lesson</span><span class="lang-ta">📖 முதல் முறையா? இந்தப் பாடத்தை எப்படிப் படிப்பது</span></summary>
-
-<p class="lang-en">For each phrase: <strong>read</strong> the Arabic → <strong>listen</strong> to the audio → <strong>say the word</strong> 3–5 times yourself → <strong>move on</strong>. In the Practice section, try to predict meanings before reading the English. Download the audio and play it on repeat through your day — passive listening is the secret weapon. Use the <strong>🔒 Hide translations</strong> button (bottom-right) to challenge yourself. <a href="{{ '/how-to-study' | relative_url }}">Read the full study guide →</a></p>
-
-<p class="lang-ta">ஒவ்வொரு சொற்றொடருக்கும்: அரபியை <strong>படியுங்கள்</strong> → ஒலியை <strong>கேளுங்கள்</strong> → அந்த வார்த்தையை நீங்களே 3–5 முறை <strong>சொல்லுங்கள்</strong> → <strong>அடுத்ததற்குச் செல்லுங்கள்</strong>. பயிற்சிப் பகுதியில், மொழிபெயர்ப்பைப் படிக்கும் முன் பொருளைக் கணிக்க முயற்சியுங்கள். ஒலிப்பதிவைப் பதிவிறக்கி நாள் முழுவதும் மீண்டும் மீண்டும் கேளுங்கள் — செயலற்ற கேட்டல் என்பது ரகசிய ஆயுதம்.</p>
-</details>
-</div>
+<p class="lesson-links"><a href="{{ '/course_intro' | relative_url }}">Course introduction</a> · <a href="{{ '/how-to-study' | relative_url }}">How to study a lesson</a></p>
 
 ## Anchor
 {: #anchor}

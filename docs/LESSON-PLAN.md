@@ -221,7 +221,7 @@ These conventions were established through a 4-lens learning science review of L
 
 1. **Lesson map at top** — A compact clickable map after the lesson preview: `Anchor → Root 1 → Root 2 → Practice → Review → Summary → Quiz`. Each item links to its section via `id` attributes. *(Principle: Segmenting + Advance Organizer — reduces scroll anxiety, gives the student a mental scaffold before content begins)*
 
-2. **Collapsible study tip** — A `<details>` block after the lesson map: "📖 First time? How to study this lesson" with a short summary + link to the full How to Study page. *(Principle: Progressive Disclosure — helps first-timers without cluttering the view for returning students)*
+2. **Navigation links after lesson map** — A single compact line: `Course introduction · How to study a lesson`. No inline study tips, no collapsible duplicated content. The canonical study technique lives in `how-to-study.md`; the lesson page just points to it. *(Principle: Single Source of Truth — teaching the method on every lesson page creates drift and clutter; link out instead)*
 
 3. **Back-to-top links** — Place `[↑ Back to top](#lesson-map)` at section boundaries: after Practice, after Review Shuffled, after Summary, after Quiz. **Important**: these must be placed AFTER the `---` HR separator, not before it, or `lesson-cards.js` will consume them as "extras" and delete them. *(Principle: Scannability — on mobile the lesson is 15+ screens of scrolling)*
 

@@ -91,13 +91,7 @@ _Tamil translation not yet available in this new architecture. Tamil content wil
   <a href="#summary">Summary</a>
 </div>
 
-<div markdown="0">
-<details>
-<summary><span class="lang-en">📖 First time? How to study this lesson</span></summary>
-
-<p class="lang-en">For each phrase: <strong>read</strong> the Arabic → <strong>listen</strong> to the audio → <strong>say the word</strong> 3–5 times yourself → <strong>move on</strong>. In the Practice section, try to predict meanings before reading the English. Download the audio and play it on repeat through your day — passive listening is the secret weapon. Use the <strong>🔒 Hide translations</strong> button (bottom-right) to challenge yourself. <a href="{{ '/how-to-study' | relative_url }}">Read the full study guide →</a></p>
-</details>
-</div>
+<p class="lesson-links"><a href="{{ '/course_intro' | relative_url }}">Course introduction</a> · <a href="{{ '/how-to-study' | relative_url }}">How to study a lesson</a></p>
 
 ## Anchor
 {: #anchor}
