@@ -1,6 +1,68 @@
 # Current State — Lesson Authoring Redesign Session
 
-_Session handoff document. **Read this first** when starting a new session. Last updated 2026-04-11._
+_Session handoff document. **Read this first** when starting a new session. Last updated 2026-04-11 (evening — session 2 close)._
+
+---
+
+## 🔖 Session close handoff (2026-04-11 evening)
+
+Session 2 ended with the teacher on a phone, mid-design, needing to step away. **Read this block first** to pick up. It's the authoritative "where to resume" marker.
+
+### What was locked in Session 2
+
+**Q1 through Q29 — 29 architectural decisions.** Captured as D6–D22 in the "Session 2 update" section below. The complete list covers: picker rewrite as URL-accessible phone app, PAT auth + localStorage, one shared picker + per-lesson `picker-config.json`, central verse store at `_data/verses/{surah}.json`, thin root JSONs at `_data/roots/{slug}.json`, `lesson_use` single-object schema with uniform `arabic`/`english`/`notes` field names at every level (D21), teaching phrases via synthetic refs, save flow Option C + inbox pattern, anchor-per-root rule, per-root density rule, form-explanation extraction, Lesson 1 as the migration test case (pivot from Lesson 2), and `picker-config.json` as a lesson control panel (D22) with the 8-field schema.
+
+**Glossary amendments landed** in `docs/GLOSSARY.md` (commit `f8ab6af`): anchor-per-root + density rule + rationale.
+
+**All 7 issues** from the Lesson 1 field-by-field analysis are closed.
+
+### What's still open (in the order the teacher should work through)
+
+1. **Inbox file schema** — what exactly goes into `.workspace/picker-inbox/lesson-NN-{timestamp}.json` when the picker hits Save. Choices: full snapshot of touched verses (recommended), delta, or assignment-only. I was about to ask Q30 on this when the session closed.
+
+2. **`tools/apply-picker-inbox.py` behavior** — how the desktop apply script merges inbox files into `_data/verses/*.json`. Conflict policy (last-write-wins recommended), commit message style, atomicity, how it handles the picker-config.json updates from D22's control panel.
+
+3. **Jekyll exclude rules** — what patterns go into `_config.yml` to keep Jekyll from treating `picker-config.json`, `state.json`, `audio-plan.yaml`, `.workspace/picker-inbox/`, and new `_data/` files as renderable pages. Today `f8a89f2` only excluded `lessons/*/picker.html` — need a broader rule.
+
+4. **Migration script design** — one-shot Python script that reads today's `lessons/lesson-01-allahu-akbar.md` + `docs/roots/ilah.json` + `docs/roots/kabura.json` + `tools/lesson-audio/lesson-01.yaml` + `docs/selections/lesson-01.md` and writes out the new layout (`_data/verses/*.json`, `_data/roots/*.json`, `_data/surahs.json`, `lessons/lesson-01-allahu-akbar-copy/picker-config.json`, `lessons/lesson-01-allahu-akbar-copy/index.md`, `lessons/lesson-01-allahu-akbar-copy/audio-plan.yaml`). Staged or all-in-one? Idempotent?
+
+5. **Then: execute the migration** and commit the result. Lesson 1 copy lives at `lessons/lesson-01-allahu-akbar-copy/` in the new architecture. Production `lessons/lesson-01-allahu-akbar.md` is untouched.
+
+6. **Then: build the shared picker app** (JS + HTML + Jekyll page at `/picker/`) against the migrated Lesson 1 copy.
+
+7. **Then: build `tools/apply-picker-inbox.py`** and test a save→apply round-trip.
+
+8. **Then: render Lesson 1 copy** from the new data layout end-to-end and visually compare against the production page. If the rendered copy matches what's live, the architecture is validated.
+
+9. **Then (if validation passes): production cutover plan** — URL redirect from `/lessons/lesson-01-allahu-akbar.html` to the new clean URL, swap production to the new layout.
+
+10. **Deferred: minimal redesign docs** under `docs/redesign/`. The teacher's original intent was small cross-linked files (≤250 lines each) for the next agent to Read. We agreed to defer this until after the Lesson 1 migration proves the design works — then write docs informed by actual experience, not speculation.
+
+### What has NOT been built yet
+
+**Nothing.** Session 2 produced only documentation — glossary amendments and decisions in CURRENT-STATE.md. No code, no infrastructure, no migration. The Lesson 1 copy folder doesn't exist yet. `_data/verses/` doesn't exist. The picker doesn't exist. `apply-picker-inbox.py` doesn't exist.
+
+The first concrete code task will be the migration script (item 4 above), and it will only be written after items 1–3 are locked.
+
+### Parked (not forgotten, explicit)
+
+- **Three-tier scoring (Q6)** — revisit when Lesson 3 starts. Lesson 1 migration uses flat 8-dim scoring unchanged.
+- **Tamil translation storage** — revisit at render time. Lesson 1 copy keeps Tamil prose inline as today.
+- **2 orphan `sentence_patterns` from `ilah.json`** (`إِلَٰهَهُ هَوَاهُ`, `أَإِلَٰهٌ مَعَ اللّٰه`) — flag in `.workspace/lesson-01-migration-flags.md` for teacher review at computer time; don't silently migrate into synthetic verses.
+
+### Branch + commits
+
+- **Branch:** `claude/plan-workspace-tasks-xGZBI` (pushed to origin after each commit).
+- **Session 2 commits on the branch:**
+  - `f8ab6af` — `GLOSSARY: anchor-per-root + per-root density rule`
+  - `b3071b4` — `CURRENT-STATE: lock Q1-Q23 decisions + Lesson 1 pivot`
+  - `2233668` — `CURRENT-STATE: add D21 (uniform arabic/english/notes naming)`
+  - `45ee467` — `CURRENT-STATE: close Lesson 1 Issues #1 and #6`
+  - (this commit) — `CURRENT-STATE: add D22 + session close handoff`
+
+### To resume
+
+Open the picker on your phone when rested. Tell the agent: *"Read `.workspace/CURRENT-STATE.md` — start from the session close handoff block. Ask me Q30 about the inbox file schema and we'll pick up from there."* The agent should NOT try to re-derive the locked decisions — they're in D6–D22.
 
 ---
 
@@ -201,6 +263,37 @@ This amends D11, D12, and D13 with renames:
 `score_notes` stays as a separate verse-level field for now (scoring-specific reasoning vs general verse observations). Revisit if redundant.
 
 Pattern-note absorption (Issue #1) is simplified by D21: pattern notes fold into `lesson_use.notes` of the verse that teaches the pattern. The 3 patterns in `ilah.json` that already have teaching verses (`لَا إِلَٰهَ إِلَّا` in 59:22, `إِلَٰهٌ وَاحِدٌ` in 2:163, `مِنْ إِلَٰهٍ غَيْرُهُ` in 7:59 pipeline) fold into those verses' notes during migration. The 2 orphan patterns (`إِلَٰهَهُ هَوَاهُ`, `أَإِلَٰهٌ مَعَ اللّٰه`) — teacher doesn't remember adding them, possibly clerical mistakes from a previous agent — go into `.workspace/lesson-01-migration-flags.md` for review at computer time, not silently migrated into synthetic verses.
+
+**D22 — `picker-config.json` as lesson control panel, 8 fields** (Q28, Q29). The per-lesson picker config file holds all lesson-level metadata the teacher wants to edit from their phone (not just picker-logic fields). Shape:
+
+```json
+{
+  "lesson_number": 1,
+  "slug": "lesson-01-allahu-akbar",
+  "title": "Lesson 1: Allāhu Akbar",
+  "description": "Two root words behind Allāhu Akbar — إِلَٰه (god) and كَبُرَ (greatness).",
+  "seed_phrase": {
+    "arabic": "اللهُ أَكْبَرُ",
+    "english": "Allah is Greater"
+  },
+  "current_roots": ["ilah", "kabura"],
+  "recall_roots": [],
+  "targets": {
+    "anchor": 2,
+    "learn": 5,
+    "practice": 5,
+    "recall": 0
+  }
+}
+```
+
+Design notes:
+- **Option B (lesson control panel)** chosen over Option A (pure picker). Teacher's framing: *"this picker is not just a picker; this is the lesson preparation kind of place for me as a teacher."* Teacher edits title, description, seed phrase, targets directly from the phone picker. `index.md` frontmatter becomes a generated view of `picker-config.json`.
+- **`targets.anchor` is split out** from `targets.learn` even though in storage anchors are still `section: "learn"` with `is_anchor: true` (glossary constraint #3 unchanged). The split exists only in the picker UI and the target counts — the picker tracks `Anchor: 2/2` separately from `Learn: 5/5` for teacher clarity.
+- **`seed_phrase` is now a nested object** `{ arabic, english }` per D21 uniform naming. Seed phrase Arabic + English display at the top of the picker for teacher orientation, and at the top of the published page via Liquid include from picker-config.
+- **`sentence.md` is REMOVED** from the folder convention (amends D9 / D4's folder list from `f8a89f2`). It was my earlier proposal for the seed-phrase prose, but Q27 dropped inline structural narrative including the seed-phrase opening paragraph. Nothing left for `sentence.md` to hold.
+- **Lesson 2 example**: `current_roots: ["shahida"]`, `recall_roots: ["ilah", "kabura"]`, `targets: { anchor: 1, learn: 3, practice: 5, recall: 2 }` = 11 items total, within 10-15 sweet spot.
+- **What's NOT in the config**: form-level filtering (picker shows all forms of current_roots, teacher picks), the density rule itself (global in glossary), state tracking (stays in `state.json`).
 
 ### Parked for later
 
