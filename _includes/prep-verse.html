@@ -1,0 +1,52 @@
+{% comment %}
+prep-verse.html — teacher prep-dashboard view of a single verse.
+
+Renders a collapsible <details> block showing every field in the
+verse's lesson_use plus the verse-level metadata (full arabic,
+full english, roots, forms, score notes). Includes an inline
+audio player.
+
+Parameters:
+  include.verse       — the verse object from site.data.verses.*
+  include.audio_base  — audio directory (e.g. "/assets/audio/lessons/lesson-01")
+{% endcomment -%}
+<details class="prep-verse">
+<summary>
+<strong>{{ include.verse.lesson_use.heading | default: "(no heading)" }}</strong>
+&nbsp;·&nbsp; <code>{{ include.verse.ref }}</code>
+&nbsp;·&nbsp; section: <code>{{ include.verse.lesson_use.section | default: "—" }}</code>
+{%- if include.verse.lesson_use.is_anchor %} &nbsp;·&nbsp; <strong>anchor</strong>{% endif -%}
+{%- if include.verse.lesson_use.order %} &nbsp;·&nbsp; order {{ include.verse.lesson_use.order }}{% endif -%}
+</summary>
+
+<table class="prep-table">
+<tr><th>Full Arabic</th><td dir="rtl" lang="ar">{{ include.verse.arabic }}</td></tr>
+<tr><th>Full English</th><td>{{ include.verse.english }}</td></tr>
+<tr><th>Trimmed Arabic (card)</th><td dir="rtl" lang="ar">{{ include.verse.lesson_use.arabic | default: "—" }}</td></tr>
+<tr><th>Trimmed English (card)</th><td>{{ include.verse.lesson_use.english | default: "—" }}</td></tr>
+<tr><th>Student hook (notes)</th><td>{{ include.verse.lesson_use.notes | default: "—" }}</td></tr>
+<tr><th>Audio file</th><td><code>{{ include.verse.lesson_use.audio_file | default: "—" }}</code></td></tr>
+{%- if include.verse.lesson_use.audio_file %}
+<tr><th>Audio player</th><td><audio controls preload="none" src="{{ include.audio_base | append: '/' | append: include.verse.lesson_use.audio_file | relative_url }}"></audio></td></tr>
+{%- endif %}
+<tr><th>Roots taught</th><td>{{ include.verse.roots | join: ", " }}</td></tr>
+<tr><th>Forms taught</th><td dir="rtl" lang="ar">{{ include.verse.forms | join: "، " }}</td></tr>
+<tr><th>Score notes</th><td>{{ include.verse.score_notes | default: "—" }}</td></tr>
+{%- if include.verse.scores %}
+<tr><th>Scores (8-dim)</th><td>
+curriculum: {{ include.verse.scores.curriculum }},
+length: {{ include.verse.scores.length }},
+story: {{ include.verse.scores.story }},
+worship: {{ include.verse.scores.worship }},
+surah_familiarity: {{ include.verse.scores.surah_familiarity }},
+completeness: {{ include.verse.scores.completeness }},
+emotion: {{ include.verse.scores.emotion }},
+fit_learn: {{ include.verse.scores.fit_learn }},
+fit_practice: {{ include.verse.scores.fit_practice }}
+</td></tr>
+{%- endif %}
+{%- if include.verse.lesson_use.rejection_reason %}
+<tr><th>Rejection reason</th><td>{{ include.verse.lesson_use.rejection_reason }}</td></tr>
+{%- endif %}
+</table>
+</details>
