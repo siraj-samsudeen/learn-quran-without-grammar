@@ -8,6 +8,9 @@ audio_download_tamil: /assets/audio/lessons/lesson-02/lesson-02-full-ta.mp3
 ---
 # Lesson 2: I Bear Witness
 
+[← All lessons]({{ '/#lessons' | relative_url }}) · [← Previous: Lesson 1]({{ '/lessons/lesson-01-allahu-akbar' | relative_url }})
+{: .lesson-nav}
+
 <div class="lang-en" markdown="1">
 The second line of the adhān opens with one of the most powerful statements a person can make — a personal declaration of faith. The root behind that statement runs through every court of law, every prophet's testimony, and even your own body on the Day of Judgment.
 </div>
@@ -540,3 +543,8 @@ In the next lesson, we take the third call of the adhān — **أَشْهَدُ 
 
 <div class="lang-ta" markdown="1">
 </div>
+
+---
+
+[← All lessons]({{ '/#lessons' | relative_url }}) · [← Previous: Lesson 1]({{ '/lessons/lesson-01-allahu-akbar' | relative_url }})
+{: .lesson-nav}

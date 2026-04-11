@@ -64,6 +64,13 @@ Known visual-parity gaps vs production (documented, intentional):
 
 # {{ page.title }}
 
+[← All lessons]({{ '/#lessons' | relative_url }}) · [Lesson 1 (original)]({{ '/lessons/lesson-01-allahu-akbar' | relative_url }}) · [Next: Lesson 2 →]({{ '/lessons/lesson-02-shahida/' | relative_url }})
+{: .lesson-nav}
+
+<div class="lang-ta" markdown="1">
+_Tamil translation not yet available in this new architecture. Tamil content will be generated from a sidecar file once the D33 translation tool is built. This placeholder exists so the EN ↔ தமிழ் toggle appears for testing — the toggle is driven by `language-toggle.js` which looks for any `.lang-ta` element to decide whether to render the switcher._
+</div>
+
 <div class="lang-en" markdown="1">
 {{ page.opening }}
 </div>
@@ -315,3 +322,8 @@ You say this every single day. Before every ṣalāh. You raise your hands and s
 {{ page.whats_next }}
 
 </div>
+
+---
+
+[← All lessons]({{ '/#lessons' | relative_url }}) · [Lesson 1 (original)]({{ '/lessons/lesson-01-allahu-akbar' | relative_url }}) · [Next: Lesson 2 →]({{ '/lessons/lesson-02-shahida/' | relative_url }})
+{: .lesson-nav}
