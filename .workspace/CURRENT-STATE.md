@@ -1,68 +1,85 @@
 # Current State — Lesson Authoring Redesign Session
 
-_Session handoff document. **Read this first** when starting a new session. Last updated 2026-04-11 (evening — session 2 close)._
+_Session handoff document. **Read this first** when starting a new session. Last updated 2026-04-11 (late evening — session 3 close)._
 
 ---
 
-## 🔖 Session close handoff (2026-04-11 evening)
+## 🔖 Session close handoff (2026-04-11 late evening — session 3)
 
-Session 2 ended with the teacher on a phone, mid-design, needing to step away. **Read this block first** to pick up. It's the authoritative "where to resume" marker.
+Session 3 picked up from Session 2's Q30 handoff, worked through the remaining design questions, got a significant correction on simplicity, and closed out the architectural design pass. A parallel Sonnet session executed the data-layer migration on `main` (commit `04c5d73`, unpushed) while Session 3 was running — the two sessions are complementary: Session 3 locked the architecture, Sonnet landed the data layer for Lesson 1 per D1–D22. **Read this block first** to pick up.
 
-### What was locked in Session 2
+### What was locked in Session 3
 
-**Q1 through Q29 — 29 architectural decisions.** Captured as D6–D22 in the "Session 2 update" section below. The complete list covers: picker rewrite as URL-accessible phone app, PAT auth + localStorage, one shared picker + per-lesson `picker-config.json`, central verse store at `_data/verses/{surah}.json`, thin root JSONs at `_data/roots/{slug}.json`, `lesson_use` single-object schema with uniform `arabic`/`english`/`notes` field names at every level (D21), teaching phrases via synthetic refs, save flow Option C + inbox pattern, anchor-per-root rule, per-root density rule, form-explanation extraction, Lesson 1 as the migration test case (pivot from Lesson 2), and `picker-config.json` as a lesson control panel (D22) with the 8-field schema.
+**Nine new decisions D23–D31** (full detail in the "Session 3 update" section below):
 
-**Glossary amendments landed** in `docs/GLOSSARY.md` (commit `f8ab6af`): anchor-per-root + density rule + rationale.
+- **D23** — Inbox envelope shape: one file per Save; `picker_config` = full snapshot, `verse_updates` = assignment-only tuples, `new_verses` = full entries; `state.json` derived by apply script.
+- **D24** — One commit per inbox file (each phone-Save becomes an independently revertable git unit).
+- **D25** — Apply script does `git pull --rebase`, processes inbox (N commits), then one `git push` at end.
+- **D26** — Quarantine bad inbox files to `.workspace/picker-inbox-quarantine/` and continue.
+- **D27 (revised)** — Picker is a pure static HTML+JS page with **no auth, no runtime HTTP**. Reads: data baked at build time via Liquid `jsonify`. Writes: browser download of envelope JSON + teacher manually moves file to `.workspace/picker-inbox/`. **Invalidates original D8 (PAT auth) entirely.**
+- **D28** — Jekyll excludes via wildcards: `lessons/*/*.{json,yaml,html}` + `.workspace/`. Replaces the per-file `lessons/*/picker.html` line.
+- **D29** — Migration script structure: one file `tools/migrate-lesson-01.py` with orchestrator + `--stage` subcommands. Idempotent per stage.
+- **D30** — Rendering architecture: Liquid emits the **same** h3+paragraph markdown pattern the current `.md` produces; `lesson-cards.js` stays unchanged. The only variable in the migration test is the Liquid template.
+- **D31** — Lesson-specific prose (`opening`, `closing`, `whats_next`) lives in `picker-config.json` as `{ english, tamil }` nested objects. Extends D22 from 8 fields to 11.
 
-**All 7 issues** from the Lesson 1 field-by-field analysis are closed.
+**Correction (mid-session):** Teacher clarified that phone is a rare convenience, not a design constraint — primary workflow is work computer or home computer. This invalidated the auth-heavy framing of the original D8 + D27. Replaced with the simpler no-auth, browser-download-plus-manual-move design. Saved to durable memory as `feedback_phone_convenience_simple.md` for all future sessions.
 
-### What's still open (in the order the teacher should work through)
+**Both orphan `sentence_patterns` from old `ilah.json` resolved at computer time:** `إِلَٰهَهُ هَوَاهُ` (Pattern 1, candidates 25:43 + 45:23) and `أَإِلَٰهٌ مَعَ اللّٰه` (Pattern 2, candidates 27:60–64). **Both discarded** — neither fits the adhān-driven L1–L5 progression; raw verses remain retrievable from `tools/data/quran-uthmani.txt`. `.workspace/lesson-01-migration-flags.md` updated with resolution notes.
 
-1. **Inbox file schema** — what exactly goes into `.workspace/picker-inbox/lesson-NN-{timestamp}.json` when the picker hits Save. Choices: full snapshot of touched verses (recommended), delta, or assignment-only. I was about to ask Q30 on this when the session closed.
+### What was built (parallel Sonnet session, commit `04c5d73`, local, unpushed)
 
-2. **`tools/apply-picker-inbox.py` behavior** — how the desktop apply script merges inbox files into `_data/verses/*.json`. Conflict policy (last-write-wins recommended), commit message style, atomicity, how it handles the picker-config.json updates from D22's control panel.
+While Session 3 was running through design questions, a parallel Sonnet session landed the data-layer migration per D1–D22. **28 files, 1384 lines.** Strictly followed locked decisions — nothing speculative.
 
-3. **Jekyll exclude rules** — what patterns go into `_config.yml` to keep Jekyll from treating `picker-config.json`, `state.json`, `audio-plan.yaml`, `.workspace/picker-inbox/`, and new `_data/` files as renderable pages. Today `f8a89f2` only excluded `lessons/*/picker.html` — need a broader rule.
+- **`_data/roots/ilah.json`, `_data/roots/kabura.json`** — slim per D13+D21. `notes` fields at root and form level are `null` (teacher-authored prose not yet written).
+- **`_data/surahs.json`** — all 114 surahs with `name_ar`, `name_en`, `revelation`, `juz_start`, `juz_end` (D14).
+- **`_data/verses/`** — 20 per-surah files (`002.json` through `114.json`) + `teaching.json` (for the synthetic `teaching:kabura:anchor-01` ref per D15) + **`hadith.json`** (5 hadith entries with `hadith:...` refs — **NOT in any D decision; needs retrospective validation or a new D number to formalize the hadith store as a parallel to teaching.json**).
+- All 12 Lesson 1-assigned verses have `lesson_use` fully populated per D11+D21+D23 schema.
+- Pipeline verses have `lesson_use: { section: "pipeline", … }` with `rejection_reason` where applicable.
+- Cross-root verse 37:35 has `roots: ["ilah", "kabura"]` (bounded denormalization per D11/Q12).
+- **`lessons/lesson-01-allahu-akbar-copy/picker-config.json`** — D22 8-field schema. **Missing the 3 D31 prose fields** (`opening`, `closing`, `whats_next`). Needs a touch-up during the next execution session.
+- **`.workspace/lesson-01-migration-flags.md`** — orphan patterns flagged (now resolved this session).
 
-4. **Migration script design** — one-shot Python script that reads today's `lessons/lesson-01-allahu-akbar.md` + `docs/roots/ilah.json` + `docs/roots/kabura.json` + `tools/lesson-audio/lesson-01.yaml` + `docs/selections/lesson-01.md` and writes out the new layout (`_data/verses/*.json`, `_data/roots/*.json`, `_data/surahs.json`, `lessons/lesson-01-allahu-akbar-copy/picker-config.json`, `lessons/lesson-01-allahu-akbar-copy/index.md`, `lessons/lesson-01-allahu-akbar-copy/audio-plan.yaml`). Staged or all-in-one? Idempotent?
+### What's still open (execution order)
 
-5. **Then: execute the migration** and commit the result. Lesson 1 copy lives at `lessons/lesson-01-allahu-akbar-copy/` in the new architecture. Production `lessons/lesson-01-allahu-akbar.md` is untouched.
+1. **Extend `lessons/lesson-01-allahu-akbar-copy/picker-config.json` with D31 prose fields.** Add `opening`, `closing`, `whats_next` as `{ english, tamil }` nested objects with the actual English + Tamil text lifted from the existing `lessons/lesson-01-allahu-akbar.md`. Can be a manual edit or a new `--stage picker-config-prose` sub-stage in the migration script.
 
-6. **Then: build the shared picker app** (JS + HTML + Jekyll page at `/picker/`) against the migrated Lesson 1 copy.
+2. **Build the remaining `tools/migrate-lesson-01.py` stages** per D29. Stages already built by Sonnet (implicitly — the files exist but the script itself may not): `surahs`, `verses` (including teaching + hadith), `roots`, `picker-config` (D22 partial). **Still to build:** `index-md` (thin Liquid template per D30), `audio-plan` (shaped from `tools/lesson-audio/lesson-01.yaml`), plus a stage that adds D31 prose fields to picker-config. Confirm whether Sonnet actually created the orchestrator script or just produced the output files by hand; if the latter, the script itself still needs to be written so reruns are idempotent.
 
-7. **Then: build `tools/apply-picker-inbox.py`** and test a save→apply round-trip.
+3. **Retrospectively document `_data/verses/hadith.json`.** Sonnet added this file without a D number. It holds hadith-class content parallel to `teaching.json` for synthetic refs. Needs either (a) a short addendum to D15 saying "same pattern applies to hadith refs" + a note in the glossary, or (b) a new D32 formalizing it. Not blocking but should be done before the hadith file grows.
 
-8. **Then: render Lesson 1 copy** from the new data layout end-to-end and visually compare against the production page. If the rendered copy matches what's live, the architecture is validated.
+4. **Update `_config.yml` Jekyll excludes** per D28: wildcards `lessons/*/*.{json,yaml,html}` + `.workspace/`. Drop the existing per-file `lessons/*/picker.html` line (superseded).
 
-9. **Then (if validation passes): production cutover plan** — URL redirect from `/lessons/lesson-01-allahu-akbar.html` to the new clean URL, swap production to the new layout.
+5. **Build the shared picker app** at `/picker/`. Per D27-revised: static HTML+JS, Liquid `jsonify` bakes `_data/` into `window.pickerData` at build time, writes via browser download + manual file move. **No PAT. No GitHub API. No auth flow.**
 
-10. **Deferred: minimal redesign docs** under `docs/redesign/`. The teacher's original intent was small cross-linked files (≤250 lines each) for the next agent to Read. We agreed to defer this until after the Lesson 1 migration proves the design works — then write docs informed by actual experience, not speculation.
+6. **Build `tools/apply-picker-inbox.py`** per D23–D26. Pull-rebase → process each inbox file (one commit per file, quarantine on error) → single push at end.
 
-### What has NOT been built yet
+7. **Render Lesson 1 copy end-to-end** via the new `index.md` Liquid template (per D30) and visually compare against production `lessons/lesson-01-allahu-akbar.md`. If visual parity holds, architecture is validated.
 
-**Nothing.** Session 2 produced only documentation — glossary amendments and decisions in CURRENT-STATE.md. No code, no infrastructure, no migration. The Lesson 1 copy folder doesn't exist yet. `_data/verses/` doesn't exist. The picker doesn't exist. `apply-picker-inbox.py` doesn't exist.
+8. **Post-validation follow-up** (planned, not yet blocking): separate refactor from Q38 = A (Liquid emits current markdown pattern, JS unchanged) to Q38 = C (Liquid emits `.verse-card` HTML directly, `lesson-cards.js` reduced to the audio mutual-exclusion handler or deleted entirely). This is the cleaner long-term architecture — deferred from the migration test to keep that test single-variable. Will need its own D number when picked up.
 
-The first concrete code task will be the migration script (item 4 above), and it will only be written after items 1–3 are locked.
+9. **Production cutover** (if validation passes): redirect `/lessons/lesson-01-allahu-akbar.html` to the new clean URL, swap production to the new layout.
 
-### Parked (not forgotten, explicit)
+10. **Deferred: minimal redesign docs** under `docs/redesign/`. Still deferred per Session 2 plan — write after Lesson 1 migration is visually validated, informed by real experience rather than speculation.
 
-- **Three-tier scoring (Q6)** — revisit when Lesson 3 starts. Lesson 1 migration uses flat 8-dim scoring unchanged.
-- **Tamil translation storage** — revisit at render time. Lesson 1 copy keeps Tamil prose inline as today.
-- **2 orphan `sentence_patterns` from `ilah.json`** (`إِلَٰهَهُ هَوَاهُ`, `أَإِلَٰهٌ مَعَ اللّٰه`) — flag in `.workspace/lesson-01-migration-flags.md` for teacher review at computer time; don't silently migrate into synthetic verses.
+### Parked (unchanged from Session 2)
+
+- **Three-tier scoring (Q6)** — revisit when Lesson 3 starts. Flat 8-dim scoring unchanged for L1 migration.
+- **Tamil translation storage** — revisit at render time. Lesson 1 copy keeps Tamil prose inline (via `picker-config.{opening,closing,whats_next}.tamil` per D31, plus `_data/roots` notes fields when authored).
+- ~~**2 orphan `sentence_patterns`**~~ — **resolved this session**: both discarded.
 
 ### Branch + commits
 
-- **Branch:** `claude/plan-workspace-tasks-xGZBI` (pushed to origin after each commit).
-- **Session 2 commits on the branch:**
-  - `f8ab6af` — `GLOSSARY: anchor-per-root + per-root density rule`
-  - `b3071b4` — `CURRENT-STATE: lock Q1-Q23 decisions + Lesson 1 pivot`
-  - `2233668` — `CURRENT-STATE: add D21 (uniform arabic/english/notes naming)`
-  - `45ee467` — `CURRENT-STATE: close Lesson 1 Issues #1 and #6`
-  - (this commit) — `CURRENT-STATE: add D22 + session close handoff`
+- **Branch:** `main`. Session 2's `claude/plan-workspace-tasks-xGZBI` was merged via PR #2 (commit `8c2ddb1`). Session 3 worked directly on `main`.
+- **Local commits ahead of origin:**
+  - `04c5d73` (parallel Sonnet session) — `data: seed _data/ layer + Lesson 1 migration groundwork`
+  - (this commit) — `CURRENT-STATE: D23–D31 + orphans resolved (session 3 close)`
+- **Neither has been pushed yet.** Next session should `git push` before doing more work — or the teacher can push manually from this machine before stopping this session.
 
 ### To resume
 
-Open the picker on your phone when rested. Tell the agent: *"Read `.workspace/CURRENT-STATE.md` — start from the session close handoff block. Ask me Q30 about the inbox file schema and we'll pick up from there."* The agent should NOT try to re-derive the locked decisions — they're in D6–D22.
+Open the next session at a computer (or phone for convenience reads only). Tell the agent: *"Read `.workspace/CURRENT-STATE.md` — start from the session close handoff block. Design pass is closed; execution items 1–7 are unblocked. Start with item 1 (extend picker-config.json with D31 prose fields) — it's the smallest, most concrete first step and unblocks the Liquid template work in item 2."* The agent should NOT try to re-derive the locked decisions — they're all in D1–D31 (see "Session 3 update" section for D23–D31 detail).
+
+**Important reminder for the next session:** phone is a convenience, not a constraint. When choosing between clever automation and a plain manual step, pick the manual step. (This is also saved as a persistent feedback memory — `feedback_phone_convenience_simple.md` — and will be loaded automatically on every future session.)
 
 ---
 
@@ -361,6 +378,105 @@ Mapping is mostly mechanical once Issues #1 and #6 are resolved. The teaching ph
 
 - **Issue #1** — `sentence_patterns` content (5 entries in ilah.json) — where does it go?
 - **Issue #6** — section intro prose ("You've met all 8 words…") — where does it live?
+
+---
+
+## Session 3 update (2026-04-11 late evening) — D23–D31, phone-convenience correction, orphans resolved
+
+This section is the **authoritative current state** for Session 3. Decisions below override anything in older sections. The top handoff block holds the "resume here" summary; this section holds the decision archaeology.
+
+### Phone-convenience correction (mid-session)
+
+Mid-session, the teacher corrected my framing: *"The phone thing is a convenience; it is not a mandatory thing. Most of the time I am either on the work computer or on the home computer, so I can easily download a JSON and move it to the inbox manually. No, I keep it simple."*
+
+This invalidated:
+- **D8 (PAT auth in browser localStorage)** — ❌ dropped. No PAT, no auth.
+- **Original D27 (GitHub Contents API for read + write)** — ❌ dropped. Replaced with D27-revised below.
+
+Saved to durable memory as `feedback_phone_convenience_simple.md`. Load-bearing guideline for all future sessions: *when choosing between clever automation and a plain manual step, pick the manual step*.
+
+### New decisions D23–D31
+
+**D23 — Inbox envelope shape.** One file per picker Save. Three sub-objects:
+- `picker_config`: **full snapshot** of the 11-field D22+D31 shape (wholesale replace — picker owns this file entirely).
+- `verse_updates`: array of `{ ref, lesson_use }` **assignment-only** tuples. Picker never touches intrinsic verse fields (arabic, english, scores, roots, forms) — those are migration-script output. `lesson_use: null` = explicit unassign.
+- `new_verses`: array of **full entries** for synthetic teaching/hadith refs that don't exist in `_data/verses/*.json` yet.
+
+`state.json` derived by apply from "did this envelope have `verse_updates`?", not shipped in the envelope.
+
+**D24 — One commit per inbox file** (Q32). N inbox files → N commits. Each phone-Save becomes an independently revertable unit via `git revert <sha>`. Commit message format: `picker: lesson N — timestamp (K verse updates, config touched)`.
+
+**D25 — Apply script flow** (Q33). `git pull --rebase` → process inbox files in timestamp order (one commit per file per D24) → single `git push` at end. Pull-first catches "origin moved" upstream before any writes; if rebase fails, apply halts cleanly with a clear error. Single push at end = one network call regardless of inbox count.
+
+**D26 — Quarantine + continue** (Q34). On any error (malformed JSON, invalid shape, ref not found, new_verse ref collision, config shape mismatch), apply moves the bad file to `.workspace/picker-inbox-quarantine/`, logs the error, continues with the rest of the queue. Queue never blocks on one broken file. Exit zero if all good; nonzero with summary if anything quarantined.
+
+**D27 (revised) — Picker = pure static HTML+JS, no auth, no runtime HTTP** (Q35 + post-session correction).
+- **Reads**: data baked in at Jekyll build time via Liquid — `<script>window.pickerData = { verses: {{ site.data.verses | jsonify }}, roots: {{ site.data.roots | jsonify }}, surahs: {{ site.data.surahs | jsonify }}, … };</script>` in the page head. Zero runtime HTTP. No auth. No rate limits.
+- **Writes**: Save button triggers a browser download of the envelope JSON (`<a download>` + `Blob`). Teacher manually moves the downloaded file to `.workspace/picker-inbox/` — drag-drop on desktop, or `mv` in terminal, or equivalent on phone.
+- **Freshness**: after apply+push, picker sees fresh data on the next Jekyll build (~1 min on GitHub Pages, instant on local `jekyll serve`). Only matters for back-to-back picker sessions without rebuild between them.
+
+Replaces original D27 (GitHub Contents API). Invalidates D8 (PAT auth) entirely. Strictly less code, strictly fewer failure modes.
+
+**D28 — Jekyll wildcard excludes** (Q36). `_config.yml` exclude block adds:
+
+```yaml
+- ".workspace/"
+- "lessons/*/*.json"
+- "lessons/*/*.yaml"
+- "lessons/*/*.html"
+```
+
+Replaces the existing per-file `lessons/*/picker.html` line (superseded). `_data/` needs no explicit exclusion — Jekyll treats it as build-time private via the leading-underscore convention.
+
+**D29 — Migration script: one file, orchestrator + --stage subcommands** (Q37). `tools/migrate-lesson-01.py`. Happy path: `python tools/migrate-lesson-01.py` runs all stages in order. Debug iteration: `python tools/migrate-lesson-01.py --stage picker-config` re-runs one stage. Each stage is a function in the same file; shared parsing lives at module scope; idempotent by construction (each stage reads source, overwrites destination).
+
+Stages:
+- `surahs`, `verses` (including `teaching` + `hadith`), `roots`, `picker-config` (D22 partial) — landed via parallel Sonnet session in commit `04c5d73`
+- `picker-config-prose` (D31 fields), `audio-plan`, `index-md` — **not built**
+
+Open question: whether Sonnet created the orchestrator script itself or just produced output files by hand. Next session should check and fill in if needed so reruns remain idempotent.
+
+**D30 — Rendering architecture: Liquid emits current markdown pattern, `lesson-cards.js` unchanged** (Q38 = A). The thin `index.md` is a Liquid template that loops over `site.data.verses` + `site.data.roots` and emits the **exact same** h3+paragraph HTML pattern the current hand-authored `lessons/lesson-01-allahu-akbar.md` produces. `lesson-cards.js` runs at runtime as today — it's a DOM **transformer** (reads h3+paragraph groups, regroups them into `.verse-card` divs), not a DOM **builder**. Zero JS changes. Progressive enhancement preserved. Single-variable migration test: any visual-parity failure is a Liquid template bug, not a JS bug.
+
+**Follow-up task** (not yet D-numbered): post-validation refactor from Q38 = A to Q38 = C — Liquid emits `<div class="verse-card">` HTML directly, `lesson-cards.js` reduced to just the audio mutual-exclusion handler (or deleted entirely). Deferred from the migration test to keep that test single-variable. Will get its own D number when picked up.
+
+**D31 — Lesson-specific prose lives in picker-config.json** (Q39 = A; amends D22). Eight fields → eleven. New fields:
+
+- `opening: { english, tamil }` — opening narrative paragraphs
+- `closing: { english, tamil }` — closing prose
+- `whats_next: { english, tamil }` — teaser for the next lesson
+
+Each prose field is a Markdown string with `\n` for line breaks. Jekyll `markdownify` renders at build time. This keeps `picker-config.json` as the single source of lesson-level content, matches D22's "lesson control panel" framing consistently, and keeps the thin `index.md` genuinely thin — the only hand-written content in `index.md` becomes Liquid directives + section anchors + `{% include %}` calls.
+
+### Orphan resolution
+
+Both `sentence_patterns[]` orphans from old `docs/roots/ilah.json` reviewed at computer time:
+
+- **Pattern 1 — `إِلَٰهَهُ هَوَاهُ`** ("took his desire as his god"). Candidate verses: 25:43 (Al-Furqān, 10-word tight rhetorical question) and 45:23 (Al-Jāthiyah, 29-word expansion into consequences). **Discarded.** Does not fit current adhān-driven L1–L5 progression; raw verses retrievable from `tools/data/quran-uthmani.txt` if a future lesson wants them.
+
+- **Pattern 2 — `أَإِلَٰهٌ مَعَ اللّٰه`** ("Is there a god with Allah?"). Candidate verses: 27:60–64 (Al-Naml 5-verse rhetorical chain: creation, cosmic ordering, personal response, guidance, epistemological challenge). **Discarded.** Same rationale.
+
+`.workspace/lesson-01-migration-flags.md` updated with resolution notes. File preserved as a historical record; safe to delete after the next migration run.
+
+### Q30–Q40 question-answer locks
+
+| # | Decision | Answer |
+|---|---|---|
+| Q30 | Inbox envelope shape — full snapshot / delta / assignment-only | C + sidecar (assignment-only for existing verses, full entries for new_verses) |
+| Q31 | Single envelope per Save, per-artifact shape, state.json derived | Yes to all three |
+| Q32 | Apply: one commit per inbox file or one per run | A — per file |
+| Q33 | Apply: auto-push with pull-rebase first, or commit-and-stop | A — auto-push |
+| Q34 | Apply on bad file: halt / skip / quarantine | C — quarantine |
+| Q35 | Picker read path — Contents API / public URL / hybrid | A (later superseded by D27-revised: build-time bake, no runtime HTTP) |
+| Q36 | Jekyll excludes — per-file list or wildcards by extension | B — wildcards |
+| Q37 | Migration script — all-in-one / 7 scripts / orchestrator + stages | C — orchestrator |
+| Q38 | Rendering — Liquid + current markdown + JS unchanged / JSON + JS builder / Liquid emits cards directly | A (with C as post-validation follow-up) |
+| Q39 | Narrative prose home — picker-config / separate files / index.md inline / drop | A — picker-config.json |
+| Q40 | Commit session 3 now or resolve orphans first | A (immediately overridden to "show orphans now") |
+
+### Still open
+
+See the top handoff block's "What's still open" list. Design pass is closed; all remaining items are execution-phase.
 
 ---
 
