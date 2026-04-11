@@ -1,0 +1,185 @@
+{
+  "lesson_id": "lesson-02",
+  "title": "Lesson 2: I Bear Witness",
+  "slug": "lesson-02-shahida",
+  "full_audio": "lesson-02-full.mp3",
+  "full_duration": 277.7,
+  "sentences": [
+    {
+      "id": "anchor-shahida",
+      "role": "anchor",
+      "root": "شَهِدَ",
+      "form": "أَشْهَدُ",
+      "ref": "adhan",
+      "arabic_text": "أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ",
+      "english": "I bear witness that there is no god but Allah",
+      "file": "anchor-shahida.mp3",
+      "duration": 7.0
+    },
+    {
+      "id": "learn-shahida-01",
+      "role": "learn",
+      "root": "شَهِدَ",
+      "form": "شَهِدَ",
+      "ref": "3:18",
+      "arabic_text": "شَهِدَ اللَّهُ أَنَّهُ لَا إِلَٰهَ إِلَّا هُوَ",
+      "english": "Allah bears witness that there is no god but He",
+      "file": "learn-shahida-01.mp3",
+      "duration": 20.1
+    },
+    {
+      "id": "learn-shahida-02",
+      "role": "learn",
+      "root": "شَهِدَ",
+      "form": "شَهَادَة + شَهِيد",
+      "ref": "6:19",
+      "arabic_text": "قُلْ أَيُّ شَيْءٍ أَكْبَرُ شَهَادَةً ۖ قُلِ اللَّهُ شَهِيدٌ بَيْنِي وَبَيْنَكُمْ",
+      "english": "Say: What is greatest as testimony? Say: Allah is Witness between me and you",
+      "file": "learn-shahida-02.mp3",
+      "duration": 16.5
+    },
+    {
+      "id": "learn-shahida-03",
+      "role": "learn",
+      "root": "شَهِدَ",
+      "form": "شَهِيد",
+      "ref": "4:79",
+      "arabic_text": "وَكَفَىٰ بِاللَّهِ شَهِيدًا",
+      "english": "Allah is sufficient as Witness",
+      "file": "learn-shahida-03.mp3",
+      "duration": 9.3
+    },
+    {
+      "id": "learn-shahida-04",
+      "role": "learn",
+      "root": "شَهِدَ",
+      "form": "شَهِيد",
+      "ref": "5:117",
+      "arabic_text": "وَكُنتُ عَلَيْهِمْ شَهِيدًا مَّا دُمْتُ فِيهِمْ",
+      "english": "And I was a witness over them while I was among them",
+      "file": "learn-shahida-04.mp3",
+      "duration": 10.5
+    },
+    {
+      "id": "learn-shahida-05",
+      "role": "learn",
+      "root": "شَهِدَ",
+      "form": "شَهِدَ",
+      "ref": "2:185",
+      "arabic_text": "فَمَن شَهِدَ مِنكُمُ الشَّهْرَ فَلْيَصُمْهُ",
+      "english": "Whoever witnesses the month (of Ramadan) should fast it",
+      "file": "learn-shahida-05.mp3",
+      "duration": 10.6
+    },
+    {
+      "id": "practice-01",
+      "role": "practice",
+      "root": "شَهِدَ",
+      "form": "الشَّاهِدِينَ",
+      "ref": "3:53",
+      "arabic_text": "رَبَّنَا آمَنَّا بِمَا أَنزَلْتَ وَاتَّبَعْنَا الرَّسُولَ فَاكْتُبْنَا مَعَ الشَّاهِدِينَ",
+      "english": "Our Lord, we believe in what You have sent down and followed the Messenger — so write us among the witnesses",
+      "file": "practice-01.mp3",
+      "duration": 15.4
+    },
+    {
+      "id": "practice-02",
+      "role": "practice",
+      "root": "شَهِدَ",
+      "form": "نَشْهَدُ + يَشْهَدُ",
+      "ref": "63:1",
+      "arabic_text": "إِذَا جَاءَكَ الْمُنَافِقُونَ قَالُوا نَشْهَدُ إِنَّكَ لَرَسُولُ اللَّهِ وَاللَّهُ يَشْهَدُ إِنَّ الْمُنَافِقِينَ لَكَاذِبُونَ",
+      "english": "The hypocrites say: we testify you are Allah's Messenger. But Allah testifies that the hypocrites are liars",
+      "file": "practice-02.mp3",
+      "duration": 25.7
+    },
+    {
+      "id": "practice-03",
+      "role": "practice",
+      "root": "شَهِدَ",
+      "form": "شَهِدَ",
+      "ref": "41:20",
+      "arabic_text": "شَهِدَ عَلَيْهِمْ سَمْعُهُمْ وَأَبْصَارُهُمْ وَجُلُودُهُم بِمَا كَانُوا يَعْمَلُونَ",
+      "english": "Their hearing, their sight, and their skins testified against them for what they used to do",
+      "file": "practice-03.mp3",
+      "duration": 25.1
+    },
+    {
+      "id": "practice-04",
+      "role": "practice",
+      "root": "شَهِدَ",
+      "form": "اشْهَدُوا + الشَّاهِدِينَ",
+      "ref": "3:81",
+      "arabic_text": "قَالَ فَاشْهَدُوا وَأَنَا مَعَكُم مِّنَ الشَّاهِدِينَ",
+      "english": "He said: Then bear witness, and I am with you among the witnesses",
+      "file": "practice-04.mp3",
+      "duration": 11.6
+    },
+    {
+      "id": "practice-05",
+      "role": "practice",
+      "root": "شَهِدَ",
+      "form": "شُهَدَاء",
+      "ref": "4:69",
+      "arabic_text": "مَعَ الَّذِينَ أَنْعَمَ اللَّهُ عَلَيْهِم مِّنَ النَّبِيِّينَ وَالصِّدِّيقِينَ وَالشُّهَدَاءِ وَالصَّالِحِينَ",
+      "english": "With those Allah has blessed — the prophets, the truthful, the witnesses, and the righteous",
+      "file": "practice-05.mp3",
+      "duration": 17.6
+    },
+    {
+      "id": "recall-01",
+      "role": "recall",
+      "root": "شَهِدَ",
+      "form": "اللَّهُمَّ + الشَّهَادَة",
+      "ref": "39:46",
+      "arabic_text": "قُلِ اللَّهُمَّ فَاطِرَ السَّمَاوَاتِ وَالْأَرْضِ عَالِمَ الْغَيْبِ وَالشَّهَادَةِ",
+      "english": "Say: O Allah, Creator of the heavens and earth, Knower of the unseen and the witnessed",
+      "file": "recall-01.mp3",
+      "duration": 19.3
+    },
+    {
+      "id": "recall-02",
+      "role": "recall",
+      "root": "إِلَٰه",
+      "form": "آلِهَة + إِلَٰه",
+      "ref": "38:5",
+      "arabic_text": "أَجَعَلَ الآلِهَةَ إِلَٰهًا وَاحِدًا إِنَّ هَذَا لَشَيْءٌ عُجَابٌ",
+      "english": "Has he made all the gods into one God?! This is astonishing!",
+      "file": "recall-02.mp3",
+      "duration": 24.1
+    },
+    {
+      "id": "recall-03",
+      "role": "recall",
+      "root": "كَبُرَ",
+      "form": "أَكْبَرُ",
+      "ref": "40:57",
+      "arabic_text": "لَخَلْقُ السَّمَاوَاتِ وَالْأَرْضِ أَكْبَرُ مِنْ خَلْقِ النَّاسِ",
+      "english": "The creation of the heavens and earth is greater than the creation of mankind",
+      "file": "recall-03.mp3",
+      "duration": 19.0
+    },
+    {
+      "id": "recall-04",
+      "role": "recall",
+      "root": "كَبُرَ",
+      "form": "كَبِير",
+      "ref": "54:53",
+      "arabic_text": "وَكُلُّ صَغِيرٍ وَكَبِيرٍ مُّسْتَطَرٌ",
+      "english": "Every small and great thing is recorded",
+      "file": "recall-04.mp3",
+      "duration": 13.6
+    },
+    {
+      "id": "recall-05",
+      "role": "recall",
+      "root": "إِلَٰه",
+      "form": "إِلَٰه",
+      "ref": "20:14",
+      "arabic_text": "إِنَّنِي أَنَا اللَّهُ لَا إِلَٰهَ إِلَّا أَنَا فَاعْبُدْنِي وَأَقِمِ الصَّلَاةَ لِذِكْرِي",
+      "english": "Indeed I am Allah — there is no god but Me, so worship Me and establish prayer for My remembrance",
+      "file": "recall-05.mp3",
+      "duration": 17.4
+    }
+  ]
+}

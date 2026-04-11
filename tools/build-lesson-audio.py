@@ -145,14 +145,20 @@ def generate_tts(text: str, output_path: str) -> None:
     voice = random.choice(EDGE_TTS_VOICES)
     display = text[:70] + ("…" if len(text) > 70 else "")
     print(f"    🗣 TTS ({voice.split('-')[2].replace('Neural','')}): \"{display}\"")
-    result = subprocess.run(
-        ["edge-tts", "--voice", voice,
-         "--text", text, "--write-media", output_path],
-        capture_output=True, text=True,
-    )
-    if result.returncode != 0:
-        print(f"  ✗ edge-tts error:\n    {result.stderr.strip()}", file=sys.stderr)
-        raise RuntimeError(f"edge-tts failed for: {text[:50]}")
+    for attempt in range(1, 4):
+        result = subprocess.run(
+            ["edge-tts", "--voice", voice,
+             "--text", text, "--write-media", output_path],
+            capture_output=True, text=True,
+        )
+        if result.returncode == 0:
+            return
+        if attempt < 3:
+            import time
+            print(f"    ⚠ edge-tts attempt {attempt} failed, retrying in 3s…", file=sys.stderr)
+            time.sleep(3)
+    print(f"  ✗ edge-tts error:\n    {result.stderr.strip()}", file=sys.stderr)
+    raise RuntimeError(f"edge-tts failed for: {text[:50]}")
 
 
 def generate_tamil_tts(text: str, output_path: str) -> None:
@@ -160,28 +166,40 @@ def generate_tamil_tts(text: str, output_path: str) -> None:
     voice = random.choice(TAMIL_TTS_VOICES)
     display = text[:70] + ("…" if len(text) > 70 else "")
     print(f"    🗣 Tamil TTS ({voice.split('-')[2]}): \"{display}\"")
-    result = subprocess.run(
-        ["edge-tts", "--voice", voice,
-         "--text", text, "--write-media", output_path],
-        capture_output=True, text=True,
-    )
-    if result.returncode != 0:
-        print(f"  ✗ edge-tts error (Tamil):\n    {result.stderr.strip()}", file=sys.stderr)
-        raise RuntimeError(f"edge-tts (Tamil) failed for: {text[:50]}")
+    for attempt in range(1, 4):
+        result = subprocess.run(
+            ["edge-tts", "--voice", voice,
+             "--text", text, "--write-media", output_path],
+            capture_output=True, text=True,
+        )
+        if result.returncode == 0:
+            return
+        if attempt < 3:
+            import time
+            print(f"    ⚠ edge-tts (Tamil) attempt {attempt} failed, retrying in 3s…", file=sys.stderr)
+            time.sleep(3)
+    print(f"  ✗ edge-tts error (Tamil):\n    {result.stderr.strip()}", file=sys.stderr)
+    raise RuntimeError(f"edge-tts (Tamil) failed for: {text[:50]}")
 
 
 def generate_arabic_tts(text: str, output_path: str) -> None:
     """Generate Arabic TTS audio using edge-tts (for hadith/non-Quranic text)."""
     display = text[:70] + ("…" if len(text) > 70 else "")
     print(f"    🗣 Arabic TTS: \"{display}\"")
-    result = subprocess.run(
-        ["edge-tts", "--voice", "ar-SA-HamedNeural",
-         "--text", text, "--write-media", output_path],
-        capture_output=True, text=True,
-    )
-    if result.returncode != 0:
-        print(f"  ✗ edge-tts error:\n    {result.stderr.strip()}", file=sys.stderr)
-        raise RuntimeError(f"edge-tts (Arabic) failed for: {text[:50]}")
+    for attempt in range(1, 4):
+        result = subprocess.run(
+            ["edge-tts", "--voice", "ar-SA-HamedNeural",
+             "--text", text, "--write-media", output_path],
+            capture_output=True, text=True,
+        )
+        if result.returncode == 0:
+            return
+        if attempt < 3:
+            import time
+            print(f"    ⚠ edge-tts (Arabic) attempt {attempt} failed, retrying in 3s…", file=sys.stderr)
+            time.sleep(3)
+    print(f"  ✗ edge-tts error:\n    {result.stderr.strip()}", file=sys.stderr)
+    raise RuntimeError(f"edge-tts (Arabic) failed for: {text[:50]}")
 
 
 def concat_files(file_list: list, output_path: str, tmpdir: str) -> None:

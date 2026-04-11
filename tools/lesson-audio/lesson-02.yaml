@@ -87,7 +87,12 @@ sentences:
     arabic_source:
       surah: 4
       ayah: 79
-      # Full ayah — 3 words, no trim needed
+      # ✓ Last clause only — words 16-18 (auto-timestamps.py)
+      start: 29.6
+      end: 35.6
+    arabic_source_full:
+      surah: 4
+      ayah: 79
     arabic_text: "وَكَفَىٰ بِاللَّهِ شَهِيدًا"
     english: "Allah is sufficient as Witness"
     tamil: ""
