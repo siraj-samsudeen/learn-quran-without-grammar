@@ -181,6 +181,27 @@ Dropped: `corpus_url`, `fetched_date`, `total_occurrences_in_quran`, per-form `c
 
 **D20 — Form explanations extracted per form** (Q18 / Issue #2). When migrating Lesson 1, each form's bullet-point mini-explanation (currently embedded inside the root-level prose) becomes a standalone `forms[].explanation`. The root `explanation` keeps only the framing paragraphs. Gives D5 its reuse benefit so recall lessons can pull a single form's explanation without dragging the whole root prose.
 
+**D21 — Uniform field names across all levels** (Q26). The same three core field names are used at every level: **`arabic`** / **`english`** / **`notes`**. At each level they mean "the Arabic text at this scope", "the English version at this scope", "the teacher prose at this scope". Level-specific metadata (`transliteration`, `category`, `order`, `scores`, etc.) lives as extra fields alongside.
+
+This amends D11, D12, and D13 with renames:
+
+| Level | Old name | New name |
+|---|---|---|
+| Root | `root_word` | `arabic` |
+| Root | `explanation` | `notes` |
+| Form | `form_arabic` | `arabic` |
+| Form | `gloss` | `english` |
+| Form | `explanation` | `notes` |
+| Verse | `arabic_full` | `arabic` |
+| Verse | `translation` | `english` (raw Saheeh translation from ADR-009 source) |
+| `lesson_use` | `arabic_fragment` | `arabic` |
+| `lesson_use` | `hook` | `notes` |
+| `lesson_use` | *(new)* | `english` (teacher's trimmed fragment English, was previously at verse level) |
+
+`score_notes` stays as a separate verse-level field for now (scoring-specific reasoning vs general verse observations). Revisit if redundant.
+
+Pattern-note absorption (Issue #1) is simplified by D21: pattern notes fold into `lesson_use.notes` of the verse that teaches the pattern. The 3 patterns in `ilah.json` that already have teaching verses (`لَا إِلَٰهَ إِلَّا` in 59:22, `إِلَٰهٌ وَاحِدٌ` in 2:163, `مِنْ إِلَٰهٍ غَيْرُهُ` in 7:59 pipeline) fold into those verses' notes during migration. The 2 orphan patterns (`إِلَٰهَهُ هَوَاهُ`, `أَإِلَٰهٌ مَعَ اللّٰه`) — teacher doesn't remember adding them, possibly clerical mistakes from a previous agent — go into `.workspace/lesson-01-migration-flags.md` for review at computer time, not silently migrated into synthetic verses.
+
 ### Parked for later
 
 - **Three-tier scoring (Q6)** — deferred until Lesson 3 starts. Flat 8-dim scoring stays unchanged for the Lesson 1 migration.
