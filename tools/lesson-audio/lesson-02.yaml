@@ -1,21 +1,295 @@
-# Lesson 02 — Audio Definition (stub)
+# Lesson 02 — Audio Definition
 # Root: شَهِدَ (shahida)
 # Anchor: أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ
 #
 # Structure: 1 anchor (TTS) + 5 learn + 5 practice + 5 recall = 16 total
-# Reciter assignments: see plan at .claude/plans/floating-finding-finch.md
+# Each Quranic phrase uses a DIFFERENT reciter (see ADR-005).
+# Recall phrases 3-5 reuse reciters from learn/practice pool (teacher-approved).
+# See docs/selections/lesson-02.md for selection rationale.
 #
-# STATUS: STUB — timestamps not yet run. Fill in start:/end: after running:
-#   python tools/auto-timestamps.py 5:117 --reciter Alafasy_128kbps
-#   python tools/auto-timestamps.py 2:185 --reciter Hani_Rifai_192kbps
-#   python tools/auto-timestamps.py 3:81 --reciter Abu_Bakr_Ash-Shaatree_128kbps
-#   python tools/find-audio-fragment.py 3:18 --reciter Hudhaify_128kbps
-#   python tools/find-audio-fragment.py 6:19 --reciter Yasser_Ad-Dussary_128kbps
-#   python tools/find-audio-fragment.py 4:69 --reciter MaherAlMuaiqly128kbps
-#   python tools/find-audio-fragment.py 39:46 --reciter Ghamadi_40kbps
+# Audio sources:
+#   arabic_source — trimmed fragment for learning cards (inline on the page)
+#   arabic_source_full — full ayah for review audio (Review in Order / Review Shuffled)
+#   If arabic_source_full is omitted, the build script uses arabic_source for both.
+#
+# Timestamp notes:
+#   ✓ = confirmed via auto-timestamps.py or find-audio-fragment.py
+#   ~ = estimated proportionally from API-supported reciter (needs manual verification)
 
-lesson: lesson-02
-output_dir: assets/audio/lessons/lesson-02
-review_id: lesson-02-full
+lesson_id: lesson-02
+title: "Lesson 2: I Bear Witness"
+slug: lesson-02-shahida
 
-sentences: []
+sentences:
+
+  # ============================================================
+  # ANCHOR — adhān phrase (TTS)
+  # ============================================================
+
+  - id: anchor-shahida
+    role: anchor
+    root: شَهِدَ
+    form: "أَشْهَدُ"
+    ref: "adhan"
+    arabic_source:
+      use_arabic_tts: true
+    arabic_text: "أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ"
+    english: "I bear witness that there is no god but Allah"
+    tamil: ""
+
+  # ============================================================
+  # LEARN — 5 phrases (shahida forms)
+  # ============================================================
+
+  - id: learn-shahida-01
+    role: learn
+    root: شَهِدَ
+    form: "شَهِدَ"
+    ref: "3:18"
+    reciter: Hudhaify_128kbps
+    arabic_source:
+      surah: 3
+      ayah: 18
+      # ✓ First clause only — silence detected at 15.85s (find-audio-fragment.py)
+      end: 16.4
+    arabic_source_full:
+      surah: 3
+      ayah: 18
+    arabic_text: "شَهِدَ اللَّهُ أَنَّهُ لَا إِلَٰهَ إِلَّا هُوَ"
+    english: "Allah bears witness that there is no god but He"
+    tamil: ""
+
+  - id: learn-shahida-02
+    role: learn
+    root: شَهِدَ
+    form: "شَهَادَة + شَهِيد"
+    ref: "6:19"
+    reciter: Yasser_Ad-Dussary_128kbps
+    arabic_source:
+      surah: 6
+      ayah: 19
+      # ~ Estimated: words 1-10 of 38.5s total (no silence detected; verify manually)
+      # Reference: Hani_Rifai words 1-10 end at 10.9s of 41.7s (ratio ~0.26)
+      end: 10.1
+    arabic_source_full:
+      surah: 6
+      ayah: 19
+    arabic_text: "قُلْ أَيُّ شَيْءٍ أَكْبَرُ شَهَادَةً ۖ قُلِ اللَّهُ شَهِيدٌ بَيْنِي وَبَيْنَكُمْ"
+    english: "Say: What is greatest as testimony? Say: Allah is Witness between me and you"
+    tamil: ""
+
+  - id: learn-shahida-03
+    role: learn
+    root: شَهِدَ
+    form: "شَهِيد"
+    ref: "4:79"
+    reciter: Husary_128kbps
+    arabic_source:
+      surah: 4
+      ayah: 79
+      # Full ayah — 3 words, no trim needed
+    arabic_text: "وَكَفَىٰ بِاللَّهِ شَهِيدًا"
+    english: "Allah is sufficient as Witness"
+    tamil: ""
+
+  - id: learn-shahida-04
+    role: learn
+    root: شَهِدَ
+    form: "شَهِيد"
+    ref: "5:117"
+    reciter: Alafasy_128kbps
+    arabic_source:
+      surah: 5
+      ayah: 117
+      # ✓ Drop fa-lamma tawaffaytani onward — words 13-18 (auto-timestamps.py)
+      start: 11.7
+      end: 18.3
+    arabic_source_full:
+      surah: 5
+      ayah: 117
+    arabic_text: "وَكُنتُ عَلَيْهِمْ شَهِيدًا مَّا دُمْتُ فِيهِمْ"
+    english: "And I was a witness over them while I was among them"
+    tamil: ""
+
+  - id: learn-shahida-05
+    role: learn
+    root: شَهِدَ
+    form: "شَهِدَ"
+    ref: "2:185"
+    reciter: Hani_Rifai_192kbps
+    arabic_source:
+      surah: 2
+      ayah: 185
+      # ✓ Middle clause only — fa-man shahida minkum al-shahr fa-l-yasumuhu (auto-timestamps.py)
+      start: 14.9
+      end: 20.5
+    arabic_source_full:
+      surah: 2
+      ayah: 185
+    arabic_text: "فَمَن شَهِدَ مِنكُمُ الشَّهْرَ فَلْيَصُمْهُ"
+    english: "Whoever witnesses the month (of Ramadan) should fast it"
+    tamil: ""
+
+  # ============================================================
+  # PRACTICE — 5 phrases (shahida forms, shortest to longest)
+  # ============================================================
+
+  - id: practice-01
+    role: practice
+    root: شَهِدَ
+    form: "الشَّاهِدِينَ"
+    ref: "3:53"
+    reciter: Abdurrahmaan_As-Sudais_192kbps
+    arabic_source:
+      surah: 3
+      ayah: 53
+      # Full ayah — 14 words
+    arabic_text: "رَبَّنَا آمَنَّا بِمَا أَنزَلْتَ وَاتَّبَعْنَا الرَّسُولَ فَاكْتُبْنَا مَعَ الشَّاهِدِينَ"
+    english: "Our Lord, we believe in what You have sent down and followed the Messenger — so write us among the witnesses"
+    tamil: ""
+
+  - id: practice-02
+    role: practice
+    root: شَهِدَ
+    form: "نَشْهَدُ + يَشْهَدُ"
+    ref: "63:1"
+    reciter: Abdullaah_3awwaad_Al-Juhaynee_128kbps
+    arabic_source:
+      surah: 63
+      ayah: 1
+      # Full ayah — 17 words
+    arabic_text: "إِذَا جَاءَكَ الْمُنَافِقُونَ قَالُوا نَشْهَدُ إِنَّكَ لَرَسُولُ اللَّهِ وَاللَّهُ يَشْهَدُ إِنَّ الْمُنَافِقِينَ لَكَاذِبُونَ"
+    english: "The hypocrites say: we testify you are Allah's Messenger. But Allah testifies that the hypocrites are liars"
+    tamil: ""
+
+  - id: practice-03
+    role: practice
+    root: شَهِدَ
+    form: "شَهِدَ"
+    ref: "41:20"
+    reciter: Abdul_Basit_Murattal_192kbps
+    arabic_source:
+      surah: 41
+      ayah: 20
+      # Full ayah — 9 words
+    arabic_text: "شَهِدَ عَلَيْهِمْ سَمْعُهُمْ وَأَبْصَارُهُمْ وَجُلُودُهُم بِمَا كَانُوا يَعْمَلُونَ"
+    english: "Their hearing, their sight, and their skins testified against them for what they used to do"
+    tamil: ""
+
+  - id: practice-04
+    role: practice
+    root: شَهِدَ
+    form: "اشْهَدُوا + الشَّاهِدِينَ"
+    ref: "3:81"
+    reciter: Abu_Bakr_Ash-Shaatree_128kbps
+    arabic_source:
+      surah: 3
+      ayah: 81
+      # ✓ Drop long preamble — closing clause qala fa-shhadu only (auto-timestamps.py)
+      start: 36.0
+      end: 42.0
+    arabic_source_full:
+      surah: 3
+      ayah: 81
+    arabic_text: "قَالَ فَاشْهَدُوا وَأَنَا مَعَكُم مِّنَ الشَّاهِدِينَ"
+    english: "He said: Then bear witness, and I am with you among the witnesses"
+    tamil: ""
+
+  - id: practice-05
+    role: practice
+    root: شَهِدَ
+    form: "شُهَدَاء"
+    ref: "4:69"
+    reciter: MaherAlMuaiqly128kbps
+    arabic_source:
+      surah: 4
+      ayah: 69
+      # ~ Estimated: drop opening conditional, keep four-ranks clause (no silence detected)
+      # Reference: Husary words 6-15 span 8.6-27.1s of 37.5s (Maher total: 22.7s)
+      start: 5.2
+      end: 16.4
+    arabic_source_full:
+      surah: 4
+      ayah: 69
+    arabic_text: "مَعَ الَّذِينَ أَنْعَمَ اللَّهُ عَلَيْهِم مِّنَ النَّبِيِّينَ وَالصِّدِّيقِينَ وَالشُّهَدَاءِ وَالصَّالِحِينَ"
+    english: "With those Allah has blessed — the prophets, the truthful, the witnesses, and the righteous"
+    tamil: ""
+
+  # ============================================================
+  # RECALL — 5 phrases (ilah + kabura roots from Lesson 1)
+  # Recall-03, 04, 05 reuse reciters from learn/practice pool (teacher-approved).
+  # ============================================================
+
+  - id: recall-01
+    role: recall
+    root: شَهِدَ
+    form: "اللَّهُمَّ + الشَّهَادَة"
+    ref: "39:46"
+    reciter: Ghamadi_40kbps
+    arabic_source:
+      surah: 39
+      ayah: 46
+      # ✓ First clause only — drop anta tahkumu (find-audio-fragment.py)
+      end: 12.3
+    arabic_source_full:
+      surah: 39
+      ayah: 46
+    arabic_text: "قُلِ اللَّهُمَّ فَاطِرَ السَّمَاوَاتِ وَالْأَرْضِ عَالِمَ الْغَيْبِ وَالشَّهَادَةِ"
+    english: "Say: O Allah, Creator of the heavens and earth, Knower of the unseen and the witnessed"
+    tamil: ""
+
+  - id: recall-02
+    role: recall
+    root: إِلَٰه
+    form: "آلِهَة + إِلَٰه"
+    ref: "38:5"
+    reciter: Abdul_Basit_Mujawwad_128kbps
+    arabic_source:
+      surah: 38
+      ayah: 5
+      # Full ayah — 8 words
+    arabic_text: "أَجَعَلَ الآلِهَةَ إِلَٰهًا وَاحِدًا إِنَّ هَذَا لَشَيْءٌ عُجَابٌ"
+    english: "Has he made all the gods into one God?! This is astonishing!"
+    tamil: ""
+
+  - id: recall-03
+    role: recall
+    root: كَبُرَ
+    form: "أَكْبَرُ"
+    ref: "40:57"
+    reciter: Alafasy_128kbps
+    arabic_source:
+      surah: 40
+      ayah: 57
+      # Full ayah — 8 words (Alafasy reuse — teacher-approved for recall overflow)
+    arabic_text: "لَخَلْقُ السَّمَاوَاتِ وَالْأَرْضِ أَكْبَرُ مِنْ خَلْقِ النَّاسِ"
+    english: "The creation of the heavens and earth is greater than the creation of mankind"
+    tamil: ""
+
+  - id: recall-04
+    role: recall
+    root: كَبُرَ
+    form: "كَبِير"
+    ref: "54:53"
+    reciter: Husary_128kbps
+    arabic_source:
+      surah: 54
+      ayah: 53
+      # Full ayah — 4 words (Husary reuse — teacher-approved for recall overflow)
+    arabic_text: "وَكُلُّ صَغِيرٍ وَكَبِيرٍ مُّسْتَطَرٌ"
+    english: "Every small and great thing is recorded"
+    tamil: ""
+
+  - id: recall-05
+    role: recall
+    root: إِلَٰه
+    form: "إِلَٰه"
+    ref: "20:14"
+    reciter: Abdurrahmaan_As-Sudais_192kbps
+    arabic_source:
+      surah: 20
+      ayah: 14
+      # Full ayah — 12 words (As-Sudais reuse — teacher-approved for recall overflow)
+    arabic_text: "إِنَّنِي أَنَا اللَّهُ لَا إِلَٰهَ إِلَّا أَنَا فَاعْبُدْنِي وَأَقِمِ الصَّلَاةَ لِذِكْرِي"
+    english: "Indeed I am Allah — there is no god but Me, so worship Me and establish prayer for My remembrance"
+    tamil: ""
