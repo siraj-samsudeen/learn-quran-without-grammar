@@ -65,4 +65,4 @@ Run this checklist **before every commit** of a new or modified lesson.
 - [ ] Lesson card updated in `index.md`
 - [ ] Selection log updated in `docs/selections/lesson-NN.md`
 - [ ] `pipeline.md` updated with any deferred phrases
-- [ ] `python tools/validate-lesson-consistency.py lesson-NN` passes
+- [ ] `tools/validate-lesson.sh lesson-NN` passes *(same checks as the pre-commit hook, run here for early feedback during authoring — don't wait for the commit to fail)*

@@ -205,7 +205,11 @@ learn-quran-without-grammar/
 │   ├── fetch-verses.py              ← Legacy ad-hoc verse fetch (no longer on critical path)
 │   ├── generate-tts.sh              ← Single-sentence English TTS
 │   ├── generate-tts-batch.py        ← Batch English TTS generation
-│   ├── pre-commit-hook.sh           ← Auto-validates lessons before commit
+│   ├── install-hooks.sh             ← First-time setup: venv + git hooks (run once per clone)
+│   ├── requirements.txt             ← Python deps for hooks/validator
+│   ├── validate-lesson.sh           ← Wrapper that runs the validator in tools/.venv
+│   ├── hooks/
+│   │   └── pre-commit               ← Tracked git hook — activated via `core.hooksPath`
 │   └── lesson-audio/
 │       └── lesson-01.yaml           ← Audio definition for Lesson 1
 ├── assets/
@@ -220,6 +224,16 @@ learn-quran-without-grammar/
 ├── index.md, course_intro.md, how-to-study.md
 └── _config.yml
 ```
+
+---
+
+## First-Time Setup (per clone)
+
+```bash
+tools/install-hooks.sh   # creates tools/.venv, installs deps, wires git hooks
+```
+
+Run once after `git clone`. Idempotent — safe to re-run if deps change or the venv is nuked. Without this, the pre-commit validator silently fails to load (`ModuleNotFoundError: yaml`) and lesson consistency checks don't run.
 
 ---
 

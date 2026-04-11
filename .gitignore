@@ -16,3 +16,4 @@ vendor/
 assets/audio/lessons/*/.cache/
 assets/audio/lessons/test-*/
 tools/__pycache__/
+tools/.venv/

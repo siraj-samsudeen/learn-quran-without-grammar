@@ -1,6 +1,8 @@
 #!/bin/bash
-# Pre-commit hook: validates lesson files before committing
-# Install: cp tools/pre-commit-hook.sh .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
+# Pre-commit hook: validates lesson files before committing.
+# Activated by: tools/install-hooks.sh (sets core.hooksPath = tools/hooks)
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
 
 # Find which lessons were modified in this commit (only .md files — skip pickers, images, etc.)
 MODIFIED_LESSONS=$(git diff --cached --name-only | grep '^lessons/.*\.md$' | sed 's|lessons/lesson-\([0-9]*\).*|lesson-\1|' | sort -u)
@@ -13,17 +15,12 @@ FAILED=0
 
 for lesson in $MODIFIED_LESSONS; do
     echo "🔍 Validating $lesson..."
-    
-    if [ -f "tools/validate-lesson-consistency.py" ]; then
-        python3 tools/validate-lesson-consistency.py "$lesson"
-        if [ $? -ne 0 ]; then
-            echo "❌ Validation failed for $lesson"
-            FAILED=1
-        else
-            echo "✅ $lesson passed validation"
-        fi
+
+    if "$REPO_ROOT/tools/validate-lesson.sh" "$lesson"; then
+        echo "✅ $lesson passed validation"
     else
-        echo "⚠️  validate-lesson-consistency.py not found, skipping validation"
+        echo "❌ Validation failed for $lesson"
+        FAILED=1
     fi
 done
 
