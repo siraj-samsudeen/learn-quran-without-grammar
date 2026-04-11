@@ -2,6 +2,7 @@
 layout: default
 title: "Lesson 1 — Prep Dashboard"
 description: "Teacher review dashboard for Lesson 1 — all verse content, roots, and audio in one place for verification."
+permalink: /teacher/lesson-01/
 ---
 {%- assign audio_base = "/assets/audio/lessons/lesson-01" -%}
 {%- assign ilah = site.data.roots.ilah -%}
