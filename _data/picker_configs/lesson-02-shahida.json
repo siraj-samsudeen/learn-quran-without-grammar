@@ -1,0 +1,26 @@
+{
+  "lesson_number": 2,
+  "slug": "lesson-02-shahida",
+  "title": "Lesson 2: I Bear Witness",
+  "description": "The root behind the shahada — shahida (to witness) — through 10 Qur'anic phrases plus 5 Recall verses from Lesson 1.",
+  "seed_phrase": {
+    "arabic": "أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ",
+    "english": "I bear witness that there is no god but Allah"
+  },
+  "current_roots": [
+    "shahida"
+  ],
+  "recall_roots": [
+    "ilah",
+    "kabura"
+  ],
+  "targets": {
+    "anchor": 1,
+    "learn": 5,
+    "practice": 5,
+    "recall": 5
+  },
+  "opening": "",
+  "closing": "",
+  "whats_next": ""
+}

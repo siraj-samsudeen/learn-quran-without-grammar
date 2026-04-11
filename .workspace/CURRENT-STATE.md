@@ -53,7 +53,7 @@ While Session 3 was running through design questions, a parallel Sonnet session 
 
 4. **Update `_config.yml` Jekyll excludes** per D28: wildcards `lessons/*/*.{json,yaml,html}` + `.workspace/`. Drop the existing per-file `lessons/*/picker.html` line (superseded).
 
-5. **Build the shared picker app** at `/picker/`. Per D27-revised: static HTML+JS, Liquid `jsonify` bakes `_data/` into `window.pickerData` at build time, writes via browser download + manual file move. **No PAT. No GitHub API. No auth flow.**
+5. **Build the shared picker app** at `/picker/`. Per D27-revised: static HTML+JS, Liquid `jsonify` bakes `_data/` into `window.pickerData` at build time, writes via browser download + manual file move. **No PAT. No GitHub API. No auth flow.** **Scope reframing (session 3.1):** now that the prep dashboard at `/teacher/lesson-01/` exists and absorbs the "verify lesson state" read-only need, the picker's priority should narrow to the **WRITE path only** — authoring a new lesson from scratch, editing `lesson_use` assignments, producing envelope JSON for the apply script. The read-only inspection use case is already served by the prep dashboard. This reframes the picker as a narrower, more focused interactive tool. Revisit scope next session once the teacher has used the prep view a few times and knows what's missing from the write path vs the read path.
 
 6. **Build `tools/apply-picker-inbox.py`** per D23–D26. Pull-rebase → process each inbox file (one commit per file, quarantine on error) → single push at end.
 

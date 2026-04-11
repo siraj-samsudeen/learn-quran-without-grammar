@@ -5,6 +5,8 @@ description: "Teacher review dashboard for Lesson 1 — all verse content, roots
 permalink: /teacher/lesson-01/
 ---
 {%- assign audio_base = "/assets/audio/lessons/lesson-01" -%}
+{%- assign audio_data = site.data.audio["lesson-01"] -%}
+{%- assign cfg = site.data.picker_configs["lesson-01-allahu-akbar-copy"] -%}
 {%- assign ilah = site.data.roots.ilah -%}
 {%- assign kabura = site.data.roots.kabura -%}
 {%- assign v_59_22  = site.data.verses["059"]["59:22"]  -%}
@@ -29,6 +31,50 @@ permalink: /teacher/lesson-01/
   <a href="{{ '/lessons/lesson-01-allahu-akbar-copy/' | relative_url }}">Student view (new copy)</a> &nbsp;·&nbsp;
   <a href="{{ '/lessons/lesson-01-allahu-akbar' | relative_url }}">Student view (production)</a>
 </p>
+
+---
+
+## Lesson metadata (picker-config)
+
+Sourced from `lessons/lesson-01-allahu-akbar-copy/picker-config.json` via the build-time sync (`tools/sync-picker-configs-to-data.py`).
+
+{% if cfg %}
+<table class="prep-table">
+<tr><th>Lesson number</th><td>{{ cfg.lesson_number }}</td></tr>
+<tr><th>Slug</th><td><code>{{ cfg.slug }}</code></td></tr>
+<tr><th>Title</th><td>{{ cfg.title }}</td></tr>
+<tr><th>Description</th><td>{{ cfg.description }}</td></tr>
+<tr><th>Seed phrase (Arabic)</th><td dir="rtl" lang="ar">{{ cfg.seed_phrase.arabic }}</td></tr>
+<tr><th>Seed phrase (English)</th><td>{{ cfg.seed_phrase.english }}</td></tr>
+<tr><th>Current roots</th><td>{{ cfg.current_roots | join: ", " }}</td></tr>
+<tr><th>Recall roots</th><td>{{ cfg.recall_roots | join: ", " | default: "— (none)" }}</td></tr>
+<tr><th>Targets</th><td>anchor: {{ cfg.targets.anchor }}, learn: {{ cfg.targets.learn }}, practice: {{ cfg.targets.practice }}, recall: {{ cfg.targets.recall }}</td></tr>
+</table>
+
+<details>
+<summary><strong>Opening prose</strong> ({{ cfg.opening | size }} chars)</summary>
+<div markdown="1">
+{{ cfg.opening }}
+</div>
+</details>
+
+<details>
+<summary><strong>Closing prose</strong> ({{ cfg.closing | size }} chars)</summary>
+<div markdown="1">
+{{ cfg.closing }}
+</div>
+</details>
+
+<details>
+<summary><strong>What's Next prose</strong> ({{ cfg.whats_next | size }} chars)</summary>
+<div markdown="1">
+{{ cfg.whats_next }}
+</div>
+</details>
+
+{% else %}
+<p><em>picker-config not yet synced into <code>_data/picker_configs/</code>. Run <code>tools/.venv/bin/python tools/sync-picker-configs-to-data.py</code>.</em></p>
+{% endif %}
 
 ---
 
@@ -84,33 +130,33 @@ Click each row to expand full verse data including an inline audio player.
 
 ### Anchor phrases (2)
 
-{% include prep-verse.html verse=v_59_22 audio_base=audio_base %}
+{% include prep-verse.html verse=v_59_22 audio_base=audio_base audio_data=audio_data %}
 
-{% include prep-verse.html verse=v_teach audio_base=audio_base %}
+{% include prep-verse.html verse=v_teach audio_base=audio_base audio_data=audio_data %}
 
 ### Learn phrases (5)
 
-{% include prep-verse.html verse=v_6_74 audio_base=audio_base %}
+{% include prep-verse.html verse=v_6_74 audio_base=audio_base audio_data=audio_data %}
 
-{% include prep-verse.html verse=v_3_26 audio_base=audio_base %}
+{% include prep-verse.html verse=v_3_26 audio_base=audio_base audio_data=audio_data %}
 
-{% include prep-verse.html verse=v_79_20 audio_base=audio_base %}
+{% include prep-verse.html verse=v_79_20 audio_base=audio_base audio_data=audio_data %}
 
-{% include prep-verse.html verse=v_61_3 audio_base=audio_base %}
+{% include prep-verse.html verse=v_61_3 audio_base=audio_base audio_data=audio_data %}
 
-{% include prep-verse.html verse=v_2_34 audio_base=audio_base %}
+{% include prep-verse.html verse=v_2_34 audio_base=audio_base audio_data=audio_data %}
 
 ### Practice phrases (5)
 
-{% include prep-verse.html verse=v_29_45 audio_base=audio_base %}
+{% include prep-verse.html verse=v_29_45 audio_base=audio_base audio_data=audio_data %}
 
-{% include prep-verse.html verse=v_18_5 audio_base=audio_base %}
+{% include prep-verse.html verse=v_18_5 audio_base=audio_base audio_data=audio_data %}
 
-{% include prep-verse.html verse=v_21_63 audio_base=audio_base %}
+{% include prep-verse.html verse=v_21_63 audio_base=audio_base audio_data=audio_data %}
 
-{% include prep-verse.html verse=v_2_163 audio_base=audio_base %}
+{% include prep-verse.html verse=v_2_163 audio_base=audio_base audio_data=audio_data %}
 
-{% include prep-verse.html verse=v_41_15 audio_base=audio_base %}
+{% include prep-verse.html verse=v_41_15 audio_base=audio_base audio_data=audio_data %}
 
 ---
 

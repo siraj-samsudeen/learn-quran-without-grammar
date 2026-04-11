@@ -1,0 +1,24 @@
+{
+  "lesson_number": 1,
+  "slug": "lesson-01-allahu-akbar",
+  "title": "Lesson 1: Allahu Akbar",
+  "description": "Two root words behind Allahu Akbar — ilah (god) and kabura (greatness).",
+  "seed_phrase": {
+    "arabic": "اللهُ أَكْبَرُ",
+    "english": "Allah is Greater"
+  },
+  "current_roots": [
+    "ilah",
+    "kabura"
+  ],
+  "recall_roots": [],
+  "targets": {
+    "anchor": 2,
+    "learn": 5,
+    "practice": 5,
+    "recall": 0
+  },
+  "opening": "In this series of lessons, we will walk through each of the sentences in the Adhan (Call to prayer) and use the words there as our **hooks** to get into the Quran using the beautiful concept of **roots** in Arabic language.",
+  "closing": "This lesson moved through one question — *what is truly great?* The first root asked what you worship. The second asked what you consider great. The Qur'an's answer came in the voice of prophets, in the fall of Iblīs, and in the phrase you already carry: **اللهُ أَكْبَرُ**.\n\nYou started this lesson knowing two words. Now you have met the roots behind them — in Ibrāhīm's challenge to his father, in the greatest sign shown to Pharaoh, in the arrogance of Iblīs, and in that beautiful phrase: *the remembrance of Allah is greater.*\n\nFrom now on, listen for these roots. When you stand in ṣalāh and hear the Qur'an recited, notice any word that sounds like **إِلَٰه** or **كَبُرَ**. When you hear the adhān, when you read Qur'an, even when you hear Arabic anywhere — see if you can spot a word from these two families. You will be surprised how often they appear. That moment of recognition — *\"I know this word!\"* — is exactly what we are building, one root at a time.",
+  "whats_next": "In the next lesson, we'll take the second phrase of the adhān — **أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ** — and you'll discover that the word **أَشْهَدُ** doesn't just mean \"I testify.\" Its root will take you somewhere unexpected."
+}

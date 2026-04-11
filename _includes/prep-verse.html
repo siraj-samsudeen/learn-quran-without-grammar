@@ -2,14 +2,21 @@
 prep-verse.html — teacher prep-dashboard view of a single verse.
 
 Renders a collapsible <details> block showing every field in the
-verse's lesson_use plus the verse-level metadata (full arabic,
-full english, roots, forms, score notes). Includes an inline
-audio player.
+verse's lesson_use plus verse-level metadata (full arabic, full
+english, roots, forms, score notes) and audio metadata from
+site.data.audio.* (reciter, trim timestamps, EN/TA durations).
+
+Audio metadata is looked up by the audio file's base name
+(e.g. "anchor-ilah.mp3" → "anchor-ilah") against
+include.audio_data.sentences[id].
 
 Parameters:
   include.verse       — the verse object from site.data.verses.*
   include.audio_base  — audio directory (e.g. "/assets/audio/lessons/lesson-01")
+  include.audio_data  — site.data.audio["lesson-NN"] (from sync-audio-to-data.py)
 {% endcomment -%}
+{%- assign audio_id = include.verse.lesson_use.audio_file | default: "" | replace: ".mp3", "" -%}
+{%- assign audio_meta = include.audio_data.sentences[audio_id] -%}
 <details class="prep-verse">
 <summary>
 <strong>{{ include.verse.lesson_use.heading | default: "(no heading)" }}</strong>
@@ -17,6 +24,7 @@ Parameters:
 &nbsp;·&nbsp; section: <code>{{ include.verse.lesson_use.section | default: "—" }}</code>
 {%- if include.verse.lesson_use.is_anchor %} &nbsp;·&nbsp; <strong>anchor</strong>{% endif -%}
 {%- if include.verse.lesson_use.order %} &nbsp;·&nbsp; order {{ include.verse.lesson_use.order }}{% endif -%}
+{%- if audio_meta.duration %} &nbsp;·&nbsp; {{ audio_meta.duration }}s{% endif -%}
 </summary>
 
 <table class="prep-table">
@@ -25,10 +33,6 @@ Parameters:
 <tr><th>Trimmed Arabic (card)</th><td dir="rtl" lang="ar">{{ include.verse.lesson_use.arabic | default: "—" }}</td></tr>
 <tr><th>Trimmed English (card)</th><td>{{ include.verse.lesson_use.english | default: "—" }}</td></tr>
 <tr><th>Student hook (notes)</th><td>{{ include.verse.lesson_use.notes | default: "—" }}</td></tr>
-<tr><th>Audio file</th><td><code>{{ include.verse.lesson_use.audio_file | default: "—" }}</code></td></tr>
-{%- if include.verse.lesson_use.audio_file %}
-<tr><th>Audio player</th><td><audio controls preload="none" src="{{ include.audio_base | append: '/' | append: include.verse.lesson_use.audio_file | relative_url }}"></audio></td></tr>
-{%- endif %}
 <tr><th>Roots taught</th><td>{{ include.verse.roots | join: ", " }}</td></tr>
 <tr><th>Forms taught</th><td dir="rtl" lang="ar">{{ include.verse.forms | join: "، " }}</td></tr>
 <tr><th>Score notes</th><td>{{ include.verse.score_notes | default: "—" }}</td></tr>
@@ -47,6 +51,21 @@ fit_practice: {{ include.verse.scores.fit_practice }}
 {%- endif %}
 {%- if include.verse.lesson_use.rejection_reason %}
 <tr><th>Rejection reason</th><td>{{ include.verse.lesson_use.rejection_reason }}</td></tr>
+{%- endif %}
+<tr><th colspan="2" style="padding-top:0.8em;"><em>— Audio metadata —</em></th></tr>
+<tr><th>Audio file</th><td><code>{{ include.verse.lesson_use.audio_file | default: "—" }}</code></td></tr>
+{%- if include.verse.lesson_use.audio_file %}
+<tr><th>English player</th><td><audio controls preload="none" src="{{ include.audio_base | append: '/' | append: include.verse.lesson_use.audio_file | relative_url }}"></audio></td></tr>
+{%- endif %}
+{%- if audio_meta %}
+<tr><th>Reciter</th><td><code>{{ audio_meta.reciter | default: "— (TTS, no reciter)" }}</code></td></tr>
+<tr><th>Trim timestamps</th><td>start: {{ audio_meta.trim_start | default: "—" }}, end: {{ audio_meta.trim_end | default: "—" }} {% if audio_meta.has_full_ayah %}(full ayah also available){% endif %}</td></tr>
+<tr><th>Duration (EN)</th><td>{{ audio_meta.duration | default: "—" }}s</td></tr>
+{%- if audio_meta.duration_tamil %}
+<tr><th>Duration (TA)</th><td>{{ audio_meta.duration_tamil }}s &nbsp;·&nbsp; file: <code>{{ audio_meta.file_tamil }}</code></td></tr>
+{%- endif %}
+{%- else %}
+<tr><th>Audio metadata</th><td><em>Not in site.data.audio — run <code>tools/sync-audio-to-data.py lesson-NN</code> to refresh.</em></td></tr>
 {%- endif %}
 </table>
 </details>
