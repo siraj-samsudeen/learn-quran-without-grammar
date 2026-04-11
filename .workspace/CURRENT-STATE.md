@@ -47,6 +47,8 @@ Earlier drafts proposed `.gitignore` rules like `.workspace/**/*.html` because H
 - The `.gitignore` step in the draft `picker_generator.md` must be inverted (or removed). Do NOT add `.workspace/**/*.html` to `.gitignore`.
 - The `lesson_authoring_workflow.md` line "HTML files are gitignored (generated from JSONs)" is wrong and must be corrected when the prompt is saved to disk.
 
+**Additional constraint — do NOT modify `.gitignore` in this session.** The teacher's other computer has unpushed `.workspace/` changes. Any `.gitignore` edit from this session could collide with those changes when they get pushed. The `.gitignore` file stays untouched until the multi-device state converges. Decisions about what (if anything) to ignore inside `.workspace/` can only be made after everything is on the same branch.
+
 ### D3 — Lesson authoring glossary established _(2026-04-11)_
 
 See `docs/GLOSSARY.md`. Key terms: **target phrase** (Level 0), **root**, **form**, **anchor phrase** (flag `is_anchor: true` on a learn entry), **learn / practice / recall / pipeline** sections. Hard constraints: exactly one anchor per form, exactly 5 learn phrases per lesson regardless of form count.
