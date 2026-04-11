@@ -12,6 +12,12 @@ Live site: **https://siraj-samsudeen.github.io/learn-quran-without-grammar/**
 
 ---
 
+## Collaboration Conventions
+
+- **Ask questions one at a time — adaptively.** Never present a batched list of questions. Never pre-write a list of questions you intend to ask and drip-feed them. The teacher often answers from a phone and should not have to scroll. Each answer should genuinely shape the next question: ask Q1, wait, think about what the answer means, then decide what Q2 should be (which may be different from whatever Q2 you would have pre-written). Don't preview upcoming questions in the same response as the current one. This applies to clarifying questions, design decisions, architectural choices, and any other interactive point where the teacher needs to reply.
+
+---
+
 ## ⚠️ Common Mistakes
 
 - **Never reuse timings across reciters** — `#t=` fragments are reciter-specific. Run `tools/auto-timestamps.py` or `tools/find-audio-fragment.py` when changing reciters.
