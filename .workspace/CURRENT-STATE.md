@@ -13,18 +13,44 @@ _Last updated: 2026-04-11. Captured during an architecture rethink session._
 
 ## Implications for the in-flight architecture work
 
-The `picker_generator.md` and `lesson_authoring_workflow.md` prompts in `docs/prompts/` were written assuming:
+The `picker_generator.md` and `lesson_authoring_workflow.md` prompts (drafts pasted in chat, not yet committed to `docs/prompts/`) were written assuming:
 
 - Lesson 3 (rasul, 429 null-scored candidates) was the primary use case for the new picker
 - Lesson 2 was a "regression test" with 20 scored shahida candidates already done
 - "The new workflow applies to Lesson 3 onwards; Lessons 1 and 2 stay where they are"
+- `.workspace/**/*.html` would be gitignored (HTML treated as derived artifact)
 
-**That framing is wrong for the actual state.** Lesson 2 is the lesson the tooling needs to unblock first. The new `.workspace/lesson-02/` is the directory that matters, not `.workspace/lesson-03/`. Any "historical record" framing of `.claude/tmp/lesson-02-picker.html` also needs revisiting — it's the teacher's in-progress picker, not an archival file.
+**That framing is wrong for the actual state.** See decisions D1 and D2 below.
 
 ## Status of the prompts themselves
 
-Neither prompt has been executed. No `.workspace/`, no `tools/lesson-workflow.py`, no template upgrades have happened yet. The architecture is still on paper.
+Neither prompt exists as a file. They were pasted into chat as drafts and have not yet been saved to `docs/prompts/`. No `.workspace/` work has been executed. No `tools/lesson-workflow.py`. No template upgrades. The architecture is still on paper — decisions made during this rethink will shape the prompts when they get written.
+
+## Architectural decisions (rolling log)
+
+### D1 — Lesson 2 is the priority, not Lesson 3 _(2026-04-11)_
+
+Lesson 2 is mid-flight at phrase-picking. The new tooling needs to unblock Lesson 2 first. The new `.workspace/lesson-02/` is the directory that matters. Any "historical record" framing of `.claude/tmp/lesson-02-picker.html` must be revisited — it's the teacher's in-progress picker, not an archival file.
+
+### D2 — Nothing in `.workspace/` is gitignored _(2026-04-11)_
+
+Earlier drafts proposed `.gitignore` rules like `.workspace/**/*.html` because HTML was considered a derived artifact. **Overridden.** Every file in `.workspace/` — HTML, JSON, Markdown, YAML, backups, everything — is committed to git.
+
+**Rationale:**
+1. **Multi-device work.** The teacher works on lessons from multiple computers. Git is the sync layer; anything not committed is unavailable on the other machine.
+2. **Phone workflow.** On a phone, the teacher can't run the Python generator that produces the HTML from JSON. On a phone, the HTML *is* the source, not a derived artifact. Gitignoring it would break the phone pathway that the whole architecture exists to enable.
+3. **Lesson 2 in particular** must be visible everywhere. Half-finished picker state sitting on one laptop is exactly the failure mode this decision prevents.
+
+**Revisit when:** a lesson is fully done. At that point we can consider what (if anything) to gitignore for archival cleanup. Until then: commit everything.
+
+**Implications for the pending prompts:**
+- The `.gitignore` step in the draft `picker_generator.md` must be inverted (or removed). Do NOT add `.workspace/**/*.html` to `.gitignore`.
+- The `lesson_authoring_workflow.md` line "HTML files are gitignored (generated from JSONs)" is wrong and must be corrected when the prompt is saved to disk.
+
+### D3 — Lesson authoring glossary established _(2026-04-11)_
+
+See `docs/GLOSSARY.md`. Key terms: **target phrase** (Level 0), **root**, **form**, **anchor phrase** (flag `is_anchor: true` on a learn entry), **learn / practice / recall / pipeline** sections. Hard constraints: exactly one anchor per form, exactly 5 learn phrases per lesson regardless of form count.
 
 ## Next
 
-The teacher is rethinking the architecture one step at a time. This file is a scratch pad for that session — update as decisions land. Nothing here is committed yet.
+The teacher is rethinking the architecture one step at a time. This file is the rolling log — append new decisions below D3 as they land.
