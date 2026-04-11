@@ -57,6 +57,35 @@
       "rejection_reason": null
     }
   },
+  "2:185": {
+    "ref": "2:185",
+    "arabic": "شَهْرُ رَمَضَانَ الَّذِي أُنزِلَ فِيهِ الْقُرْآنُ هُدًى لِّلنَّاسِ وَبَيِّنَاتٍ مِّنَ الْهُدَى وَالْفُرْقَانِ فَمَن شَهِدَ مِنكُمُ الشَّهْرَ فَلْيَصُمْهُ",
+    "english": "The month of Ramadan is that in which the Quran was revealed as guidance for mankind — clear proofs of guidance and the criterion. So whoever among you witnesses the month, let him fast it.",
+    "roots": ["shahida"],
+    "forms": ["شَهِدَ"],
+    "scores": {
+      "curriculum": 2,
+      "length": 1,
+      "story": 0,
+      "worship": 3,
+      "surah_familiarity": 2,
+      "completeness": 1,
+      "emotion": 1,
+      "fit_learn": 1,
+      "fit_practice": 0
+    },
+    "score_notes": "Ramadan verse. Extends shahida — here it means to be present during / to witness (the month), not legal testimony. Short and connected to a practice every Muslim does.",
+    "lesson_use": {
+      "lesson": 2,
+      "section": "learn",
+      "is_anchor": false,
+      "order": 5,
+      "arabic": "فَمَن شَهِدَ مِنكُمُ الشَّهْرَ فَلْيَصُمْهُ",
+      "english": "Whoever witnesses the month (of Ramadan) should fast it",
+      "notes": "Ramadan verse. Extends the meaning of shahida — here not legal testimony but to be present during / to witness (the month). Teaches that the same root carries multiple shades of witnessing.",
+      "rejection_reason": null
+    }
+  },
   "2:219": {
     "ref": "2:219",
     "arabic": "يَسْـَٔلُونَكَ عَنِ ٱلْخَمْرِ وَٱلْمَيْسِرِ ۖ قُلْ فِيهِمَآ إِثْمٌ كَبِيرٌ وَمَنَـٰفِعُ لِلنَّاسِ وَإِثْمُهُمَآ أَكْبَرُ مِن نَّفْعِهِمَا",

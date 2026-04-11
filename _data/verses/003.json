@@ -33,7 +33,7 @@
     "arabic": "شَهِدَ ٱللَّهُ أَنَّهُۥ لَآ إِلَـٰهَ إِلَّا هُوَ وَٱلْمَلَـٰٓئِكَةُ وَأُو۟لُوا۟ ٱلْعِلْمِ",
     "english": "Allah bears witness that there is no god but He, and the angels, and those with knowledge.",
     "roots": ["ilah", "shahida"],
-    "forms": ["إِلَٰه"],
+    "forms": ["إِلَٰه", "شَهِدَ"],
     "scores": {
       "curriculum": 2,
       "length": 1,
@@ -45,15 +45,73 @@
       "fit_learn": 1,
       "fit_practice": 1
     },
-    "score_notes": "Allah Himself bearing witness — perfect for shahādah lesson. Cross-root with شَهِدَ.",
+    "score_notes": "Allah Himself bearing witness — perfect for shahada lesson. Cross-root with shahida + ilah.",
     "lesson_use": {
       "lesson": 2,
-      "section": "pipeline",
+      "section": "learn",
       "is_anchor": false,
-      "order": null,
-      "arabic": null,
-      "english": null,
-      "notes": "Allah Himself bearing witness — perfect for shahādah lesson. Cross-root with شَهِدَ.",
+      "order": 1,
+      "arabic": "شَهِدَ اللَّهُ أَنَّهُ لَا إِلَٰهَ إِلَّا هُوَ",
+      "english": "Allah bears witness that there is no god but He",
+      "notes": "Bridges Lesson 1. Allah Himself is the subject of shahida — contains the la ilaha illa pattern from L1's anchor. Trimmed aggressively: dropped angels + knowledge clause.",
+      "rejection_reason": null
+    }
+  },
+  "3:53": {
+    "ref": "3:53",
+    "arabic": "رَبَّنَا آمَنَّا بِمَا أَنزَلْتَ وَاتَّبَعْنَا الرَّسُولَ فَاكْتُبْنَا مَعَ الشَّاهِدِينَ",
+    "english": "Our Lord, we believe in what You have sent down and we followed the Messenger — so write us among the witnesses.",
+    "roots": ["shahida"],
+    "forms": ["الشَّاهِدِينَ"],
+    "scores": {
+      "curriculum": 2,
+      "length": 1,
+      "story": 2,
+      "worship": 3,
+      "surah_familiarity": 1,
+      "completeness": 1,
+      "emotion": 3,
+      "fit_learn": 0,
+      "fit_practice": 1
+    },
+    "score_notes": "Dua of Isa's disciples — story-bearing. Gives shahid in plural form (al-shahidin).",
+    "lesson_use": {
+      "lesson": 2,
+      "section": "practice",
+      "is_anchor": false,
+      "order": 1,
+      "arabic": "رَبَّنَا آمَنَّا بِمَا أَنزَلْتَ وَاتَّبَعْنَا الرَّسُولَ فَاكْتُبْنَا مَعَ الشَّاهِدِينَ",
+      "english": "Our Lord, we believe in what You have sent down and followed the Messenger — so write us among the witnesses",
+      "notes": "Dua of Isa's disciples. Story-bearing. Gives shahid in plural form (al-shahidin).",
+      "rejection_reason": null
+    }
+  },
+  "3:81": {
+    "ref": "3:81",
+    "arabic": "وَإِذْ أَخَذَ اللَّهُ مِيثَاقَ النَّبِيِّينَ لَمَا آتَيْتُكُم مِّن كِتَابٍ وَحِكْمَةٍ ثُمَّ جَاءَكُمْ رَسُولٌ مُّصَدِّقٌ لِّمَا مَعَكُمْ لَتُؤْمِنُنَّ بِهِ وَلَتَنصُرُنَّهُ قَالَ أَأَقْرَرْتُمْ وَأَخَذْتُمْ عَلَى ذَٰلِكُمْ إِصْرِي قَالُوا أَقْرَرْنَا قَالَ فَاشْهَدُوا وَأَنَا مَعَكُم مِّنَ الشَّاهِدِينَ",
+    "english": "Allah took a covenant from the prophets: for all that I give you of scripture and wisdom — then a messenger comes confirming what you have — you must believe in him and support him. He said: Do you affirm? They said: We affirm. He said: Then bear witness, and I am with you among the witnesses.",
+    "roots": ["shahida"],
+    "forms": ["اشْهَدُوا", "الشَّاهِدِينَ"],
+    "scores": {
+      "curriculum": 2,
+      "length": 0,
+      "story": 2,
+      "worship": 1,
+      "surah_familiarity": 0,
+      "completeness": 1,
+      "emotion": 2,
+      "fit_learn": 0,
+      "fit_practice": 1
+    },
+    "score_notes": "Prophets covenant — Allah commands the prophets to bear witness. Two forms in one trimmed clause.",
+    "lesson_use": {
+      "lesson": 2,
+      "section": "practice",
+      "is_anchor": false,
+      "order": 4,
+      "arabic": "قَالَ فَاشْهَدُوا وَأَنَا مَعَكُم مِّنَ الشَّاهِدِينَ",
+      "english": "He said: Then bear witness, and I am with you among the witnesses",
+      "notes": "Prophets covenant — Allah to the prophets: bear witness. Two forms in one phrase (imperative + active participle plural). Trimmed to closing clause only.",
       "rejection_reason": null
     }
   }

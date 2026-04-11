@@ -18,13 +18,13 @@
     },
     "score_notes": "Quraysh mocking 'One God?!' — dramatic, both singular and plural in one verse.",
     "lesson_use": {
-      "lesson": null,
-      "section": "pipeline",
+      "lesson": 2,
+      "section": "recall",
       "is_anchor": false,
-      "order": null,
-      "arabic": null,
-      "english": null,
-      "notes": null,
+      "order": 2,
+      "arabic": "أَجَعَلَ الآلِهَةَ إِلَٰهًا وَاحِدًا إِنَّ هَذَا لَشَيْءٌ عُجَابٌ",
+      "english": "Has he made all the gods into one God?! This is astonishing!",
+      "notes": "Quraysh mocking the Prophet. Both singular (ilah) and plural (aliha) in one phrase. Dramatic recall of L1 forms.",
       "rejection_reason": null
     }
   }

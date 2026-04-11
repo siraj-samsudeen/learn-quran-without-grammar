@@ -2,9 +2,9 @@
   "39:46": {
     "ref": "39:46",
     "arabic": "قُلِ ٱللَّهُمَّ فَاطِرَ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ عَـٰلِمَ ٱلْغَيْبِ وَٱلشَّهَـٰدَةِ أَنتَ تَحْكُمُ بَيْنَ عِبَادِكَ",
-    "english": "Say: O Allah, Creator of the heavens and earth, Knower of the unseen and witnessed, You judge between Your servants.",
-    "roots": ["ilah"],
-    "forms": ["اللَّهُمَّ"],
+    "english": "Say: O Allah, Creator of the heavens and earth, Knower of the unseen and the witnessed — You judge between Your servants.",
+    "roots": ["ilah", "shahida"],
+    "forms": ["اللَّهُمَّ", "الشَّهَادَة"],
     "scores": {
       "curriculum": 2,
       "length": 0,
@@ -16,15 +16,15 @@
       "fit_learn": 0,
       "fit_practice": 1
     },
-    "score_notes": "Beautiful du'a — Creator + Knower + Judge. Long but powerful.",
+    "score_notes": "The bridge verse par excellence. Contains both Allahumma (L1 recall) and al-shahada (L2 — the seen as opposite of the unseen).",
     "lesson_use": {
-      "lesson": null,
-      "section": "pipeline",
+      "lesson": 2,
+      "section": "recall",
       "is_anchor": false,
-      "order": null,
-      "arabic": null,
-      "english": null,
-      "notes": null,
+      "order": 1,
+      "arabic": "قُلِ اللَّهُمَّ فَاطِرَ السَّمَاوَاتِ وَالْأَرْضِ عَالِمَ الْغَيْبِ وَالشَّهَادَةِ",
+      "english": "Say: O Allah, Creator of the heavens and earth, Knower of the unseen and the witnessed",
+      "notes": "The bridge verse. Contains Allahumma (L1 recall) AND al-shahada (L2 — the seen/witnessed as opposite of the unseen). Single verse activates both lessons.",
       "rejection_reason": null
     }
   }

@@ -28,6 +28,35 @@
       "rejection_reason": null
     }
   },
+  "6:19": {
+    "ref": "6:19",
+    "arabic": "قُلْ أَيُّ شَيْءٍ أَكْبَرُ شَهَادَةً ۖ قُلِ اللَّهُ شَهِيدٌ بَيْنِي وَبَيْنَكُمْ وَأُوحِيَ إِلَيَّ هَٰذَا الْقُرْآنُ لِأُنذِرَكُم بِهِ وَمَن بَلَغَ",
+    "english": "Say: What thing is greatest as testimony? Say: Allah is Witness between me and you. And this Quran has been revealed to me that I may warn you and whoever it reaches.",
+    "roots": ["kabura", "shahida"],
+    "forms": ["شَهَادَة", "شَهِيد", "أَكْبَرُ"],
+    "scores": {
+      "curriculum": 2,
+      "length": 1,
+      "story": 1,
+      "worship": 2,
+      "surah_familiarity": 1,
+      "completeness": 1,
+      "emotion": 2,
+      "fit_learn": 1,
+      "fit_practice": 0
+    },
+    "score_notes": "Multi-form goldmine. Contains shahada + shahid + akbar (L1 recall!) in one verse. The akbar creates an explicit handoff from L1 to L2.",
+    "lesson_use": {
+      "lesson": 2,
+      "section": "learn",
+      "is_anchor": false,
+      "order": 2,
+      "arabic": "قُلْ أَيُّ شَيْءٍ أَكْبَرُ شَهَادَةً ۖ قُلِ اللَّهُ شَهِيدٌ بَيْنِي وَبَيْنَكُمْ",
+      "english": "Say: What is greatest as testimony? Say: Allah is Witness between me and you",
+      "notes": "Multi-form goldmine. Contains shahada + shahid + akbar (L1 recall). The akbar creates an explicit bridge from L1 to L2.",
+      "rejection_reason": null
+    }
+  },
   "6:78": {
     "ref": "6:78",
     "arabic": "فَلَمَّا رَأَى ٱلشَّمْسَ بَازِغَةً قَالَ هَـٰذَا رَبِّى هَـٰذَآ أَكْبَرُ",

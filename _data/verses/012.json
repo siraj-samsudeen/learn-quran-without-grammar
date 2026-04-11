@@ -1,0 +1,31 @@
+{
+  "12:26": {
+    "ref": "12:26",
+    "arabic": "قَالَ هِيَ رَاوَدَتْنِي عَن نَّفْسِي وَشَهِدَ شَاهِدٌ مِّنْ أَهْلِهَا",
+    "english": "He said: She tried to seduce me. And a witness from her own family testified.",
+    "roots": ["shahida"],
+    "forms": ["شَهِدَ", "شَاهِد"],
+    "scores": {
+      "curriculum": 2,
+      "length": 2,
+      "story": 3,
+      "worship": 0,
+      "surah_familiarity": 1,
+      "completeness": 1,
+      "emotion": 2,
+      "fit_learn": 0,
+      "fit_practice": 1
+    },
+    "score_notes": "Yusuf story — shahida + shahid in one phrase. Two forms in natural narrative context. Strong future candidate.",
+    "lesson_use": {
+      "lesson": null,
+      "section": "pipeline",
+      "is_anchor": false,
+      "order": null,
+      "arabic": null,
+      "english": null,
+      "notes": null,
+      "rejection_reason": "Practice already has 3:53 + 3:81 covering shahid. Too much overlap in L2."
+    }
+  }
+}

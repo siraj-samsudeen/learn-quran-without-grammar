@@ -1,0 +1,55 @@
+{
+  "slug": "shahida",
+  "arabic": "شَهِدَ",
+  "transliteration": "shahida",
+  "three_letter": "ش ه د",
+  "three_letter_en": "shin ha dal",
+  "notes": null,
+  "forms": [
+    {
+      "arabic": "شَهِدَ",
+      "english": "testified, bore witness",
+      "notes": null
+    },
+    {
+      "arabic": "أَشْهَدَ",
+      "english": "made to witness (Form IV)",
+      "notes": "Deferred. Strong future Learn candidate via 7:172 (primordial covenant)."
+    },
+    {
+      "arabic": "اسْتَشْهَدَ",
+      "english": "called to witness (Form X)",
+      "notes": "Only 2 occurrences. Low priority."
+    },
+    {
+      "arabic": "شَهَادَة",
+      "english": "testimony; the witnessed/seen",
+      "notes": "The noun behind shahada. Also carries the meaning the seen/witnessed as opposite of the unseen (ghayb) — see 39:46."
+    },
+    {
+      "arabic": "شَهَادَات",
+      "english": "testimonies (plural)",
+      "notes": null
+    },
+    {
+      "arabic": "مَشْهَد",
+      "english": "scene of witnessing",
+      "notes": null
+    },
+    {
+      "arabic": "شَهِيد",
+      "english": "witness; martyr",
+      "notes": "The most frequent form (56 occurrences). Also the word every Muslim knows for martyr."
+    },
+    {
+      "arabic": "شَاهِد",
+      "english": "one who witnesses, eyewitness",
+      "notes": null
+    },
+    {
+      "arabic": "مَشْهُود",
+      "english": "what is witnessed",
+      "notes": "Appears in 85:3 (wa-shahidin wa-mashhud). Good future bridge verse."
+    }
+  ]
+}

@@ -43,7 +43,9 @@ def load_yaml(lesson_id: str) -> dict:
 def load_lesson_md(lesson_id: str) -> str:
     """Find and load the lesson markdown file."""
     lessons_dir = PROJECT_ROOT / "lessons"
+    # Support both flat files (lesson-01-slug.md) and subdirectory layout (lesson-02-slug/index.md)
     candidates = list(lessons_dir.glob(f"{lesson_id}-*.md"))
+    candidates += list(lessons_dir.glob(f"{lesson_id}-*/index.md"))
     if not candidates:
         print(f"✗ Lesson markdown not found for {lesson_id} in {lessons_dir}")
         sys.exit(1)

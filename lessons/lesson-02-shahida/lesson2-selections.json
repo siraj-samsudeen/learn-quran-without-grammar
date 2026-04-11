@@ -1,0 +1,134 @@
+{
+  "lesson": 2,
+  "anchor": "أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ",
+  "selections": {
+    "learn": [
+      {
+        "ref": "3:18",
+        "form": "شَهِدَ",
+        "group": "shahida"
+      },
+      {
+        "ref": "6:19",
+        "form": "شَهَادَة (+أَشْهَدُ)",
+        "group": "shahida"
+      },
+      {
+        "ref": "4:79",
+        "form": "شَهِيد",
+        "group": "shahida"
+      },
+      {
+        "ref": "5:117",
+        "form": "شَهِيد",
+        "group": "shahida"
+      },
+      {
+        "ref": "2:185",
+        "form": "شَهِدَ",
+        "group": "shahida"
+      }
+    ],
+    "practice": [
+      {
+        "ref": "3:53",
+        "form": "شَاهِد",
+        "group": "shahida"
+      },
+      {
+        "ref": "63:1",
+        "form": "نَشْهَدُ + يَشْهَدُ",
+        "group": "shahida"
+      },
+      {
+        "ref": "41:20",
+        "form": "شَهِدَ",
+        "group": "shahida"
+      },
+      {
+        "ref": "3:81",
+        "form": "اشْهَدُوا + الشَّاهِدِينَ",
+        "group": "shahida"
+      },
+      {
+        "ref": "4:69",
+        "form": "شُهَدَاء",
+        "group": "shahida"
+      }
+    ],
+    "recall": [
+      {
+        "ref": "39:46",
+        "form": "اللَّهُمَّ + الشَّهَادَة",
+        "group": "ilah"
+      },
+      {
+        "ref": "38:5",
+        "form": "آلِهَة + إِلَٰه",
+        "group": "ilah"
+      },
+      {
+        "ref": "40:57",
+        "form": "أَكْبَرُ",
+        "group": "kabura"
+      },
+      {
+        "ref": "54:53",
+        "form": "كَبِير",
+        "group": "kabura"
+      },
+      {
+        "ref": "20:14",
+        "form": "إِلَٰه",
+        "group": "ilah"
+      }
+    ],
+    "pipeline": [
+      {
+        "ref": "7:172",
+        "form": "أَشْهَدَ (Form IV) + شَهِدْنَا",
+        "group": "shahida"
+      },
+      {
+        "ref": "36:65",
+        "form": "تَشْهَدُ",
+        "group": "shahida"
+      },
+      {
+        "ref": "12:26",
+        "form": "شَهِدَ + شَاهِد",
+        "group": "shahida"
+      },
+      {
+        "ref": "22:17",
+        "form": "شَهِيد",
+        "group": "shahida"
+      },
+      {
+        "ref": "3:98",
+        "form": "شَهِيد",
+        "group": "shahida"
+      },
+      {
+        "ref": "21:22",
+        "form": "آلِهَة",
+        "group": "ilah"
+      },
+      {
+        "ref": "9:72",
+        "form": "أَكْبَرُ",
+        "group": "kabura"
+      },
+      {
+        "ref": "22:62",
+        "form": "الْكَبِير",
+        "group": "kabura"
+      },
+      {
+        "ref": "6:78",
+        "form": "أَكْبَرُ",
+        "group": "kabura"
+      }
+    ]
+  }
+}

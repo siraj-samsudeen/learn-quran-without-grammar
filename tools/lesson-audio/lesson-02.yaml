@@ -1,0 +1,21 @@
+# Lesson 02 — Audio Definition (stub)
+# Root: شَهِدَ (shahida)
+# Anchor: أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ
+#
+# Structure: 1 anchor (TTS) + 5 learn + 5 practice + 5 recall = 16 total
+# Reciter assignments: see plan at .claude/plans/floating-finding-finch.md
+#
+# STATUS: STUB — timestamps not yet run. Fill in start:/end: after running:
+#   python tools/auto-timestamps.py 5:117 --reciter Alafasy_128kbps
+#   python tools/auto-timestamps.py 2:185 --reciter Hani_Rifai_192kbps
+#   python tools/auto-timestamps.py 3:81 --reciter Abu_Bakr_Ash-Shaatree_128kbps
+#   python tools/find-audio-fragment.py 3:18 --reciter Hudhaify_128kbps
+#   python tools/find-audio-fragment.py 6:19 --reciter Yasser_Ad-Dussary_128kbps
+#   python tools/find-audio-fragment.py 4:69 --reciter MaherAlMuaiqly128kbps
+#   python tools/find-audio-fragment.py 39:46 --reciter Ghamadi_40kbps
+
+lesson: lesson-02
+output_dir: assets/audio/lessons/lesson-02
+review_id: lesson-02-full
+
+sentences: []

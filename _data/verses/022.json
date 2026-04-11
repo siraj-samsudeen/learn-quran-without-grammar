@@ -1,0 +1,60 @@
+{
+  "22:17": {
+    "ref": "22:17",
+    "arabic": "إِنَّ الَّذِينَ آمَنُوا وَالَّذِينَ هَادُوا وَالصَّابِئِينَ وَالنَّصَارَى وَالْمَجُوسَ وَالَّذِينَ أَشْرَكُوا إِنَّ اللَّهَ يَفْصِلُ بَيْنَهُمْ يَوْمَ الْقِيَامَةِ إِنَّ اللَّهَ عَلَى كُلِّ شَيْءٍ شَهِيدٌ",
+    "english": "Indeed Allah will decide between the believers, the Jews, the Sabians, the Christians, the Magians, and the polytheists on the Day of Resurrection. Indeed Allah is Witness over all things.",
+    "roots": ["shahida"],
+    "forms": ["شَهِيد"],
+    "scores": {
+      "curriculum": 2,
+      "length": 0,
+      "story": 0,
+      "worship": 1,
+      "surah_familiarity": 0,
+      "completeness": 1,
+      "emotion": 1,
+      "fit_learn": 0,
+      "fit_practice": 1
+    },
+    "score_notes": "Clean short witness attribute. Already covered by 4:79 + 5:117 in learn — deferred for balance.",
+    "lesson_use": {
+      "lesson": null,
+      "section": "pipeline",
+      "is_anchor": false,
+      "order": null,
+      "arabic": null,
+      "english": null,
+      "notes": null,
+      "rejection_reason": "shahid already covered in learn section (4:79, 5:117)."
+    }
+  },
+  "22:62": {
+    "ref": "22:62",
+    "arabic": "ذَٰلِكَ بِأَنَّ اللَّهَ هُوَ الْحَقُّ وَأَنَّ مَا يَدْعُونَ مِن دُونِهِ هُوَ الْبَاطِلُ وَأَنَّ اللَّهَ هُوَ الْعَلِيُّ الْكَبِيرُ",
+    "english": "That is because Allah is the Truth, and what they call upon besides Him is falsehood, and because Allah is the Most High, the Grand.",
+    "roots": ["kabura"],
+    "forms": ["الْكَبِير"],
+    "scores": {
+      "curriculum": 2,
+      "length": 1,
+      "story": 0,
+      "worship": 2,
+      "surah_familiarity": 0,
+      "completeness": 1,
+      "emotion": 2,
+      "fit_learn": 0,
+      "fit_practice": 1
+    },
+    "score_notes": "al-Kabir as divine attribute alongside al-Aliyy — powerful pairing. Good future practice or recall candidate.",
+    "lesson_use": {
+      "lesson": null,
+      "section": "pipeline",
+      "is_anchor": false,
+      "order": null,
+      "arabic": null,
+      "english": null,
+      "notes": null,
+      "rejection_reason": null
+    }
+  }
+}

@@ -1,4 +1,33 @@
 {
+  "40:57": {
+    "ref": "40:57",
+    "arabic": "لَخَلْقُ السَّمَاوَاتِ وَالْأَرْضِ أَكْبَرُ مِنْ خَلْقِ النَّاسِ وَلَٰكِنَّ أَكْثَرَ النَّاسِ لَا يَعْلَمُونَ",
+    "english": "The creation of the heavens and earth is greater than the creation of mankind, but most people do not know.",
+    "roots": ["kabura"],
+    "forms": ["أَكْبَرُ"],
+    "scores": {
+      "curriculum": 2,
+      "length": 1,
+      "story": 0,
+      "worship": 1,
+      "surah_familiarity": 0,
+      "completeness": 1,
+      "emotion": 1,
+      "fit_learn": 0,
+      "fit_practice": 1
+    },
+    "score_notes": "Cosmic-scale perspective on akbar. The word students already know from Allahu Akbar, now used to compare cosmic to human scale.",
+    "lesson_use": {
+      "lesson": 2,
+      "section": "recall",
+      "is_anchor": false,
+      "order": 3,
+      "arabic": "لَخَلْقُ السَّمَاوَاتِ وَالْأَرْضِ أَكْبَرُ مِنْ خَلْقِ النَّاسِ",
+      "english": "The creation of the heavens and earth is greater than the creation of mankind",
+      "notes": "Cosmic-scale recall of akbar — the word from Allahu Akbar, now comparing heavens to humanity.",
+      "rejection_reason": null
+    }
+  },
   "40:35": {
     "ref": "40:35",
     "arabic": "كَبُرَ مَقْتًا عِندَ ٱللَّهِ وَعِندَ ٱلَّذِينَ ءَامَنُوا۟",

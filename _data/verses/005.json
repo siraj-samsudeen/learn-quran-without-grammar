@@ -1,0 +1,31 @@
+{
+  "5:117": {
+    "ref": "5:117",
+    "arabic": "مَا قُلْتُ لَهُمْ إِلَّا مَا أَمَرْتَنِي بِهِ أَنِ اعْبُدُوا اللَّهَ رَبِّي وَرَبَّكُمْ وَكُنتُ عَلَيْهِمْ شَهِيدًا مَّا دُمْتُ فِيهِمْ فَلَمَّا تَوَفَّيْتَنِي كُنتَ أَنتَ الرَّقِيبَ عَلَيْهِمْ وَأَنتَ عَلَىٰ كُلِّ شَيْءٍ شَهِيدٌ",
+    "english": "I said to them only what You commanded me: worship Allah, my Lord and your Lord. And I was a witness over them while I was among them. But when You took me, You were the Watcher over them. And You are Witness over all things.",
+    "roots": ["shahida"],
+    "forms": ["شَهِيد"],
+    "scores": {
+      "curriculum": 2,
+      "length": 0,
+      "story": 3,
+      "worship": 1,
+      "surah_familiarity": 1,
+      "completeness": 1,
+      "emotion": 3,
+      "fit_learn": 1,
+      "fit_practice": 0
+    },
+    "score_notes": "Isa addressing Allah on Judgment Day — personal first-person voice. Teacher preferred this over 7:172 for its emotional depth.",
+    "lesson_use": {
+      "lesson": 2,
+      "section": "learn",
+      "is_anchor": false,
+      "order": 4,
+      "arabic": "وَكُنتُ عَلَيْهِمْ شَهِيدًا مَّا دُمْتُ فِيهِمْ",
+      "english": "And I was a witness over them while I was among them",
+      "notes": "Isa speaking to Allah on Judgment Day. Deeply personal — a prophet's own testimony at the end of his ministry. Pairs with 4:79 (same form shahid, very different emotional register).",
+      "rejection_reason": null
+    }
+  }
+}

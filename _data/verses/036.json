@@ -1,0 +1,31 @@
+{
+  "36:65": {
+    "ref": "36:65",
+    "arabic": "الْيَوْمَ نَخْتِمُ عَلَى أَفْوَاهِهِمْ وَتُكَلِّمُنَا أَيْدِيهِمْ وَتَشْهَدُ أَرْجُلُهُم بِمَا كَانُوا يَكْسِبُونَ",
+    "english": "This Day, We will seal over their mouths, and their hands will speak to Us, and their feet will testify about what they used to earn.",
+    "roots": ["shahida"],
+    "forms": ["تَشْهَدُ"],
+    "scores": {
+      "curriculum": 2,
+      "length": 1,
+      "story": 2,
+      "worship": 0,
+      "surah_familiarity": 2,
+      "completeness": 1,
+      "emotion": 3,
+      "fit_learn": 0,
+      "fit_practice": 1
+    },
+    "score_notes": "From Surah Yasin — high familiarity. Vivid Day of Judgment imagery: feet testify. Strong future practice candidate.",
+    "lesson_use": {
+      "lesson": null,
+      "section": "pipeline",
+      "is_anchor": false,
+      "order": null,
+      "arabic": null,
+      "english": null,
+      "notes": null,
+      "rejection_reason": "Teacher preferred 5:117 (Isa's personal testimony) over this for Learn 5. Priority for Lesson 3+ practice."
+    }
+  }
+}

@@ -18,13 +18,13 @@
     },
     "score_notes": "Allah speaking directly to Musa at the burning bush — powerful story, connects to salah.",
     "lesson_use": {
-      "lesson": null,
-      "section": "pipeline",
+      "lesson": 2,
+      "section": "recall",
       "is_anchor": false,
-      "order": null,
-      "arabic": null,
-      "english": null,
-      "notes": null,
+      "order": 5,
+      "arabic": "إِنَّنِي أَنَا اللَّهُ لَا إِلَٰهَ إِلَّا أَنَا فَاعْبُدْنِي وَأَقِمِ الصَّلَاةَ لِذِكْرِي",
+      "english": "Indeed I am Allah — there is no god but Me, so worship Me and establish prayer for My remembrance",
+      "notes": "Allah speaking directly to Musa at the burning bush. Iconic prophet story. Reinforces the la ilaha illa pattern from L1's anchor (59:22).",
       "rejection_reason": null
     }
   }
