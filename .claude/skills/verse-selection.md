@@ -13,20 +13,46 @@ Extract root words from the anchor phrase in **word order**.
 Use a representative root word (Form I verb or base noun), not the bare three-letter root:
 - اللهُ أَكْبَرُ → root word 1: **إِلَٰه** (ilāh), root word 2: **كَبُرَ** (kabura)
 
-## Step 2 — Pull Form Inventory
-**Source:** [corpus.quran.com/qurandictionary.jsp](https://corpus.quran.com/qurandictionary.jsp)
+## Step 2 — Build Root Inventory (local, offline)
 
-- Present in the **exact order the Corpus uses** (verbs by form, then nominals)
-- Use **exact counts** — never approximate (~34)
-- If root has < 5 morphological forms, select 5 **sentence patterns** instead
+**As of ADR-009, root inventories are built from local vendored data — no HTML scraping, no per-verse API calls.** Runtime is under one second per root.
+
+Sources (already vendored in `tools/data/`):
+- `quran-morphology.txt` — mustafa0x fork of Kais Dukes v0.4 (roots + lemmas in Arabic script)
+- `quran-uthmani.txt` — Tanzil full Uthmani text
+- `quran-trans-en-sahih.txt` — Saheeh International (draft translations)
+
+Run the builder:
+```bash
+python3 tools/build-root-inventory.py \
+  --root <arabic-root>          # e.g. رسل (Arabic, not Buckwalter)
+  --root-word <root-word>       # e.g. رَسُول
+  --root-transliteration <ascii>
+  --three-letter "X Y Z"        # e.g. "ر س ل"
+  --three-letter-en "a b c"     # e.g. "ra sin lam"
+  --corpus-key <bw>             # e.g. rsl — used only for the human-reference corpus_url
+  --introduced-in-lesson <N>
+  --output docs/roots/<name>.json
+```
+
+The builder is idempotent: if `--output` already exists, it preserves every existing verse entry byte-for-byte and only appends new candidates it discovered. Scored / `status: "used"` entries are never touched.
+
+What the builder fills in for each new verse:
+- `ref`, `arabic_full`, `form` (primary lemma in this ayah), `word_count`, `surah_name`
+- `translation` — **draft** from Saheeh International (paraphrase before committing to a lesson, per `docs/LESSON-PLAN.md` translation style)
+- `notes` — listed when a verse contains multiple lemmas of the root
+- `status: "candidate"`, all teacher fields (`scores`, `arabic_fragment`, `pattern`, `lesson`, `role`) left null
+
+The root-level `forms` array is populated from the morphology file (Arabic lemma + count), ranked by count. `category` / `gloss` / `form_transliteration` are left null for the teacher.
+
+**Do not use `WebFetch` on `corpus.quran.com` anymore** — the mustafa0x morphology file is a complete snapshot of what that page shows. The `corpus_url` field in the JSON is kept only as a human-reference link.
 
 ## Step 3 — Verify Every Verse
-**Before presenting ANY verse to the teacher**, verify against the API:
+Verse text comes from the vendored Tanzil Uthmani file, which was verified byte-for-byte against the existing scored entry for 3:18. For ad-hoc sanity checks against a live source:
 ```bash
 python tools/verify-verse.py SS:AA
-# or
-curl -s "https://api.alquran.cloud/v1/ayah/SS:AA" | python3 -c "import json,sys; print(json.load(sys.stdin)['data']['text'])"
 ```
+but this is optional — the vendored file is authoritative for the pipeline.
 
 ## Step 4 — Score Each Verse
 Apply the scoring algorithm from `docs/SCORING.md`:

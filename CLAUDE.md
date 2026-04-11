@@ -187,8 +187,14 @@ learn-quran-without-grammar/
 │   └── decisions/
 │       ├── ADR-001 to ADR-005       ← Architecture decision records
 │       ├── ADR-006-auto-timestamps.md ← Word-level timestamps via Quran Foundation API
-│       └── ADR-007-audio-apis-research.md ← All audio API alternatives evaluated
+│       ├── ADR-007-audio-apis-research.md ← All audio API alternatives evaluated
+│       └── ADR-009-local-root-pipeline.md ← ⭐ Local morphology + Tanzil + Sahih replaces live corpus scraping
 ├── tools/
+│   ├── data/                        ← Vendored datasets for offline builds (see SOURCE.md)
+│   │   ├── quran-morphology.txt     ← mustafa0x/quran-morphology (GPL) — roots + lemmas
+│   │   ├── quran-uthmani.txt        ← Tanzil full Uthmani text (matches our arabic_full)
+│   │   └── quran-trans-en-sahih.txt ← Saheeh International draft translations
+│   ├── build-root-inventory.py      ← ⭐ Builds docs/roots/*.json from local data (replaces corpus scraping)
 │   ├── auto-timestamps.py           ← Word-level timestamps from Quran Foundation API
 │   ├── find-audio-fragment.py       ← Silence-based timestamp fallback (5 reciters)
 │   ├── build-lesson-audio.py        ← Builds MP3s + manifest from YAML
@@ -196,6 +202,7 @@ learn-quran-without-grammar/
 │   ├── validate-lesson-consistency.py ← Checks YAML/MD sync, reciters, timestamps
 │   ├── check-text-audio-sync.py     ← Verifies text matches audio
 │   ├── verify-verse.py              ← Verifies verse text against API
+│   ├── fetch-verses.py              ← Legacy ad-hoc verse fetch (no longer on critical path)
 │   ├── generate-tts.sh              ← Single-sentence English TTS
 │   ├── generate-tts-batch.py        ← Batch English TTS generation
 │   ├── pre-commit-hook.sh           ← Auto-validates lessons before commit
@@ -239,6 +246,13 @@ python tools/validate-lesson-consistency.py lesson-NN
 
 # Verify verse text
 python tools/verify-verse.py 29:45
+
+# Build a new root inventory JSON (offline — see ADR-009)
+python3 tools/build-root-inventory.py \
+  --root رسل --root-word رَسُول --root-transliteration rasul \
+  --three-letter "ر س ل" --three-letter-en "ra sin lam" \
+  --corpus-key rsl --introduced-in-lesson 3 \
+  --output docs/roots/rasul.json
 ```
 
 ---
@@ -256,6 +270,7 @@ python tools/verify-verse.py 29:45
 | **Learning science review** | `.claude/skills/learning-science-review.md` |
 | **Publishing a page** | `.claude/skills/jekyll-publish-page.md` |
 | **Starting a new lesson** | Check `docs/selections/pipeline.md` FIRST, then `docs/roots/` for existing inventory |
+| **Building a new root inventory** | `docs/decisions/ADR-009-local-root-pipeline.md` + `tools/build-root-inventory.py` (offline, local data only — do NOT scrape corpus.quran.com) |
 | **Scoring verses** | `docs/SCORING.md` — 8-dimension algorithm |
 | **Adding Tamil to a lesson** | `CLAUDE.md` → "Multi-Language Support" section above |
 | **Platform vision & roadmap** | `docs/app/PLATFORM-PRD.md` — ⭐ start here for all app/platform work |

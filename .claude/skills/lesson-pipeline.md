@@ -8,9 +8,17 @@ When the teacher says "let's create a new lesson", "start lesson N", "prepare fo
 **This happens automatically on "prepare for lesson N" — do not wait for teacher input.**
 
 1. **Check which root(s) the anchor phrase introduces.** For each root:
-   - If `docs/roots/{root}.json` already exists and has `verses` populated with > 20 entries → reuse. No fetching.
-   - Otherwise → fetch complete inventory from `corpus.quran.com` for that root, populate every form + every verse, and save the JSON. Use batch fetching via `tools/fetch-verses.py REF REF REF ...` (accepts many refs in one call).
-2. **Check that previous lessons' roots also have complete JSONs.** These are needed for Recall candidates. If any are thin, fetch and complete them too.
+   - If `docs/roots/{root}.json` already exists and has `verses` populated with > 20 entries → reuse. No building.
+   - Otherwise → run **`tools/build-root-inventory.py`** (see ADR-009). It reads local vendored morphology + Tanzil text + draft translations and produces a complete JSON in under a second — no HTML scraping, no per-verse API calls. Example:
+     ```bash
+     python3 tools/build-root-inventory.py \
+       --root رسل --root-word رَسُول --root-transliteration rasul \
+       --three-letter "ر س ل" --three-letter-en "ra sin lam" \
+       --corpus-key rsl --introduced-in-lesson 3 \
+       --output docs/roots/rasul.json
+     ```
+     The builder is idempotent: re-running it preserves scored/`used` entries byte-for-byte and only appends any newly-discovered candidates. **Do NOT use `WebFetch` on corpus.quran.com or the old `docs/prompts/batch_completion.md` flow** — both are obsoleted by the local builder.
+2. **Check that previous lessons' roots also have complete JSONs.** These are needed for Recall candidates. If any are thin, run the builder for them too — all candidate data is generated from local files, so there is no cost to rebuilding.
 3. **Generate the picker HTML** by copying `tools/selection-picker/template.html` to `.claude/tmp/lesson-NN-picker.html` and replacing the `LESSON_CONFIG` block with data drawn from the root JSONs:
    - `verses` array = all candidate verses (current-lesson root + previous-lesson roots for Recall), filtering out verses already `status: "used"` in earlier lessons.
    - Pre-assign `defaultSection` based on the AI's best guess (top-scored verses → `learn`, next tier → `practice`, existing recall picks → `recall`, rest → `none` or `pipeline`).
