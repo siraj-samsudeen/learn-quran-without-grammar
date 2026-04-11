@@ -448,6 +448,16 @@ Open question: whether Sonnet created the orchestrator script itself or just pro
 
 Each prose field is a Markdown string with `\n` for line breaks. Jekyll `markdownify` renders at build time. This keeps `picker-config.json` as the single source of lesson-level content, matches D22's "lesson control panel" framing consistently, and keeps the thin `index.md` genuinely thin — the only hand-written content in `index.md` becomes Liquid directives + section anchors + `{% include %}` calls.
 
+**D32 — Formalize `_data/verses/hadith.json`** (retrospective, ratifying commit `04c5d73`). A separate file under `_data/verses/` holds hadith-class content as a sibling to `teaching.json`. This was landed by the parallel Sonnet session without a D-number; this entry brings it into the architectural record.
+
+- **Synthetic refs** follow the D15 pattern with a `hadith:` prefix (e.g., `hadith:words-beloved`, `hadith:kibr-atom`, `hadith:kibr-cloak`, `hadith:twelve-angels`, `hadith:sea-foam`). Same namespace mechanism as `teaching:kabura:anchor-01`; same uniqueness guarantees.
+- **Entry shape** is identical to the D11+D21 verse schema (`ref`, `arabic`, `english`, `roots[]`, `forms[]`, `scores`, `score_notes`, `lesson_use`) with **one optional addition**: a `source` field for hadith attribution (e.g., `"Sahih Muslim"`, `"Hadith Qudsi"`). Qur'anic verses omit `source` — their `ref` (e.g., `"59:22"`) implies the Qur'an. Teaching-phrase entries (`teaching:...`) also omit it. This extends D11's verse entry schema with an optional 10th top-level field, populated only for hadith.
+- **Scoring** uses the same 8-dimension scheme as verses (per D11's existing score system).
+- **`lesson_use`** participates in the same D12/D23 machinery — hadith entries can be in `learn`, `practice`, `recall`, `pipeline`, or `rejected` sections exactly like verses. Currently all 5 entries in the file are `section: "pipeline"`, `lesson: null` — staged for a future lesson.
+- **Render path**: the thin `index.md` Liquid template (D30) treats hadith entries identically to teaching-phrase entries — same h3+paragraph pattern emission, same audio handling. Template loops over `site.data.verses.hadith` the same way it loops over `site.data.verses["059"]` or `site.data.verses.teaching`.
+
+**Open micro-question** (not blocking): does `source` belong on teaching-phrase entries too? For now, optional and omitted for non-hadith. Revisit if a third synthetic-ref namespace appears.
+
 ### Orphan resolution
 
 Both `sentence_patterns[]` orphans from old `docs/roots/ilah.json` reviewed at computer time:
