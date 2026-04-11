@@ -10,7 +10,7 @@ Session 3 picked up from Session 2's Q30 handoff, worked through the remaining d
 
 ### What was locked in Session 3
 
-**Nine new decisions D23–D31** (full detail in the "Session 3 update" section below):
+**Eleven new decisions D23–D33** (full detail in the "Session 3 update" section below):
 
 - **D23** — Inbox envelope shape: one file per Save; `picker_config` = full snapshot, `verse_updates` = assignment-only tuples, `new_verses` = full entries; `state.json` derived by apply script.
 - **D24** — One commit per inbox file (each phone-Save becomes an independently revertable git unit).
@@ -20,9 +20,13 @@ Session 3 picked up from Session 2's Q30 handoff, worked through the remaining d
 - **D28** — Jekyll excludes via wildcards: `lessons/*/*.{json,yaml,html}` + `.workspace/`. Replaces the per-file `lessons/*/picker.html` line.
 - **D29** — Migration script structure: one file `tools/migrate-lesson-01.py` with orchestrator + `--stage` subcommands. Idempotent per stage.
 - **D30** — Rendering architecture: Liquid emits the **same** h3+paragraph markdown pattern the current `.md` produces; `lesson-cards.js` stays unchanged. The only variable in the migration test is the Liquid template.
-- **D31** — Lesson-specific prose (`opening`, `closing`, `whats_next`) lives in `picker-config.json` as `{ english, tamil }` nested objects. Extends D22 from 8 fields to 11.
+- **D31 (amended mid-session)** — Lesson-specific prose (`opening`, `closing`, `whats_next`) lives in `picker-config.json` as **flat English strings**. Extends D22 from 8 fields to 11. **Originally** designed as `{ english, tamil }` nested objects; walked back when the teacher clarified main files must be English only (see D33 and the second correction below).
+- **D32** — `_data/verses/hadith.json` formalized as a sibling to `teaching.json`. Synthetic refs use a `hadith:` prefix; entry shape = D11+D21 verse schema + optional `source` field for hadith attribution. Retrospective, ratifying commit `04c5d73`.
+- **D33** — Translations (Tamil, Urdu, Hindi, future languages) live in **sidecar files auto-generated from English main files**. Main content files (`_data/roots/*.json`, `_data/verses/*.json`, `lessons/*/picker-config.json`, new `index.md` templates) are **English only**. Architecture TBD — the generation tool and sidecar file shape will be designed in a later session.
 
 **Correction (mid-session):** Teacher clarified that phone is a rare convenience, not a design constraint — primary workflow is work computer or home computer. This invalidated the auth-heavy framing of the original D8 + D27. Replaced with the simpler no-auth, browser-download-plus-manual-move design. Saved to durable memory as `feedback_phone_convenience_simple.md` for all future sessions.
+
+**Second correction (later mid-session):** Teacher clarified that main files must be English only — Tamil (and future Urdu, Hindi) translations live in auto-generated sidecar files, not nested `{ english, tamil }` inside main files. Quote: *"some of these languages I don't even know myself."* This invalidated D31's original shape and required walking back the nested Tamil fields from both L1 and L2 picker-config.json, plus removing Tamil from the minimal L1 `index.md`. D33 (sidecar architecture) will be designed when the translation tool is built. Saved to durable memory as `feedback_main_files_english_only.md`.
 
 **Both orphan `sentence_patterns` from old `ilah.json` resolved at computer time:** `إِلَٰهَهُ هَوَاهُ` (Pattern 1, candidates 25:43 + 45:23) and `أَإِلَٰهٌ مَعَ اللّٰه` (Pattern 2, candidates 27:60–64). **Both discarded** — neither fits the adhān-driven L1–L5 progression; raw verses remain retrievable from `tools/data/quran-uthmani.txt`. `.workspace/lesson-01-migration-flags.md` updated with resolution notes.
 
@@ -36,7 +40,7 @@ While Session 3 was running through design questions, a parallel Sonnet session 
 - All 12 Lesson 1-assigned verses have `lesson_use` fully populated per D11+D21+D23 schema.
 - Pipeline verses have `lesson_use: { section: "pipeline", … }` with `rejection_reason` where applicable.
 - Cross-root verse 37:35 has `roots: ["ilah", "kabura"]` (bounded denormalization per D11/Q12).
-- **`lessons/lesson-01-allahu-akbar-copy/picker-config.json`** — D22 8-field schema. **Missing the 3 D31 prose fields** (`opening`, `closing`, `whats_next`). Needs a touch-up during the next execution session.
+- **`lessons/lesson-01-allahu-akbar-copy/picker-config.json`** — D22 8-field schema seeded by Sonnet; extended with D31 prose fields during session 3 (first as `{ english, tamil }` nested, then walked back to flat English per D33 second correction). Now holds 11 fields total, all English.
 - **`.workspace/lesson-01-migration-flags.md`** — orphan patterns flagged (now resolved this session).
 
 ### What's still open (execution order)
@@ -440,13 +444,15 @@ Open question: whether Sonnet created the orchestrator script itself or just pro
 
 **Follow-up task** (not yet D-numbered): post-validation refactor from Q38 = A to Q38 = C — Liquid emits `<div class="verse-card">` HTML directly, `lesson-cards.js` reduced to just the audio mutual-exclusion handler (or deleted entirely). Deferred from the migration test to keep that test single-variable. Will get its own D number when picked up.
 
-**D31 — Lesson-specific prose lives in picker-config.json** (Q39 = A; amends D22). Eight fields → eleven. New fields:
+**D31 — Lesson-specific prose lives in picker-config.json as flat English strings** (Q39 = A; amends D22; walked back mid-session — see note below). Eight fields → eleven. New fields:
 
-- `opening: { english, tamil }` — opening narrative paragraphs
-- `closing: { english, tamil }` — closing prose
-- `whats_next: { english, tamil }` — teaser for the next lesson
+- `opening: "..."` — opening narrative paragraph (English only)
+- `closing: "..."` — closing prose (English only)
+- `whats_next: "..."` — teaser for the next lesson (English only)
 
-Each prose field is a Markdown string with `\n` for line breaks. Jekyll `markdownify` renders at build time. This keeps `picker-config.json` as the single source of lesson-level content, matches D22's "lesson control panel" framing consistently, and keeps the thin `index.md` genuinely thin — the only hand-written content in `index.md` becomes Liquid directives + section anchors + `{% include %}` calls.
+Each prose field is a Markdown string with `\n` for line breaks between paragraphs. Jekyll `markdownify` renders at build time. This keeps `picker-config.json` as the single source of lesson-level content, matches D22's "lesson control panel" framing consistently, and keeps the thin `index.md` genuinely thin.
+
+**Walkback note (same session):** D31 was originally designed with `{ english, tamil }` nested objects for multi-language support. The teacher corrected mid-session (see second correction in the top handoff block and D33 below): main files must be English only. Both L1 copy's picker-config (commit `5c51218` → walkback commit) and L2's picker-config (Sonnet's commit `7819381` → same walkback commit) were updated from nested to flat. Tamil prose is auto-generated into sidecar files per D33, with architecture TBD.
 
 **D32 — Formalize `_data/verses/hadith.json`** (retrospective, ratifying commit `04c5d73`). A separate file under `_data/verses/` holds hadith-class content as a sibling to `teaching.json`. This was landed by the parallel Sonnet session without a D-number; this entry brings it into the architectural record.
 
@@ -457,6 +463,35 @@ Each prose field is a Markdown string with `\n` for line breaks. Jekyll `markdow
 - **Render path**: the thin `index.md` Liquid template (D30) treats hadith entries identically to teaching-phrase entries — same h3+paragraph pattern emission, same audio handling. Template loops over `site.data.verses.hadith` the same way it loops over `site.data.verses["059"]` or `site.data.verses.teaching`.
 
 **Open micro-question** (not blocking): does `source` belong on teaching-phrase entries too? For now, optional and omitted for non-hadith. Revisit if a third synthetic-ref namespace appears.
+
+**D33 — Translations live in sidecar files auto-generated from English main files** (architecture TBD). Main content files — `_data/roots/*.json`, `_data/verses/*.json`, `lessons/*/picker-config.json`, and all new `index.md` Liquid templates — contain **English only**. Teacher authors English; Tamil, Urdu, Hindi, and any future language are auto-generated into separate sidecar files by a build tool (not yet designed). The teacher reviews generated translations before they go live.
+
+**Why:** Teacher clarified (2026-04-11 late evening, session 3): *"In the main files, I do not want to look at Tamil at all. I just want to handle only English. Once the English lesson is finalized, then I should be able to run some program... that will generate some parallel Tamil thing. Which I can verify. I also have other languages planned like Urdu, Hindi, so I do not want to clutter the main file because some of these languages I don't even know myself."*
+
+The load-bearing clause is **"some of these languages I don't even know myself"**. The teacher cannot author or reliably verify Urdu or Hindi directly, so those MUST be auto-generated. Tamil follows the same pattern for consistency even though the teacher reads Tamil — one language per file, teacher reads only English.
+
+**Sidecar architecture (tentative, to be designed when the translation tool is built):**
+
+- Likely path: `_data/translations/{lang}/roots/{slug}.json`, `_data/translations/{lang}/verses/{surah}.json`, `_data/translations/{lang}/picker-configs/{slug}.json` — parallel structure mirroring main files.
+- Each sidecar is a partial shape holding only the translated fields, indexed by the same keys as the main file.
+- Liquid templates at render time read BOTH the main file (English) AND the relevant language sidecar, merge per-language selection.
+- Generation tool: likely LLM-assisted translation with teacher review gate. Not yet designed or built.
+
+**What D33 invalidates retrospectively:**
+
+- **Original D31** — initially designed `picker-config` prose fields as `{ english, tamil }` nested objects. Walked back mid-session to flat English strings (see D31 amended note above).
+- **My minimal L1 `index.md`** — initially rendered `{{ page.opening.tamil }}` and included hand-written Tamil divs in the Anchor section. Walked back to English only.
+- **Parked item "Tamil translation storage"** (from Session 2) — now has a clear direction even though the tool isn't built: sidecar architecture, not inline fields.
+
+**Open design questions for when D33 is built out** (deferred to a future session):
+
+- Sidecar file granularity (per-lesson, per-surah, or single per-language blob)
+- Translation tool design (LLM choice, verification workflow, diff review, retraining on corrections)
+- How the picker (D27-revised) interacts with sidecars — does the picker only edit main files, or also show/edit translations?
+- Integration with existing audio pipeline's Tamil TTS (which currently reads Tamil text from hand-authored YAML, will need to pivot to reading from sidecars)
+- Whether existing legacy Tamil content in `lessons/lesson-01-allahu-akbar.md` and `tools/lesson-audio/lesson-01.yaml` gets extracted into sidecars or stays in legacy files until phased out
+
+**Audio pipeline transition note:** The existing `tools/lesson-audio/lesson-01.yaml` has inline Tamil for audio TTS generation. This is legacy from before D33. The L2 audio pipeline completed its English build this session (16 EN pair MP3s + full sequential per commit `fb648aa`). My recommendation for the parallel Sonnet session: push English L2 for browser testing first, defer Tamil audio entirely until the sidecar architecture and translation tool are built. L1's legacy Tamil audio continues working as-is until the transition is planned.
 
 ### Orphan resolution
 

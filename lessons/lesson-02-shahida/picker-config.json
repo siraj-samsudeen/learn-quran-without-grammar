@@ -15,16 +15,7 @@
     "practice": 5,
     "recall": 5
   },
-  "opening": {
-    "english": "",
-    "tamil": ""
-  },
-  "closing": {
-    "english": "",
-    "tamil": ""
-  },
-  "whats_next": {
-    "english": "",
-    "tamil": ""
-  }
+  "opening": "",
+  "closing": "",
+  "whats_next": ""
 }

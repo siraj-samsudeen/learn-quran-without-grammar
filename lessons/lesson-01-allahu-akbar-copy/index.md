@@ -16,18 +16,18 @@ audio_download_tamil: /assets/audio/lessons/lesson-01/lesson-01-full-ta.mp3
 seed_phrase:
   arabic: "اللهُ أَكْبَرُ"
   english: "Allah is Greater"
-opening:
-  english: "In this series of lessons, we will walk through each of the sentences in the Adhan (Call to prayer) and use the words there as our **hooks** to get into the Quran using the beautiful concept of **roots** in Arabic language."
-  tamil: "இந்தப் பாடத் தொடரில், அதான் (தொழுகை அழைப்பு) வாக்கியங்களை ஒவ்வொன்றாகப் பார்ப்போம். அரபி மொழியின் அழகான **வேர்ச்சொல்** கருத்தைப் பயன்படுத்தி அவற்றை குர்ஆனுக்குள் நுழைவதற்கான **கொக்கிகளாக** பயன்படுத்துவோம்."
+opening: "In this series of lessons, we will walk through each of the sentences in the Adhan (Call to prayer) and use the words there as our **hooks** to get into the Quran using the beautiful concept of **roots** in Arabic language."
 ---
 {% comment %}
 Thin Liquid template per D30 — proof-of-concept draft.
+English only per D33 (main files English only; translations
+are auto-generated sidecars, architecture TBD).
 
 Covered in this draft:
   - Frontmatter snapshot from picker-config (opening + seed_phrase)
   - H1 title
-  - Opening prose (EN + TA) via page.opening.{english,tamil}
-  - ## Anchor section with seed phrase + adhan audio + explanation
+  - Opening prose (English) via page.opening
+  - ## Anchor section with seed phrase + adhan audio + English explanation
 
 Blocked sections (TODO list at end of file explains why):
   - Lesson preview, lesson map, how-to-study collapsible
@@ -36,6 +36,11 @@ Blocked sections (TODO list at end of file explains why):
   - Practice, Review in Order, Review Shuffled
   - Summary, Quick Check Quiz
   - Closing, What's Next
+
+Tamil rendering is deferred to the sidecar translation
+architecture (D33). Once that's designed, this template will
+ALSO read from a Tamil sidecar and render per-language via the
+existing translation-toggle.js + language-toggle.js runtime.
 
 Validates:
   - Frontmatter-from-picker-config mechanism
@@ -49,11 +54,7 @@ Validates:
 # {{ page.title }}
 
 <div class="lang-en" markdown="1">
-{{ page.opening.english }}
-</div>
-
-<div class="lang-ta" markdown="1">
-{{ page.opening.tamil }}
+{{ page.opening }}
 </div>
 
 ## Anchor
@@ -66,10 +67,6 @@ Validates:
 
 <div class="lang-en" markdown="1">
 You say this every single day. Before every ṣalāh. You raise your hands and say it. The muaddhin opens with it. It is the first thing you hear when prayer is called, and the first thing you say when you stand before Allah. It is the most repeated phrase in your life.
-</div>
-
-<div class="lang-ta" markdown="1">
-நீங்கள் இதை ஒவ்வொரு நாளும் சொல்கிறீர்கள். ஒவ்வொரு தொழுகைக்கும் முன். உங்கள் கைகளை உயர்த்தி இதைச் சொல்கிறீர்கள். முஅத்தின் இதனால் தொடங்குகிறார். தொழுகை அழைக்கப்படும்போது நீங்கள் முதலில் கேட்பது இதுதான், அல்லாஹ்வின் முன் நிற்கும்போது நீங்கள் முதலில் சொல்வதும் இதுதான். இது உங்கள் வாழ்க்கையில் அதிகம் திரும்பத்திரும்ப சொல்லப்படும் சொற்றொடர்.
 </div>
 
 ---
