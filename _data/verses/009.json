@@ -1,0 +1,31 @@
+{
+  "9:72": {
+    "ref": "9:72",
+    "arabic": "وَرِضْوَٰنٌ مِّنَ ٱللَّهِ أَكْبَرُ ۚ ذَٰلِكَ هُوَ ٱلْفَوْزُ ٱلْعَظِيمُ",
+    "english": "And approval from Allah is greater — that is the great triumph.",
+    "roots": ["kabura"],
+    "forms": ["أَكْبَرُ"],
+    "scores": {
+      "curriculum": 2,
+      "length": 2,
+      "story": 0,
+      "worship": 0,
+      "surah_familiarity": 0,
+      "completeness": 1,
+      "emotion": 2,
+      "fit_learn": 0,
+      "fit_practice": 1
+    },
+    "score_notes": "Allah's pleasure is greater — beautiful concept.",
+    "lesson_use": {
+      "lesson": null,
+      "section": "pipeline",
+      "is_anchor": false,
+      "order": null,
+      "arabic": null,
+      "english": null,
+      "notes": null,
+      "rejection_reason": null
+    }
+  }
+}

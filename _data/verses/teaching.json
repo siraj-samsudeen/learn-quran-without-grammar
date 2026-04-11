@@ -1,0 +1,21 @@
+{
+  "teaching:kabura:anchor-01": {
+    "ref": "teaching:kabura:anchor-01",
+    "arabic": "هُوَ كَبِيرٌ. أَنَا أَكْبَرُ مِنْهُ. وَاللَّهُ أَكْبَرُ مِنَّا، بَلْ، مِنْ كُلِّ شَيْءٍ",
+    "english": "He is great. I am greater than him. And Allah is greater than us — rather, than everything.",
+    "roots": ["kabura"],
+    "forms": ["كَبِير", "أَكْبَرُ"],
+    "scores": null,
+    "score_notes": "Made-up teaching phrase. Uses 3 forms in one flowing sentence. Builds from human comparison to divine.",
+    "lesson_use": {
+      "lesson": 1,
+      "section": "learn",
+      "is_anchor": true,
+      "order": 4,
+      "arabic": "هُوَ كَبِيرٌ. أَنَا أَكْبَرُ مِنْهُ. وَاللَّهُ أَكْبَرُ مِنَّا، بَلْ، مِنْ كُلِّ شَيْءٍ",
+      "english": "He is great. I am greater than him. And Allah is greater than us — rather, than everything.",
+      "notes": "Made-up teaching phrase. Uses 3 forms in one flowing sentence. Builds from human comparison to divine — landing on اللهُ أَكْبَرُ.",
+      "rejection_reason": null
+    }
+  }
+}

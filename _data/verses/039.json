@@ -1,0 +1,31 @@
+{
+  "39:46": {
+    "ref": "39:46",
+    "arabic": "قُلِ ٱللَّهُمَّ فَاطِرَ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ عَـٰلِمَ ٱلْغَيْبِ وَٱلشَّهَـٰدَةِ أَنتَ تَحْكُمُ بَيْنَ عِبَادِكَ",
+    "english": "Say: O Allah, Creator of the heavens and earth, Knower of the unseen and witnessed, You judge between Your servants.",
+    "roots": ["ilah"],
+    "forms": ["اللَّهُمَّ"],
+    "scores": {
+      "curriculum": 2,
+      "length": 0,
+      "story": 0,
+      "worship": 2,
+      "surah_familiarity": 0,
+      "completeness": 1,
+      "emotion": 1,
+      "fit_learn": 0,
+      "fit_practice": 1
+    },
+    "score_notes": "Beautiful du'a — Creator + Knower + Judge. Long but powerful.",
+    "lesson_use": {
+      "lesson": null,
+      "section": "pipeline",
+      "is_anchor": false,
+      "order": null,
+      "arabic": null,
+      "english": null,
+      "notes": null,
+      "rejection_reason": null
+    }
+  }
+}

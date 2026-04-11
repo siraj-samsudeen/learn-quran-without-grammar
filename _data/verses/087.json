@@ -1,0 +1,31 @@
+{
+  "87:12": {
+    "ref": "87:12",
+    "arabic": "ٱلَّذِى يَصْلَى ٱلنَّارَ ٱلْكُبْرَىٰ",
+    "english": "The one who will burn in the greatest Fire.",
+    "roots": ["kabura"],
+    "forms": ["كُبْرَى"],
+    "scores": {
+      "curriculum": 2,
+      "length": 2,
+      "story": 0,
+      "worship": 3,
+      "surah_familiarity": 2,
+      "completeness": 1,
+      "emotion": 1,
+      "fit_learn": 1,
+      "fit_practice": 1
+    },
+    "score_notes": "From Surah Al-A'la — very frequently recited in salah. Student already knows it by ear.",
+    "lesson_use": {
+      "lesson": null,
+      "section": "pipeline",
+      "is_anchor": false,
+      "order": null,
+      "arabic": null,
+      "english": null,
+      "notes": null,
+      "rejection_reason": "kubra already covered by 79:20 in learning."
+    }
+  }
+}

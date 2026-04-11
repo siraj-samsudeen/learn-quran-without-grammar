@@ -1,0 +1,60 @@
+{
+  "18:5": {
+    "ref": "18:5",
+    "arabic": "مَّا لَهُم بِهِۦ مِنْ عِلْمٍ وَلَا لِـَٔابَآئِهِمْ ۚ كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَٰهِهِمْ ۚ إِن يَقُولُونَ إِلَّا كَذِبًا",
+    "english": "They have no knowledge of it, nor did their fathers. How great a word that comes from their mouths — they speak nothing but a lie.",
+    "roots": ["kabura"],
+    "forms": ["كَبُرَ"],
+    "scores": {
+      "curriculum": 0,
+      "length": 2,
+      "story": 0,
+      "worship": 1,
+      "surah_familiarity": 1,
+      "completeness": 1,
+      "emotion": 1,
+      "fit_learn": 0,
+      "fit_practice": 1
+    },
+    "score_notes": "Surah Al-Kahf — retranslated to 'great' not 'grave' to keep root connection visible.",
+    "lesson_use": {
+      "lesson": 1,
+      "section": "practice",
+      "is_anchor": false,
+      "order": 2,
+      "arabic": "كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ",
+      "english": "How great a word that comes from their mouths — they speak nothing but a lie",
+      "notes": null,
+      "rejection_reason": null
+    }
+  },
+  "18:110": {
+    "ref": "18:110",
+    "arabic": "قُلْ إِنَّمَآ أَنَا۠ بَشَرٌ مِّثْلُكُمْ يُوحَىٰٓ إِلَىَّ أَنَّمَآ إِلَـٰهُكُمْ إِلَـٰهٌ وَٰحِدٌ",
+    "english": "Say: I am only a human like you — it is revealed to me that your God is one God.",
+    "roots": ["ilah"],
+    "forms": ["إِلَٰه"],
+    "scores": {
+      "curriculum": 2,
+      "length": 0,
+      "story": 1,
+      "worship": 1,
+      "surah_familiarity": 1,
+      "completeness": 1,
+      "emotion": 1,
+      "fit_learn": 0,
+      "fit_practice": 1
+    },
+    "score_notes": "Closing of Surah Al-Kahf — recited every Friday. Too long for Learn but good for Practice. Audio already downloaded.",
+    "lesson_use": {
+      "lesson": null,
+      "section": "pipeline",
+      "is_anchor": false,
+      "order": null,
+      "arabic": null,
+      "english": null,
+      "notes": null,
+      "rejection_reason": "Too long. Pattern dropped from v2 table."
+    }
+  }
+}

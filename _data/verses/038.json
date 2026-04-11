@@ -1,0 +1,31 @@
+{
+  "38:5": {
+    "ref": "38:5",
+    "arabic": "أَجَعَلَ ٱلْـَٔالِهَةَ إِلَـٰهًا وَٰحِدًا ۖ إِنَّ هَـٰذَا لَشَىْءٌ عُجَابٌ",
+    "english": "Has he made the gods into one God? This is truly an astonishing thing!",
+    "roots": ["ilah"],
+    "forms": ["إِلَٰه", "آلِهَة"],
+    "scores": {
+      "curriculum": 2,
+      "length": 2,
+      "story": 2,
+      "worship": 0,
+      "surah_familiarity": 0,
+      "completeness": 1,
+      "emotion": 2,
+      "fit_learn": 1,
+      "fit_practice": 1
+    },
+    "score_notes": "Quraysh mocking 'One God?!' — dramatic, both singular and plural in one verse.",
+    "lesson_use": {
+      "lesson": null,
+      "section": "pipeline",
+      "is_anchor": false,
+      "order": null,
+      "arabic": null,
+      "english": null,
+      "notes": null,
+      "rejection_reason": null
+    }
+  }
+}

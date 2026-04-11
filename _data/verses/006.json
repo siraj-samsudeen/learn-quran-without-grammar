@@ -1,0 +1,60 @@
+{
+  "6:74": {
+    "ref": "6:74",
+    "arabic": "وَإِذْ قَالَ إِبْرَٰهِـۧمُ لِأَبِيهِ ءَازَرَ أَتَتَّخِذُ أَصْنَامًا ءَالِهَةً ۖ إِنِّىٓ أَرَىٰكَ وَقَوْمَكَ فِى ضَلَـٰلٍ مُّبِينٍ",
+    "english": "And when Ibrahim said to his father Azar: Do you take idols as gods? Indeed, I see you and your people in clear error.",
+    "roots": ["ilah"],
+    "forms": ["آلِهَة"],
+    "scores": {
+      "curriculum": 0,
+      "length": 1,
+      "story": 3,
+      "worship": 0,
+      "surah_familiarity": 1,
+      "completeness": 1,
+      "emotion": 2,
+      "fit_learn": 1,
+      "fit_practice": 0
+    },
+    "score_notes": "Story context: Ibrahim confronting his father about idols — iconic, every Muslim knows this story",
+    "lesson_use": {
+      "lesson": 1,
+      "section": "learn",
+      "is_anchor": false,
+      "order": 2,
+      "arabic": "وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ أَتَتَّخِذُ أَصْنَامًا آلِهَةً",
+      "english": "And when Ibrahim said to his father Azar: Do you take idols as gods?",
+      "notes": "Story context principle — the intro gives the story hook. Trimmed ending (dropped the rebuke clause).",
+      "rejection_reason": null
+    }
+  },
+  "6:78": {
+    "ref": "6:78",
+    "arabic": "فَلَمَّا رَأَى ٱلشَّمْسَ بَازِغَةً قَالَ هَـٰذَا رَبِّى هَـٰذَآ أَكْبَرُ",
+    "english": "When he saw the sun rising, he said: This is my Lord — this is greater.",
+    "roots": ["kabura"],
+    "forms": ["أَكْبَرُ"],
+    "scores": {
+      "curriculum": 2,
+      "length": 2,
+      "story": 3,
+      "worship": 0,
+      "surah_familiarity": 1,
+      "completeness": 1,
+      "emotion": 2,
+      "fit_learn": 1,
+      "fit_practice": 1
+    },
+    "score_notes": "Ibrahim searching for God — stars, moon, sun. Each time 'this is greater.' Iconic story. Audio already downloaded.",
+    "lesson_use": {
+      "lesson": null,
+      "section": "pipeline",
+      "is_anchor": false,
+      "order": null,
+      "arabic": null,
+      "english": null,
+      "notes": null,
+      "rejection_reason": "Already have أَكْبَر in anchor phrase and practice (29:45)."
+    }
+  }
+}

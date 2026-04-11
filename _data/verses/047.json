@@ -1,0 +1,31 @@
+{
+  "47:19": {
+    "ref": "47:19",
+    "arabic": "فَٱعْلَمْ أَنَّهُۥ لَآ إِلَـٰهَ إِلَّا ٱللَّهُ وَٱسْتَغْفِرْ لِذَنۢبِكَ",
+    "english": "Know that there is no god but Allah, and ask forgiveness for your sins.",
+    "roots": ["ilah"],
+    "forms": ["إِلَٰه"],
+    "scores": {
+      "curriculum": 2,
+      "length": 1,
+      "story": 1,
+      "worship": 1,
+      "surah_familiarity": 0,
+      "completeness": 1,
+      "emotion": 2,
+      "fit_learn": 1,
+      "fit_practice": 1
+    },
+    "score_notes": "Direct command to the Prophet — most concise tawhid + istighfar in one breath. Audio already downloaded.",
+    "lesson_use": {
+      "lesson": null,
+      "section": "pipeline",
+      "is_anchor": false,
+      "order": null,
+      "arabic": null,
+      "english": null,
+      "notes": null,
+      "rejection_reason": "Slot went to shorter phrases."
+    }
+  }
+}

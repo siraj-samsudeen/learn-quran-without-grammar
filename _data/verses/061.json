@@ -1,0 +1,31 @@
+{
+  "61:3": {
+    "ref": "61:3",
+    "arabic": "كَبُرَ مَقْتًا عِندَ ٱللَّهِ أَن تَقُولُوا۟ مَا لَا تَفْعَلُونَ",
+    "english": "Greatly hateful in the sight of Allah that you say what you do not do.",
+    "roots": ["kabura"],
+    "forms": ["كَبُرَ"],
+    "scores": {
+      "curriculum": 0,
+      "length": 1,
+      "story": 0,
+      "worship": 0,
+      "surah_familiarity": 1,
+      "completeness": 1,
+      "emotion": 2,
+      "fit_learn": 1,
+      "fit_practice": 1
+    },
+    "score_notes": "Base verb form. Saying and not doing — deeply hated by Allah.",
+    "lesson_use": {
+      "lesson": 1,
+      "section": "learn",
+      "is_anchor": false,
+      "order": 6,
+      "arabic": "كَبُرَ مَقْتًا عِندَ اللَّهِ أَن تَقُولُوا مَا لَا تَفْعَلُونَ",
+      "english": "Greatly hateful in the sight of Allah — that you say what you do not do",
+      "notes": "Base verb form. Saying and not doing — deeply hated by Allah.",
+      "rejection_reason": null
+    }
+  }
+}

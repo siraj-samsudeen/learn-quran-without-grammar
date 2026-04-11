@@ -1,0 +1,31 @@
+{
+  "37:35": {
+    "ref": "37:35",
+    "arabic": "إِنَّهُمْ كَانُوٓا۟ إِذَا قِيلَ لَهُمْ لَآ إِلَـٰهَ إِلَّا ٱللَّهُ يَسْتَكْبِرُونَ",
+    "english": "When it was said to them: There is no god but Allah — they were arrogant.",
+    "roots": ["ilah", "kabura"],
+    "forms": ["إِلَٰه", "اسْتَكْبَرَ"],
+    "scores": {
+      "curriculum": 2,
+      "length": 1,
+      "story": 1,
+      "worship": 0,
+      "surah_familiarity": 0,
+      "completeness": 1,
+      "emotion": 2,
+      "fit_learn": 1,
+      "fit_practice": 1
+    },
+    "score_notes": "Bridges both roots — la ilaha illa Allah + arrogance. Cross-root verse.",
+    "lesson_use": {
+      "lesson": null,
+      "section": "pipeline",
+      "is_anchor": false,
+      "order": null,
+      "arabic": null,
+      "english": null,
+      "notes": null,
+      "rejection_reason": null
+    }
+  }
+}

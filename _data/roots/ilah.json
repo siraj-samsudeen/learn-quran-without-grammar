@@ -1,0 +1,39 @@
+{
+  "slug": "ilah",
+  "arabic": "إِلَٰه",
+  "transliteration": "ilah",
+  "three_letter": "أ ل ه",
+  "three_letter_english": "alif lam ha",
+  "introduced_in_lesson": 1,
+  "notes": null,
+  "forms": [
+    {
+      "arabic": "إِلَٰه",
+      "transliteration": "ilah",
+      "category": "Noun",
+      "english": "god, deity",
+      "notes": null
+    },
+    {
+      "arabic": "آلِهَة",
+      "transliteration": "aliha",
+      "category": "Noun (plural)",
+      "english": "gods",
+      "notes": null
+    },
+    {
+      "arabic": "اللَّهُمَّ",
+      "transliteration": "Allahumma",
+      "category": "Noun (special vocative)",
+      "english": "O Allah",
+      "notes": null
+    },
+    {
+      "arabic": "اللّٰه",
+      "transliteration": "Allah",
+      "category": "Proper Noun",
+      "english": "Allah",
+      "notes": "Dropped from Lesson 1 table — too obvious, student already knows it"
+    }
+  ]
+}

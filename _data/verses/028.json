@@ -1,0 +1,31 @@
+{
+  "28:38": {
+    "ref": "28:38",
+    "arabic": "وَقَالَ فِرْعَوْنُ يَـٰٓأَيُّهَا ٱلْمَلَأُ مَا عَلِمْتُ لَكُم مِّنْ إِلَـٰهٍ غَيْرِى",
+    "english": "Pharaoh said: O chiefs, I know of no god for you other than myself.",
+    "roots": ["ilah"],
+    "forms": ["إِلَٰه"],
+    "scores": {
+      "curriculum": 2,
+      "length": 1,
+      "story": 3,
+      "worship": 0,
+      "surah_familiarity": 0,
+      "completeness": 1,
+      "emotion": 2,
+      "fit_learn": 1,
+      "fit_practice": 0
+    },
+    "score_notes": "Anti-version of Nuh's call. Pharaoh flips the prophet's formula — ultimate arrogance. Audio already downloaded.",
+    "lesson_use": {
+      "lesson": null,
+      "section": "pipeline",
+      "is_anchor": false,
+      "order": null,
+      "arabic": null,
+      "english": null,
+      "notes": null,
+      "rejection_reason": "Very long. Pattern dropped from v2 table."
+    }
+  }
+}

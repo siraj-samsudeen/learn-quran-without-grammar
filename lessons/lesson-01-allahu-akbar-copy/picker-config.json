@@ -1,0 +1,18 @@
+{
+  "lesson_number": 1,
+  "slug": "lesson-01-allahu-akbar",
+  "title": "Lesson 1: Allahu Akbar",
+  "description": "Two root words behind Allahu Akbar — ilah (god) and kabura (greatness).",
+  "seed_phrase": {
+    "arabic": "اللهُ أَكْبَرُ",
+    "english": "Allah is Greater"
+  },
+  "current_roots": ["ilah", "kabura"],
+  "recall_roots": [],
+  "targets": {
+    "anchor": 2,
+    "learn": 5,
+    "practice": 5,
+    "recall": 0
+  }
+}

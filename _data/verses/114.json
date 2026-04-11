@@ -1,0 +1,31 @@
+{
+  "114:1-3": {
+    "ref": "114:1-3",
+    "arabic": "قُلْ أَعُوذُ بِرَبِّ النَّاسِ · مَلِكِ النَّاسِ · إِلَٰهِ النَّاسِ",
+    "english": "Say: I seek refuge in the Lord of mankind, the King of mankind, the God of mankind.",
+    "roots": ["ilah"],
+    "forms": ["إِلَٰه"],
+    "scores": {
+      "curriculum": 2,
+      "length": 1,
+      "story": 0,
+      "worship": 3,
+      "surah_familiarity": 2,
+      "completeness": 1,
+      "emotion": 1,
+      "fit_learn": 1,
+      "fit_practice": 1
+    },
+    "score_notes": "Surah An-Nas — recited every day in salah and before sleep. Could revisit in a surah-based lesson.",
+    "lesson_use": {
+      "lesson": null,
+      "section": "pipeline",
+      "is_anchor": false,
+      "order": null,
+      "arabic": null,
+      "english": null,
+      "notes": null,
+      "rejection_reason": "Pattern dropped from v2 table."
+    }
+  }
+}

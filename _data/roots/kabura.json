@@ -1,0 +1,109 @@
+{
+  "slug": "kabura",
+  "arabic": "كَبُرَ",
+  "transliteration": "kabura",
+  "three_letter": "ك ب ر",
+  "three_letter_english": "kaf ba ra",
+  "introduced_in_lesson": 1,
+  "notes": null,
+  "forms": [
+    {
+      "arabic": "كَبُرَ",
+      "transliteration": "kabura",
+      "category": "Verb (Form I)",
+      "english": "to be great",
+      "notes": null
+    },
+    {
+      "arabic": "اسْتَكْبَرَ",
+      "transliteration": "istakbara",
+      "category": "Verb (Form X)",
+      "english": "to be arrogant",
+      "notes": null
+    },
+    {
+      "arabic": "كَبِير",
+      "transliteration": "kabir",
+      "category": "Adjective",
+      "english": "great, big",
+      "notes": null
+    },
+    {
+      "arabic": "كُبْرَى",
+      "transliteration": "kubra",
+      "category": "Adjective (feminine superlative)",
+      "english": "greatest",
+      "notes": null
+    },
+    {
+      "arabic": "أَكْبَرُ",
+      "transliteration": "akbar",
+      "category": "Elative (superlative)",
+      "english": "greater, greatest",
+      "notes": null
+    },
+    {
+      "arabic": "كَبَّرَ",
+      "transliteration": "kabbara",
+      "category": "Verb (Form II)",
+      "english": "to magnify (do takbir)",
+      "notes": "Directly means 'do takbir' — strong connection to Lesson 1 anchor"
+    },
+    {
+      "arabic": "مُتَكَبِّر",
+      "transliteration": "mutakabbir",
+      "category": "Active Participle (Form V)",
+      "english": "the Supreme, the Arrogant",
+      "notes": "Name of Allah (59:23) — الْمُتَكَبِّرُ"
+    },
+    {
+      "arabic": "كَبِيرَة",
+      "transliteration": "kabirat",
+      "category": "Noun",
+      "english": "great sin",
+      "notes": null
+    },
+    {
+      "arabic": "كِبَر",
+      "transliteration": "kibar",
+      "category": "Noun",
+      "english": "old age",
+      "notes": "Includes famous parents verse 17:23"
+    },
+    {
+      "arabic": "مُسْتَكْبِر",
+      "transliteration": "mustakbir",
+      "category": "Active Participle (Form X)",
+      "english": "the arrogant ones",
+      "notes": null
+    },
+    {
+      "arabic": "كِبْر",
+      "transliteration": "kibr",
+      "category": "Noun",
+      "english": "pride, arrogance",
+      "notes": null
+    },
+    {
+      "arabic": "كِبْرِيَاء",
+      "transliteration": "kibriya'",
+      "category": "Noun",
+      "english": "supreme majesty",
+      "notes": null
+    },
+    {
+      "arabic": "أَكْبَرَ",
+      "transliteration": "akbara",
+      "category": "Verb (Form IV)",
+      "english": "to be astonished",
+      "notes": "Only in 12:31 (Yusuf story, memorable)"
+    },
+    {
+      "arabic": "تَكْبِير",
+      "transliteration": "takbir",
+      "category": "Verbal Noun (Form II)",
+      "english": "magnification, takbir",
+      "notes": "Only in 17:111 — with كَبَّرَ"
+    }
+  ]
+}

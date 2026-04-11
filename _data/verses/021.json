@@ -1,0 +1,89 @@
+{
+  "21:22": {
+    "ref": "21:22",
+    "arabic": "لَوْ كَانَ فِيهِمَآ ءَالِهَةٌ إِلَّا ٱللَّهُ لَفَسَدَتَا",
+    "english": "Had there been gods in them (heavens and earth) other than Allah, they would have been ruined.",
+    "roots": ["ilah"],
+    "forms": ["آلِهَة"],
+    "scores": {
+      "curriculum": 2,
+      "length": 2,
+      "story": 0,
+      "worship": 0,
+      "surah_familiarity": 0,
+      "completeness": 1,
+      "emotion": 1,
+      "fit_learn": 0,
+      "fit_practice": 1
+    },
+    "score_notes": "Famous logical argument for tawhid — short and self-contained.",
+    "lesson_use": {
+      "lesson": null,
+      "section": "pipeline",
+      "is_anchor": false,
+      "order": null,
+      "arabic": null,
+      "english": null,
+      "notes": null,
+      "rejection_reason": null
+    }
+  },
+  "21:63": {
+    "ref": "21:63",
+    "arabic": "قَالَ بَلْ فَعَلَهُۥ كَبِيرُهُمْ هَـٰذَا فَسْـَٔلُوهُمْ إِن كَانُوا۟ يَنطِقُونَ",
+    "english": "He said: Rather, their chief did it — ask them, if they can speak.",
+    "roots": ["kabura"],
+    "forms": ["كَبِير"],
+    "scores": {
+      "curriculum": 0,
+      "length": 1,
+      "story": 3,
+      "worship": 0,
+      "surah_familiarity": 0,
+      "completeness": 1,
+      "emotion": 2,
+      "fit_learn": 1,
+      "fit_practice": 1
+    },
+    "score_notes": "Ibrahim's wit when questioned about smashing the idols — brilliant story.",
+    "lesson_use": {
+      "lesson": 1,
+      "section": "practice",
+      "is_anchor": false,
+      "order": 3,
+      "arabic": "قَالَ بَلْ فَعَلَهُ كَبِيرُهُمْ هَٰذَا فَاسْأَلُوهُمْ إِن كَانُوا يَنطِقُونَ",
+      "english": "He said: Rather, their chief did it — ask them, if they can speak",
+      "notes": null,
+      "rejection_reason": null
+    }
+  },
+  "21:87": {
+    "ref": "21:87",
+    "arabic": "وَذَا ٱلنُّونِ إِذ ذَّهَبَ مُغَـٰضِبًا فَظَنَّ أَن لَّن نَّقْدِرَ عَلَيْهِ فَنَادَىٰ فِى ٱلظُّلُمَـٰتِ أَن لَّآ إِلَـٰهَ إِلَّآ أَنتَ سُبْحَـٰنَكَ إِنِّى كُنتُ مِنَ ٱلظَّـٰلِمِينَ",
+    "english": "He called out in the darkness: There is no god but You, glory be to You, I was among the wrongdoers.",
+    "roots": ["ilah"],
+    "forms": ["إِلَٰه"],
+    "scores": {
+      "curriculum": 2,
+      "length": 0,
+      "story": 3,
+      "worship": 2,
+      "surah_familiarity": 0,
+      "completeness": 1,
+      "emotion": 2,
+      "fit_learn": 1,
+      "fit_practice": 1
+    },
+    "score_notes": "Story of Yunus in the whale — one of the most beloved du'as. Too long for beginner's first phrase but excellent for later lessons.",
+    "lesson_use": {
+      "lesson": null,
+      "section": "pipeline",
+      "is_anchor": false,
+      "order": null,
+      "arabic": null,
+      "english": null,
+      "notes": null,
+      "rejection_reason": "Too long for a beginner's first phrase. Student found it overwhelming."
+    }
+  }
+}

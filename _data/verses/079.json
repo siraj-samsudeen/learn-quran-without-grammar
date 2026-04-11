@@ -1,0 +1,31 @@
+{
+  "79:20": {
+    "ref": "79:20",
+    "arabic": "فَأَرَىٰهُ ٱلْـَٔايَةَ ٱلْكُبْرَىٰ",
+    "english": "He showed him the greatest sign.",
+    "roots": ["kabura"],
+    "forms": ["كُبْرَى"],
+    "scores": {
+      "curriculum": 0,
+      "length": 2,
+      "story": 2,
+      "worship": 0,
+      "surah_familiarity": 2,
+      "completeness": 1,
+      "emotion": 1,
+      "fit_learn": 1,
+      "fit_practice": 1
+    },
+    "score_notes": "Tiny — 4 words. Musa showed Pharaoh the greatest miracle. Juz' 30.",
+    "lesson_use": {
+      "lesson": 1,
+      "section": "learn",
+      "is_anchor": false,
+      "order": 5,
+      "arabic": "فَأَرَاهُ الْآيَةَ الْكُبْرَىٰ",
+      "english": "And he showed him the greatest sign",
+      "notes": "Tiny — 4 words. Musa showed Pharaoh the greatest miracle.",
+      "rejection_reason": null
+    }
+  }
+}

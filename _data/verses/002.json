@@ -1,0 +1,89 @@
+{
+  "2:34": {
+    "ref": "2:34",
+    "arabic": "وَإِذْ قُلْنَا لِلْمَلَـٰٓئِكَةِ ٱسْجُدُوا۟ لِـَٔادَمَ فَسَجَدُوٓا۟ إِلَّآ إِبْلِيسَ أَبَىٰ وَٱسْتَكْبَرَ وَكَانَ مِنَ ٱلْكَـٰفِرِينَ",
+    "english": "And when We said to the angels: Prostrate to Adam — they prostrated, except Iblis. He refused and was arrogant, and became of the disbelievers.",
+    "roots": ["kabura"],
+    "forms": ["اسْتَكْبَرَ"],
+    "scores": {
+      "curriculum": 0,
+      "length": 0,
+      "story": 3,
+      "worship": 0,
+      "surah_familiarity": 0,
+      "completeness": 1,
+      "emotion": 2,
+      "fit_learn": 1,
+      "fit_practice": 0
+    },
+    "score_notes": "Full origin story of Iblis — far more memorable than a trimmed fragment. Story context principle.",
+    "lesson_use": {
+      "lesson": 1,
+      "section": "learn",
+      "is_anchor": false,
+      "order": 7,
+      "arabic": "وَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ فَسَجَدُوا إِلَّا إِبْلِيسَ أَبَىٰ وَاسْتَكْبَرَ وَكَانَ مِنَ الْكَافِرِينَ",
+      "english": "And when We said to the angels: Prostrate to Adam — they all prostrated, except Iblis. He refused and was arrogant, and became of the disbelievers.",
+      "notes": "Full ayah — story context principle. The full origin story of Iblis is far more memorable than a trimmed fragment.",
+      "rejection_reason": null
+    }
+  },
+  "2:163": {
+    "ref": "2:163",
+    "arabic": "وَإِلَـٰهُكُمْ إِلَـٰهٌ وَٰحِدٌ ۖ لَّآ إِلَـٰهَ إِلَّا هُوَ ٱلرَّحْمَـٰنُ ٱلرَّحِيمُ",
+    "english": "Your God is one God — there is no god but He, the Most Merciful, the Continuously Merciful.",
+    "roots": ["ilah"],
+    "forms": ["إِلَٰه"],
+    "scores": {
+      "curriculum": 0,
+      "length": 1,
+      "story": 0,
+      "worship": 2,
+      "surah_familiarity": 0,
+      "completeness": 1,
+      "emotion": 1,
+      "fit_learn": 0,
+      "fit_practice": 1
+    },
+    "score_notes": "Triple إِلَٰه in one verse — the complete tawhid statement. Pattern: إِلَٰهٌ وَاحِدٌ + لَا إِلَٰهَ إِلَّا.",
+    "lesson_use": {
+      "lesson": 1,
+      "section": "practice",
+      "is_anchor": false,
+      "order": 4,
+      "arabic": "وَإِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ ۖ لَا إِلَٰهَ إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ",
+      "english": "And your God is one God — there is no god but He, the Most Merciful, the Continuously Merciful",
+      "notes": null,
+      "rejection_reason": null
+    }
+  },
+  "2:219": {
+    "ref": "2:219",
+    "arabic": "يَسْـَٔلُونَكَ عَنِ ٱلْخَمْرِ وَٱلْمَيْسِرِ ۖ قُلْ فِيهِمَآ إِثْمٌ كَبِيرٌ وَمَنَـٰفِعُ لِلنَّاسِ وَإِثْمُهُمَآ أَكْبَرُ مِن نَّفْعِهِمَا",
+    "english": "They ask you about wine and gambling. Say: In them is great sin and benefit for people, but their sin is greater than their benefit.",
+    "roots": ["kabura"],
+    "forms": ["كَبِير", "أَكْبَرُ"],
+    "scores": {
+      "curriculum": 2,
+      "length": 0,
+      "story": 0,
+      "worship": 0,
+      "surah_familiarity": 0,
+      "completeness": 1,
+      "emotion": 1,
+      "fit_learn": 0,
+      "fit_practice": 1
+    },
+    "score_notes": "Famous ruling verse on wine/gambling. Uses both kabir and akbar — two forms in one sentence. Very long.",
+    "lesson_use": {
+      "lesson": null,
+      "section": "pipeline",
+      "is_anchor": false,
+      "order": null,
+      "arabic": null,
+      "english": null,
+      "notes": null,
+      "rejection_reason": "Very long. Both forms already covered elsewhere."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "59:22": {
+    "ref": "59:22",
+    "arabic": "هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَـٰهَ إِلَّا هُوَ ۖ عَـٰلِمُ ٱلْغَيْبِ وَٱلشَّهَـٰدَةِ ۖ هُوَ ٱلرَّحْمَـٰنُ ٱلرَّحِيمُ",
+    "english": "He is Allah — there is no god but He, Knower of the unseen and the witnessed. He is the Most Merciful, the Continuously Merciful.",
+    "roots": ["ilah"],
+    "forms": ["إِلَٰه"],
+    "scores": {
+      "curriculum": 0,
+      "length": 2,
+      "story": 0,
+      "worship": 2,
+      "surah_familiarity": 1,
+      "completeness": 1,
+      "emotion": 1,
+      "fit_learn": 1,
+      "fit_practice": 1
+    },
+    "score_notes": "Short, iconic, contains إِلَٰه at the heart. Student memorises this one phrase.",
+    "lesson_use": {
+      "lesson": 1,
+      "section": "learn",
+      "is_anchor": true,
+      "order": 1,
+      "arabic": "هُوَ اللَّهُ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ",
+      "english": "He is Allah — there is no god but He",
+      "notes": "Short, iconic, contains إِلَٰه at the heart. Student memorises this one phrase.",
+      "rejection_reason": null
+    }
+  }
+}

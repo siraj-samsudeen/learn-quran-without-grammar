@@ -1,0 +1,60 @@
+{
+  "3:26": {
+    "ref": "3:26",
+    "arabic": "قُلِ ٱللَّهُمَّ مَـٰلِكَ ٱلْمُلْكِ تُؤْتِى ٱلْمُلْكَ مَن تَشَآءُ وَتَنزِعُ ٱلْمُلْكَ مِمَّن تَشَآءُ وَتُعِزُّ مَن تَشَآءُ وَتُذِلُّ مَن تَشَآءُ ۖ بِيَدِكَ ٱلْخَيْرُ ۖ إِنَّكَ عَلَىٰ كُلِّ شَىْءٍ قَدِيرٌ",
+    "english": "Say: O Allah, Owner of sovereignty — You give sovereignty to whom You will and take sovereignty from whom You will. You honour whom You will and humble whom You will. In Your hand is all good. Indeed, You are over all things competent.",
+    "roots": ["ilah"],
+    "forms": ["اللَّهُمَّ"],
+    "scores": {
+      "curriculum": 0,
+      "length": 2,
+      "story": 0,
+      "worship": 2,
+      "surah_familiarity": 1,
+      "completeness": 1,
+      "emotion": 1,
+      "fit_learn": 1,
+      "fit_practice": 1
+    },
+    "score_notes": "Introduces the prayer-address form. Trimmed to keep short.",
+    "lesson_use": {
+      "lesson": 1,
+      "section": "learn",
+      "is_anchor": false,
+      "order": 3,
+      "arabic": "قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ",
+      "english": "Say: O Allah, King of kings",
+      "notes": "Introduces the prayer-address form. Trimmed to keep short.",
+      "rejection_reason": null
+    }
+  },
+  "3:18": {
+    "ref": "3:18",
+    "arabic": "شَهِدَ ٱللَّهُ أَنَّهُۥ لَآ إِلَـٰهَ إِلَّا هُوَ وَٱلْمَلَـٰٓئِكَةُ وَأُو۟لُوا۟ ٱلْعِلْمِ",
+    "english": "Allah bears witness that there is no god but He, and the angels, and those with knowledge.",
+    "roots": ["ilah", "shahida"],
+    "forms": ["إِلَٰه"],
+    "scores": {
+      "curriculum": 2,
+      "length": 1,
+      "story": 1,
+      "worship": 2,
+      "surah_familiarity": 1,
+      "completeness": 1,
+      "emotion": 2,
+      "fit_learn": 1,
+      "fit_practice": 1
+    },
+    "score_notes": "Allah Himself bearing witness — perfect for shahādah lesson. Cross-root with شَهِدَ.",
+    "lesson_use": {
+      "lesson": 2,
+      "section": "pipeline",
+      "is_anchor": false,
+      "order": null,
+      "arabic": null,
+      "english": null,
+      "notes": "Allah Himself bearing witness — perfect for shahādah lesson. Cross-root with شَهِدَ.",
+      "rejection_reason": null
+    }
+  }
+}

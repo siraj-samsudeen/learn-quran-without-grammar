@@ -1,0 +1,31 @@
+{
+  "41:15": {
+    "ref": "41:15",
+    "arabic": "فَأَمَّا عَادٌ فَٱسْتَكْبَرُوا۟ فِى ٱلْأَرْضِ بِغَيْرِ ٱلْحَقِّ وَقَالُوا۟ مَنْ أَشَدُّ مِنَّا قُوَّةً ۖ أَوَلَمْ يَرَوْا۟ أَنَّ ٱللَّهَ ٱلَّذِى خَلَقَهُمْ هُوَ أَشَدُّ مِنْهُمْ قُوَّةً",
+    "english": "As for Aad, they were arrogant on earth without right and said: Who is mightier than us? Did they not see that Allah who created them is mightier than them?",
+    "roots": ["kabura"],
+    "forms": ["اسْتَكْبَرَ"],
+    "scores": {
+      "curriculum": 0,
+      "length": 0,
+      "story": 2,
+      "worship": 0,
+      "surah_familiarity": 0,
+      "completeness": 1,
+      "emotion": 2,
+      "fit_learn": 0,
+      "fit_practice": 1
+    },
+    "score_notes": "Aad's arrogant boast + Allah's comeback — punchy despite length.",
+    "lesson_use": {
+      "lesson": 1,
+      "section": "practice",
+      "is_anchor": false,
+      "order": 5,
+      "arabic": "فَأَمَّا عَادٌ فَاسْتَكْبَرُوا فِي الْأَرْضِ بِغَيْرِ الْحَقِّ وَقَالُوا مَنْ أَشَدُّ مِنَّا قُوَّةً ۖ أَوَلَمْ يَرَوْا أَنَّ اللَّهَ الَّذِي خَلَقَهُمْ هُوَ أَشَدُّ مِنْهُمْ قُوَّةً",
+      "english": "As for Aad, they were arrogant on earth without right and said: Who is mightier than us in strength? Did they not see that Allah who created them is mightier than them in strength?",
+      "notes": null,
+      "rejection_reason": null
+    }
+  }
+}
