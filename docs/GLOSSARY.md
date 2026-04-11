@@ -11,9 +11,10 @@ _Shared vocabulary for talking about lesson structure. Established 2026-04-11._
               ↓ expressed as
             Form                              ← a specific word from the root (e.g., إِلَٰه)
               ↓ demonstrated via
-[Level 1]   Anchor phrase                    ← one per form, iconic Qur'anic example (flagged)
+[Level 1]   Anchor phrase                    ← one per root, iconic Qur'anic example (flagged)
               ↓
-            Learn phrases (exactly 5)         ← anchors are a subset
+            Learn phrases (1 anchor +         ← anchors are a subset
+                           2–3 per root)
               +
             Practice phrases                  ← varied exposure to the same forms
               +
@@ -27,7 +28,7 @@ _Shared vocabulary for talking about lesson structure. Established 2026-04-11._
 | **Seed phrase** | The daily-prayer / adhān / ṣalāh phrase the lesson grows from. Level 0. Exactly one per lesson. The whole lesson is sprouted from this phrase — roots identified in it drive form selection, which drives verse selection. | `seed_phrase` |
 | **Root** | Triliteral Arabic root (e.g., أ ل ه). | `root` |
 | **Form** | A specific word derived from a root (e.g., إِلَٰه). One or more per root per lesson. | `form` |
-| **Anchor phrase** | The iconic Qur'anic verse chosen to introduce a form. Exactly one per form being taught. Level 1. Displayed with ⭐. | `is_anchor: true` on a learn phrase |
+| **Anchor phrase** | The iconic phrase chosen to introduce a **root** (not a form). Exactly one per root being taught. Level 1. Displayed with ⭐. | `is_anchor: true` on a learn phrase |
 | **Learn phrases** | Phrases students actively learn this lesson. Anchors are a subset. | section: `learn` |
 | **Practice phrases** | Additional phrases reinforcing the same forms in varied contexts. | section: `practice` |
 | **Recall phrases** | Phrases in this lesson using forms from *earlier* lessons. | section: `recall` |
@@ -35,9 +36,13 @@ _Shared vocabulary for talking about lesson structure. Established 2026-04-11._
 
 ## Constraints
 
-1. **Exactly one anchor phrase per form** being taught in a lesson. The picker UI must enforce this (e.g., radio-style selection within a form group).
-2. **Exactly 5 learn phrases per lesson**, regardless of how many forms are being taught. No flexibility. So if a lesson teaches 2 forms → 2 anchors + 3 more learn phrases. If 3 forms → 3 anchors + 2 more. Etc.
-3. **Anchor is a flag, not a section.** An anchor phrase is a learn phrase with `is_anchor: true`. The picker section list stays: `learn` / `practice` / `recall` / `pipeline` / `none`.
+1. **Exactly one anchor phrase per root** being taught in a lesson. Amended 2026-04-11 (was previously "per form" — that was wrong, Lesson 1 actually uses per-root). The picker UI must enforce this (e.g., radio-style selection within a root group).
+
+2. **Per-root density, not fixed per-lesson total.** Each root taught gets **1 anchor + 2–3 learn phrases** (so 3–4 learn items per root). **Practice** is **5 phrases** mixed across the lesson's roots. **Recall** is **0–3 phrases** from earlier lessons (Lesson 2 onwards). **Target total: 10–15 items per lesson. Hard cap: 15.** If a lesson would exceed 15 items, teach one fewer root and push the dropped root to a future lesson.
+
+   *Rationale (2026-04-11):* Adults on phones have ~15-minute focused windows. Per-root consistency matters more than per-lesson consistency for building a stable mental model. Fixing the per-lesson total at a single number (e.g. 10 or 12) makes 1-root lessons feel padded and 3-root lessons feel cramped; scaling by root count keeps every lesson naturally sized. Check against Lesson 1: 2 roots × (1 anchor + 2–3 learn) + 5 practice = 11–12 items ✓.
+
+3. **Anchor is a flag, not a section.** An anchor phrase is a learn phrase with `is_anchor: true`. The picker section list stays: `learn` / `practice` / `recall` / `pipeline` / `rejected`.
 
 ## Where things live (per D4 + D5, 2026-04-11)
 
