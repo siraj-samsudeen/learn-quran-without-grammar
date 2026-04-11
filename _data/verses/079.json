@@ -3,8 +3,12 @@
     "ref": "79:20",
     "arabic": "فَأَرَىٰهُ ٱلْـَٔايَةَ ٱلْكُبْرَىٰ",
     "english": "He showed him the greatest sign.",
-    "roots": ["kabura"],
-    "forms": ["كُبْرَى"],
+    "roots": [
+      "kabura"
+    ],
+    "forms": [
+      "كُبْرَى"
+    ],
     "scores": {
       "curriculum": 0,
       "length": 2,
@@ -22,9 +26,11 @@
       "section": "learn",
       "is_anchor": false,
       "order": 5,
-      "arabic": "فَأَرَاهُ الْآيَةَ الْكُبْرَىٰ",
-      "english": "And he showed him the greatest sign",
-      "notes": "Tiny — 4 words. Musa showed Pharaoh the greatest miracle.",
+      "heading": "5 · كُبْرَى (greatest)",
+      "audio_file": "learn-kabura-01.mp3",
+      "arabic": "فَأَرَاهُ الْآيَةَ **الْكُبْرَىٰ**",
+      "english": "And he showed him the **greatest** sign",
+      "notes": "Mūsā showed Pharaoh something so overwhelming that this root had to be used — *the greatest*.",
       "rejection_reason": null
     }
   }

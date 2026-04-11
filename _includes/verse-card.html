@@ -1,0 +1,28 @@
+{% comment %}
+verse-card.html — renders a single verse in the L1 h3+paragraph
+card pattern that lesson-cards.js transforms into a .verse-card
+div at runtime.
+
+English only per D33. Tamil sidecars (TBD) will be merged
+in a later pass by the render pipeline.
+
+Parameters:
+  include.verse       — verse object from site.data.verses.*
+  include.surah_name  — transliterated surah name (e.g. "Al-Ḥashr")
+  include.audio_base  — audio directory (e.g. "/assets/audio/lessons/lesson-01")
+
+The verse's lesson_use must have: heading, audio_file, arabic
+(with **bold** on taught word), english (with **bold**), notes
+(student hook text).
+{% endcomment -%}
+### {{ include.verse.lesson_use.heading }}
+
+{{ include.verse.lesson_use.arabic }}
+
+({{ include.surah_name }} {{ include.verse.ref }}) · <audio class="lang-en" controls preload="none" src="{{ include.audio_base | append: '/' | append: include.verse.lesson_use.audio_file | relative_url }}"></audio>
+
+"{{ include.verse.lesson_use.english }}"
+
+{{ include.verse.lesson_use.notes }}
+
+---

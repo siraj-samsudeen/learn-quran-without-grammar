@@ -3,8 +3,12 @@
     "ref": "18:5",
     "arabic": "مَّا لَهُم بِهِۦ مِنْ عِلْمٍ وَلَا لِـَٔابَآئِهِمْ ۚ كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَٰهِهِمْ ۚ إِن يَقُولُونَ إِلَّا كَذِبًا",
     "english": "They have no knowledge of it, nor did their fathers. How great a word that comes from their mouths — they speak nothing but a lie.",
-    "roots": ["kabura"],
-    "forms": ["كَبُرَ"],
+    "roots": [
+      "kabura"
+    ],
+    "forms": [
+      "كَبُرَ"
+    ],
     "scores": {
       "curriculum": 0,
       "length": 2,
@@ -22,9 +26,11 @@
       "section": "practice",
       "is_anchor": false,
       "order": 2,
-      "arabic": "كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ",
-      "english": "How great a word that comes from their mouths — they speak nothing but a lie",
-      "notes": null,
+      "heading": "9 · كَبُرَتْ (how great)",
+      "audio_file": "practice-02.mp3",
+      "arabic": "**كَبُرَتْ** كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ ۚ إِن يَقُولُونَ إِلَّا كَذِبًا",
+      "english": "How **great** a word that comes from their mouths — they speak nothing but a lie",
+      "notes": "Notice **كَبُرَتْ** — the same root verb you met earlier, now with a feminine ending. The root letters kāf-bā-rā are right there.",
       "rejection_reason": null
     }
   },
@@ -32,8 +38,12 @@
     "ref": "18:110",
     "arabic": "قُلْ إِنَّمَآ أَنَا۠ بَشَرٌ مِّثْلُكُمْ يُوحَىٰٓ إِلَىَّ أَنَّمَآ إِلَـٰهُكُمْ إِلَـٰهٌ وَٰحِدٌ",
     "english": "Say: I am only a human like you — it is revealed to me that your God is one God.",
-    "roots": ["ilah"],
-    "forms": ["إِلَٰه"],
+    "roots": [
+      "ilah"
+    ],
+    "forms": [
+      "إِلَٰه"
+    ],
     "scores": {
       "curriculum": 2,
       "length": 0,

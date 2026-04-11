@@ -3,8 +3,12 @@
     "ref": "6:74",
     "arabic": "وَإِذْ قَالَ إِبْرَٰهِـۧمُ لِأَبِيهِ ءَازَرَ أَتَتَّخِذُ أَصْنَامًا ءَالِهَةً ۖ إِنِّىٓ أَرَىٰكَ وَقَوْمَكَ فِى ضَلَـٰلٍ مُّبِينٍ",
     "english": "And when Ibrahim said to his father Azar: Do you take idols as gods? Indeed, I see you and your people in clear error.",
-    "roots": ["ilah"],
-    "forms": ["آلِهَة"],
+    "roots": [
+      "ilah"
+    ],
+    "forms": [
+      "آلِهَة"
+    ],
     "scores": {
       "curriculum": 0,
       "length": 1,
@@ -22,9 +26,11 @@
       "section": "learn",
       "is_anchor": false,
       "order": 2,
-      "arabic": "وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ أَتَتَّخِذُ أَصْنَامًا آلِهَةً",
-      "english": "And when Ibrahim said to his father Azar: Do you take idols as gods?",
-      "notes": "Story context principle — the intro gives the story hook. Trimmed ending (dropped the rebuke clause).",
+      "heading": "2 · آلِهَة (gods)",
+      "audio_file": "learn-ilah-01.mp3",
+      "arabic": "وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ أَتَتَّخِذُ أَصْنَامًا **آلِهَةً**",
+      "english": "And when Ibrāhīm said to his father Āzar: Do you take idols as **gods**?",
+      "notes": "Ibrāhīm's challenge to his own father — one of the bravest questions in the Qur'an.",
       "rejection_reason": null
     }
   },
@@ -32,8 +38,15 @@
     "ref": "6:19",
     "arabic": "قُلْ أَيُّ شَيْءٍ أَكْبَرُ شَهَادَةً ۖ قُلِ اللَّهُ شَهِيدٌ بَيْنِي وَبَيْنَكُمْ وَأُوحِيَ إِلَيَّ هَٰذَا الْقُرْآنُ لِأُنذِرَكُم بِهِ وَمَن بَلَغَ",
     "english": "Say: What thing is greatest as testimony? Say: Allah is Witness between me and you. And this Quran has been revealed to me that I may warn you and whoever it reaches.",
-    "roots": ["kabura", "shahida"],
-    "forms": ["شَهَادَة", "شَهِيد", "أَكْبَرُ"],
+    "roots": [
+      "kabura",
+      "shahida"
+    ],
+    "forms": [
+      "شَهَادَة",
+      "شَهِيد",
+      "أَكْبَرُ"
+    ],
     "scores": {
       "curriculum": 2,
       "length": 1,
@@ -61,8 +74,12 @@
     "ref": "6:78",
     "arabic": "فَلَمَّا رَأَى ٱلشَّمْسَ بَازِغَةً قَالَ هَـٰذَا رَبِّى هَـٰذَآ أَكْبَرُ",
     "english": "When he saw the sun rising, he said: This is my Lord — this is greater.",
-    "roots": ["kabura"],
-    "forms": ["أَكْبَرُ"],
+    "roots": [
+      "kabura"
+    ],
+    "forms": [
+      "أَكْبَرُ"
+    ],
     "scores": {
       "curriculum": 2,
       "length": 2,

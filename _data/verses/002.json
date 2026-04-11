@@ -3,8 +3,12 @@
     "ref": "2:34",
     "arabic": "وَإِذْ قُلْنَا لِلْمَلَـٰٓئِكَةِ ٱسْجُدُوا۟ لِـَٔادَمَ فَسَجَدُوٓا۟ إِلَّآ إِبْلِيسَ أَبَىٰ وَٱسْتَكْبَرَ وَكَانَ مِنَ ٱلْكَـٰفِرِينَ",
     "english": "And when We said to the angels: Prostrate to Adam — they prostrated, except Iblis. He refused and was arrogant, and became of the disbelievers.",
-    "roots": ["kabura"],
-    "forms": ["اسْتَكْبَرَ"],
+    "roots": [
+      "kabura"
+    ],
+    "forms": [
+      "اسْتَكْبَرَ"
+    ],
     "scores": {
       "curriculum": 0,
       "length": 0,
@@ -22,9 +26,11 @@
       "section": "learn",
       "is_anchor": false,
       "order": 7,
-      "arabic": "وَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ فَسَجَدُوا إِلَّا إِبْلِيسَ أَبَىٰ وَاسْتَكْبَرَ وَكَانَ مِنَ الْكَافِرِينَ",
-      "english": "And when We said to the angels: Prostrate to Adam — they all prostrated, except Iblis. He refused and was arrogant, and became of the disbelievers.",
-      "notes": "Full ayah — story context principle. The full origin story of Iblis is far more memorable than a trimmed fragment.",
+      "heading": "7 · اسْتَكْبَرَ (was arrogant)",
+      "audio_file": "learn-kabura-03.mp3",
+      "arabic": "وَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ فَسَجَدُوا إِلَّا إِبْلِيسَ أَبَىٰ وَ**اسْتَكْبَرَ** وَكَانَ مِنَ الْكَافِرِينَ",
+      "english": "And when We said to the angels: Prostrate to Ādam — they all prostrated, except Iblīs. He refused and was **arrogant**, and became of the disbelievers",
+      "notes": "The origin story of arrogance. When the angels were commanded to bow, every single one obeyed — except one. He claimed greatness for himself, and that is what this word means.",
       "rejection_reason": null
     }
   },
@@ -32,8 +38,12 @@
     "ref": "2:163",
     "arabic": "وَإِلَـٰهُكُمْ إِلَـٰهٌ وَٰحِدٌ ۖ لَّآ إِلَـٰهَ إِلَّا هُوَ ٱلرَّحْمَـٰنُ ٱلرَّحِيمُ",
     "english": "Your God is one God — there is no god but He, the Most Merciful, the Continuously Merciful.",
-    "roots": ["ilah"],
-    "forms": ["إِلَٰه"],
+    "roots": [
+      "ilah"
+    ],
+    "forms": [
+      "إِلَٰه"
+    ],
     "scores": {
       "curriculum": 0,
       "length": 1,
@@ -51,9 +61,11 @@
       "section": "practice",
       "is_anchor": false,
       "order": 4,
-      "arabic": "وَإِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ ۖ لَا إِلَٰهَ إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ",
-      "english": "And your God is one God — there is no god but He, the Most Merciful, the Continuously Merciful",
-      "notes": null,
+      "heading": "11 · إِلَٰه (god)",
+      "audio_file": "practice-04.mp3",
+      "arabic": "وَ**إِلَٰهُكُمْ** **إِلَٰهٌ** وَاحِدٌ ۖ لَا **إِلَٰهَ** إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ",
+      "english": "And your **God** is one **God** — there is no **god** but He, the Most Merciful, the Continuously Merciful",
+      "notes": "Three times in one ayah — **إِلَٰه** appears three times. This single verse is the Qur'an's most complete statement of tawḥīd.",
       "rejection_reason": null
     }
   },
@@ -61,8 +73,12 @@
     "ref": "2:185",
     "arabic": "شَهْرُ رَمَضَانَ الَّذِي أُنزِلَ فِيهِ الْقُرْآنُ هُدًى لِّلنَّاسِ وَبَيِّنَاتٍ مِّنَ الْهُدَى وَالْفُرْقَانِ فَمَن شَهِدَ مِنكُمُ الشَّهْرَ فَلْيَصُمْهُ",
     "english": "The month of Ramadan is that in which the Quran was revealed as guidance for mankind — clear proofs of guidance and the criterion. So whoever among you witnesses the month, let him fast it.",
-    "roots": ["shahida"],
-    "forms": ["شَهِدَ"],
+    "roots": [
+      "shahida"
+    ],
+    "forms": [
+      "شَهِدَ"
+    ],
     "scores": {
       "curriculum": 2,
       "length": 1,
@@ -90,8 +106,13 @@
     "ref": "2:219",
     "arabic": "يَسْـَٔلُونَكَ عَنِ ٱلْخَمْرِ وَٱلْمَيْسِرِ ۖ قُلْ فِيهِمَآ إِثْمٌ كَبِيرٌ وَمَنَـٰفِعُ لِلنَّاسِ وَإِثْمُهُمَآ أَكْبَرُ مِن نَّفْعِهِمَا",
     "english": "They ask you about wine and gambling. Say: In them is great sin and benefit for people, but their sin is greater than their benefit.",
-    "roots": ["kabura"],
-    "forms": ["كَبِير", "أَكْبَرُ"],
+    "roots": [
+      "kabura"
+    ],
+    "forms": [
+      "كَبِير",
+      "أَكْبَرُ"
+    ],
     "scores": {
       "curriculum": 2,
       "length": 0,

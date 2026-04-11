@@ -3,8 +3,13 @@
     "ref": "teaching:kabura:anchor-01",
     "arabic": "هُوَ كَبِيرٌ. أَنَا أَكْبَرُ مِنْهُ. وَاللَّهُ أَكْبَرُ مِنَّا، بَلْ، مِنْ كُلِّ شَيْءٍ",
     "english": "He is great. I am greater than him. And Allah is greater than us — rather, than everything.",
-    "roots": ["kabura"],
-    "forms": ["كَبِير", "أَكْبَرُ"],
+    "roots": [
+      "kabura"
+    ],
+    "forms": [
+      "كَبِير",
+      "أَكْبَرُ"
+    ],
     "scores": null,
     "score_notes": "Made-up teaching phrase. Uses 3 forms in one flowing sentence. Builds from human comparison to divine.",
     "lesson_use": {
@@ -12,9 +17,11 @@
       "section": "learn",
       "is_anchor": true,
       "order": 4,
+      "heading": "⭐ · 4 Anchor Phrase",
+      "audio_file": "anchor-kabura.mp3",
       "arabic": "هُوَ كَبِيرٌ. أَنَا أَكْبَرُ مِنْهُ. وَاللَّهُ أَكْبَرُ مِنَّا، بَلْ، مِنْ كُلِّ شَيْءٍ",
       "english": "He is great. I am greater than him. And Allah is greater than us — rather, than everything.",
-      "notes": "Made-up teaching phrase. Uses 3 forms in one flowing sentence. Builds from human comparison to divine — landing on اللهُ أَكْبَرُ.",
+      "notes": "Listen to how the root moves: **كَبِير** → **أَكْبَر** → **أَكْبَر**. It starts between two people, then lifts to Allah. That is the word you say in every ṣalāh.",
       "rejection_reason": null
     }
   }

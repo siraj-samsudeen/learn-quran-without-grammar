@@ -3,8 +3,12 @@
     "ref": "21:22",
     "arabic": "لَوْ كَانَ فِيهِمَآ ءَالِهَةٌ إِلَّا ٱللَّهُ لَفَسَدَتَا",
     "english": "Had there been gods in them (heavens and earth) other than Allah, they would have been ruined.",
-    "roots": ["ilah"],
-    "forms": ["آلِهَة"],
+    "roots": [
+      "ilah"
+    ],
+    "forms": [
+      "آلِهَة"
+    ],
     "scores": {
       "curriculum": 2,
       "length": 2,
@@ -32,8 +36,12 @@
     "ref": "21:63",
     "arabic": "قَالَ بَلْ فَعَلَهُۥ كَبِيرُهُمْ هَـٰذَا فَسْـَٔلُوهُمْ إِن كَانُوا۟ يَنطِقُونَ",
     "english": "He said: Rather, their chief did it — ask them, if they can speak.",
-    "roots": ["kabura"],
-    "forms": ["كَبِير"],
+    "roots": [
+      "kabura"
+    ],
+    "forms": [
+      "كَبِير"
+    ],
     "scores": {
       "curriculum": 0,
       "length": 1,
@@ -51,9 +59,11 @@
       "section": "practice",
       "is_anchor": false,
       "order": 3,
-      "arabic": "قَالَ بَلْ فَعَلَهُ كَبِيرُهُمْ هَٰذَا فَاسْأَلُوهُمْ إِن كَانُوا يَنطِقُونَ",
-      "english": "He said: Rather, their chief did it — ask them, if they can speak",
-      "notes": null,
+      "heading": "10 · كَبِير (great, big)",
+      "audio_file": "practice-03.mp3",
+      "arabic": "قَالَ بَلْ فَعَلَهُ **كَبِيرُهُمْ** هَٰذَا فَاسْأَلُوهُمْ إِن كَانُوا يَنطِقُونَ",
+      "english": "He said: Rather, their **chief** did it — ask them, if they can speak",
+      "notes": "Ibrāhīm again — this time using wit. He smashed the idols and blamed the biggest one. Notice **كَبِيرُهُمْ** — \"their biggest/chief.\" Same root, now describing a statue.",
       "rejection_reason": null
     }
   },
@@ -61,8 +71,12 @@
     "ref": "21:87",
     "arabic": "وَذَا ٱلنُّونِ إِذ ذَّهَبَ مُغَـٰضِبًا فَظَنَّ أَن لَّن نَّقْدِرَ عَلَيْهِ فَنَادَىٰ فِى ٱلظُّلُمَـٰتِ أَن لَّآ إِلَـٰهَ إِلَّآ أَنتَ سُبْحَـٰنَكَ إِنِّى كُنتُ مِنَ ٱلظَّـٰلِمِينَ",
     "english": "He called out in the darkness: There is no god but You, glory be to You, I was among the wrongdoers.",
-    "roots": ["ilah"],
-    "forms": ["إِلَٰه"],
+    "roots": [
+      "ilah"
+    ],
+    "forms": [
+      "إِلَٰه"
+    ],
     "scores": {
       "curriculum": 2,
       "length": 0,

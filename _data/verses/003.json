@@ -3,8 +3,12 @@
     "ref": "3:26",
     "arabic": "قُلِ ٱللَّهُمَّ مَـٰلِكَ ٱلْمُلْكِ تُؤْتِى ٱلْمُلْكَ مَن تَشَآءُ وَتَنزِعُ ٱلْمُلْكَ مِمَّن تَشَآءُ وَتُعِزُّ مَن تَشَآءُ وَتُذِلُّ مَن تَشَآءُ ۖ بِيَدِكَ ٱلْخَيْرُ ۖ إِنَّكَ عَلَىٰ كُلِّ شَىْءٍ قَدِيرٌ",
     "english": "Say: O Allah, Owner of sovereignty — You give sovereignty to whom You will and take sovereignty from whom You will. You honour whom You will and humble whom You will. In Your hand is all good. Indeed, You are over all things competent.",
-    "roots": ["ilah"],
-    "forms": ["اللَّهُمَّ"],
+    "roots": [
+      "ilah"
+    ],
+    "forms": [
+      "اللَّهُمَّ"
+    ],
     "scores": {
       "curriculum": 0,
       "length": 2,
@@ -22,9 +26,11 @@
       "section": "learn",
       "is_anchor": false,
       "order": 3,
-      "arabic": "قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ",
-      "english": "Say: O Allah, King of kings",
-      "notes": "Introduces the prayer-address form. Trimmed to keep short.",
+      "heading": "3 · اللَّهُمَّ (O Allah)",
+      "audio_file": "learn-ilah-02.mp3",
+      "arabic": "قُلِ **اللَّهُمَّ** مَالِكَ الْمُلْكِ",
+      "english": "Say: O **Allah**, King of kings",
+      "notes": "This is how you call upon Him directly. Every duʿā you make that begins with اللَّهُمَّ carries this root.",
       "rejection_reason": null
     }
   },
@@ -32,8 +38,14 @@
     "ref": "3:18",
     "arabic": "شَهِدَ ٱللَّهُ أَنَّهُۥ لَآ إِلَـٰهَ إِلَّا هُوَ وَٱلْمَلَـٰٓئِكَةُ وَأُو۟لُوا۟ ٱلْعِلْمِ",
     "english": "Allah bears witness that there is no god but He, and the angels, and those with knowledge.",
-    "roots": ["ilah", "shahida"],
-    "forms": ["إِلَٰه", "شَهِدَ"],
+    "roots": [
+      "ilah",
+      "shahida"
+    ],
+    "forms": [
+      "إِلَٰه",
+      "شَهِدَ"
+    ],
     "scores": {
       "curriculum": 2,
       "length": 1,
@@ -61,8 +73,12 @@
     "ref": "3:53",
     "arabic": "رَبَّنَا آمَنَّا بِمَا أَنزَلْتَ وَاتَّبَعْنَا الرَّسُولَ فَاكْتُبْنَا مَعَ الشَّاهِدِينَ",
     "english": "Our Lord, we believe in what You have sent down and we followed the Messenger — so write us among the witnesses.",
-    "roots": ["shahida"],
-    "forms": ["الشَّاهِدِينَ"],
+    "roots": [
+      "shahida"
+    ],
+    "forms": [
+      "الشَّاهِدِينَ"
+    ],
     "scores": {
       "curriculum": 2,
       "length": 1,
@@ -90,8 +106,13 @@
     "ref": "3:81",
     "arabic": "وَإِذْ أَخَذَ اللَّهُ مِيثَاقَ النَّبِيِّينَ لَمَا آتَيْتُكُم مِّن كِتَابٍ وَحِكْمَةٍ ثُمَّ جَاءَكُمْ رَسُولٌ مُّصَدِّقٌ لِّمَا مَعَكُمْ لَتُؤْمِنُنَّ بِهِ وَلَتَنصُرُنَّهُ قَالَ أَأَقْرَرْتُمْ وَأَخَذْتُمْ عَلَى ذَٰلِكُمْ إِصْرِي قَالُوا أَقْرَرْنَا قَالَ فَاشْهَدُوا وَأَنَا مَعَكُم مِّنَ الشَّاهِدِينَ",
     "english": "Allah took a covenant from the prophets: for all that I give you of scripture and wisdom — then a messenger comes confirming what you have — you must believe in him and support him. He said: Do you affirm? They said: We affirm. He said: Then bear witness, and I am with you among the witnesses.",
-    "roots": ["shahida"],
-    "forms": ["اشْهَدُوا", "الشَّاهِدِينَ"],
+    "roots": [
+      "shahida"
+    ],
+    "forms": [
+      "اشْهَدُوا",
+      "الشَّاهِدِينَ"
+    ],
     "scores": {
       "curriculum": 2,
       "length": 0,

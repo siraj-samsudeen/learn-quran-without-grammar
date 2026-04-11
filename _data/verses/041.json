@@ -3,8 +3,12 @@
     "ref": "41:20",
     "arabic": "حَتَّى إِذَا مَا جَاءُوهَا شَهِدَ عَلَيْهِمْ سَمْعُهُمْ وَأَبْصَارُهُمْ وَجُلُودُهُم بِمَا كَانُوا يَعْمَلُونَ",
     "english": "Until, when they reach it, their hearing and their sight and their skins will testify against them for what they used to do.",
-    "roots": ["shahida"],
-    "forms": ["شَهِدَ"],
+    "roots": [
+      "shahida"
+    ],
+    "forms": [
+      "شَهِدَ"
+    ],
     "scores": {
       "curriculum": 2,
       "length": 1,
@@ -32,8 +36,12 @@
     "ref": "41:15",
     "arabic": "فَأَمَّا عَادٌ فَٱسْتَكْبَرُوا۟ فِى ٱلْأَرْضِ بِغَيْرِ ٱلْحَقِّ وَقَالُوا۟ مَنْ أَشَدُّ مِنَّا قُوَّةً ۖ أَوَلَمْ يَرَوْا۟ أَنَّ ٱللَّهَ ٱلَّذِى خَلَقَهُمْ هُوَ أَشَدُّ مِنْهُمْ قُوَّةً",
     "english": "As for Aad, they were arrogant on earth without right and said: Who is mightier than us? Did they not see that Allah who created them is mightier than them?",
-    "roots": ["kabura"],
-    "forms": ["اسْتَكْبَرَ"],
+    "roots": [
+      "kabura"
+    ],
+    "forms": [
+      "اسْتَكْبَرَ"
+    ],
     "scores": {
       "curriculum": 0,
       "length": 0,
@@ -51,9 +59,11 @@
       "section": "practice",
       "is_anchor": false,
       "order": 5,
-      "arabic": "فَأَمَّا عَادٌ فَاسْتَكْبَرُوا فِي الْأَرْضِ بِغَيْرِ الْحَقِّ وَقَالُوا مَنْ أَشَدُّ مِنَّا قُوَّةً ۖ أَوَلَمْ يَرَوْا أَنَّ اللَّهَ الَّذِي خَلَقَهُمْ هُوَ أَشَدُّ مِنْهُمْ قُوَّةً",
-      "english": "As for Aad, they were arrogant on earth without right and said: Who is mightier than us in strength? Did they not see that Allah who created them is mightier than them in strength?",
-      "notes": null,
+      "heading": "12 · اسْتَكْبَرُوا (were arrogant)",
+      "audio_file": "practice-05.mp3",
+      "arabic": "فَأَمَّا عَادٌ فَ**اسْتَكْبَرُوا** فِي الْأَرْضِ بِغَيْرِ الْحَقِّ وَقَالُوا مَنْ أَشَدُّ مِنَّا قُوَّةً ۖ أَوَلَمْ يَرَوْا أَنَّ اللَّهَ الَّذِي خَلَقَهُمْ هُوَ أَشَدُّ مِنْهُمْ قُوَّةً",
+      "english": "As for ʿĀd, they were **arrogant** on earth without right and said: Who is mightier than us in strength? Did they not see that Allah who created them is mightier than them in strength?",
+      "notes": "An entire civilisation that said: \"Who is mightier than us?\" The Qur'an's answer is devastating. Notice **اسْتَكْبَرُوا** — the same word as Iblīs, but now it's a whole nation.",
       "rejection_reason": null
     }
   }

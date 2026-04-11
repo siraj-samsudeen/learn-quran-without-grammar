@@ -3,8 +3,12 @@
     "ref": "59:22",
     "arabic": "هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَـٰهَ إِلَّا هُوَ ۖ عَـٰلِمُ ٱلْغَيْبِ وَٱلشَّهَـٰدَةِ ۖ هُوَ ٱلرَّحْمَـٰنُ ٱلرَّحِيمُ",
     "english": "He is Allah — there is no god but He, Knower of the unseen and the witnessed. He is the Most Merciful, the Continuously Merciful.",
-    "roots": ["ilah"],
-    "forms": ["إِلَٰه"],
+    "roots": [
+      "ilah"
+    ],
+    "forms": [
+      "إِلَٰه"
+    ],
     "scores": {
       "curriculum": 0,
       "length": 2,
@@ -22,9 +26,11 @@
       "section": "learn",
       "is_anchor": true,
       "order": 1,
-      "arabic": "هُوَ اللَّهُ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ",
-      "english": "He is Allah — there is no god but He",
-      "notes": "Short, iconic, contains إِلَٰه at the heart. Student memorises this one phrase.",
+      "heading": "⭐ · 1 Anchor Phrase",
+      "audio_file": "anchor-ilah.mp3",
+      "arabic": "هُوَ اللَّهُ الَّذِي لَا **إِلَٰهَ** إِلَّا هُوَ",
+      "english": "He is Allah — there is no **god** but He",
+      "notes": "This is the phrase to carry with you. Six words that contain the entire message of tawḥīd.",
       "rejection_reason": null
     }
   }
