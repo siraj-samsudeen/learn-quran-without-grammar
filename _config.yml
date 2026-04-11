@@ -19,7 +19,10 @@ exclude:
   - README.md
   - CLAUDE.md
   - docs/
-  - "lessons/*/picker.html"
+  - .workspace/
+  - "lessons/*/*.json"
+  - "lessons/*/*.yaml"
+  - "lessons/*/*.html"
   - utils/
   - Gemfile
   - Gemfile.lock
