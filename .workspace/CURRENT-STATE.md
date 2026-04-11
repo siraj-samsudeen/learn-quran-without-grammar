@@ -206,8 +206,8 @@ Pattern-note absorption (Issue #1) is simplified by D21: pattern notes fold into
 
 - **Three-tier scoring (Q6)** — deferred until Lesson 3 starts. Flat 8-dim scoring stays unchanged for the Lesson 1 migration.
 - **Tamil translation storage** — deferred until render time. The Lesson 1 copy keeps existing Tamil prose inline (as today's lesson does) for the architecture test.
-- **Lesson 1 Issue #1 — `sentence_patterns` fate** — still open. Options: fold into root explanation prose; keep as optional field; drop entirely.
-- **Lesson 1 Issue #6 — section intro prose** — still open. Options: inline in `index.md`; put in `picker-config.json`; share via `_data/section_intros.json`.
+- ~~**Lesson 1 Issue #1 — `sentence_patterns` fate**~~ — **resolved** in D21. The 3 patterns with existing teaching verses fold into those verses' `lesson_use.notes`; the 2 orphan patterns are flagged in `.workspace/lesson-01-migration-flags.md` for teacher review at computer time.
+- ~~**Lesson 1 Issue #6 — section intro prose**~~ — **resolved** (Q27): teacher chose to drop these inline narrative paragraphs entirely. The migrated lesson template becomes genuinely thin — just section headings + data-driven content. The opening "You've met all 8 words…" paragraph and similar structural narrative simply go away in the copy. If they're missed later, they can be added back as a separate refactor; for now the simplification wins.
 
 ### Lesson 1 migration plan (WIP)
 
