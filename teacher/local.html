@@ -156,10 +156,6 @@
 </p>
 
 <script>
-// ─── Load pipeline status and summary ───
-const STATUS_PATH = 'pipeline-status.json';
-const SUMMARY_PATH = 'lesson-summary.json';
-
 const ROOTS_META = [
   {key:"ilah",ar:"إِلَٰه",occ:2851,forms:4,lesson:1},
   {key:"kabura",ar:"كَبُرَ",occ:161,forms:14,lesson:1},
@@ -173,15 +169,938 @@ const ROOTS_META = [
   {key:"qama",ar:"قَامَ",occ:660,forms:22,lesson:7},
 ];
 
-async function init() {
-  let status, summary;
-  try {
-    status = await (await fetch(STATUS_PATH)).json();
-    summary = await (await fetch(SUMMARY_PATH)).json();
-  } catch(e) {
-    document.getElementById('stats').innerHTML = '<p style="color:red">Could not load pipeline-status.json or lesson-summary.json. Make sure you opened this file from the project root.</p>';
-    return;
+function init() {
+  const status = {
+  "lessons": {
+    "1": {
+      "phase": "published",
+      "slug": "lesson-01-allahu-akbar",
+      "title": "Allahu Akbar",
+      "roots": ["ilah", "kabura"],
+      "seed_arabic": "اللهُ أَكْبَرُ",
+      "phases": {
+        "scoring": "done",
+        "picking": "done",
+        "writing": "done",
+        "tamil": "done",
+        "audio": "done",
+        "review": "done",
+        "published": "done"
+      },
+      "selections_file": null,
+      "notes": "Live since initial launch"
+    },
+    "2": {
+      "phase": "published",
+      "slug": "lesson-02-shahida",
+      "title": "I Bear Witness",
+      "roots": ["shahida"],
+      "seed_arabic": "أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ",
+      "phases": {
+        "scoring": "done",
+        "picking": "done",
+        "writing": "done",
+        "tamil": "done",
+        "audio": "done",
+        "review": "done",
+        "published": "done"
+      },
+      "selections_file": null,
+      "notes": "Live"
+    },
+    "3": {
+      "phase": "picking",
+      "slug": "lesson-03-rasul",
+      "title": "Messenger of Allah",
+      "roots": ["rasul"],
+      "seed_arabic": "أَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ ٱللَّهِ",
+      "phases": {
+        "scoring": "done",
+        "picking": "ready",
+        "writing": "blocked",
+        "tamil": "blocked",
+        "audio": "blocked",
+        "review": "blocked",
+        "published": "blocked"
+      },
+      "selections_file": null,
+      "notes": "42 verses scored, picker ready for teacher review"
+    },
+    "4": {
+      "phase": "picking",
+      "slug": "lesson-04-salah",
+      "title": "Come to Prayer",
+      "roots": ["hayiya", "salah"],
+      "seed_arabic": "حَيَّ عَلَى الصَّلَاةِ",
+      "phases": {
+        "scoring": "done",
+        "picking": "ready",
+        "writing": "blocked",
+        "tamil": "blocked",
+        "audio": "blocked",
+        "review": "blocked",
+        "published": "blocked"
+      },
+      "selections_file": null,
+      "notes": "52 verses scored across 2 roots"
+    },
+    "5": {
+      "phase": "picking",
+      "slug": "lesson-05-falaha",
+      "title": "Come to Success",
+      "roots": ["falaha"],
+      "seed_arabic": "حَيَّ عَلَى الْفَلَاحِ",
+      "phases": {
+        "scoring": "done",
+        "picking": "ready",
+        "writing": "blocked",
+        "tamil": "blocked",
+        "audio": "blocked",
+        "review": "blocked",
+        "published": "blocked"
+      },
+      "selections_file": null,
+      "notes": "25 verses scored, only 2 forms (aflaha, muflih)"
+    },
+    "6": {
+      "phase": "picking",
+      "slug": "lesson-06-khayr",
+      "title": "Prayer is Better than Sleep",
+      "roots": ["khayr", "nawm"],
+      "seed_arabic": "الصَّلَاةُ خَيْرٌ مِنَ النَّوْمِ",
+      "phases": {
+        "scoring": "done",
+        "picking": "ready",
+        "writing": "blocked",
+        "tamil": "blocked",
+        "audio": "blocked",
+        "review": "blocked",
+        "published": "blocked"
+      },
+      "selections_file": null,
+      "notes": "35 verses scored; nawm has only 9 candidates total"
+    },
+    "7": {
+      "phase": "picking",
+      "slug": "lesson-07-qama",
+      "title": "The Prayer Has Begun",
+      "roots": ["qama"],
+      "seed_arabic": "قَدْ قَامَتِ الصَّلَاةُ",
+      "phases": {
+        "scoring": "done",
+        "picking": "ready",
+        "writing": "blocked",
+        "tamil": "blocked",
+        "audio": "blocked",
+        "review": "blocked",
+        "published": "blocked"
+      },
+      "selections_file": null,
+      "notes": "34 verses scored; mostly qawm (people) form"
+    }
+  },
+  "phase_order": ["scoring", "picking", "writing", "tamil", "audio", "review", "published"],
+  "phase_labels": {
+    "scoring": "Score",
+    "picking": "Pick",
+    "writing": "Write",
+    "tamil": "Tamil",
+    "audio": "Audio",
+    "review": "Review",
+    "published": "Live"
   }
+};
+  const summary = {
+  "generated": "auto",
+  "lessons": [
+    {
+      "lesson": 1,
+      "slug": "lesson-01-allahu-akbar",
+      "title": "Lesson 1: Allahu Akbar",
+      "seed_arabic": "اللهُ أَكْبَرُ",
+      "seed_english": "Allah is Greater",
+      "current_roots": [
+        {
+          "key": "ilah",
+          "arabic": "إِلَٰه",
+          "three_letter": "أ ل ه",
+          "total_verses": 17,
+          "scored_verses": 17,
+          "forms": 4,
+          "occurrences": 2851,
+          "auto_picked": 9
+        },
+        {
+          "key": "kabura",
+          "arabic": "كَبُرَ",
+          "three_letter": "ك ب ر",
+          "total_verses": 12,
+          "scored_verses": 12,
+          "forms": 14,
+          "occurrences": 161,
+          "auto_picked": 10
+        }
+      ],
+      "recall_root_count": 0,
+      "auto_picked_learning": 10,
+      "learning_word_count": 60,
+      "auto_picked_recall": 0,
+      "recall_word_count": 0,
+      "total_phrases": 10,
+      "total_words": 60,
+      "picks": [
+        {
+          "ref": "29:45",
+          "form": "أَكْبَرُ",
+          "role": "anchor",
+          "word_count": 3,
+          "final_score": 22.4,
+          "arabic_short": "ٱتْلُ مَآ أُوحِىَ إِلَيْكَ مِنَ ٱلْكِتَـٰبِ وَأَقِمِ ٱلصَّلَ…"
+        },
+        {
+          "ref": "3:26",
+          "form": "اللَّهُمَّ",
+          "role": "learning",
+          "word_count": 4,
+          "final_score": 15.4,
+          "arabic_short": "قُلِ ٱللَّهُمَّ مَـٰلِكَ ٱلْمُلْكِ تُؤْتِى ٱلْمُلْكَ مَن تَش…"
+        },
+        {
+          "ref": "79:20",
+          "form": "كُبْرَى",
+          "role": "learning",
+          "word_count": 4,
+          "final_score": 34.0,
+          "arabic_short": "فَأَرَىٰهُ ٱلْـَٔايَةَ ٱلْكُبْرَىٰ"
+        },
+        {
+          "ref": "18:5",
+          "form": "كَبُرَ",
+          "role": "learning",
+          "word_count": 5,
+          "final_score": 20.3,
+          "arabic_short": "مَّا لَهُم بِهِۦ مِنْ عِلْمٍ وَلَا لِـَٔابَآئِهِمْ ۚ كَبُرَت…"
+        },
+        {
+          "ref": "87:12",
+          "form": "كُبْرَى",
+          "role": "learning",
+          "word_count": 5,
+          "final_score": 12.0,
+          "arabic_short": "ٱلَّذِى يَصْلَى ٱلنَّارَ ٱلْكُبْرَىٰ"
+        },
+        {
+          "ref": "9:72",
+          "form": "أَكْبَرُ",
+          "role": "learning",
+          "word_count": 7,
+          "final_score": 4.0,
+          "arabic_short": "وَرِضْوَٰنٌ مِّنَ ٱللَّهِ أَكْبَرُ ۚ ذَٰلِكَ هُوَ ٱلْفَوْزُ …"
+        },
+        {
+          "ref": "59:22",
+          "form": "إِلَٰه",
+          "role": "learning",
+          "word_count": 8,
+          "final_score": 19.6,
+          "arabic_short": "هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَـٰهَ إِلَّا هُوَ ۖ عَـٰلِمُ ٱلْ…"
+        },
+        {
+          "ref": "7:138",
+          "form": "إِلَٰه",
+          "role": "learning",
+          "word_count": 8,
+          "final_score": 13.0,
+          "arabic_short": "قَالُوا۟ يَـٰمُوسَى ٱجْعَل لَّنَآ إِلَـٰهًا كَمَا لَهُمْ ءَا…"
+        },
+        {
+          "ref": "61:3",
+          "form": "كَبُرَ",
+          "role": "learning",
+          "word_count": 8,
+          "final_score": 26.0,
+          "arabic_short": "كَبُرَ مَقْتًا عِندَ ٱللَّهِ أَن تَقُولُوا۟ مَا لَا تَفْعَلُ…"
+        },
+        {
+          "ref": "6:78",
+          "form": "أَكْبَرُ",
+          "role": "learning",
+          "word_count": 8,
+          "final_score": 16.0,
+          "arabic_short": "فَلَمَّا رَأَى ٱلشَّمْسَ بَازِغَةً قَالَ هَـٰذَا رَبِّى هَـٰ…"
+        }
+      ]
+    },
+    {
+      "lesson": 2,
+      "slug": "lesson-02-shahida",
+      "title": "Lesson 2: I Bear Witness",
+      "seed_arabic": "أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ",
+      "seed_english": "I bear witness that there is no god but Allah",
+      "current_roots": [
+        {
+          "key": "shahida",
+          "arabic": "شَهِدَ",
+          "three_letter": "ش ه د",
+          "total_verses": 20,
+          "scored_verses": 20,
+          "forms": 9,
+          "occurrences": 160,
+          "auto_picked": 10
+        }
+      ],
+      "recall_root_count": 2,
+      "auto_picked_learning": 10,
+      "learning_word_count": 90,
+      "auto_picked_recall": 5,
+      "recall_word_count": 38,
+      "total_phrases": 15,
+      "total_words": 128,
+      "picks": [
+        {
+          "ref": "4:79",
+          "form": "شَهِيد",
+          "role": "anchor",
+          "word_count": 3,
+          "final_score": 23.8,
+          "arabic_short": "مَّآ أَصَابَكَ مِنْ حَسَنَةٍۢ فَمِنَ ٱللَّهِ ۖ وَمَآ أَصَابَ…"
+        },
+        {
+          "ref": "5:117",
+          "form": "شَهِيد",
+          "role": "learning",
+          "word_count": 6,
+          "final_score": 25.2,
+          "arabic_short": "مَا قُلْتُ لَهُمْ إِلَّا مَآ أَمَرْتَنِى بِهِۦٓ أَنِ ٱعْبُدُ…"
+        },
+        {
+          "ref": "2:185",
+          "form": "شَهِدَ",
+          "role": "learning",
+          "word_count": 6,
+          "final_score": 22.4,
+          "arabic_short": "شَهْرُ رَمَضَانَ ٱلَّذِىٓ أُنزِلَ فِيهِ ٱلْقُرْءَانُ هُدًۭى …"
+        },
+        {
+          "ref": "3:18",
+          "form": "شَهِدَ",
+          "role": "learning",
+          "word_count": 7,
+          "final_score": 22.4,
+          "arabic_short": "شَهِدَ ٱللَّهُ أَنَّهُۥ لَآ إِلَٰهَ إِلَّا هُوَ وَٱلْمَلَٰٓئ…"
+        },
+        {
+          "ref": "3:81",
+          "form": "شَاهِد (فَاشْهَدُوا + الشَّاهِدِينَ)",
+          "role": "learning",
+          "word_count": 8,
+          "final_score": 17.5,
+          "arabic_short": "وَإِذْ أَخَذَ ٱللَّهُ مِيثَٰقَ ٱلنَّبِيِّـۧنَ لَمَآ ءَاتَيْت…"
+        },
+        {
+          "ref": "41:20",
+          "form": "شَهِدَ",
+          "role": "learning",
+          "word_count": 9,
+          "final_score": 20.3,
+          "arabic_short": "حَتَّىٰٓ إِذَا مَا جَآءُوهَا شَهِدَ عَلَيْهِمْ سَمْعُهُمْ وَ…"
+        },
+        {
+          "ref": "3:53",
+          "form": "شَاهِد",
+          "role": "learning",
+          "word_count": 11,
+          "final_score": 22.0,
+          "arabic_short": "رَبَّنَآ ءَامَنَّا بِمَآ أَنزَلْتَ وَٱتَّبَعْنَا ٱلرَّسُولَ …"
+        },
+        {
+          "ref": "6:19",
+          "form": "شَهَادَة",
+          "role": "learning",
+          "word_count": 11,
+          "final_score": 15.4,
+          "arabic_short": "قُلْ أَيُّ شَىْءٍ أَكْبَرُ شَهَٰدَةً ۖ قُلِ ٱللَّهُ ۖ شَهِيد…"
+        },
+        {
+          "ref": "4:69",
+          "form": "شُهَدَاء (plural of شَهِيد)",
+          "role": "learning",
+          "word_count": 12,
+          "final_score": 18.9,
+          "arabic_short": "وَمَن يُطِعِ ٱللَّهَ وَٱلرَّسُولَ فَأُو۟لَٰٓئِكَ مَعَ ٱلَّذِ…"
+        },
+        {
+          "ref": "63:1",
+          "form": "شَهِدَ (نَشْهَدُ / يَشْهَدُ)",
+          "role": "learning",
+          "word_count": 17,
+          "final_score": 23.1,
+          "arabic_short": "إِذَا جَآءَكَ ٱلْمُنَٰفِقُونَ قَالُوا۟ نَشْهَدُ إِنَّكَ لَرَ…"
+        }
+      ]
+    },
+    {
+      "lesson": 3,
+      "slug": "lesson-03-rasul",
+      "title": "Lesson 3: Messenger of Allah",
+      "seed_arabic": "أَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ ٱللَّهِ",
+      "seed_english": "I bear witness that Muhammad is the Messenger of Allah",
+      "current_roots": [
+        {
+          "key": "rasul",
+          "arabic": "رَسُول",
+          "three_letter": "ر س ل",
+          "total_verses": 429,
+          "scored_verses": 42,
+          "forms": 7,
+          "occurrences": 513,
+          "auto_picked": 10
+        }
+      ],
+      "recall_root_count": 3,
+      "auto_picked_learning": 10,
+      "learning_word_count": 57,
+      "auto_picked_recall": 5,
+      "recall_word_count": 27,
+      "total_phrases": 15,
+      "total_words": 84,
+      "picks": [
+        {
+          "ref": "26:107",
+          "form": "رَسُول",
+          "role": "anchor",
+          "word_count": 4,
+          "final_score": 42.0,
+          "arabic_short": "إِنِّى لَكُمْ رَسُولٌ أَمِينٌ"
+        },
+        {
+          "ref": "81:19",
+          "form": "رَسُول",
+          "role": "learning",
+          "word_count": 4,
+          "final_score": 41.0,
+          "arabic_short": "إِنَّهُۥ لَقَوْلُ رَسُولٍ كَرِيمٍ"
+        },
+        {
+          "ref": "105:3",
+          "form": "أَرْسَلَ",
+          "role": "learning",
+          "word_count": 4,
+          "final_score": 41.0,
+          "arabic_short": "وَأَرْسَلَ عَلَيْهِمْ طَيْرًا أَبَابِيلَ"
+        },
+        {
+          "ref": "26:125",
+          "form": "رَسُول",
+          "role": "learning",
+          "word_count": 4,
+          "final_score": 38.0,
+          "arabic_short": "إِنِّى لَكُمْ رَسُولٌ أَمِينٌ"
+        },
+        {
+          "ref": "26:143",
+          "form": "رَسُول",
+          "role": "learning",
+          "word_count": 4,
+          "final_score": 38.0,
+          "arabic_short": "إِنِّى لَكُمْ رَسُولٌ أَمِينٌ"
+        },
+        {
+          "ref": "73:16",
+          "form": "رَسُول",
+          "role": "learning",
+          "word_count": 6,
+          "final_score": 44.0,
+          "arabic_short": "فَعَصَىٰ فِرْعَوْنُ ٱلرَّسُولَ فَأَخَذْنَٰهُ أَخْذًا وَبِيلً…"
+        },
+        {
+          "ref": "91:13",
+          "form": "رَسُول",
+          "role": "learning",
+          "word_count": 7,
+          "final_score": 42.0,
+          "arabic_short": "فَقَالَ لَهُمْ رَسُولُ ٱللَّهِ نَاقَةَ ٱللَّهِ وَسُقْيَٰهَا"
+        },
+        {
+          "ref": "26:27",
+          "form": "رَسُول",
+          "role": "learning",
+          "word_count": 7,
+          "final_score": 38.0,
+          "arabic_short": "قَالَ إِنَّ رَسُولَكُمُ ٱلَّذِىٓ أُرْسِلَ إِلَيْكُمْ لَمَجْن…"
+        },
+        {
+          "ref": "7:104",
+          "form": "رَسُول",
+          "role": "learning",
+          "word_count": 8,
+          "final_score": 40.0,
+          "arabic_short": "وَقَالَ مُوسَىٰ يَٰفِرْعَوْنُ إِنِّى رَسُولٌ مِّن رَّبِّ ٱلْ…"
+        },
+        {
+          "ref": "19:19",
+          "form": "رَسُول",
+          "role": "learning",
+          "word_count": 9,
+          "final_score": 44.0,
+          "arabic_short": "قَالَ إِنَّمَآ أَنَا۠ رَسُولُ رَبِّكِ لِأَهَبَ لَكِ غُلَٰمً…"
+        }
+      ]
+    },
+    {
+      "lesson": 4,
+      "slug": "lesson-04-salah",
+      "title": "Lesson 4: Come to Prayer",
+      "seed_arabic": "حَيَّ عَلَى الصَّلَاةِ",
+      "seed_english": "Come to prayer",
+      "current_roots": [
+        {
+          "key": "hayiya",
+          "arabic": "حَيِيَ",
+          "three_letter": "ح ي ي",
+          "total_verses": 166,
+          "scored_verses": 25,
+          "forms": 13,
+          "occurrences": 189,
+          "auto_picked": 10
+        },
+        {
+          "key": "salah",
+          "arabic": "صَلَاة",
+          "three_letter": "ص ل و",
+          "total_verses": 90,
+          "scored_verses": 27,
+          "forms": 4,
+          "occurrences": 99,
+          "auto_picked": 10
+        }
+      ],
+      "recall_root_count": 4,
+      "auto_picked_learning": 10,
+      "learning_word_count": 41,
+      "auto_picked_recall": 5,
+      "recall_word_count": 25,
+      "total_phrases": 15,
+      "total_words": 66,
+      "picks": [
+        {
+          "ref": "77:26",
+          "form": "حَيّ",
+          "role": "anchor",
+          "word_count": 2,
+          "final_score": 26.0,
+          "arabic_short": "أَحْيَآءً وَأَمْوَٰتًا"
+        },
+        {
+          "ref": "79:38",
+          "form": "حَياة",
+          "role": "learning",
+          "word_count": 3,
+          "final_score": 35.0,
+          "arabic_short": "وَءَاثَرَ ٱلْحَيَوٰةَ ٱلدُّنْيَا"
+        },
+        {
+          "ref": "89:24",
+          "form": "حَياة",
+          "role": "learning",
+          "word_count": 4,
+          "final_score": 39.0,
+          "arabic_short": "يَقُولُ يَٰلَيْتَنِى قَدَّمْتُ لِحَيَاتِى"
+        },
+        {
+          "ref": "87:16",
+          "form": "حَياة",
+          "role": "learning",
+          "word_count": 4,
+          "final_score": 35.0,
+          "arabic_short": "بَلْ تُؤْثِرُونَ ٱلْحَيَوٰةَ ٱلدُّنْيَا"
+        },
+        {
+          "ref": "26:81",
+          "form": "أَحْيا",
+          "role": "learning",
+          "word_count": 4,
+          "final_score": 34.0,
+          "arabic_short": "وَٱلَّذِى يُمِيتُنِى ثُمَّ يُحْيِينِ"
+        },
+        {
+          "ref": "53:44",
+          "form": "أَحْيا",
+          "role": "learning",
+          "word_count": 4,
+          "final_score": 32.0,
+          "arabic_short": "وَأَنَّهُۥ هُوَ أَمَاتَ وَأَحْيَا"
+        },
+        {
+          "ref": "10:56",
+          "form": "أَحْيا",
+          "role": "learning",
+          "word_count": 5,
+          "final_score": 28.0,
+          "arabic_short": "هُوَ يُحْىِۦ وَيُمِيتُ وَإِلَيْهِ تُرْجَعُونَ"
+        },
+        {
+          "ref": "107:5",
+          "form": "صَلاة",
+          "role": "learning",
+          "word_count": 5,
+          "final_score": 43.0,
+          "arabic_short": "ٱلَّذِينَ هُمْ عَن صَلَاتِهِمْ سَاهُونَ"
+        },
+        {
+          "ref": "23:2",
+          "form": "صَلاة",
+          "role": "learning",
+          "word_count": 5,
+          "final_score": 36.0,
+          "arabic_short": "ٱلَّذِينَ هُمْ فِى صَلَاتِهِمْ خَٰشِعُونَ"
+        },
+        {
+          "ref": "23:9",
+          "form": "صَلاة",
+          "role": "learning",
+          "word_count": 5,
+          "final_score": 35.0,
+          "arabic_short": "وَٱلَّذِينَ هُمْ عَلَىٰ صَلَوَٰتِهِمْ يُحَافِظُونَ"
+        }
+      ]
+    },
+    {
+      "lesson": 5,
+      "slug": "lesson-05-falaha",
+      "title": "Lesson 5: Come to Success",
+      "seed_arabic": "حَيَّ عَلَى الْفَلَاحِ",
+      "seed_english": "Come to success",
+      "current_roots": [
+        {
+          "key": "falaha",
+          "arabic": "فَلَحَ",
+          "three_letter": "ف ل ح",
+          "total_verses": 40,
+          "scored_verses": 25,
+          "forms": 2,
+          "occurrences": 40,
+          "auto_picked": 10
+        }
+      ],
+      "recall_root_count": 6,
+      "auto_picked_learning": 10,
+      "learning_word_count": 98,
+      "auto_picked_recall": 5,
+      "recall_word_count": 29,
+      "total_phrases": 15,
+      "total_words": 127,
+      "picks": [
+        {
+          "ref": "91:9",
+          "form": "أَفْلَحَ",
+          "role": "anchor",
+          "word_count": 4,
+          "final_score": 41.0,
+          "arabic_short": "قَدْ أَفْلَحَ مَن زَكَّىٰهَا"
+        },
+        {
+          "ref": "87:14",
+          "form": "أَفْلَحَ",
+          "role": "learning",
+          "word_count": 4,
+          "final_score": 40.0,
+          "arabic_short": "قَدْ أَفْلَحَ مَن تَزَكَّىٰ"
+        },
+        {
+          "ref": "23:1",
+          "form": "أَفْلَحَ",
+          "role": "learning",
+          "word_count": 7,
+          "final_score": 35.0,
+          "arabic_short": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ قَدْ أَفْلَحَ ٱلْمُؤْ…"
+        },
+        {
+          "ref": "3:200",
+          "form": "أَفْلَحَ",
+          "role": "learning",
+          "word_count": 10,
+          "final_score": 26.0,
+          "arabic_short": "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱصْبِرُوا۟ وَصَابِرُوا۟ وَ…"
+        },
+        {
+          "ref": "20:64",
+          "form": "أَفْلَحَ",
+          "role": "learning",
+          "word_count": 11,
+          "final_score": 30.0,
+          "arabic_short": "فَأَجْمِعُوا۟ كَيْدَكُمْ ثُمَّ ٱئْتُوا۟ صَفًّا ۚ وَقَدْ أَفْ…"
+        },
+        {
+          "ref": "10:77",
+          "form": "أَفْلَحَ",
+          "role": "learning",
+          "word_count": 12,
+          "final_score": 29.0,
+          "arabic_short": "قَالَ مُوسَىٰٓ أَتَقُولُونَ لِلْحَقِّ لَمَّا جَآءَكُمْ ۖ أَ…"
+        },
+        {
+          "ref": "22:77",
+          "form": "أَفْلَحَ",
+          "role": "learning",
+          "word_count": 12,
+          "final_score": 27.0,
+          "arabic_short": "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ ٱرْكَعُوا۟ وَٱسْجُدُوا۟ وَ…"
+        },
+        {
+          "ref": "8:45",
+          "form": "أَفْلَحَ",
+          "role": "learning",
+          "word_count": 12,
+          "final_score": 26.0,
+          "arabic_short": "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓا۟ إِذَا لَقِيتُمْ فِئَةً فَ…"
+        },
+        {
+          "ref": "18:20",
+          "form": "أَفْلَحَ",
+          "role": "learning",
+          "word_count": 13,
+          "final_score": 33.0,
+          "arabic_short": "إِنَّهُمْ إِن يَظْهَرُوا۟ عَلَيْكُمْ يَرْجُمُوكُمْ أَوْ يُعِ…"
+        },
+        {
+          "ref": "3:130",
+          "form": "أَفْلَحَ",
+          "role": "learning",
+          "word_count": 13,
+          "final_score": 24.0,
+          "arabic_short": "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا تَأْكُلُوا۟ ٱلرِّبَوٰٓ…"
+        }
+      ]
+    },
+    {
+      "lesson": 6,
+      "slug": "lesson-06-khayr",
+      "title": "Lesson 6: Prayer is Better than Sleep",
+      "seed_arabic": "الصَّلَاةُ خَيْرٌ مِنَ النَّوْمِ",
+      "seed_english": "Prayer is better than sleep",
+      "current_roots": [
+        {
+          "key": "khayr",
+          "arabic": "خَيْر",
+          "three_letter": "خ ي ر",
+          "total_verses": 178,
+          "scored_verses": 26,
+          "forms": 5,
+          "occurrences": 196,
+          "auto_picked": 10
+        },
+        {
+          "key": "nawm",
+          "arabic": "نَوْم",
+          "three_letter": "ن و م",
+          "total_verses": 9,
+          "scored_verses": 9,
+          "forms": 3,
+          "occurrences": 9,
+          "auto_picked": 4
+        }
+      ],
+      "recall_root_count": 7,
+      "auto_picked_learning": 10,
+      "learning_word_count": 57,
+      "auto_picked_recall": 5,
+      "recall_word_count": 24,
+      "total_phrases": 15,
+      "total_words": 81,
+      "picks": [
+        {
+          "ref": "87:17",
+          "form": "خَيْر",
+          "role": "anchor",
+          "word_count": 3,
+          "final_score": 43.0,
+          "arabic_short": "وَٱلْـَٔاخِرَةُ خَيْرٌ وَأَبْقَىٰٓ"
+        },
+        {
+          "ref": "78:9",
+          "form": "نَوْم",
+          "role": "learning",
+          "word_count": 3,
+          "final_score": 29.0,
+          "arabic_short": "وَجَعَلْنَا نَوْمَكُمْ سُبَاتًا"
+        },
+        {
+          "ref": "100:8",
+          "form": "خَيْر",
+          "role": "learning",
+          "word_count": 4,
+          "final_score": 39.0,
+          "arabic_short": "وَإِنَّهُۥ لِحُبِّ ٱلْخَيْرِ لَشَدِيدٌ"
+        },
+        {
+          "ref": "93:4",
+          "form": "خَيْر",
+          "role": "learning",
+          "word_count": 5,
+          "final_score": 46.0,
+          "arabic_short": "وَلَلْـَٔاخِرَةُ خَيْرٌ لَّكَ مِنَ ٱلْأُولَىٰ"
+        },
+        {
+          "ref": "97:3",
+          "form": "خَيْر",
+          "role": "learning",
+          "word_count": 6,
+          "final_score": 48.0,
+          "arabic_short": "لَيْلَةُ ٱلْقَدْرِ خَيْرٌ مِّنْ أَلْفِ شَهْرٍ"
+        },
+        {
+          "ref": "99:7",
+          "form": "خَيْر",
+          "role": "learning",
+          "word_count": 6,
+          "final_score": 44.0,
+          "arabic_short": "فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُۥ"
+        },
+        {
+          "ref": "3:54",
+          "form": "خَيْر",
+          "role": "learning",
+          "word_count": 7,
+          "final_score": 40.0,
+          "arabic_short": "وَمَكَرُوا۟ وَمَكَرَ ٱللَّهُ ۖ وَٱللَّهُ خَيْرُ ٱلْمَٰكِرِين…"
+        },
+        {
+          "ref": "23:118",
+          "form": "خَيْر",
+          "role": "learning",
+          "word_count": 7,
+          "final_score": 38.0,
+          "arabic_short": "وَقُل رَّبِّ ٱغْفِرْ وَٱرْحَمْ وَأَنتَ خَيْرُ ٱلرَّٰحِمِينَ"
+        },
+        {
+          "ref": "68:19",
+          "form": "نائِم",
+          "role": "learning",
+          "word_count": 7,
+          "final_score": 23.0,
+          "arabic_short": "فَطَافَ عَلَيْهَا طَآئِفٌ مِّن رَّبِّكَ وَهُمْ نَآئِمُونَ"
+        },
+        {
+          "ref": "18:81",
+          "form": "خَيْر",
+          "role": "learning",
+          "word_count": 9,
+          "final_score": 41.0,
+          "arabic_short": "فَأَرَدْنَآ أَن يُبْدِلَهُمَا رَبُّهُمَا خَيْرًا مِّنْهُ زَ…"
+        }
+      ]
+    },
+    {
+      "lesson": 7,
+      "slug": "lesson-07-qama",
+      "title": "Lesson 7: The Prayer Has Begun",
+      "seed_arabic": "قَدْ قَامَتِ الصَّلَاةُ",
+      "seed_english": "The prayer has begun",
+      "current_roots": [
+        {
+          "key": "qama",
+          "arabic": "قَامَ",
+          "three_letter": "ق و م",
+          "total_verses": 597,
+          "scored_verses": 34,
+          "forms": 22,
+          "occurrences": 660,
+          "auto_picked": 10
+        }
+      ],
+      "recall_root_count": 9,
+      "auto_picked_learning": 10,
+      "learning_word_count": 54,
+      "auto_picked_recall": 5,
+      "recall_word_count": 19,
+      "total_phrases": 15,
+      "total_words": 73,
+      "picks": [
+        {
+          "ref": "54:33",
+          "form": "قَوْم",
+          "role": "anchor",
+          "word_count": 4,
+          "final_score": 35.0,
+          "arabic_short": "كَذَّبَتْ قَوْمُ لُوطٍۭ بِٱلنُّذُرِ"
+        },
+        {
+          "ref": "20:83",
+          "form": "قَوْم",
+          "role": "learning",
+          "word_count": 5,
+          "final_score": 37.0,
+          "arabic_short": "وَمَآ أَعْجَلَكَ عَن قَوْمِكَ يَٰمُوسَىٰ"
+        },
+        {
+          "ref": "20:79",
+          "form": "قَوْم",
+          "role": "learning",
+          "word_count": 5,
+          "final_score": 36.0,
+          "arabic_short": "وَأَضَلَّ فِرْعَوْنُ قَوْمَهُۥ وَمَا هَدَىٰ"
+        },
+        {
+          "ref": "26:117",
+          "form": "قَوْم",
+          "role": "learning",
+          "word_count": 5,
+          "final_score": 36.0,
+          "arabic_short": "قَالَ رَبِّ إِنَّ قَوْمِى كَذَّبُونِ"
+        },
+        {
+          "ref": "44:28",
+          "form": "قَوْم",
+          "role": "learning",
+          "word_count": 5,
+          "final_score": 34.0,
+          "arabic_short": "كَذَٰلِكَ ۖ وَأَوْرَثْنَٰهَا قَوْمًا ءَاخَرِينَ"
+        },
+        {
+          "ref": "71:2",
+          "form": "قَوْم",
+          "role": "learning",
+          "word_count": 6,
+          "final_score": 38.0,
+          "arabic_short": "قَالَ يَٰقَوْمِ إِنِّى لَكُمْ نَذِيرٌ مُّبِينٌ"
+        },
+        {
+          "ref": "40:32",
+          "form": "قَوْم",
+          "role": "learning",
+          "word_count": 6,
+          "final_score": 36.0,
+          "arabic_short": "وَيَٰقَوْمِ إِنِّىٓ أَخَافُ عَلَيْكُمْ يَوْمَ ٱلتَّنَادِ"
+        },
+        {
+          "ref": "26:70",
+          "form": "قَوْم",
+          "role": "learning",
+          "word_count": 6,
+          "final_score": 35.0,
+          "arabic_short": "إِذْ قَالَ لِأَبِيهِ وَقَوْمِهِۦ مَا تَعْبُدُونَ"
+        },
+        {
+          "ref": "37:85",
+          "form": "قَوْم",
+          "role": "learning",
+          "word_count": 6,
+          "final_score": 35.0,
+          "arabic_short": "إِذْ قَالَ لِأَبِيهِ وَقَوْمِهِۦ مَاذَا تَعْبُدُونَ"
+        },
+        {
+          "ref": "44:22",
+          "form": "قَوْم",
+          "role": "learning",
+          "word_count": 6,
+          "final_score": 34.0,
+          "arabic_short": "فَدَعَا رَبَّهُۥٓ أَنَّ هَٰٓؤُلَآءِ قَوْمٌ مُّجْرِمُونَ"
+        }
+      ]
+    }
+  ]
+};
 
   renderStats(status, summary);
   renderPipeline(status, summary);
