@@ -7,7 +7,6 @@
   "fetched_date": "2025-06-01",
   "total_occurrences_in_quran": 2851,
   "introduced_in_lesson": 1,
-
   "forms": [
     {
       "form_arabic": "إِلَٰه",
@@ -25,7 +24,7 @@
       "gloss": "gods",
       "count": 30,
       "taught_in_lesson": 1,
-      "taught_role": "learn"
+      "taught_role": "learning"
     },
     {
       "form_arabic": "اللَّهُمَّ",
@@ -34,7 +33,7 @@
       "gloss": "O Allah",
       "count": 3,
       "taught_in_lesson": 1,
-      "taught_role": "learn"
+      "taught_role": "learning"
     },
     {
       "form_arabic": "اللّٰه",
@@ -47,7 +46,6 @@
       "notes": "Dropped from Lesson 1 table — too obvious, student already knows it"
     }
   ],
-
   "sentence_patterns": [
     {
       "pattern": "لَا إِلَٰهَ إِلَّا",
@@ -75,7 +73,6 @@
       "note": "Five rhetorical questions in 27:60-64"
     }
   ],
-
   "verses": [
     {
       "ref": "59:22",
@@ -95,17 +92,17 @@
       "reciter": "Hani_Rifai_192kbps",
       "audio_fragment": "#t=0,7",
       "scores": {
-        "curriculum": 0,
         "length": 2,
-        "story": 0,
-        "worship": 2,
-        "surah_familiarity": 1,
-        "completeness": 1,
-        "emotion": 1,
-        "fit_learn": 1,
-        "fit_practice": 1,
-        "total_learn": 8,
-        "total_practice": 8
+        "form_freq": 8,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 3,
+        "familiarity": 7,
+        "teaching_fit": 8,
+        "starred": false,
+        "fragment": true,
+        "base": 28,
+        "final": 19.6
       },
       "score_notes": "Short, iconic, contains إِلَٰه at the heart. Student memorises this one phrase."
     },
@@ -123,21 +120,21 @@
       "juz": 7,
       "status": "used",
       "lesson": 1,
-      "role": "learn",
+      "role": "learning",
       "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
       "audio_fragment": "#t=0,12",
       "scores": {
-        "curriculum": 0,
         "length": 1,
-        "story": 3,
-        "worship": 0,
-        "surah_familiarity": 1,
-        "completeness": 1,
-        "emotion": 2,
-        "fit_learn": 1,
-        "fit_practice": 0,
-        "total_learn": 9,
-        "total_practice": 8
+        "form_freq": 6,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 9,
+        "familiarity": 2,
+        "teaching_fit": 8,
+        "starred": false,
+        "fragment": true,
+        "base": 26,
+        "final": 18.2
       },
       "score_notes": "Story context: Ibrahim confronting his father about idols — iconic, every Muslim knows this story"
     },
@@ -155,21 +152,21 @@
       "juz": 3,
       "status": "used",
       "lesson": 1,
-      "role": "learn",
+      "role": "learning",
       "reciter": "Hudhaify_128kbps",
       "audio_fragment": "#t=0,5",
       "scores": {
+        "length": 6,
+        "form_freq": 2,
+        "form_dominance": 0,
         "curriculum": 0,
-        "length": 2,
-        "story": 0,
-        "worship": 2,
-        "surah_familiarity": 1,
-        "completeness": 1,
-        "emotion": 1,
-        "fit_learn": 1,
-        "fit_practice": 1,
-        "total_learn": 8,
-        "total_practice": 8
+        "story": 2,
+        "familiarity": 4,
+        "teaching_fit": 8,
+        "starred": false,
+        "fragment": true,
+        "base": 22,
+        "final": 15.4
       },
       "score_notes": "Introduces the prayer-address form. Trimmed to keep short."
     },
@@ -187,21 +184,21 @@
       "juz": 2,
       "status": "used",
       "lesson": 1,
-      "role": "practice",
+      "role": "learning",
       "reciter": "Yasser_Ad-Dussary_128kbps",
       "audio_fragment": null,
       "scores": {
+        "length": 0,
+        "form_freq": 8,
+        "form_dominance": 0,
         "curriculum": 0,
-        "length": 1,
-        "story": 0,
-        "worship": 2,
-        "surah_familiarity": 0,
-        "completeness": 1,
-        "emotion": 1,
-        "fit_learn": 0,
-        "fit_practice": 1,
-        "total_learn": 5,
-        "total_practice": 6
+        "story": 3,
+        "familiarity": 5,
+        "teaching_fit": 10,
+        "starred": false,
+        "fragment": false,
+        "base": 26,
+        "final": 26.0
       },
       "score_notes": "Triple إِلَٰه in one verse — the complete tawhid statement"
     },
@@ -223,17 +220,17 @@
       "previously_used_in_lesson_v1": true,
       "audio_downloaded": true,
       "scores": {
-        "curriculum": 2,
         "length": 0,
-        "story": 3,
-        "worship": 2,
-        "surah_familiarity": 0,
-        "completeness": 1,
-        "emotion": 2,
-        "fit_learn": 1,
-        "fit_practice": 1,
-        "total_learn": 12,
-        "total_practice": 12
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 8,
+        "familiarity": 0,
+        "teaching_fit": 3,
+        "starred": false,
+        "fragment": false,
+        "base": 11,
+        "final": 11.0
       },
       "score_notes": "Story of Yunus in the whale — one of the most beloved du'as. Too long for beginner's first phrase but excellent for later lessons. Audio already downloaded.",
       "rejection_reason": "Too long for a beginner's first phrase. Student found it overwhelming."
@@ -256,17 +253,17 @@
       "previously_used_in_lesson_v1": true,
       "audio_downloaded": true,
       "scores": {
-        "curriculum": 2,
         "length": 1,
-        "story": 3,
-        "worship": 0,
-        "surah_familiarity": 0,
-        "completeness": 1,
-        "emotion": 2,
-        "fit_learn": 1,
-        "fit_practice": 0,
-        "total_learn": 10,
-        "total_practice": 9
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 8,
+        "familiarity": 0,
+        "teaching_fit": 3,
+        "starred": false,
+        "fragment": true,
+        "base": 12,
+        "final": 8.4
       },
       "score_notes": "Nuh's call — the same words repeated by every prophet. Pattern dropped from v2 table. Audio already downloaded.",
       "rejection_reason": "Pattern (مِنْ إِلَٰهٍ غَيْرُهُ) dropped from v2 table."
@@ -290,17 +287,17 @@
       "previously_used_in_lesson_v1": true,
       "audio_downloaded": true,
       "scores": {
-        "curriculum": 2,
         "length": 1,
-        "story": 0,
-        "worship": 3,
-        "surah_familiarity": 2,
-        "completeness": 1,
-        "emotion": 1,
-        "fit_learn": 1,
-        "fit_practice": 1,
-        "total_learn": 11,
-        "total_practice": 11
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 1,
+        "familiarity": 6,
+        "teaching_fit": 3,
+        "starred": false,
+        "fragment": false,
+        "base": 11,
+        "final": 11.0
       },
       "score_notes": "Surah An-Nas — recited every day in salah and before sleep. Could revisit in a surah-based lesson. Audio already downloaded.",
       "rejection_reason": "Pattern dropped from v2 table."
@@ -323,17 +320,17 @@
       "previously_used_in_lesson_v1": true,
       "audio_downloaded": true,
       "scores": {
-        "curriculum": 2,
         "length": 1,
-        "story": 1,
-        "worship": 1,
-        "surah_familiarity": 0,
-        "completeness": 1,
-        "emotion": 2,
-        "fit_learn": 1,
-        "fit_practice": 1,
-        "total_learn": 9,
-        "total_practice": 9
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 4,
+        "familiarity": 0,
+        "teaching_fit": 3,
+        "starred": false,
+        "fragment": false,
+        "base": 8,
+        "final": 8.0
       },
       "score_notes": "Direct command to the Prophet — most concise tawhid + istighfar in one breath. Audio already downloaded.",
       "rejection_reason": "Slot went to shorter phrases."
@@ -356,17 +353,17 @@
       "previously_used_in_lesson_v1": true,
       "audio_downloaded": true,
       "scores": {
-        "curriculum": 2,
         "length": 0,
-        "story": 1,
-        "worship": 1,
-        "surah_familiarity": 1,
-        "completeness": 1,
-        "emotion": 1,
-        "fit_learn": 0,
-        "fit_practice": 1,
-        "total_learn": 7,
-        "total_practice": 8
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 3,
+        "familiarity": 3,
+        "teaching_fit": 0,
+        "starred": false,
+        "fragment": false,
+        "base": 6,
+        "final": 6.0
       },
       "score_notes": "Closing of Surah Al-Kahf — recited every Friday. Too long for Learn but good for Practice. Audio already downloaded.",
       "rejection_reason": "Too long. Pattern dropped from v2 table."
@@ -389,17 +386,17 @@
       "previously_used_in_lesson_v1": true,
       "audio_downloaded": true,
       "scores": {
-        "curriculum": 2,
         "length": 2,
-        "story": 3,
-        "worship": 0,
-        "surah_familiarity": 0,
-        "completeness": 1,
-        "emotion": 2,
-        "fit_learn": 1,
-        "fit_practice": 0,
-        "total_learn": 11,
-        "total_practice": 10
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 8,
+        "familiarity": 0,
+        "teaching_fit": 3,
+        "starred": false,
+        "fragment": false,
+        "base": 13,
+        "final": 13.0
       },
       "score_notes": "Israelites' shocking request — right after being saved from Pharaoh. Both singular and plural in one phrase. Audio already downloaded.",
       "rejection_reason": "Replaced by shorter 6:74 fragment for آلِهَة."
@@ -422,17 +419,17 @@
       "previously_used_in_lesson_v1": true,
       "audio_downloaded": true,
       "scores": {
-        "curriculum": 2,
         "length": 1,
-        "story": 3,
-        "worship": 0,
-        "surah_familiarity": 0,
-        "completeness": 1,
-        "emotion": 2,
-        "fit_learn": 1,
-        "fit_practice": 0,
-        "total_learn": 10,
-        "total_practice": 9
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 8,
+        "familiarity": 0,
+        "teaching_fit": 3,
+        "starred": false,
+        "fragment": false,
+        "base": 12,
+        "final": 12.0
       },
       "score_notes": "Anti-version of Nuh's call. Pharaoh flips the prophet's formula — ultimate arrogance. Audio already downloaded.",
       "rejection_reason": "Very long. Pattern dropped from v2 table."
@@ -454,19 +451,21 @@
       "role": null,
       "target_lesson": 2,
       "target_lesson_reason": "Ashhadu root (شَهِدَ) connects here — Allah Himself bearing witness",
-      "cross_roots": ["shahida"],
+      "cross_roots": [
+        "shahida"
+      ],
       "scores": {
-        "curriculum": 2,
-        "length": 1,
-        "story": 1,
-        "worship": 2,
-        "surah_familiarity": 1,
-        "completeness": 1,
-        "emotion": 2,
-        "fit_learn": 1,
-        "fit_practice": 1,
-        "total_learn": 11,
-        "total_practice": 11
+        "length": 3,
+        "form_freq": 7,
+        "form_dominance": 3,
+        "curriculum": 0,
+        "story": 5,
+        "familiarity": 4,
+        "teaching_fit": 10,
+        "starred": false,
+        "fragment": false,
+        "base": 32,
+        "final": 32.0
       },
       "score_notes": "Allah Himself bearing witness — perfect for shahādah lesson. Cross-root with شَهِدَ."
     },
@@ -486,17 +485,17 @@
       "lesson": null,
       "role": null,
       "scores": {
-        "curriculum": 2,
         "length": 2,
-        "story": 0,
-        "worship": 0,
-        "surah_familiarity": 0,
-        "completeness": 1,
-        "emotion": 1,
-        "fit_learn": 0,
-        "fit_practice": 1,
-        "total_learn": 6,
-        "total_practice": 7
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 1,
+        "familiarity": 0,
+        "teaching_fit": 0,
+        "starred": false,
+        "fragment": false,
+        "base": 3,
+        "final": 3.0
       },
       "score_notes": "Famous logical argument for tawhid — short and self-contained."
     },
@@ -516,17 +515,17 @@
       "lesson": null,
       "role": null,
       "scores": {
-        "curriculum": 2,
         "length": 0,
-        "story": 3,
-        "worship": 2,
-        "surah_familiarity": 0,
-        "completeness": 1,
-        "emotion": 2,
-        "fit_learn": 1,
-        "fit_practice": 1,
-        "total_learn": 11,
-        "total_practice": 11
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 8,
+        "familiarity": 0,
+        "teaching_fit": 3,
+        "starred": false,
+        "fragment": false,
+        "base": 11,
+        "final": 11.0
       },
       "score_notes": "Allah speaking directly to Musa at the burning bush — powerful story, connects to salah"
     },
@@ -545,20 +544,24 @@
       "status": "pipeline",
       "lesson": null,
       "role": null,
-      "cross_roots": ["kabura"],
-      "cross_forms": ["اسْتَكْبَرَ"],
+      "cross_roots": [
+        "kabura"
+      ],
+      "cross_forms": [
+        "اسْتَكْبَرَ"
+      ],
       "scores": {
-        "curriculum": 2,
         "length": 1,
-        "story": 1,
-        "worship": 0,
-        "surah_familiarity": 0,
-        "completeness": 1,
-        "emotion": 2,
-        "fit_learn": 1,
-        "fit_practice": 1,
-        "total_learn": 8,
-        "total_practice": 8
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 4,
+        "familiarity": 0,
+        "teaching_fit": 3,
+        "starred": false,
+        "fragment": false,
+        "base": 8,
+        "final": 8.0
       },
       "score_notes": "Bridges both roots — la ilaha illa Allah + arrogance. Cross-root verse."
     },
@@ -578,17 +581,17 @@
       "lesson": null,
       "role": null,
       "scores": {
-        "curriculum": 2,
         "length": 2,
-        "story": 2,
-        "worship": 0,
-        "surah_familiarity": 0,
-        "completeness": 1,
-        "emotion": 2,
-        "fit_learn": 1,
-        "fit_practice": 1,
-        "total_learn": 10,
-        "total_practice": 10
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 6,
+        "familiarity": 0,
+        "teaching_fit": 3,
+        "starred": false,
+        "fragment": false,
+        "base": 11,
+        "final": 11.0
       },
       "score_notes": "Quraysh mocking 'One God?!' — dramatic, both singular and plural in one verse"
     },
@@ -608,22 +611,21 @@
       "lesson": null,
       "role": null,
       "scores": {
-        "curriculum": 2,
         "length": 0,
-        "story": 0,
-        "worship": 2,
-        "surah_familiarity": 0,
-        "completeness": 1,
-        "emotion": 1,
-        "fit_learn": 0,
-        "fit_practice": 1,
-        "total_learn": 6,
-        "total_practice": 7
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 1,
+        "familiarity": 0,
+        "teaching_fit": 0,
+        "starred": false,
+        "fragment": false,
+        "base": 1,
+        "final": 1.0
       },
       "score_notes": "Beautiful du'a — Creator + Knower + Judge. Long but powerful."
     }
   ],
-
   "hadith": [
     {
       "id": "hadith-words-beloved",
@@ -632,7 +634,9 @@
       "arabic": "أَحَبُّ الْكَلَامِ إِلَى اللَّهِ أَرْبَعٌ: سُبْحَانَ اللَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا اللَّهُ، وَاللهُ أَكْبَرُ",
       "translation": "The most beloved words to Allah are four: SubhanAllah, Alhamdulillah, La ilaha illallah, Allahu Akbar",
       "type": "hadith",
-      "cross_roots": ["kabura"],
+      "cross_roots": [
+        "kabura"
+      ],
       "status": "pipeline",
       "lesson": null,
       "scores": {

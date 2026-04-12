@@ -7,7 +7,6 @@
   "fetched_date": "2026-04-10",
   "total_occurrences_in_quran": 160,
   "introduced_in_lesson": 2,
-
   "forms": [
     {
       "form_arabic": "شَهِدَ",
@@ -16,7 +15,7 @@
       "gloss": "to testify, to bear witness",
       "count": 44,
       "taught_in_lesson": 2,
-      "taught_role": "learn"
+      "taught_role": "learning"
     },
     {
       "form_arabic": "أَشْهَدَ",
@@ -45,7 +44,7 @@
       "gloss": "testimony; the witnessed/seen",
       "count": 23,
       "taught_in_lesson": 2,
-      "taught_role": "learn",
+      "taught_role": "learning",
       "notes": "The noun behind 'shahādah'. Also carries the meaning 'the seen/witnessed' as the opposite of 'the unseen' (ghayb) — see 39:46."
     },
     {
@@ -74,7 +73,7 @@
       "gloss": "witness; martyr",
       "count": 56,
       "taught_in_lesson": 2,
-      "taught_role": "learn",
+      "taught_role": "learning",
       "notes": "The most frequent form. Also the word every Muslim knows for 'martyr.'"
     },
     {
@@ -84,7 +83,7 @@
       "gloss": "one who witnesses; eye-witness",
       "count": 21,
       "taught_in_lesson": 2,
-      "taught_role": "practice"
+      "taught_role": "learning"
     },
     {
       "form_arabic": "مَشْهُود",
@@ -97,7 +96,6 @@
       "notes": "Appears in 85:3 (وَشَاهِدٍ وَمَشْهُودٍ) — a good future bridge verse."
     }
   ],
-
   "sentence_patterns": [
     {
       "pattern": "كَفَىٰ بِاللَّهِ شَهِيدًا",
@@ -125,7 +123,6 @@
       "note": "Divine attribute pairing. Appears in 6:73, 9:94, 9:105, 13:9, 23:92, 32:6, 39:46, 59:22, 62:8, 64:18. The شَهَادَة here means 'the seen' as opposite of ghayb."
     }
   ],
-
   "verses": [
     {
       "ref": "3:18",
@@ -141,21 +138,23 @@
       "juz": 3,
       "status": "used",
       "lesson": 2,
-      "role": "learn",
+      "role": "learning",
       "role_order": 1,
-      "cross_roots": ["ilah"],
+      "cross_roots": [
+        "ilah"
+      ],
       "scores": {
-        "curriculum": 1,
-        "length": 2,
-        "story": 1,
-        "worship": 3,
-        "surah_familiarity": 1,
-        "completeness": 1,
-        "emotion": 2,
-        "fit_learn": 1,
-        "fit_practice": 0,
-        "total_learn": 12,
-        "total_practice": 11
+        "length": 3,
+        "form_freq": 7,
+        "form_dominance": 3,
+        "curriculum": 0,
+        "story": 5,
+        "familiarity": 4,
+        "teaching_fit": 10,
+        "starred": false,
+        "fragment": true,
+        "base": 32,
+        "final": 22.4
       },
       "score_notes": "Allah Himself bearing witness — the ultimate testimony. Bridges L1 via إِلَٰهَ in the phrase. Trimmed aggressively."
     },
@@ -173,21 +172,24 @@
       "juz": 7,
       "status": "used",
       "lesson": 2,
-      "role": "learn",
+      "role": "learning",
       "role_order": 2,
-      "cross_roots": ["kabura", "ilah"],
+      "cross_roots": [
+        "kabura",
+        "ilah"
+      ],
       "scores": {
-        "curriculum": 2,
-        "length": 1,
-        "story": 0,
-        "worship": 2,
-        "surah_familiarity": 0,
-        "completeness": 1,
-        "emotion": 2,
-        "fit_learn": 1,
-        "fit_practice": 1,
-        "total_learn": 9,
-        "total_practice": 9
+        "length": 0,
+        "form_freq": 5,
+        "form_dominance": 1,
+        "curriculum": 0,
+        "story": 6,
+        "familiarity": 2,
+        "teaching_fit": 8,
+        "starred": false,
+        "fragment": true,
+        "base": 22,
+        "final": 15.4
       },
       "score_notes": "Multi-form goldmine: شَهَادَة + شَهِيد + أَشْهَدُ + L1's أَكْبَرُ + إِلَٰه all in one verse."
     },
@@ -205,20 +207,20 @@
       "juz": 5,
       "status": "used",
       "lesson": 2,
-      "role": "learn",
+      "role": "learning",
       "role_order": 3,
       "scores": {
+        "length": 7,
+        "form_freq": 7,
+        "form_dominance": 4,
         "curriculum": 0,
-        "length": 2,
-        "story": 0,
-        "worship": 1,
-        "surah_familiarity": 0,
-        "completeness": 1,
-        "emotion": 1,
-        "fit_learn": 1,
-        "fit_practice": 1,
-        "total_learn": 7,
-        "total_practice": 7
+        "story": 3,
+        "familiarity": 3,
+        "teaching_fit": 10,
+        "starred": false,
+        "fragment": true,
+        "base": 34,
+        "final": 23.8
       },
       "score_notes": "Famous ultra-short phrase. Appears 4x in Qur'an as a refrain."
     },
@@ -236,20 +238,20 @@
       "juz": 7,
       "status": "used",
       "lesson": 2,
-      "role": "learn",
+      "role": "learning",
       "role_order": 4,
       "scores": {
-        "curriculum": 2,
-        "length": 2,
-        "story": 3,
-        "worship": 0,
-        "surah_familiarity": 0,
-        "completeness": 1,
-        "emotion": 3,
-        "fit_learn": 1,
-        "fit_practice": 0,
-        "total_learn": 12,
-        "total_practice": 11
+        "length": 4,
+        "form_freq": 7,
+        "form_dominance": 4,
+        "curriculum": 0,
+        "story": 8,
+        "familiarity": 4,
+        "teaching_fit": 9,
+        "starred": false,
+        "fragment": true,
+        "base": 36,
+        "final": 25.2
       },
       "score_notes": "ʿĪsā addressing Allah on Judgment Day. Trimmed to the first half. First-person prophetic voice — deeply moving."
     },
@@ -267,20 +269,20 @@
       "juz": 2,
       "status": "used",
       "lesson": 2,
-      "role": "learn",
+      "role": "learning",
       "role_order": 5,
       "scores": {
-        "curriculum": 2,
-        "length": 2,
-        "story": 0,
-        "worship": 1,
-        "surah_familiarity": 0,
-        "completeness": 1,
-        "emotion": 1,
-        "fit_learn": 1,
-        "fit_practice": 1,
-        "total_learn": 8,
-        "total_practice": 8
+        "length": 4,
+        "form_freq": 7,
+        "form_dominance": 3,
+        "curriculum": 0,
+        "story": 4,
+        "familiarity": 7,
+        "teaching_fit": 7,
+        "starred": false,
+        "fragment": true,
+        "base": 32,
+        "final": 22.4
       },
       "score_notes": "Ramadan verse. Teaches شَهِدَ in its 'to be present during' meaning. Connects to annual practice."
     },
@@ -298,20 +300,20 @@
       "juz": 3,
       "status": "used",
       "lesson": 2,
-      "role": "practice",
+      "role": "learning",
       "role_order": 1,
       "scores": {
+        "length": 0,
+        "form_freq": 5,
+        "form_dominance": 1,
         "curriculum": 0,
-        "length": 1,
-        "story": 2,
-        "worship": 1,
-        "surah_familiarity": 0,
-        "completeness": 1,
-        "emotion": 2,
-        "fit_learn": 1,
-        "fit_practice": 1,
-        "total_learn": 8,
-        "total_practice": 8
+        "story": 6,
+        "familiarity": 3,
+        "teaching_fit": 7,
+        "starred": false,
+        "fragment": false,
+        "base": 22,
+        "final": 22.0
       },
       "score_notes": "Duʿā of Isa's disciples. Story-bearing, emotional."
     },
@@ -329,20 +331,20 @@
       "juz": 28,
       "status": "used",
       "lesson": 2,
-      "role": "practice",
+      "role": "learning",
       "role_order": 2,
       "scores": {
-        "curriculum": 2,
         "length": 0,
-        "story": 2,
-        "worship": 0,
-        "surah_familiarity": 0,
-        "completeness": 1,
-        "emotion": 2,
-        "fit_learn": 0,
-        "fit_practice": 1,
-        "total_learn": 7,
-        "total_practice": 8
+        "form_freq": 7,
+        "form_dominance": 3,
+        "curriculum": 0,
+        "story": 8,
+        "familiarity": 5,
+        "teaching_fit": 10,
+        "starred": false,
+        "fragment": true,
+        "base": 33,
+        "final": 23.1
       },
       "score_notes": "Dramatic exposé — two forms in opposition. Opening of Surah Al-Munāfiqūn."
     },
@@ -360,20 +362,20 @@
       "juz": 24,
       "status": "used",
       "lesson": 2,
-      "role": "practice",
+      "role": "learning",
       "role_order": 3,
       "scores": {
-        "curriculum": 2,
         "length": 1,
-        "story": 1,
-        "worship": 1,
-        "surah_familiarity": 0,
-        "completeness": 1,
-        "emotion": 2,
-        "fit_learn": 0,
-        "fit_practice": 1,
-        "total_learn": 8,
-        "total_practice": 9
+        "form_freq": 7,
+        "form_dominance": 3,
+        "curriculum": 0,
+        "story": 8,
+        "familiarity": 2,
+        "teaching_fit": 8,
+        "starred": false,
+        "fragment": true,
+        "base": 29,
+        "final": 20.3
       },
       "score_notes": "Day of Judgment — body parts testify. Short, vivid imagery."
     },
@@ -391,20 +393,20 @@
       "juz": 3,
       "status": "used",
       "lesson": 2,
-      "role": "practice",
+      "role": "learning",
       "role_order": 4,
       "scores": {
-        "curriculum": 2,
         "length": 2,
-        "story": 2,
-        "worship": 0,
-        "surah_familiarity": 0,
-        "completeness": 0,
-        "emotion": 2,
-        "fit_learn": 1,
-        "fit_practice": 1,
-        "total_learn": 9,
-        "total_practice": 9
+        "form_freq": 5,
+        "form_dominance": 1,
+        "curriculum": 0,
+        "story": 6,
+        "familiarity": 3,
+        "teaching_fit": 8,
+        "starred": false,
+        "fragment": true,
+        "base": 25,
+        "final": 17.5
       },
       "score_notes": "Prophets' covenant — Allah to the prophets. Imperative + active participle plural in one phrase."
     },
@@ -422,20 +424,20 @@
       "juz": 5,
       "status": "used",
       "lesson": 2,
-      "role": "practice",
+      "role": "learning",
       "role_order": 5,
       "scores": {
-        "curriculum": 2,
-        "length": 1,
-        "story": 0,
-        "worship": 1,
-        "surah_familiarity": 0,
-        "completeness": 0,
-        "emotion": 2,
-        "fit_learn": 0,
-        "fit_practice": 1,
-        "total_learn": 7,
-        "total_practice": 8
+        "length": 0,
+        "form_freq": 7,
+        "form_dominance": 4,
+        "curriculum": 0,
+        "story": 5,
+        "familiarity": 4,
+        "teaching_fit": 7,
+        "starred": false,
+        "fragment": true,
+        "base": 27,
+        "final": 18.9
       },
       "score_notes": "The four ranks verse. Famous pattern: prophets + truthful + witnesses + righteous. Teacher override: promoted from Pipeline to Practice because it's too well-known to defer."
     },
@@ -454,17 +456,17 @@
       "status": "pipeline",
       "lesson": null,
       "scores": {
-        "curriculum": 2,
         "length": 2,
-        "story": 3,
-        "worship": 0,
-        "surah_familiarity": 0,
-        "completeness": 0,
-        "emotion": 2,
-        "fit_learn": 1,
-        "fit_practice": 1,
-        "total_learn": 10,
-        "total_practice": 10
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 8,
+        "familiarity": 0,
+        "teaching_fit": 3,
+        "starred": false,
+        "fragment": true,
+        "base": 13,
+        "final": 9.1
       },
       "score_notes": "Yusuf story — two forms (شَهِدَ + شَاهِد) in one phrase. Initially picked for Practice, dropped to pipeline because Practice already had enough شَاهِد coverage. High priority for future lesson."
     },
@@ -483,17 +485,17 @@
       "status": "pipeline",
       "lesson": null,
       "scores": {
-        "curriculum": 0,
         "length": 1,
-        "story": 1,
-        "worship": 2,
-        "surah_familiarity": 1,
-        "completeness": 1,
-        "emotion": 2,
-        "fit_learn": 1,
-        "fit_practice": 1,
-        "total_learn": 9,
-        "total_practice": 9
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 4,
+        "familiarity": 3,
+        "teaching_fit": 3,
+        "starred": false,
+        "fragment": true,
+        "base": 11,
+        "final": 7.7
       },
       "score_notes": "From Surah Yasin — frequently recited. Body parts testify. Considered as Learn 5 but teacher preferred 5:117 (ʿĪsā). HIGH priority for Lesson 3+ Practice."
     },
@@ -512,17 +514,17 @@
       "status": "pipeline",
       "lesson": null,
       "scores": {
-        "curriculum": 0,
         "length": 2,
-        "story": 0,
-        "worship": 0,
-        "surah_familiarity": 0,
-        "completeness": 1,
-        "emotion": 1,
-        "fit_learn": 0,
-        "fit_practice": 1,
-        "total_learn": 4,
-        "total_practice": 5
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 1,
+        "familiarity": 0,
+        "teaching_fit": 0,
+        "starred": false,
+        "fragment": true,
+        "base": 3,
+        "final": 2.1
       },
       "score_notes": "Short declarative. Deferred because Practice had enough شَهِيد coverage already."
     },
@@ -541,17 +543,17 @@
       "status": "pipeline",
       "lesson": null,
       "scores": {
-        "curriculum": 0,
         "length": 2,
-        "story": 0,
-        "worship": 0,
-        "surah_familiarity": 0,
-        "completeness": 1,
-        "emotion": 1,
-        "fit_learn": 0,
-        "fit_practice": 1,
-        "total_learn": 4,
-        "total_practice": 5
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 1,
+        "familiarity": 0,
+        "teaching_fit": 0,
+        "starred": false,
+        "fragment": true,
+        "base": 3,
+        "final": 2.1
       },
       "score_notes": "Short warning. Parallel to 22:17. Saved for future Practice."
     },
@@ -570,17 +572,17 @@
       "status": "deferred",
       "lesson": null,
       "scores": {
-        "curriculum": 0,
         "length": 1,
-        "story": 3,
-        "worship": 2,
-        "surah_familiarity": 0,
-        "completeness": 1,
-        "emotion": 3,
-        "fit_learn": 1,
-        "fit_practice": 0,
-        "total_learn": 11,
-        "total_practice": 10
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 9,
+        "familiarity": 0,
+        "teaching_fit": 3,
+        "starred": false,
+        "fragment": true,
+        "base": 13,
+        "final": 9.1
       },
       "score_notes": "Primordial covenant — the origin story of the shahādah itself. Introduces Form IV (أَشْهَدَ). Recommended as Learn 5 but teacher chose 5:117 instead. HIGHEST-priority future Learn candidate — it's the ONLY verse that introduces Form IV alongside a new 1st-person-plural conjugation."
     },
@@ -599,17 +601,17 @@
       "status": "deferred",
       "lesson": null,
       "scores": {
-        "curriculum": 0,
         "length": 2,
-        "story": 0,
-        "worship": 2,
-        "surah_familiarity": 2,
-        "completeness": 1,
-        "emotion": 2,
-        "fit_learn": 1,
-        "fit_practice": 1,
-        "total_learn": 10,
-        "total_practice": 10
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 2,
+        "familiarity": 6,
+        "teaching_fit": 3,
+        "starred": false,
+        "fragment": false,
+        "base": 13,
+        "final": 13.0
       },
       "score_notes": "Ultra-short — two forms in one phrase (active + passive participle). Juz' 30, Surah Al-Burūj. Strong future Learn candidate if/when مَشْهُود is introduced."
     },
@@ -628,17 +630,17 @@
       "status": "deferred",
       "lesson": null,
       "scores": {
-        "curriculum": 0,
         "length": 1,
-        "story": 1,
-        "worship": 1,
-        "surah_familiarity": 0,
-        "completeness": 1,
-        "emotion": 2,
-        "fit_learn": 1,
-        "fit_practice": 1,
-        "total_learn": 7,
-        "total_practice": 7
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 4,
+        "familiarity": 0,
+        "teaching_fit": 3,
+        "starred": false,
+        "fragment": true,
+        "base": 8,
+        "final": 5.6
       },
       "score_notes": "This ummah's mission. Good future Practice."
     },
@@ -657,17 +659,17 @@
       "status": "deferred",
       "lesson": null,
       "scores": {
-        "curriculum": 0,
         "length": 2,
-        "story": 1,
-        "worship": 0,
-        "surah_familiarity": 0,
-        "completeness": 1,
-        "emotion": 2,
-        "fit_learn": 1,
-        "fit_practice": 1,
-        "total_learn": 7,
-        "total_practice": 7
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 4,
+        "familiarity": 0,
+        "teaching_fit": 3,
+        "starred": false,
+        "fragment": true,
+        "base": 9,
+        "final": 6.3
       },
       "score_notes": "Prophet as witness over his ummah."
     },
@@ -686,17 +688,17 @@
       "status": "deferred",
       "lesson": null,
       "scores": {
+        "length": 7,
+        "form_freq": 7,
+        "form_dominance": 4,
         "curriculum": 2,
-        "length": 2,
-        "story": 0,
-        "worship": 1,
-        "surah_familiarity": 0,
-        "completeness": 1,
-        "emotion": 1,
-        "fit_learn": 0,
-        "fit_practice": 1,
-        "total_learn": 7,
-        "total_practice": 8
+        "story": 1,
+        "familiarity": 0,
+        "teaching_fit": 0,
+        "starred": false,
+        "fragment": true,
+        "base": 21,
+        "final": 14.7
       },
       "score_notes": "Exact same phrase as 4:79 (Learn 3). Intentional duplicate refrain in the Qur'an. Could use in a future Practice for pattern repetition."
     },
@@ -715,17 +717,17 @@
       "status": "deferred",
       "lesson": null,
       "scores": {
-        "curriculum": 0,
         "length": 1,
-        "story": 0,
-        "worship": 0,
-        "surah_familiarity": 0,
-        "completeness": 1,
-        "emotion": 2,
-        "fit_learn": 0,
-        "fit_practice": 1,
-        "total_learn": 4,
-        "total_practice": 5
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 2,
+        "familiarity": 0,
+        "teaching_fit": 0,
+        "starred": false,
+        "fragment": true,
+        "base": 3,
+        "final": 2.1
       },
       "score_notes": "Powerful rhetorical — signs in horizons and in yourselves. Famous verse."
     }

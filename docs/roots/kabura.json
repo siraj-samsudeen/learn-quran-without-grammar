@@ -7,7 +7,6 @@
   "fetched_date": "2025-06-01",
   "total_occurrences_in_quran": 161,
   "introduced_in_lesson": 1,
-
   "forms": [
     {
       "form_arabic": "كَبُرَ",
@@ -16,7 +15,7 @@
       "gloss": "to be great",
       "count": 8,
       "taught_in_lesson": 1,
-      "taught_role": "learn"
+      "taught_role": "learning"
     },
     {
       "form_arabic": "اسْتَكْبَرَ",
@@ -25,7 +24,7 @@
       "gloss": "to be arrogant",
       "count": 38,
       "taught_in_lesson": 1,
-      "taught_role": "learn"
+      "taught_role": "learning"
     },
     {
       "form_arabic": "كَبِير",
@@ -34,7 +33,7 @@
       "gloss": "great, big",
       "count": 36,
       "taught_in_lesson": 1,
-      "taught_role": "practice"
+      "taught_role": "learning"
     },
     {
       "form_arabic": "كُبْرَى",
@@ -43,7 +42,7 @@
       "gloss": "greatest",
       "count": 8,
       "taught_in_lesson": 1,
-      "taught_role": "learn"
+      "taught_role": "learning"
     },
     {
       "form_arabic": "أَكْبَرُ",
@@ -150,7 +149,6 @@
       "notes": "Only in 17:111 — with كَبَّرَ"
     }
   ],
-
   "verses": [
     {
       "ref": "79:20",
@@ -164,14 +162,21 @@
       "juz": 30,
       "status": "used",
       "lesson": 1,
-      "role": "learn",
+      "role": "learning",
       "reciter": "Husary_128kbps",
       "audio_fragment": null,
       "scores": {
-        "curriculum": 0, "length": 2, "story": 2, "worship": 0,
-        "surah_familiarity": 2, "completeness": 1, "emotion": 1,
-        "fit_learn": 1, "fit_practice": 1,
-        "total_learn": 9, "total_practice": 9
+        "length": 6,
+        "form_freq": 4,
+        "form_dominance": 1,
+        "curriculum": 0,
+        "story": 7,
+        "familiarity": 8,
+        "teaching_fit": 8,
+        "starred": false,
+        "fragment": false,
+        "base": 34,
+        "final": 34.0
       },
       "score_notes": "Tiny — 4 words. Musa showed Pharaoh the greatest miracle. Juz' 30."
     },
@@ -187,14 +192,21 @@
       "juz": 28,
       "status": "used",
       "lesson": 1,
-      "role": "learn",
+      "role": "learning",
       "reciter": "Alafasy_128kbps",
       "audio_fragment": null,
       "scores": {
-        "curriculum": 0, "length": 1, "story": 0, "worship": 0,
-        "surah_familiarity": 1, "completeness": 1, "emotion": 2,
-        "fit_learn": 1, "fit_practice": 1,
-        "total_learn": 6, "total_practice": 6
+        "length": 2,
+        "form_freq": 4,
+        "form_dominance": 1,
+        "curriculum": 0,
+        "story": 5,
+        "familiarity": 5,
+        "teaching_fit": 9,
+        "starred": false,
+        "fragment": false,
+        "base": 26,
+        "final": 26.0
       },
       "score_notes": "Base verb form. Saying and not doing — deeply hated by Allah."
     },
@@ -210,14 +222,21 @@
       "juz": 1,
       "status": "used",
       "lesson": 1,
-      "role": "learn",
+      "role": "learning",
       "reciter": "Abdul_Basit_Mujawwad_128kbps",
       "audio_fragment": null,
       "scores": {
-        "curriculum": 0, "length": 0, "story": 3, "worship": 0,
-        "surah_familiarity": 0, "completeness": 1, "emotion": 2,
-        "fit_learn": 1, "fit_practice": 0,
-        "total_learn": 7, "total_practice": 6
+        "length": 0,
+        "form_freq": 6,
+        "form_dominance": 2,
+        "curriculum": 0,
+        "story": 10,
+        "familiarity": 5,
+        "teaching_fit": 9,
+        "starred": false,
+        "fragment": false,
+        "base": 32,
+        "final": 32.0
       },
       "score_notes": "Full origin story of Iblis — far more memorable than a trimmed fragment. Story context principle."
     },
@@ -233,14 +252,21 @@
       "juz": 17,
       "status": "used",
       "lesson": 1,
-      "role": "practice",
+      "role": "learning",
       "reciter": "MaherAlMuaiqly128kbps",
       "audio_fragment": null,
       "scores": {
-        "curriculum": 0, "length": 1, "story": 3, "worship": 0,
-        "surah_familiarity": 0, "completeness": 1, "emotion": 2,
-        "fit_learn": 1, "fit_practice": 1,
-        "total_learn": 8, "total_practice": 8
+        "length": 1,
+        "form_freq": 6,
+        "form_dominance": 2,
+        "curriculum": 0,
+        "story": 9,
+        "familiarity": 3,
+        "teaching_fit": 7,
+        "starred": false,
+        "fragment": false,
+        "base": 28,
+        "final": 28.0
       },
       "score_notes": "Ibrahim's wit when questioned about smashing the idols — brilliant story."
     },
@@ -257,14 +283,21 @@
       "juz": 20,
       "status": "used",
       "lesson": 1,
-      "role": "practice",
+      "role": "learning",
       "reciter": "Abdul_Basit_Murattal_192kbps",
       "audio_fragment": "#t=20.2,24",
       "scores": {
-        "curriculum": 0, "length": 2, "story": 0, "worship": 2,
-        "surah_familiarity": 1, "completeness": 1, "emotion": 1,
-        "fit_learn": 0, "fit_practice": 1,
-        "total_learn": 7, "total_practice": 8
+        "length": 7,
+        "form_freq": 5,
+        "form_dominance": 1,
+        "curriculum": 0,
+        "story": 3,
+        "familiarity": 6,
+        "teaching_fit": 10,
+        "starred": false,
+        "fragment": true,
+        "base": 32,
+        "final": 22.4
       },
       "score_notes": "Tiny, punchy. The word from Allahu Akbar. dhikr = salah."
     },
@@ -281,14 +314,21 @@
       "juz": 15,
       "status": "used",
       "lesson": 1,
-      "role": "practice",
+      "role": "learning",
       "reciter": "Ghamadi_40kbps",
       "audio_fragment": "#t=7.5",
       "scores": {
-        "curriculum": 0, "length": 2, "story": 0, "worship": 1,
-        "surah_familiarity": 1, "completeness": 1, "emotion": 1,
-        "fit_learn": 0, "fit_practice": 1,
-        "total_learn": 6, "total_practice": 7
+        "length": 5,
+        "form_freq": 4,
+        "form_dominance": 1,
+        "curriculum": 0,
+        "story": 4,
+        "familiarity": 7,
+        "teaching_fit": 8,
+        "starred": false,
+        "fragment": true,
+        "base": 29,
+        "final": 20.3
       },
       "score_notes": "Surah Al-Kahf — retranslated to 'great' not 'grave' to keep root connection visible."
     },
@@ -304,14 +344,21 @@
       "juz": 24,
       "status": "used",
       "lesson": 1,
-      "role": "practice",
+      "role": "learning",
       "reciter": "Abdurrahmaan_As-Sudais_192kbps",
       "audio_fragment": null,
       "scores": {
-        "curriculum": 0, "length": 0, "story": 2, "worship": 0,
-        "surah_familiarity": 0, "completeness": 1, "emotion": 2,
-        "fit_learn": 0, "fit_practice": 1,
-        "total_learn": 5, "total_practice": 6
+        "length": 0,
+        "form_freq": 6,
+        "form_dominance": 2,
+        "curriculum": 0,
+        "story": 7,
+        "familiarity": 2,
+        "teaching_fit": 8,
+        "starred": false,
+        "fragment": false,
+        "base": 25,
+        "final": 25.0
       },
       "score_notes": "Aad's arrogant boast + Allah's comeback — punchy despite length."
     },
@@ -331,10 +378,17 @@
       "previously_used_in_lesson_v1": true,
       "audio_downloaded": true,
       "scores": {
-        "curriculum": 2, "length": 2, "story": 3, "worship": 0,
-        "surah_familiarity": 1, "completeness": 1, "emotion": 2,
-        "fit_learn": 1, "fit_practice": 1,
-        "total_learn": 12, "total_practice": 12
+        "length": 2,
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 8,
+        "familiarity": 3,
+        "teaching_fit": 3,
+        "starred": false,
+        "fragment": false,
+        "base": 16,
+        "final": 16.0
       },
       "score_notes": "Ibrahim searching for God — stars, moon, sun. Each time 'this is greater.' Iconic story. Audio already downloaded.",
       "rejection_reason": "Already have أَكْبَر in anchor phrase and practice (29:45)."
@@ -355,10 +409,17 @@
       "previously_used_in_lesson_v1": true,
       "audio_downloaded": true,
       "scores": {
-        "curriculum": 2, "length": 2, "story": 0, "worship": 3,
-        "surah_familiarity": 2, "completeness": 1, "emotion": 1,
-        "fit_learn": 1, "fit_practice": 1,
-        "total_learn": 12, "total_practice": 12
+        "length": 2,
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 1,
+        "familiarity": 6,
+        "teaching_fit": 3,
+        "starred": false,
+        "fragment": false,
+        "base": 12,
+        "final": 12.0
       },
       "score_notes": "From Surah Al-A'la — very frequently recited in salah. Student already knows it by ear. Audio already downloaded.",
       "rejection_reason": "kubra already covered by 79:20 in learning."
@@ -379,10 +440,17 @@
       "previously_used_in_lesson_v1": true,
       "audio_downloaded": true,
       "scores": {
-        "curriculum": 2, "length": 0, "story": 0, "worship": 0,
-        "surah_familiarity": 0, "completeness": 1, "emotion": 1,
-        "fit_learn": 0, "fit_practice": 1,
-        "total_learn": 4, "total_practice": 5
+        "length": 0,
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 1,
+        "familiarity": 0,
+        "teaching_fit": 0,
+        "starred": false,
+        "fragment": false,
+        "base": 1,
+        "final": 1.0
       },
       "score_notes": "Famous ruling verse on wine/gambling. Uses both kabir and akbar — two forms in one sentence. Very long. Audio already downloaded.",
       "rejection_reason": "Very long. Both forms already covered elsewhere."
@@ -401,10 +469,17 @@
       "lesson": null,
       "role": null,
       "scores": {
-        "curriculum": 2, "length": 2, "story": 0, "worship": 0,
-        "surah_familiarity": 0, "completeness": 1, "emotion": 1,
-        "fit_learn": 0, "fit_practice": 1,
-        "total_learn": 6, "total_practice": 7
+        "length": 2,
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 1,
+        "familiarity": 0,
+        "teaching_fit": 0,
+        "starred": false,
+        "fragment": false,
+        "base": 3,
+        "final": 3.0
       },
       "score_notes": "Nearly identical to 61:3 — same phrase, different context"
     },
@@ -422,15 +497,21 @@
       "lesson": null,
       "role": null,
       "scores": {
-        "curriculum": 2, "length": 2, "story": 0, "worship": 0,
-        "surah_familiarity": 0, "completeness": 1, "emotion": 2,
-        "fit_learn": 0, "fit_practice": 1,
-        "total_learn": 7, "total_practice": 8
+        "length": 2,
+        "form_freq": 0,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 2,
+        "familiarity": 0,
+        "teaching_fit": 0,
+        "starred": false,
+        "fragment": false,
+        "base": 4,
+        "final": 4.0
       },
       "score_notes": "Allah's pleasure is greater — beautiful concept"
     }
   ],
-
   "hadith": [
     {
       "id": "hadith-kibr-atom",
@@ -441,10 +522,17 @@
       "type": "hadith",
       "status": "pipeline",
       "scores": {
-        "curriculum": 2, "length": 1, "story": 0, "worship": 2,
-        "surah_familiarity": 0, "completeness": 1, "emotion": 2,
-        "fit_learn": 0, "fit_practice": 1,
-        "total_learn": 8, "total_practice": 9
+        "curriculum": 2,
+        "length": 1,
+        "story": 0,
+        "worship": 2,
+        "surah_familiarity": 0,
+        "completeness": 1,
+        "emotion": 2,
+        "fit_learn": 0,
+        "fit_practice": 1,
+        "total_learn": 8,
+        "total_practice": 9
       },
       "score_notes": "Unforgettable definition of kibr — connects to istakbara"
     },
@@ -457,10 +545,17 @@
       "type": "hadith",
       "status": "pipeline",
       "scores": {
-        "curriculum": 2, "length": 2, "story": 0, "worship": 1,
-        "surah_familiarity": 0, "completeness": 1, "emotion": 2,
-        "fit_learn": 0, "fit_practice": 1,
-        "total_learn": 8, "total_practice": 9
+        "curriculum": 2,
+        "length": 2,
+        "story": 0,
+        "worship": 1,
+        "surah_familiarity": 0,
+        "completeness": 1,
+        "emotion": 2,
+        "fit_learn": 0,
+        "fit_practice": 1,
+        "total_learn": 8,
+        "total_practice": 9
       },
       "score_notes": "kibriya' belongs to Allah exclusively — powerful"
     },
@@ -473,10 +568,17 @@
       "type": "hadith",
       "status": "pipeline",
       "scores": {
-        "curriculum": 2, "length": 2, "story": 2, "worship": 3,
-        "surah_familiarity": 0, "completeness": 1, "emotion": 2,
-        "fit_learn": 0, "fit_practice": 1,
-        "total_learn": 12, "total_practice": 13
+        "curriculum": 2,
+        "length": 2,
+        "story": 2,
+        "worship": 3,
+        "surah_familiarity": 0,
+        "completeness": 1,
+        "emotion": 2,
+        "fit_learn": 0,
+        "fit_practice": 1,
+        "total_learn": 12,
+        "total_practice": 13
       },
       "score_notes": "akbar + kabiran together — twelve angels rushed to record it, gates of heaven opened. Beautiful story."
     },
@@ -489,22 +591,31 @@
       "type": "hadith",
       "status": "pipeline",
       "scores": {
-        "curriculum": 2, "length": 1, "story": 0, "worship": 3,
-        "surah_familiarity": 0, "completeness": 1, "emotion": 2,
-        "fit_learn": 0, "fit_practice": 1,
-        "total_learn": 9, "total_practice": 10
+        "curriculum": 2,
+        "length": 1,
+        "story": 0,
+        "worship": 3,
+        "surah_familiarity": 0,
+        "completeness": 1,
+        "emotion": 2,
+        "fit_learn": 0,
+        "fit_practice": 1,
+        "total_learn": 9,
+        "total_practice": 10
       },
       "score_notes": "Has kabbara (Form II) — powerful reward image"
     }
   ],
-
   "teaching_phrases": [
     {
       "id": "teaching-kabura-anchor",
       "arabic": "هُوَ كَبِيرٌ. أَنَا أَكْبَرُ مِنْهُ. وَاللَّهُ أَكْبَرُ مِنَّا، بَلْ، مِنْ كُلِّ شَيْءٍ",
       "translation": "He is great. I am greater than him. And Allah is greater than us — rather, than everything.",
       "type": "teaching_phrase",
-      "forms_used": ["كَبِير", "أَكْبَرُ"],
+      "forms_used": [
+        "كَبِير",
+        "أَكْبَرُ"
+      ],
       "status": "used",
       "lesson": 1,
       "role": "anchor",

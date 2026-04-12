@@ -72,7 +72,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -90,7 +102,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -108,7 +132,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -126,7 +162,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -144,7 +192,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -162,7 +222,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -180,7 +252,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 4,
+        "form_dominance": 1,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -198,7 +282,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -216,7 +312,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -234,7 +342,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -252,7 +372,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -270,7 +402,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -288,7 +432,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -306,7 +462,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -324,7 +492,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -342,7 +522,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -360,7 +552,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -378,7 +582,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -396,7 +612,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -414,7 +642,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -432,7 +672,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -450,7 +702,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -468,7 +732,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 6,
+        "form_freq": 2,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": 2,
+        "familiarity": 4,
+        "teaching_fit": 8,
+        "starred": false,
+        "fragment": false,
+        "base": 22,
+        "final": 22.0
+      },
       "score_notes": null
     },
     {
@@ -486,7 +762,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -504,7 +792,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 3,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -522,7 +822,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -540,7 +852,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -558,7 +882,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 4,
+        "form_dominance": 1,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -576,7 +912,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -594,7 +942,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 3,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -612,7 +972,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -630,7 +1002,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -648,7 +1032,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -666,7 +1062,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -684,7 +1092,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -702,7 +1122,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -720,7 +1152,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -738,7 +1182,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -756,7 +1212,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -774,7 +1242,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -792,7 +1272,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -810,7 +1302,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -828,7 +1332,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -846,7 +1362,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -864,7 +1392,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -882,7 +1422,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -900,7 +1452,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 4,
+        "form_dominance": 1,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -918,7 +1482,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -936,7 +1512,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -954,7 +1542,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -972,7 +1572,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -990,7 +1602,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1008,7 +1632,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1026,7 +1662,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1044,7 +1692,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1062,7 +1722,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1080,7 +1752,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1098,7 +1782,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 2,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null,
       "notes": "Verse also contains other forms of this root: خَيْر"
     },
@@ -1117,7 +1813,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1135,7 +1843,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1153,7 +1873,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1171,7 +1903,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1189,7 +1933,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1207,7 +1963,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1225,7 +1993,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1243,7 +2023,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1261,7 +2053,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1279,7 +2083,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1297,7 +2113,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 4,
+        "form_dominance": 1,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1315,7 +2143,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1333,7 +2173,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1351,7 +2203,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1369,7 +2233,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1387,7 +2263,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1405,7 +2293,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1423,7 +2323,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1441,7 +2353,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1459,7 +2383,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 1,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1477,7 +2413,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 3,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1495,7 +2443,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1513,7 +2473,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1531,7 +2503,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1549,7 +2533,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1567,7 +2563,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1585,7 +2593,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1603,7 +2623,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1621,7 +2653,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1639,7 +2683,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 1,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1657,7 +2713,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1675,7 +2743,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1693,7 +2773,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1711,7 +2803,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1729,7 +2833,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1747,7 +2863,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 1,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1765,7 +2893,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1783,7 +2923,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1801,7 +2953,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1819,7 +2983,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 5,
+        "form_freq": 2,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1837,7 +3013,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1855,7 +3043,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1873,7 +3073,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1891,7 +3103,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 4,
+        "form_dominance": 1,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1909,7 +3133,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1927,7 +3163,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 4,
+        "form_dominance": 1,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1945,7 +3193,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1963,7 +3223,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1981,7 +3253,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -1999,7 +3283,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2017,7 +3313,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2035,7 +3343,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 2,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2053,7 +3373,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 2,
+        "form_freq": 4,
+        "form_dominance": 1,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2071,7 +3403,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 3,
+        "form_freq": 4,
+        "form_dominance": 1,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2089,7 +3433,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2107,7 +3463,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2125,7 +3493,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 3,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2143,7 +3523,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2161,7 +3553,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2179,7 +3583,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2197,7 +3613,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2215,7 +3643,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2233,7 +3673,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2251,7 +3703,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2269,7 +3733,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 3,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2287,7 +3763,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2305,7 +3793,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2323,7 +3823,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2341,7 +3853,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2359,7 +3883,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2377,7 +3913,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2395,7 +3943,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 2,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null,
       "notes": "Verse also contains other forms of this root: خِيَرَة"
     },
@@ -2414,7 +3974,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2432,7 +4004,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2450,7 +4034,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2468,7 +4064,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2486,7 +4094,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2504,7 +4124,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2522,7 +4154,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 1,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2540,7 +4184,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2558,7 +4214,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 4,
+        "form_dominance": 1,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2576,7 +4244,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 4,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2594,7 +4274,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2612,7 +4304,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 5,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2630,7 +4334,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 1,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2648,7 +4364,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2666,7 +4394,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2684,7 +4424,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2702,7 +4454,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2720,7 +4484,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2738,7 +4514,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2756,7 +4544,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2774,7 +4574,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 4,
+        "form_freq": 2,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2792,7 +4604,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2810,7 +4634,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2828,7 +4664,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2846,7 +4694,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2864,7 +4724,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2882,7 +4754,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 6,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2900,7 +4784,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 1,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2918,7 +4814,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 7,
+        "form_freq": 4,
+        "form_dominance": 1,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2936,7 +4844,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 7,
+        "form_freq": 1,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2954,7 +4874,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2972,7 +4904,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -2990,7 +4934,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -3008,7 +4964,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -3026,7 +4994,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -3044,7 +5024,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -3062,7 +5054,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 6,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -3080,7 +5084,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -3098,7 +5114,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 5,
+        "form_freq": 1,
+        "form_dominance": 0,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -3116,7 +5144,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 6,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -3134,7 +5174,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 2,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -3152,7 +5204,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 0,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -3170,7 +5234,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 7,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -3188,7 +5264,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 5,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -3206,7 +5294,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 4,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -3224,7 +5324,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 1,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -3242,7 +5354,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 4,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     },
     {
@@ -3260,7 +5384,19 @@
       "status": "candidate",
       "lesson": null,
       "role": null,
-      "scores": null,
+      "scores": {
+        "length": 6,
+        "form_freq": 9,
+        "form_dominance": 9,
+        "curriculum": 0,
+        "story": null,
+        "familiarity": null,
+        "teaching_fit": null,
+        "starred": false,
+        "fragment": false,
+        "base": null,
+        "final": null
+      },
       "score_notes": null
     }
   ]
