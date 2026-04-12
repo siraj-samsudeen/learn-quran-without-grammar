@@ -186,6 +186,14 @@ You say this every single day. Before every ṣalāh. You raise your hands and s
 ## Practice — Can You Spot the Roots?
 {: #practice}
 
+<div class="lang-en" markdown="1">
+You've met all 8 words. Now see if you can spot them on your own — try to predict the meaning of the highlighted word before reading the English.
+</div>
+
+<div class="lang-ta" markdown="1">
+நீங்கள் 8 வார்த்தைகளையும் சந்தித்துவிட்டீர்கள். இப்போது நீங்களே அவற்றைக் கண்டுபிடிக்க முடியுமா பாருங்கள் — மொழிபெயர்ப்பைப் படிக்கும் முன் சிறப்பிக்கப்பட்ட வார்த்தையின் பொருளைக் கணிக்க முயற்சியுங்கள்.
+</div>
+
 ---
 
 {% include verse-card.html verse=v_29_45 surah_name="Al-'Ankabūt" audio_base=audio_base %}
