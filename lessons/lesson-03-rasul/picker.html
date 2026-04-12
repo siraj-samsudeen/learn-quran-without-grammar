@@ -339,6 +339,119 @@
     opacity: 1;
   }
 
+  /* ============ REVIEW FLAGS ============ */
+  .card { position: relative; }
+  .review-flag-btn {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    background: #f3f4f6;
+    border: 1px solid var(--border);
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: var(--muted);
+    padding: 0.2rem 0.5rem;
+    line-height: 1;
+    border-radius: 6px;
+    transition: color 0.15s, background 0.15s, border-color 0.15s;
+    z-index: 2;
+  }
+  .review-flag-btn:hover { color: var(--learn); background: #ccfbf1; border-color: var(--learn); }
+  .review-flag-btn.flagged { color: #dc2626; background: #fef2f2; border-color: #fca5a5; }
+  .review-flag-btn.flagged:hover { background: #fee2e2; border-color: #dc2626; }
+  .card.review-flagged { border-right: 4px solid #f59e0b; }
+  .review-flag-summary {
+    display: none;
+    margin-top: 0.5rem;
+    padding: 0.35rem 0.6rem;
+    background: #fefce8;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+  .review-summary-badge {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 10px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    border: 1px solid;
+    vertical-align: middle;
+  }
+  .review-summary-note { color: var(--ink); margin-left: 0.3rem; vertical-align: middle; }
+  .review-flag-form {
+    display: none;
+    margin-top: 0.5rem;
+    padding: 0.75rem;
+    background: #fafaf9;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .review-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.5rem; }
+  .review-chip {
+    padding: 0.25rem 0.7rem;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: white;
+    font-size: 0.78rem;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    color: var(--muted);
+    transition: all 0.15s;
+  }
+  .review-chip:hover { border-color: var(--learn); color: var(--learn); }
+  .review-chip.active[data-type="Arabic"] { background: #e8f5ee; border-color: #1a6b3a; color: #1a6b3a; }
+  .review-chip.active[data-type="Eng"]    { background: #e8f0fe; border-color: #1a56db; color: #1a56db; }
+  .review-chip.active[data-type="Audio"]  { background: #fef3c7; border-color: #b8930a; color: #92740a; }
+  .review-chip.active[data-type="Hook"]   { background: #fce7f3; border-color: #be185d; color: #be185d; }
+  .review-chip.active[data-type="Other"]  { background: #f3f4f6; border-color: #636366; color: #636366; }
+  .review-note-input {
+    display: block; width: 100%; padding: 0.4rem 0.6rem;
+    border: 1px solid var(--border); border-radius: 6px;
+    font-size: 0.85rem; font-family: inherit; color: var(--ink);
+    background: white; margin-bottom: 0.5rem;
+  }
+  .review-note-input:focus { outline: none; border-color: var(--learn); box-shadow: 0 0 0 2px rgba(15,118,110,0.15); }
+  .review-form-actions { display: flex; gap: 0.4rem; }
+  .review-save-btn, .review-clear-btn {
+    padding: 0.3rem 0.8rem; border-radius: 6px; font-size: 0.78rem;
+    font-weight: 500; font-family: inherit; cursor: pointer; border: 1px solid; transition: all 0.15s;
+  }
+  .review-save-btn { background: var(--learn); color: white; border-color: var(--learn); }
+  .review-save-btn:hover { opacity: 0.9; }
+  .review-clear-btn { background: white; color: var(--muted); border-color: var(--border); }
+  .review-clear-btn:hover { border-color: #dc2626; color: #dc2626; }
+  .action-btn.export-issues { background: #f59e0b; }
+
+  /* ============ CARD AUDIO ============ */
+  .card-audio {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.4rem 0 0.2rem;
+  }
+  .card-audio audio {
+    height: 28px;
+    flex: 1;
+    max-width: 320px;
+    border-radius: 4px;
+  }
+  .reciter-select {
+    font-size: 0.72rem;
+    padding: 0.2rem 0.4rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: white;
+    color: var(--muted);
+    font-family: inherit;
+    cursor: pointer;
+  }
+  .reciter-select:focus { outline: none; border-color: var(--learn); }
+  .reciter-select.reciter-chosen { border-color: var(--learn); background: var(--learn-bg); color: var(--learn); font-weight: 600; }
+
   /* ============ RESPONSIVE ============ */
   @media (max-width: 900px) {
     .layout { grid-template-columns: 1fr; }
@@ -370,8 +483,8 @@
         <div class="counter" id="counter-pipeline"><span class="label">Pipeline</span> <span class="count">0</span></div>
       </div>
       <div class="btn-row">
-        <button class="action-btn copy" onclick="copyJson()">Copy JSON</button>
-        <button class="action-btn download" onclick="downloadDiffJson()">Download Diff <span class="change-count" id="change-count">0</span></button>
+        <button class="action-btn export-issues" onclick="exportReviewFlags()" id="export-issues-btn" style="display:none">Export Issues <span class="change-count" id="issue-count">0</span></button>
+        <button class="action-btn download" onclick="downloadDiffJson()">Download Selections <span class="change-count" id="change-count">0</span></button>
       </div>
     </div>
 
@@ -5908,6 +6021,7 @@ const LESSON_CONFIG = {
 const state = {};         // ref -> section
 const whyState = {};      // ref -> current (possibly edited) why text
 const originalWhy = {};   // ref -> original why text (for dirty detection)
+const reciterState = {};  // ref -> chosen reciter folder (only set when teacher picks one)
 LESSON_CONFIG.verses.forEach(v => {
   state[v.ref] = v.defaultSection;
   whyState[v.ref] = v.why;
@@ -6050,7 +6164,16 @@ function makeCard(v, kind) {
 
   const whyEdited = whyState[v.ref] !== originalWhy[v.ref] ? "edited" : "";
 
+  const existingFlag = reviewFlags[v.ref];
+  const flagClass = existingFlag ? 'review-flag-btn flagged' : 'review-flag-btn';
+  const flagChar = existingFlag ? '\u2691' : '\u2690';
+  const flaggedClass = existingFlag ? ' review-flagged' : '';
+  const summaryDisplay = existingFlag ? 'block' : 'none';
+  const summaryHTML = existingFlag ? buildFlagSummaryHTML(existingFlag) : '';
+
+  card.className += flaggedClass;
   card.innerHTML = `
+    <button type="button" class="${flagClass}" title="Flag issue">${flagChar}</button>
     <div class="card-top">
       <div class="card-refs">
         <span class="ref">${v.ref}</span>
@@ -6061,9 +6184,17 @@ function makeCard(v, kind) {
       <div class="section-buttons" data-ref="${v.ref}">${buttons}</div>
     </div>
     <div class="arabic">${v.arabic}</div>
+    <div class="card-audio">
+      <audio controls preload="none" src="${buildAudioUrl(v.ref)}" data-ref="${v.ref}"></audio>
+      <select class="reciter-select" data-ref="${v.ref}">
+        ${RECITERS.map(r => `<option value="${r.folder}"${r.folder === currentReciter ? ' selected' : ''}>${r.name}</option>`).join('')}
+      </select>
+    </div>
     <div class="english">${v.english}</div>
     <span class="why-label">Remark (click to edit)</span>
     <div class="why ${whyEdited}" contenteditable="true" data-ref="${v.ref}">${escapeHtml(whyState[v.ref])}</div>
+    <div class="review-flag-summary" style="display:${summaryDisplay}">${summaryHTML}</div>
+    <div class="review-flag-form">${buildFlagFormHTML(existingFlag)}</div>
   `;
 
   card.querySelectorAll(".section-buttons button").forEach(btn => {
@@ -6079,6 +6210,77 @@ function makeCard(v, kind) {
     whyEl.classList.toggle("edited", whyState[v.ref] !== originalWhy[v.ref]);
   });
   whyEl.addEventListener("blur", () => { updateChangeCount(); });
+
+  // ── Reciter change ──
+  const reciterSelect = card.querySelector('.reciter-select');
+  const audioEl = card.querySelector('audio');
+  if (reciterState[v.ref]) {
+    reciterSelect.value = reciterState[v.ref];
+    reciterSelect.classList.add('reciter-chosen');
+    const [s, a] = v.ref.split(':');
+    audioEl.src = `https://everyayah.com/data/${reciterState[v.ref]}/${s.padStart(3,'0')}${a.padStart(3,'0')}.mp3`;
+  }
+  reciterSelect.addEventListener('change', () => {
+    const [surah, ayah] = v.ref.split(':');
+    const sss = surah.padStart(3, '0');
+    const aaa = ayah.padStart(3, '0');
+    reciterState[v.ref] = reciterSelect.value;
+    reciterSelect.classList.add('reciter-chosen');
+    audioEl.src = `https://everyayah.com/data/${reciterSelect.value}/${sss}${aaa}.mp3`;
+    audioEl.load();
+    updateChangeCount();
+  });
+
+  // ── Review flag events ──
+  const flagBtn = card.querySelector('.review-flag-btn');
+  const flagForm = card.querySelector('.review-flag-form');
+  const flagSummary = card.querySelector('.review-flag-summary');
+
+  flagBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = flagForm.style.display === 'block';
+    if (isOpen) {
+      flagForm.style.display = 'none';
+      flagSummary.style.display = reviewFlags[v.ref] ? 'block' : 'none';
+    } else {
+      flagForm.style.display = 'block';
+      flagSummary.style.display = 'none';
+    }
+  });
+
+  flagForm.querySelectorAll('.review-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      flagForm.querySelectorAll('.review-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+    });
+  });
+
+  flagForm.querySelector('.review-save-btn').addEventListener('click', () => {
+    const activeChip = flagForm.querySelector('.review-chip.active');
+    const noteInput = flagForm.querySelector('.review-note-input');
+    if (!activeChip) { noteInput.placeholder = 'Pick a category first!'; return; }
+    reviewFlags[v.ref] = { type: activeChip.dataset.type, note: noteInput.value.trim() };
+    saveReviewFlags();
+    flagBtn.textContent = '\u2691';
+    flagBtn.classList.add('flagged');
+    card.classList.add('review-flagged');
+    flagSummary.innerHTML = buildFlagSummaryHTML(reviewFlags[v.ref]);
+    flagSummary.style.display = 'block';
+    flagForm.style.display = 'none';
+    updateIssueCount();
+  });
+
+  flagForm.querySelector('.review-clear-btn').addEventListener('click', () => {
+    delete reviewFlags[v.ref];
+    saveReviewFlags();
+    flagBtn.textContent = '\u2690';
+    flagBtn.classList.remove('flagged');
+    card.classList.remove('review-flagged');
+    flagSummary.innerHTML = '';
+    flagSummary.style.display = 'none';
+    flagForm.style.display = 'none';
+    updateIssueCount();
+  });
 
   return card;
 }
@@ -6111,7 +6313,7 @@ function updateCounters() {
 function countChanges() {
   let n = 0;
   LESSON_CONFIG.verses.forEach(v => {
-    if (state[v.ref] !== v.defaultSection || whyState[v.ref] !== originalWhy[v.ref]) n++;
+    if (state[v.ref] !== v.defaultSection || whyState[v.ref] !== originalWhy[v.ref] || reciterState[v.ref]) n++;
   });
   return n;
 }
@@ -6128,10 +6330,12 @@ function buildDiffPayload() {
     const currentSection = state[v.ref];
     const remarkEdited = whyState[v.ref] !== originalWhy[v.ref];
     const sectionChanged = currentSection !== v.defaultSection;
-    if (sectionChanged || remarkEdited) {
+    const hasReciter = !!reciterState[v.ref];
+    if (sectionChanged || remarkEdited || hasReciter) {
       const entry = { ref: v.ref, form: v.form, group: v.group };
       if (sectionChanged) { entry.from = v.defaultSection; entry.to = currentSection; }
       if (remarkEdited) { entry.remark = whyState[v.ref]; }
+      if (hasReciter) { entry.reciter = reciterState[v.ref]; }
       changes.push(entry);
     }
   });
@@ -6168,6 +6372,9 @@ function buildPayload() {
       if (whyState[v.ref] !== originalWhy[v.ref]) {
         entry.remark = whyState[v.ref];
       }
+      if (reciterState[v.ref]) {
+        entry.reciter = reciterState[v.ref];
+      }
       selections[sec].push(entry);
     }
   });
@@ -6202,8 +6409,127 @@ function showToast(text) {
   setTimeout(() => el.classList.remove("show"), 2000);
 }
 
+// ============ AUDIO ============
+const RECITERS = [
+  { name: 'Alafasy', folder: 'Alafasy_128kbps' },
+  { name: 'Husary', folder: 'Husary_128kbps' },
+  { name: 'Abdul Basit (Murattal)', folder: 'Abdul_Basit_Murattal_192kbps' },
+  { name: 'Abdul Basit (Mujawwad)', folder: 'Abdul_Basit_Mujawwad_128kbps' },
+  { name: 'Hani Ar-Rifai', folder: 'Hani_Rifai_192kbps' },
+  { name: 'Hudhaifi', folder: 'Hudhaify_128kbps' },
+  { name: 'Ash-Shatri', folder: 'Abu_Bakr_Ash-Shaatree_128kbps' },
+  { name: 'Al-Juhainy', folder: 'Abdullaah_3awwaad_Al-Juhaynee_128kbps' },
+  { name: 'Maher Al-Muaiqly', folder: 'MaherAlMuaiqly128kbps' },
+  { name: 'As-Sudais', folder: 'Abdurrahmaan_As-Sudais_192kbps' },
+  { name: 'Yasser Ad-Dussary', folder: 'Yasser_Ad-Dussary_128kbps' },
+];
+let currentReciter = 'Alafasy_128kbps';
+
+function buildAudioUrl(ref) {
+  const [surah, ayah] = ref.split(':');
+  const sss = surah.padStart(3, '0');
+  const aaa = ayah.padStart(3, '0');
+  return `https://everyayah.com/data/${currentReciter}/${sss}${aaa}.mp3`;
+}
+
+// Mutual exclusion: playing one audio pauses all others
+document.addEventListener('play', function(e) {
+  if (e.target.tagName !== 'AUDIO') return;
+  document.querySelectorAll('audio').forEach(a => { if (a !== e.target) a.pause(); });
+}, true);
+
+// ============ REVIEW FLAGS ============
+const REVIEW_STORAGE_KEY = 'lqwg-picker-review-flags';
+const FLAG_CATEGORIES = ['Arabic', 'Eng', 'Audio', 'Hook', 'Other'];
+const FLAG_COLORS = {
+  Arabic: { bg: '#e8f5ee', border: '#1a6b3a', text: '#1a6b3a' },
+  Eng:    { bg: '#e8f0fe', border: '#1a56db', text: '#1a56db' },
+  Audio:  { bg: '#fef3c7', border: '#b8930a', text: '#92740a' },
+  Hook:   { bg: '#fce7f3', border: '#be185d', text: '#be185d' },
+  Other:  { bg: '#f3f4f6', border: '#636366', text: '#636366' },
+};
+
+const pickerSlug = `lesson-${String(LESSON_CONFIG.lesson_number).padStart(2,'0')}-picker`;
+let reviewFlags = loadReviewFlags();
+
+function loadReviewFlags() {
+  try {
+    const raw = localStorage.getItem(REVIEW_STORAGE_KEY);
+    const all = raw ? JSON.parse(raw) : {};
+    return all[pickerSlug] || {};
+  } catch(e) { return {}; }
+}
+
+function saveReviewFlags() {
+  try {
+    const raw = localStorage.getItem(REVIEW_STORAGE_KEY);
+    const all = raw ? JSON.parse(raw) : {};
+    if (Object.keys(reviewFlags).length > 0) {
+      all[pickerSlug] = reviewFlags;
+    } else {
+      delete all[pickerSlug];
+    }
+    localStorage.setItem(REVIEW_STORAGE_KEY, JSON.stringify(all));
+  } catch(e) {}
+}
+
+function buildFlagFormHTML(existing) {
+  let html = '<div class="review-chips">';
+  FLAG_CATEGORIES.forEach(cat => {
+    const active = existing && existing.type === cat ? ' active' : '';
+    html += `<button type="button" class="review-chip${active}" data-type="${cat}">${cat}</button>`;
+  });
+  html += '</div>';
+  html += `<input type="text" class="review-note-input" placeholder="What's wrong?" value="${existing ? escapeHtml(existing.note) : ''}">`;
+  html += '<div class="review-form-actions">';
+  html += '<button type="button" class="review-save-btn">Save</button>';
+  html += '<button type="button" class="review-clear-btn">Clear</button>';
+  html += '</div>';
+  return html;
+}
+
+function buildFlagSummaryHTML(flag) {
+  const c = FLAG_COLORS[flag.type] || FLAG_COLORS.Other;
+  let html = `<span class="review-summary-badge" style="background:${c.bg};color:${c.text};border-color:${c.border}">${flag.type}</span>`;
+  if (flag.note) html += ` <span class="review-summary-note">${escapeHtml(flag.note)}</span>`;
+  return html;
+}
+
+function updateIssueCount() {
+  const count = Object.keys(reviewFlags).length;
+  const btn = document.getElementById('export-issues-btn');
+  const countEl = document.getElementById('issue-count');
+  if (btn) btn.style.display = count > 0 ? 'inline-block' : 'none';
+  if (countEl) countEl.textContent = count;
+}
+
+function exportReviewFlags() {
+  if (!Object.keys(reviewFlags).length) return;
+  const lines = [`lesson: ${pickerSlug}`, `date: ${new Date().toISOString().slice(0,10)}`, 'issues:'];
+  const keys = Object.keys(reviewFlags).sort((a, b) => {
+    const [ca, va] = a.split(':').map(Number);
+    const [cb, vb] = b.split(':').map(Number);
+    return (ca - cb) || (va - vb);
+  });
+  keys.forEach(ref => {
+    const f = reviewFlags[ref];
+    lines.push(`  - card: "${ref}"`);
+    lines.push(`    type: ${f.type.toLowerCase()}`);
+    if (f.note) lines.push(`    note: "${f.note.replace(/"/g, '\\"')}"`);
+  });
+  const blob = new Blob([lines.join('\n') + '\n'], { type: 'text/yaml' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${pickerSlug}-review.yaml`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast(`Downloaded ${pickerSlug}-review.yaml (${keys.length} issues)`);
+}
+
 // ============ INIT ============
 render();
+updateIssueCount();
 </script>
 </body>
 </html>
