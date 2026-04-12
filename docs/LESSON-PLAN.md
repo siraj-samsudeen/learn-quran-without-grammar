@@ -142,8 +142,8 @@ The pipeline is the **single source of truth** for queued material. When startin
 
 Not all forms of a root will be covered in the lesson where that root is introduced. This is by design.
 
-- **Forms not covered** (e.g., كَبَّرَ, مُتَكَبِّر in Lesson 1) become candidates for introduction in **future lessons** — whenever there is a free Learn slot
-- **Forms already introduced** keep getting new example sentences in the Practice sections of later lessons — building the student's repertoire gradually
+- **Forms not covered** (e.g., كَبَّرَ, مُتَكَبِّر in Lesson 1) become candidates for introduction in **future lessons** — whenever there is a free learning slot
+- **Forms already introduced** keep getting new example sentences in the Recall sections of later lessons — building the student's repertoire gradually
 - This means the student's relationship with a root **deepens over many lessons**, not just one
 
 ---
@@ -206,11 +206,11 @@ These conventions were established through a 4-lens learning science review of L
 
 ### Page Structure & Navigation
 
-1. **Lesson map at top** — A compact clickable map after the lesson preview: `Anchor → Root 1 → Root 2 → Practice → Review → Summary → Quiz`. Each item links to its section via `id` attributes. *(Principle: Segmenting + Advance Organizer — reduces scroll anxiety, gives the student a mental scaffold before content begins)*
+1. **Lesson map at top** — A compact clickable map after the lesson preview: `Anchor → Root 1 → Root 2 → Learning → Recall → Review → Summary → Quiz`. Each item links to its section via `id` attributes. *(Principle: Segmenting + Advance Organizer — reduces scroll anxiety, gives the student a mental scaffold before content begins)*
 
 2. **Navigation links after lesson map** — A single compact line: `Course introduction · How to study a lesson`. No inline study tips, no collapsible duplicated content. The canonical study technique lives in `how-to-study.md`; the lesson page just points to it. *(Principle: Single Source of Truth — teaching the method on every lesson page creates drift and clutter; link out instead)*
 
-3. **Back-to-top links** — Place `[↑ Back to top](#lesson-map)` at section boundaries: after Practice, after Review Shuffled, after Summary, after Quiz. **Important**: these must be placed AFTER the `---` HR separator, not before it, or `lesson-cards.js` will consume them as "extras" and delete them. *(Principle: Scannability — on mobile the lesson is 15+ screens of scrolling)*
+3. **Back-to-top links** — Place `[↑ Back to top](#lesson-map)` at section boundaries: after Learning, after Recall, after Review Shuffled, after Summary, after Quiz. **Important**: these must be placed AFTER the `---` HR separator, not before it, or `lesson-cards.js` will consume them as "extras" and delete them. *(Principle: Scannability — on mobile the lesson is 15+ screens of scrolling)*
 
 4. **Stacked phrases layout in Summary** — The phrases summary uses a stacked layout (Arabic full-width on top, English below in muted italic) rather than a side-by-side table. Use the `.phrases-list` / `.phrase-row` HTML structure. *(Principle: Cognitive Load — side-by-side tables cramp Arabic text, especially on mobile)*
 
@@ -218,11 +218,11 @@ These conventions were established through a 4-lens learning science review of L
 
 5. **Curiosity gap before each root** — Before the root explanation prose, add 1–2 sentences that open a question the student wants answered. Example: *"The same three letters that praise Allah's greatness also describe the worst sin in the Qur'an. Let's see how."* *(Principle: Curiosity Gaps (Loewenstein) — creates information gaps that pull the learner forward)*
 
-### Practice Section
+### Learning Section
 
-6. **Renamed Practice header** — Use `## Practice — Can You Spot the Roots?` instead of plain `## Practice`. Add an orienting line beneath: *"You've met all the words. Now see if you can spot them on your own — try to predict the meaning of the highlighted word before reading the English."* *(Principle: Signaling + Generation Effect — marks the pedagogical shift from encoding to retrieval, primes the student to predict rather than passively read)*
+6. **Learning header** — Use `## Learning — Can You Spot the Roots?` for the combined learning section that follows the root introductions. Add an orienting line beneath: *"You've met all the words. Now see if you can spot them on your own — try to predict the meaning of the highlighted word before reading the English."* Phrases are ordered shortest → longest — the length progression IS the difficulty gradient (no separate Practice section needed). *(Principle: Signaling + Generation Effect — marks the pedagogical shift from encoding to retrieval, primes the student to predict rather than passively read)*
 
-7. **Hook text on every Practice ayah** — Each Practice phrase gets 1–2 sentences of story/emotional context, shorter than the Learn section hooks. The Practice section should sustain the emotional temperature, not drop to zero. *(Principle: Emotional Tagging (Cahill) — memory consolidation is enhanced when emotional arousal is sustained, not just spiked once)*
+7. **Hook text on every learning phrase** — Each learning phrase gets 1–2 sentences of story/emotional context. The later, longer phrases may have slightly shorter hooks than the earlier ones, but the section should sustain the emotional temperature throughout, not drop to zero. *(Principle: Emotional Tagging (Cahill) — memory consolidation is enhanced when emotional arousal is sustained, not just spiked once)*
 
 ### Quiz Section
 

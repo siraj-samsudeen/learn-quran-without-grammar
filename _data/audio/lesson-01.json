@@ -26,8 +26,8 @@
       "file_tamil": "anchor-ilah-ta.mp3",
       "duration_tamil": 9.5
     },
-    "learn-ilah-01": {
-      "id": "learn-ilah-01",
+    "learning-ilah-01": {
+      "id": "learning-ilah-01",
       "role": "learning",
       "ref": "6:74",
       "root": "إِلَٰه",
@@ -36,13 +36,13 @@
       "trim_start": null,
       "trim_end": 9.5,
       "has_full_ayah": true,
-      "file": "learn-ilah-01.mp3",
+      "file": "learning-ilah-01.mp3",
       "duration": 14.6,
-      "file_tamil": "learn-ilah-01-ta.mp3",
+      "file_tamil": "learning-ilah-01-ta.mp3",
       "duration_tamil": 16.2
     },
-    "learn-ilah-02": {
-      "id": "learn-ilah-02",
+    "learning-ilah-02": {
+      "id": "learning-ilah-02",
       "role": "learning",
       "ref": "3:26",
       "root": "إِلَٰه",
@@ -51,9 +51,9 @@
       "trim_start": null,
       "trim_end": 5.0,
       "has_full_ayah": true,
-      "file": "learn-ilah-02.mp3",
+      "file": "learning-ilah-02.mp3",
       "duration": 7.9,
-      "file_tamil": "learn-ilah-02-ta.mp3",
+      "file_tamil": "learning-ilah-02-ta.mp3",
       "duration_tamil": 9.2
     },
     "anchor-kabura": {
@@ -71,8 +71,8 @@
       "file_tamil": "anchor-kabura-ta.mp3",
       "duration_tamil": 17.6
     },
-    "learn-kabura-01": {
-      "id": "learn-kabura-01",
+    "learning-kabura-01": {
+      "id": "learning-kabura-01",
       "role": "learning",
       "ref": "79:20",
       "root": "كَبُرَ",
@@ -81,13 +81,13 @@
       "trim_start": null,
       "trim_end": null,
       "has_full_ayah": false,
-      "file": "learn-kabura-01.mp3",
+      "file": "learning-kabura-01.mp3",
       "duration": 10.6,
-      "file_tamil": "learn-kabura-01-ta.mp3",
+      "file_tamil": "learning-kabura-01-ta.mp3",
       "duration_tamil": 10.9
     },
-    "learn-kabura-02": {
-      "id": "learn-kabura-02",
+    "learning-kabura-02": {
+      "id": "learning-kabura-02",
       "role": "learning",
       "ref": "61:3",
       "root": "كَبُرَ",
@@ -96,13 +96,13 @@
       "trim_start": null,
       "trim_end": null,
       "has_full_ayah": false,
-      "file": "learn-kabura-02.mp3",
+      "file": "learning-kabura-02.mp3",
       "duration": 14.5,
-      "file_tamil": "learn-kabura-02-ta.mp3",
+      "file_tamil": "learning-kabura-02-ta.mp3",
       "duration_tamil": 14.3
     },
-    "learn-kabura-03": {
-      "id": "learn-kabura-03",
+    "learning-kabura-03": {
+      "id": "learning-kabura-03",
       "role": "learning",
       "ref": "2:34",
       "root": "كَبُرَ",
@@ -111,13 +111,13 @@
       "trim_start": null,
       "trim_end": null,
       "has_full_ayah": false,
-      "file": "learn-kabura-03.mp3",
+      "file": "learning-kabura-03.mp3",
       "duration": 41.4,
-      "file_tamil": "learn-kabura-03-ta.mp3",
+      "file_tamil": "learning-kabura-03-ta.mp3",
       "duration_tamil": 44.1
     },
-    "practice-01": {
-      "id": "practice-01",
+    "learning-01": {
+      "id": "learning-01",
       "role": "learning",
       "ref": "29:45",
       "root": "كَبُرَ",
@@ -126,13 +126,13 @@
       "trim_start": 20.2,
       "trim_end": 24,
       "has_full_ayah": true,
-      "file": "practice-01.mp3",
+      "file": "learning-01.mp3",
       "duration": 6.8,
-      "file_tamil": "practice-01-ta.mp3",
+      "file_tamil": "learning-01-ta.mp3",
       "duration_tamil": 6.7
     },
-    "practice-02": {
-      "id": "practice-02",
+    "learning-02": {
+      "id": "learning-02",
       "role": "learning",
       "ref": "18:5",
       "root": "كَبُرَ",
@@ -141,13 +141,13 @@
       "trim_start": 7.5,
       "trim_end": null,
       "has_full_ayah": true,
-      "file": "practice-02.mp3",
+      "file": "learning-02.mp3",
       "duration": 13.3,
-      "file_tamil": "practice-02-ta.mp3",
+      "file_tamil": "learning-02-ta.mp3",
       "duration_tamil": 15.9
     },
-    "practice-03": {
-      "id": "practice-03",
+    "learning-03": {
+      "id": "learning-03",
       "role": "learning",
       "ref": "21:63",
       "root": "كَبُرَ",
@@ -156,13 +156,13 @@
       "trim_start": null,
       "trim_end": null,
       "has_full_ayah": false,
-      "file": "practice-03.mp3",
+      "file": "learning-03.mp3",
       "duration": 13.4,
-      "file_tamil": "practice-03-ta.mp3",
+      "file_tamil": "learning-03-ta.mp3",
       "duration_tamil": 15.7
     },
-    "practice-04": {
-      "id": "practice-04",
+    "learning-04": {
+      "id": "learning-04",
       "role": "learning",
       "ref": "2:163",
       "root": "إِلَٰه",
@@ -171,13 +171,13 @@
       "trim_start": null,
       "trim_end": null,
       "has_full_ayah": false,
-      "file": "practice-04.mp3",
+      "file": "learning-04.mp3",
       "duration": 24.8,
-      "file_tamil": "practice-04-ta.mp3",
+      "file_tamil": "learning-04-ta.mp3",
       "duration_tamil": 26.3
     },
-    "practice-05": {
-      "id": "practice-05",
+    "learning-05": {
+      "id": "learning-05",
       "role": "learning",
       "ref": "41:15",
       "root": "كَبُرَ",
@@ -186,9 +186,9 @@
       "trim_start": null,
       "trim_end": 16,
       "has_full_ayah": false,
-      "file": "practice-05.mp3",
+      "file": "learning-05.mp3",
       "duration": 27.2,
-      "file_tamil": "practice-05-ta.mp3",
+      "file_tamil": "learning-05-ta.mp3",
       "duration_tamil": 29.3
     }
   }

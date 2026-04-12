@@ -205,7 +205,7 @@ roots:
 
 sentences:
   - id: anchor-ilah
-    role: anchor                                  # anchor | learn | practice
+    role: anchor                                  # anchor | learning | recall | pipeline
     root: ilah
     form: "إِلَٰه"
     arabic_text: "هُوَ اللَّهُ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ"
@@ -225,12 +225,12 @@ sentences:
         type: tts                                 # generated per-language
         # file path resolved by app: audio/lesson-01/anchor-ilah-{lang}.mp3
 
-  - id: learn-ilah-01
-    role: learn
+  - id: learning-ilah-01
+    role: learning
     root: ilah
     form: "آلِهَة"
     arabic_text: "وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ أَتَتَّخِذُ أَصْنَامًا آلِهَةً"
-    translation_key: sentences.learn-ilah-01
+    translation_key: sentences.learning-ilah-01
     audio:
       arabic:
         type: quran
@@ -256,8 +256,8 @@ roots:
 
 sentences:
   anchor-ilah: "He is Allah — there is no god but He"
-  learn-ilah-01: "And when Ibrahim said to his father Azar: Do you take idols as gods?"
-  learn-ilah-02: "Say: O Allah, King of kings"
+  learning-ilah-01: "And when Ibrahim said to his father Azar: Do you take idols as gods?"
+  learning-ilah-02: "Say: O Allah, King of kings"
   # ... all sentence translations
 
 ui:
@@ -319,7 +319,7 @@ A teacher fills in a structured Google Sheet:
 |----------|----------|----------|----------|----------|----------|----------|
 | Lesson | Role | Root | Arabic Text | English | Verse Ref | Reciter |
 | 1 | anchor | إِلَٰه | هُوَ اللَّهُ الَّذِي... | He is Allah... | 59:22 | Hani_Rifai |
-| 1 | learn | إِلَٰه | وَإِذْ قَالَ إِبْرَاهِيمُ... | And when Ibrahim... | 6:74 | Abu_Bakr |
+| 1 | learning | إِلَٰه | وَإِذْ قَالَ إِبْرَاهِيمُ... | And when Ibrahim... | 6:74 | Abu_Bakr |
 
 The CLI tool converts this to the YAML package format:
 
@@ -444,7 +444,7 @@ CREATE TABLE cards (
   course_id     TEXT NOT NULL REFERENCES courses(id),
   lesson_id     TEXT NOT NULL REFERENCES lessons(id),
   sentence_id   TEXT NOT NULL,
-  role          TEXT NOT NULL,        -- 'anchor', 'learn', 'practice'
+  role          TEXT NOT NULL,        -- 'anchor', 'learning', 'recall', 'pipeline'
   arabic_text   TEXT NOT NULL,
   -- FSRS fields
   stability     REAL DEFAULT 0,
@@ -707,7 +707,7 @@ The `lqwg validate` command checks:
 | **Reciter uniqueness** | No reciter appears twice in the same lesson (per our pedagogical rule) |
 | **Audio presence** | Every sentence has a valid audio source (bundled file or valid CDN reference) |
 | **Translation completeness** | Every i18n file has translations for all sentence keys |
-| **Role distribution** | Each lesson has the correct number of anchor/learn/practice sentences |
+| **Role distribution** | Each lesson has the correct number of anchor/learning/recall sentences |
 | **UTF-8 correctness** | Arabic text uses proper Unicode (no mangled encoding) |
 | **File size limits** | Audio files within reasonable size bounds (no accidental raw WAV files) |
 
@@ -789,7 +789,7 @@ For our solo-developer context, we can't build a Studio-equivalent web editor. T
 |--------------------------|----------------------|
 | Course 1 (50% words) | A single `.lqcourse` package with ~20 lessons |
 | Lesson 1A, 1B | Two lessons in our format (or one with more sentences) |
-| Vocabulary word + Qur'anic example | A `learn` sentence with the word as the `form` |
+| Vocabulary word + Qur'anic example | A `learning` sentence with the word as the `form` |
 | Salah phrases | `anchor` sentences (phrases every Muslim knows) |
 | Word frequency stats | Course metadata (`tags: [frequency-based]`) |
 | PDF master sheets | Source data for the `import-sheet` workflow |
@@ -844,7 +844,7 @@ The full guide would be published as `docs/COURSE-CREATOR-GUIDE.md`. Here's the 
 
 ## 2. Course Design
    - Choosing your pedagogical approach
-   - Lesson structure: anchor → learn → practice
+   - Lesson structure: anchor → learning → recall
    - How many sentences per lesson (recommended: 10-12)
    - Selecting Qur'anic verses as examples
    - Writing effective translations

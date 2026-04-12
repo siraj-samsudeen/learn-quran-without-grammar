@@ -39,7 +39,7 @@ sentences:
     english: "He is Allah — there is no god but He"
     tamil: "அவன் அல்லாஹ் — அவனைத் தவிர வேறு இறைவன் இல்லை"
 
-  - id: learn-ilah-01
+  - id: learning-ilah-01
     role: learning
     root: إِلَٰه
     form: "آلِهَة"
@@ -57,7 +57,7 @@ sentences:
     english: "And when Ibrahim said to his father Azar: Do you take idols as gods?"
     tamil: "இப்ராஹீம் தன் தந்தை ஆஸரிடம் கூறியபோது: நீர் சிலைகளைத் தெய்வங்களாக எடுத்துக்கொள்கிறீரா?"
 
-  - id: learn-ilah-02
+  - id: learning-ilah-02
     role: learning
     root: إِلَٰه
     form: "اللَّهُمَّ"
@@ -90,7 +90,7 @@ sentences:
     english: "He is great. I am greater than him. And Allah is greater than us — rather, than everything."
     tamil: "அவன் பெரியவன். நான் அவனை விடப் பெரியவன். அல்லாஹ் நம்மை விட — இல்லை, எல்லாவற்றையும் விடப் பெரியவன்."
 
-  - id: learn-kabura-01
+  - id: learning-kabura-01
     role: learning
     root: كَبُرَ
     form: كُبْرَى
@@ -103,7 +103,7 @@ sentences:
     english: "And he showed him the greatest sign"
     tamil: "அவனுக்கு மிகப் பெரிய அத்தாட்சியைக் காட்டினான்"
 
-  - id: learn-kabura-02
+  - id: learning-kabura-02
     role: learning
     root: كَبُرَ
     form: كَبُرَ
@@ -116,7 +116,7 @@ sentences:
     english: "Greatly hateful in the sight of Allah — that you say what you do not do"
     tamil: "நீங்கள் செய்யாததைச் சொல்வது அல்லாஹ்விடம் மிகவும் வெறுப்புக்குரியது"
 
-  - id: learn-kabura-03
+  - id: learning-kabura-03
     role: learning
     root: كَبُرَ
     form: اسْتَكْبَرَ
@@ -135,7 +135,7 @@ sentences:
   # Order matches the lesson page: shortest first, longest last
   # ============================================================
 
-  - id: practice-01
+  - id: learning-01
     role: learning
     root: كَبُرَ
     form: أَكْبَرُ
@@ -154,7 +154,7 @@ sentences:
     english: "And the remembrance of Allah is greater"
     tamil: "அல்லாஹ்வின் நினைவே மிகப் பெரியது"
 
-  - id: practice-02
+  - id: learning-02
     role: learning
     root: كَبُرَ
     form: كَبُرَ
@@ -172,7 +172,7 @@ sentences:
     english: "How great a word that comes from their mouths — they speak nothing but a lie"
     tamil: "அவர்களின் வாயிலிருந்து வரும் வார்த்தை எவ்வளவு பெரியது — அவர்கள் பொய்யைத் தவிர வேறு எதையும் பேசுவதில்லை"
 
-  - id: practice-03
+  - id: learning-03
     role: learning
     root: كَبُرَ
     form: كَبِير
@@ -185,7 +185,7 @@ sentences:
     english: "He said: Rather, their chief did it — ask them, if they can speak"
     tamil: "அவர் கூறினார்: இல்லை, அவர்களின் தலைவன் இதைச் செய்தான் — அவர்கள் பேச முடியுமானால் அவர்களிடமே கேளுங்கள்"
 
-  - id: practice-04
+  - id: learning-04
     role: learning
     root: إِلَٰه
     form: "إِلَٰه (×3)"
@@ -198,7 +198,7 @@ sentences:
     english: "And your God is one God — there is no god but He, the Most Merciful, the Continuously Merciful"
     tamil: "உங்கள் இறைவன் ஒரே இறைவன் — அவனைத் தவிர வேறு இறைவன் இல்லை, மிக்க அருளாளன், நிரந்தர அருளாளன்"
 
-  - id: practice-05
+  - id: learning-05
     role: learning
     root: كَبُرَ
     form: اسْتَكْبَرَ

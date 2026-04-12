@@ -622,8 +622,8 @@ const LESSONS_DIR = `${FileSystem.documentDirectory}lessons/`;
 // │   │   ├── anchor-ilah-en.mp3      (English TTS)
 // │   │   ├── anchor-ilah-ta.mp3      (Tamil TTS)
 // │   │   ├── anchor-ilah-ur.mp3      (Urdu TTS)
-// │   │   ├── learn-ilah-01-ar.mp3
-// │   │   ├── learn-ilah-01-en.mp3
+// │   │   ├── learning-ilah-01-ar.mp3
+// │   │   ├── learning-ilah-01-en.mp3
 // │   │   └── ...
 // │   ├── lesson-02/
 // │   │   └── ...

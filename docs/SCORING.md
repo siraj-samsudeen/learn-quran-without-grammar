@@ -29,9 +29,9 @@ Formula: `max(0, 10 − word_count)`
 
 | Words | Score | Feel |
 |-------|-------|------|
-| 3 | 7 | Short phrase — ideal for Learn |
+| 3 | 7 | Short phrase — ideal early learning |
 | 5 | 5 | Comfortable |
-| 7 | 3 | Medium — fine for Practice |
+| 7 | 3 | Medium — fine for longer learning phrases |
 | 10+ | 0 | Long — needs strong story to justify |
 
 #### 2. Form Frequency (0–10)

@@ -4,7 +4,7 @@
 #
 # Structure: 1 anchor (TTS) + 10 learning + 5 recall = 16 total
 # Each Quranic phrase uses a DIFFERENT reciter (see ADR-005).
-# Recall phrases 3-5 reuse reciters from learn/practice pool (teacher-approved).
+# Recall phrases 3-5 reuse reciters from learning pool (teacher-approved).
 # See docs/selections/lesson-02.md for selection rationale.
 #
 # Audio sources:
@@ -41,7 +41,7 @@ sentences:
   # LEARNING — 5 phrases (shahida forms)
   # ============================================================
 
-  - id: learn-shahida-01
+  - id: learning-shahida-01
     role: learning
     root: شَهِدَ
     form: "شَهِدَ"
@@ -59,7 +59,7 @@ sentences:
     english: "Allah bears witness that there is no god but He"
     tamil: ""
 
-  - id: learn-shahida-02
+  - id: learning-shahida-02
     role: learning
     root: شَهِدَ
     form: "شَهَادَة + شَهِيد"
@@ -78,7 +78,7 @@ sentences:
     english: "Say: What is greatest as testimony? Say: Allah is Witness between me and you"
     tamil: ""
 
-  - id: learn-shahida-03
+  - id: learning-shahida-03
     role: learning
     root: شَهِدَ
     form: "شَهِيد"
@@ -97,7 +97,7 @@ sentences:
     english: "Allah is sufficient as Witness"
     tamil: ""
 
-  - id: learn-shahida-04
+  - id: learning-shahida-04
     role: learning
     root: شَهِدَ
     form: "شَهِيد"
@@ -116,7 +116,7 @@ sentences:
     english: "And I was a witness over them while I was among them"
     tamil: ""
 
-  - id: learn-shahida-05
+  - id: learning-shahida-05
     role: learning
     root: شَهِدَ
     form: "شَهِدَ"
@@ -139,7 +139,7 @@ sentences:
   # LEARNING (continued) — 5 phrases (shahida forms, shortest to longest)
   # ============================================================
 
-  - id: practice-01
+  - id: learning-01
     role: learning
     root: شَهِدَ
     form: "الشَّاهِدِينَ"
@@ -153,7 +153,7 @@ sentences:
     english: "Our Lord, we believe in what You have sent down and followed the Messenger — so write us among the witnesses"
     tamil: ""
 
-  - id: practice-02
+  - id: learning-02
     role: learning
     root: شَهِدَ
     form: "نَشْهَدُ + يَشْهَدُ"
@@ -167,7 +167,7 @@ sentences:
     english: "The hypocrites say: we testify you are Allah's Messenger. But Allah testifies that the hypocrites are liars"
     tamil: ""
 
-  - id: practice-03
+  - id: learning-03
     role: learning
     root: شَهِدَ
     form: "شَهِدَ"
@@ -181,7 +181,7 @@ sentences:
     english: "Their hearing, their sight, and their skins testified against them for what they used to do"
     tamil: ""
 
-  - id: practice-04
+  - id: learning-04
     role: learning
     root: شَهِدَ
     form: "اشْهَدُوا + الشَّاهِدِينَ"
@@ -200,7 +200,7 @@ sentences:
     english: "He said: Then bear witness, and I am with you among the witnesses"
     tamil: ""
 
-  - id: practice-05
+  - id: learning-05
     role: learning
     root: شَهِدَ
     form: "شُهَدَاء"
@@ -222,7 +222,7 @@ sentences:
 
   # ============================================================
   # RECALL — 5 phrases (ilah + kabura roots from Lesson 1)
-  # Recall-03, 04, 05 reuse reciters from learn/practice pool (teacher-approved).
+  # Recall-03, 04, 05 reuse reciters from learning pool (teacher-approved).
   # ============================================================
 
   - id: recall-01

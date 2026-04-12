@@ -37,7 +37,7 @@ A self-study course teaching Qur'anic Arabic recognition through root-word famil
 - Lesson 1: "Allāhu Akbar" — 2 root families (إِلَٰه and كَبُرَ), 8 vocabulary words, 12 Qur'anic phrases
 - Bilingual: English + Tamil
 - Audio: Arabic recitation (real reciters, different one per phrase) + English/Tamil TTS translation
-- Sections: Anchor phrase → Root explanation + vocab table → Learning cards → Practice cards → Shuffle review player → Quiz → Closing
+- Sections: Anchor phrase → Root explanation + vocab table → Learning cards → Shuffle review player → Quiz → Closing
 
 ### Expo App Prototype (just built, not deployed)
 - **Single Expo/React Native codebase** that runs on web + Android + iOS

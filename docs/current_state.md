@@ -1,162 +1,200 @@
 # Scoring v3 Migration — Current State
 
 **Created:** 2026-04-12
-**Status:** In progress
+**Status:** Phase 2 COMPLETE — Terminology cleanup + audio renaming
 
 ---
 
-## What Changed (v2 → v3)
+## Context
 
-### Role Simplification
-| Old | New | Notes |
-|-----|-----|-------|
-| `anchor` | `anchor` | No change |
-| `learn` | `learning` | Rename |
-| `practice` | `learning` | **Merge** into learning — no separate practice section |
-| `recall` | `recall` | No change |
-| `pipeline` | `pipeline` | No change |
-| `candidate` | `candidate` | No change |
-
-### Scoring Changes
-- **7 dimensions**, all normalized 0–10 (was 8 unnormalized)
-- Dimensions: `length`, `form_freq`, `form_dominance`, `curriculum`, `story`, `familiarity`, `teaching_fit`
-- Dropped: `worship`, `surah_familiarity` (merged into `familiarity`), `completeness` (merged into `teaching_fit`), `emotion` (merged into `story`), `fit_learn`/`fit_practice` (replaced by single `teaching_fit`)
-- **Fragment penalty**: ×0.7 multiplier for verses not used as full ayah (binary)
-- **Teacher star**: +5 additive boost (replaces old teacher_adj slider)
-- Score fields: `base`, `final` (replaces `total_learn`, `total_practice`)
-- New flags: `starred: bool`, `fragment: bool`
-
-### Lesson Budgets
-- **New content**: 10 phrases, 100 words (whichever hits first)
-- **Recall**: 5 phrases, 50 words (50% of new content budget)
-- **Total lesson ceiling**: 15 phrases, 150 words
-
-### Automated Role Assignment
-1. Score all verses → apply fragment ×0.7 and star +5
-2. Rank by final score → take until budget exhausted
-3. Sort selected by word count (shortest first), starred float above same-length
-4. 1st = Anchor, rest = Learning, overflow = Pipeline
-5. Recall has separate budget, never crowds new content
-
-### Lesson Structure Change
-Old: `Immerse → Anchor → Root → Learn phrases → Practice phrases → Recall → Review`
-New: `Immerse → Anchor → Root → Learning phrases → Recall → Review`
+Phase 1 (the main v3 migration) is complete. A second sweep found residual v2 terminology in student-facing pages, internal docs, prompt files, and audio IDs/filenames. This file tracks the cleanup.
 
 ---
 
-## Migration Plan
+## Phase 2 — Cleanup Plan
 
-### Phase 1 — Docs ✅ DONE
-- [x] `docs/SCORING.md` — updated to v3 (fragment penalty, star, budgets, roles)
-- [x] `docs/LESSON-PLAN.md` — budget updated, practice section removed
-- [x] `docs/GLOSSARY.md` — role definitions, hierarchy, budgets updated
-- [x] `docs/AUDIO-SYSTEM.md` — role enum updated, playback order updated
-- [x] `docs/selections/lesson-01.md` — role counts, section names
-- [x] `docs/selections/lesson-02.md` — role counts, recall budget
-- [x] `docs/selections/pipeline.md` — terminology verified and updated
+### Work Package A: Student-facing pages (HIGH PRIORITY)
 
-### Phase 2 — Root Inventory JSONs ✅ DONE (by separate agent)
-- [x] `docs/roots/ilah.json` — role renames + scoring schema (fit_learn/fit_practice → teaching_fit, totals → final)
-- [x] `docs/roots/kabura.json` — role renames + scoring schema
-- [x] `docs/roots/shahida.json` — role renames + scoring schema
-- [x] `docs/roots/rasul.json` — role renames, 78 verses have full v3 scores, 1480 have T1 only
-- [x] Fragment flag set automatically (arabic_fragment ≠ arabic_full → fragment: true, ×0.7 penalty)
+#### A1. `how-to-study.md`
+- Line 23: "Practice phrases" → "Learning phrases" (with updated description)
+- Line 24: Remove "(coming in future lessons)" from Recall — Recall is live in L2
+- Lines 42-49: Rename "In the Practice Section" → "In the Learning Section" and update body text
+- Line 58: "Add the practice phrases" → remove Level 3 entirely (no separate practice level)
 
-### Phase 3 — Skills & Templates ✅ DONE
-- [x] `.claude/skills/lesson-pipeline.md` — section list, output descriptions
-- [x] `.claude/skills/verse-selection.md` — scoring field names, dimension list
-- [x] `.claude/skills/add-lesson.md` — phrase budget checklist, section names
-- [x] `.claude/skills/lesson-review-checklist.md` — learning budget checks
-- [x] `.claude/skills/templates/lesson-template.md` — merged learn+practice sections
-- [x] `.claude/skills/templates/lesson-audio-template.yaml` — role values, reciter checklist
+#### A2. `docs/LESSON-PLAN.md`
+- Line 145: "free Learn slot" → "free learning slot"
+- Line 146: "Practice sections of later lessons" → "Recall sections of later lessons"
+- Line 209: Lesson map `Practice → Review` → `Learning → Recall → Review`
+- Line 213: Back-to-top reference "after Practice" → "after Learning"
+- Lines 221-225: Rename "Practice Section" subsection → "Learning Section"; update conventions 6-7 to describe the merged Learning section (not a separate Practice section)
 
-### Phase 4 — Python Tools ✅ DONE
-- [x] `tools/generate-picker.py` — section arrays, target keys, scoring fields → final
-- [x] `tools/build-root-inventory.py` — no changes needed (taught_role always null)
-- [x] `tools/validate-lesson-consistency.py` — practice checks → learning checks
-- [x] `tools/build-lesson-audio.py` — role default updated
+#### A3. `teacher/lesson-01.md`
+- Line 50: Remove learn/practice target split → single `learning` target
+- Line 199: "2 anchors + 5 learn + 5 practice = 12" → "2 anchors + 10 learning = 12"
 
-### Phase 5 — Picker UI & Teacher Tools ✅ DONE
-- [x] `tools/selection-picker/template.html` — CSS vars, JS arrays, counters, buttons, section logic
-- [x] `teacher/scoring-review.html` — badge classes, data role values
-- [x] `lessons/lesson-02-shahida/picker.html` — generated picker updated
-- [x] `lessons/lesson-03-rasul/picker.html` — generated picker updated
+### Work Package B: Internal docs / prompts (MEDIUM PRIORITY)
 
-### Phase 6 — Lesson Content & Audio YAML ✅ DONE
-- [x] `lessons/lesson-01-allahu-akbar/index.md` — practice section → learning
-- [x] `lessons/lesson-02-shahida/index.md` — same + recall stays
-- [x] `lessons/lesson-01-allahu-akbar/picker-config.json` — target keys merged
-- [x] `lessons/lesson-02-shahida/picker-config.json` — target keys merged
-- [x] `lessons/lesson-02-shahida/lesson2-selections.json` — section keys merged
-- [x] `tools/lesson-audio/lesson-01.yaml` — all roles → learning
-- [x] `tools/lesson-audio/lesson-02.yaml` — same + recall stays
-- [x] Audio manifests (lesson-01, lesson-02) — role values updated
-- [x] `_data/audio/`, `_data/verses/`, `_data/picker_configs/` — all updated
+#### B1. `docs/prompts/picker_generator.md`
+- Lines 88, 94, 125, 248: `--targets learn:5,practice:5` → `--targets learning:10`
+- Line 169: Target logic `targets.learn + targets.practice` → `targets.learning`
 
-### Phase 7 — Frontend JS ✅ DONE
-- [x] `assets/js/shuffle-player.js` — filter buttons updated (All/Learning)
-- [x] `assets/js/lesson-cards.js` — no changes needed (anchor detection via ⭐)
-- [x] `assets/css/style.css` — no changes needed (.anchor-card stays)
+#### B2. `docs/prompts/lesson_authoring_workflow.md`
+- Line 308: "8-dimension rubric" → "7-dimension rubric"
+- Line 130: "Learn/Practice defaults" → "Learning defaults"
 
-### Phase 8 — Final ✅ DONE
-- [x] `CLAUDE.md` — no learn/practice references found
-- [x] Grep sweep: zero remaining `"learn"`, `"practice"`, `fit_learn`, `fit_practice`, `total_learn`, `total_practice` in code/data
-- [x] `.workspace/` migrated to `docs/` (session-history + migration-flags)
-- [ ] Commit
+#### B3. `docs/app/research-platform-design.md`
+- Line 208: Comment `# anchor | learn | practice` → `# anchor | learning | recall | pipeline`
+- Line 229: `role: learn` → `role: learning`
+- Line 447: SQL comment → update role enum
+- Line 710: Validation rule → update role list
+- Line 847: Structure `anchor → learn → practice` → `anchor → learning → recall`
 
----
+#### B4. `docs/app/HACKATHON-AGENT-PROMPT.md`
+- Line 40: "Learning cards → Practice cards" → "Learning cards"
 
-## Key Decisions Made
+#### B5. `tools/selection-picker/README.md`
+- Lines 9-66: All references to learn/practice slots, targets, defaults → learning
 
-1. **Fragment penalty = ×0.7 multiplier** (not additive) — fragments must score 30% higher to compete
-2. **Teacher star = +5 additive** (not multiplier) — consistent boost regardless of base score
-3. **Order of operations**: `final = (base + star) × fragment_multiplier`
-4. **No Learn/Practice distinction** — length ordering IS the difficulty gradient
-5. **Separate recall budget** (50% of new) — recall never crowds new content
-6. **Budget limits**: whichever hits first (phrases or words)
-7. **Roles**: anchor, learning, recall, pipeline (dropped practice as separate role)
+#### B6. `docs/app/LESSON-TO-APP-WALKTHROUGH.md`
+- Any learn/practice references → learning
 
----
+### Work Package C: Audio ID renaming (CAREFUL — affects live audio)
 
-## Root JSON Scoring Schema
+#### C1. File renaming scheme
 
-Old (v1/v2):
-```json
-"scores": {
-  "curriculum": 2, "length": 1, "story": 3,
-  "worship": 2, "surah_familiarity": 1,
-  "completeness": 1, "emotion": 2,
-  "fit_learn": 1, "fit_practice": 1,
-  "total_learn": 10, "total_practice": 11
-}
+**Lesson 01** — 20 MP3 files to rename:
+```
+learn-ilah-01.mp3       → learning-ilah-01.mp3       (+ta variant)
+learn-ilah-02.mp3       → learning-ilah-02.mp3       (+ta variant)
+learn-kabura-01.mp3     → learning-kabura-01.mp3     (+ta variant)
+learn-kabura-02.mp3     → learning-kabura-02.mp3     (+ta variant)
+learn-kabura-03.mp3     → learning-kabura-03.mp3     (+ta variant)
+practice-01.mp3         → learning-01.mp3            (+ta variant)
+practice-02.mp3         → learning-02.mp3            (+ta variant)
+practice-03.mp3         → learning-03.mp3            (+ta variant)
+practice-04.mp3         → learning-04.mp3            (+ta variant)
+practice-05.mp3         → learning-05.mp3            (+ta variant)
 ```
 
-New (v3):
-```json
-"scores": {
-  "length": 2, "form_freq": 8, "form_dominance": 0,
-  "curriculum": 0,
-  "story": 9, "familiarity": 2, "teaching_fit": 8,
-  "starred": false, "fragment": false,
-  "base": 29, "final": 29
-}
+**Lesson 02** — 10 MP3 files to rename:
 ```
+learn-shahida-01.mp3    → learning-shahida-01.mp3
+learn-shahida-02.mp3    → learning-shahida-02.mp3
+learn-shahida-03.mp3    → learning-shahida-03.mp3
+learn-shahida-04.mp3    → learning-shahida-04.mp3
+learn-shahida-05.mp3    → learning-shahida-05.mp3
+practice-01.mp3         → learning-01.mp3
+practice-02.mp3         → learning-02.mp3
+practice-03.mp3         → learning-03.mp3
+practice-04.mp3         → learning-04.mp3
+practice-05.mp3         → learning-05.mp3
+```
+
+#### C2. Files that reference audio IDs (must update after rename)
+
+Each file below contains `learn-ilah-`, `learn-kabura-`, `learn-shahida-`, or `practice-0N` patterns:
+
+| File | What to update |
+|------|----------------|
+| `assets/audio/lessons/lesson-01/manifest.json` | id, file, file_tamil fields |
+| `assets/audio/lessons/lesson-02/manifest.json` | id, file fields |
+| `_data/audio/lesson-01.json` | id, file, file_tamil fields |
+| `_data/audio/lesson-02.json` | id, file fields |
+| `tools/lesson-audio/lesson-01.yaml` | id fields + comments |
+| `tools/lesson-audio/lesson-02.yaml` | id fields + comments |
+| `tools/lesson-content/lesson-01.yaml` | section key `learning_practice` → `learning`, id fields |
+| `lessons/lesson-01-allahu-akbar/index.md` | audio src paths (if any inline) |
+| `lessons/lesson-02-shahida/index.md` | audio src paths |
+| `_data/verses/*.json` | audio_file references |
+| `playground-app/assets/lesson-01.json` | section key + id fields |
+
+#### C3. Section anchor cleanup
+- `lessons/lesson-01-allahu-akbar/index.md`: `#learning-practice` → `#learning` (section ID + nav link)
+- `lessons/lesson-02-shahida/index.md`: `#learning-practice` → `#learning` (section ID + nav link)
+
+### Work Package D: YAML comment cleanup
+- `tools/lesson-audio/lesson-01.yaml` line 7: "learn/practice pool" → "learning pool"
+- `tools/lesson-audio/lesson-02.yaml` lines 7, 225: same
 
 ---
 
-## Instructions for Root Agent
+## Execution Order
 
-If a separate agent is updating root JSONs, it should:
-1. Rename `"taught_role": "learn"` → `"taught_role": "learning"` (form level)
-2. Rename `"taught_role": "practice"` → `"taught_role": "learning"` (form level)
-3. Rename `"role": "learn"` → `"role": "learning"` (verse level)
-4. Rename `"role": "practice"` → `"role": "learning"` (verse level)
-5. Leave `"anchor"`, `null`, `"pipeline"`, `"candidate"` unchanged
-6. Restructure scoring objects from old schema to new v3 schema (see above)
-7. For Tier 1 scores, compute deterministically:
-   - `length = max(0, 10 - word_count)`
-   - `form_freq = min(10, round(log10(count) * 4))`
-   - `form_dominance = round(dominance_pct / 10)`
-8. For Tier 2 scores (story, familiarity, teaching_fit), pull from `teacher/scoring-review.html` DATA array
-9. Set `starred: false`, `fragment: true/false` based on whether verse is used as full ayah
-10. Compute `base = sum of 7 dimension scores`, `final = (base + star_bonus) * fragment_multiplier`
+1. **A (docs)** — safe, no runtime impact
+2. **B (internal docs)** — safe, no runtime impact
+3. **C (audio)** — careful, rename MP3 files first via `git mv`, then update all references
+4. **D (comments)** — trivial, do alongside C
+
+---
+
+## Verification Protocol
+
+After all changes, run these verification steps (can be delegated to a separate agent):
+
+### V1. Grep sweep — zero remaining old terms in active files
+```bash
+# Should return ZERO matches (excluding docs/current_state.md and session-history)
+grep -rn '"learn"' --include='*.json' --include='*.yaml' --include='*.yml' --include='*.py' --include='*.js' --include='*.html' . | grep -v current_state | grep -v session-history
+grep -rn '"practice"' --include='*.json' --include='*.yaml' --include='*.yml' --include='*.py' --include='*.js' --include='*.html' . | grep -v current_state | grep -v session-history
+grep -rn 'practice' --include='*.md' . | grep -v current_state | grep -v session-history | grep -v SCORING.md
+grep -rn 'fit_learn\|fit_practice\|total_learn\|total_practice' . | grep -v current_state | grep -v session-history
+```
+
+### V2. Audio file existence check
+```bash
+# Every MP3 referenced in manifest/data must exist on disk
+python3 -c "
+import json, os
+for lesson in ['lesson-01', 'lesson-02']:
+    manifest = json.load(open(f'assets/audio/lessons/{lesson}/manifest.json'))
+    for sid, entry in manifest['sentences'].items():
+        for key in ['file', 'file_tamil']:
+            if key in entry and entry[key]:
+                path = f'assets/audio/lessons/{lesson}/{entry[key]}'
+                exists = os.path.exists(path)
+                if not exists:
+                    print(f'MISSING: {path}')
+print('Audio check complete')
+"
+```
+
+### V3. No broken anchor links
+```bash
+# Check that #learning-practice is gone and #learning exists
+grep -rn 'learning-practice' lessons/ docs/ how-to-study.md
+# Should return zero
+```
+
+### V4. Section heading consistency
+```bash
+# All lesson index.md files should have ## Learning, not ## Practice
+grep -n '## Practice' lessons/*/index.md
+# Should return zero
+
+grep -n '## Learning' lessons/*/index.md
+# Should return the learning section headers
+```
+
+### V5. Lesson validator
+```bash
+python tools/validate-lesson-consistency.py lesson-01
+python tools/validate-lesson-consistency.py lesson-02
+```
+
+### V6. Manual browser check
+- Load lesson-01 and lesson-02 locally
+- Click every audio play button (learning phrases + practice-renamed phrases)
+- Verify shuffle player works
+- Verify all nav links (#learning anchor) work
+
+---
+
+## What Changed in Phase 1 (completed — reference only)
+
+See git commit `40a861d` for full diff. Summary:
+- Role simplification: learn/practice → learning
+- 7 scoring dimensions (was 8), all 0–10
+- Fragment penalty ×0.7, teacher star +5
+- Lesson budgets: 10 phrases/100 words new, 5/50 recall
+- Automated role assignment
+- 73 files updated across docs, tools, data, UI, lessons

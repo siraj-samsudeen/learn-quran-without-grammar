@@ -27,17 +27,17 @@ From `manifest.json`, these are the atomic study units:
 | # | ID | Role | Root | Form | Ref |
 |---|---|---|---|---|---|
 | 1 | `anchor-ilah` | anchor | إِلَٰه | إِلَٰه | 59:22 |
-| 2 | `learn-ilah-01` | learn | إِلَٰه | آلِهَة | 6:74 |
-| 3 | `learn-ilah-02` | learn | إِلَٰه | اللَّهُمَّ | 3:26 |
+| 2 | `learning-ilah-01` | learning | إِلَٰه | آلِهَة | 6:74 |
+| 3 | `learning-ilah-02` | learning | إِلَٰه | اللَّهُمَّ | 3:26 |
 | 4 | `anchor-kabura` | anchor | كَبُرَ | كَبِير + أَكْبَر | teaching |
-| 5 | `learn-kabura-01` | learn | كَبُرَ | كُبْرَى | 79:20 |
-| 6 | `learn-kabura-02` | learn | كَبُرَ | كَبُرَ | 61:3 |
-| 7 | `learn-kabura-03` | learn | كَبُرَ | اسْتَكْبَرَ | 2:34 |
-| 8 | `practice-01` | practice | كَبُرَ | أَكْبَرُ | 29:45 |
-| 9 | `practice-02` | practice | كَبُرَ | كَبُرَ | 18:5 |
-| 10 | `practice-03` | practice | كَبُرَ | كَبِير | 21:63 |
-| 11 | `practice-04` | practice | إِلَٰه | إِلَٰه (×3) | 2:163 |
-| 12 | `practice-05` | practice | كَبُرَ | اسْتَكْبَرَ | 41:15 |
+| 5 | `learning-kabura-01` | learning | كَبُرَ | كُبْرَى | 79:20 |
+| 6 | `learning-kabura-02` | learning | كَبُرَ | كَبُرَ | 61:3 |
+| 7 | `learning-kabura-03` | learning | كَبُرَ | اسْتَكْبَرَ | 2:34 |
+| 8 | `learning-01` | learning | كَبُرَ | أَكْبَرُ | 29:45 |
+| 9 | `learning-02` | learning | كَبُرَ | كَبُرَ | 18:5 |
+| 10 | `learning-03` | learning | كَبُرَ | كَبِير | 21:63 |
+| 11 | `learning-04` | learning | إِلَٰه | إِلَٰه (×3) | 2:163 |
+| 12 | `learning-05` | learning | كَبُرَ | اسْتَكْبَرَ | 41:15 |
 
 Each card has: `arabic_text`, `english`, `tamil`, `file` (EN audio), `file_tamil` (TA audio).
 
@@ -198,7 +198,7 @@ App
 Add to each sentence:
 ```json
 {
-  "id": "learn-ilah-01",
+  "id": "learning-ilah-01",
   "hook_en": "Ibrāhīm's challenge to his own father — one of the bravest questions in the Qur'an.",
   "hook_ta": "இப்ராஹீம் தன் சொந்தத் தந்தைக்கே சவால் விடுகிறார்...",
   ...existing fields...
@@ -209,9 +209,9 @@ Add a lesson-level `sections` array:
 ```json
 {
   "sections": [
-    { "type": "root", "id": "root-ilah", "title": "إِلَٰه (god)", "cards": ["anchor-ilah", "learn-ilah-01", "learn-ilah-02"] },
-    { "type": "root", "id": "root-kabur", "title": "كَبُرَ (greatness)", "cards": ["anchor-kabura", "learn-kabura-01", "learn-kabura-02", "learn-kabura-03"] },
-    { "type": "practice", "id": "practice", "title": "Practice", "cards": ["practice-01", "practice-02", "practice-03", "practice-04", "practice-05"] }
+    { "type": "root", "id": "root-ilah", "title": "إِلَٰه (god)", "cards": ["anchor-ilah", "learning-ilah-01", "learning-ilah-02"] },
+    { "type": "root", "id": "root-kabur", "title": "كَبُرَ (greatness)", "cards": ["anchor-kabura", "learning-kabura-01", "learning-kabura-02", "learning-kabura-03"] },
+    { "type": "learning", "id": "learning-mixed", "title": "Learning (mixed roots)", "cards": ["learning-01", "learning-02", "learning-03", "learning-04", "learning-05"] }
   ]
 }
 ```

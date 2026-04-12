@@ -127,7 +127,7 @@ python3 tools/lesson-workflow.py generate-picker --lesson 3
 
 1. Reads `roots.json` and the referenced root JSONs (from `docs/roots/`).
 2. Filters out `status: "used"` verses from earlier lessons.
-3. Applies the null-score fallback: if a root has enough scored verses, pre-assigns top-N to Learn/Practice; otherwise defaults everything to "none" (because arbitrary pre-assignment at score=0 is misleading noise).
+3. Applies the null-score fallback: if a root has enough scored verses, pre-assigns top-N to Learning; otherwise defaults everything to "none" (because arbitrary pre-assignment at score=0 is misleading noise).
 4. Substitutes the `LESSON_CONFIG` block in `tools/selection-picker/template.html`.
 5. Writes `.workspace/lesson-03/picker.html`.
 6. Updates `.workspace/lesson-03/state.json` with stage `picker-generated`.
@@ -305,7 +305,7 @@ At the top, a summary: "14/16 recitations ready, 12/16 English TTS ready, 0/16 T
 The architecture radically reduces LLM involvement. Here's the list of things that still need an LLM:
 
 1. **Root analysis from a new sentence** (Stage 0). Reading Arabic, identifying roots, deciding which are new. One-shot subagent call, ~30 seconds.
-2. **Scoring candidate verses** from a freshly-built root JSON. `tools/build-root-inventory.py` (ADR-009) produces the complete catalog in < 1 s but leaves every entry with `scores: null` because the 8-dimension rubric in `docs/SCORING.md` needs pedagogical judgment. The teacher and/or a targeted LLM session then scores a subset — often just the top ~20 most promising — before the picker can pre-fill Learn/Practice defaults. Until that scoring happens, the picker falls back to "all `none`" (see `docs/prompts/picker_generator.md`, null-score fallback).
+2. **Scoring candidate verses** from a freshly-built root JSON. `tools/build-root-inventory.py` (ADR-009) produces the complete catalog in < 1 s but leaves every entry with `scores: null` because the 7-dimension rubric in `docs/SCORING.md` needs pedagogical judgment. The teacher and/or a targeted LLM session then scores a subset — often just the top ~20 most promising — before the picker can pre-fill Learning defaults. Until that scoring happens, the picker falls back to "all `none`" (see `docs/prompts/picker_generator.md`, null-score fallback).
 3. **Writing remark prose** in the selection log (Stage 2.5 `--polish`). Optional. The teacher can write them manually via the picker too.
 4. **Translation polish.** When verses are picked, generating simple English (and Tamil) translations in the teacher's preferred style.
 5. **Hook text / curiosity gaps / closing narrative** for the published lesson page. The content that's explicitly teacher-voice.
@@ -451,7 +451,7 @@ No template changes in this session — those belong to picker_generator.md.
    scores for each picked verse.
 3. Generates a Markdown file matching the structure of
    docs/selections/lesson-02.md (header, lesson structure table, root
-   section, learn table, practice table, recall table, pipeline table,
+   section, learning table, recall table, pipeline table,
    audio notes section).
 4. For the remark/why column, uses the `remark` field from selection.json
    if present (teacher's edit), else the `score_notes` from the root JSON,

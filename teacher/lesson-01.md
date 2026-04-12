@@ -47,7 +47,7 @@ Sourced from `lessons/lesson-01-allahu-akbar/picker-config.json` via the build-t
 <tr><th>Seed phrase (English)</th><td>{{ cfg.seed_phrase.english }}</td></tr>
 <tr><th>Current roots</th><td>{{ cfg.current_roots | join: ", " }}</td></tr>
 <tr><th>Recall roots</th><td>{{ cfg.recall_roots | join: ", " | default: "— (none)" }}</td></tr>
-<tr><th>Targets</th><td>anchor: {{ cfg.targets.anchor }}, learn: {{ cfg.targets.learn }}, practice: {{ cfg.targets.practice }}, recall: {{ cfg.targets.recall }}</td></tr>
+<tr><th>Targets</th><td>anchor: {{ cfg.targets.anchor }}, learning: {{ cfg.targets.learning }}, recall: {{ cfg.targets.recall }}</td></tr>
 </table>
 
 <details>
@@ -133,7 +133,7 @@ Click each row to expand full verse data including an inline audio player.
 
 {% include prep-verse.html verse=v_teach audio_base=audio_base audio_data=audio_data %}
 
-### Learn phrases (5)
+### Learning phrases — root sections (5)
 
 {% include prep-verse.html verse=v_6_74 audio_base=audio_base audio_data=audio_data %}
 
@@ -145,7 +145,7 @@ Click each row to expand full verse data including an inline audio player.
 
 {% include prep-verse.html verse=v_2_34 audio_base=audio_base audio_data=audio_data %}
 
-### Practice phrases (5)
+### Learning phrases — spot the roots (5)
 
 {% include prep-verse.html verse=v_29_45 audio_base=audio_base audio_data=audio_data %}
 
@@ -196,7 +196,7 @@ Quick eyeball pass — spot-check each item by expanding the relevant verse abov
 - [ ] Each verse's `lesson_use.notes` holds the student hook text (NOT the score note — score notes should be at the verse-level `score_notes` field)
 - [ ] Each verse's `audio_file` is set and the inline player works
 - [ ] Roots: `ilah` has 4 forms, `kabura` has 14 forms; notes are populated at root level (form-level notes are null for most)
-- [ ] Lesson 1 counts: 2 anchors + 5 learn + 5 practice = 12 verses total
+- [ ] Lesson 1 counts: 2 anchors + 10 learning = 12 verses total
 - [ ] The `teaching:kabura:anchor-01` entry is a synthetic teaching phrase (not a Qur'anic ayah) — verify its `source`/scores are marked accordingly
 - [ ] Cross-root verse: check if any verse has `roots: ["ilah", "kabura"]` (bounded denormalization per D11)
 

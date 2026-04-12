@@ -19,9 +19,8 @@ Each lesson teaches one or two **root words** — the building blocks of Arabic.
 1. **The Anchor** — every lesson opens with a phrase you already know (from the adhān, ṣalāh, or daily duʿā). This is your entry point — the familiar ground we build on.
 2. **Root introductions** — a short explanation of each root: what it means, how it connects to words you know, and a table showing the word forms you'll meet.
 3. **⭐ Anchor phrases** — one per root. These are the core Qur'anic phrases to carry with you. Short, memorable, and marked with a ⭐.
-4. **Learning phrases** — a handful of Qur'anic phrases that show you different forms of the root. For example, [Lesson 1]({{ '/lessons/lesson-01-allahu-akbar' | relative_url }}) has 5 learning phrases across its two roots.
-5. **Practice phrases** — after all the roots, a combined section where you try to spot the roots on your own. These are a little longer and more challenging.
-6. **Recall phrases** *(coming in future lessons)* — these repeat an exact ayah you've seen in a previous lesson, or introduce a new ayah for a word form you've already met. They keep earlier roots alive in your memory.
+4. **Learning phrases** — Qur'anic phrases that show you different forms of the root, ordered from shortest to longest. For example, [Lesson 1]({{ '/lessons/lesson-01-allahu-akbar' | relative_url }}) has 10 learning phrases across its two roots. The later, longer phrases mix roots together so you can spot them on your own.
+5. **Recall phrases** — these repeat an exact ayah you've seen in a previous lesson, or introduce a new ayah for a word form you've already met. They keep earlier roots alive in your memory.
 7. **Review & Summary** — audio review (in order or shuffled), a summary table of every word you met, and a Quick Check to test yourself.
 
 ---
@@ -39,9 +38,9 @@ Go through the lesson at a relaxed pace. For each phrase:
 
 ---
 
-## In the Practice Section
+## Spotting the Roots
 
-By the time you reach Practice, you've already met every word in the lesson. Now it's your turn:
+As you move through the learning phrases, they get progressively longer and mix roots together. This is your turn to actively recognise what you've learnt:
 
 - **Try to predict** the meaning of the highlighted word before reading the English
 - Use the **Hide Translations** toggle for a higher challenge — on your second or third visit, or if you already know some Arabic
@@ -54,8 +53,7 @@ By the time you reach Practice, you've already met every word in the lesson. Now
 Not everyone has the same time or energy. Pick the level that fits your life right now — you can always move up later.
 
 - **Level 1 — Anchor only.** Memorize just the anchor phrase(s) and their translation. If the lesson has two roots, that's two anchor phrases. This alone is a real achievement — you're learning Qur'anic Arabic.
-- **Level 2 — Add the learning phrases.** Try to memorize the learning phrases as well. In Lesson 1, that means 5 extra phrases beyond the anchors.
-- **Level 3 — Add the practice phrases.** Also try to memorize the practice phrases. This is the full workout — ideal if you have more time or already know some Arabic.
+- **Level 2 — Add the learning phrases.** Try to memorize the learning phrases as well. Start with the shorter ones near the top — they're easier. Work your way down to the longer, more challenging phrases as you gain confidence.
 
 Don't let the higher levels intimidate you. Even Level 1, done consistently, will transform your connection with the Qur'an.
 

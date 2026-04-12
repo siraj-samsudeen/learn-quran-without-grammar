@@ -45,7 +45,7 @@ generate-picker subcommand + meaningful template upgrades.
    section. That's what your subcommand substitutes.
 5. tools/selection-picker/README.md — picker schema + design principles.
 6. docs/roots/shahida.json — ~160 verses, 20 with full scores (Lesson 2
-   reference case — exercises the "pre-fill Learn/Practice by score" path).
+   reference case — exercises the "pre-fill Learning by score" path).
 7. docs/roots/rasul.json — 429 verses, ZERO scored (Lesson 3 primary case
    — exercises the "null-score fallback" path).
 8. docs/selections/lesson-02.md — shows the downstream format the JSON
@@ -85,13 +85,13 @@ generate-picker subcommand + meaningful template upgrades.
       [--anchor "ARABIC"] \
       [--current-root <key>]... \
       [--recall-root <key>]... \
-      [--targets learn:5,practice:5,recall:5] \
+      [--targets learning:10,recall:5] \
       [--config .workspace/lesson-N/config.json] \
       [--output .workspace/lesson-N/picker.html]
 
 Defaults:
   --output → .workspace/lesson-N/picker.html
-  --targets → learn:5,practice:5,recall:5
+  --targets → learning:10,recall:5
 
 Support two modes:
 
@@ -122,7 +122,7 @@ Support two modes:
        { "key": "kabura",  "arabic": "كَبُرَ",  "title": "كَبُرَ — L1 recall"  },
        { "key": "shahida", "arabic": "شَهِدَ", "title": "شَهِدَ — L2 recall" }
      ],
-     "targets": { "learn": 5, "practice": 5, "recall": 5 }
+     "targets": { "learning": 10, "recall": 5 }
    }
    ```
    If both --config and flags are given, flags win (for incremental
@@ -166,12 +166,11 @@ Support two modes:
 
        scored = [v for v in candidates if v.get("scores") is not None]
 
-   - **If `len(scored) >= targets.learn + targets.practice`** (i.e., the
+   - **If `len(scored) >= targets.learning`** (i.e., the
      teacher has scored enough verses to make meaningful defaults):
      - Sort `scored` by `scores.final` desc (for current roots) or
        `scores.final` desc (for recall roots)
-     - Top `targets.learn` → `defaultSection: "learn"`
-     - Next `targets.practice` → `defaultSection: "practice"`
+     - Top `targets.learning` → `defaultSection: "learning"`
      - Rest → `defaultSection: "none"`
      - Verses with existing `status: "pipeline"` keep
        `defaultSection: "pipeline"` regardless of score
@@ -202,7 +201,7 @@ Support two modes:
      form: "<form_arabic from root JSON>",
      lemma: "<form_arabic — same as form, kept for filter UI>",
      score: <scores.final || 0>,
-     defaultSection: "learn" | "practice" | "recall" | "pipeline" | "none",
+     defaultSection: "learning" | "recall" | "pipeline" | "none",
      arabic: "<arabic_fragment if set, else arabic_full>",
      english: "<translation if set, else empty string>",
      why: "<score_notes if set, else empty string>",
@@ -245,7 +244,7 @@ Support two modes:
           "config": {
             "current_roots": ["rasul"],
             "recall_roots": ["ilah", "kabura", "shahida"],
-            "targets": { "learn": 5, "practice": 5, "recall": 5 }
+            "targets": { "learning": 10, "recall": 5 }
           }
         }
 
@@ -389,7 +388,7 @@ filter bar above the main card area (beside or above the counters):
   against `surah_name`. Empty = no filter.
 - **Length filter.** Two buttons: "Short (≤10 words)" and "All lengths".
   Default: All.
-- **Section filter.** Checkboxes for learn / practice / recall / pipeline
+- **Section filter.** Checkboxes for learning / recall / pipeline
   / none. Default: all checked. Lets the teacher focus on "just the
   unassigned candidates" by unchecking everything except "none".
 
@@ -461,7 +460,7 @@ Verify:
 Verify:
 
 - /tmp/lesson-02-regenerated.html exists.
-- The 20 scored shahida candidates get proper Learn/Practice defaults
+- The 20 scored shahida candidates get proper Learning defaults
   (because they have non-null scores — the fallback path is not taken).
 - The 103+ NEW candidates from the local builder show up with
   defaultSection: "none".

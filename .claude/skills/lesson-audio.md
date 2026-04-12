@@ -205,7 +205,7 @@ EveryAyah sets ~296-day cache. Once a student loads an audio file, it cannot be 
 
 ## Review sections on the lesson page
 
-Each lesson has two review sections after the practice cards:
+Each lesson has two review sections after the learning cards:
 
 ```markdown
 ## Review in Order

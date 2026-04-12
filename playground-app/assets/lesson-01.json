@@ -80,7 +80,7 @@
           }
         },
         {
-          "id": "learn-ilah-01",
+          "id": "learning-ilah-01",
           "role": "learning",
           "form": "آلِهَة",
           "ref": "6:74",
@@ -103,7 +103,7 @@
           }
         },
         {
-          "id": "learn-ilah-02",
+          "id": "learning-ilah-02",
           "role": "learning",
           "form": "اللَّهُمَّ",
           "ref": "3:26",
@@ -192,7 +192,7 @@
           }
         },
         {
-          "id": "learn-kabura-01",
+          "id": "learning-kabura-01",
           "role": "learning",
           "form": "كُبْرَى",
           "ref": "79:20",
@@ -210,7 +210,7 @@
           }
         },
         {
-          "id": "learn-kabura-02",
+          "id": "learning-kabura-02",
           "role": "learning",
           "form": "كَبُرَ",
           "ref": "61:3",
@@ -228,7 +228,7 @@
           }
         },
         {
-          "id": "learn-kabura-03",
+          "id": "learning-kabura-03",
           "role": "learning",
           "form": "اسْتَكْبَرَ",
           "ref": "2:34",
@@ -255,7 +255,7 @@
     },
     "cards": [
       {
-        "id": "practice-01",
+        "id": "learning-01",
         "root": "كَبُرَ",
         "form": "أَكْبَرُ",
         "ref": "29:45",
@@ -279,7 +279,7 @@
         }
       },
       {
-        "id": "practice-02",
+        "id": "learning-02",
         "root": "كَبُرَ",
         "form": "كَبُرَ",
         "ref": "18:5",
@@ -302,7 +302,7 @@
         }
       },
       {
-        "id": "practice-03",
+        "id": "learning-03",
         "root": "كَبُرَ",
         "form": "كَبِير",
         "ref": "21:63",
@@ -320,7 +320,7 @@
         }
       },
       {
-        "id": "practice-04",
+        "id": "learning-04",
         "root": "إِلَٰه",
         "form": "إِلَٰه (×3)",
         "ref": "2:163",
@@ -338,7 +338,7 @@
         }
       },
       {
-        "id": "practice-05",
+        "id": "learning-05",
         "root": "كَبُرَ",
         "form": "اسْتَكْبَرَ",
         "ref": "41:15",

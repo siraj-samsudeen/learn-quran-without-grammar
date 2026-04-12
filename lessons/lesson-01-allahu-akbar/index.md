@@ -80,7 +80,7 @@ _Tamil translation not yet available in this new architecture. Tamil content wil
   <span class="map-arrow">→</span>
   <a href="#root-kabur">كَبُرَ <span class="map-detail">(5 words)</span></a>
   <span class="map-arrow">→</span>
-  <a href="#learning-practice">Spot the Roots</a>
+  <a href="#learning">Spot the Roots</a>
   <span class="map-arrow">→</span>
   <a href="#review-shuffled">Review</a>
   <span class="map-arrow">→</span>
@@ -191,7 +191,7 @@ You say this every single day. Before every ṣalāh. You raise your hands and s
 {: .back-to-top}
 
 ## Learning — Can You Spot the Roots?
-{: #learning-practice}
+{: #learning}
 
 <div class="lang-en" markdown="1">
 You've met all 8 words. Now see if you can spot them on your own — try to predict the meaning of the highlighted word before reading the English.
