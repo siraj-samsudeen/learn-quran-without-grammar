@@ -598,7 +598,6 @@
         <div class="counter" id="counter-pipeline"><span class="label">Pipeline</span> <span class="count">0</span></div>
       </div>
       <div class="btn-row">
-        <button class="action-btn export-issues" onclick="exportReviewFlags()" id="export-issues-btn" style="display:none">Export Issues <span class="change-count" id="issue-count">0</span></button>
         <button class="action-btn download" onclick="showSummary()">Review &amp; Download <span class="change-count" id="change-count">0</span></button>
       </div>
     </div>
@@ -6386,7 +6385,7 @@ function makeCard(v, kind) {
     flagSummary.innerHTML = buildFlagSummaryHTML(reviewFlags[v.ref]);
     flagSummary.style.display = 'block';
     flagForm.style.display = 'none';
-    updateIssueCount();
+    updateChangeCount();
   });
 
   flagForm.querySelector('.review-clear-btn').addEventListener('click', () => {
@@ -6398,7 +6397,7 @@ function makeCard(v, kind) {
     flagSummary.innerHTML = '';
     flagSummary.style.display = 'none';
     flagForm.style.display = 'none';
-    updateIssueCount();
+    updateChangeCount();
   });
 
   return card;
@@ -6434,6 +6433,7 @@ function countChanges() {
   LESSON_CONFIG.verses.forEach(v => {
     if (state[v.ref] !== v.defaultSection || whyState[v.ref] !== originalWhy[v.ref] || reciterState[v.ref]) n++;
   });
+  n += Object.keys(reviewFlags).length;
   return n;
 }
 
@@ -6468,6 +6468,16 @@ function buildDiffPayload() {
 
 function downloadDiffJson() {
   const payload = buildDiffPayload();
+
+  // Include flagged issues
+  const issues = [];
+  Object.entries(reviewFlags).forEach(([ref, flag]) => {
+    issues.push({ ref: ref, type: flag.type.toLowerCase(), note: flag.note || '' });
+  });
+  if (issues.length) payload.issues = issues;
+
+  payload.total_changes = payload.changes.length + issues.length;
+
   if (payload.total_changes === 0) { showToast("No changes to save"); return; }
   const text = JSON.stringify(payload, null, 2);
   const blob = new Blob([text], { type: "application/json" });
@@ -6614,14 +6624,6 @@ function buildFlagSummaryHTML(flag) {
   return html;
 }
 
-function updateIssueCount() {
-  const count = Object.keys(reviewFlags).length;
-  const btn = document.getElementById('export-issues-btn');
-  const countEl = document.getElementById('issue-count');
-  if (btn) btn.style.display = count > 0 ? 'inline-block' : 'none';
-  if (countEl) countEl.textContent = count;
-}
-
 function exportReviewFlags() {
   if (!Object.keys(reviewFlags).length) return;
   const lines = [`lesson: ${pickerSlug}`, `date: ${new Date().toISOString().slice(0,10)}`, 'issues:'];
@@ -6740,10 +6742,7 @@ function showSummary() {
   // Action buttons
   html += `<div class="summary-actions">`;
   if (totalChanges > 0) {
-    html += `<button class="btn-download" onclick="downloadDiffJson(); closeSummary()">Download Selections (${totalChanges})</button>`;
-  }
-  if (issueEntries.length > 0) {
-    html += `<button class="btn-download-issues" onclick="exportReviewFlags(); closeSummary()">Export Issues (${issueEntries.length})</button>`;
+    html += `<button class="btn-download" onclick="downloadDiffJson(); closeSummary()">Download All (${totalChanges})</button>`;
   }
   html += `<button class="btn-close" onclick="closeSummary()">Close</button>`;
   html += `</div>`;
