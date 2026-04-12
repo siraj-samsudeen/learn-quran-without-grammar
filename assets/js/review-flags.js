@@ -242,7 +242,7 @@
     dlBtn.setAttribute('title', 'Download issues as YAML file');
     dlBtn.style.display = count > 0 ? 'inline-flex' : 'none';
     dlBtn.addEventListener('click', function () {
-      downloadAsYAML(lessonSlug);
+      downloadAsJSON(lessonSlug);
     });
 
     // Insert: [download] [copy] [lang toggle] [translation toggle]
@@ -275,41 +275,39 @@
     }
   }
 
-  function buildYAML(lessonSlug) {
+  function buildPayload(lessonSlug) {
     var flags = loadFlags();
     var lessonFlags = flags[lessonSlug] || {};
-    if (!Object.keys(lessonFlags).length) return '';
+    if (!Object.keys(lessonFlags).length) return null;
 
-    var lines = [];
-    lines.push('lesson: ' + lessonSlug);
-    lines.push('date: ' + new Date().toISOString().slice(0, 10));
-    lines.push('issues:');
-
-    // Sort by card ID (verse ref sort)
+    var issues = [];
     var keys = Object.keys(lessonFlags).sort(function (a, b) {
       return a.localeCompare(b);
     });
 
     keys.forEach(function (cardId) {
       var flag = lessonFlags[cardId];
-      lines.push('  - card: "' + cardId + '"');
-      lines.push('    type: ' + flag.type.toLowerCase());
-      if (flag.note) {
-        lines.push('    note: "' + flag.note.replace(/"/g, '\\"') + '"');
-      }
+      var entry = { card: cardId, type: flag.type.toLowerCase() };
+      if (flag.note) entry.note = flag.note;
+      issues.push(entry);
     });
 
-    return lines.join('\n') + '\n';
+    return {
+      lesson: lessonSlug,
+      date: new Date().toISOString().slice(0, 10),
+      issues: issues
+    };
   }
 
-  function downloadAsYAML(lessonSlug) {
-    var yaml = buildYAML(lessonSlug);
-    if (!yaml) return;
-    var blob = new Blob([yaml], { type: 'text/yaml' });
+  function downloadAsJSON(lessonSlug) {
+    var payload = buildPayload(lessonSlug);
+    if (!payload) return;
+    var json = JSON.stringify(payload, null, 2);
+    var blob = new Blob([json], { type: 'application/json' });
     var url = URL.createObjectURL(blob);
     var a = document.createElement('a');
     a.href = url;
-    a.download = lessonSlug + '-review.yaml';
+    a.download = lessonSlug + '-review.json';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -317,17 +315,18 @@
   }
 
   function copyIssuesToClipboard(lessonSlug) {
-    var yaml = buildYAML(lessonSlug);
-    if (!yaml) return;
+    var payload = buildPayload(lessonSlug);
+    if (!payload) return;
+    var json = JSON.stringify(payload, null, 2);
 
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(yaml).then(function () {
+      navigator.clipboard.writeText(json).then(function () {
         showReviewToast('Copied! Paste into WhatsApp or email.');
       }).catch(function () {
-        fallbackCopy(yaml);
+        fallbackCopy(json);
       });
     } else {
-      fallbackCopy(yaml);
+      fallbackCopy(json);
     }
   }
 
