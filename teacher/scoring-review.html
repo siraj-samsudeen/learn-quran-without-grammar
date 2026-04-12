@@ -18,7 +18,7 @@
   .pill:hover { border-color:#2563eb; }
   .sep { width:1px; height:20px; background:#e2e8f0; margin:0 4px; }
 
-  .legend { display:flex; gap:14px; margin-bottom:12px; font-size:0.75rem; color:#64748b; }
+  .legend { display:none; }
   .legend-item { display:flex; align-items:center; gap:4px; }
   .legend-dot { width:10px; height:10px; border-radius:2px; }
 
@@ -331,6 +331,8 @@ function getVal(v, col) {
   if (col==='t1') return t1(v);
   if (col==='t2') return t2(v);
   if (col==='ref') return v.ref;
+  if (col==='lesson') return v.lesson;
+  if (col==='root') return v.root;
   if (col==='role') return v.role;
   if (['len','frq','dom'].includes(col)) return v.t1[col];
   if (['sto','fam','fit'].includes(col)) return v.t2[col];
@@ -364,6 +366,8 @@ function render() {
 }
 
 const COLS = [
+  {key:'lesson',label:'L',num:true},
+  {key:'root',label:'Root',num:false},
   {key:'ref',label:'Ref',num:false},
   {key:'form',label:'Form',num:false},
   {key:'role',label:'Role',num:false},
@@ -375,8 +379,6 @@ const COLS = [
   {key:'sto',label:'Sto',num:true},
   {key:'fam',label:'Fam',num:true},
   {key:'fit',label:'Fit',num:true},
-  {key:'t1',label:'T1',num:true},
-  {key:'t2',label:'T2',num:true},
   {key:'adj',label:'Adj',num:true},
   {key:'total',label:'Total',num:true},
 ];
@@ -395,6 +397,8 @@ function verseRow(v) {
   const total = tot(v); const c = cls(total);
   const rid = v.ref.replace(':','-');
   let html = `<tr class="data-row" onclick="toggleDetail('${rid}')">`;
+  html += `<td class="num">${v.lesson}</td>`;
+  html += `<td class="arabic" style="font-size:0.85rem">${v.rootAr}</td>`;
   html += `<td><strong>${v.ref}</strong></td>`;
   html += `<td class="arabic">${v.form}</td>`;
   html += `<td><span class="badge badge-${v.role}">${v.role}</span></td>`;
@@ -408,8 +412,6 @@ function verseRow(v) {
     const s = v.t2[d]; const note = v.notes[d].replace(/'/g,"\u2019");
     html += `<td class="num"><span class="cell" style="background:${cellColor(s)}" onmouseenter="showTip(event,'${note}')" onmouseleave="hideTip()">${s}</span></td>`;
   });
-  html += `<td class="num" style="font-weight:700;color:#2563eb">${t1(v)}</td>`;
-  html += `<td class="num" style="font-weight:700;color:#7c3aed">${t2(v)}</td>`;
   html += `<td class="num" onclick="event.stopPropagation()"><input class="adj-input" type="number" min="-5" max="5" value="${adj[v.ref]}" onchange="adjChange('${v.ref}',this.value)"></td>`;
   html += `<td class="num tot" style="color:${clsColor(c)}">${total}</td>`;
   html += `</tr>`;
