@@ -19,8 +19,6 @@ audio_download: /assets/audio/lessons/lesson-{{NN}}/lesson-{{NN}}-full.mp3
   <span class="map-arrow">→</span>
   <a href="#review-in-order">Review</a>
   <span class="map-arrow">→</span>
-  <a href="#summary">Summary</a>
-  <span class="map-arrow">→</span>
   <a href="#quick-check">Quiz</a>
 </div>
 
@@ -106,28 +104,6 @@ Root letters: **{{أ ل ه}}** ({{alif lām hā}})
 ## Review Shuffled
 
 <div id="shuffle-player"></div>
-
----
-[↑ Back to top](#lesson-map)
-
-## Summary {#summary}
-
-#### Words
-
-| Arabic | English | Meaning |
-|--------|---------|---------|
-| {{All words from both root tables, Root 1 first, then Root 2, same order}} |
-{: .root-table}
-
-#### Phrases
-
-<div class="phrases-list" markdown="0">
-  <div class="phrase-row">
-    <div class="phrase-arabic">{{Arabic}} · ({{SS:AA}})</div>
-    <div class="phrase-english">{{English}}</div>
-  </div>
-  {{Repeat for all phrases in section order}}
-</div>
 
 ---
 [↑ Back to top](#lesson-map)

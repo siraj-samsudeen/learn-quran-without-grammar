@@ -83,8 +83,6 @@ _Tamil translation not yet available in this new architecture. Tamil content wil
   <a href="#learning">Spot the Roots</a>
   <span class="map-arrow">→</span>
   <a href="#review-shuffled">Review</a>
-  <span class="map-arrow">→</span>
-  <a href="#summary">Summary</a>
 </div>
 
 <p class="lesson-links"><a href="{{ '/course_intro' | relative_url }}">Course introduction</a> · <a href="{{ '/how-to-study' | relative_url }}">How to study a lesson</a></p>
@@ -226,85 +224,6 @@ You've met all 8 words. Now see if you can spot them on your own — try to pred
 
 ---
 
-## Summary
-{: #summary}
-
-<div class="lang-en" markdown="1">
-
-#### Words
-
-| Arabic | English | Meaning |
-| --- | --- | --- |
-| إِلَٰه | *ilāh* | god |
-| آلِهَة | *āliha* | gods |
-| اللَّهُمَّ | *Allāhumma* | O Allah |
-| كَبِير | *kabīr* | great, big |
-| أَكْبَرُ | *Akbar* | greater, greatest |
-| كُبْرَى | *kubrā* | greatest |
-| كَبُرَ | *kabura* | was great |
-| اسْتَكْبَرَ | *istakbara* | was arrogant |
-{: .root-table}
-
-</div>
-
-#### Phrases
-{: .lang-en}
-
-<div class="phrases-list" markdown="0">
-  <div class="phrase-row">
-    <div class="phrase-arabic">هُوَ اللَّهُ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ</div>
-    <div class="phrase-english">He is Allah — there is no god but He <span class="phrase-ref">(59:22)</span></div>
-  </div>
-  <div class="phrase-row">
-    <div class="phrase-arabic">وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ أَتَتَّخِذُ أَصْنَامًا آلِهَةً</div>
-    <div class="phrase-english">And when Ibrahim said to his father: Do you take idols as gods? <span class="phrase-ref">(6:74)</span></div>
-  </div>
-  <div class="phrase-row">
-    <div class="phrase-arabic">قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ</div>
-    <div class="phrase-english">Say: O Allah, King of kings <span class="phrase-ref">(3:26)</span></div>
-  </div>
-  <div class="phrase-row">
-    <div class="phrase-arabic">هُوَ كَبِيرٌ. أَنَا أَكْبَرُ مِنْهُ. وَاللَّهُ أَكْبَرُ مِنَّا، بَلْ، مِنْ كُلِّ شَيْءٍ</div>
-    <div class="phrase-english">He is great. I am greater than him. And Allah is greater than us — rather, than everything.</div>
-  </div>
-  <div class="phrase-row">
-    <div class="phrase-arabic">فَأَرَاهُ الْآيَةَ الْكُبْرَىٰ</div>
-    <div class="phrase-english">He showed him the greatest sign <span class="phrase-ref">(79:20)</span></div>
-  </div>
-  <div class="phrase-row">
-    <div class="phrase-arabic">كَبُرَ مَقْتًا عِندَ اللَّهِ أَن تَقُولُوا مَا لَا تَفْعَلُونَ</div>
-    <div class="phrase-english">Greatly hateful in the sight of Allah — that you say what you do not do <span class="phrase-ref">(61:3)</span></div>
-  </div>
-  <div class="phrase-row">
-    <div class="phrase-arabic">وَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ فَسَجَدُوا إِلَّا إِبْلِيسَ أَبَىٰ وَاسْتَكْبَرَ وَكَانَ مِنَ الْكَافِرِينَ</div>
-    <div class="phrase-english">When We said to the angels: Prostrate — they all did, except Iblis. He refused and was arrogant. <span class="phrase-ref">(2:34)</span></div>
-  </div>
-  <div class="phrase-row">
-    <div class="phrase-arabic">وَلَذِكْرُ اللَّهِ أَكْبَرُ</div>
-    <div class="phrase-english">And the remembrance of Allah is greater <span class="phrase-ref">(29:45)</span></div>
-  </div>
-  <div class="phrase-row">
-    <div class="phrase-arabic">كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ</div>
-    <div class="phrase-english">How great a word that comes from their mouths <span class="phrase-ref">(18:5)</span></div>
-  </div>
-  <div class="phrase-row">
-    <div class="phrase-arabic">قَالَ بَلْ فَعَلَهُ كَبِيرُهُمْ هَٰذَا فَاسْأَلُوهُمْ إِن كَانُوا يَنطِقُونَ</div>
-    <div class="phrase-english">He said: Rather, their chief did it — ask them, if they can speak <span class="phrase-ref">(21:63)</span></div>
-  </div>
-  <div class="phrase-row">
-    <div class="phrase-arabic">وَإِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ لَا إِلَٰهَ إِلَّا هُوَ الرَّحْمَٰنُ الرَّحِيمُ</div>
-    <div class="phrase-english">Your God is one God — there is no god but He, the Most Merciful <span class="phrase-ref">(2:163)</span></div>
-  </div>
-  <div class="phrase-row">
-    <div class="phrase-arabic">فَأَمَّا عَادٌ فَاسْتَكْبَرُوا فِي الْأَرْضِ بِغَيْرِ الْحَقِّ وَقَالُوا مَنْ أَشَدُّ مِنَّا قُوَّةً</div>
-    <div class="phrase-english">As for ʿĀd, they were arrogant on earth and said: Who is mightier than us? <span class="phrase-ref">(41:15)</span></div>
-  </div>
-</div>
-
-[↑ Back to top](#lesson-map)
-{: .back-to-top}
-
----
 
 ## Closing
 {: #closing}
