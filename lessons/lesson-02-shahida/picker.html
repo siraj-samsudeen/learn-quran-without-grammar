@@ -426,6 +426,121 @@
   .review-clear-btn:hover { border-color: #dc2626; color: #dc2626; }
   .action-btn.export-issues { background: #f59e0b; }
 
+  /* ============ SUMMARY MODAL ============ */
+  .summary-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 200;
+    justify-content: center;
+    align-items: center;
+  }
+  .summary-overlay.open { display: flex; }
+  .summary-modal {
+    background: white;
+    border-radius: 12px;
+    max-width: 720px;
+    width: 92vw;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  }
+  .summary-modal h2 {
+    margin: 0 0 1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .summary-section {
+    margin-bottom: 1.25rem;
+  }
+  .summary-section-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.4rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .summary-section-title.learn { color: var(--learn); }
+  .summary-section-title.practice { color: var(--practice); }
+  .summary-section-title.recall { color: var(--recall); }
+  .summary-section-title.pipeline { color: var(--pipeline); }
+  .summary-section-title.reciter { color: #0369a1; }
+  .summary-section-title.issues { color: #dc2626; }
+  .summary-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  .summary-ref {
+    font-weight: 700;
+    min-width: 3.5rem;
+    color: var(--ink);
+  }
+  .summary-form {
+    font-family: 'Amiri', serif;
+    font-size: 1rem;
+    min-width: 5rem;
+  }
+  .summary-detail {
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+  .summary-reciter {
+    color: #0369a1;
+    font-weight: 500;
+    font-size: 0.8rem;
+  }
+  .summary-issue-badge {
+    display: inline-block;
+    padding: 0.05rem 0.4rem;
+    border-radius: 8px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 1px solid;
+    vertical-align: middle;
+  }
+  .summary-issue-note {
+    color: var(--ink);
+    font-size: 0.82rem;
+  }
+  .summary-empty {
+    color: var(--muted);
+    font-style: italic;
+    font-size: 0.85rem;
+    padding: 0.3rem 0;
+  }
+  .summary-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+  .summary-actions button {
+    padding: 0.6rem 1.4rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: inherit;
+    border: none;
+    transition: opacity 0.15s;
+  }
+  .summary-actions button:hover { opacity: 0.9; }
+  .summary-actions .btn-download { background: #2563eb; color: white; }
+  .summary-actions .btn-download-issues { background: #f59e0b; color: white; }
+  .summary-actions .btn-close { background: #f3f4f6; color: var(--muted); border: 1px solid var(--border); }
+
   /* ============ CARD AUDIO ============ */
   .card-audio {
     display: flex;
@@ -484,7 +599,7 @@
       </div>
       <div class="btn-row">
         <button class="action-btn export-issues" onclick="exportReviewFlags()" id="export-issues-btn" style="display:none">Export Issues <span class="change-count" id="issue-count">0</span></button>
-        <button class="action-btn download" onclick="downloadDiffJson()">Download Selections <span class="change-count" id="change-count">0</span></button>
+        <button class="action-btn download" onclick="showSummary()">Review &amp; Download <span class="change-count" id="change-count">0</span></button>
       </div>
     </div>
 
@@ -494,6 +609,10 @@
 </div>
 
 <div class="toast" id="toast">✓ Copied to clipboard</div>
+
+<div class="summary-overlay" id="summary-overlay">
+  <div class="summary-modal" id="summary-modal"></div>
+</div>
 
 <script>
 // ============ LESSON CONFIG (edit this section to template a new lesson) ============
@@ -1122,6 +1241,111 @@ function exportReviewFlags() {
   URL.revokeObjectURL(url);
   showToast(`Downloaded ${pickerSlug}-review.yaml (${keys.length} issues)`);
 }
+
+// ============ SUMMARY MODAL ============
+function showSummary() {
+  const modal = document.getElementById('summary-modal');
+  const overlay = document.getElementById('summary-overlay');
+
+  // Build sections by category
+  const sections = { learn: [], practice: [], recall: [], pipeline: [] };
+  LESSON_CONFIG.verses.forEach(v => {
+    const sec = state[v.ref];
+    if (sec !== 'none') sections[sec].push(v);
+  });
+
+  // Reciter choices
+  const reciterEntries = Object.entries(reciterState);
+  const reciterLookup = {};
+  RECITERS.forEach(r => { reciterLookup[r.folder] = r.name; });
+
+  // Issues
+  const issueEntries = Object.entries(reviewFlags);
+
+  let html = `<h2>Review Summary — Lesson ${LESSON_CONFIG.lesson_number}</h2>`;
+
+  // Selection sections
+  ['learn', 'practice', 'recall', 'pipeline'].forEach(sec => {
+    const verses = sections[sec];
+    if (!verses.length) return;
+    const label = sec.charAt(0).toUpperCase() + sec.slice(1);
+    const target = LESSON_CONFIG.targets[sec];
+    const countLabel = target ? `${verses.length}/${target}` : verses.length;
+    html += `<div class="summary-section">`;
+    html += `<div class="summary-section-title ${sec}">${label} (${countLabel})</div>`;
+    verses.forEach(v => {
+      const reciter = reciterState[v.ref] ? `<span class="summary-reciter">${reciterLookup[reciterState[v.ref]] || reciterState[v.ref]}</span>` : '';
+      const changed = state[v.ref] !== v.defaultSection ? `<span class="summary-detail">was ${v.defaultSection}</span>` : '';
+      html += `<div class="summary-item">
+        <span class="summary-ref">${v.ref}</span>
+        <span class="summary-form">${v.form}</span>
+        ${reciter}
+        ${changed}
+      </div>`;
+    });
+    html += `</div>`;
+  });
+
+  // Reciter choices (highlight those without a section change)
+  if (reciterEntries.length) {
+    html += `<div class="summary-section">`;
+    html += `<div class="summary-section-title reciter">Reciter Choices (${reciterEntries.length})</div>`;
+    reciterEntries.forEach(([ref, folder]) => {
+      const v = LESSON_CONFIG.verses.find(x => x.ref === ref);
+      const name = reciterLookup[folder] || folder;
+      html += `<div class="summary-item">
+        <span class="summary-ref">${ref}</span>
+        <span class="summary-form">${v ? v.form : ''}</span>
+        <span class="summary-reciter">${name}</span>
+      </div>`;
+    });
+    html += `</div>`;
+  }
+
+  // Flagged issues
+  if (issueEntries.length) {
+    html += `<div class="summary-section">`;
+    html += `<div class="summary-section-title issues">Flagged Issues (${issueEntries.length})</div>`;
+    issueEntries.forEach(([ref, flag]) => {
+      const c = FLAG_COLORS[flag.type] || FLAG_COLORS.Other;
+      html += `<div class="summary-item">
+        <span class="summary-ref">${ref}</span>
+        <span class="summary-issue-badge" style="background:${c.bg};color:${c.text};border-color:${c.border}">${flag.type}</span>
+        <span class="summary-issue-note">${flag.note ? escapeHtml(flag.note) : ''}</span>
+      </div>`;
+    });
+    html += `</div>`;
+  }
+
+  // No changes at all?
+  const totalChanges = countChanges();
+  if (totalChanges === 0 && issueEntries.length === 0) {
+    html += `<div class="summary-empty">No changes or issues to export.</div>`;
+  }
+
+  // Action buttons
+  html += `<div class="summary-actions">`;
+  if (totalChanges > 0) {
+    html += `<button class="btn-download" onclick="downloadDiffJson(); closeSummary()">Download Selections (${totalChanges})</button>`;
+  }
+  if (issueEntries.length > 0) {
+    html += `<button class="btn-download-issues" onclick="exportReviewFlags(); closeSummary()">Export Issues (${issueEntries.length})</button>`;
+  }
+  html += `<button class="btn-close" onclick="closeSummary()">Close</button>`;
+  html += `</div>`;
+
+  modal.innerHTML = html;
+  overlay.classList.add('open');
+}
+
+function closeSummary() {
+  document.getElementById('summary-overlay').classList.remove('open');
+}
+
+// Close on overlay click (outside modal)
+document.getElementById('summary-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeSummary();
+});
 
 // ============ INIT ============
 render();
