@@ -160,7 +160,8 @@ learn-quran-without-grammar/
 │   ├── rules/                       ← Path-scoped rules (auto-load by file type)
 │   │   ├── lesson-content.md        ← Rules for lessons/*.md
 │   │   ├── audio-conventions.md     ← Rules for tools/ and assets/audio/
-│   │   └── jekyll-html.md           ← Rules for layouts and all .md
+│   │   ├── jekyll-html.md           ← Rules for layouts and all .md
+│   │   └── scoring-t2-guidelines.md ← LLM Tier 2 scoring: discreet, honest, purposeful
 │   └── skills/
 │       ├── lesson-pipeline.md       ← Master workflow: 5 phases + gates
 │       ├── add-lesson.md            ← Step-by-step lesson file creation
@@ -173,15 +174,26 @@ learn-quran-without-grammar/
 │           ├── lesson-template.md   ← Fill-in-the-blanks lesson skeleton
 │           └── lesson-audio-template.yaml ← Fill-in-the-blanks YAML skeleton
 ├── lessons/
-│   └── lesson-01-allahu-akbar/       ← Lesson 1: roots إِلَٰه + كَبُرَ (index.md + picker-config.json)
+│   ├── lesson-01-allahu-akbar/       ← L1: roots إِلَٰه + كَبُرَ (LIVE)
+│   ├── lesson-02-shahida/            ← L2: root شَهِدَ (LIVE)
+│   ├── lesson-03-rasul/              ← L3: root رَسُول (picker ready)
+│   ├── lesson-04-salah/              ← L4: roots حَيِيَ + صَلَاة (picker ready)
+│   ├── lesson-05-falaha/             ← L5: root فَلَحَ (picker ready)
+│   ├── lesson-06-khayr/              ← L6: roots خَيْر + نَوْم (picker ready)
+│   └── lesson-07-qama/              ← L7: root قَامَ (picker ready)
 ├── docs/
 │   ├── LESSON-PLAN.md               ← Lesson structure, selection process, teacher preferences
-│   ├── SCORING.md                   ← 8-dimension verse scoring algorithm
+│   ├── SCORING.md                   ← 7-dimension verse scoring algorithm (3 tiers)
 │   ├── AUDIO-SYSTEM.md              ← Audio pipeline design (TTS, build, web player)
 │   ├── ARCHITECTURE.md              ← Tech stack, deployment, roadmap
 │   ├── roots/                       ← Root inventory JSONs (forms + verses + scores)
-│   │   ├── ilah.json                ← Root إِلَٰه — all forms, verses, scores
-│   │   └── kabura.json              ← Root كَبُرَ — all forms, verses, scores
+│   │   ├── ilah.json, kabura.json   ← L1 roots (fully scored)
+│   │   ├── shahida.json             ← L2 root (fully scored)
+│   │   ├── rasul.json               ← L3 root (T2 scored)
+│   │   ├── hayiya.json, salah.json  ← L4 roots (T2 scored)
+│   │   ├── falaha.json              ← L5 root (T2 scored)
+│   │   ├── khayr.json, nawm.json    ← L6 roots (T2 scored)
+│   │   └── qama.json               ← L7 root (T2 scored)
 │   ├── app/
 │   │   ├── PLATFORM-PRD.md          ← ⭐ Platform vision, architecture, phased roadmap (READ THIS for app work)
 │   │   ├── RESEARCH-SYNTHESIS.md    ← Companion app research (TTS, SRS, tech, competitors)
@@ -201,6 +213,10 @@ learn-quran-without-grammar/
 │   │   ├── quran-uthmani.txt        ← Tanzil full Uthmani text (matches our arabic_full)
 │   │   └── quran-trans-en-sahih.txt ← Saheeh International draft translations
 │   ├── build-root-inventory.py      ← ⭐ Builds docs/roots/*.json from local data (replaces corpus scraping)
+│   ├── generate-picker.py           ← Generates picker HTML from root JSONs
+│   ├── merge-t2-scores.py           ← Merges LLM Tier 2 scores into root JSONs
+│   ├── generate-lesson-summary.py   ← Generates lesson-summary.json from root data
+│   ├── build-dashboard.py           ← Rebuilds teacher/local.html with embedded data
 │   ├── auto-timestamps.py           ← Word-level timestamps from Quran Foundation API
 │   ├── find-audio-fragment.py       ← Silence-based timestamp fallback (5 reciters)
 │   ├── build-lesson-audio.py        ← Builds MP3s + manifest from YAML
@@ -208,16 +224,17 @@ learn-quran-without-grammar/
 │   ├── validate-lesson-consistency.py ← Checks YAML/MD sync, reciters, timestamps
 │   ├── check-text-audio-sync.py     ← Verifies text matches audio
 │   ├── verify-verse.py              ← Verifies verse text against API
-│   ├── fetch-verses.py              ← Legacy ad-hoc verse fetch (no longer on critical path)
 │   ├── generate-tts.sh              ← Single-sentence English TTS
 │   ├── generate-tts-batch.py        ← Batch English TTS generation
 │   ├── install-hooks.sh             ← First-time setup: venv + git hooks (run once per clone)
 │   ├── requirements.txt             ← Python deps for hooks/validator
 │   ├── validate-lesson.sh           ← Wrapper that runs the validator in tools/.venv
+│   ├── selection-picker/            ← Picker HTML template + README
 │   ├── hooks/
 │   │   └── pre-commit               ← Tracked git hook — activated via `core.hooksPath`
 │   └── lesson-audio/
-│       └── lesson-01.yaml           ← Audio definition for Lesson 1
+│       ├── lesson-01.yaml           ← Audio definition for Lesson 1
+│       └── lesson-02.yaml           ← Audio definition for Lesson 2
 ├── assets/
 │   ├── audio/lessons/lesson-01/     ← EN + Tamil MP3 pairs, manifest.json
 │   ├── css/style.css                ← Includes Tamil font + lang toggle CSS
@@ -226,6 +243,12 @@ learn-quran-without-grammar/
 │       ├── language-toggle.js       ← EN ↔ Tamil toggle (floating, localStorage)
 │       ├── shuffle-player.js        ← Language-aware audio + text display
 │       └── translation-toggle.js    ← Hide/show translations
+├── teacher/
+│   ├── local.html                   ← ⭐ Teacher Dashboard — pipeline governance (open locally)
+│   ├── pipeline-status.json         ← Pipeline phase tracking for all 7 lessons
+│   ├── lesson-summary.json          ← Auto-generated lesson stats
+│   ├── scoring-review.html          ← Scoring review dashboard (L1–L7)
+│   └── index.md                     ← Teacher tools index (Jekyll page)
 ├── _layouts/ (default.html, lesson.html)
 ├── index.md, course_intro.md, how-to-study.md
 └── _config.yml
@@ -246,8 +269,27 @@ Run once after `git clone`. Idempotent — safe to re-run if deps change or the 
 ## Key Commands
 
 ```bash
+# Teacher Dashboard — open the pipeline governance dashboard
+open teacher/local.html
+
 # Deploy
 git add . && git commit -m "message" && git push   # Live in ~1 minute
+
+# Generate picker for a lesson
+python3 tools/generate-picker.py --lesson 3 \
+  --anchor "أَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ ٱللَّهِ" \
+  --current-root rasul \
+  --recall-root ilah --recall-root kabura --recall-root shahida \
+  --output lessons/lesson-03-rasul/picker.html
+
+# Merge LLM Tier 2 scores into root inventory
+python3 tools/merge-t2-scores.py --root rasul --scores /tmp/rasul-scores.json
+
+# Regenerate lesson summary stats
+python3 tools/generate-lesson-summary.py --output teacher/lesson-summary.json
+
+# Rebuild dashboard with latest data
+python3 tools/build-dashboard.py
 
 # Audio timestamps (primary — 7 reciters)
 python tools/auto-timestamps.py 29:45 --reciter Abdul_Basit_Murattal_192kbps --words 15-17
@@ -291,7 +333,10 @@ python3 tools/build-root-inventory.py \
 | **Publishing a page** | `.claude/skills/jekyll-publish-page.md` |
 | **Starting a new lesson** | Check `docs/selections/pipeline.md` FIRST, then `docs/roots/` for existing inventory |
 | **Building a new root inventory** | `docs/decisions/ADR-009-local-root-pipeline.md` + `tools/build-root-inventory.py` (offline, local data only — do NOT scrape corpus.quran.com) |
-| **Scoring verses** | `docs/SCORING.md` — 8-dimension algorithm |
+| **Scoring verses** | `docs/SCORING.md` + `.claude/rules/scoring-t2-guidelines.md` |
+| **Generating a picker** | `tools/generate-picker.py --help` + `tools/selection-picker/README.md` |
+| **Teacher dashboard** | `open teacher/local.html` — pipeline governance for all 7 lessons |
+| **Pipeline status** | `teacher/pipeline-status.json` — phase tracking (scoring→picking→writing→…→published) |
 | **Adding Tamil to a lesson** | `CLAUDE.md` → "Multi-Language Support" section above |
 | **Platform vision & roadmap** | `docs/app/PLATFORM-PRD.md` — ⭐ start here for all app/platform work |
 | **Companion app research** | `docs/app/RESEARCH-SYNTHESIS.md` → then specific `research-*.md` files |
