@@ -292,11 +292,14 @@
       issues.push(entry);
     });
 
-    return {
+    var payload = {
       lesson: lessonSlug,
       date: new Date().toISOString().slice(0, 10),
       issues: issues
     };
+    var username = getUsername();
+    if (username) payload.username = username;
+    return payload;
   }
 
   function downloadAsJSON(lessonSlug) {
@@ -380,6 +383,22 @@
       html += ' <span class="review-summary-note">' + escapeHTML(flag.note) + '</span>';
     }
     return html;
+  }
+
+  // ── Username ──────────────────────────────────────────────────
+
+  var USERNAME_KEY = 'lqwg-username';
+
+  function getUsername() {
+    var name = localStorage.getItem(USERNAME_KEY);
+    if (name) return name;
+    name = prompt('Enter your name (saved for future reviews):');
+    if (name && name.trim()) {
+      name = name.trim();
+      localStorage.setItem(USERNAME_KEY, name);
+      return name;
+    }
+    return null;
   }
 
   // ── Helpers ───────────────────────────────────────────────────

@@ -331,233 +331,6 @@
     opacity: 1;
   }
 
-  /* ============ REVIEW FLAGS ============ */
-  .card { position: relative; }
-  .review-flag-btn {
-    position: absolute;
-    top: 0.6rem;
-    right: 0.6rem;
-    background: #f3f4f6;
-    border: 1px solid var(--border);
-    font-size: 1.1rem;
-    cursor: pointer;
-    color: var(--muted);
-    padding: 0.2rem 0.5rem;
-    line-height: 1;
-    border-radius: 6px;
-    transition: color 0.15s, background 0.15s, border-color 0.15s;
-    z-index: 2;
-  }
-  .review-flag-btn:hover { color: var(--learning); background: #ccfbf1; border-color: var(--learning); }
-  .review-flag-btn.flagged { color: #dc2626; background: #fef2f2; border-color: #fca5a5; }
-  .review-flag-btn.flagged:hover { background: #fee2e2; border-color: #dc2626; }
-  .card.review-flagged { border-right: 4px solid #f59e0b; }
-  .review-flag-summary {
-    display: none;
-    margin-top: 0.5rem;
-    padding: 0.35rem 0.6rem;
-    background: #fefce8;
-    border-radius: 6px;
-    font-size: 0.82rem;
-    line-height: 1.5;
-  }
-  .review-summary-badge {
-    display: inline-block;
-    padding: 0.1rem 0.5rem;
-    border-radius: 10px;
-    font-size: 0.72rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    border: 1px solid;
-    vertical-align: middle;
-  }
-  .review-summary-note { color: var(--ink); margin-left: 0.3rem; vertical-align: middle; }
-  .review-flag-form {
-    display: none;
-    margin-top: 0.5rem;
-    padding: 0.75rem;
-    background: #fafaf9;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-  }
-  .review-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.5rem; }
-  .review-chip {
-    padding: 0.25rem 0.7rem;
-    border-radius: 14px;
-    border: 1px solid var(--border);
-    background: white;
-    font-size: 0.78rem;
-    font-weight: 500;
-    font-family: inherit;
-    cursor: pointer;
-    color: var(--muted);
-    transition: all 0.15s;
-  }
-  .review-chip:hover { border-color: var(--learning); color: var(--learning); }
-  .review-chip.active[data-type="Arabic"] { background: #e8f5ee; border-color: #1a6b3a; color: #1a6b3a; }
-  .review-chip.active[data-type="Eng"]    { background: #e8f0fe; border-color: #1a56db; color: #1a56db; }
-  .review-chip.active[data-type="Audio"]  { background: #fef3c7; border-color: #b8930a; color: #92740a; }
-  .review-chip.active[data-type="Hook"]   { background: #fce7f3; border-color: #be185d; color: #be185d; }
-  .review-chip.active[data-type="Other"]  { background: #f3f4f6; border-color: #636366; color: #636366; }
-  .review-note-input {
-    display: block; width: 100%; padding: 0.4rem 0.6rem;
-    border: 1px solid var(--border); border-radius: 6px;
-    font-size: 0.85rem; font-family: inherit; color: var(--ink);
-    background: white; margin-bottom: 0.5rem;
-  }
-  .review-note-input:focus { outline: none; border-color: var(--learning); box-shadow: 0 0 0 2px rgba(15,118,110,0.15); }
-  .review-form-actions { display: flex; gap: 0.4rem; }
-  .review-save-btn, .review-clear-btn {
-    padding: 0.3rem 0.8rem; border-radius: 6px; font-size: 0.78rem;
-    font-weight: 500; font-family: inherit; cursor: pointer; border: 1px solid; transition: all 0.15s;
-  }
-  .review-save-btn { background: var(--learning); color: white; border-color: var(--learning); }
-  .review-save-btn:hover { opacity: 0.9; }
-  .review-clear-btn { background: white; color: var(--muted); border-color: var(--border); }
-  .review-clear-btn:hover { border-color: #dc2626; color: #dc2626; }
-  .action-btn.export-issues { background: #f59e0b; }
-
-  /* ============ SUMMARY MODAL ============ */
-  .summary-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.45);
-    z-index: 200;
-    justify-content: center;
-    align-items: center;
-  }
-  .summary-overlay.open { display: flex; }
-  .summary-modal {
-    background: white;
-    border-radius: 12px;
-    max-width: 720px;
-    width: 92vw;
-    max-height: 85vh;
-    overflow-y: auto;
-    padding: 1.5rem 2rem;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-  }
-  .summary-modal h2 {
-    margin: 0 0 1rem;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--ink);
-  }
-  .summary-section {
-    margin-bottom: 1.25rem;
-  }
-  .summary-section-title {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 0.4rem;
-    padding-bottom: 0.3rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .summary-section-title.learning { color: var(--learning); }
-  .summary-section-title.recall { color: var(--recall); }
-  .summary-section-title.pipeline { color: var(--pipeline); }
-  .summary-section-title.reciter { color: #0369a1; }
-  .summary-section-title.issues { color: #dc2626; }
-  .summary-item {
-    display: flex;
-    align-items: baseline;
-    gap: 0.5rem;
-    padding: 0.25rem 0;
-    font-size: 0.85rem;
-    line-height: 1.5;
-  }
-  .summary-ref {
-    font-weight: 700;
-    min-width: 3.5rem;
-    color: var(--ink);
-  }
-  .summary-form {
-    font-family: 'Amiri', serif;
-    font-size: 1rem;
-    min-width: 5rem;
-  }
-  .summary-detail {
-    color: var(--muted);
-    font-size: 0.82rem;
-  }
-  .summary-reciter {
-    color: #0369a1;
-    font-weight: 500;
-    font-size: 0.8rem;
-  }
-  .summary-issue-badge {
-    display: inline-block;
-    padding: 0.05rem 0.4rem;
-    border-radius: 8px;
-    font-size: 0.68rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    border: 1px solid;
-    vertical-align: middle;
-  }
-  .summary-issue-note {
-    color: var(--ink);
-    font-size: 0.82rem;
-  }
-  .summary-empty {
-    color: var(--muted);
-    font-style: italic;
-    font-size: 0.85rem;
-    padding: 0.3rem 0;
-  }
-  .summary-actions {
-    display: flex;
-    gap: 0.5rem;
-    justify-content: flex-end;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border);
-  }
-  .summary-actions button {
-    padding: 0.6rem 1.4rem;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    cursor: pointer;
-    font-family: inherit;
-    border: none;
-    transition: opacity 0.15s;
-  }
-  .summary-actions button:hover { opacity: 0.9; }
-  .summary-actions .btn-download { background: #2563eb; color: white; }
-  .summary-actions .btn-download-issues { background: #f59e0b; color: white; }
-  .summary-actions .btn-close { background: #f3f4f6; color: var(--muted); border: 1px solid var(--border); }
-
-  /* ============ CARD AUDIO ============ */
-  .card-audio {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin: 0.4rem 0 0.2rem;
-  }
-  .card-audio audio {
-    height: 28px;
-    flex: 1;
-    max-width: 320px;
-    border-radius: 4px;
-  }
-  .reciter-select {
-    font-size: 0.72rem;
-    padding: 0.2rem 0.4rem;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    background: white;
-    color: var(--muted);
-    font-family: inherit;
-    cursor: pointer;
-  }
-  .reciter-select:focus { outline: none; border-color: var(--learning); }
-  .reciter-select.reciter-chosen { border-color: var(--learning); background: var(--learning-bg); color: var(--learning); font-weight: 600; }
-
   /* ============ RESPONSIVE ============ */
   @media (max-width: 900px) {
     .layout { grid-template-columns: 1fr; }
@@ -588,7 +361,8 @@
         <div class="counter" id="counter-pipeline"><span class="label">Pipeline</span> <span class="count">0</span></div>
       </div>
       <div class="btn-row">
-        <button class="action-btn download" onclick="showSummary()">Review &amp; Download <span class="change-count" id="change-count">0</span></button>
+        <button class="action-btn copy" onclick="copyJson()">Copy JSON</button>
+        <button class="action-btn download" onclick="downloadDiffJson()">Download Diff <span class="change-count" id="change-count">0</span></button>
       </div>
     </div>
 
@@ -598,10 +372,6 @@
 </div>
 
 <div class="toast" id="toast">✓ Copied to clipboard</div>
-
-<div class="summary-overlay" id="summary-overlay">
-  <div class="summary-modal" id="summary-modal"></div>
-</div>
 
 <script>
 // ============ LESSON CONFIG (edit this section to template a new lesson) ============
@@ -713,7 +483,7 @@ const LESSON_CONFIG = {
       "ref": "2:143",
       "group": "rasul",
       "form": "رَسُول",
-      "score": 0,
+      "score": 8.0,
       "defaultSection": "none",
       "arabic": "وَكَذَٰلِكَ جَعَلْنَٰكُمْ أُمَّةً وَسَطًا لِّتَكُونُوا۟ شُهَدَآءَ عَلَى ٱلنَّاسِ وَيَكُونَ ٱلرَّسُولُ عَلَيْكُمْ شَهِيدًا ۗ وَمَا جَعَلْنَا ٱلْقِبْلَةَ ٱلَّتِى كُنتَ عَلَيْهَآ إِلَّا لِنَعْلَمَ مَن يَتَّبِعُ ٱلرَّسُولَ مِمَّن يَنقَلِبُ عَلَىٰ عَقِبَيْهِ ۚ وَإِن كَانَتْ لَكَبِيرَةً إِلَّا عَلَى ٱلَّذِينَ هَدَى ٱللَّهُ ۗ وَمَا كَانَ ٱللَّهُ لِيُضِيعَ إِيمَٰنَكُمْ ۚ إِنَّ ٱللَّهَ بِٱلنَّاسِ لَرَءُوفٌ رَّحِيمٌ",
       "english": "And thus we have made you a just community that you will be witnesses over the people and the Messenger will be a witness over you. And We did not make the qiblah which you used to face except that We might make evident who would follow the Messenger from who would turn back on his heels. And indeed, it is difficult except for those whom Allah has guided. And never would Allah have caused you to lose your faith. Indeed Allah is, to the people, Kind and Merciful.",
@@ -821,7 +591,7 @@ const LESSON_CONFIG = {
       "ref": "3:53",
       "group": "rasul",
       "form": "رَسُول",
-      "score": 0,
+      "score": 22.0,
       "defaultSection": "none",
       "arabic": "رَبَّنَآ ءَامَنَّا بِمَآ أَنزَلْتَ وَٱتَّبَعْنَا ٱلرَّسُولَ فَٱكْتُبْنَا مَعَ ٱلشَّٰهِدِينَ",
       "english": "Our Lord, we have believed in what You revealed and have followed the messenger Jesus, so register us among the witnesses [to truth].\"",
@@ -833,7 +603,7 @@ const LESSON_CONFIG = {
       "ref": "3:81",
       "group": "rasul",
       "form": "رَسُول",
-      "score": 0,
+      "score": 25.0,
       "defaultSection": "none",
       "arabic": "وَإِذْ أَخَذَ ٱللَّهُ مِيثَٰقَ ٱلنَّبِيِّـۧنَ لَمَآ ءَاتَيْتُكُم مِّن كِتَٰبٍ وَحِكْمَةٍ ثُمَّ جَآءَكُمْ رَسُولٌ مُّصَدِّقٌ لِّمَا مَعَكُمْ لَتُؤْمِنُنَّ بِهِۦ وَلَتَنصُرُنَّهُۥ ۚ قَالَ ءَأَقْرَرْتُمْ وَأَخَذْتُمْ عَلَىٰ ذَٰلِكُمْ إِصْرِى ۖ قَالُوٓا۟ أَقْرَرْنَا ۚ قَالَ فَٱشْهَدُوا۟ وَأَنَا۠ مَعَكُم مِّنَ ٱلشَّٰهِدِينَ",
       "english": "And [recall, O People of the Scripture], when Allah took the covenant of the prophets, [saying], \"Whatever I give you of the Scripture and wisdom and then there comes to you a messenger confirming what is with you, you [must] believe in him and support him.\" [Allah] said, \"Have you acknowledged and taken upon that My commitment?\" They said, \"We have acknowledged it.\" He said, \"Then bear witness, and I am with you among the witnesses.\"",
@@ -869,8 +639,8 @@ const LESSON_CONFIG = {
       "ref": "3:132",
       "group": "rasul",
       "form": "رَسُول",
-      "score": 0,
-      "defaultSection": "none",
+      "score": 37.0,
+      "defaultSection": "learning",
       "arabic": "وَأَطِيعُوا۟ ٱللَّهَ وَٱلرَّسُولَ لَعَلَّكُمْ تُرْحَمُونَ",
       "english": "And obey Allah and the Messenger that you may obtain mercy.",
       "why": "",
@@ -1049,7 +819,7 @@ const LESSON_CONFIG = {
       "ref": "4:69",
       "group": "rasul",
       "form": "رَسُول",
-      "score": 0,
+      "score": 27.0,
       "defaultSection": "none",
       "arabic": "وَمَن يُطِعِ ٱللَّهَ وَٱلرَّسُولَ فَأُو۟لَٰٓئِكَ مَعَ ٱلَّذِينَ أَنْعَمَ ٱللَّهُ عَلَيْهِم مِّنَ ٱلنَّبِيِّـۧنَ وَٱلصِّدِّيقِينَ وَٱلشُّهَدَآءِ وَٱلصَّٰلِحِينَ ۚ وَحَسُنَ أُو۟لَٰٓئِكَ رَفِيقًا",
       "english": "And whoever obeys Allah and the Messenger - those will be with the ones upon whom Allah has bestowed favor of the prophets, the steadfast affirmers of truth, the martyrs and the righteous. And excellent are those as companions.",
@@ -1061,7 +831,7 @@ const LESSON_CONFIG = {
       "ref": "4:79",
       "group": "rasul",
       "form": "أَرْسَلَ",
-      "score": 0,
+      "score": 34.0,
       "defaultSection": "none",
       "arabic": "مَّآ أَصَابَكَ مِنْ حَسَنَةٍ فَمِنَ ٱللَّهِ ۖ وَمَآ أَصَابَكَ مِن سَيِّئَةٍ فَمِن نَّفْسِكَ ۚ وَأَرْسَلْنَٰكَ لِلنَّاسِ رَسُولًا ۚ وَكَفَىٰ بِٱللَّهِ شَهِيدًا",
       "english": "What comes to you of good is from Allah, but what comes to you of evil, [O man], is from yourself. And We have sent you, [O Muhammad], to the people as a messenger, and sufficient is Allah as Witness.",
@@ -1589,7 +1359,7 @@ const LESSON_CONFIG = {
       "ref": "7:59",
       "group": "rasul",
       "form": "أَرْسَلَ",
-      "score": 0,
+      "score": 12.0,
       "defaultSection": "none",
       "arabic": "لَقَدْ أَرْسَلْنَا نُوحًا إِلَىٰ قَوْمِهِۦ فَقَالَ يَٰقَوْمِ ٱعْبُدُوا۟ ٱللَّهَ مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُۥٓ إِنِّىٓ أَخَافُ عَلَيْكُمْ عَذَابَ يَوْمٍ عَظِيمٍ",
       "english": "We had certainly sent Noah to his people, and he said, \"O my people, worship Allah; you have no deity other than Him. Indeed, I fear for you the punishment of a tremendous Day.",
@@ -1733,8 +1503,8 @@ const LESSON_CONFIG = {
       "ref": "7:104",
       "group": "rasul",
       "form": "رَسُول",
-      "score": 0,
-      "defaultSection": "none",
+      "score": 40.0,
+      "defaultSection": "learning",
       "arabic": "وَقَالَ مُوسَىٰ يَٰفِرْعَوْنُ إِنِّى رَسُولٌ مِّن رَّبِّ ٱلْعَٰلَمِينَ",
       "english": "And Moses said, \"O Pharaoh, I am a messenger from the Lord of the worlds",
       "why": "",
@@ -3065,8 +2835,8 @@ const LESSON_CONFIG = {
       "ref": "19:19",
       "group": "rasul",
       "form": "رَسُول",
-      "score": 0,
-      "defaultSection": "none",
+      "score": 44.0,
+      "defaultSection": "learning",
       "arabic": "قَالَ إِنَّمَآ أَنَا۠ رَسُولُ رَبِّكِ لِأَهَبَ لَكِ غُلَٰمًا زَكِيًّا",
       "english": "He said, \"I am only the messenger of your Lord to give you [news of] a pure boy.\"",
       "why": "",
@@ -3605,8 +3375,8 @@ const LESSON_CONFIG = {
       "ref": "26:107",
       "group": "rasul",
       "form": "رَسُول",
-      "score": 0,
-      "defaultSection": "none",
+      "score": 42.0,
+      "defaultSection": "learning",
       "arabic": "إِنِّى لَكُمْ رَسُولٌ أَمِينٌ",
       "english": "Indeed, I am to you a trustworthy messenger.",
       "why": "",
@@ -5477,7 +5247,7 @@ const LESSON_CONFIG = {
       "ref": "63:1",
       "group": "rasul",
       "form": "رَسُول",
-      "score": 0,
+      "score": 33.0,
       "defaultSection": "none",
       "arabic": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ إِذَا جَآءَكَ ٱلْمُنَٰفِقُونَ قَالُوا۟ نَشْهَدُ إِنَّكَ لَرَسُولُ ٱللَّهِ ۗ وَٱللَّهُ يَعْلَمُ إِنَّكَ لَرَسُولُهُۥ وَٱللَّهُ يَشْهَدُ إِنَّ ٱلْمُنَٰفِقِينَ لَكَٰذِبُونَ",
       "english": "When the hypocrites come to you, [O Muhammad], they say, \"We testify that you are the Messenger of Allah.\" And Allah knows that you are His Messenger, and Allah testifies that the hypocrites are liars.",
@@ -5609,8 +5379,8 @@ const LESSON_CONFIG = {
       "ref": "69:40",
       "group": "rasul",
       "form": "رَسُول",
-      "score": 0,
-      "defaultSection": "none",
+      "score": 37.0,
+      "defaultSection": "learning",
       "arabic": "إِنَّهُۥ لَقَوْلُ رَسُولٍ كَرِيمٍ",
       "english": "[That] indeed, the Qur'an is the word of a noble Messenger.",
       "why": "",
@@ -5693,8 +5463,8 @@ const LESSON_CONFIG = {
       "ref": "73:16",
       "group": "rasul",
       "form": "رَسُول",
-      "score": 0,
-      "defaultSection": "none",
+      "score": 44.0,
+      "defaultSection": "learning",
       "arabic": "فَعَصَىٰ فِرْعَوْنُ ٱلرَّسُولَ فَأَخَذْنَٰهُ أَخْذًا وَبِيلًا",
       "english": "But Pharaoh disobeyed the messenger, so We seized him with a ruinous seizure.",
       "why": "",
@@ -5717,8 +5487,8 @@ const LESSON_CONFIG = {
       "ref": "77:11",
       "group": "rasul",
       "form": "رَسُول",
-      "score": 0,
-      "defaultSection": "none",
+      "score": 36.0,
+      "defaultSection": "learning",
       "arabic": "وَإِذَا ٱلرُّسُلُ أُقِّتَتْ",
       "english": "And when the messengers' time has come...",
       "why": "",
@@ -5729,8 +5499,8 @@ const LESSON_CONFIG = {
       "ref": "81:19",
       "group": "rasul",
       "form": "رَسُول",
-      "score": 0,
-      "defaultSection": "none",
+      "score": 41.0,
+      "defaultSection": "learning",
       "arabic": "إِنَّهُۥ لَقَوْلُ رَسُولٍ كَرِيمٍ",
       "english": "[That] indeed, the Qur'an is a word [conveyed by] a noble messenger",
       "why": "",
@@ -5765,8 +5535,8 @@ const LESSON_CONFIG = {
       "ref": "98:2",
       "group": "rasul",
       "form": "رَسُول",
-      "score": 0,
-      "defaultSection": "none",
+      "score": 38.0,
+      "defaultSection": "learning",
       "arabic": "رَسُولٌ مِّنَ ٱللَّهِ يَتْلُوا۟ صُحُفًا مُّطَهَّرَةً",
       "english": "A Messenger from Allah, reciting purified scriptures",
       "why": "",
@@ -5777,8 +5547,8 @@ const LESSON_CONFIG = {
       "ref": "105:3",
       "group": "rasul",
       "form": "أَرْسَلَ",
-      "score": 0,
-      "defaultSection": "none",
+      "score": 41.0,
+      "defaultSection": "learning",
       "arabic": "وَأَرْسَلَ عَلَيْهِمْ طَيْرًا أَبَابِيلَ",
       "english": "And He sent against them birds in flocks,",
       "why": "",
@@ -5789,8 +5559,8 @@ const LESSON_CONFIG = {
       "ref": "21:87",
       "group": "ilah",
       "form": "إِلَٰه",
-      "score": 12,
-      "defaultSection": "recall",
+      "score": 11.0,
+      "defaultSection": "pipeline",
       "arabic": "وَذَا ٱلنُّونِ إِذ ذَّهَبَ مُغَـٰضِبًا فَظَنَّ أَن لَّن نَّقْدِرَ عَلَيْهِ فَنَادَىٰ فِى ٱلظُّلُمَـٰتِ أَن لَّآ إِلَـٰهَ إِلَّآ أَنتَ سُبْحَـٰنَكَ إِنِّى كُنتُ مِنَ ٱلظَّـٰلِمِينَ",
       "english": "He called out in the darkness: There is no god but You, glory be to You, I was among the wrongdoers",
       "why": "Story of Yunus in the whale — one of the most beloved du'as. Too long for beginner's first phrase but excellent for later lessons. Audio already downloaded.",
@@ -5801,7 +5571,7 @@ const LESSON_CONFIG = {
       "ref": "7:59",
       "group": "ilah",
       "form": "إِلَٰه",
-      "score": 10,
+      "score": 8.4,
       "defaultSection": "pipeline",
       "arabic": "يَا قَوْمِ اعْبُدُوا اللَّهَ مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ",
       "english": "O my people, worship Allah — you have no god other than Him",
@@ -5813,8 +5583,8 @@ const LESSON_CONFIG = {
       "ref": "114:1-3",
       "group": "ilah",
       "form": "إِلَٰه",
-      "score": 11,
-      "defaultSection": "recall",
+      "score": 11.0,
+      "defaultSection": "pipeline",
       "arabic": "قُلْ أَعُوذُ بِرَبِّ النَّاسِ · مَلِكِ النَّاسِ · إِلَٰهِ النَّاسِ",
       "english": "Say: I seek refuge in the Lord of mankind, the King of mankind, the God of mankind",
       "why": "Surah An-Nas — recited every day in salah and before sleep. Could revisit in a surah-based lesson. Audio already downloaded.",
@@ -5825,7 +5595,7 @@ const LESSON_CONFIG = {
       "ref": "47:19",
       "group": "ilah",
       "form": "إِلَٰه",
-      "score": 9,
+      "score": 8.0,
       "defaultSection": "pipeline",
       "arabic": "فَٱعْلَمْ أَنَّهُۥ لَآ إِلَـٰهَ إِلَّا ٱللَّهُ وَٱسْتَغْفِرْ لِذَنۢبِكَ",
       "english": "Know that there is no god but Allah, and ask forgiveness for your sins",
@@ -5837,7 +5607,7 @@ const LESSON_CONFIG = {
       "ref": "18:110",
       "group": "ilah",
       "form": "إِلَٰه",
-      "score": 8,
+      "score": 6.0,
       "defaultSection": "pipeline",
       "arabic": "قُلْ إِنَّمَآ أَنَا۠ بَشَرٌ مِّثْلُكُمْ يُوحَىٰٓ إِلَىَّ أَنَّمَآ إِلَـٰهُكُمْ إِلَـٰهٌ وَٰحِدٌ",
       "english": "Say: I am only a human like you — it is revealed to me that your God is one God",
@@ -5849,8 +5619,8 @@ const LESSON_CONFIG = {
       "ref": "7:138",
       "group": "ilah",
       "form": "إِلَٰه",
-      "score": 11,
-      "defaultSection": "pipeline",
+      "score": 13.0,
+      "defaultSection": "recall",
       "arabic": "قَالُوا۟ يَـٰمُوسَى ٱجْعَل لَّنَآ إِلَـٰهًا كَمَا لَهُمْ ءَالِهَةٌ",
       "english": "They said: O Musa, make for us a god like the gods they have",
       "why": "Israelites' shocking request — right after being saved from Pharaoh. Both singular and plural in one phrase. Audio already downloaded.",
@@ -5861,7 +5631,7 @@ const LESSON_CONFIG = {
       "ref": "28:38",
       "group": "ilah",
       "form": "إِلَٰه",
-      "score": 10,
+      "score": 12.0,
       "defaultSection": "pipeline",
       "arabic": "وَقَالَ فِرْعَوْنُ يَـٰٓأَيُّهَا ٱلْمَلَأُ مَا عَلِمْتُ لَكُم مِّنْ إِلَـٰهٍ غَيْرِى",
       "english": "Pharaoh said: O chiefs, I know of no god for you other than myself",
@@ -5873,8 +5643,8 @@ const LESSON_CONFIG = {
       "ref": "3:18",
       "group": "ilah",
       "form": "إِلَٰه",
-      "score": 11,
-      "defaultSection": "none",
+      "score": 32.0,
+      "defaultSection": "recall",
       "arabic": "شَهِدَ ٱللَّهُ أَنَّهُۥ لَآ إِلَـٰهَ إِلَّا هُوَ وَٱلْمَلَـٰٓئِكَةُ وَأُو۟لُوا۟ ٱلْعِلْمِ",
       "english": "Allah bears witness that there is no god but He, and the angels, and those with knowledge",
       "why": "Allah Himself bearing witness — perfect for shahādah lesson. Cross-root with شَهِدَ.",
@@ -5885,7 +5655,7 @@ const LESSON_CONFIG = {
       "ref": "21:22",
       "group": "ilah",
       "form": "آلِهَة",
-      "score": 7,
+      "score": 3.0,
       "defaultSection": "pipeline",
       "arabic": "لَوْ كَانَ فِيهِمَآ ءَالِهَةٌ إِلَّا ٱللَّهُ لَفَسَدَتَا",
       "english": "Had there been gods in them (heavens and earth) other than Allah, they would have been ruined",
@@ -5897,7 +5667,7 @@ const LESSON_CONFIG = {
       "ref": "20:14",
       "group": "ilah",
       "form": "إِلَٰه",
-      "score": 11,
+      "score": 11.0,
       "defaultSection": "pipeline",
       "arabic": "إِنَّنِىٓ أَنَا ٱللَّهُ لَآ إِلَـٰهَ إِلَّآ أَنَا۠ فَٱعْبُدْنِى وَأَقِمِ ٱلصَّلَوٰةَ لِذِكْرِىٓ",
       "english": "Indeed, I am Allah — there is no god but Me, so worship Me and establish prayer for My remembrance",
@@ -5909,7 +5679,7 @@ const LESSON_CONFIG = {
       "ref": "37:35",
       "group": "ilah",
       "form": "إِلَٰه",
-      "score": 8,
+      "score": 8.0,
       "defaultSection": "pipeline",
       "arabic": "إِنَّهُمْ كَانُوٓا۟ إِذَا قِيلَ لَهُمْ لَآ إِلَـٰهَ إِلَّا ٱللَّهُ يَسْتَكْبِرُونَ",
       "english": "When it was said to them: There is no god but Allah — they were arrogant",
@@ -5921,7 +5691,7 @@ const LESSON_CONFIG = {
       "ref": "38:5",
       "group": "ilah",
       "form": "إِلَٰه",
-      "score": 10,
+      "score": 11.0,
       "defaultSection": "pipeline",
       "arabic": "أَجَعَلَ ٱلْـَٔالِهَةَ إِلَـٰهًا وَٰحِدًا ۖ إِنَّ هَـٰذَا لَشَىْءٌ عُجَابٌ",
       "english": "Has he made the gods into one God? This is truly an astonishing thing!",
@@ -5933,7 +5703,7 @@ const LESSON_CONFIG = {
       "ref": "39:46",
       "group": "ilah",
       "form": "اللَّهُمَّ",
-      "score": 7,
+      "score": 1.0,
       "defaultSection": "pipeline",
       "arabic": "قُلِ ٱللَّهُمَّ فَاطِرَ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ عَـٰلِمَ ٱلْغَيْبِ وَٱلشَّهَـٰدَةِ أَنتَ تَحْكُمُ بَيْنَ عِبَادِكَ",
       "english": "Say: O Allah, Creator of the heavens and earth, Knower of the unseen and witnessed, You judge between Your servants",
@@ -5945,7 +5715,7 @@ const LESSON_CONFIG = {
       "ref": "6:78",
       "group": "kabura",
       "form": "أَكْبَرُ",
-      "score": 12,
+      "score": 16.0,
       "defaultSection": "recall",
       "arabic": "فَلَمَّا رَأَى ٱلشَّمْسَ بَازِغَةً قَالَ هَـٰذَا رَبِّى هَـٰذَآ أَكْبَرُ",
       "english": "When he saw the sun rising, he said: This is my Lord — this is greater",
@@ -5957,7 +5727,7 @@ const LESSON_CONFIG = {
       "ref": "87:12",
       "group": "kabura",
       "form": "كُبْرَى",
-      "score": 12,
+      "score": 12.0,
       "defaultSection": "recall",
       "arabic": "ٱلَّذِى يَصْلَى ٱلنَّارَ ٱلْكُبْرَىٰ",
       "english": "The one who will burn in the greatest Fire",
@@ -5969,7 +5739,7 @@ const LESSON_CONFIG = {
       "ref": "2:219",
       "group": "kabura",
       "form": "كَبِير + أَكْبَرُ",
-      "score": 5,
+      "score": 1.0,
       "defaultSection": "pipeline",
       "arabic": "يَسْـَٔلُونَكَ عَنِ ٱلْخَمْرِ وَٱلْمَيْسِرِ ۖ قُلْ فِيهِمَآ إِثْمٌ كَبِيرٌ وَمَنَـٰفِعُ لِلنَّاسِ وَإِثْمُهُمَآ أَكْبَرُ مِن نَّفْعِهِمَا",
       "english": "They ask you about wine and gambling. Say: In them is great sin and benefit for people, but their sin is greater than their benefit",
@@ -5981,7 +5751,7 @@ const LESSON_CONFIG = {
       "ref": "40:35",
       "group": "kabura",
       "form": "كَبُرَ",
-      "score": 7,
+      "score": 3.0,
       "defaultSection": "pipeline",
       "arabic": "كَبُرَ مَقْتًا عِندَ ٱللَّهِ وَعِندَ ٱلَّذِينَ ءَامَنُوا۟",
       "english": "Greatly hateful in the sight of Allah and in the sight of those who believe",
@@ -5993,7 +5763,7 @@ const LESSON_CONFIG = {
       "ref": "9:72",
       "group": "kabura",
       "form": "أَكْبَرُ",
-      "score": 8,
+      "score": 4.0,
       "defaultSection": "pipeline",
       "arabic": "وَرِضْوَٰنٌ مِّنَ ٱللَّهِ أَكْبَرُ ۚ ذَٰلِكَ هُوَ ٱلْفَوْزُ ٱلْعَظِيمُ",
       "english": "And approval from Allah is greater — that is the great triumph",
@@ -6005,8 +5775,8 @@ const LESSON_CONFIG = {
       "ref": "12:26",
       "group": "shahida",
       "form": "شَهِدَ + شَاهِد",
-      "score": 10,
-      "defaultSection": "recall",
+      "score": 9.1,
+      "defaultSection": "pipeline",
       "arabic": "وَشَهِدَ شَاهِدٌ مِّنْ أَهْلِهَا",
       "english": "And a witness from her family testified",
       "why": "Yusuf story — two forms (شَهِدَ + شَاهِد) in one phrase. Initially picked for Practice, dropped to pipeline because Practice already had enough شَاهِد coverage. High priority for future lesson.",
@@ -6017,7 +5787,7 @@ const LESSON_CONFIG = {
       "ref": "36:65",
       "group": "shahida",
       "form": "تَشْهَدُ (شَهِدَ conjugation)",
-      "score": 9,
+      "score": 7.7,
       "defaultSection": "pipeline",
       "arabic": "ٱلْيَوْمَ نَخْتِمُ عَلَىٰٓ أَفْوَٰهِهِمْ وَتُكَلِّمُنَآ أَيْدِيهِمْ وَتَشْهَدُ أَرْجُلُهُم",
       "english": "Today We seal their mouths, their hands speak to Us, and their feet testify",
@@ -6029,7 +5799,7 @@ const LESSON_CONFIG = {
       "ref": "22:17",
       "group": "shahida",
       "form": "شَهِيد",
-      "score": 5,
+      "score": 2.1,
       "defaultSection": "pipeline",
       "arabic": "إِنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍ شَهِيدٌ",
       "english": "Indeed Allah is Witness over everything",
@@ -6041,7 +5811,7 @@ const LESSON_CONFIG = {
       "ref": "3:98",
       "group": "shahida",
       "form": "شَهِيد",
-      "score": 5,
+      "score": 2.1,
       "defaultSection": "pipeline",
       "arabic": "وَٱللَّهُ شَهِيدٌ عَلَىٰ مَا تَعْمَلُونَ",
       "english": "Allah is Witness over what you do",
@@ -6053,8 +5823,8 @@ const LESSON_CONFIG = {
       "ref": "7:172",
       "group": "shahida",
       "form": "أَشْهَدَ (Form IV) + شَهِدْنَا",
-      "score": 11,
-      "defaultSection": "recall",
+      "score": 9.1,
+      "defaultSection": "none",
       "arabic": "وَأَشْهَدَهُمْ عَلَىٰٓ أَنفُسِهِمْ أَلَسْتُ بِرَبِّكُمْ ۖ قَالُوا۟ بَلَىٰ شَهِدْنَآ",
       "english": "And He made them testify against themselves: 'Am I not your Lord?' They said: 'Yes — we bear witness.'",
       "why": "Primordial covenant — the origin story of the shahādah itself. Introduces Form IV (أَشْهَدَ). Recommended as Learn 5 but teacher chose 5:117 instead. HIGHEST-priority future Learn candidate — it's the ONLY verse that introduces Form IV alongside a new 1st-person-plural conjugation.",
@@ -6065,8 +5835,8 @@ const LESSON_CONFIG = {
       "ref": "85:3",
       "group": "shahida",
       "form": "شَاهِد + مَشْهُود",
-      "score": 10,
-      "defaultSection": "none",
+      "score": 13.0,
+      "defaultSection": "recall",
       "arabic": "وَشَاهِدٍۢ وَمَشْهُودٍ",
       "english": "By the witness and the witnessed",
       "why": "Ultra-short — two forms in one phrase (active + passive participle). Juz' 30, Surah Al-Burūj. Strong future Learn candidate if/when مَشْهُود is introduced.",
@@ -6077,7 +5847,7 @@ const LESSON_CONFIG = {
       "ref": "2:143",
       "group": "shahida",
       "form": "شُهَدَاء + شَهِيد",
-      "score": 7,
+      "score": 5.6,
       "defaultSection": "none",
       "arabic": "لِّتَكُونُوا۟ شُهَدَآءَ عَلَى ٱلنَّاسِ وَيَكُونَ ٱلرَّسُولُ عَلَيْكُمْ شَهِيدًا",
       "english": "So that you may be witnesses over mankind, and the Messenger a witness over you",
@@ -6089,7 +5859,7 @@ const LESSON_CONFIG = {
       "ref": "16:89",
       "group": "shahida",
       "form": "شَهِيد",
-      "score": 7,
+      "score": 6.3,
       "defaultSection": "none",
       "arabic": "وَجِئْنَا بِكَ شَهِيدًا عَلَىٰ هَٰٓؤُلَآءِ",
       "english": "And We brought you as a witness over these",
@@ -6101,8 +5871,8 @@ const LESSON_CONFIG = {
       "ref": "48:28",
       "group": "shahida",
       "form": "شَهِيد",
-      "score": 8,
-      "defaultSection": "none",
+      "score": 14.7,
+      "defaultSection": "recall",
       "arabic": "وَكَفَىٰ بِٱللَّهِ شَهِيدًا",
       "english": "Allah is sufficient as Witness",
       "why": "Exact same phrase as 4:79 (Learn 3). Intentional duplicate refrain in the Qur'an. Could use in a future Practice for pattern repetition.",
@@ -6113,7 +5883,7 @@ const LESSON_CONFIG = {
       "ref": "41:53",
       "group": "shahida",
       "form": "شَهِيد",
-      "score": 5,
+      "score": 2.1,
       "defaultSection": "none",
       "arabic": "أَوَلَمْ يَكْفِ بِرَبِّكَ أَنَّهُۥ عَلَىٰ كُلِّ شَىْءٍ شَهِيدٌ",
       "english": "Is it not enough that your Lord is Witness over everything?",
@@ -6128,7 +5898,6 @@ const LESSON_CONFIG = {
 const state = {};         // ref -> section
 const whyState = {};      // ref -> current (possibly edited) why text
 const originalWhy = {};   // ref -> original why text (for dirty detection)
-const reciterState = {};  // ref -> chosen reciter folder (only set when teacher picks one)
 LESSON_CONFIG.verses.forEach(v => {
   state[v.ref] = v.defaultSection;
   whyState[v.ref] = v.why;
@@ -6259,7 +6028,7 @@ function makeCard(v, kind) {
   const rootBadge = v.group === "ilah" ? '<span class="badge root-ilah">Root: إِلَٰه</span>' :
                     v.group === "kabura" ? '<span class="badge root-kabura">Root: كَبُرَ</span>' : '';
 
-  // Buttons depend on kind: current-lesson gets Learning; recall groups get Recall only
+  // Buttons depend on kind: current-lesson gets Learn/Practice; recall groups get Recall only
   const buttons = kind === "current"
     ? `<button data-sec="none">None</button>
        <button data-sec="learning">Learning</button>
@@ -6270,16 +6039,7 @@ function makeCard(v, kind) {
 
   const whyEdited = whyState[v.ref] !== originalWhy[v.ref] ? "edited" : "";
 
-  const existingFlag = reviewFlags[v.ref];
-  const flagClass = existingFlag ? 'review-flag-btn flagged' : 'review-flag-btn';
-  const flagChar = existingFlag ? '\u2691' : '\u2690';
-  const flaggedClass = existingFlag ? ' review-flagged' : '';
-  const summaryDisplay = existingFlag ? 'block' : 'none';
-  const summaryHTML = existingFlag ? buildFlagSummaryHTML(existingFlag) : '';
-
-  card.className += flaggedClass;
   card.innerHTML = `
-    <button type="button" class="${flagClass}" title="Flag issue">${flagChar}</button>
     <div class="card-top">
       <div class="card-refs">
         <span class="ref">${v.ref}</span>
@@ -6290,17 +6050,9 @@ function makeCard(v, kind) {
       <div class="section-buttons" data-ref="${v.ref}">${buttons}</div>
     </div>
     <div class="arabic">${v.arabic}</div>
-    <div class="card-audio">
-      <audio controls preload="none" src="${buildAudioUrl(v.ref)}" data-ref="${v.ref}"></audio>
-      <select class="reciter-select" data-ref="${v.ref}">
-        ${RECITERS.map(r => `<option value="${r.folder}"${r.folder === currentReciter ? ' selected' : ''}>${r.name}</option>`).join('')}
-      </select>
-    </div>
     <div class="english">${v.english}</div>
     <span class="why-label">Remark (click to edit)</span>
     <div class="why ${whyEdited}" contenteditable="true" data-ref="${v.ref}">${escapeHtml(whyState[v.ref])}</div>
-    <div class="review-flag-summary" style="display:${summaryDisplay}">${summaryHTML}</div>
-    <div class="review-flag-form">${buildFlagFormHTML(existingFlag)}</div>
   `;
 
   card.querySelectorAll(".section-buttons button").forEach(btn => {
@@ -6316,77 +6068,6 @@ function makeCard(v, kind) {
     whyEl.classList.toggle("edited", whyState[v.ref] !== originalWhy[v.ref]);
   });
   whyEl.addEventListener("blur", () => { updateChangeCount(); });
-
-  // ── Reciter change ──
-  const reciterSelect = card.querySelector('.reciter-select');
-  const audioEl = card.querySelector('audio');
-  if (reciterState[v.ref]) {
-    reciterSelect.value = reciterState[v.ref];
-    reciterSelect.classList.add('reciter-chosen');
-    const [s, a] = v.ref.split(':');
-    audioEl.src = `https://everyayah.com/data/${reciterState[v.ref]}/${s.padStart(3,'0')}${a.padStart(3,'0')}.mp3`;
-  }
-  reciterSelect.addEventListener('change', () => {
-    const [surah, ayah] = v.ref.split(':');
-    const sss = surah.padStart(3, '0');
-    const aaa = ayah.padStart(3, '0');
-    reciterState[v.ref] = reciterSelect.value;
-    reciterSelect.classList.add('reciter-chosen');
-    audioEl.src = `https://everyayah.com/data/${reciterSelect.value}/${sss}${aaa}.mp3`;
-    audioEl.load();
-    updateChangeCount();
-  });
-
-  // ── Review flag events ──
-  const flagBtn = card.querySelector('.review-flag-btn');
-  const flagForm = card.querySelector('.review-flag-form');
-  const flagSummary = card.querySelector('.review-flag-summary');
-
-  flagBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const isOpen = flagForm.style.display === 'block';
-    if (isOpen) {
-      flagForm.style.display = 'none';
-      flagSummary.style.display = reviewFlags[v.ref] ? 'block' : 'none';
-    } else {
-      flagForm.style.display = 'block';
-      flagSummary.style.display = 'none';
-    }
-  });
-
-  flagForm.querySelectorAll('.review-chip').forEach(chip => {
-    chip.addEventListener('click', () => {
-      flagForm.querySelectorAll('.review-chip').forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-    });
-  });
-
-  flagForm.querySelector('.review-save-btn').addEventListener('click', () => {
-    const activeChip = flagForm.querySelector('.review-chip.active');
-    const noteInput = flagForm.querySelector('.review-note-input');
-    if (!activeChip) { noteInput.placeholder = 'Pick a category first!'; return; }
-    reviewFlags[v.ref] = { type: activeChip.dataset.type, note: noteInput.value.trim() };
-    saveReviewFlags();
-    flagBtn.textContent = '\u2691';
-    flagBtn.classList.add('flagged');
-    card.classList.add('review-flagged');
-    flagSummary.innerHTML = buildFlagSummaryHTML(reviewFlags[v.ref]);
-    flagSummary.style.display = 'block';
-    flagForm.style.display = 'none';
-    updateChangeCount();
-  });
-
-  flagForm.querySelector('.review-clear-btn').addEventListener('click', () => {
-    delete reviewFlags[v.ref];
-    saveReviewFlags();
-    flagBtn.textContent = '\u2690';
-    flagBtn.classList.remove('flagged');
-    card.classList.remove('review-flagged');
-    flagSummary.innerHTML = '';
-    flagSummary.style.display = 'none';
-    flagForm.style.display = 'none';
-    updateChangeCount();
-  });
 
   return card;
 }
@@ -6419,9 +6100,8 @@ function updateCounters() {
 function countChanges() {
   let n = 0;
   LESSON_CONFIG.verses.forEach(v => {
-    if (state[v.ref] !== v.defaultSection || whyState[v.ref] !== originalWhy[v.ref] || reciterState[v.ref]) n++;
+    if (state[v.ref] !== v.defaultSection || whyState[v.ref] !== originalWhy[v.ref]) n++;
   });
-  n += Object.keys(reviewFlags).length;
   return n;
 }
 
@@ -6431,41 +6111,46 @@ function updateChangeCount() {
   if (el) el.textContent = n;
 }
 
+// ============ USERNAME ============
+const USERNAME_KEY = 'lqwg-username';
+function getUsername() {
+  let name = localStorage.getItem(USERNAME_KEY);
+  if (name) return name;
+  name = prompt('Enter your name (saved for future sessions):');
+  if (name && name.trim()) {
+    name = name.trim();
+    localStorage.setItem(USERNAME_KEY, name);
+    return name;
+  }
+  return null;
+}
+
 function buildDiffPayload() {
   const changes = [];
   LESSON_CONFIG.verses.forEach(v => {
     const currentSection = state[v.ref];
     const remarkEdited = whyState[v.ref] !== originalWhy[v.ref];
     const sectionChanged = currentSection !== v.defaultSection;
-    const hasReciter = !!reciterState[v.ref];
-    if (sectionChanged || remarkEdited || hasReciter) {
+    if (sectionChanged || remarkEdited) {
       const entry = { ref: v.ref, form: v.form, group: v.group };
       if (sectionChanged) { entry.from = v.defaultSection; entry.to = currentSection; }
       if (remarkEdited) { entry.remark = whyState[v.ref]; }
-      if (hasReciter) { entry.reciter = reciterState[v.ref]; }
       changes.push(entry);
     }
   });
-  return {
+  const payload = {
     lesson: LESSON_CONFIG.lesson_number,
     timestamp: new Date().toISOString(),
     total_changes: changes.length,
     changes
   };
+  const username = getUsername();
+  if (username) payload.username = username;
+  return payload;
 }
 
 function downloadDiffJson() {
   const payload = buildDiffPayload();
-
-  // Include flagged issues
-  const issues = [];
-  Object.entries(reviewFlags).forEach(([ref, flag]) => {
-    issues.push({ ref: ref, type: flag.type.toLowerCase(), note: flag.note || '' });
-  });
-  if (issues.length) payload.issues = issues;
-
-  payload.total_changes = payload.changes.length + issues.length;
-
   if (payload.total_changes === 0) { showToast("No changes to save"); return; }
   const text = JSON.stringify(payload, null, 2);
   const blob = new Blob([text], { type: "application/json" });
@@ -6489,17 +6174,17 @@ function buildPayload() {
       if (whyState[v.ref] !== originalWhy[v.ref]) {
         entry.remark = whyState[v.ref];
       }
-      if (reciterState[v.ref]) {
-        entry.reciter = reciterState[v.ref];
-      }
       selections[sec].push(entry);
     }
   });
-  return {
+  const payload = {
     lesson: LESSON_CONFIG.lesson_number,
     anchor: LESSON_CONFIG.anchor,
     selections,
   };
+  const username = getUsername();
+  if (username) payload.username = username;
+  return payload;
 }
 
 async function copyJson() {
@@ -6526,231 +6211,8 @@ function showToast(text) {
   setTimeout(() => el.classList.remove("show"), 2000);
 }
 
-// ============ AUDIO ============
-const RECITERS = [
-  { name: 'Alafasy', folder: 'Alafasy_128kbps' },
-  { name: 'Husary', folder: 'Husary_128kbps' },
-  { name: 'Abdul Basit (Murattal)', folder: 'Abdul_Basit_Murattal_192kbps' },
-  { name: 'Abdul Basit (Mujawwad)', folder: 'Abdul_Basit_Mujawwad_128kbps' },
-  { name: 'Hani Ar-Rifai', folder: 'Hani_Rifai_192kbps' },
-  { name: 'Hudhaifi', folder: 'Hudhaify_128kbps' },
-  { name: 'Ash-Shatri', folder: 'Abu_Bakr_Ash-Shaatree_128kbps' },
-  { name: 'Al-Juhainy', folder: 'Abdullaah_3awwaad_Al-Juhaynee_128kbps' },
-  { name: 'Maher Al-Muaiqly', folder: 'MaherAlMuaiqly128kbps' },
-  { name: 'As-Sudais', folder: 'Abdurrahmaan_As-Sudais_192kbps' },
-  { name: 'Yasser Ad-Dussary', folder: 'Yasser_Ad-Dussary_128kbps' },
-];
-let currentReciter = 'Alafasy_128kbps';
-
-function buildAudioUrl(ref) {
-  const [surah, ayah] = ref.split(':');
-  const sss = surah.padStart(3, '0');
-  const aaa = ayah.padStart(3, '0');
-  return `https://everyayah.com/data/${currentReciter}/${sss}${aaa}.mp3`;
-}
-
-// Mutual exclusion: playing one audio pauses all others
-document.addEventListener('play', function(e) {
-  if (e.target.tagName !== 'AUDIO') return;
-  document.querySelectorAll('audio').forEach(a => { if (a !== e.target) a.pause(); });
-}, true);
-
-// ============ REVIEW FLAGS ============
-const REVIEW_STORAGE_KEY = 'lqwg-picker-review-flags';
-const FLAG_CATEGORIES = ['Arabic', 'Eng', 'Audio', 'Hook', 'Other'];
-const FLAG_COLORS = {
-  Arabic: { bg: '#e8f5ee', border: '#1a6b3a', text: '#1a6b3a' },
-  Eng:    { bg: '#e8f0fe', border: '#1a56db', text: '#1a56db' },
-  Audio:  { bg: '#fef3c7', border: '#b8930a', text: '#92740a' },
-  Hook:   { bg: '#fce7f3', border: '#be185d', text: '#be185d' },
-  Other:  { bg: '#f3f4f6', border: '#636366', text: '#636366' },
-};
-
-const pickerSlug = `lesson-${String(LESSON_CONFIG.lesson_number).padStart(2,'0')}-picker`;
-let reviewFlags = loadReviewFlags();
-
-function loadReviewFlags() {
-  try {
-    const raw = localStorage.getItem(REVIEW_STORAGE_KEY);
-    const all = raw ? JSON.parse(raw) : {};
-    return all[pickerSlug] || {};
-  } catch(e) { return {}; }
-}
-
-function saveReviewFlags() {
-  try {
-    const raw = localStorage.getItem(REVIEW_STORAGE_KEY);
-    const all = raw ? JSON.parse(raw) : {};
-    if (Object.keys(reviewFlags).length > 0) {
-      all[pickerSlug] = reviewFlags;
-    } else {
-      delete all[pickerSlug];
-    }
-    localStorage.setItem(REVIEW_STORAGE_KEY, JSON.stringify(all));
-  } catch(e) {}
-}
-
-function buildFlagFormHTML(existing) {
-  let html = '<div class="review-chips">';
-  FLAG_CATEGORIES.forEach(cat => {
-    const active = existing && existing.type === cat ? ' active' : '';
-    html += `<button type="button" class="review-chip${active}" data-type="${cat}">${cat}</button>`;
-  });
-  html += '</div>';
-  html += `<input type="text" class="review-note-input" placeholder="What's wrong?" value="${existing ? escapeHtml(existing.note) : ''}">`;
-  html += '<div class="review-form-actions">';
-  html += '<button type="button" class="review-save-btn">Save</button>';
-  html += '<button type="button" class="review-clear-btn">Clear</button>';
-  html += '</div>';
-  return html;
-}
-
-function buildFlagSummaryHTML(flag) {
-  const c = FLAG_COLORS[flag.type] || FLAG_COLORS.Other;
-  let html = `<span class="review-summary-badge" style="background:${c.bg};color:${c.text};border-color:${c.border}">${flag.type}</span>`;
-  if (flag.note) html += ` <span class="review-summary-note">${escapeHtml(flag.note)}</span>`;
-  return html;
-}
-
-function exportReviewFlags() {
-  if (!Object.keys(reviewFlags).length) return;
-  const lines = [`lesson: ${pickerSlug}`, `date: ${new Date().toISOString().slice(0,10)}`, 'issues:'];
-  const keys = Object.keys(reviewFlags).sort((a, b) => {
-    const [ca, va] = a.split(':').map(Number);
-    const [cb, vb] = b.split(':').map(Number);
-    return (ca - cb) || (va - vb);
-  });
-  keys.forEach(ref => {
-    const f = reviewFlags[ref];
-    lines.push(`  - card: "${ref}"`);
-    lines.push(`    type: ${f.type.toLowerCase()}`);
-    if (f.note) lines.push(`    note: "${f.note.replace(/"/g, '\\"')}"`);
-  });
-  const blob = new Blob([lines.join('\n') + '\n'], { type: 'text/yaml' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `${pickerSlug}-review.yaml`;
-  a.click();
-  URL.revokeObjectURL(url);
-  showToast(`Downloaded ${pickerSlug}-review.yaml (${keys.length} issues)`);
-}
-
-// ============ SUMMARY MODAL ============
-function showSummary() {
-  const modal = document.getElementById('summary-modal');
-  const overlay = document.getElementById('summary-overlay');
-
-  const reciterLookup = {};
-  RECITERS.forEach(r => { reciterLookup[r.folder] = r.name; });
-
-  // Only collect CHANGES
-  const sectionMoves = [];
-  const reciterPicks = [];
-  const remarkEdits = [];
-  LESSON_CONFIG.verses.forEach(v => {
-    if (state[v.ref] !== v.defaultSection) {
-      sectionMoves.push(v);
-    }
-    if (reciterState[v.ref]) {
-      reciterPicks.push(v);
-    }
-    if (whyState[v.ref] !== originalWhy[v.ref]) {
-      remarkEdits.push(v);
-    }
-  });
-  const issueEntries = Object.entries(reviewFlags);
-
-  let html = `<h2>Your Changes — Lesson ${LESSON_CONFIG.lesson_number}</h2>`;
-
-  // Section moves
-  if (sectionMoves.length) {
-    html += `<div class="summary-section">`;
-    html += `<div class="summary-section-title learning">Section Changes (${sectionMoves.length})</div>`;
-    sectionMoves.forEach(v => {
-      html += `<div class="summary-item">
-        <span class="summary-ref">${v.ref}</span>
-        <span class="summary-form">${v.form}</span>
-        <span class="summary-detail">${v.defaultSection} → <strong>${state[v.ref]}</strong></span>
-      </div>`;
-    });
-    html += `</div>`;
-  }
-
-  // Reciter picks
-  if (reciterPicks.length) {
-    html += `<div class="summary-section">`;
-    html += `<div class="summary-section-title reciter">Reciter Choices (${reciterPicks.length})</div>`;
-    reciterPicks.forEach(v => {
-      const name = reciterLookup[reciterState[v.ref]] || reciterState[v.ref];
-      html += `<div class="summary-item">
-        <span class="summary-ref">${v.ref}</span>
-        <span class="summary-form">${v.form}</span>
-        <span class="summary-reciter">${name}</span>
-      </div>`;
-    });
-    html += `</div>`;
-  }
-
-  // Remark edits
-  if (remarkEdits.length) {
-    html += `<div class="summary-section">`;
-    html += `<div class="summary-section-title pipeline">Remark Edits (${remarkEdits.length})</div>`;
-    remarkEdits.forEach(v => {
-      html += `<div class="summary-item">
-        <span class="summary-ref">${v.ref}</span>
-        <span class="summary-form">${v.form}</span>
-        <span class="summary-detail">${escapeHtml(whyState[v.ref]).substring(0, 80)}${whyState[v.ref].length > 80 ? '…' : ''}</span>
-      </div>`;
-    });
-    html += `</div>`;
-  }
-
-  // Flagged issues
-  if (issueEntries.length) {
-    html += `<div class="summary-section">`;
-    html += `<div class="summary-section-title issues">Flagged Issues (${issueEntries.length})</div>`;
-    issueEntries.forEach(([ref, flag]) => {
-      const c = FLAG_COLORS[flag.type] || FLAG_COLORS.Other;
-      html += `<div class="summary-item">
-        <span class="summary-ref">${ref}</span>
-        <span class="summary-issue-badge" style="background:${c.bg};color:${c.text};border-color:${c.border}">${flag.type}</span>
-        <span class="summary-issue-note">${flag.note ? escapeHtml(flag.note) : ''}</span>
-      </div>`;
-    });
-    html += `</div>`;
-  }
-
-  // Nothing changed?
-  const totalChanges = countChanges();
-  if (totalChanges === 0 && issueEntries.length === 0) {
-    html += `<div class="summary-empty">No changes or issues to export.</div>`;
-  }
-
-  // Action buttons
-  html += `<div class="summary-actions">`;
-  if (totalChanges > 0) {
-    html += `<button class="btn-download" onclick="downloadDiffJson(); closeSummary()">Download All (${totalChanges})</button>`;
-  }
-  html += `<button class="btn-close" onclick="closeSummary()">Close</button>`;
-  html += `</div>`;
-
-  modal.innerHTML = html;
-  overlay.classList.add('open');
-}
-
-function closeSummary() {
-  document.getElementById('summary-overlay').classList.remove('open');
-}
-
-// Close on overlay click (outside modal)
-document.getElementById('summary-overlay').addEventListener('click', function(e) {
-  if (e.target === this) closeSummary();
-});
-
 // ============ INIT ============
 render();
-updateIssueCount();
 </script>
 </body>
 </html>

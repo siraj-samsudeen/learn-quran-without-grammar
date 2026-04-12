@@ -1028,6 +1028,20 @@ function updateChangeCount() {
   if (el) el.textContent = n;
 }
 
+// ============ USERNAME ============
+const USERNAME_KEY = 'lqwg-username';
+function getUsername() {
+  let name = localStorage.getItem(USERNAME_KEY);
+  if (name) return name;
+  name = prompt('Enter your name (saved for future sessions):');
+  if (name && name.trim()) {
+    name = name.trim();
+    localStorage.setItem(USERNAME_KEY, name);
+    return name;
+  }
+  return null;
+}
+
 function buildDiffPayload() {
   const changes = [];
   LESSON_CONFIG.verses.forEach(v => {
@@ -1043,12 +1057,15 @@ function buildDiffPayload() {
       changes.push(entry);
     }
   });
-  return {
+  const payload = {
     lesson: LESSON_CONFIG.lesson_number,
     timestamp: new Date().toISOString(),
     total_changes: changes.length,
     changes
   };
+  const username = getUsername();
+  if (username) payload.username = username;
+  return payload;
 }
 
 function downloadDiffJson() {
@@ -1092,11 +1109,14 @@ function buildPayload() {
       selections[sec].push(entry);
     }
   });
-  return {
+  const payload = {
     lesson: LESSON_CONFIG.lesson_number,
     anchor: LESSON_CONFIG.anchor,
     selections,
   };
+  const username = getUsername();
+  if (username) payload.username = username;
+  return payload;
 }
 
 async function copyJson() {
