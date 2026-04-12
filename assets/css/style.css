@@ -954,26 +954,30 @@ span.lang-ta, a.lang-ta {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
-  background: none;
-  border: none;
-  font-size: 1.3rem;
+  background: #f3f4f6;
+  border: 1px solid var(--border);
+  font-size: 1.1rem;
   cursor: pointer;
-  color: var(--border);
-  padding: 0.15rem 0.3rem;
+  color: var(--muted);
+  padding: 0.2rem 0.5rem;
   line-height: 1;
-  border-radius: 4px;
-  transition: color 0.15s, background 0.15s;
+  border-radius: 6px;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
   z-index: 2;
 }
 .review-flag-btn:hover {
-  color: var(--muted);
-  background: #f3f4f6;
+  color: var(--green);
+  background: var(--green-light);
+  border-color: var(--green);
 }
 .review-flag-btn.flagged {
   color: #dc2626;
+  background: #fef2f2;
+  border-color: #fca5a5;
 }
 .review-flag-btn.flagged:hover {
-  background: #fef2f2;
+  background: #fee2e2;
+  border-color: #dc2626;
 }
 
 /* Flagged card highlight */
