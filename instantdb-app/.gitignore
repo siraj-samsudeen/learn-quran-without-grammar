@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# seed progress (local state, regenerated on each run)
+scripts/.seed-progress.json
