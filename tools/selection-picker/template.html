@@ -153,9 +153,8 @@
   .counter.learn.filled { background: var(--learn-bg); border-color: var(--learn); color: var(--learn); }
   .counter.practice.filled { background: var(--practice-bg); border-color: var(--practice); color: var(--practice); }
   .counter.recall.filled { background: var(--recall-bg); border-color: var(--recall); color: var(--recall); }
-  .copy-btn {
-    background: var(--learn);
-    color: white;
+  .btn-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .action-btn {
     border: none;
     padding: 0.7rem 1.4rem;
     border-radius: 8px;
@@ -163,8 +162,18 @@
     font-size: 0.9rem;
     cursor: pointer;
     font-family: inherit;
+    color: white;
   }
-  .copy-btn:hover { opacity: 0.9; }
+  .action-btn.copy { background: var(--learn); }
+  .action-btn.download { background: #2563eb; }
+  .action-btn:hover { opacity: 0.9; }
+  .action-btn .change-count {
+    background: rgba(255,255,255,0.3);
+    padding: 0.1rem 0.45rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    margin-left: 0.3rem;
+  }
 
   /* ============ CARDS ============ */
   .group-header {
@@ -360,7 +369,10 @@
         <div class="counter recall" id="counter-recall"><span class="label">Recall</span> <span class="count">0/5</span></div>
         <div class="counter" id="counter-pipeline"><span class="label">Pipeline</span> <span class="count">0</span></div>
       </div>
-      <button class="copy-btn" onclick="copyJson()">Copy JSON</button>
+      <div class="btn-row">
+        <button class="action-btn copy" onclick="copyJson()">Copy JSON</button>
+        <button class="action-btn download" onclick="downloadDiffJson()">Download Diff <span class="change-count" id="change-count">0</span></button>
+      </div>
     </div>
 
     <div id="cards-container"></div>
@@ -662,9 +674,7 @@ function makeCard(v, kind) {
     whyState[v.ref] = whyEl.textContent;
     whyEl.classList.toggle("edited", whyState[v.ref] !== originalWhy[v.ref]);
   });
-  whyEl.addEventListener("blur", () => {
-    // Nothing special on blur; state already synced
-  });
+  whyEl.addEventListener("blur", () => { updateChangeCount(); });
 
   return card;
 }
@@ -678,6 +688,7 @@ function escapeHtml(str) {
 function setSection(ref, sec) {
   state[ref] = sec;
   render();
+  updateChangeCount();
 }
 
 function updateCounters() {
@@ -690,6 +701,57 @@ function updateCounters() {
     el.classList.toggle("filled", counts[sec] === t[sec]);
   });
   document.getElementById("counter-pipeline").querySelector(".count").textContent = counts.pipeline;
+}
+
+// ============ DIFF + DOWNLOAD ============
+function countChanges() {
+  let n = 0;
+  LESSON_CONFIG.verses.forEach(v => {
+    if (state[v.ref] !== v.defaultSection || whyState[v.ref] !== originalWhy[v.ref]) n++;
+  });
+  return n;
+}
+
+function updateChangeCount() {
+  const n = countChanges();
+  const el = document.getElementById("change-count");
+  if (el) el.textContent = n;
+}
+
+function buildDiffPayload() {
+  const changes = [];
+  LESSON_CONFIG.verses.forEach(v => {
+    const currentSection = state[v.ref];
+    const remarkEdited = whyState[v.ref] !== originalWhy[v.ref];
+    const sectionChanged = currentSection !== v.defaultSection;
+    if (sectionChanged || remarkEdited) {
+      const entry = { ref: v.ref, form: v.form, group: v.group };
+      if (sectionChanged) { entry.from = v.defaultSection; entry.to = currentSection; }
+      if (remarkEdited) { entry.remark = whyState[v.ref]; }
+      changes.push(entry);
+    }
+  });
+  return {
+    lesson: LESSON_CONFIG.lesson_number,
+    timestamp: new Date().toISOString(),
+    total_changes: changes.length,
+    changes
+  };
+}
+
+function downloadDiffJson() {
+  const payload = buildDiffPayload();
+  if (payload.total_changes === 0) { showToast("No changes to save"); return; }
+  const text = JSON.stringify(payload, null, 2);
+  const blob = new Blob([text], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  const pad = String(LESSON_CONFIG.lesson_number).padStart(2, "0");
+  a.download = `lesson-${pad}-selection.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast(`Downloaded lesson-${pad}-selection.json (${payload.total_changes} changes)`);
 }
 
 // ============ COPY JSON ============

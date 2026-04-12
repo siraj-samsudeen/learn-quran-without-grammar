@@ -42,3 +42,7 @@ The method builds on ideas from the classic [**Assimil**](https://www.assimil.co
 </div>
 
 *More lessons coming soon — adhan → salah, phrase by phrase.*
+
+---
+
+[Teacher Tools →]({{ '/teacher/' | relative_url }})
