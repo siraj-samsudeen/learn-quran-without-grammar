@@ -1164,6 +1164,10 @@ span.lang-ta, a.lang-ta {
   background: #d97706;
   box-shadow: 0 3px 12px rgba(0,0,0,0.18);
 }
+.review-download-btn {
+  padding: 0.45rem 0.65rem;
+  font-size: 1rem;
+}
 
 @media (max-width: 640px) {
   .main-content   { padding: 1.5rem 1rem 3rem; }

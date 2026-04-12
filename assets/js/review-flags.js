@@ -222,20 +222,32 @@
     var float = document.querySelector('.translation-toggle-float');
     if (!float) return;
 
-    var btn = document.createElement('button');
-    btn.className = 'review-export-btn';
-    btn.setAttribute('type', 'button');
     var count = Object.keys(lessonFlags).length;
-    updateBtnText(btn, count);
-    btn.style.display = count > 0 ? 'inline-flex' : 'none';
-    btn.setAttribute('data-lesson', lessonSlug);
 
-    btn.addEventListener('click', function () {
+    // Copy button
+    var copyBtn = document.createElement('button');
+    copyBtn.className = 'review-export-btn review-copy-btn';
+    copyBtn.setAttribute('type', 'button');
+    copyBtn.style.display = count > 0 ? 'inline-flex' : 'none';
+    updateCopyBtnText(copyBtn, count);
+    copyBtn.addEventListener('click', function () {
       copyIssuesToClipboard(lessonSlug);
     });
 
-    // Insert before the first child (leftmost position)
-    float.insertBefore(btn, float.firstChild);
+    // Download button
+    var dlBtn = document.createElement('button');
+    dlBtn.className = 'review-export-btn review-download-btn';
+    dlBtn.setAttribute('type', 'button');
+    dlBtn.textContent = '\u2913';  // downwards arrow
+    dlBtn.setAttribute('title', 'Download issues as YAML file');
+    dlBtn.style.display = count > 0 ? 'inline-flex' : 'none';
+    dlBtn.addEventListener('click', function () {
+      downloadAsYAML(lessonSlug);
+    });
+
+    // Insert: [download] [copy] [lang toggle] [translation toggle]
+    float.insertBefore(dlBtn, float.firstChild);
+    float.insertBefore(copyBtn, float.firstChild);
 
     // Create toast element
     var toast = document.createElement('div');
@@ -244,18 +256,23 @@
     document.body.appendChild(toast);
   }
 
-  function updateBtnText(btn, count) {
+  function updateCopyBtnText(btn, count) {
     btn.textContent = count > 0 ? 'Copy ' + count + ' issue' + (count > 1 ? 's' : '') : '';
   }
 
   function updateExportButton(lessonSlug) {
-    var btn = document.querySelector('.review-export-btn');
-    if (!btn) return;
+    var copyBtn = document.querySelector('.review-copy-btn');
+    var dlBtn = document.querySelector('.review-download-btn');
     var flags = loadFlags();
     var lessonFlags = flags[lessonSlug] || {};
     var count = Object.keys(lessonFlags).length;
-    updateBtnText(btn, count);
-    btn.style.display = count > 0 ? 'inline-flex' : 'none';
+    if (copyBtn) {
+      updateCopyBtnText(copyBtn, count);
+      copyBtn.style.display = count > 0 ? 'inline-flex' : 'none';
+    }
+    if (dlBtn) {
+      dlBtn.style.display = count > 0 ? 'inline-flex' : 'none';
+    }
   }
 
   function buildYAML(lessonSlug) {
@@ -283,6 +300,20 @@
     });
 
     return lines.join('\n') + '\n';
+  }
+
+  function downloadAsYAML(lessonSlug) {
+    var yaml = buildYAML(lessonSlug);
+    if (!yaml) return;
+    var blob = new Blob([yaml], { type: 'text/yaml' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = lessonSlug + '-review.yaml';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
   }
 
   function copyIssuesToClipboard(lessonSlug) {
