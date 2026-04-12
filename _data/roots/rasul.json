@@ -1,0 +1,60 @@
+{
+  "slug": "rasul",
+  "arabic": "رَسُول",
+  "transliteration": "rasul",
+  "three_letter": "ر س ل",
+  "three_letter_en": "ra sin lam",
+  "introduced_in_lesson": 3,
+  "notes": "The root ر س ل carries the idea of sending — specifically, being sent on a mission with a message. In the Quran, it appears overwhelmingly in the context of prophets as God's messengers (رَسُول) and the act of God sending them (أَرْسَلَ). You already know this word from the second shahādah: أَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ ٱللَّهِ.",
+  "forms": [
+    {
+      "arabic": "رَسُول",
+      "transliteration": "rasul",
+      "category": "Noun",
+      "english": "messenger, envoy",
+      "notes": "The primary form — appears 332 times. The word every Muslim knows from the shahādah."
+    },
+    {
+      "arabic": "أَرْسَلَ",
+      "transliteration": "arsala",
+      "category": "Verb (Form IV)",
+      "english": "sent, sent forth",
+      "notes": "The verb behind the noun. Allah sent messengers — appears in many prophet narratives."
+    },
+    {
+      "arabic": "مُرْسَل",
+      "transliteration": "mursal",
+      "category": "Passive participle",
+      "english": "one who is sent, emissary",
+      "notes": "Often plural. Surah Al-Mursalat (77) is named after this word."
+    },
+    {
+      "arabic": "رِسَالَة",
+      "transliteration": "risala",
+      "category": "Noun",
+      "english": "message, mission",
+      "notes": "The message itself — what the messenger carries."
+    },
+    {
+      "arabic": "مُرْسِل",
+      "transliteration": "mursil",
+      "category": "Active participle",
+      "english": "sender, the one who sends",
+      "notes": "Rare — refers to Allah as the sender."
+    },
+    {
+      "arabic": "مُرْسِلَة",
+      "transliteration": "mursila",
+      "category": "Active participle (feminine)",
+      "english": "sender (feminine)",
+      "notes": null
+    },
+    {
+      "arabic": "مُرْسَلَة",
+      "transliteration": "mursala",
+      "category": "Passive participle (feminine)",
+      "english": "that which is sent",
+      "notes": null
+    }
+  ]
+}

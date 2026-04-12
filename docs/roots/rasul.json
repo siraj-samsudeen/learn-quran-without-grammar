@@ -11,68 +11,74 @@
   "forms": [
     {
       "form_arabic": "رَسُول",
-      "form_transliteration": null,
-      "category": null,
-      "gloss": null,
+      "form_transliteration": "rasul",
+      "category": "Noun",
+      "gloss": "messenger, envoy",
       "count": 332,
       "taught_in_lesson": null,
-      "taught_role": null
+      "taught_role": null,
+      "notes": "The primary form — 64.7% of all root occurrences. Appears as رَسُول (singular) and رُسُل (plural). The word every Muslim knows from the shahādah."
     },
     {
       "form_arabic": "أَرْسَلَ",
-      "form_transliteration": null,
-      "category": null,
-      "gloss": null,
+      "form_transliteration": "arsala",
+      "category": "Verb (Form IV)",
+      "gloss": "to send, to send forth",
       "count": 130,
       "taught_in_lesson": null,
-      "taught_role": null
+      "taught_role": null,
+      "notes": "The verb behind the noun. 'Allah sent messengers' — appears in many prophet narratives. Includes أُرْسِلَ (passive: was sent)."
     },
     {
       "form_arabic": "مُرْسَل",
-      "form_transliteration": null,
-      "category": null,
-      "gloss": null,
+      "form_transliteration": "mursal",
+      "category": "Passive participle",
+      "gloss": "one who is sent, emissary",
       "count": 35,
       "taught_in_lesson": null,
-      "taught_role": null
+      "taught_role": null,
+      "notes": "Often plural مُرْسَلُون / مُرْسَلِين — 'those who were sent'. Surah Al-Mursalat (77) is named after this word."
     },
     {
       "form_arabic": "رِسالَة",
-      "form_transliteration": null,
-      "category": null,
-      "gloss": null,
+      "form_transliteration": "risala",
+      "category": "Noun",
+      "gloss": "message, mission",
       "count": 10,
       "taught_in_lesson": null,
-      "taught_role": null
+      "taught_role": null,
+      "notes": "The message itself — what the messenger carries. Plural رِسَالَات."
     },
     {
       "form_arabic": "مُرْسِل",
-      "form_transliteration": null,
-      "category": null,
-      "gloss": null,
+      "form_transliteration": "mursil",
+      "category": "Active participle",
+      "gloss": "sender, the one who sends",
       "count": 4,
       "taught_in_lesson": null,
-      "taught_role": null
+      "taught_role": null,
+      "notes": "Rare. Refers to Allah as the sender."
     },
     {
       "form_arabic": "مُرْسِلَة",
-      "form_transliteration": null,
-      "category": null,
-      "gloss": null,
+      "form_transliteration": "mursila",
+      "category": "Active participle (feminine)",
+      "gloss": "sender (feminine)",
       "count": 1,
       "taught_in_lesson": null,
       "taught_role": null
     },
     {
       "form_arabic": "مُرْسَلَة",
-      "form_transliteration": null,
-      "category": null,
-      "gloss": null,
+      "form_transliteration": "mursala",
+      "category": "Passive participle (feminine)",
+      "gloss": "that which is sent",
       "count": 1,
       "taught_in_lesson": null,
       "taught_role": null
     }
   ],
+  "notes": "The root ر س ل carries the idea of sending — specifically, being sent on a mission with a message. In the Quran, it appears overwhelmingly in the context of prophets as God's messengers (رَسُول) and the act of God sending them (أَرْسَلَ). The student already knows this word from the second shahādah: أَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ ٱللَّهِ. This lesson expands from that single familiar word into the full family — the verb 'to send', the plural 'messengers', the message itself, and the ones who were sent.",
   "sentence_patterns": [],
   "verses": [
     {

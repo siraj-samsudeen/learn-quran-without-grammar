@@ -23,6 +23,7 @@ exclude:
   - "lessons/*/*.json"
   - "lessons/*/*.yaml"
   - "lessons/*/*.html"
+  - "teacher/local.html"
   - utils/
   - Gemfile
   - Gemfile.lock

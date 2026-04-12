@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teacher Hub — Local Files</title>
+<style>
+  :root { --bg: #fafaf8; --card: #fff; --border: #e0ddd8; --accent: #0f4425; --muted: #777; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: #222; padding: 2rem; max-width: 900px; margin: 0 auto; line-height: 1.6; }
+  h1 { color: var(--accent); margin-bottom: 0.3rem; }
+  .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 0.95rem; }
+  h2 { color: var(--accent); margin: 2rem 0 0.8rem; padding-bottom: 0.3rem; border-bottom: 2px solid var(--border); }
+  h3 { margin: 1.2rem 0 0.5rem; color: #444; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+  .card:hover { border-color: var(--accent); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .card-title { font-weight: 600; margin-bottom: 0.3rem; }
+  .card-title a { color: var(--accent); text-decoration: none; }
+  .card-title a:hover { text-decoration: underline; }
+  .card-meta { font-size: 0.82rem; color: var(--muted); }
+  .card-links { margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .card-links a { font-size: 0.82rem; color: var(--accent); background: #e8f0eb; padding: 0.15rem 0.5rem; border-radius: 4px; text-decoration: none; }
+  .card-links a:hover { background: #d0e4d6; }
+  ul { padding-left: 1.5rem; }
+  li { margin-bottom: 0.3rem; }
+  a { color: var(--accent); }
+  .badge { display: inline-block; font-size: 0.72rem; padding: 0.1rem 0.4rem; border-radius: 3px; font-weight: 600; vertical-align: middle; margin-left: 0.3rem; }
+  .badge-live { background: #d4edda; color: #155724; }
+  .badge-wip { background: #fff3cd; color: #856404; }
+  .badge-plan { background: #d1ecf1; color: #0c5460; }
+  .section-list { list-style: none; padding: 0; }
+  .section-list li { padding: 0.4rem 0; border-bottom: 1px solid #f0ede8; }
+  .section-list li:last-child { border-bottom: none; }
+  code { background: #f0ede8; padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88rem; }
+</style>
+</head>
+<body>
+
+<h1>Teacher Hub</h1>
+<p class="subtitle">Local HTML files — open from your computer. Not on the live site.</p>
+
+<!-- ──────────────────────��──────────── LESSONS ─── -->
+<h2>Lessons</h2>
+
+<div class="grid">
+
+  <div class="card">
+    <div class="card-title">Lesson 1 — Allahu Akbar <span class="badge badge-live">LIVE</span></div>
+    <div class="card-meta">Roots: إِلَٰه + كَبُرَ &middot; 8 words &middot; 12 phrases</div>
+    <div class="card-links">
+      <a href="../lessons/lesson-01-allahu-akbar/index.md">index.md</a>
+      <a href="../lessons/lesson-01-allahu-akbar/picker-config.json">picker-config</a>
+      <a href="../tools/lesson-audio/lesson-01.yaml">audio YAML</a>
+      <a href="../assets/audio/lessons/lesson-01/manifest.json">manifest</a>
+      <a href="../docs/selections/lesson-01.md">selection log</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Lesson 2 — I Bear Witness <span class="badge badge-live">LIVE</span></div>
+    <div class="card-meta">Root: شَهِدَ &middot; 4 words &middot; 10 phrases + 5 recall</div>
+    <div class="card-links">
+      <a href="../lessons/lesson-02-shahida/index.md">index.md</a>
+      <a href="../lessons/lesson-02-shahida/picker.html">Picker</a>
+      <a href="../tools/lesson-audio/lesson-02.yaml">audio YAML</a>
+      <a href="../assets/audio/lessons/lesson-02/manifest.json">manifest</a>
+      <a href="../docs/selections/lesson-02.md">selection log</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Lesson 3 — Messenger <span class="badge badge-wip">WIP</span></div>
+    <div class="card-meta">Root: رَسُول &middot; 429 verses catalogued &middot; scoring pending</div>
+    <div class="card-links">
+      <a href="../lessons/lesson-03-rasul/picker.html">Picker</a>
+      <a href="../docs/roots/rasul.json">root inventory</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ─────────────────────────────── PICKERS ─── -->
+<h2>Pickers (standalone HTML)</h2>
+
+<div class="grid">
+  <div class="card">
+    <div class="card-title"><a href="../lessons/lesson-02-shahida/picker.html">Lesson 2 Picker — شَهِدَ</a></div>
+    <div class="card-meta">Root: shahida &middot; verse selection &amp; assignment</div>
+  </div>
+  <div class="card">
+    <div class="card-title"><a href="../lessons/lesson-03-rasul/picker.html">Lesson 3 Picker — رَسُول</a></div>
+    <div class="card-meta">Root: rasul &middot; 429 verses &middot; scoring pending</div>
+  </div>
+</div>
+
+<!-- ───────────────────��─────────── ROOT INVENTORIES ─── -->
+<h2>Root Inventories</h2>
+
+<div class="grid">
+  <div class="card">
+    <div class="card-title"><a href="../docs/roots/ilah.json">إِلَٰه — ilah</a></div>
+    <div class="card-meta">2,851 occurrences &middot; 4 forms &middot; L1</div>
+  </div>
+  <div class="card">
+    <div class="card-title"><a href="../docs/roots/kabura.json">كَبُرَ — kabura</a></div>
+    <div class="card-meta">161 occurrences &middot; 14 forms &middot; L1</div>
+  </div>
+  <div class="card">
+    <div class="card-title"><a href="../docs/roots/shahida.json">شَهِدَ — shahida</a></div>
+    <div class="card-meta">160 occurrences &middot; 9 forms &middot; L2</div>
+  </div>
+  <div class="card">
+    <div class="card-title"><a href="../docs/roots/rasul.json">رَسُول — rasul</a></div>
+    <div class="card-meta">513 occurrences &middot; 7 forms &middot; L3 <span class="badge badge-wip">unscored</span></div>
+  </div>
+</div>
+
+<!-- ──────────────────────────── PIPELINE & SELECTIONS ─── -->
+<h2>Pipeline & Selections</h2>
+<ul class="section-list">
+  <li><a href="../docs/selections/pipeline.md">pipeline.md</a> — verses queued for future lessons</li>
+  <li><a href="../docs/selections/lesson-01.md">lesson-01 selection log</a> — what was picked and why</li>
+  <li><a href="../docs/selections/lesson-02.md">lesson-02 selection log</a> — what was picked and why</li>
+</ul>
+
+<!-- ──────────────────────────── DOCS ─── -->
+<h2>Course Design</h2>
+<ul class="section-list">
+  <li><a href="../docs/LESSON-PLAN.md">LESSON-PLAN.md</a> — lesson structure, selection process, teacher preferences</li>
+  <li><a href="../docs/SCORING.md">SCORING.md</a> — 8-dimension verse scoring algorithm</li>
+  <li><a href="../docs/AUDIO-SYSTEM.md">AUDIO-SYSTEM.md</a> — audio pipeline design (TTS, build, web player)</li>
+  <li><a href="../docs/ARCHITECTURE.md">ARCHITECTURE.md</a> — tech stack, deployment, roadmap</li>
+  <li><a href="../docs/GLOSSARY.md">GLOSSARY.md</a> — project terminology</li>
+</ul>
+
+<h3>Architecture Decision Records</h3>
+<ul class="section-list">
+  <li><a href="../docs/decisions/ADR-001-hosting.md">ADR-001</a> — Hosting</li>
+  <li><a href="../docs/decisions/ADR-002-audio.md">ADR-002</a> — Audio</li>
+  <li><a href="../docs/decisions/ADR-003-file-structure.md">ADR-003</a> — File structure</li>
+  <li><a href="../docs/decisions/ADR-004-jekyll-html.md">ADR-004</a> — Jekyll HTML</li>
+  <li><a href="../docs/decisions/ADR-005-reciters.md">ADR-005</a> — Reciters</li>
+  <li><a href="../docs/decisions/ADR-006-auto-timestamps.md">ADR-006</a> — Auto timestamps</li>
+  <li><a href="../docs/decisions/ADR-007-audio-apis-research.md">ADR-007</a> — Audio APIs research</li>
+  <li><a href="../docs/decisions/ADR-009-local-root-pipeline.md">ADR-009</a> — Local root pipeline</li>
+</ul>
+
+<!-- ────────────────────��─────── TOOLS ─── -->
+<h2>Audio YAML Files</h2>
+<ul class="section-list">
+  <li><a href="../tools/lesson-audio/lesson-01.yaml">lesson-01.yaml</a> — L1 audio definition (12 sentences)</li>
+  <li><a href="../tools/lesson-audio/lesson-02.yaml">lesson-02.yaml</a> — L2 audio definition</li>
+</ul>
+
+<!-- ──────────────────────────── WORKSPACE ─── -->
+<h2>Workspace / Scratchpad</h2>
+<ul class="section-list">
+  <li><a href="../.workspace/CURRENT-STATE.md">CURRENT-STATE.md</a> — cross-session handoff (decisions D1–D33, open questions)</li>
+</ul>
+
+<!-- ──────────────────────────── APP ─── -->
+<h2>App / Platform (future)</h2>
+<ul class="section-list">
+  <li><a href="../docs/app/PLATFORM-PRD.md">PLATFORM-PRD.md</a> — platform vision &amp; phased roadmap</li>
+  <li><a href="../docs/app/RESEARCH-SYNTHESIS.md">RESEARCH-SYNTHESIS.md</a> — companion app research</li>
+  <li><a href="../docs/app/APP-REQUIREMENTS.md">APP-REQUIREMENTS.md</a> — earlier app requirements</li>
+</ul>
+
+<hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--border);">
+<p style="color: var(--muted); font-size: 0.82rem;">
+  This page is a local file — not deployed to the live site. Open with: <code>open teacher/local.html</code>
+</p>
+
+</body>
+</html>
