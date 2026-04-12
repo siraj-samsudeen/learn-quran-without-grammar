@@ -128,13 +128,15 @@ const LESSONS = [
   },
 ];
 
-// Which lessons have root JSONs worth loading for the picker
+// All lessons with their root JSONs
 const LOADABLE_LESSONS = [
-  { num: 3, label: "L3 — rasul", roots: "rasul", verseEstimate: "~429" },
-  { num: 4, label: "L4 — hayiya + salah", roots: "hayiya, salah", verseEstimate: "~256" },
-  { num: 5, label: "L5 — falaha", roots: "falaha", verseEstimate: "~40" },
-  { num: 6, label: "L6 — khayr + nawm", roots: "khayr, nawm", verseEstimate: "~44" },
-  { num: 7, label: "L7 — qama", roots: "qama", verseEstimate: "~34" },
+  { num: 1, label: "L1 — ilah + kabura", roots: "ilah, kabura", verseEstimate: "29" },
+  { num: 2, label: "L2 — shahida", roots: "shahida", verseEstimate: "20" },
+  { num: 3, label: "L3 — rasul", roots: "rasul", verseEstimate: "429" },
+  { num: 4, label: "L4 — hayiya + salah", roots: "hayiya, salah", verseEstimate: "256" },
+  { num: 5, label: "L5 — falaha", roots: "falaha", verseEstimate: "40" },
+  { num: 6, label: "L6 — khayr + nawm", roots: "khayr, nawm", verseEstimate: "187" },
+  { num: 7, label: "L7 — qama", roots: "qama", verseEstimate: "597" },
 ];
 
 export default function SeedPage() {
