@@ -6651,56 +6651,66 @@ function showSummary() {
   const modal = document.getElementById('summary-modal');
   const overlay = document.getElementById('summary-overlay');
 
-  // Build sections by category
-  const sections = { learn: [], practice: [], recall: [], pipeline: [] };
-  LESSON_CONFIG.verses.forEach(v => {
-    const sec = state[v.ref];
-    if (sec !== 'none') sections[sec].push(v);
-  });
-
-  // Reciter choices
-  const reciterEntries = Object.entries(reciterState);
   const reciterLookup = {};
   RECITERS.forEach(r => { reciterLookup[r.folder] = r.name; });
 
-  // Issues
+  // Only collect CHANGES
+  const sectionMoves = [];
+  const reciterPicks = [];
+  const remarkEdits = [];
+  LESSON_CONFIG.verses.forEach(v => {
+    if (state[v.ref] !== v.defaultSection) {
+      sectionMoves.push(v);
+    }
+    if (reciterState[v.ref]) {
+      reciterPicks.push(v);
+    }
+    if (whyState[v.ref] !== originalWhy[v.ref]) {
+      remarkEdits.push(v);
+    }
+  });
   const issueEntries = Object.entries(reviewFlags);
 
-  let html = `<h2>Review Summary — Lesson ${LESSON_CONFIG.lesson_number}</h2>`;
+  let html = `<h2>Your Changes — Lesson ${LESSON_CONFIG.lesson_number}</h2>`;
 
-  // Selection sections
-  ['learn', 'practice', 'recall', 'pipeline'].forEach(sec => {
-    const verses = sections[sec];
-    if (!verses.length) return;
-    const label = sec.charAt(0).toUpperCase() + sec.slice(1);
-    const target = LESSON_CONFIG.targets[sec];
-    const countLabel = target ? `${verses.length}/${target}` : verses.length;
+  // Section moves
+  if (sectionMoves.length) {
     html += `<div class="summary-section">`;
-    html += `<div class="summary-section-title ${sec}">${label} (${countLabel})</div>`;
-    verses.forEach(v => {
-      const reciter = reciterState[v.ref] ? `<span class="summary-reciter">${reciterLookup[reciterState[v.ref]] || reciterState[v.ref]}</span>` : '';
-      const changed = state[v.ref] !== v.defaultSection ? `<span class="summary-detail">was ${v.defaultSection}</span>` : '';
+    html += `<div class="summary-section-title learn">Section Changes (${sectionMoves.length})</div>`;
+    sectionMoves.forEach(v => {
       html += `<div class="summary-item">
         <span class="summary-ref">${v.ref}</span>
         <span class="summary-form">${v.form}</span>
-        ${reciter}
-        ${changed}
+        <span class="summary-detail">${v.defaultSection} → <strong>${state[v.ref]}</strong></span>
       </div>`;
     });
     html += `</div>`;
-  });
+  }
 
-  // Reciter choices (highlight those without a section change)
-  if (reciterEntries.length) {
+  // Reciter picks
+  if (reciterPicks.length) {
     html += `<div class="summary-section">`;
-    html += `<div class="summary-section-title reciter">Reciter Choices (${reciterEntries.length})</div>`;
-    reciterEntries.forEach(([ref, folder]) => {
-      const v = LESSON_CONFIG.verses.find(x => x.ref === ref);
-      const name = reciterLookup[folder] || folder;
+    html += `<div class="summary-section-title reciter">Reciter Choices (${reciterPicks.length})</div>`;
+    reciterPicks.forEach(v => {
+      const name = reciterLookup[reciterState[v.ref]] || reciterState[v.ref];
       html += `<div class="summary-item">
-        <span class="summary-ref">${ref}</span>
-        <span class="summary-form">${v ? v.form : ''}</span>
+        <span class="summary-ref">${v.ref}</span>
+        <span class="summary-form">${v.form}</span>
         <span class="summary-reciter">${name}</span>
+      </div>`;
+    });
+    html += `</div>`;
+  }
+
+  // Remark edits
+  if (remarkEdits.length) {
+    html += `<div class="summary-section">`;
+    html += `<div class="summary-section-title pipeline">Remark Edits (${remarkEdits.length})</div>`;
+    remarkEdits.forEach(v => {
+      html += `<div class="summary-item">
+        <span class="summary-ref">${v.ref}</span>
+        <span class="summary-form">${v.form}</span>
+        <span class="summary-detail">${escapeHtml(whyState[v.ref]).substring(0, 80)}${whyState[v.ref].length > 80 ? '…' : ''}</span>
       </div>`;
     });
     html += `</div>`;
@@ -6721,7 +6731,7 @@ function showSummary() {
     html += `</div>`;
   }
 
-  // No changes at all?
+  // Nothing changed?
   const totalChanges = countChanges();
   if (totalChanges === 0 && issueEntries.length === 0) {
     html += `<div class="summary-empty">No changes or issues to export.</div>`;
