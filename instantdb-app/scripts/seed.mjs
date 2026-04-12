@@ -17,7 +17,10 @@
  */
 import { init, id, tx } from "@instantdb/admin";
 import { readFileSync, existsSync, writeFileSync } from "fs";
-import { join } from "path";
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // ─── Config ──────────────────────────────────────────────────────────────────
 
@@ -26,8 +29,8 @@ const ADMIN_TOKEN = "5ca3a1a8-a25e-49e3-bf10-3bc6d70000db";
 
 const db = init({ appId: APP_ID, adminToken: ADMIN_TOKEN });
 
-const REPO_ROOT = join(import.meta.dirname, "..", "..");
-const PROGRESS_FILE = join(import.meta.dirname, ".seed-progress.json");
+const REPO_ROOT = join(__dirname, "..", "..");
+const PROGRESS_FILE = join(__dirname, ".seed-progress.json");
 
 const CHUNK_SIZE = 50; // records per transaction (conservative for rate limits)
 const MAX_RETRIES = 5;

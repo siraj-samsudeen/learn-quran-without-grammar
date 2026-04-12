@@ -80,14 +80,45 @@ docs/roots/*.json  ──→  scripts/seed.mjs  ──→  InstantDB cloud
 
 ---
 
+## Data Seeded
+
+Seed script has been run successfully with `--clear`:
+- **7 lessons** loaded with full pipeline metadata
+- **1,558 verses** loaded across all 10 root JSONs
+- Seed script fix: `import.meta.dirname` replaced with `fileURLToPath` + `dirname` for Node 20 compatibility
+
+---
+
+## Playwright E2E Tests
+
+Tests added in `tests/` using `@playwright/test`. Run with `npx playwright test`.
+
+| Test | What it verifies |
+|------|-----------------|
+| Dashboard: 7 lessons | All lesson rows render with titles and Arabic text |
+| Dashboard: phase dots cycle | Clicking a phase dot changes its status |
+| Dashboard: row expand | Clicking a lesson row shows slug, roots, notes |
+| Dashboard: picker links | "Open" links appear for lessons with scoring done |
+| Picker: verse count | Lesson 5 shows 40 falaha verses with scores |
+| Picker: assign Learning | Clicking "Learning" highlights card, updates counter |
+| Picker: assign Recall | Clicking "Recall" highlights card with blue styling |
+| Picker: add remarks | Type remark, save, text persists on card |
+| Picker: persist on refresh | Selections survive page reload (InstantDB sync) |
+| Picker: Copy JSON | Clipboard contains valid JSON with lesson/selections structure |
+| Picker: back nav | Dashboard link navigates to `/` |
+
+**All 11 tests passing.**
+
+---
+
 ## What's NOT Done Yet
 
-1. **Data not yet seeded** — seed script couldn't reach InstantDB from the sandbox. Run `node scripts/seed.mjs` locally.
-2. **No auth** — anyone with the URL can edit. Fine for prototype.
-3. **No schema enforcement** — InstantDB is schema-less by default. Can add `instant.schema.ts` later.
-4. **No score breakdown** — picker shows `scoreFinal` but not the 7-dimension breakdown. The data is there in the verse records.
-5. **No recall root grouping** — picker groups by `rootKey` within the current lesson but doesn't separate current vs recall roots (would need `picker-config.json` data).
-6. **Verse score reasons** — T2 score reasons (story/familiarity/teaching_fit text) are not loaded, only the numeric scores. Could add if useful.
+1. **No auth** — anyone with the URL can edit. Fine for prototype.
+2. **No schema enforcement** — InstantDB is schema-less by default. Can add `instant.schema.ts` later.
+3. **No score breakdown** — picker shows `scoreFinal` but not the 7-dimension breakdown. The data is there in the verse records.
+4. **No recall root grouping** — picker groups by `rootKey` within the current lesson but doesn't separate current vs recall roots (would need `picker-config.json` data).
+5. **Verse score reasons** — T2 score reasons (story/familiarity/teaching_fit text) are not loaded, only the numeric scores. Could add if useful.
+6. **Real-time multi-tab test** — not automated (InstantDB platform guarantee), but works manually.
 
 ---
 
@@ -98,12 +129,5 @@ cd instantdb-app
 npm install
 node scripts/seed.mjs --clear    # load all data (needs internet)
 npm run dev                       # http://localhost:3000
+npx playwright test               # run E2E tests (needs dev server or auto-starts it)
 ```
-
----
-
-## Branch
-
-`claude/instantdb-minimal-prototype-pDk3M`
-
-All commits on this branch. Ready for PR against `main`.
