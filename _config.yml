@@ -28,3 +28,5 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor/
+  - playground/
+  - playground-app/

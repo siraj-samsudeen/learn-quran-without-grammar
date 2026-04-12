@@ -266,19 +266,21 @@
     var flags = loadFlags();
     var lessonFlags = flags[lessonSlug] || {};
     var count = Object.keys(lessonFlags).length;
+    var hasFeedback = (typeof window.getSectionFeedbackPayload === 'function')
+      && window.getSectionFeedbackPayload(lessonSlug);
+    var hasData = count > 0 || hasFeedback;
     if (copyBtn) {
       updateCopyBtnText(copyBtn, count);
-      copyBtn.style.display = count > 0 ? 'inline-flex' : 'none';
+      copyBtn.style.display = hasData ? 'inline-flex' : 'none';
     }
     if (dlBtn) {
-      dlBtn.style.display = count > 0 ? 'inline-flex' : 'none';
+      dlBtn.style.display = hasData ? 'inline-flex' : 'none';
     }
   }
 
   function buildPayload(lessonSlug) {
     var flags = loadFlags();
     var lessonFlags = flags[lessonSlug] || {};
-    if (!Object.keys(lessonFlags).length) return null;
 
     var issues = [];
     var keys = Object.keys(lessonFlags).sort(function (a, b) {
@@ -292,11 +294,19 @@
       issues.push(entry);
     });
 
+    // Section feedback (thumbs up/down/flag from section-feedback.js)
+    var sectionFb = (typeof window.getSectionFeedbackPayload === 'function')
+      ? window.getSectionFeedbackPayload(lessonSlug)
+      : null;
+
+    if (!issues.length && !sectionFb) return null;
+
     var payload = {
       lesson: lessonSlug,
-      date: new Date().toISOString().slice(0, 10),
-      issues: issues
+      date: new Date().toISOString().slice(0, 10)
     };
+    if (issues.length) payload.issues = issues;
+    if (sectionFb) payload.feedback = sectionFb;
     var username = getUsername();
     if (username) payload.username = username;
     return payload;
@@ -453,4 +463,10 @@
   function escapeAttr(str) {
     return str ? str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
   }
+
+  // Expose for section-feedback.js to refresh export button visibility
+  window.refreshReviewExportButtons = function () {
+    var lessonSlug = getLessonSlug();
+    updateExportButton(lessonSlug);
+  };
 })();
