@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { id, tx } from "@instantdb/react";
 import db from "@/lib/instant";
+import Link from "next/link";
 
 // Real data from teacher/pipeline-status.json
 const LESSONS = [
@@ -127,203 +128,255 @@ const LESSONS = [
   },
 ];
 
+// Which lessons have root JSONs worth loading for the picker
+const LOADABLE_LESSONS = [
+  { num: 3, label: "L3 — rasul", roots: "rasul", verseEstimate: "~429" },
+  { num: 4, label: "L4 — hayiya + salah", roots: "hayiya, salah", verseEstimate: "~256" },
+  { num: 5, label: "L5 — falaha", roots: "falaha", verseEstimate: "~40" },
+  { num: 6, label: "L6 — khayr + nawm", roots: "khayr, nawm", verseEstimate: "~44" },
+  { num: 7, label: "L7 — qama", roots: "qama", verseEstimate: "~34" },
+];
+
 export default function SeedPage() {
-  const [status, setStatus] = useState("idle");
   const [log, setLog] = useState<string[]>([]);
+  const [loading, setLoading] = useState<Record<string, boolean>>({});
 
-  const { data } = db.useQuery({ lessons: {}, verses: {} });
+  const { data } = db.useQuery({ lessons: {}, verses: {}, selections: {} });
 
-  const addLog = (msg: string) => setLog((prev) => [...prev, msg]);
+  const addLog = (msg: string) =>
+    setLog((prev) => [...prev, `[${new Date().toLocaleTimeString()}] ${msg}`]);
 
+  const setBusy = (key: string, busy: boolean) =>
+    setLoading((prev) => ({ ...prev, [key]: busy }));
+
+  // --- Seed lessons ---
   async function seedLessons() {
-    setStatus("seeding-lessons");
-    addLog("Seeding lessons...");
+    setBusy("lessons", true);
+    addLog("Seeding 7 lessons...");
     const txns = LESSONS.map((lesson) => tx.lessons[id()].update(lesson));
     await db.transact(txns);
-    addLog(`Seeded ${LESSONS.length} lessons`);
-    setStatus("done-lessons");
+    addLog(`Done — seeded ${LESSONS.length} lessons`);
+    setBusy("lessons", false);
   }
 
-  async function seedVersesFromFile() {
-    setStatus("seeding-verses");
-    addLog("Paste root JSON verses array into the text area and click Load");
+  // --- Load verses for a lesson from API route (reads root JSONs from disk) ---
+  async function loadVerses(lessonNumber: number) {
+    const key = `verses-${lessonNumber}`;
+    setBusy(key, true);
+    addLog(`Loading verses for Lesson ${lessonNumber} from root JSONs...`);
+
+    try {
+      const res = await fetch(`/api/roots?lesson=${lessonNumber}`);
+      if (!res.ok) {
+        addLog(`ERROR: API returned ${res.status}`);
+        setBusy(key, false);
+        return;
+      }
+      const { verses, totalVerses, rootKeys } = await res.json();
+      addLog(`API returned ${totalVerses} verses for roots: ${rootKeys.join(", ")}`);
+
+      // Batch in chunks of 100 to avoid hitting limits
+      const CHUNK = 100;
+      for (let i = 0; i < verses.length; i += CHUNK) {
+        const chunk = verses.slice(i, i + CHUNK);
+        const txns = chunk.map(
+          (v: Record<string, unknown>) => tx.verses[id()].update(v)
+        );
+        await db.transact(txns);
+        addLog(
+          `  Wrote ${Math.min(i + CHUNK, verses.length)}/${verses.length} verses`
+        );
+      }
+
+      addLog(`Done — loaded ${totalVerses} verses for Lesson ${lessonNumber}`);
+    } catch (e) {
+      addLog(`ERROR: ${e instanceof Error ? e.message : String(e)}`);
+    }
+    setBusy(key, false);
   }
 
+  // --- Seed everything at once ---
+  async function seedAll() {
+    await seedLessons();
+    for (const l of LOADABLE_LESSONS) {
+      await loadVerses(l.num);
+    }
+    addLog("=== All done! ===");
+  }
+
+  // --- Clear all data ---
   async function clearAll() {
-    setStatus("clearing");
+    setBusy("clear", true);
     addLog("Clearing all data...");
 
-    const txns: ReturnType<typeof tx.lessons[string]["delete"]>[] = [];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const txns: any[] = [];
 
     if (data?.lessons) {
-      for (const l of data.lessons) {
-        txns.push(tx.lessons[l.id].delete());
-      }
+      for (const l of data.lessons) txns.push(tx.lessons[l.id].delete());
     }
     if (data?.verses) {
-      for (const v of data.verses) {
-        txns.push(tx.verses[v.id].delete());
-      }
+      for (const v of data.verses) txns.push(tx.verses[v.id].delete());
+    }
+    if (data?.selections) {
+      for (const s of data.selections) txns.push(tx.selections[s.id].delete());
     }
 
     if (txns.length > 0) {
-      await db.transact(txns);
+      // Batch deletes in chunks
+      const CHUNK = 100;
+      for (let i = 0; i < txns.length; i += CHUNK) {
+        await db.transact(txns.slice(i, i + CHUNK));
+      }
     }
     addLog(`Cleared ${txns.length} records`);
-    setStatus("idle");
+    setBusy("clear", false);
+  }
+
+  // --- Counts ---
+  const lessonCount = data?.lessons?.length ?? 0;
+  const verseCount = data?.verses?.length ?? 0;
+  const selectionCount = data?.selections?.length ?? 0;
+
+  // Per-lesson verse counts
+  const versesPerLesson: Record<number, number> = {};
+  for (const v of data?.verses ?? []) {
+    const ln = v.lessonNumber as number;
+    versesPerLesson[ln] = (versesPerLesson[ln] ?? 0) + 1;
   }
 
   return (
     <div className="max-w-3xl mx-auto p-6 font-sans">
-      <h1 className="text-2xl font-bold text-emerald-800 mb-2">
-        Seed InstantDB
-      </h1>
-      <p className="text-sm text-gray-500 mb-6">
-        Load real lesson and verse data into InstantDB from the existing JSON
-        files.
-      </p>
-
-      <div className="flex gap-3 mb-6">
-        <button
-          onClick={seedLessons}
-          className="px-4 py-2 bg-emerald-700 text-white rounded-lg hover:bg-emerald-800 text-sm font-medium"
-        >
-          Seed Lessons (pipeline-status)
-        </button>
-        <button
-          onClick={clearAll}
-          className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm font-medium"
-        >
-          Clear All
-        </button>
+      <div className="flex items-start justify-between mb-6">
+        <div>
+          <h1 className="text-2xl font-bold text-emerald-800">
+            Seed InstantDB
+          </h1>
+          <p className="text-sm text-gray-500">
+            Load real data from <code>docs/roots/*.json</code> and{" "}
+            <code>pipeline-status.json</code>
+          </p>
+        </div>
+        <Link href="/" className="text-sm text-emerald-700 hover:underline">
+          &larr; Dashboard
+        </Link>
       </div>
 
-      <VerseLoader addLog={addLog} />
-
-      {/* Current DB state */}
-      <div className="mt-6 bg-gray-50 rounded-lg border p-4">
+      {/* DB State */}
+      <div className="bg-white border rounded-lg p-4 mb-6">
         <h2 className="font-semibold text-sm text-gray-700 mb-2">
           Current DB State
         </h2>
-        <p className="text-sm text-gray-600">
-          Lessons: {data?.lessons?.length ?? 0} | Verses:{" "}
-          {data?.verses?.length ?? 0}
-        </p>
+        <div className="flex gap-6 text-sm">
+          <div>
+            <span className="text-2xl font-bold text-emerald-700">
+              {lessonCount}
+            </span>{" "}
+            <span className="text-gray-500">lessons</span>
+          </div>
+          <div>
+            <span className="text-2xl font-bold text-blue-700">
+              {verseCount}
+            </span>{" "}
+            <span className="text-gray-500">verses</span>
+          </div>
+          <div>
+            <span className="text-2xl font-bold text-amber-700">
+              {selectionCount}
+            </span>{" "}
+            <span className="text-gray-500">selections</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Quick Actions */}
+      <div className="flex gap-3 mb-6 flex-wrap">
+        <button
+          onClick={seedAll}
+          disabled={loading.lessons}
+          className="px-4 py-2 bg-emerald-700 text-white rounded-lg hover:bg-emerald-800 text-sm font-medium disabled:opacity-50"
+        >
+          {loading.lessons ? "Working..." : "Seed Everything"}
+        </button>
+        <button
+          onClick={seedLessons}
+          disabled={loading.lessons}
+          className="px-4 py-2 bg-white border border-emerald-700 text-emerald-700 rounded-lg hover:bg-emerald-50 text-sm font-medium disabled:opacity-50"
+        >
+          Lessons Only
+        </button>
+        <button
+          onClick={clearAll}
+          disabled={loading.clear}
+          className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm font-medium disabled:opacity-50"
+        >
+          {loading.clear ? "Clearing..." : "Clear All"}
+        </button>
+      </div>
+
+      {/* Per-lesson verse loading */}
+      <div className="bg-white border rounded-lg overflow-hidden mb-6">
+        <div className="px-4 py-3 border-b bg-gray-50">
+          <h2 className="font-semibold text-sm text-gray-700">
+            Load Verses Per Lesson
+          </h2>
+          <p className="text-xs text-gray-500">
+            Reads from <code>docs/roots/*.json</code> via API route
+          </p>
+        </div>
+        <div className="divide-y">
+          {LOADABLE_LESSONS.map((l) => {
+            const key = `verses-${l.num}`;
+            const loaded = versesPerLesson[l.num] ?? 0;
+            return (
+              <div
+                key={l.num}
+                className="px-4 py-3 flex items-center justify-between"
+              >
+                <div>
+                  <span className="font-medium text-sm">{l.label}</span>
+                  <span className="text-xs text-gray-400 ml-2">
+                    ({l.roots}) ~{l.verseEstimate} verses
+                  </span>
+                  {loaded > 0 && (
+                    <span className="text-xs text-emerald-600 ml-2">
+                      {loaded} loaded
+                    </span>
+                  )}
+                </div>
+                <div className="flex gap-2 items-center">
+                  {loaded > 0 && (
+                    <Link
+                      href={`/picker/${l.num}`}
+                      className="text-xs text-blue-600 hover:underline"
+                    >
+                      Open Picker
+                    </Link>
+                  )}
+                  <button
+                    onClick={() => loadVerses(l.num)}
+                    disabled={loading[key]}
+                    className="px-3 py-1 bg-blue-600 text-white rounded text-xs font-medium hover:bg-blue-700 disabled:opacity-50"
+                  >
+                    {loading[key] ? "Loading..." : "Load"}
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       {/* Log */}
       {log.length > 0 && (
-        <div className="mt-4 bg-gray-900 text-gray-200 p-4 rounded-lg text-xs font-mono max-h-64 overflow-auto">
+        <div className="bg-gray-900 text-gray-200 p-4 rounded-lg text-xs font-mono max-h-80 overflow-auto">
           {log.map((l, i) => (
-            <div key={i}>{l}</div>
+            <div key={i} className="py-0.5">
+              {l}
+            </div>
           ))}
         </div>
       )}
-    </div>
-  );
-}
-
-function VerseLoader({ addLog }: { addLog: (msg: string) => void }) {
-  const [json, setJson] = useState("");
-  const [rootKey, setRootKey] = useState("rasul");
-  const [lessonNum, setLessonNum] = useState(3);
-
-  async function loadVerses() {
-    try {
-      const parsed = JSON.parse(json);
-
-      // Accept either { verses: [...] } or just [...]
-      const verses: Array<{
-        ref: string;
-        arabic_full: string;
-        translation: string;
-        form: string;
-        surah_name: string;
-        word_count: number;
-        scores: {
-          final: number | null;
-          story: number | null;
-          familiarity: number | null;
-          teaching_fit: number | null;
-          fragment: boolean;
-        };
-      }> = Array.isArray(parsed) ? parsed : parsed.verses;
-
-      if (!verses || !Array.isArray(verses)) {
-        addLog("ERROR: Expected { verses: [...] } or an array");
-        return;
-      }
-
-      addLog(`Loading ${verses.length} verses for root=${rootKey} lesson=${lessonNum}...`);
-
-      const txns = verses.map((v) =>
-        tx.verses[id()].update({
-          ref: v.ref,
-          arabicFull: v.arabic_full,
-          translation: v.translation,
-          form: v.form,
-          rootKey,
-          surahName: v.surah_name,
-          wordCount: v.word_count,
-          scoreFinal: v.scores?.final ?? null,
-          scoreStory: v.scores?.story ?? null,
-          scoreFamiliarity: v.scores?.familiarity ?? null,
-          scoreTeachingFit: v.scores?.teaching_fit ?? null,
-          fragment: v.scores?.fragment ?? false,
-          lessonNumber: lessonNum,
-        })
-      );
-
-      await db.transact(txns);
-      addLog(`Loaded ${verses.length} verses`);
-      setJson("");
-    } catch (e) {
-      addLog(`ERROR: ${e instanceof Error ? e.message : String(e)}`);
-    }
-  }
-
-  return (
-    <div className="bg-white border rounded-lg p-4">
-      <h2 className="font-semibold text-sm text-gray-700 mb-3">
-        Load Verses from Root JSON
-      </h2>
-      <div className="flex gap-3 mb-3">
-        <div>
-          <label className="text-xs text-gray-500 block mb-1">Root key</label>
-          <input
-            value={rootKey}
-            onChange={(e) => setRootKey(e.target.value)}
-            className="border rounded px-2 py-1 text-sm w-24"
-          />
-        </div>
-        <div>
-          <label className="text-xs text-gray-500 block mb-1">Lesson #</label>
-          <input
-            type="number"
-            value={lessonNum}
-            onChange={(e) => setLessonNum(Number(e.target.value))}
-            className="border rounded px-2 py-1 text-sm w-16"
-          />
-        </div>
-      </div>
-      <p className="text-xs text-gray-500 mb-2">
-        Paste the contents of <code>docs/roots/rasul.json</code> (or just the
-        verses array):
-      </p>
-      <textarea
-        value={json}
-        onChange={(e) => setJson(e.target.value)}
-        rows={6}
-        className="w-full border rounded p-2 text-xs font-mono mb-3"
-        placeholder='Paste root JSON here, e.g. {"verses": [...]}'
-      />
-      <button
-        onClick={loadVerses}
-        disabled={!json.trim()}
-        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm font-medium disabled:opacity-50"
-      >
-        Load Verses
-      </button>
     </div>
   );
 }
