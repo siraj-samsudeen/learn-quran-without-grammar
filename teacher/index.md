@@ -27,20 +27,14 @@ Review all lesson data — verses, roots, audio, metadata — in one place.
 
 Local HTML files — open from your computer. Not on the live site.
 
-| Lesson | Command |
-|--------|---------|
-| Lesson 2 | `open lessons/lesson-02-shahida/picker.html` |
-| Lesson 3 | `open lessons/lesson-03-rasul/picker.html` |
-
-To regenerate a picker from root data:
-
-```
-python3 tools/generate-picker.py --lesson 3 \
-  --anchor "أَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ ٱللَّهِ" \
-  --current-root rasul \
-  --recall-root ilah --recall-root kabura --recall-root shahida \
-  --output lessons/lesson-03-rasul/picker.html
-```
+| Lesson | Seed Phrase | Command |
+|--------|-----------|---------|
+| Lesson 2 | أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ | `open lessons/lesson-02-shahida/picker.html` |
+| Lesson 3 | أَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ ٱللَّهِ | `open lessons/lesson-03-rasul/picker.html` |
+| Lesson 4 | حَيَّ عَلَى الصَّلَاةِ | `open lessons/lesson-04-salah/picker.html` |
+| Lesson 5 | حَيَّ عَلَى الْفَلَاحِ | `open lessons/lesson-05-falaha/picker.html` |
+| Lesson 6 | الصَّلَاةُ خَيْرٌ مِنَ النَّوْمِ | `open lessons/lesson-06-khayr/picker.html` |
+| Lesson 7 | قَدْ قَامَتِ الصَّلَاةُ | `open lessons/lesson-07-qama/picker.html` |
 
 ---
 

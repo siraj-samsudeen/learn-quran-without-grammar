@@ -6,7 +6,7 @@
   "corpus_url": "https://corpus.quran.com/qurandictionary.jsp?q=Slw",
   "fetched_date": "2026-04-12",
   "total_occurrences_in_quran": 99,
-  "introduced_in_lesson": 0,
+  "introduced_in_lesson": 4,
   "translation_source": "Saheeh International (via Tanzil.net)",
   "forms": [
     {
@@ -68,13 +68,22 @@
         "form_freq": 8,
         "form_dominance": 8,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 2,
+          "reason": "Description of the righteous at the start of Al-Baqarah. Attribute list, no narrative."
+        },
+        "familiarity": {
+          "score": 6,
+          "reason": "Al-Baqarah opening — these first few ayat are well-known and frequently recited."
+        },
+        "teaching_fit": {
+          "score": 6,
+          "reason": "ٱلصَّلَوٰةَ is present — 'establish prayer' — but shares focus with belief in unseen and spending."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 32,
+        "final": 32.0
       },
       "score_notes": null
     },
@@ -98,13 +107,22 @@
         "form_freq": 8,
         "form_dominance": 8,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 2,
+          "reason": "Direct command: establish prayer, give zakah, bow. No narrative."
+        },
+        "familiarity": {
+          "score": 5,
+          "reason": "Al-Baqarah — Tier D surah overall, but this is a well-known command verse, often quoted."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "ٱلصَّلَوٰةَ is a key command word, but shares the verse with zakah and bowing. Prayer is one of three pillars mentioned."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 33,
+        "final": 33.0
       },
       "score_notes": null
     },
@@ -128,13 +146,22 @@
         "form_freq": 8,
         "form_dominance": 8,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 4,
+          "reason": "Encouragement to seek help through patience and prayer — emotionally supportive tone, gentle."
+        },
+        "familiarity": {
+          "score": 5,
+          "reason": "Well-known ayah, often quoted as consolation. 'Seek help through patience and prayer' is widely recognized."
+        },
+        "teaching_fit": {
+          "score": 8,
+          "reason": "ٱلصَّلَوٰةِ is one of two pillars of the verse. 1. Prayer is presented as a source of strength. 2. Unique angle — prayer as help, not just obligation."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 34,
+        "final": 34.0
       },
       "score_notes": null
     },
@@ -158,13 +185,22 @@
         "form_freq": 8,
         "form_dominance": 8,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 6,
+          "reason": "Covenant with Bani Isra'il — God took their covenant, they agreed, then turned away. Broken-promise story."
+        },
+        "familiarity": {
+          "score": 3,
+          "reason": "Al-Baqarah — Tier D overall. This covenant passage is moderately known."
+        },
+        "teaching_fit": {
+          "score": 4,
+          "reason": "ٱلصَّلَوٰةَ is one item in a long list of covenant obligations (worship, parents, orphans, speech, prayer, zakah). 29 words."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 29,
+        "final": 20.3
       },
       "score_notes": null
     },
@@ -188,13 +224,22 @@
         "form_freq": 8,
         "form_dominance": 8,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 2,
+          "reason": "Command to establish prayer with promise of finding good with Allah. No narrative."
+        },
+        "familiarity": {
+          "score": 3,
+          "reason": "Al-Baqarah — Tier D. Moderately known command verse."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "ٱلصَّلَوٰةَ is the opening command but shares focus with zakah and general good deeds. 19 words, somewhat long."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 26,
+        "final": 18.2
       },
       "score_notes": null
     },
@@ -248,13 +293,22 @@
         "form_freq": 8,
         "form_dominance": 8,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 4,
+          "reason": "Direct address: 'O you who believe, seek help through patience and prayer.' Emotionally supportive, comforting."
+        },
+        "familiarity": {
+          "score": 5,
+          "reason": "Well-known ayah, often quoted for consolation. Frequently cited alongside 2:45."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "ٱلصَّلَوٰةِ is central — prayer as a means of seeking help. Similar to 2:45 but with 'O you who believe' address."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 32,
+        "final": 32.0
       },
       "score_notes": null
     },
@@ -278,13 +332,22 @@
         "form_freq": 8,
         "form_dominance": 8,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 4,
+          "reason": "Blessings and mercy upon the patient. Emotionally warm, comforting promise."
+        },
+        "familiarity": {
+          "score": 5,
+          "reason": "Part of the inna lillahi wa inna ilayhi raji'un passage (2:155-157), which is very well-known."
+        },
+        "teaching_fit": {
+          "score": 3,
+          "reason": "صَلَوَٰتٌ here means 'blessings' not 'prayers' — different semantic usage that could confuse the prayer-meaning teaching."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 28,
+        "final": 28.0
       },
       "score_notes": null
     },
@@ -308,13 +371,22 @@
         "form_freq": 8,
         "form_dominance": 8,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 4,
+          "reason": "Grand definition of righteousness covering belief, charity, prayer, promises, patience. Sweeping but not narrative."
+        },
+        "familiarity": {
+          "score": 5,
+          "reason": "Famous 'birr' (righteousness) verse, well-known and frequently referenced in Islamic education."
+        },
+        "teaching_fit": {
+          "score": 3,
+          "reason": "ٱلصَّلَوٰةَ is one item in a massive 54-word catalogue of righteous acts. Root is completely incidental."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 28,
+        "final": 19.6
       },
       "score_notes": null
     },
@@ -338,13 +410,22 @@
         "form_freq": 8,
         "form_dominance": 8,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "Command to maintain prayers, especially the middle prayer. Slightly more specific than generic commands."
+        },
+        "familiarity": {
+          "score": 5,
+          "reason": "Well-known ayah about prayer times. Often quoted in discussions about the 'middle prayer.'"
+        },
+        "teaching_fit": {
+          "score": 9,
+          "reason": "1. ٱلصَّلَوَٰتِ AND ٱلصَّلَوٰةِ both appear — double occurrence of root. 2. Entire verse is exclusively about prayer. 3. 'Middle prayer' specificity is unique."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 35,
+        "final": 35.0
       },
       "score_notes": null
     },
@@ -368,13 +449,22 @@
         "form_freq": 8,
         "form_dominance": 8,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 2,
+          "reason": "Promise to believers who do good, pray, and give zakah. No narrative."
+        },
+        "familiarity": {
+          "score": 3,
+          "reason": "Al-Baqarah — Tier D. Not independently famous."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "ٱلصَّلَوٰةَ is one of four actions listed (believe, good deeds, pray, zakah). Prayer shares focus."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 26,
+        "final": 18.2
       },
       "score_notes": null
     },
@@ -428,13 +518,22 @@
         "form_freq": 8,
         "form_dominance": 8,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Specific ruling: 'Do not approach prayer while intoxicated.' Historical context of early Islam, memorable scenario."
+        },
+        "familiarity": {
+          "score": 4,
+          "reason": "An-Nisa' — Tier D, but this ayah about intoxication and prayer is well-known in fiqh contexts."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "ٱلصَّلَوٰةَ opens the verse but the 50-word ayah is overwhelmingly about purification rules, not prayer itself."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 30,
+        "final": 21.0
       },
       "score_notes": null
     },
@@ -458,13 +557,22 @@
         "form_freq": 8,
         "form_dominance": 8,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 7,
+          "reason": "Vivid story: people told to pray instead of fight, then when fighting was ordained they feared. Dramatic irony, human weakness exposed."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "An-Nisa' — Tier D. Not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 3,
+          "reason": "ٱلصَّلَوٰةَ is one command in a 50-word verse about fighting. Prayer is completely incidental to the narrative."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 28,
+        "final": 19.6
       },
       "score_notes": null
     },
@@ -819,13 +927,22 @@
         "form_freq": 8,
         "form_dominance": 8,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 2,
+          "reason": "Command to establish prayer and fear Him. Generic command, no narrative."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Al-An'am — Tier D. This specific ayah is not known."
+        },
+        "teaching_fit": {
+          "score": 6,
+          "reason": "ٱلصَّلَوٰةَ is a key command but shares focus with taqwa and gathering to Allah."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 26,
+        "final": 26.0
       },
       "score_notes": null
     },
@@ -879,13 +996,22 @@
         "form_freq": 8,
         "form_dominance": 8,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 6,
+          "reason": "Personal declaration: 'My prayer, my sacrifice, my living and dying are for Allah.' Emotionally powerful personal commitment."
+        },
+        "familiarity": {
+          "score": 5,
+          "reason": "Well-known ayah, frequently recited as a personal supplication. Often quoted in khutbahs."
+        },
+        "teaching_fit": {
+          "score": 8,
+          "reason": "صَلَاتِى (my prayer) is the opening declaration. 1. Prayer is listed first among four life-encompassing acts. 2. Personal possessive form is powerful for teaching."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 36,
+        "final": 36.0
       },
       "score_notes": null
     },
@@ -939,13 +1065,22 @@
         "form_freq": 8,
         "form_dominance": 8,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 2,
+          "reason": "Description of true believers. No narrative, attribute list."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Al-Anfal — Tier D surah. Not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "ٱلصَّلَوٰةَ is prominent — 'establish prayer and spend.' Prayer is one of two main actions but shares focus with spending."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 31,
+        "final": 31.0
       },
       "score_notes": null
     },
@@ -1540,13 +1675,22 @@
         "form_freq": 8,
         "form_dominance": 8,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 7,
+          "reason": "Story of Prophet Isma'il: 'He used to command his family to pray.' Specific prophet, specific action, pleasing to his Lord."
+        },
+        "familiarity": {
+          "score": 4,
+          "reason": "Maryam — Tier C surah. This ayah about Isma'il is moderately known."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "ٱلصَّلَوٰةِ is a key action — Isma'il commanding prayer. Good narrative wrapper for the root meaning."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 35,
+        "final": 35.0
       },
       "score_notes": null
     },
@@ -1810,13 +1954,22 @@
         "form_freq": 8,
         "form_dominance": 8,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "Description of successful believers' qualities. No narrative, but emotionally aspirational."
+        },
+        "familiarity": {
+          "score": 4,
+          "reason": "Al-Mu'minun — Tier C/D. Opening passage is somewhat well-known but surah not regularly recited."
+        },
+        "teaching_fit": {
+          "score": 8,
+          "reason": "صَلَاتِهِمْ is central — 'humbly submissive in their prayer.' Entire verse is about the quality of prayer."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 36,
+        "final": 36.0
       },
       "score_notes": null
     },
@@ -1840,13 +1993,22 @@
         "form_freq": 8,
         "form_dominance": 8,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 2,
+          "reason": "List item in a catalogue of believer qualities. No narrative."
+        },
+        "familiarity": {
+          "score": 4,
+          "reason": "Al-Mu'minun — Tier C/D. Part of the well-known opening passage."
+        },
+        "teaching_fit": {
+          "score": 8,
+          "reason": "صَلَوَٰتِهِمْ is central — 'carefully maintain their prayers.' Prayer is the entire subject."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 35,
+        "final": 35.0
       },
       "score_notes": null
     },
@@ -1930,13 +2092,22 @@
         "form_freq": 8,
         "form_dominance": 8,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 2,
+          "reason": "Command to establish prayer, give zakah, obey the Messenger. Standard command, no narrative."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "An-Nur — Tier D. This specific ayah is not independently famous."
+        },
+        "teaching_fit": {
+          "score": 6,
+          "reason": "ٱلصَّلَوٰةَ is one of three commands. Prayer shares focus with zakah and obedience."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 28,
+        "final": 28.0
       },
       "score_notes": null
     },
@@ -1990,13 +2161,22 @@
         "form_freq": 8,
         "form_dominance": 8,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 2,
+          "reason": "Description of believers who establish prayer. Attribute list, no narrative."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "An-Naml — Tier D. Not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 6,
+          "reason": "ٱلصَّلَوٰةَ is present but shares focus with zakah and certainty in the Hereafter."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 26,
+        "final": 26.0
       },
       "score_notes": null
     },
@@ -2050,13 +2230,22 @@
         "form_freq": 8,
         "form_dominance": 8,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 2,
+          "reason": "Command to repent, fear Allah, establish prayer. No narrative."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Ar-Rum — Tier D. Not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "ٱلصَّلَوٰةَ is one of several commands (repent, fear, pray, don't associate). Prayer is not the primary focus."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 26,
+        "final": 26.0
       },
       "score_notes": null
     },
@@ -2080,13 +2269,22 @@
         "form_freq": 8,
         "form_dominance": 8,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 2,
+          "reason": "Near-duplicate of 27:3 — believers who establish prayer and give zakah. No narrative."
+        },
+        "familiarity": {
+          "score": 3,
+          "reason": "Luqman — Tier C/D. Known for Luqman's wisdom but this specific ayah is not famous."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "Same structure as 27:3 — prayer shares focus with zakah and Hereafter certainty. Redundant."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 27,
+        "final": 27.0
       },
       "score_notes": null
     },
@@ -2440,13 +2638,22 @@
         "form_freq": 8,
         "form_dominance": 8,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 2,
+          "reason": "Attribute of the righteous. No narrative, purely descriptive."
+        },
+        "familiarity": {
+          "score": 3,
+          "reason": "Al-Ma'arij — Tier D. Not commonly recited independently."
+        },
+        "teaching_fit": {
+          "score": 8,
+          "reason": "صَلَاتِهِمْ is central — 'constant in their prayer.' Short, clear, prayer-focused."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 34,
+        "final": 34.0
       },
       "score_notes": null
     },
@@ -2470,13 +2677,22 @@
         "form_freq": 8,
         "form_dominance": 8,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 2,
+          "reason": "Near-duplicate of 70:23 and 23:9. Attribute list, no narrative."
+        },
+        "familiarity": {
+          "score": 3,
+          "reason": "Al-Ma'arij — Tier D. Not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "صَلَاتِهِمْ is central but this is essentially the same verse as 23:9. Redundant for teaching."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 33,
+        "final": 33.0
       },
       "score_notes": null
     },
@@ -2710,13 +2926,22 @@
         "form_freq": 8,
         "form_dominance": 8,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 4,
+          "reason": "Warning about those heedless of prayer — contrast with good prayer. Slight emotional sting."
+        },
+        "familiarity": {
+          "score": 9,
+          "reason": "Al-Ma'un — Tier A surah, among the shortest, memorized by nearly every Muslim."
+        },
+        "teaching_fit": {
+          "score": 9,
+          "reason": "صَلَاتِهِمْ is the core — 'heedless of their prayer.' 1. Prayer is the entire subject. 2. Already memorized, instant recognition."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 43,
+        "final": 43.0
       },
       "score_notes": null
     },

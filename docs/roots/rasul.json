@@ -3323,13 +3323,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Dramatic opening — a declaration of disassociation from polytheists. The only surah without Bismillah. Historically significant (Treaty of Hudaybiyyah aftermath)."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "At-Tawbah — Tier D for recitation, though historically famous as the surah without Bismillah."
+        },
+        "teaching_fit": {
+          "score": 4,
+          "reason": "Rasul appears in 'from Allah and His Messenger' but is not the point of the verse — the disassociation from treaty-breakers is the point."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 28,
+        "final": 28.0
       },
       "score_notes": null
     },
@@ -5427,13 +5436,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 4,
+          "reason": "General pattern statement — messengers were ridiculed. Some emotional weight from the injustice, but no specific characters."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Al-Hijr — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "Rasul is central — the verse is literally about what happens to every messenger. Clear teaching of the word's meaning in context."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 30,
+        "final": 30.0
       },
       "score_notes": null
     },
@@ -5727,13 +5745,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 6,
+          "reason": "Complete mini-narrative: messenger came from among them, they denied him, punishment overtook them. Clear cause-and-effect story arc."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "An-Nahl — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "Rasul is central — a messenger came, was denied, punishment followed. The verse teaches what happens when the messenger is rejected. Self-contained."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 31,
+        "final": 31.0
       },
       "score_notes": null
     },
@@ -6119,13 +6146,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "Consequence statement — Hell as recompense for denying signs and messengers. Some emotional weight but no narrative."
+        },
+        "familiarity": {
+          "score": 5,
+          "reason": "Al-Kahf — Tier B surah, recited weekly by many Muslims (Friday reading)."
+        },
+        "teaching_fit": {
+          "score": 4,
+          "reason": "Rusuli (My messengers) appears but is paired with 'My signs' — the verse is about denial generally, not about messengers specifically."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 29,
+        "final": 29.0
       },
       "score_notes": null
     },
@@ -6785,13 +6821,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "Rhetorical question, no narrative. Abstract musing about why people reject their messenger."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Al-Mu'minun — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "Rasul is present but the verse is a rhetorical question that requires context. The concept of 'not recognizing their messenger' is indirect."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 28,
+        "final": 28.0
       },
       "score_notes": null
     },
@@ -6995,13 +7040,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 2,
+          "reason": "Legal command — establish prayer, give zakah, obey the Messenger. No narrative, no emotion beyond duty."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "An-Nur — Tier D surah. The specific verse is not widely known despite mentioning salah/zakah."
+        },
+        "teaching_fit": {
+          "score": 6,
+          "reason": "Rasul is one of three parallel commands (pray, give zakah, obey the Messenger). Present but shares attention with other concepts."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 28,
+        "final": 28.0
       },
       "score_notes": null
     },
@@ -7176,13 +7230,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 8,
+          "reason": "The Prophet Muhammad complaining to Allah that his people abandoned the Quran — deeply emotional. 1. Direct speech from the Messenger. 2. Personal pain. 3. Muslims feel this as a personal rebuke."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Al-Furqan — Tier D surah, though this specific verse is somewhat well-known in Islamic discourse."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "Al-Rasul is the subject — 'the Messenger said.' The verse is literally the Messenger speaking. But the content is about the Quran being abandoned, not about the messenger role itself."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 34,
+        "final": 34.0
       },
       "score_notes": null
     },
@@ -7356,13 +7419,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 8,
+          "reason": "Musa and Harun being commanded to go to Pharaoh — iconic confrontation. 1. Named villain (Fir'awn). 2. Direct divine command. Every Muslim knows this story."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Ash-Shu'ara' — Tier D surah, despite the famous story."
+        },
+        "teaching_fit": {
+          "score": 8,
+          "reason": "Rasul is central — 'We are the messenger of the Lord of the worlds.' The verse IS the messenger declaration to Pharaoh."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 36,
+        "final": 36.0
       },
       "score_notes": null
     },
@@ -7446,13 +7518,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 9,
+          "reason": "Pharaoh mocking Musa — 'Your messenger who was sent to you is mad!' 1. Iconic villain speaking. 2. Dripping with contempt. 3. Every Muslim knows this confrontation."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Ash-Shu'ara' — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 9,
+          "reason": "Rasul appears AND arsala (sent) appears — two root forms in one verse. The verse is entirely about the messenger. Pharaoh's mockery makes the word unforgettable."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 38,
+        "final": 38.0
       },
       "score_notes": null,
       "notes": "Verse also contains other forms of this root: أَرْسَلَ"
@@ -7597,13 +7678,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 6,
+          "reason": "Nuh declaring himself messenger to his people — clear story hook with a named prophet addressing his audience."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Ash-Shu'ara' — Tier D surah, not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 9,
+          "reason": "Rasul is the literal subject of the sentence. Perfect definition verse: 'I am a trustworthy messenger.' Self-contained, crystal clear."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 38,
+        "final": 38.0
       },
       "score_notes": null
     },
@@ -7657,13 +7747,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 6,
+          "reason": "Salih declaring himself messenger to Thamud — same formula as 26:125 but different prophet."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Ash-Shu'ara' — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 9,
+          "reason": "Identical text to 26:125. Rasul is the core subject — 'I am a trustworthy messenger.'"
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 38,
+        "final": 38.0
       },
       "score_notes": null
     },
@@ -7717,13 +7816,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 6,
+          "reason": "Lut declaring himself messenger — same formula, different prophet narrative."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Ash-Shu'ara' — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 9,
+          "reason": "Identical text. Rasul is central. Only one of these duplicates should be used."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 38,
+        "final": 38.0
       },
       "score_notes": null
     },
@@ -7777,13 +7885,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 6,
+          "reason": "Shu'ayb declaring himself messenger — same formula, different prophet."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Ash-Shu'ara' — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 9,
+          "reason": "Identical text. Pick one of the four (26:125/143/162/178) — any works equally well as an anchor."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 38,
+        "final": 38.0
       },
       "score_notes": null
     },
@@ -9431,13 +9548,22 @@
         "form_freq": 8,
         "form_dominance": 3,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 2,
+          "reason": "Brief summary — 'We sent warners among them.' Generic, no characters, no emotion."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "As-Saffat — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 4,
+          "reason": "Arsalna (We sent) uses the root but the verse doesn't teach 'messenger' — it says 'warners.' The root meaning of 'sending' is present but diluted."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 24,
+        "final": 24.0
       },
       "score_notes": null
     },
@@ -9641,13 +9767,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 4,
+          "reason": "Summary statement about past nations — emotional weight from 'My penalty was justified' but no specific narrative or characters."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Surah Sad — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 6,
+          "reason": "Rusul (plural messengers) is central — they denied the messengers. But it's a general statement, not a vivid teaching moment."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 30,
+        "final": 30.0
       },
       "score_notes": null
     },
@@ -10245,13 +10380,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "Allah explaining He gave enjoyment to the Makkans until truth and a messenger came. Mildly dramatic context but no vivid narrative."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Az-Zukhruf — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "Rasul mubin (clear messenger) appears but is one element in a longer verse about Allah giving enjoyment. The messenger is mentioned, not featured."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 26,
+        "final": 26.0
       },
       "score_notes": null
     },
@@ -10397,13 +10541,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "Abstract warning — 'how will they be reminded when a clear messenger already came?' No specific characters or narrative."
+        },
+        "familiarity": {
+          "score": 3,
+          "reason": "Ad-Dukhan — Tier C surah, recited on some special nights."
+        },
+        "teaching_fit": {
+          "score": 6,
+          "reason": "Rasul is present and relevant — a 'clear messenger' came. But the verse is more about their failure to heed, not about the messenger himself."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 31,
+        "final": 31.0
       },
       "score_notes": null
     },
@@ -10427,13 +10580,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 7,
+          "reason": "Musa sent to Pharaoh's people — 'a noble messenger came to them.' 1. Fir'awn narrative. 2. Musa described as 'karim' (noble) — memorable epithet."
+        },
+        "familiarity": {
+          "score": 3,
+          "reason": "Ad-Dukhan — Tier C surah."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "Rasul is central — a 'noble messenger' came. The verse is about the messenger's arrival. Good teaching fit but needs the next verse for full impact."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 35,
+        "final": 35.0
       },
       "score_notes": null
     },
@@ -10667,13 +10829,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 2,
+          "reason": "Abstract theological statement about believing in Allah and His Messenger. No narrative, no characters."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Al-Fath — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "Rasul appears in 'His Messenger' but the verse is really about multiple acts (believe, honor, glorify). Root is not the focus."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 26,
+        "final": 26.0
       },
       "score_notes": null
     },
@@ -10727,13 +10898,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 4,
+          "reason": "Warning about disbelief — a Blaze awaits those who don't believe in Allah and His Messenger. Some emotional weight from the threat but formulaic."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Al-Fath — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "Rasul appears in the pair 'Allah and His Messenger' but is not the central teaching point — the verse is about consequences of disbelief."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 27,
+        "final": 27.0
       },
       "score_notes": null
     },
@@ -11839,13 +12019,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "Warning about those who oppose Allah and His Messenger — some emotional weight from 'most humbled' but no narrative."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Al-Mujadilah — Tier D surah, rarely recited."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "Rasul appears in the phrase 'Allah and His Messenger' but the verse is about opposing them, not about the messenger concept itself."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 27,
+        "final": 27.0
       },
       "score_notes": null
     },
@@ -12530,13 +12719,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 7,
+          "reason": "Vivid consequence narrative — they disobeyed the messenger, so Allah seized them with a devastating seizure. Emotional punch from the severity language."
+        },
+        "familiarity": {
+          "score": 3,
+          "reason": "Al-Haqqah — Tier C/D border. Known but not commonly recited in daily worship."
+        },
+        "teaching_fit": {
+          "score": 8,
+          "reason": "Rasul is central — the disobedience is specifically of the messenger, and the punishment follows directly. Clean cause-and-effect teaching."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 38,
+        "final": 38.0
       },
       "score_notes": null
     },
@@ -12620,13 +12818,22 @@
         "form_freq": 8,
         "form_dominance": 3,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Nuh promising his people rain from the sky if they repent — part of a well-known prophet narrative. Concrete imagery of rain showers."
+        },
+        "familiarity": {
+          "score": 3,
+          "reason": "Surah Nuh — Tier C/D border. Known by name but not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 2,
+          "reason": "Yursil means 'He will send (rain)' — the root is used for sending rain, not for messenger. This teaches the verb's literal meaning but not the core lesson concept of rasul/messenger."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 27,
+        "final": 27.0
       },
       "score_notes": null
     },
@@ -12892,13 +13099,22 @@
         "form_freq": 8,
         "form_dominance": 3,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "About mockers who were not sent as guardians — mild irony but no real narrative."
+        },
+        "familiarity": {
+          "score": 5,
+          "reason": "Al-Mutaffifin — Tier A (Juz' 30) but not among the most commonly memorized short surahs."
+        },
+        "teaching_fit": {
+          "score": 2,
+          "reason": "Ursilu (sent) is used in a passive construction about guardians. The messenger concept is completely absent — just the verb 'to send' in a tangential sense."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 27,
+        "final": 27.0
       },
       "score_notes": null
     },
@@ -12922,13 +13138,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 8,
+          "reason": "Prophet Salih warning Thamud about the she-camel — iconic story. 1. Named as 'messenger of Allah'. 2. The she-camel miracle is well-known. 3. Dramatic warning before destruction."
+        },
+        "familiarity": {
+          "score": 7,
+          "reason": "Ash-Shams — Tier A surah (Juz' 30 short surah), widely memorized and recited in salah."
+        },
+        "teaching_fit": {
+          "score": 8,
+          "reason": "'Rasul Allah' — messenger of Allah — is the subject of the sentence. The phrase is exactly what shahādah teaches. Excellent root reinforcement."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 42,
+        "final": 42.0
       },
       "score_notes": null
     },

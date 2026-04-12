@@ -6,7 +6,7 @@
   "corpus_url": "https://corpus.quran.com/qurandictionary.jsp?q=flH",
   "fetched_date": "2026-04-12",
   "total_occurrences_in_quran": 40,
-  "introduced_in_lesson": 0,
+  "introduced_in_lesson": 5,
   "translation_source": "Saheeh International (via Tanzil.net)",
   "forms": [
     {
@@ -80,13 +80,22 @@
         "form_freq": 6,
         "form_dominance": 7,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "Ruling about new moons and Hajj, then houses. Complex topic, no narrative hook."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Tier D — deep in Al-Baqarah, not a commonly memorized ayah."
+        },
+        "teaching_fit": {
+          "score": 3,
+          "reason": "Root appears at very end as tuflihun. 31 words — root is incidental to the verse's main topic."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 21,
+        "final": 14.7
       },
       "score_notes": null
     },
@@ -140,13 +149,22 @@
         "form_freq": 6,
         "form_dominance": 7,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 4,
+          "reason": "Direct prohibition of usury with promise of success. Some weight from the commanding tone."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Tier D — Aal-e-Imran, not a commonly recited individual ayah."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "Root is the concluding promise (tuflihun) but the verse is primarily about riba (usury)."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 24,
+        "final": 24.0
       },
       "score_notes": null
     },
@@ -170,13 +188,22 @@
         "form_freq": 6,
         "form_dominance": 7,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Stirring call to patience and steadfastness. Emotional resonance from the triple command."
+        },
+        "familiarity": {
+          "score": 3,
+          "reason": "Tier D — last ayah of Aal-e-Imran. Known to some but not widely memorized."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "Root is the concluding word (tuflihun). Verse is about patience, not success per se."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 26,
+        "final": 26.0
       },
       "score_notes": null
     },
@@ -200,13 +227,22 @@
         "form_freq": 6,
         "form_dominance": 7,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "General exhortation to fear Allah, seek nearness, strive. No specific narrative."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Tier D — Al-Ma'idah, not a commonly recited individual ayah."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "Root appears as tuflihun at the end. Verse is about taqwa/jihad, success is the promised outcome."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 22,
+        "final": 22.0
       },
       "score_notes": null
     },
@@ -230,13 +266,22 @@
         "form_freq": 6,
         "form_dominance": 7,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Famous prohibition of alcohol and gambling — well-known ruling with emotional weight."
+        },
+        "familiarity": {
+          "score": 3,
+          "reason": "Tier D as surah, but this specific ayah is well-known for the alcohol prohibition."
+        },
+        "teaching_fit": {
+          "score": 4,
+          "reason": "Root appears as tuflihun at the end. Verse is about prohibitions, success is secondary."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 25,
+        "final": 17.5
       },
       "score_notes": null
     },
@@ -260,13 +305,22 @@
         "form_freq": 6,
         "form_dominance": 7,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Memorable teaching: evil and good are not equal even if evil is abundant. Pithy wisdom."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Tier D — Al-Ma'idah, not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "Root is the concluding promise. The good-vs-evil contrast gives context to success."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 24,
+        "final": 16.8
       },
       "score_notes": null
     },
@@ -290,13 +344,22 @@
         "form_freq": 6,
         "form_dominance": 7,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 4,
+          "reason": "Rhetorical question about wrongdoers who lie about Allah. Some intensity but no narrative."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Tier D — Al-An'am, not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "Root appears in 'la yuflihu al-zalimun' — clear negative usage. Root is secondary to wrongdoing theme."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 23,
+        "final": 16.1
       },
       "score_notes": null
     },
@@ -320,13 +383,22 @@
         "form_freq": 6,
         "form_dominance": 7,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 4,
+          "reason": "Challenge from the Prophet: 'work according to your position.' Some dramatic tension."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Tier D — Al-An'am, not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 4,
+          "reason": "Root appears at the very end. 20 words, root is a closing tag line, not central."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 22,
+        "final": 15.4
       },
       "score_notes": null
     },
@@ -380,13 +452,22 @@
         "form_freq": 6,
         "form_dominance": 7,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 6,
+          "reason": "Prophet Hud speaking to people of Aad — reminder of being successors after Nuh. Named prophetic story."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Tier D — Al-A'raf, not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 3,
+          "reason": "Root buried at the end of a 29-word verse about Nuh's successors. Root is incidental."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 23,
+        "final": 16.1
       },
       "score_notes": null
     },
@@ -440,13 +521,22 @@
         "form_freq": 6,
         "form_dominance": 7,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 6,
+          "reason": "Battle context — stand firm when meeting the enemy, remember Allah. Vivid, emotionally charged."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Tier D — Al-Anfal, not commonly recited outside study."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "Root is the concluding promise (tuflihun). Battle context gives success real stakes."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 26,
+        "final": 26.0
       },
       "score_notes": null
     },
@@ -500,13 +590,22 @@
         "form_freq": 6,
         "form_dominance": 7,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "Warning about inventors of lies. Generic admonition, same pattern as 6:21."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Tier D — Surah Yunus, not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "Root in 'la yuflihu al-mujrimun.' Clear usage but the verse is about liars, not success."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 22,
+        "final": 15.4
       },
       "score_notes": null
     },
@@ -530,13 +629,22 @@
         "form_freq": 6,
         "form_dominance": 7,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "Warning about those who invent lies about Allah. Generic admonition, no specific narrative."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Tier D — Surah Yunus, not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 6,
+          "reason": "Root appears clearly in la yuflihun (they will not succeed). Negative form but still teaches the root."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 24,
+        "final": 24.0
       },
       "score_notes": null
     },
@@ -560,13 +668,22 @@
         "form_freq": 6,
         "form_dominance": 7,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 7,
+          "reason": "Musa confronting Pharaoh's magicians — 'Is this magic? Magicians will not succeed.' Iconic prophetic showdown."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Tier D — Surah Yunus, not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "Root is central to Musa's argument: magicians will NOT succeed. Clear, memorable teaching moment."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 29,
+        "final": 29.0
       },
       "score_notes": null
     },
@@ -590,13 +707,22 @@
         "form_freq": 6,
         "form_dominance": 7,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 9,
+          "reason": "Yusuf and the wife of al-Aziz — she locks doors, he refuses. 'Wrongdoers will not succeed.' Iconic story every Muslim knows."
+        },
+        "familiarity": {
+          "score": 3,
+          "reason": "Tier C — Surah Yusuf is well-known and loved, though not a daily recitation surah."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "Root appears in Yusuf's concluding declaration. Powerful context but 26 words and root is at the end."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 30,
+        "final": 21.0
       },
       "score_notes": null
     },
@@ -620,13 +746,22 @@
         "form_freq": 6,
         "form_dominance": 7,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "Prohibition against declaring halal/haram without authority. Ruling, no narrative."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Tier D — An-Nahl, not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 4,
+          "reason": "Root at the end (la yuflihun). 23 words, root is a concluding tag, not central."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 21,
+        "final": 14.7
       },
       "score_notes": null
     },
@@ -650,13 +785,22 @@
         "form_freq": 6,
         "form_dominance": 7,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 8,
+          "reason": "Companions of the Cave discussing their peril — 'they will stone you or force you back; you will never succeed.' Iconic story."
+        },
+        "familiarity": {
+          "score": 6,
+          "reason": "Tier B — Al-Kahf is recited weekly by many Muslims. This ayah is within the famous Cave narrative."
+        },
+        "teaching_fit": {
+          "score": 6,
+          "reason": "Root appears as 'lan tuflihu' (you will never succeed). Strong negation, memorable in context."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 33,
+        "final": 33.0
       },
       "score_notes": null
     },
@@ -680,13 +824,22 @@
         "form_freq": 6,
         "form_dominance": 7,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 7,
+          "reason": "Pharaoh's magicians rallying before the showdown with Musa — 'he who overcomes today has succeeded.' Dramatic tension."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Tier D — Surah Ta-Ha. The Musa narrative is known but this specific ayah is not widely memorized."
+        },
+        "teaching_fit": {
+          "score": 8,
+          "reason": "Root is central: 'qad aflaha al-yawma' — success is the entire point of the declaration."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 30,
+        "final": 30.0
       },
       "score_notes": null
     },
@@ -710,13 +863,22 @@
         "form_freq": 6,
         "form_dominance": 7,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 8,
+          "reason": "Allah tells Musa to throw his staff — it will swallow the magicians' tricks. 'The magician will not succeed wherever he goes.' Climactic moment."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Tier D — Surah Ta-Ha. Famous narrative but not a commonly memorized individual ayah."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "Root appears in 'la yuflihu al-sahir.' Central to the lesson: real power vs. magic. 18 words."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 30,
+        "final": 21.0
       },
       "score_notes": null
     },
@@ -740,13 +902,22 @@
         "form_freq": 6,
         "form_dominance": 7,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Direct command to bow, prostrate, worship, do good. Emotional weight from its worship connection."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Tier D — Al-Hajj. Contains a sajdah marker, known to some. Not widely memorized."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "Root is the climax: do all this 'that you may succeed.' Worship + success is a natural pairing."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 27,
+        "final": 27.0
       },
       "score_notes": null
     },
@@ -770,13 +941,22 @@
         "form_freq": 6,
         "form_dominance": 7,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 6,
+          "reason": "Opening declaration of Surah Al-Mu'minun — 'the believers have succeeded' is a powerful hook with iconic status."
+        },
+        "familiarity": {
+          "score": 5,
+          "reason": "Tier C — Al-Mu'minun is well-known, opening ayah is famous. Not a daily recitation surah."
+        },
+        "teaching_fit": {
+          "score": 8,
+          "reason": "Root is central. Includes bismillah words which inflate count but the core phrase is 'qad aflaha al-mu'minun'."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 35,
+        "final": 35.0
       },
       "score_notes": null
     },
@@ -830,13 +1010,22 @@
         "form_freq": 6,
         "form_dominance": 7,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "Warning about invoking other deities. Generic theological warning, no narrative."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Tier D — Al-Mu'minun, not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "Root in 'la yuflihu al-kafirun.' Clear but the verse is about shirk, success is secondary."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 22,
+        "final": 15.4
       },
       "score_notes": null
     },
@@ -860,13 +1049,22 @@
         "form_freq": 6,
         "form_dominance": 7,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "Detailed ruling on modesty for women. Prescriptive, no narrative."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Tier D as surah, but this specific ayah is well-known for its modesty ruling."
+        },
+        "teaching_fit": {
+          "score": 2,
+          "reason": "82 words. Root appears as the very last word (tuflihun). Completely incidental to the verse topic."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 20,
+        "final": 14.0
       },
       "score_notes": null
     },
@@ -920,13 +1118,22 @@
         "form_freq": 6,
         "form_dominance": 7,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 7,
+          "reason": "Musa declaring to Pharaoh: 'My Lord knows best who brings guidance. Wrongdoers will not succeed.' Prophetic confrontation."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Tier D — Al-Qasas, not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "Root in concluding 'la yuflihu al-zalimun.' 19 words, root supports Musa's argument but is not central."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 26,
+        "final": 18.2
       },
       "score_notes": null
     },
@@ -1190,13 +1397,22 @@
         "form_freq": 6,
         "form_dominance": 7,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 4,
+          "reason": "Declarative statement about purification leading to success. Some emotional weight but no narrative."
+        },
+        "familiarity": {
+          "score": 8,
+          "reason": "Tier A — Al-A'la is among the last short surahs, recited frequently in salah."
+        },
+        "teaching_fit": {
+          "score": 9,
+          "reason": "Root is the very first word after qad. Short, self-contained, root meaning is the entire point."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 40,
+        "final": 40.0
       },
       "score_notes": null
     },
@@ -1220,13 +1436,22 @@
         "form_freq": 6,
         "form_dominance": 7,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Part of the famous oath sequence in Ash-Shams — the soul's purification. Story hook from the oath structure."
+        },
+        "familiarity": {
+          "score": 8,
+          "reason": "Tier A — Ash-Shams is a commonly recited short surah in Juz 30."
+        },
+        "teaching_fit": {
+          "score": 9,
+          "reason": "Identical structure to 87:14. Root is central, short, crystal-clear meaning."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 41,
+        "final": 41.0
       },
       "score_notes": null
     }

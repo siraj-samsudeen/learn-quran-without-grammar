@@ -1,0 +1,20 @@
+{
+  "lesson_number": 3,
+  "slug": "lesson-03-rasul",
+  "title": "Lesson 3: Messenger of Allah",
+  "description": "The root behind rasul (messenger) — through Qur'anic phrases plus Recall from Lessons 1-2.",
+  "seed_phrase": {
+    "arabic": "أَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ ٱللَّهِ",
+    "english": "I bear witness that Muhammad is the Messenger of Allah"
+  },
+  "current_roots": ["rasul"],
+  "recall_roots": ["ilah", "kabura", "shahida"],
+  "targets": {
+    "anchor": 1,
+    "learning": 10,
+    "recall": 5
+  },
+  "opening": "",
+  "closing": "",
+  "whats_next": ""
+}

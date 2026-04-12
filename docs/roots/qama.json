@@ -6,7 +6,7 @@
   "corpus_url": "https://corpus.quran.com/qurandictionary.jsp?q=qwm",
   "fetched_date": "2026-04-12",
   "total_occurrences_in_quran": 660,
-  "introduced_in_lesson": 0,
+  "introduced_in_lesson": 7,
   "translation_source": "Saheeh International (via Tanzil.net)",
   "forms": [
     {
@@ -6751,13 +6751,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Dua of Musa's people — emotional plea for salvation, but speaker identity needs context."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Yunus — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 4,
+          "reason": "قَوْم is a descriptor ('the disbelieving people') — teaches the word but it's not the verse's main point."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 31,
+        "final": 31.0
       },
       "score_notes": null
     },
@@ -8704,13 +8713,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 6,
+          "reason": "Angels telling Ibrahim they've been sent to destroy a criminal people — buildup to Lot's story."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Al-Hijr — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "قَوْم with adjective 'criminal' — teaches 'people' clearly, but the verse is about the angels' mission, not the concept of a people."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 32,
+        "final": 32.0
       },
       "score_notes": null
     },
@@ -8734,13 +8752,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 6,
+          "reason": "Ibrahim speaking to the angel visitors — recognizable scene but this line is minor setup dialogue."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Al-Hijr — Tier D surah, not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 3,
+          "reason": "قَوْم is incidental — just means 'people unknown', not teaching the concept of a nation/people."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 32,
+        "final": 32.0
       },
       "score_notes": null
     },
@@ -10025,13 +10052,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 7,
+          "reason": "Pharaoh leading his people astray — strong narrative with moral punch. Everyone knows this story."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Ta-Ha — Tier D surah overall, though the Musa narrative is well-known."
+        },
+        "teaching_fit": {
+          "score": 6,
+          "reason": "قَوْم is central — the verse is specifically about Pharaoh's relationship to his people. Teaches 'his people' possessive form."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 36,
+        "final": 36.0
       },
       "score_notes": null
     },
@@ -10055,13 +10091,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 8,
+          "reason": "Allah directly questioning Musa about leaving his people — intimate, dramatic moment at Mount Sinai."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Ta-Ha — Tier D surah, but this is a well-known scene in the Musa narrative."
+        },
+        "teaching_fit": {
+          "score": 6,
+          "reason": "قَوْم is central to the question — 'your people' is the whole point. Teaches possessive form naturally."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 37,
+        "final": 37.0
       },
       "score_notes": null
     },
@@ -10535,13 +10580,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 2,
+          "reason": "Abstract statement about the Qur'an being a message — no narrative, no characters."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Al-Anbiya — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 3,
+          "reason": "قَوْم is incidental — 'a worshipping people' is a descriptor, not teaching the core meaning of nation/people."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 26,
+        "final": 26.0
       },
       "score_notes": null
     },
@@ -10745,13 +10799,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 2,
+          "reason": "List of peoples — no narrative, just a catalogue reference."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Al-Hajj — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 4,
+          "reason": "قَوْم appears twice but verse is a fragment of a list — no standalone meaning."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 29,
+        "final": 29.0
       },
       "score_notes": null
     },
@@ -11105,13 +11168,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Pharaoh's people rejecting Musa and Harun — describes their arrogance. Needs prior verse for full context."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Al-Mu'minun — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 4,
+          "reason": "قَوْم is a predicate complement ('they were a haughty people') — teaches the word but it's descriptive, not central."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 29,
+        "final": 29.0
       },
       "score_notes": null
     },
@@ -11135,13 +11207,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Pharaoh's court dismissing Musa and Harun — arrogant speech with social hierarchy argument."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Al-Mu'minun — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 3,
+          "reason": "قَوْم is incidental — 'their people are servants to us' uses the word but the verse is about arrogance and servitude, not the concept of a people."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 28,
+        "final": 28.0
       },
       "score_notes": null
     },
@@ -11195,13 +11276,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 4,
+          "reason": "Dua asking Allah for protection — emotional but generic prayer without specific narrative."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Al-Mu'minun — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 4,
+          "reason": "قَوْم with adjective 'wrongdoing' — teaches the word as a category but it's a supporting detail in a dua."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 29,
+        "final": 29.0
       },
       "score_notes": null
     },
@@ -11675,13 +11765,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 4,
+          "reason": "Allah commanding Musa to go to Pharaoh's people — setup line, not the dramatic moment itself."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Ash-Shu'ara' — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 4,
+          "reason": "قَوْم identifies whose people, but the verse's focus is on the rhetorical question 'will they not fear?'"
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 30,
+        "final": 30.0
       },
       "score_notes": null
     },
@@ -11735,13 +11834,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 8,
+          "reason": "Ibrahim confronting his father and people about idolatry — iconic scene, bold challenge. 1. Clear characters (Ibrahim vs father + people). 2. Famous question."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Ash-Shu'ara' — Tier D surah, though the Ibrahim idolatry scene is famous from other surahs."
+        },
+        "teaching_fit": {
+          "score": 6,
+          "reason": "قَوْم is the addressee alongside father — teaches 'his people' but the verse's focus is on 'what do you worship?'"
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 35,
+        "final": 35.0
       },
       "score_notes": null
     },
@@ -11765,13 +11873,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Prophetic denial narrative — clear story (Noah's people rejected him) but formulaic."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Ash-Shu'ara' — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "قَوْم is the subject performing the action (denying); teaches 'people of a prophet' pattern clearly."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 33,
+        "final": 33.0
       },
       "score_notes": null
     },
@@ -11795,13 +11912,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 7,
+          "reason": "Noah crying out to Allah that his people rejected him — raw emotional appeal from a prophet in distress."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Ash-Shu'ara' — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "قَوْم is central — 'my people have denied me' makes the word's meaning unmistakable. Possessive form teaches naturally."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 36,
+        "final": 36.0
       },
       "score_notes": null
     },
@@ -11825,13 +11951,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Same denial formula as 26:105 but with Lot — equally recognizable."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Ash-Shu'ara' — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "Same pattern as 26:105 — قَوْم as subject. Near-duplicate."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 33,
+        "final": 33.0
       },
       "score_notes": null
     },
@@ -12966,13 +13101,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 6,
+          "reason": "Lut's desperate plea to Allah for help against his corrupt people — emotional dua from a prophet in crisis."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Al-Ankabut — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "قَوْم with adjective 'corrupting' — the people ARE the problem Lut is praying about, so the word is relevant but not central."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 32,
+        "final": 32.0
       },
       "score_notes": null
     },
@@ -14078,13 +14222,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 8,
+          "reason": "Ibrahim confronting father and people about worship — identical scene to 26:70, iconic challenge."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "As-Saffat — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 6,
+          "reason": "Same as 26:70 — قَوْم as addressee alongside father. Near-duplicate verse."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 35,
+        "final": 35.0
       },
       "score_notes": null
     },
@@ -14108,13 +14261,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 6,
+          "reason": "Allah saving Musa, Harun, and their people — triumphant rescue moment."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "As-Saffat — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 4,
+          "reason": "قَوْم is part of a list ('them and their people') — not the verse's focus. 'Great affliction' is the dramatic center."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 32,
+        "final": 32.0
       },
       "score_notes": null
     },
@@ -14168,13 +14330,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 4,
+          "reason": "Prophet addressing his people — formulaic call to taqwa, used for multiple prophets."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "As-Saffat — Tier D surah."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "قَوْم is the addressee — 'to his people' teaches the word in context, but the verse is a repeated formula."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 31,
+        "final": 31.0
       },
       "score_notes": null
     },
@@ -14768,13 +14939,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 7,
+          "reason": "The believing man from Pharaoh's family warning his people about the Day of Judgment — dramatic, lesser-known but powerful scene."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Ghafir — Tier D surah, though the 'believing man' passage has some recognition."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "قَوْم is the direct address — 'O my people!' — the entire verse is a plea TO a people. Vocative form is vivid and memorable."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 36,
+        "final": 36.0
       },
       "score_notes": null
     },
@@ -15609,13 +15789,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 6,
+          "reason": "Musa calling on Allah about Pharaoh's criminal people — emotional breaking point."
+        },
+        "familiarity": {
+          "score": 3,
+          "reason": "Ad-Dukhan — Tier C surah."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "قَوْم with adjective 'criminal' — Musa labeling them. The word matters but isn't the verse's emotional center."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 34,
+        "final": 34.0
       },
       "score_notes": null
     },
@@ -15669,13 +15858,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Aftermath of Pharaoh's destruction — another people inheriting what was left. Dramatic irony."
+        },
+        "familiarity": {
+          "score": 3,
+          "reason": "Ad-Dukhan — Tier C surah, recited on special nights by some."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "قَوْم is the object — 'another people' inheriting. Teaches the word but needs prior context to understand fully."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 34,
+        "final": 34.0
       },
       "score_notes": null
     },
@@ -16630,13 +16828,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 6,
+          "reason": "Angels telling Ibrahim about their mission — same scene as 15:58. Buildup to Lot's story."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Adh-Dhariyat — Tier D surah, occasionally recited."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "Same as 15:58 — قَوْم with 'criminal' adjective. Teaches the word but it's about the mission, not the people."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 33,
+        "final": 33.0
       },
       "score_notes": null
     },
@@ -16870,13 +17077,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Lot's people denied the warning — same denial formula with slight variation."
+        },
+        "familiarity": {
+          "score": 3,
+          "reason": "Al-Qamar — not Tier A/B but has the famous repeated refrain; moderate recognition."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "قَوْم as subject denying — clear teaching of 'people/nation' concept."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 35,
+        "final": 35.0
       },
       "score_notes": null
     },
@@ -17650,13 +17866,22 @@
         "form_freq": 10,
         "form_dominance": 6,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 6,
+          "reason": "Noah opening his message to his people — beginning of his prophetic mission. Clear speaker and audience."
+        },
+        "familiarity": {
+          "score": 5,
+          "reason": "Surah Nuh — Tier B/C, reasonably well-known short surah often recited."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "قَوْم is the direct address — 'O my people!' — central to the verse. Noah's entire mission is defined by his relationship to his people."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 38,
+        "final": 38.0
       },
       "score_notes": null
     },

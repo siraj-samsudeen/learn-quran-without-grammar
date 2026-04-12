@@ -6,7 +6,7 @@
   "corpus_url": "https://corpus.quran.com/qurandictionary.jsp?q=Hyy",
   "fetched_date": "2026-04-12",
   "total_occurrences_in_quran": 189,
-  "introduced_in_lesson": 0,
+  "introduced_in_lesson": 4,
   "translation_source": "Saheeh International (via Tanzil.net)",
   "forms": [
     {
@@ -269,13 +269,22 @@
         "form_freq": 8,
         "form_dominance": 4,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Dramatic accusation against the hypocrites: killing, evicting, then ransoming. Strong emotional charge."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Al-Baqarah — Tier D. This long ayah is not commonly recited independently."
+        },
+        "teaching_fit": {
+          "score": 2,
+          "reason": "حَيَوٰة appears as 'worldly life' deep inside a 53-word ayah. Root is completely incidental to the verse's point."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 21,
+        "final": 14.7
       },
       "score_notes": null
     },
@@ -299,13 +308,22 @@
         "form_freq": 8,
         "form_dominance": 4,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "Warning about those who traded the Hereafter for worldly life. Consequence-focused, no narrative."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Al-Baqarah — Tier D. Not independently famous."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "ٱلْحَيَوٰةَ ٱلدُّنْيَا is a key phrase — 'bought the worldly life for the Hereafter' — but the verse focuses on punishment."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 22,
+        "final": 22.0
       },
       "score_notes": null
     },
@@ -329,13 +347,22 @@
         "form_freq": 8,
         "form_dominance": 4,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Vivid image: people so greedy for life they wish for a thousand years. Memorable exaggeration."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Al-Baqarah — Tier D. Not independently famous."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "حَيَوٰة appears twice ('greedy for life,' 'granted life') but the 27-word verse is long and complex."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 24,
+        "final": 16.8
       },
       "score_notes": null
     },
@@ -419,13 +446,22 @@
         "form_freq": 8,
         "form_dominance": 4,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 4,
+          "reason": "Legal principle about retribution saving life. Intellectual appeal but not a narrative."
+        },
+        "familiarity": {
+          "score": 4,
+          "reason": "Al-Baqarah — Tier D overall, but this ayah ('in retribution there is life') is moderately well-known as a proverb."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "حَيَوٰةٌ is the punchline of the verse — 'in retribution there is LIFE.' Root is central to the lesson."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 29,
+        "final": 29.0
       },
       "score_notes": null
     },
@@ -449,13 +485,22 @@
         "form_freq": 8,
         "form_dominance": 4,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 6,
+          "reason": "Character sketch of a hypocrite: smooth-talker whose speech impresses you but who is the fiercest opponent. Vivid."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Al-Baqarah — Tier D. Not commonly recited independently."
+        },
+        "teaching_fit": {
+          "score": 3,
+          "reason": "حَيَوٰة appears as background phrase 'in worldly life' — completely incidental to the verse's portrait of hypocrisy."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 23,
+        "final": 16.1
       },
       "score_notes": null
     },
@@ -479,13 +524,22 @@
         "form_freq": 8,
         "form_dominance": 4,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 4,
+          "reason": "Contrast between disbelievers mocking believers now vs being below them on Judgment Day. Some dramatic tension."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Al-Baqarah — Tier D. Not independently famous."
+        },
+        "teaching_fit": {
+          "score": 4,
+          "reason": "حَيَوٰة ٱلدُّنْيَا is present but the verse's focus is the reversal between this life and the next, not life itself."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 22,
+        "final": 15.4
       },
       "score_notes": null
     },
@@ -689,13 +743,22 @@
         "form_freq": 8,
         "form_dominance": 4,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "Catalogue of worldly desires (women, gold, horses). Vivid but more of a list than a story."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Aal-e-Imran — Tier D. Not commonly recited independently."
+        },
+        "teaching_fit": {
+          "score": 3,
+          "reason": "حَيَوٰة appears near the end as 'enjoyment of worldly life' — incidental to a verse about desires."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 20,
+        "final": 14.0
       },
       "score_notes": null
     },
@@ -809,13 +872,22 @@
         "form_freq": 8,
         "form_dominance": 4,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 4,
+          "reason": "Vivid simile: spending in this life like a freezing wind destroying crops. Good imagery."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Aal-e-Imran — Tier D. Not independently famous."
+        },
+        "teaching_fit": {
+          "score": 2,
+          "reason": "حَيَوٰة is buried in a 24-word simile about agricultural destruction. Root is incidental."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 20,
+        "final": 14.0
       },
       "score_notes": null
     },
@@ -899,13 +971,22 @@
         "form_freq": 8,
         "form_dominance": 4,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 7,
+          "reason": "Iconic verse: 'Every soul will taste death... whoever is saved from Fire and enters Paradise has succeeded.' Emotionally powerful climax."
+        },
+        "familiarity": {
+          "score": 6,
+          "reason": "1. Very famous ayah, widely quoted in funeral contexts and khutbahs. 2. 'Every soul will taste death' is among the most-recognized phrases."
+        },
+        "teaching_fit": {
+          "score": 4,
+          "reason": "حَيَوٰة appears as 'worldly life is but enjoyment of delusion' — present but not the verse's main teaching. 26 words, long."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 29,
+        "final": 20.3
       },
       "score_notes": null
     },
@@ -929,13 +1010,22 @@
         "form_freq": 8,
         "form_dominance": 4,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Call to fight those who sell this life for the Hereafter, with promise of great reward. Clear stakes."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "An-Nisa' — Tier D. Not commonly recited independently."
+        },
+        "teaching_fit": {
+          "score": 4,
+          "reason": "حَيَوٰة appears as 'sell the worldly life for the Hereafter' — relevant but verse is about fighting, not life. 22 words."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 23,
+        "final": 16.1
       },
       "score_notes": null
     },
@@ -990,13 +1080,22 @@
         "form_freq": 8,
         "form_dominance": 4,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 6,
+          "reason": "Specific scenario: a man offers peace greeting and soldiers kill him for worldly gain. Concrete story with moral lesson."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "An-Nisa' — Tier D. Known in fiqh circles but not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 2,
+          "reason": "حَيَوٰة is deeply buried in a 41-word verse about rules of engagement. Root is incidental."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 22,
+        "final": 15.4
       },
       "score_notes": null
     },
@@ -1020,13 +1119,22 @@
         "form_freq": 8,
         "form_dominance": 4,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Rhetorical question with dramatic tension: 'You argue for them now — who will argue for them before Allah?'"
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "An-Nisa' — Tier D. Not commonly recited or known."
+        },
+        "teaching_fit": {
+          "score": 3,
+          "reason": "حَيَوٰة appears as background 'in worldly life' — not central to the verse's argument about intercession."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 21,
+        "final": 14.7
       },
       "score_notes": null
     },
@@ -1080,13 +1188,22 @@
         "form_freq": 8,
         "form_dominance": 4,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 4,
+          "reason": "Disbelievers speaking: 'There is nothing but our worldly life.' Dialogue gives some narrative hook."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Al-An'am — Tier D surah. This ayah is not independently famous."
+        },
+        "teaching_fit": {
+          "score": 6,
+          "reason": "حَيَاتُنَا الدُّنْيَا — 'our worldly life' is present but the verse focus is on denial of resurrection, not life per se."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 24,
+        "final": 24.0
       },
       "score_notes": null
     },
@@ -1110,13 +1227,22 @@
         "form_freq": 8,
         "form_dominance": 4,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "Declarative comparison: 'worldly life is play and amusement.' Philosophical but no narrative."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Al-An'am — Tier D. Not commonly recited independently."
+        },
+        "teaching_fit": {
+          "score": 6,
+          "reason": "حَيَوٰة ٱلدُّنْيَا is the subject — 'worldly life is nothing but play.' Root is central to the comparison."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 23,
+        "final": 23.0
       },
       "score_notes": null
     },
@@ -1140,13 +1266,22 @@
         "form_freq": 8,
         "form_dominance": 4,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "Warning about those deluded by worldly life. No specific characters or narrative."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Al-An'am — Tier D. Not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 2,
+          "reason": "حَيَوٰة is buried in a massive 48-word verse about punishment. Root is completely incidental."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 18,
+        "final": 12.6
       },
       "score_notes": null
     },
@@ -1830,13 +1965,22 @@
         "form_freq": 7,
         "form_dominance": 3,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "Statement of Allah's attributes. No narrative hook, declarative."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Yunus — Tier D surah, not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 8,
+          "reason": "يُحْىِ وَيُمِيتُ — 'gives life and causes death.' Root form is central, clean contrast. Slightly longer than 53:44."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 28,
+        "final": 28.0
       },
       "score_notes": null
     },
@@ -2160,13 +2304,22 @@
         "form_freq": 7,
         "form_dominance": 3,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 2,
+          "reason": "Declarative statement about Allah giving life and death. No characters, no narrative."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Al-Hijr — Tier D surah, not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "نُحْىِ وَنُمِيتُ — 'We give life and cause death.' Root is central, clear life/death contrast."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 24,
+        "final": 24.0
       },
       "score_notes": null
     },
@@ -3212,13 +3365,22 @@
         "form_freq": 7,
         "form_dominance": 3,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 8,
+          "reason": "Ibrahim speaking about Allah: 'who causes me to die then brings me to life.' Iconic prophet, personal testimony."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Ash-Shu'ara — Tier D surah, not commonly recited independently."
+        },
+        "teaching_fit": {
+          "score": 8,
+          "reason": "يُحْيِينِ (gives me life) paired with يُمِيتُنِى (causes me to die) — root meaning crystal clear through contrast."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 34,
+        "final": 34.0
       },
       "score_notes": null
     },
@@ -4717,13 +4879,22 @@
         "form_freq": 7,
         "form_dominance": 3,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 2,
+          "reason": "Declarative: 'We give life and cause death.' No narrative context."
+        },
+        "familiarity": {
+          "score": 3,
+          "reason": "Qaf — Tier B surah (recited in Fajr on Fridays by some), but this specific ayah is not especially famous."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "نُحْىِ وَنُمِيتُ — same life/death contrast pattern. Root central but near-duplicate of 15:23."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 26,
+        "final": 26.0
       },
       "score_notes": null
     },
@@ -4777,13 +4948,22 @@
         "form_freq": 7,
         "form_dominance": 3,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "Declarative statement about Allah's power. No narrative, no characters beyond 'He.'"
+        },
+        "familiarity": {
+          "score": 4,
+          "reason": "An-Najm — Tier C/D. Known for sajdah but this specific ayah is not especially famous."
+        },
+        "teaching_fit": {
+          "score": 9,
+          "reason": "أَمَاتَ وَأَحْيَا — 'causes death and gives life.' Root meaning is the entire point. Perfect death/life contrast in 4 words."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 32,
+        "final": 32.0
       },
       "score_notes": null
     },
@@ -4957,13 +5137,22 @@
         "form_freq": 7,
         "form_dominance": 3,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Rhetorical question with emotional punch: 'Is He not able to give life to the dead?' Challenges the listener directly."
+        },
+        "familiarity": {
+          "score": 3,
+          "reason": "Al-Qiyamah — Tier C/D. Last ayah of the surah, somewhat known but not widely recited."
+        },
+        "teaching_fit": {
+          "score": 8,
+          "reason": "يُحْـِۧىَ ٱلْمَوْتَىٰ — 'give life to the dead.' Root is the climactic word of the rhetorical question."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 29,
+        "final": 29.0
       },
       "score_notes": null
     },
@@ -4987,13 +5176,22 @@
         "form_freq": 6,
         "form_dominance": 1,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 1,
+          "reason": "Fragment of a question about the earth. Extremely terse, no narrative."
+        },
+        "familiarity": {
+          "score": 5,
+          "reason": "Al-Mursalat — Tier A/B, Juz 30 surah, regularly recited."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "أَحْيَآءً (living) is present but the phrase is so short it lacks teaching context — just 'living and dead.'"
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 26,
+        "final": 26.0
       },
       "score_notes": null
     },
@@ -5017,13 +5215,22 @@
         "form_freq": 8,
         "form_dominance": 4,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Pharaoh's story — he 'preferred the worldly life.' Narrative context of Musa vs Pharaoh."
+        },
+        "familiarity": {
+          "score": 4,
+          "reason": "An-Nazi'at is Tier B-ish (Juz 30) but not among the shortest, most-recited surahs."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "حَيَوٰة is central — the entire phrase is about choosing 'the life of this world.' Clean, short."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 35,
+        "final": 35.0
       },
       "score_notes": null
     },
@@ -5077,13 +5284,22 @@
         "form_freq": 8,
         "form_dominance": 4,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "General admonition about preferring worldly life. No specific narrative or characters."
+        },
+        "familiarity": {
+          "score": 7,
+          "reason": "Al-A'la — Tier A surah, recited in Jumu'ah prayers regularly."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "حَيَوٰة is the object of the verb — you prefer 'the worldly life.' Direct and clear."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 35,
+        "final": 35.0
       },
       "score_notes": null
     },
@@ -5107,13 +5323,22 @@
         "form_freq": 8,
         "form_dominance": 4,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 7,
+          "reason": "Person on Judgment Day crying out in regret: 'I wish I had sent ahead for my life!' Emotionally powerful moment."
+        },
+        "familiarity": {
+          "score": 6,
+          "reason": "Al-Fajr — Tier A/B surah, commonly recited. This particular ayah is well-known for its emotional weight."
+        },
+        "teaching_fit": {
+          "score": 8,
+          "reason": "حَيَاتِى (my life) is the climactic word — everything builds to it. Self-contained, memorable."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 39,
+        "final": 39.0
       },
       "score_notes": null
     }

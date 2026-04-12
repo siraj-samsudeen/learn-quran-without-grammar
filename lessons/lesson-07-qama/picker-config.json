@@ -1,0 +1,20 @@
+{
+  "lesson_number": 7,
+  "slug": "lesson-07-qama",
+  "title": "Lesson 7: The Prayer Has Begun",
+  "description": "The root behind qama (to stand/establish) from the iqama — plus Recall from Lessons 1-6.",
+  "seed_phrase": {
+    "arabic": "قَدْ قَامَتِ الصَّلَاةُ",
+    "english": "The prayer has begun"
+  },
+  "current_roots": ["qama"],
+  "recall_roots": ["ilah", "kabura", "shahida", "rasul", "hayiya", "salah", "falaha", "khayr", "nawm"],
+  "targets": {
+    "anchor": 1,
+    "learning": 10,
+    "recall": 5
+  },
+  "opening": "",
+  "closing": "",
+  "whats_next": ""
+}

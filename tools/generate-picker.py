@@ -53,24 +53,27 @@ def build_verses(root_data: dict, lesson_num: int, kind: str, targets: dict,
 
     scored = [v for v in candidates if v.get("scores") is not None]
 
+    def sort_key(v):
+        return v["scores"].get("final") or 0
+
     scored_refs_learning = set()
     scored_refs_recall = set()
 
     if kind == "current":
         target_learning = targets.get("learning", 10)
         if len(scored) >= target_learning:
-            scored.sort(key=lambda v: v["scores"].get("final", 0), reverse=True)
+            scored.sort(key=sort_key, reverse=True)
             scored_refs_learning = {v["ref"] for v in scored[:target_learning]}
     else:
         if scored:
-            scored.sort(key=lambda v: v["scores"].get("final", 0), reverse=True)
+            scored.sort(key=sort_key, reverse=True)
             scored_refs_recall = {v["ref"] for v in scored[:recall_slots]}
 
     entries = []
     for v in candidates:
         ref = v["ref"]
         score_obj = v.get("scores") or {}
-        total = score_obj.get("final", 0)
+        total = score_obj.get("final") or 0
 
         if ref in scored_refs_learning:
             default_section = "learning"

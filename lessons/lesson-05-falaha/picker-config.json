@@ -1,0 +1,20 @@
+{
+  "lesson_number": 5,
+  "slug": "lesson-05-falaha",
+  "title": "Lesson 5: Come to Success",
+  "description": "The root behind falah (success/prosperity) — through Qur'anic phrases plus Recall from Lessons 1-4.",
+  "seed_phrase": {
+    "arabic": "حَيَّ عَلَى الْفَلَاحِ",
+    "english": "Come to success"
+  },
+  "current_roots": ["falaha"],
+  "recall_roots": ["ilah", "kabura", "shahida", "rasul", "hayiya", "salah"],
+  "targets": {
+    "anchor": 1,
+    "learning": 10,
+    "recall": 5
+  },
+  "opening": "",
+  "closing": "",
+  "whats_next": ""
+}

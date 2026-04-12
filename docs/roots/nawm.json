@@ -6,7 +6,7 @@
   "corpus_url": "https://corpus.quran.com/qurandictionary.jsp?q=nwm",
   "fetched_date": "2026-04-12",
   "total_occurrences_in_quran": 9,
-  "introduced_in_lesson": 0,
+  "introduced_in_lesson": 6,
   "translation_source": "Saheeh International (via Tanzil.net)",
   "forms": [
     {
@@ -59,13 +59,22 @@
         "form_freq": 2,
         "form_dominance": 3,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 8,
+          "reason": "Ayat al-Kursi — majestic description of Allah's sovereignty. Most memorized ayah after Al-Fatiha."
+        },
+        "familiarity": {
+          "score": 10,
+          "reason": "Ayat al-Kursi is the single most famous and recited individual ayah. Recited daily after every salah by millions."
+        },
+        "teaching_fit": {
+          "score": 4,
+          "reason": "Root in 'la nawm' (no sleep overtakes Him). Powerful usage but root is one detail in a 58-word verse. Would need heavy trimming."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 27,
+        "final": 18.9
       },
       "score_notes": null
     },
@@ -89,13 +98,22 @@
         "form_freq": 1,
         "form_dominance": 2,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Rhetorical warning: did the people feel safe from punishment at night while asleep? Some dramatic tension."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Tier D — Al-A'raf, not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 6,
+          "reason": "Form na'imun (sleeping) appears clearly. Verse is a warning, sleep provides the dramatic setting."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 16,
+        "final": 16.0
       },
       "score_notes": null
     },
@@ -119,13 +137,22 @@
         "form_freq": 2,
         "form_dominance": 4,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 7,
+          "reason": "Battle of Badr — Allah showed the enemy as few in the Prophet's dream to give the believers courage. Iconic event."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Tier D — Al-Anfal, not commonly recited outside study."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "Form manamika (your dream/sleep) appears but verse is about the Badr vision, not sleep itself. 22 words."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 20,
+        "final": 14.0
       },
       "score_notes": null
     },
@@ -149,13 +176,22 @@
         "form_freq": 2,
         "form_dominance": 3,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "Listing divine blessings: night as clothing, sleep as rest, day as resurrection. Contemplative, no narrative."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Tier D — Al-Furqan, not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 8,
+          "reason": "Root (al-nawma) is central — verse is explicitly about sleep as a divine blessing. 11 words, self-contained, clear."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 18,
+        "final": 18.0
       },
       "score_notes": null
     },
@@ -179,13 +215,22 @@
         "form_freq": 2,
         "form_dominance": 4,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "Listing signs of Allah — sleep and seeking bounty. Contemplative but no narrative."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Tier D — Ar-Rum, not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "Root (manamukum) is central — the verse is explicitly about sleep as a sign of Allah. Good teaching verse."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 18,
+        "final": 12.6
       },
       "score_notes": null
     },
@@ -209,13 +254,22 @@
         "form_freq": 2,
         "form_dominance": 4,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 10,
+          "reason": "Ibrahim tells Ismail he saw in a dream he must sacrifice him. Ismail responds with patient submission. THE most iconic father-son story in Islam."
+        },
+        "familiarity": {
+          "score": 4,
+          "reason": "Tier C — As-Saffat. This specific ayah is very well-known from Eid al-Adha context."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "Form al-manam (the dream) is present. But the verse is about sacrifice, not sleep/dreaming per se. 28 words, needs trimming."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 25,
+        "final": 17.5
       },
       "score_notes": null
     },
@@ -239,13 +293,22 @@
         "form_freq": 2,
         "form_dominance": 4,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 6,
+          "reason": "Profound concept: Allah takes souls at death and during sleep, keeps some and releases others. Deep, memorable teaching."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Tier D — Az-Zumar, not commonly recited. But this ayah is cited in Islamic teachings about sleep and death."
+        },
+        "teaching_fit": {
+          "score": 6,
+          "reason": "Form manamiha (their sleep) present. Verse connects sleep and death — teaches the root in a deeper context. 28 words, needs trimming."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 20,
+        "final": 14.0
       },
       "score_notes": null
     },
@@ -269,13 +332,22 @@
         "form_freq": 1,
         "form_dominance": 2,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 7,
+          "reason": "Story of the garden owners — divine punishment came while they slept. Dramatic irony, vivid narrative."
+        },
+        "familiarity": {
+          "score": 3,
+          "reason": "Tier C — Al-Qalam is in Juz 29, somewhat known. The garden story is less widely memorized."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "Form na'imun (sleeping ones) is the key detail — they were asleep when punishment struck. Root is dramatically central."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 23,
+        "final": 23.0
       },
       "score_notes": null
     },
@@ -299,13 +371,22 @@
         "form_freq": 2,
         "form_dominance": 3,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "Statement of divine blessing — 'We made your sleep a rest.' No narrative, but gentle emotional tone."
+        },
+        "familiarity": {
+          "score": 5,
+          "reason": "Tier B — An-Naba is in Juz 30 and recited regularly. This ayah is part of the well-known blessings sequence."
+        },
+        "teaching_fit": {
+          "score": 9,
+          "reason": "Root (nawmakum) is central and the verse is ABOUT sleep. 3 words, perfect anchor candidate."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 29,
+        "final": 29.0
       },
       "score_notes": null
     }

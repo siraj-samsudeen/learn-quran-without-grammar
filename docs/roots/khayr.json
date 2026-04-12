@@ -6,7 +6,7 @@
   "corpus_url": "https://corpus.quran.com/qurandictionary.jsp?q=xyr",
   "fetched_date": "2026-04-12",
   "total_occurrences_in_quran": 196,
-  "introduced_in_lesson": 0,
+  "introduced_in_lesson": 6,
   "translation_source": "Saheeh International (via Tanzil.net)",
   "forms": [
     {
@@ -77,13 +77,22 @@
         "form_freq": 9,
         "form_dominance": 9,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 9,
+          "reason": "Musa confronting his people after they worshipped the golden calf — iconic, dramatic, and emotionally intense."
+        },
+        "familiarity": {
+          "score": 3,
+          "reason": "Al-Baqarah — Tier D overall, but the golden calf story is universally known."
+        },
+        "teaching_fit": {
+          "score": 4,
+          "reason": "1. khayr appears once in a 27-word verse — incidental to the main narrative. 2. Would need heavy trimming to use."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 34,
+        "final": 23.8
       },
       "score_notes": null
     },
@@ -107,13 +116,22 @@
         "form_freq": 9,
         "form_dominance": 9,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 7,
+          "reason": "Bani Isra'il complaining to Musa about food — cucumbers, lentils, onions. Vivid and memorable for its mundane details."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Al-Baqarah — Tier D, long verse deep in the surah."
+        },
+        "teaching_fit": {
+          "score": 2,
+          "reason": "1. khayr is buried in a 64-word verse. 2. Appears in a brief rhetorical question mid-verse — completely incidental to the main narrative."
+        },
         "starred": false,
-        "fragment": false,
-        "base": null,
-        "final": null
+        "fragment": true,
+        "base": 29,
+        "final": 20.3
       },
       "score_notes": null
     },
@@ -797,13 +815,22 @@
         "form_freq": 9,
         "form_dominance": 9,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 8,
+          "reason": "Dramatic confrontation — disbelievers plotted against Isa (Jesus) and Allah counter-plotted. Iconic theological narrative."
+        },
+        "familiarity": {
+          "score": 3,
+          "reason": "Aal-e-Imran — Tier D overall, but this specific verse is moderately well-known from khutbahs."
+        },
+        "teaching_fit": {
+          "score": 8,
+          "reason": "khayr in superlative 'best of planners' — teaches the 'best' meaning clearly. Self-contained dramatic statement."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 40,
+        "final": 40.0
       },
       "score_notes": null
     },
@@ -947,13 +974,22 @@
         "form_freq": 9,
         "form_dominance": 9,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 4,
+          "reason": "Reassurance to believers, but no specific narrative scene."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Aal-e-Imran — Tier D, this specific verse not widely quoted."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "khayr in superlative 'best of helpers' — clear teaching of 'best' meaning. Self-contained declaration about Allah."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 34,
+        "final": 34.0
       },
       "score_notes": null
     },
@@ -2388,13 +2424,22 @@
         "form_freq": 9,
         "form_dominance": 9,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 9,
+          "reason": "Yusuf in prison calling his cellmates to monotheism — 'Are separate lords better or Allah, the One?' Iconic da'wah moment."
+        },
+        "familiarity": {
+          "score": 4,
+          "reason": "Yusuf — well-known surah for its narrative. This specific verse is moderately famous from tafsir circles."
+        },
+        "teaching_fit": {
+          "score": 8,
+          "reason": "khayr is the pivot — 'are many lords better or One God?' Teaches comparative meaning in a powerful rhetorical question."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 40,
+        "final": 40.0
       },
       "score_notes": null
     },
@@ -2418,13 +2463,22 @@
         "form_freq": 9,
         "form_dominance": 9,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 6,
+          "reason": "Part of Yusuf's story — reward of the Hereafter for believers. Story context is nearby but not in this ayah alone."
+        },
+        "familiarity": {
+          "score": 3,
+          "reason": "Yusuf — Tier C/D. Well-known surah for its narrative but not commonly recited in salah."
+        },
+        "teaching_fit": {
+          "score": 6,
+          "reason": "khayr means 'better' clearly, but verse is somewhat generic — could be about any reward comparison."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 36,
+        "final": 36.0
       },
       "score_notes": null
     },
@@ -2688,13 +2742,22 @@
         "form_freq": 9,
         "form_dominance": 9,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Observation about human nature — praying for evil as eagerly as for good. Psychologically insightful."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Al-Isra' — Tier D, not commonly recited in salah."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "khayr contrasted with sharr (evil vs good) — excellent for teaching the noun meaning through opposition."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 33,
+        "final": 33.0
       },
       "score_notes": null
     },
@@ -2868,13 +2931,22 @@
         "form_freq": 9,
         "form_dominance": 9,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 9,
+          "reason": "Khidr explaining why he killed the boy — 'We intended their Lord replace him with one better.' One of the most discussed ayahs in the Qur'an."
+        },
+        "familiarity": {
+          "score": 6,
+          "reason": "Al-Kahf — Tier B, recited every Friday. The Musa-Khidr narrative is among the most famous Qur'anic stories."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "khayr means 'better' — comparative use is clear. But verse needs the surrounding Khidr story for full impact."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 41,
+        "final": 41.0
       },
       "score_notes": null
     },
@@ -3348,13 +3420,22 @@
         "form_freq": 9,
         "form_dominance": 9,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 7,
+          "reason": "Nuh (Noah) praying to Allah after boarding the Ark — iconic moment from a famous prophetic story."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Al-Mu'minun — Tier D, not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "khayr in superlative 'best to accommodate' — clear 'best' meaning in a du'a context. Self-contained prayer."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 36,
+        "final": 36.0
       },
       "score_notes": null
     },
@@ -3498,13 +3579,22 @@
         "form_freq": 9,
         "form_dominance": 9,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 6,
+          "reason": "Direct du'a taught to the Prophet — personal supplication to Allah. Emotionally resonant prayer."
+        },
+        "familiarity": {
+          "score": 3,
+          "reason": "Al-Mu'minun — Tier D, though this du'a is known from prayer collections."
+        },
+        "teaching_fit": {
+          "score": 8,
+          "reason": "khayr in superlative 'best of the merciful' — central to the verse, teaches 'best' meaning in a du'a students can use."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 38,
+        "final": 38.0
       },
       "score_notes": null
     },
@@ -3738,13 +3828,22 @@
         "form_freq": 9,
         "form_dominance": 9,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Day of Judgment scene — companions of Paradise resting. Pleasant imagery but not dramatic."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Al-Furqan — Tier D, not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 6,
+          "reason": "khayr means 'better' — clear comparative use. But 'better settlement' is a somewhat abstract concept."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 34,
+        "final": 34.0
       },
       "score_notes": null
     },
@@ -4249,13 +4348,22 @@
         "form_freq": 9,
         "form_dominance": 9,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 6,
+          "reason": "Rhetorical question contrasting Paradise with the tree of zaqqum — vivid imagery of Hell's horrors."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "As-Saffat — Tier D, not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "khayr used in a direct comparison — 'Is this better or that?' Perfect for teaching the comparative sense."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 37,
+        "final": 37.0
       },
       "score_notes": null
     },
@@ -4309,13 +4417,22 @@
         "form_freq": 9,
         "form_dominance": 9,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Allah praising prophets (Ismail, Elisha, Dhul-Kifl mentioned nearby) as chosen ones."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Sad — Tier D, not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 4,
+          "reason": "Uses plural form al-akhyar (the outstanding). Less direct for teaching core khayr meaning."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 33,
+        "final": 33.0
       },
       "score_notes": null
     },
@@ -4339,13 +4456,22 @@
         "form_freq": 9,
         "form_dominance": 9,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 4,
+          "reason": "List of prophets praised as outstanding — catalogue rather than narrative."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Sad — Tier D, not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 3,
+          "reason": "Uses al-akhyar (the outstanding) — a derived form, less direct for teaching core khayr meaning."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 27,
+        "final": 27.0
       },
       "score_notes": null
     },
@@ -4759,13 +4885,22 @@
         "form_freq": 9,
         "form_dominance": 9,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 4,
+          "reason": "Character description of an arrogant disbeliever, but no specific story or scene."
+        },
+        "familiarity": {
+          "score": 5,
+          "reason": "Qaf — Tier B, recited in Friday Fajr by some traditions."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "khayr used as 'good' in 'preventer of good' — teaches the noun meaning, but verse is a fragment of a longer description."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 38,
+        "final": 38.0
       },
       "score_notes": null
     },
@@ -4789,13 +4924,22 @@
         "form_freq": 9,
         "form_dominance": 9,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 4,
+          "reason": "Rhetorical challenge to disbelievers, referencing past destroyed nations. Some dramatic tension."
+        },
+        "familiarity": {
+          "score": 3,
+          "reason": "Al-Qamar — Tier C/D. Known for its refrain but not this specific verse."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "khayr in 'are your disbelievers better than those?' — sarcastic comparative. Meaning is clear but context needed."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 31,
+        "final": 31.0
       },
       "score_notes": null
     },
@@ -5059,13 +5203,22 @@
         "form_freq": 9,
         "form_dominance": 9,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 4,
+          "reason": "Character sketch of a villainous type, but no named story or scene."
+        },
+        "familiarity": {
+          "score": 4,
+          "reason": "Al-Qalam — Juz' 29, moderately known but not commonly recited standalone."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "Same 'preventer of good' construct as 50:25. Teaches noun meaning but verse feels like a list item."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 37,
+        "final": 37.0
       },
       "score_notes": null
     },
@@ -5149,13 +5302,22 @@
         "form_freq": 9,
         "form_dominance": 9,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Vivid portrait of human nature — hoarding when good arrives. Relatable psychology."
+        },
+        "familiarity": {
+          "score": 2,
+          "reason": "Al-Ma'arij — Tier D, not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 6,
+          "reason": "khayr as 'good/wealth' is central. Teaches the noun sense clearly, though the verse needs its pair (70:20) for full context."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 37,
+        "final": 37.0
       },
       "score_notes": null
     },
@@ -5179,13 +5341,22 @@
         "form_freq": 9,
         "form_dominance": 9,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "Abstract divine warning about replacing people — no specific characters or scene."
+        },
+        "familiarity": {
+          "score": 1,
+          "reason": "Al-Ma'arij — Tier D, not commonly recited."
+        },
+        "teaching_fit": {
+          "score": 5,
+          "reason": "khayr means 'better' in 'replace them with better.' Clear comparative but the verse needs context."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 29,
+        "final": 29.0
       },
       "score_notes": null
     },
@@ -5239,13 +5410,22 @@
         "form_freq": 9,
         "form_dominance": 9,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 3,
+          "reason": "Reflective statement about the Hereafter, no narrative or characters."
+        },
+        "familiarity": {
+          "score": 7,
+          "reason": "Al-A'la — Tier A, short Juz' 30 surah recited frequently in salah."
+        },
+        "teaching_fit": {
+          "score": 8,
+          "reason": "khayr is central and self-contained — 'the Hereafter is better' teaches the comparative meaning directly."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 43,
+        "final": 43.0
       },
       "score_notes": null
     },
@@ -5269,13 +5449,22 @@
         "form_freq": 9,
         "form_dominance": 9,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 7,
+          "reason": "Allah consoling Prophet Muhammad directly during a difficult period — deeply personal and emotional."
+        },
+        "familiarity": {
+          "score": 8,
+          "reason": "Ad-Duha — Tier A, beloved short surah frequently recited in salah. One of the most emotionally resonant surahs."
+        },
+        "teaching_fit": {
+          "score": 8,
+          "reason": "khayr is central — 'the Hereafter is better for you.' Comparative meaning taught in a memorable, self-contained promise."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 46,
+        "final": 46.0
       },
       "score_notes": null
     },
@@ -5299,13 +5488,22 @@
         "form_freq": 9,
         "form_dominance": 9,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 7,
+          "reason": "Iconic declaration about Laylat al-Qadr — emotionally charged for every Muslim, tied to Ramadan worship."
+        },
+        "familiarity": {
+          "score": 10,
+          "reason": "Al-Qadr — Tier A, universally known, recited extensively in Ramadan. This specific ayah is one of the most quoted in Islam."
+        },
+        "teaching_fit": {
+          "score": 9,
+          "reason": "khayr is the pivot of the entire verse — 'better than a thousand months.' Self-contained, instantly memorable."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 48,
+        "final": 48.0
       },
       "score_notes": null
     },
@@ -5329,13 +5527,22 @@
         "form_freq": 9,
         "form_dominance": 9,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 5,
+          "reason": "Declaration about believers being the best of creation — uplifting but no narrative."
+        },
+        "familiarity": {
+          "score": 7,
+          "reason": "Al-Bayyinah — Tier A, Juz' 30 surah. This specific verse is widely quoted in Islamic education."
+        },
+        "teaching_fit": {
+          "score": 8,
+          "reason": "khayr in superlative 'best of creatures' — central to the verse. Teaches the 'best' meaning clearly and memorably."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 39,
+        "final": 39.0
       },
       "score_notes": null
     },
@@ -5359,13 +5566,22 @@
         "form_freq": 9,
         "form_dominance": 9,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 6,
+          "reason": "Day of Judgment accountability — powerful concept of atoms-weight deeds. Widely quoted in moral teaching."
+        },
+        "familiarity": {
+          "score": 9,
+          "reason": "Az-Zalzalah — Tier A, short Juz' 30 surah. This ayah pair (99:7-8) is among the most quoted in all of Islam."
+        },
+        "teaching_fit": {
+          "score": 7,
+          "reason": "khayr used as noun 'good' — clear meaning. Slight drawback: it's one half of a pair (99:7-8), but stands alone well enough."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 44,
+        "final": 44.0
       },
       "score_notes": null
     },
@@ -5389,13 +5605,22 @@
         "form_freq": 9,
         "form_dominance": 9,
         "curriculum": 0,
-        "story": null,
-        "familiarity": null,
-        "teaching_fit": null,
+        "story": {
+          "score": 4,
+          "reason": "Observation about human greed, no narrative arc."
+        },
+        "familiarity": {
+          "score": 7,
+          "reason": "Al-'Adiyat — Tier A, short Juz' 30 surah."
+        },
+        "teaching_fit": {
+          "score": 4,
+          "reason": "khayr here means 'wealth' not 'good/better' — a secondary meaning that could confuse the primary teaching goal."
+        },
         "starred": false,
         "fragment": false,
-        "base": null,
-        "final": null
+        "base": 39,
+        "final": 39.0
       },
       "score_notes": null
     }
