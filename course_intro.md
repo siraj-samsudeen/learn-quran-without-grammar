@@ -12,7 +12,19 @@ You don't need to study grammar to begin understanding the Qur'an — you need t
 
 Most approaches to Qur'anic Arabic start with rules, terminology, and vocabulary lists. This course takes a completely different path — training your ears to listen to the beautiful structure of the Arabic language.
 
-It brings together ideas inspired by the Assimil and Michel Thomas methods, adapted for Qur'anic learning. It's like *Word Power Made Easy* by Norman Lewis — building intuition through roots and patterns, but for the Qur'an.
+## The method's lineage
+
+This course doesn't invent a new method. It combines four classic sources — borrowing one idea from each.
+
+- **Assimil** — the French self-study company founded in **1929** by Alphonse Chérel, now nearing a century of continuous publication. Assimil pioneered the idea that a learner should *absorb* a language through passive listening to bilingual dialogues long before being asked to produce anything. *We borrow its passive wave: let your ears learn before your mouth does.*
+
+- **Glossika** — Assimil's modern digital equivalent. A phone app built on massive sentence exposure and a spaced-repetition algorithm that schedules reviews at exactly the right moment. *We borrow its insistence that you train on whole sentences, never isolated words.*
+
+- **Michel Thomas** — the stress-free classroom method famous in the UK and taught to generations of actors and politicians. Small pieces combine into bigger ones, and the learner is never asked to memorise or recall on demand. *We borrow his promise: no memorisation, no tests, no shame when you forget.*
+
+- **Norman Lewis**, *Word Power Made Easy* — the classic that taught a generation of English learners to unlock vocabulary through root families. *We borrow the root itself as the real building block — learn one root and a whole family of words opens up.*
+
+Together, these four give us a single method: **recognise first, produce later; whole phrases, not isolated words; roots as the real building blocks; no grammar, no pressure.**
 
 We start from what every Muslim already knows — phrases from the Adhān and Ṣalāh like Allāhu Akbar. From there, we expand into related expressions and repeatedly encounter them across the Qur'an, frequently quoted hadith, and popular duʿās.
 
