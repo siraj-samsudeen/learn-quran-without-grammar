@@ -3,356 +3,318 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Teacher Hub — Local Files</title>
+<title>Teacher Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root { --bg: #fafaf8; --card: #fff; --border: #e0ddd8; --accent: #0f4425; --muted: #777; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: #222; padding: 2rem; max-width: 900px; margin: 0 auto; line-height: 1.6; }
-  h1 { color: var(--accent); margin-bottom: 0.3rem; }
-  .subtitle { color: var(--muted); margin-bottom: 2rem; font-size: 0.95rem; }
-  h2 { color: var(--accent); margin: 2rem 0 0.8rem; padding-bottom: 0.3rem; border-bottom: 2px solid var(--border); }
-  h3 { margin: 1.2rem 0 0.5rem; color: #444; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 1rem; }
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
-  .card:hover { border-color: var(--accent); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-  .card-title { font-weight: 600; margin-bottom: 0.3rem; }
-  .card-title a { color: var(--accent); text-decoration: none; }
-  .card-title a:hover { text-decoration: underline; }
-  .card-meta { font-size: 0.82rem; color: var(--muted); }
-  .card-links { margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
-  .card-links a { font-size: 0.82rem; color: var(--accent); background: #e8f0eb; padding: 0.15rem 0.5rem; border-radius: 4px; text-decoration: none; }
-  .card-links a:hover { background: #d0e4d6; }
-  ul { padding-left: 1.5rem; }
-  li { margin-bottom: 0.3rem; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: #222; padding: 1.5rem; max-width: 1100px; margin: 0 auto; line-height: 1.5; font-size: 14px; }
+  h1 { color: var(--accent); margin-bottom: 0.2rem; font-size: 1.5rem; }
+  .subtitle { color: var(--muted); margin-bottom: 1.5rem; font-size: 0.85rem; }
+  h2 { color: var(--accent); margin: 1.8rem 0 0.6rem; padding-bottom: 0.3rem; border-bottom: 2px solid var(--border); font-size: 1.1rem; }
+  h3 { margin: 1rem 0 0.4rem; color: #444; font-size: 0.95rem; }
   a { color: var(--accent); }
-  .badge { display: inline-block; font-size: 0.72rem; padding: 0.1rem 0.4rem; border-radius: 3px; font-weight: 600; vertical-align: middle; margin-left: 0.3rem; }
+
+  /* Pipeline grid */
+  .pipeline { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; }
+  .pipeline th { text-align: center; padding: 6px 4px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); font-weight: 600; border-bottom: 2px solid var(--border); }
+  .pipeline th:first-child { text-align: left; width: 220px; }
+  .pipeline td { padding: 6px 4px; text-align: center; border-bottom: 1px solid #f0ede8; }
+  .pipeline td:first-child { text-align: left; font-weight: 600; }
+  .pipeline .seed { font-family: 'Noto Sans Arabic', serif; font-size: 0.85rem; direction: rtl; display: inline; }
+
+  .dot { display: inline-block; width: 20px; height: 20px; border-radius: 50%; line-height: 20px; font-size: 0.65rem; font-weight: 700; color: #fff; }
+  .dot-done { background: #16a34a; }
+  .dot-ready { background: #2563eb; animation: pulse 2s infinite; }
+  .dot-blocked { background: #e2e8f0; color: #94a3b8; }
+  .dot-wip { background: #f59e0b; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.6; } }
+
+  .phase-label { font-size: 0.65rem; color: var(--muted); margin-top: 2px; }
+
+  /* Lesson rows */
+  .lesson-row { cursor: pointer; }
+  .lesson-row:hover { background: #f1f5f9; }
+  .lesson-detail { display: none; }
+  .lesson-detail.open { display: table-row; }
+  .lesson-detail td { padding: 12px 8px; background: #f8faf9; border-bottom: 2px solid var(--border); }
+
+  /* Action cards */
+  .action-box { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin: 4px 0; }
+  .action-box h4 { font-size: 0.85rem; color: var(--accent); margin-bottom: 4px; }
+  .action-box p { font-size: 0.82rem; color: #555; margin-bottom: 4px; }
+  .action-box code { background: #f0ede8; padding: 2px 6px; border-radius: 3px; font-size: 0.8rem; }
+  .action-box .cmd { display: block; background: #1e293b; color: #e2e8f0; padding: 6px 10px; border-radius: 4px; font-family: monospace; font-size: 0.78rem; margin: 6px 0; overflow-x: auto; white-space: pre; }
+
+  /* Summary stats */
+  .stats { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .stat { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 10px 16px; min-width: 120px; }
+  .stat-value { font-size: 1.4rem; font-weight: 700; color: var(--accent); }
+  .stat-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* Workflow guide */
+  .workflow { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin-bottom: 1.5rem; }
+  .workflow ol { padding-left: 1.5rem; }
+  .workflow li { margin-bottom: 6px; font-size: 0.85rem; }
+  .workflow .step-label { display: inline-block; background: var(--accent); color: #fff; font-size: 0.65rem; padding: 1px 6px; border-radius: 3px; font-weight: 600; margin-right: 4px; }
+
+  /* Grid cards */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 0.8rem; margin-bottom: 1rem; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 0.8rem; }
+  .card:hover { border-color: var(--accent); }
+  .card-title { font-weight: 600; font-size: 0.85rem; margin-bottom: 0.2rem; }
+  .card-title a { text-decoration: none; }
+  .card-meta { font-size: 0.78rem; color: var(--muted); }
+  .card-links { margin-top: 0.4rem; display: flex; flex-wrap: wrap; gap: 0.3rem; }
+  .card-links a { font-size: 0.75rem; color: var(--accent); background: #e8f0eb; padding: 2px 6px; border-radius: 3px; text-decoration: none; }
+  .section-list { list-style: none; padding: 0; }
+  .section-list li { padding: 0.3rem 0; border-bottom: 1px solid #f0ede8; font-size: 0.85rem; }
+  .section-list li:last-child { border-bottom: none; }
+  .badge { display: inline-block; font-size: 0.65rem; padding: 1px 5px; border-radius: 3px; font-weight: 600; vertical-align: middle; margin-left: 3px; }
   .badge-live { background: #d4edda; color: #155724; }
   .badge-wip { background: #fff3cd; color: #856404; }
   .badge-plan { background: #d1ecf1; color: #0c5460; }
-  .section-list { list-style: none; padding: 0; }
-  .section-list li { padding: 0.4rem 0; border-bottom: 1px solid #f0ede8; }
-  .section-list li:last-child { border-bottom: none; }
-  code { background: #f0ede8; padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.88rem; }
 </style>
 </head>
 <body>
 
-<h1>Teacher Hub</h1>
-<p class="subtitle">Local HTML files — open from your computer. Not on the live site.</p>
+<h1>Teacher Dashboard</h1>
+<p class="subtitle">Governs the entire lesson pipeline — from scoring to publication. Local file, not on the live site.</p>
 
-<!-- ──────────────────────────────── SUMMARY ─── -->
-<h2>Course Summary — All 7 Lessons</h2>
-<p style="font-size:0.85rem;color:var(--muted);">Algorithm auto-picks from scored root inventories. 10 new phrases + 5 recall per lesson (budget: 100 new words, 50 recall words).</p>
+<!-- ──────────────────── STATS ─── -->
+<div class="stats" id="stats"></div>
 
-<table style="width:100%;border-collapse:collapse;font-size:0.85rem;margin-bottom:1.5rem;">
+<!-- ──────────────────── PIPELINE GRID ─── -->
+<h2>Pipeline Status</h2>
+<p style="font-size:0.8rem;color:var(--muted);margin-bottom:8px;">Click a lesson row to see actions and details. <span class="dot dot-done" style="width:12px;height:12px;"></span> Done &nbsp; <span class="dot dot-ready" style="width:12px;height:12px;"></span> Ready &nbsp; <span class="dot dot-wip" style="width:12px;height:12px;"></span> In progress &nbsp; <span class="dot dot-blocked" style="width:12px;height:12px;"></span> Blocked</p>
+
+<table class="pipeline" id="pipeline-table">
 <thead>
-<tr style="border-bottom:2px solid var(--border);">
-  <th style="text-align:left;padding:6px 8px;">Lesson</th>
-  <th style="text-align:left;padding:6px 8px;">Seed Phrase</th>
-  <th style="text-align:left;padding:6px 8px;">Root(s)</th>
-  <th style="text-align:center;padding:6px 8px;">Learn</th>
-  <th style="text-align:center;padding:6px 8px;">Recall</th>
-  <th style="text-align:center;padding:6px 8px;">Total</th>
-  <th style="text-align:center;padding:6px 8px;">Words</th>
-  <th style="text-align:center;padding:6px 8px;">Status</th>
+<tr>
+  <th>Lesson</th>
+  <th>Score</th>
+  <th>Pick</th>
+  <th>Write</th>
+  <th>Tamil</th>
+  <th>Audio</th>
+  <th>Review</th>
+  <th>Live</th>
 </tr>
 </thead>
-<tbody>
-<tr style="border-bottom:1px solid #f0ede8;">
-  <td style="padding:6px 8px;font-weight:600;">L1</td>
-  <td style="padding:6px 8px;font-family:'Noto Sans Arabic',serif;direction:rtl;">اللهُ أَكْبَرُ</td>
-  <td style="padding:6px 8px;">ilah + kabura</td>
-  <td style="text-align:center;padding:6px 8px;">10</td>
-  <td style="text-align:center;padding:6px 8px;">0</td>
-  <td style="text-align:center;padding:6px 8px;font-weight:600;">10</td>
-  <td style="text-align:center;padding:6px 8px;">60</td>
-  <td style="text-align:center;padding:6px 8px;"><span class="badge badge-live">LIVE</span></td>
-</tr>
-<tr style="border-bottom:1px solid #f0ede8;">
-  <td style="padding:6px 8px;font-weight:600;">L2</td>
-  <td style="padding:6px 8px;font-family:'Noto Sans Arabic',serif;direction:rtl;">أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ</td>
-  <td style="padding:6px 8px;">shahida</td>
-  <td style="text-align:center;padding:6px 8px;">10</td>
-  <td style="text-align:center;padding:6px 8px;">5</td>
-  <td style="text-align:center;padding:6px 8px;font-weight:600;">15</td>
-  <td style="text-align:center;padding:6px 8px;">128</td>
-  <td style="text-align:center;padding:6px 8px;"><span class="badge badge-live">LIVE</span></td>
-</tr>
-<tr style="border-bottom:1px solid #f0ede8;">
-  <td style="padding:6px 8px;font-weight:600;">L3</td>
-  <td style="padding:6px 8px;font-family:'Noto Sans Arabic',serif;direction:rtl;">أَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ ٱللَّهِ</td>
-  <td style="padding:6px 8px;">rasul</td>
-  <td style="text-align:center;padding:6px 8px;">10</td>
-  <td style="text-align:center;padding:6px 8px;">5</td>
-  <td style="text-align:center;padding:6px 8px;font-weight:600;">15</td>
-  <td style="text-align:center;padding:6px 8px;">84</td>
-  <td style="text-align:center;padding:6px 8px;"><span class="badge badge-plan">SCORED</span></td>
-</tr>
-<tr style="border-bottom:1px solid #f0ede8;">
-  <td style="padding:6px 8px;font-weight:600;">L4</td>
-  <td style="padding:6px 8px;font-family:'Noto Sans Arabic',serif;direction:rtl;">حَيَّ عَلَى الصَّلَاةِ</td>
-  <td style="padding:6px 8px;">hayiya + salah</td>
-  <td style="text-align:center;padding:6px 8px;">10</td>
-  <td style="text-align:center;padding:6px 8px;">5</td>
-  <td style="text-align:center;padding:6px 8px;font-weight:600;">15</td>
-  <td style="text-align:center;padding:6px 8px;">66</td>
-  <td style="text-align:center;padding:6px 8px;"><span class="badge badge-plan">SCORED</span></td>
-</tr>
-<tr style="border-bottom:1px solid #f0ede8;">
-  <td style="padding:6px 8px;font-weight:600;">L5</td>
-  <td style="padding:6px 8px;font-family:'Noto Sans Arabic',serif;direction:rtl;">حَيَّ عَلَى الْفَلَاحِ</td>
-  <td style="padding:6px 8px;">falaha</td>
-  <td style="text-align:center;padding:6px 8px;">10</td>
-  <td style="text-align:center;padding:6px 8px;">5</td>
-  <td style="text-align:center;padding:6px 8px;font-weight:600;">15</td>
-  <td style="text-align:center;padding:6px 8px;">127</td>
-  <td style="text-align:center;padding:6px 8px;"><span class="badge badge-plan">SCORED</span></td>
-</tr>
-<tr style="border-bottom:1px solid #f0ede8;">
-  <td style="padding:6px 8px;font-weight:600;">L6</td>
-  <td style="padding:6px 8px;font-family:'Noto Sans Arabic',serif;direction:rtl;">الصَّلَاةُ خَيْرٌ مِنَ النَّوْمِ</td>
-  <td style="padding:6px 8px;">khayr + nawm</td>
-  <td style="text-align:center;padding:6px 8px;">10</td>
-  <td style="text-align:center;padding:6px 8px;">5</td>
-  <td style="text-align:center;padding:6px 8px;font-weight:600;">15</td>
-  <td style="text-align:center;padding:6px 8px;">81</td>
-  <td style="text-align:center;padding:6px 8px;"><span class="badge badge-plan">SCORED</span></td>
-</tr>
-<tr style="border-bottom:2px solid var(--border);">
-  <td style="padding:6px 8px;font-weight:600;">L7</td>
-  <td style="padding:6px 8px;font-family:'Noto Sans Arabic',serif;direction:rtl;">قَدْ قَامَتِ الصَّلَاةُ</td>
-  <td style="padding:6px 8px;">qama</td>
-  <td style="text-align:center;padding:6px 8px;">10</td>
-  <td style="text-align:center;padding:6px 8px;">5</td>
-  <td style="text-align:center;padding:6px 8px;font-weight:600;">15</td>
-  <td style="text-align:center;padding:6px 8px;">73</td>
-  <td style="text-align:center;padding:6px 8px;"><span class="badge badge-plan">SCORED</span></td>
-</tr>
-<tr style="background:#f0ede8;font-weight:700;">
-  <td colspan="3" style="padding:6px 8px;">TOTAL — 10 roots across 7 lessons</td>
-  <td style="text-align:center;padding:6px 8px;">70</td>
-  <td style="text-align:center;padding:6px 8px;">30</td>
-  <td style="text-align:center;padding:6px 8px;">100</td>
-  <td style="text-align:center;padding:6px 8px;">619</td>
-  <td></td>
-</tr>
-</tbody>
+<tbody id="pipeline-body"></tbody>
 </table>
 
-<!-- ──────────────────────────────────── LESSONS ─── -->
-<h2>Lessons</h2>
+<!-- ──────────────────── WORKFLOW GUIDE ─── -->
+<h2>How It Works</h2>
+<div class="workflow">
+  <h3>Per-lesson workflow</h3>
+  <ol>
+    <li><span class="step-label">SCORE</span> LLM scores verses (story, familiarity, teaching_fit). Already done for all 7 lessons.</li>
+    <li><span class="step-label">PICK</span> Open the Picker HTML, review algorithm's auto-picks, adjust selections, click <strong>"Save JSON"</strong>. The JSON saves to the lesson folder as <code>selections.json</code>.</li>
+    <li><span class="step-label">SIGNAL DONE</span> Tell Claude: <em>"I'm done with L3 picks"</em> — or edit <code>teacher/pipeline-status.json</code> and set <code>"picking": "done"</code>.</li>
+    <li><span class="step-label">WRITE</span> Claude generates the lesson markdown from your selections.</li>
+    <li><span class="step-label">TAMIL</span> Tamil translations added and reviewed.</li>
+    <li><span class="step-label">AUDIO</span> Claude builds YAML, fetches timestamps, generates TTS, builds MP3s. Progress visible in terminal.</li>
+    <li><span class="step-label">REVIEW</span> Structural + pedagogical review. Teacher signs off.</li>
+    <li><span class="step-label">PUBLISH</span> Commit + push → live in ~1 minute.</li>
+  </ol>
 
-<div class="grid">
-
-  <div class="card">
-    <div class="card-title">Lesson 1 — Allahu Akbar <span class="badge badge-live">LIVE</span></div>
-    <div class="card-meta">Roots: إِلَٰه + كَبُرَ &middot; 8 words &middot; 12 phrases</div>
-    <div class="card-links">
-      <a href="../lessons/lesson-01-allahu-akbar/index.md">index.md</a>
-      <a href="../lessons/lesson-01-allahu-akbar/picker-config.json">picker-config</a>
-      <a href="../tools/lesson-audio/lesson-01.yaml">audio YAML</a>
-      <a href="../assets/audio/lessons/lesson-01/manifest.json">manifest</a>
-      <a href="../docs/selections/lesson-01.md">selection log</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">Lesson 2 — I Bear Witness <span class="badge badge-live">LIVE</span></div>
-    <div class="card-meta">Root: شَهِدَ &middot; 4 words &middot; 10 phrases + 5 recall</div>
-    <div class="card-links">
-      <a href="../lessons/lesson-02-shahida/index.md">index.md</a>
-      <a href="../lessons/lesson-02-shahida/picker.html">Picker</a>
-      <a href="../tools/lesson-audio/lesson-02.yaml">audio YAML</a>
-      <a href="../assets/audio/lessons/lesson-02/manifest.json">manifest</a>
-      <a href="../docs/selections/lesson-02.md">selection log</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">Lesson 3 — Messenger <span class="badge badge-plan">PICKER</span></div>
-    <div class="card-meta">Root: رَسُول &middot; 429 verses &middot; scoring pending</div>
-    <div class="card-links">
-      <a href="../lessons/lesson-03-rasul/picker.html">Picker</a>
-      <a href="../lessons/lesson-03-rasul/picker-config.json">picker-config</a>
-      <a href="../docs/roots/rasul.json">root inventory</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">Lesson 4 — Come to Prayer <span class="badge badge-plan">PICKER</span></div>
-    <div class="card-meta">Roots: حَيِيَ + صَلَاة &middot; 256 verses</div>
-    <div class="card-links">
-      <a href="../lessons/lesson-04-salah/picker.html">Picker</a>
-      <a href="../lessons/lesson-04-salah/picker-config.json">picker-config</a>
-      <a href="../docs/roots/hayiya.json">hayiya inventory</a>
-      <a href="../docs/roots/salah.json">salah inventory</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">Lesson 5 — Come to Success <span class="badge badge-plan">PICKER</span></div>
-    <div class="card-meta">Root: فَلَحَ &middot; 40 verses</div>
-    <div class="card-links">
-      <a href="../lessons/lesson-05-falaha/picker.html">Picker</a>
-      <a href="../lessons/lesson-05-falaha/picker-config.json">picker-config</a>
-      <a href="../docs/roots/falaha.json">root inventory</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">Lesson 6 — Prayer is Better than Sleep <span class="badge badge-plan">PICKER</span></div>
-    <div class="card-meta">Roots: خَيْر + نَوْم &middot; 187 verses (Fajr adhān)</div>
-    <div class="card-links">
-      <a href="../lessons/lesson-06-khayr/picker.html">Picker</a>
-      <a href="../lessons/lesson-06-khayr/picker-config.json">picker-config</a>
-      <a href="../docs/roots/khayr.json">khayr inventory</a>
-      <a href="../docs/roots/nawm.json">nawm inventory</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">Lesson 7 — The Prayer Has Begun <span class="badge badge-plan">PICKER</span></div>
-    <div class="card-meta">Root: قَامَ &middot; 597 verses (iqāma)</div>
-    <div class="card-links">
-      <a href="../lessons/lesson-07-qama/picker.html">Picker</a>
-      <a href="../lessons/lesson-07-qama/picker-config.json">picker-config</a>
-      <a href="../docs/roots/qama.json">root inventory</a>
-    </div>
-  </div>
-
-</div>
-
-<!-- ─────────────────────────────── PICKERS ─── -->
-<h2>Pickers (standalone HTML)</h2>
-
-<div class="grid">
-  <div class="card">
-    <div class="card-title"><a href="../lessons/lesson-02-shahida/picker.html">L2 Picker — شَهِدَ</a></div>
-    <div class="card-meta">shahida &middot; verse selection</div>
-  </div>
-  <div class="card">
-    <div class="card-title"><a href="../lessons/lesson-03-rasul/picker.html">L3 Picker — رَسُول</a></div>
-    <div class="card-meta">rasul &middot; 429 verses</div>
-  </div>
-  <div class="card">
-    <div class="card-title"><a href="../lessons/lesson-04-salah/picker.html">L4 Picker — حَيِيَ + صَلَاة</a></div>
-    <div class="card-meta">hayiya + salah &middot; 256 verses</div>
-  </div>
-  <div class="card">
-    <div class="card-title"><a href="../lessons/lesson-05-falaha/picker.html">L5 Picker — فَلَحَ</a></div>
-    <div class="card-meta">falaha &middot; 40 verses</div>
-  </div>
-  <div class="card">
-    <div class="card-title"><a href="../lessons/lesson-06-khayr/picker.html">L6 Picker — خَيْر + نَوْم</a></div>
-    <div class="card-meta">khayr + nawm &middot; 187 verses</div>
-  </div>
-  <div class="card">
-    <div class="card-title"><a href="../lessons/lesson-07-qama/picker.html">L7 Picker — قَامَ</a></div>
-    <div class="card-meta">qama &middot; 597 verses</div>
+  <h3 style="margin-top:12px;">Quick commands</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px;">
+    <div><code>open lessons/lesson-NN-slug/picker.html</code><br><span style="font-size:0.75rem;color:var(--muted);">Open a lesson picker</span></div>
+    <div><code>python3 tools/generate-lesson-summary.py</code><br><span style="font-size:0.75rem;color:var(--muted);">Regenerate summary stats</span></div>
+    <div><code>python3 tools/validate-lesson-consistency.py lesson-NN</code><br><span style="font-size:0.75rem;color:var(--muted);">Validate a lesson</span></div>
+    <div><code>tools/rebuild-lesson-audio.sh lesson-NN</code><br><span style="font-size:0.75rem;color:var(--muted);">Build audio for a lesson</span></div>
   </div>
 </div>
 
-<!-- ───────────────────��─────────── ROOT INVENTORIES ─── -->
+<!-- ──────────────────── ROOT INVENTORIES ─── -->
 <h2>Root Inventories</h2>
+<div class="grid" id="roots-grid"></div>
 
+<!-- ──────────────────── TOOLS ─── -->
+<h2>Scoring & Review</h2>
 <div class="grid">
   <div class="card">
-    <div class="card-title"><a href="../docs/roots/ilah.json">إِلَٰه — ilah</a></div>
-    <div class="card-meta">2,851 occurrences &middot; 4 forms &middot; L1</div>
-  </div>
-  <div class="card">
-    <div class="card-title"><a href="../docs/roots/kabura.json">كَبُرَ — kabura</a></div>
-    <div class="card-meta">161 occurrences &middot; 14 forms &middot; L1</div>
-  </div>
-  <div class="card">
-    <div class="card-title"><a href="../docs/roots/shahida.json">شَهِدَ — shahida</a></div>
-    <div class="card-meta">160 occurrences &middot; 9 forms &middot; L2</div>
-  </div>
-  <div class="card">
-    <div class="card-title"><a href="../docs/roots/rasul.json">رَسُول — rasul</a></div>
-    <div class="card-meta">513 occurrences &middot; 7 forms &middot; L3</div>
-  </div>
-  <div class="card">
-    <div class="card-title"><a href="../docs/roots/hayiya.json">حَيِيَ — hayiya</a></div>
-    <div class="card-meta">189 occurrences &middot; 13 forms &middot; L4</div>
-  </div>
-  <div class="card">
-    <div class="card-title"><a href="../docs/roots/salah.json">صَلَاة — salah</a></div>
-    <div class="card-meta">99 occurrences &middot; 4 forms &middot; L4</div>
-  </div>
-  <div class="card">
-    <div class="card-title"><a href="../docs/roots/falaha.json">فَلَحَ — falaha</a></div>
-    <div class="card-meta">40 occurrences &middot; 2 forms &middot; L5</div>
-  </div>
-  <div class="card">
-    <div class="card-title"><a href="../docs/roots/khayr.json">خَيْر — khayr</a></div>
-    <div class="card-meta">196 occurrences &middot; 5 forms &middot; L6</div>
-  </div>
-  <div class="card">
-    <div class="card-title"><a href="../docs/roots/nawm.json">نَوْم — nawm</a></div>
-    <div class="card-meta">9 occurrences &middot; 3 forms &middot; L6</div>
-  </div>
-  <div class="card">
-    <div class="card-title"><a href="../docs/roots/qama.json">قَامَ — qama</a></div>
-    <div class="card-meta">660 occurrences &middot; 22 forms &middot; L7</div>
+    <div class="card-title"><a href="scoring-review.html">Scoring Review Dashboard</a></div>
+    <div class="card-meta">All scored verses across L1–L7 with 7-dimension breakdown</div>
   </div>
 </div>
 
-<!-- ──────────────────────────── PIPELINE & SELECTIONS ─── -->
-<h2>Pipeline & Selections</h2>
-<ul class="section-list">
-  <li><a href="../docs/selections/pipeline.md">pipeline.md</a> — verses queued for future lessons</li>
-  <li><a href="../docs/selections/lesson-01.md">lesson-01 selection log</a> — what was picked and why</li>
-  <li><a href="../docs/selections/lesson-02.md">lesson-02 selection log</a> — what was picked and why</li>
-</ul>
-
-<!-- ──────────────────────────── DOCS ─── -->
+<!-- ──────────────────── DOCS ─── -->
 <h2>Course Design</h2>
 <ul class="section-list">
   <li><a href="../docs/LESSON-PLAN.md">LESSON-PLAN.md</a> — lesson structure, selection process, teacher preferences</li>
-  <li><a href="../docs/SCORING.md">SCORING.md</a> — 8-dimension verse scoring algorithm</li>
+  <li><a href="../docs/SCORING.md">SCORING.md</a> — 7-dimension verse scoring algorithm</li>
   <li><a href="../docs/AUDIO-SYSTEM.md">AUDIO-SYSTEM.md</a> — audio pipeline design (TTS, build, web player)</li>
   <li><a href="../docs/ARCHITECTURE.md">ARCHITECTURE.md</a> — tech stack, deployment, roadmap</li>
-  <li><a href="../docs/GLOSSARY.md">GLOSSARY.md</a> — project terminology</li>
 </ul>
 
-<h3>Architecture Decision Records</h3>
-<ul class="section-list">
-  <li><a href="../docs/decisions/ADR-001-hosting.md">ADR-001</a> — Hosting</li>
-  <li><a href="../docs/decisions/ADR-002-audio.md">ADR-002</a> — Audio</li>
-  <li><a href="../docs/decisions/ADR-003-file-structure.md">ADR-003</a> — File structure</li>
-  <li><a href="../docs/decisions/ADR-004-jekyll-html.md">ADR-004</a> — Jekyll HTML</li>
-  <li><a href="../docs/decisions/ADR-005-reciters.md">ADR-005</a> — Reciters</li>
-  <li><a href="../docs/decisions/ADR-006-auto-timestamps.md">ADR-006</a> — Auto timestamps</li>
-  <li><a href="../docs/decisions/ADR-007-audio-apis-research.md">ADR-007</a> — Audio APIs research</li>
-  <li><a href="../docs/decisions/ADR-009-local-root-pipeline.md">ADR-009</a> — Local root pipeline</li>
-</ul>
-
-<!-- ────────────────────��─────── TOOLS ─── -->
-<h2>Audio YAML Files</h2>
-<ul class="section-list">
-  <li><a href="../tools/lesson-audio/lesson-01.yaml">lesson-01.yaml</a> — L1 audio definition (12 sentences)</li>
-  <li><a href="../tools/lesson-audio/lesson-02.yaml">lesson-02.yaml</a> — L2 audio definition</li>
-</ul>
-
-<!-- ──────────────────────────── WORKSPACE ─── -->
-<h2>Workspace / Scratchpad</h2>
-<ul class="section-list">
-  <li><a href="../.workspace/CURRENT-STATE.md">CURRENT-STATE.md</a> — cross-session handoff (decisions D1–D33, open questions)</li>
-</ul>
-
-<!-- ──────────────────────────── APP ─── -->
-<h2>App / Platform (future)</h2>
-<ul class="section-list">
-  <li><a href="../docs/app/PLATFORM-PRD.md">PLATFORM-PRD.md</a> — platform vision &amp; phased roadmap</li>
-  <li><a href="../docs/app/RESEARCH-SYNTHESIS.md">RESEARCH-SYNTHESIS.md</a> — companion app research</li>
-  <li><a href="../docs/app/APP-REQUIREMENTS.md">APP-REQUIREMENTS.md</a> — earlier app requirements</li>
-</ul>
-
-<hr style="margin: 2rem 0; border: none; border-top: 1px solid var(--border);">
-<p style="color: var(--muted); font-size: 0.82rem;">
-  This page is a local file — not deployed to the live site. Open with: <code>open teacher/local.html</code>
+<hr style="margin: 1.5rem 0; border: none; border-top: 1px solid var(--border);">
+<p style="color: var(--muted); font-size: 0.78rem;">
+  Open with: <code>open teacher/local.html</code> &middot; Status file: <code>teacher/pipeline-status.json</code> &middot; Summary: <code>teacher/lesson-summary.json</code>
 </p>
+
+<script>
+// ─── Load pipeline status and summary ───
+const STATUS_PATH = 'pipeline-status.json';
+const SUMMARY_PATH = 'lesson-summary.json';
+
+const ROOTS_META = [
+  {key:"ilah",ar:"إِلَٰه",occ:2851,forms:4,lesson:1},
+  {key:"kabura",ar:"كَبُرَ",occ:161,forms:14,lesson:1},
+  {key:"shahida",ar:"شَهِدَ",occ:160,forms:9,lesson:2},
+  {key:"rasul",ar:"رَسُول",occ:513,forms:7,lesson:3},
+  {key:"hayiya",ar:"حَيِيَ",occ:189,forms:13,lesson:4},
+  {key:"salah",ar:"صَلَاة",occ:99,forms:4,lesson:4},
+  {key:"falaha",ar:"فَلَحَ",occ:40,forms:2,lesson:5},
+  {key:"khayr",ar:"خَيْر",occ:196,forms:5,lesson:6},
+  {key:"nawm",ar:"نَوْم",occ:9,forms:3,lesson:6},
+  {key:"qama",ar:"قَامَ",occ:660,forms:22,lesson:7},
+];
+
+async function init() {
+  let status, summary;
+  try {
+    status = await (await fetch(STATUS_PATH)).json();
+    summary = await (await fetch(SUMMARY_PATH)).json();
+  } catch(e) {
+    document.getElementById('stats').innerHTML = '<p style="color:red">Could not load pipeline-status.json or lesson-summary.json. Make sure you opened this file from the project root.</p>';
+    return;
+  }
+
+  renderStats(status, summary);
+  renderPipeline(status, summary);
+  renderRoots();
+}
+
+function renderStats(status, summary) {
+  const lessons = Object.values(status.lessons);
+  const published = lessons.filter(l => l.phase === 'published').length;
+  const inProgress = lessons.filter(l => l.phase !== 'published').length;
+  const totalPhrases = summary.lessons.reduce((s,l) => s + l.total_phrases, 0);
+  const totalWords = summary.lessons.reduce((s,l) => s + l.total_words, 0);
+
+  document.getElementById('stats').innerHTML = `
+    <div class="stat"><div class="stat-value">${published}/7</div><div class="stat-label">Published</div></div>
+    <div class="stat"><div class="stat-value">${inProgress}</div><div class="stat-label">In Progress</div></div>
+    <div class="stat"><div class="stat-value">${totalPhrases}</div><div class="stat-label">Total Phrases</div></div>
+    <div class="stat"><div class="stat-value">${totalWords}</div><div class="stat-label">Total Words</div></div>
+    <div class="stat"><div class="stat-value">10</div><div class="stat-label">Root Families</div></div>
+  `;
+}
+
+function dotClass(state) {
+  if (state === 'done') return 'dot-done';
+  if (state === 'ready') return 'dot-ready';
+  if (state === 'wip') return 'dot-wip';
+  return 'dot-blocked';
+}
+
+function dotLabel(state) {
+  if (state === 'done') return '✓';
+  if (state === 'ready') return '●';
+  if (state === 'wip') return '…';
+  return '—';
+}
+
+function renderPipeline(status, summary) {
+  const tbody = document.getElementById('pipeline-body');
+  const phases = status.phase_order;
+  const summaryMap = {};
+  summary.lessons.forEach(l => summaryMap[l.lesson] = l);
+
+  for (const [num, lesson] of Object.entries(status.lessons)) {
+    const sl = summaryMap[parseInt(num)];
+
+    // Main row
+    const tr = document.createElement('tr');
+    tr.className = 'lesson-row';
+    tr.onclick = () => {
+      const detail = document.getElementById(`detail-${num}`);
+      detail.classList.toggle('open');
+    };
+
+    let cells = `<td>L${num} · <span class="seed">${lesson.seed_arabic}</span></td>`;
+    phases.forEach(p => {
+      const state = lesson.phases[p];
+      cells += `<td><span class="dot ${dotClass(state)}">${dotLabel(state)}</span></td>`;
+    });
+    tr.innerHTML = cells;
+    tbody.appendChild(tr);
+
+    // Detail row
+    const detailTr = document.createElement('tr');
+    detailTr.className = 'lesson-detail';
+    detailTr.id = `detail-${num}`;
+    const detailTd = document.createElement('td');
+    detailTd.colSpan = phases.length + 1;
+
+    let detailHtml = `<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">`;
+
+    // Left: lesson info
+    detailHtml += `<div>`;
+    detailHtml += `<div class="action-box"><h4>${lesson.title}</h4>`;
+    detailHtml += `<p>Roots: ${lesson.roots.join(', ')}</p>`;
+    if (sl) {
+      detailHtml += `<p>Auto-picks: ${sl.auto_picked_learning} learning + ${sl.auto_picked_recall} recall = ${sl.total_phrases} phrases / ${sl.total_words} words</p>`;
+    }
+    if (lesson.notes) detailHtml += `<p style="color:var(--muted);font-style:italic;">${lesson.notes}</p>`;
+    detailHtml += `</div>`;
+
+    // Files
+    detailHtml += `<div class="action-box"><h4>Files</h4>`;
+    detailHtml += `<div class="card-links">`;
+    detailHtml += `<a href="../lessons/${lesson.slug}/picker.html">Picker</a>`;
+    detailHtml += `<a href="../lessons/${lesson.slug}/picker-config.json">Config</a>`;
+    lesson.roots.forEach(r => {
+      detailHtml += `<a href="../docs/roots/${r}.json">${r}.json</a>`;
+    });
+    if (lesson.phases.writing === 'done' || lesson.phases.published === 'done') {
+      detailHtml += `<a href="../lessons/${lesson.slug}/index.md">index.md</a>`;
+    }
+    detailHtml += `</div></div>`;
+    detailHtml += `</div>`;
+
+    // Right: current action
+    detailHtml += `<div>`;
+    const currentPhase = lesson.phase;
+    if (currentPhase === 'published') {
+      detailHtml += `<div class="action-box" style="border-color:#16a34a;"><h4 style="color:#16a34a;">✓ Published</h4><p>This lesson is live.</p></div>`;
+    } else if (currentPhase === 'picking') {
+      detailHtml += `<div class="action-box" style="border-color:#2563eb;">`;
+      detailHtml += `<h4 style="color:#2563eb;">→ Next: Review Picks</h4>`;
+      detailHtml += `<p>1. Open the picker and review the algorithm's auto-picks</p>`;
+      detailHtml += `<div class="cmd">open lessons/${lesson.slug}/picker.html</div>`;
+      detailHtml += `<p>2. Adjust selections, then click "Save JSON" in the picker</p>`;
+      detailHtml += `<p>3. Tell Claude: <strong>"I'm done with L${num} picks"</strong></p>`;
+      detailHtml += `</div>`;
+    } else {
+      detailHtml += `<div class="action-box"><h4>Current phase: ${currentPhase}</h4></div>`;
+    }
+    detailHtml += `</div>`;
+
+    detailHtml += `</div>`;
+
+    detailTd.innerHTML = detailHtml;
+    detailTr.appendChild(detailTd);
+    tbody.appendChild(detailTr);
+  }
+}
+
+function renderRoots() {
+  const grid = document.getElementById('roots-grid');
+  ROOTS_META.forEach(r => {
+    grid.innerHTML += `
+      <div class="card">
+        <div class="card-title"><a href="../docs/roots/${r.key}.json">${r.ar} — ${r.key}</a></div>
+        <div class="card-meta">${r.occ.toLocaleString()} occurrences &middot; ${r.forms} forms &middot; L${r.lesson}</div>
+      </div>`;
+  });
+}
+
+init();
+</script>
 
 </body>
 </html>

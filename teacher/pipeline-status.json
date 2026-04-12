@@ -1,0 +1,140 @@
+{
+  "lessons": {
+    "1": {
+      "phase": "published",
+      "slug": "lesson-01-allahu-akbar",
+      "title": "Allahu Akbar",
+      "roots": ["ilah", "kabura"],
+      "seed_arabic": "اللهُ أَكْبَرُ",
+      "phases": {
+        "scoring": "done",
+        "picking": "done",
+        "writing": "done",
+        "tamil": "done",
+        "audio": "done",
+        "review": "done",
+        "published": "done"
+      },
+      "selections_file": null,
+      "notes": "Live since initial launch"
+    },
+    "2": {
+      "phase": "published",
+      "slug": "lesson-02-shahida",
+      "title": "I Bear Witness",
+      "roots": ["shahida"],
+      "seed_arabic": "أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ",
+      "phases": {
+        "scoring": "done",
+        "picking": "done",
+        "writing": "done",
+        "tamil": "done",
+        "audio": "done",
+        "review": "done",
+        "published": "done"
+      },
+      "selections_file": null,
+      "notes": "Live"
+    },
+    "3": {
+      "phase": "picking",
+      "slug": "lesson-03-rasul",
+      "title": "Messenger of Allah",
+      "roots": ["rasul"],
+      "seed_arabic": "أَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ ٱللَّهِ",
+      "phases": {
+        "scoring": "done",
+        "picking": "ready",
+        "writing": "blocked",
+        "tamil": "blocked",
+        "audio": "blocked",
+        "review": "blocked",
+        "published": "blocked"
+      },
+      "selections_file": null,
+      "notes": "42 verses scored, picker ready for teacher review"
+    },
+    "4": {
+      "phase": "picking",
+      "slug": "lesson-04-salah",
+      "title": "Come to Prayer",
+      "roots": ["hayiya", "salah"],
+      "seed_arabic": "حَيَّ عَلَى الصَّلَاةِ",
+      "phases": {
+        "scoring": "done",
+        "picking": "ready",
+        "writing": "blocked",
+        "tamil": "blocked",
+        "audio": "blocked",
+        "review": "blocked",
+        "published": "blocked"
+      },
+      "selections_file": null,
+      "notes": "52 verses scored across 2 roots"
+    },
+    "5": {
+      "phase": "picking",
+      "slug": "lesson-05-falaha",
+      "title": "Come to Success",
+      "roots": ["falaha"],
+      "seed_arabic": "حَيَّ عَلَى الْفَلَاحِ",
+      "phases": {
+        "scoring": "done",
+        "picking": "ready",
+        "writing": "blocked",
+        "tamil": "blocked",
+        "audio": "blocked",
+        "review": "blocked",
+        "published": "blocked"
+      },
+      "selections_file": null,
+      "notes": "25 verses scored, only 2 forms (aflaha, muflih)"
+    },
+    "6": {
+      "phase": "picking",
+      "slug": "lesson-06-khayr",
+      "title": "Prayer is Better than Sleep",
+      "roots": ["khayr", "nawm"],
+      "seed_arabic": "الصَّلَاةُ خَيْرٌ مِنَ النَّوْمِ",
+      "phases": {
+        "scoring": "done",
+        "picking": "ready",
+        "writing": "blocked",
+        "tamil": "blocked",
+        "audio": "blocked",
+        "review": "blocked",
+        "published": "blocked"
+      },
+      "selections_file": null,
+      "notes": "35 verses scored; nawm has only 9 candidates total"
+    },
+    "7": {
+      "phase": "picking",
+      "slug": "lesson-07-qama",
+      "title": "The Prayer Has Begun",
+      "roots": ["qama"],
+      "seed_arabic": "قَدْ قَامَتِ الصَّلَاةُ",
+      "phases": {
+        "scoring": "done",
+        "picking": "ready",
+        "writing": "blocked",
+        "tamil": "blocked",
+        "audio": "blocked",
+        "review": "blocked",
+        "published": "blocked"
+      },
+      "selections_file": null,
+      "notes": "34 verses scored; mostly qawm (people) form"
+    }
+  },
+  "phase_order": ["scoring", "picking", "writing", "tamil", "audio", "review", "published"],
+  "phase_labels": {
+    "scoring": "Score",
+    "picking": "Pick",
+    "writing": "Write",
+    "tamil": "Tamil",
+    "audio": "Audio",
+    "review": "Review",
+    "published": "Live"
+  }
+}
