@@ -6,7 +6,7 @@ permalink: /teacher/lesson-01/
 ---
 {%- assign audio_base = "/assets/audio/lessons/lesson-01" -%}
 {%- assign audio_data = site.data.audio["lesson-01"] -%}
-{%- assign cfg = site.data.picker_configs["lesson-01-allahu-akbar-copy"] -%}
+{%- assign cfg = site.data.picker_configs["lesson-01-allahu-akbar"] -%}
 {%- assign ilah = site.data.roots.ilah -%}
 {%- assign kabura = site.data.roots.kabura -%}
 {%- assign v_59_22  = site.data.verses["059"]["59:22"]  -%}
@@ -28,15 +28,14 @@ permalink: /teacher/lesson-01/
 
 <p>
   <a href="{{ '/#lessons' | relative_url }}">← All lessons</a> &nbsp;·&nbsp;
-  <a href="{{ '/lessons/lesson-01-allahu-akbar-copy/' | relative_url }}">Student view (new copy)</a> &nbsp;·&nbsp;
-  <a href="{{ '/lessons/lesson-01-allahu-akbar' | relative_url }}">Student view (production)</a>
+  <a href="{{ '/lessons/lesson-01-allahu-akbar/' | relative_url }}">Student view</a>
 </p>
 
 ---
 
 ## Lesson metadata (picker-config)
 
-Sourced from `lessons/lesson-01-allahu-akbar-copy/picker-config.json` via the build-time sync (`tools/sync-picker-configs-to-data.py`).
+Sourced from `lessons/lesson-01-allahu-akbar/picker-config.json` via the build-time sync (`tools/sync-picker-configs-to-data.py`).
 
 {% if cfg %}
 <table class="prep-table">
@@ -205,8 +204,8 @@ Quick eyeball pass — spot-check each item by expanding the relevant verse abov
 
 ## Known architectural gaps (expected, not bugs)
 
-- **Tamil content missing** — per D33, main files are English only. Tamil sidecars and the translation tool are deferred. The student L1 copy has a placeholder `.lang-ta` div that surfaces the EN/தமிழ் toggle but shows a diagnostic message when you flip to Tamil.
-- **Quick Check quiz section** not yet rendered in the L1 copy — needs a new `lesson_use.quiz_arabic` field (single-bold-word fragment) per verse. Separate pass.
+- **Tamil content missing** — per D33, main files are English only. Tamil sidecars and the translation tool are deferred. The student page has a placeholder `.lang-ta` div that surfaces the EN/தமிழ் toggle but shows a diagnostic message when you flip to Tamil.
+- **Quick Check quiz section** not yet rendered — needs a new `lesson_use.quiz_arabic` field (single-bold-word fragment) per verse. Separate pass.
 - **Surah transliteration** (Al-Ḥashr, Al-An'ām, etc.) is hand-passed as literal strings in the student template, because `_data/surahs.json` currently has plain-ASCII names (Al-Hashr, Al-Anam). When that's updated, the template can source names from data.
 - **Root tables in the student copy** are hardcoded to show only the forms L1 teaches (3 ilah, 5 kabura). This prep dashboard shows the full set (4 ilah, 14 kabura) so you can see everything the root data file holds.
 - **No reciter / timestamp / duration info** on this prep view yet — that data lives in `tools/lesson-audio/lesson-01.yaml` and `assets/audio/lessons/lesson-01/manifest.json`, neither of which Jekyll can read via `site.data.*`. Adding that view would need a build-step copy into `_data/` or a runtime JS fetch. Deferred for now.

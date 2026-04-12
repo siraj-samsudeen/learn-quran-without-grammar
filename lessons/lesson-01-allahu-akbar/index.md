@@ -26,9 +26,8 @@ closing: |-
 whats_next: "In the next lesson, we'll take the second phrase of the adhān — **أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ** — and you'll discover that the word **أَشْهَدُ** doesn't just mean \"I testify.\" Its root will take you somewhere unexpected."
 ---
 {%- comment -%}
-Thin Liquid template per D30. English only per D33 — Tamil
-and other languages come from sidecar files at render time
-(architecture TBD).
+Data-driven Liquid template per D30. English only per D33 — Tamil
+and other languages come from sidecar files at render time.
 
 Data sources:
   - site.data.roots.{ilah,kabura}      root prose + forms
@@ -36,14 +35,9 @@ Data sources:
   - site.data.verses.teaching.*        synthetic teaching phrases
   - page.{opening,closing,whats_next}  prose from picker-config
 
-Known visual-parity gaps vs production (documented, intentional):
-  - Tamil content completely absent — sidecars not yet built
-  - Surah transliteration (Al-Ḥashr etc.) is hand-passed to the
-    verse-card include rather than sourced from site.data.surahs,
-    which currently holds plain-ASCII names
-  - Quick Check quiz section omitted — needs a separate quiz_arabic
-    data pass (lesson_use.arabic has multi-bold for verses like
-    2:163, but the quiz wants single-bold-word fragments)
+Known gaps:
+  - Tamil content — sidecars not yet built
+  - Quick Check quiz section — needs quiz_arabic (single-bold) field
 {%- endcomment -%}
 
 {%- assign ilah = site.data.roots.ilah -%}
@@ -64,7 +58,7 @@ Known visual-parity gaps vs production (documented, intentional):
 
 # {{ page.title }}
 
-[← All lessons]({{ '/#lessons' | relative_url }}) · [Lesson 1 (original)]({{ '/lessons/lesson-01-allahu-akbar' | relative_url }}) · [Next: Lesson 2 →]({{ '/lessons/lesson-02-shahida/' | relative_url }})
+[← All lessons]({{ '/#lessons' | relative_url }}) · [Next: Lesson 2 →]({{ '/lessons/lesson-02-shahida/' | relative_url }})
 {: .lesson-nav}
 
 <div class="lang-ta" markdown="1">
@@ -78,6 +72,8 @@ _Tamil translation not yet available in this new architecture. Tamil content wil
 <p class="lesson-preview lang-en">In the first lesson, you will meet <strong>8 Arabic words</strong> from two root families — the roots behind <strong>اللهُ أَكْبَرُ</strong> — through 11 ayahs from the Quran plus 1 teaching phrase.</p>
 
 <div class="lesson-map" id="lesson-map" markdown="0">
+  <a href="#immerse">Immerse</a>
+  <span class="map-arrow">→</span>
   <a href="#anchor">Anchor</a>
   <span class="map-arrow">→</span>
   <a href="#root-ilah">إِلَٰه <span class="map-detail">(3 words)</span></a>
@@ -86,12 +82,23 @@ _Tamil translation not yet available in this new architecture. Tamil content wil
   <span class="map-arrow">→</span>
   <a href="#practice">Practice</a>
   <span class="map-arrow">→</span>
-  <a href="#review-in-order">Review</a>
+  <a href="#review-shuffled">Review</a>
   <span class="map-arrow">→</span>
   <a href="#summary">Summary</a>
 </div>
 
 <p class="lesson-links"><a href="{{ '/course_intro' | relative_url }}">Course introduction</a> · <a href="{{ '/how-to-study' | relative_url }}">How to study a lesson</a></p>
+
+## Immerse
+{: #immerse}
+
+First, immerse yourself in the audio before you start the study session. Listen to it one to three times.
+
+<audio class="review-audio-en" controls preload="none" src="{{ page.audio_download | relative_url }}"></audio>
+
+<a class="download-link download-link-en" href="{{ page.audio_download | relative_url }}" download>📥 Download full lesson audio</a>
+
+---
 
 ## Anchor
 {: #anchor}
@@ -209,15 +216,6 @@ You've met all 8 words. Now see if you can spot them on your own — try to pred
 [↑ Back to top](#lesson-map)
 {: .back-to-top}
 
-## Review in Order
-{: #review-in-order}
-
-<audio class="review-audio-en" controls preload="none" src="{{ page.audio_download | relative_url }}"></audio>
-
-<a class="download-link download-link-en" href="{{ page.audio_download | relative_url }}" download>📥 Download full lesson audio</a>
-
----
-
 ## Review Shuffled
 {: #review-shuffled}
 
@@ -327,5 +325,5 @@ You've met all 8 words. Now see if you can spot them on your own — try to pred
 
 ---
 
-[← All lessons]({{ '/#lessons' | relative_url }}) · [Lesson 1 (original)]({{ '/lessons/lesson-01-allahu-akbar' | relative_url }}) · [Next: Lesson 2 →]({{ '/lessons/lesson-02-shahida/' | relative_url }})
+[← All lessons]({{ '/#lessons' | relative_url }}) · [Next: Lesson 2 →]({{ '/lessons/lesson-02-shahida/' | relative_url }})
 {: .lesson-nav}

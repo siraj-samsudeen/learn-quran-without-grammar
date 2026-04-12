@@ -173,7 +173,7 @@ learn-quran-without-grammar/
 │           ├── lesson-template.md   ← Fill-in-the-blanks lesson skeleton
 │           └── lesson-audio-template.yaml ← Fill-in-the-blanks YAML skeleton
 ├── lessons/
-│   └── lesson-01-allahu-akbar.md    ← Lesson 1: roots إِلَٰه + كَبُرَ
+│   └── lesson-01-allahu-akbar/       ← Lesson 1: roots إِلَٰه + كَبُرَ (index.md + picker-config.json)
 ├── docs/
 │   ├── LESSON-PLAN.md               ← Lesson structure, selection process, teacher preferences
 │   ├── SCORING.md                   ← 8-dimension verse scoring algorithm

@@ -23,6 +23,8 @@ The second line of the adhān opens with one of the most powerful statements a p
 <p class="lesson-preview lang-ta"></p>
 
 <div class="lesson-map" id="lesson-map" markdown="0">
+  <a href="#immerse">Immerse</a>
+  <span class="map-arrow">→</span>
   <a href="#anchor">Anchor</a>
   <span class="map-arrow">→</span>
   <a href="#root-shahida">شَهِدَ <span class="map-detail">(4 words)</span></a>
@@ -31,7 +33,7 @@ The second line of the adhān opens with one of the most powerful statements a p
   <span class="map-arrow">→</span>
   <a href="#recall">Recall</a>
   <span class="map-arrow">→</span>
-  <a href="#review-in-order">Review</a>
+  <a href="#review-shuffled">Review</a>
   <span class="map-arrow">→</span>
   <a href="#summary">Summary</a>
   <span class="map-arrow">→</span>
@@ -39,6 +41,19 @@ The second line of the adhān opens with one of the most powerful statements a p
 </div>
 
 <p class="lesson-links"><a href="{{ '/course_intro' | relative_url }}">Course introduction</a> · <a href="{{ '/how-to-study' | relative_url }}">How to study a lesson</a></p>
+
+## Immerse
+{: #immerse}
+
+First, immerse yourself in the audio before you start the study session. Listen to it one to three times.
+
+<audio class="review-audio-en" controls preload="none" src="{{ '/assets/audio/lessons/lesson-02/lesson-02-full.mp3' | relative_url }}"></audio>
+<audio class="review-audio-ta" controls preload="none" src="{{ '/assets/audio/lessons/lesson-02/lesson-02-full-ta.mp3' | relative_url }}"></audio>
+
+<a class="download-link download-link-en" href="{{ '/assets/audio/lessons/lesson-02/lesson-02-full.mp3' | relative_url }}" download>📥 Download full lesson audio</a>
+<a class="download-link download-link-ta" href="{{ '/assets/audio/lessons/lesson-02/lesson-02-full-ta.mp3' | relative_url }}" download>📥 முழு பாடம் ஒலிப்பதிவைப் பதிவிறக்கம் செய்யவும்</a>
+
+---
 
 ## Anchor
 {: #anchor}
@@ -318,17 +333,6 @@ Allah speaking directly to Mūsā at the burning bush. The same لَا **إِل�
 
 [↑ Back to top](#lesson-map)
 {: .back-to-top}
-
-## Review in Order
-{: #review-in-order}
-
-<audio class="review-audio-en" controls preload="none" src="{{ '/assets/audio/lessons/lesson-02/lesson-02-full.mp3' | relative_url }}"></audio>
-<audio class="review-audio-ta" controls preload="none" src="{{ '/assets/audio/lessons/lesson-02/lesson-02-full-ta.mp3' | relative_url }}"></audio>
-
-<a class="download-link download-link-en" href="{{ '/assets/audio/lessons/lesson-02/lesson-02-full.mp3' | relative_url }}" download>📥 Download full lesson audio</a>
-<a class="download-link download-link-ta" href="{{ '/assets/audio/lessons/lesson-02/lesson-02-full-ta.mp3' | relative_url }}" download>📥 முழு பாடம் ஒலிப்பதிவைப் பதிவிறக்கம் செய்யவும்</a>
-
----
 
 ## Review Shuffled
 {: #review-shuffled}

@@ -19,12 +19,11 @@ No arguments — it syncs every lessons/*/picker-config.json it
 finds.
 
 Output: one JSON file per lesson folder, e.g.
-  _data/picker_configs/lesson-01-allahu-akbar.json        (if added later)
-  _data/picker_configs/lesson-01-allahu-akbar-copy.json
+  _data/picker_configs/lesson-01-allahu-akbar.json
   _data/picker_configs/lesson-02-shahida.json
 
 Jekyll access:
-  {% assign cfg = site.data.picker_configs["lesson-01-allahu-akbar-copy"] %}
+  {% assign cfg = site.data.picker_configs["lesson-01-allahu-akbar"] %}
   {{ cfg.title }}
   {{ cfg.opening | markdownify }}
 
