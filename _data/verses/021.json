@@ -17,8 +17,7 @@
       "surah_familiarity": 0,
       "completeness": 1,
       "emotion": 1,
-      "fit_learn": 0,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "Famous logical argument for tawhid — short and self-contained.",
     "lesson_use": {
@@ -50,13 +49,12 @@
       "surah_familiarity": 0,
       "completeness": 1,
       "emotion": 2,
-      "fit_learn": 1,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "Ibrahim's wit when questioned about smashing the idols — brilliant story.",
     "lesson_use": {
       "lesson": 1,
-      "section": "practice",
+      "section": "learning",
       "is_anchor": false,
       "order": 3,
       "heading": "10 · كَبِير (great, big)",
@@ -85,8 +83,7 @@
       "surah_familiarity": 0,
       "completeness": 1,
       "emotion": 2,
-      "fit_learn": 1,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "Story of Yunus in the whale — one of the most beloved du'as. Too long for beginner's first phrase but excellent for later lessons.",
     "lesson_use": {

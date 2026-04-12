@@ -3,8 +3,13 @@
     "ref": "63:1",
     "arabic": "إِذَا جَاءَكَ الْمُنَافِقُونَ قَالُوا نَشْهَدُ إِنَّكَ لَرَسُولُ اللَّهِ وَاللَّهُ يَعْلَمُ إِنَّكَ لَرَسُولُهُ وَاللَّهُ يَشْهَدُ إِنَّ الْمُنَافِقِينَ لَكَاذِبُونَ",
     "english": "When the hypocrites come to you, they say: We testify that you are the Messenger of Allah. But Allah knows that you are His Messenger, and Allah testifies that the hypocrites are liars.",
-    "roots": ["shahida"],
-    "forms": ["نَشْهَدُ", "يَشْهَدُ"],
+    "roots": [
+      "shahida"
+    ],
+    "forms": [
+      "نَشْهَدُ",
+      "يَشْهَدُ"
+    ],
     "scores": {
       "curriculum": 2,
       "length": 1,
@@ -13,13 +18,12 @@
       "surah_familiarity": 1,
       "completeness": 1,
       "emotion": 3,
-      "fit_learn": 0,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "Dramatic expose of hypocrisy. Two forms of shahida in opposition — the hypocrites testify, then Allah testifies they are liars. Opening of Surah Al-Munafiqun.",
     "lesson_use": {
       "lesson": 2,
-      "section": "practice",
+      "section": "learning",
       "is_anchor": false,
       "order": 2,
       "arabic": "إِذَا جَاءَكَ الْمُنَافِقُونَ قَالُوا نَشْهَدُ إِنَّكَ لَرَسُولُ اللَّهِ وَاللَّهُ يَشْهَدُ إِنَّ الْمُنَافِقِينَ لَكَاذِبُونَ",

@@ -17,13 +17,12 @@
       "surah_familiarity": 2,
       "completeness": 1,
       "emotion": 1,
-      "fit_learn": 1,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "Tiny — 4 words. Musa showed Pharaoh the greatest miracle. Juz' 30.",
     "lesson_use": {
       "lesson": 1,
-      "section": "learn",
+      "section": "learning",
       "is_anchor": false,
       "order": 5,
       "heading": "5 · كُبْرَى (greatest)",

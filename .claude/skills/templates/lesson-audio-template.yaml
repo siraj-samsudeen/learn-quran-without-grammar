@@ -44,9 +44,9 @@ sentences:
     arabic_text: "{{Arabic text}}"
     english: "{{Plain ASCII English}}"
 
-  # ── Learn: Root 1 ───────────────────────────────────────────
-  - id: learn-{{root1}}-01
-    role: learn
+  # ── Learning: Root 1 ─────────────────────────────────────────
+  - id: learning-{{root1}}-01
+    role: learning
     root: {{root1-ascii}}
     form: {{form-ascii}}
     ref: "{{SS:AA}}"
@@ -56,73 +56,47 @@ sentences:
       ayah: {{AAA}}
       start: {{seconds or null}}        # Use auto-timestamps.py to find these
       end: {{seconds or null}}
-    arabic_source_full:                 # Include if trimmed (learn uses fragment, review uses full)
+    arabic_source_full:                 # Include if trimmed (learning uses fragment, review uses full)
       surah: {{SSS}}
       ayah: {{AAA}}
     arabic_text: "{{Arabic text}}"
     english: "{{Plain ASCII English}}"
 
-  - id: learn-{{root1}}-02
-    role: learn
+  - id: learning-{{root1}}-02
+    role: learning
     # ... same structure ...
 
-  # ── Learn: Root 2 ───────────────────────────────────────────
-  - id: learn-{{root2}}-01
-    role: learn
-    # ... same structure (3 phrases for root 2) ...
+  # ── Learning: Root 2 ────────────────────────────────────────
+  - id: learning-{{root2}}-01
+    role: learning
+    # ... same structure ...
 
-  - id: learn-{{root2}}-02
-    role: learn
+  - id: learning-{{root2}}-02
+    role: learning
     # ...
 
-  - id: learn-{{root2}}-03
-    role: learn
-    # ...
+  # ── Learning: additional phrases (up to 9 total) ────────────
+  # Budget: 10 phrases / 100 words for new content (including anchor).
+  # Add more learning phrases as needed, numbered sequentially.
 
-  # ── Practice (mixed roots, shortest → longest) ─────────────
-  - id: practice-01
-    role: practice
-    root: {{either root}}
-    form: {{form-ascii}}
-    ref: "{{SS:AA}}"
-    reciter: {{ReciterFolder}}          # Still unique — no reciter repeats in the lesson!
-    arabic_source:
-      surah: {{SSS}}
-      ayah: {{AAA}}
-    arabic_text: "{{Arabic text}}"
-    english: "{{Plain ASCII English}}"
-
-  - id: practice-02
-    role: practice
-    # ...
-
-  - id: practice-03
-    role: practice
-    # ...
-
-  - id: practice-04
-    role: practice
-    # ...
-
-  - id: practice-05
-    role: practice
+  - id: learning-05
+    role: learning
     # ...
 
 # ── Reciter Assignment Checklist ──────────────────────────────
 # Each phrase MUST use a different reciter. Use this checklist:
 #
-# ☐ anchor-root1:   _______________
-# ☐ anchor-root2:   _______________ (or Arabic TTS)
-# ☐ learn-root1-01: _______________
-# ☐ learn-root1-02: _______________
-# ☐ learn-root2-01: _______________
-# ☐ learn-root2-02: _______________
-# ☐ learn-root2-03: _______________
-# ☐ practice-01:    _______________
-# ☐ practice-02:    _______________
-# ☐ practice-03:    _______________
-# ☐ practice-04:    _______________
-# ☐ practice-05:    _______________
+# ☐ anchor:          _______________
+# ☐ learning-01:     _______________
+# ☐ learning-02:     _______________
+# ☐ learning-03:     _______________
+# ☐ learning-04:     _______________
+# ☐ learning-05:     _______________
+# ☐ learning-06:     _______________
+# ☐ learning-07:     _______________
+# ☐ learning-08:     _______________
+# ☐ learning-09:     _______________
+# (add recall entries as needed)
 #
 # Speed matching: slow (≤5 words) → Husary, Abdul Basit, Hani Rifai
 #                 medium (6-10)   → Hudhaifi, Alafasy, Abu Bakr

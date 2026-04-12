@@ -16,8 +16,7 @@
   ],
   "targets": {
     "anchor": 1,
-    "learn": 5,
-    "practice": 5,
+    "learning": 10,
     "recall": 5
   },
   "opening": "",

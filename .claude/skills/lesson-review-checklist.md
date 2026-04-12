@@ -14,7 +14,7 @@ Run this checklist **before every commit** of a new or modified lesson.
 - [ ] **Heading is a single word** — `### 3 · كُبْرَى (greatest)` not `### 3 · الْكُبْرَى الآيَة (the greatest sign)`.
 - [ ] **Anchor headings** — just `### ⭐ · Anchor Phrase`, no Arabic in the heading.
 - [ ] **References in brackets at end** — `(Al-Baqarah 2:34)` format, placed after the audio tag, never before the Arabic text.
-- [ ] **Practice phrases ordered shortest → longest** — progressive difficulty.
+- [ ] **Learning phrases ordered appropriately** — shorter early, longer later (progressive difficulty).
 - [ ] **Closing text matches actual lesson content** — no references to phrases that were dropped.
 
 ---
@@ -30,9 +30,9 @@ Run this checklist **before every commit** of a new or modified lesson.
 
 ## C. Structure checks
 
-- [ ] **Anchor phrases** are separate from the 5 learning phrases (not counted in the 5)
-- [ ] **Learning phrases**: 5 total across both roots, each one short
-- [ ] **Practice phrases**: 5 total, mixed roots, can be longer
+- [ ] **Anchor phrase**: 1 per lesson (not counted in the learning budget)
+- [ ] **Learning phrases**: up to 9 total (10 phrases / 100 words budget for new content including anchor)
+- [ ] **Recall phrases**: up to 5 total (50 words budget for spaced review from previous lessons)
 - [ ] **Review in Order** section has: audio player + download link
 - [ ] **Review Shuffled** section has: `<div id="shuffle-player"></div>`
 - [ ] **Summary** has two tables: Words (flat, no root subheaders, `.root-table`) and Phrases (Arabic · Surah Name N:N inline, no separate Ref column)

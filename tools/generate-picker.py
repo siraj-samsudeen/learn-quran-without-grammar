@@ -15,7 +15,7 @@ Usage:
 
 Verses with status "used" in earlier lessons are excluded.
 Verses with non-null scores get default section assignments (top N by
-total_learn → learn, next N → practice). Unscored verses default to "none".
+final score → learning). Unscored verses default to "none".
 """
 from __future__ import annotations
 
@@ -53,33 +53,27 @@ def build_verses(root_data: dict, lesson_num: int, kind: str, targets: dict,
 
     scored = [v for v in candidates if v.get("scores") is not None]
 
-    scored_refs_learn = set()
-    scored_refs_practice = set()
+    scored_refs_learning = set()
     scored_refs_recall = set()
 
     if kind == "current":
-        target_learn = targets.get("learn", 5)
-        target_practice = targets.get("practice", 5)
-        need = target_learn + target_practice
-        if len(scored) >= need:
-            scored.sort(key=lambda v: v["scores"].get("total_learn", 0), reverse=True)
-            scored_refs_learn = {v["ref"] for v in scored[:target_learn]}
-            scored_refs_practice = {v["ref"] for v in scored[target_learn:target_learn + target_practice]}
+        target_learning = targets.get("learning", 10)
+        if len(scored) >= target_learning:
+            scored.sort(key=lambda v: v["scores"].get("final", 0), reverse=True)
+            scored_refs_learning = {v["ref"] for v in scored[:target_learning]}
     else:
         if scored:
-            scored.sort(key=lambda v: v["scores"].get("total_practice", 0), reverse=True)
+            scored.sort(key=lambda v: v["scores"].get("final", 0), reverse=True)
             scored_refs_recall = {v["ref"] for v in scored[:recall_slots]}
 
     entries = []
     for v in candidates:
         ref = v["ref"]
         score_obj = v.get("scores") or {}
-        total = max(score_obj.get("total_learn", 0), score_obj.get("total_practice", 0))
+        total = score_obj.get("final", 0)
 
-        if ref in scored_refs_learn:
-            default_section = "learn"
-        elif ref in scored_refs_practice:
-            default_section = "practice"
+        if ref in scored_refs_learning:
+            default_section = "learning"
         elif ref in scored_refs_recall:
             default_section = "recall"
         elif v.get("status") == "pipeline":
@@ -110,7 +104,7 @@ def build_verses(root_data: dict, lesson_num: int, kind: str, targets: dict,
 def build_config(args) -> dict:
     lesson_num = args.lesson
     anchor = args.anchor or ""
-    targets = {"learn": 5, "practice": 5, "recall": 5}
+    targets = {"learning": 10, "recall": 5}
 
     current_groups = []
     recall_groups = []

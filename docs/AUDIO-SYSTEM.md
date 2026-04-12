@@ -211,11 +211,10 @@ assets/audio/lessons/
 ├── lesson-01/
 │   ├── manifest.json                    ← metadata for all sentences
 │   ├── lesson-01-full.mp3               ← single sequential file for download
-│   ├── learn-ilah-01.mp3                ← individual sentence pair (Arabic + 2s pause + English)
-│   ├── learn-ilah-02.mp3
-│   ├── learn-ilah-03.mp3
+│   ├── learning-ilah-01.mp3             ← individual sentence pair (Arabic + 2s pause + English)
+│   ├── learning-ilah-02.mp3
+│   ├── learning-ilah-03.mp3
 │   ├── ...
-│   ├── practice-kabura-05.mp3
 │   ├── hadith-01.mp3
 │   └── .cache/                          ← raw EveryAyah downloads (gitignored)
 │       ├── 021087.mp3
@@ -224,7 +223,7 @@ assets/audio/lessons/
 ├── lesson-02/
 │   ├── manifest.json
 │   ├── lesson-02-full.mp3
-│   ├── learn-xxx-01.mp3
+│   ├── learning-xxx-01.mp3
 │   └── ...
 └── audio-manifest.json                  ← site-level manifest listing ALL lessons
 ```
@@ -260,11 +259,9 @@ The full download MP3 concatenates all sentence pairs with 3-second gaps between
 
 Lesson playback order (same as lesson page, same as YAML definition order):
 1. **Anchor** (1 sentence — if applicable)
-2. **Learn — إِلَٰه** (5 sentences, one per form/pattern)
-3. **Learn — كَبُرَ** (5 sentences, one per form)
-4. **Practice — إِلَٰه** (5 sentences)
-5. **Practice — كَبُرَ** (5 sentences)
-6. **Hadith** (1+ sentences)
+2. **Learning — إِلَٰه** (sentences, one per form/pattern)
+3. **Learning — كَبُرَ** (sentences, one per form)
+4. **Hadith** (1+ sentences)
 
 Total: ~21 sentence pairs per lesson.
 
@@ -286,8 +283,8 @@ slug: lesson-01-allahu-akbar                   # matches lesson filename
 sentences:
   # ── Each sentence entry ──
 
-  - id: learn-ilah-01                          # unique sentence ID → becomes filename
-    role: learn                                # learn | practice | anchor | hadith
+  - id: learning-ilah-01                        # unique sentence ID → becomes filename
+    role: learning                             # anchor | learning | hadith
     root: إِلَٰه                                # which root word this belongs to
     form: "لَا إِلَٰهَ إِلَّا"                    # specific form or pattern being taught
     ref: "21:87"                               # human-readable reference
@@ -361,7 +358,7 @@ The build script should validate:
 2. Every `id` is safe for filenames (lowercase alphanumeric + hyphens only)
 3. `surah` is 1–114, `ayah` is 1–286
 4. `start` < `end` when both are specified
-5. `role` is one of: `anchor`, `learn`, `practice`, `hadith`
+5. `role` is one of: `anchor`, `learning`, `hadith`
 6. `english` is non-empty (required for TTS)
 7. `arabic_text` is non-empty (required for player display)
 
@@ -489,26 +486,16 @@ After building lesson 01 (21 sentences):
 assets/audio/lessons/lesson-01/
 ├── manifest.json                    (~3 KB)
 ├── lesson-01-full.mp3               (~3-5 MB)
-├── learn-ilah-01.mp3                (~100-300 KB each)
-├── learn-ilah-02.mp3
-├── learn-ilah-03.mp3
-├── learn-ilah-04.mp3
-├── learn-ilah-05.mp3
-├── learn-kabura-01.mp3
-├── learn-kabura-02.mp3
-├── learn-kabura-03.mp3
-├── learn-kabura-04.mp3
-├── learn-kabura-05.mp3
-├── practice-ilah-01.mp3
-├── practice-ilah-02.mp3
-├── practice-ilah-03.mp3
-├── practice-ilah-04.mp3
-├── practice-ilah-05.mp3
-├── practice-kabura-01.mp3
-├── practice-kabura-02.mp3
-├── practice-kabura-03.mp3
-├── practice-kabura-04.mp3
-├── practice-kabura-05.mp3
+├── learning-ilah-01.mp3             (~100-300 KB each)
+├── learning-ilah-02.mp3
+├── learning-ilah-03.mp3
+├── learning-ilah-04.mp3
+├── learning-ilah-05.mp3
+├── learning-kabura-01.mp3
+├── learning-kabura-02.mp3
+├── learning-kabura-03.mp3
+├── learning-kabura-04.mp3
+├── learning-kabura-05.mp3
 ├── hadith-01.mp3
 └── .cache/                          (gitignored)
     ├── 021087.mp3
@@ -563,7 +550,7 @@ For cumulative review (lesson 3 page loads all previous lessons):
 │                  Shuffle Player                   │
 │                                                   │
 │   1. Load manifest(s) → collect all sentences     │
-│   2. Apply role filter (all/learn/practice)       │
+│   2. Apply role filter (all/learning)             │
 │   3. Fisher-Yates shuffle → build playlist        │
 │   4. Play playlist[0] → auto-advance on ended     │
 │   5. When playlist exhausted → re-shuffle → loop  │
@@ -581,7 +568,7 @@ let sentences = [];      // flat array of all loaded sentences
 let playlist = [];       // shuffled indices into sentences[]
 let currentIndex = 0;    // position in playlist
 let audio = new Audio(); // single shared audio element
-let roleFilter = 'all';  // 'all' | 'learn' | 'practice'
+let roleFilter = 'all';  // 'all' | 'learning'
 
 // ── Load manifests ──
 async function loadManifests(urls) {
@@ -649,13 +636,13 @@ function setFilter(role) { roleFilter = role; buildPlaylist(); updateUI(); }
 │  god but You, glory to You — I was among          │
 │  the wrongdoers                                   │
 │                                                   │
-│  21:87 · Learn · إِلَٰه                            │  ← Metadata (dim)
+│  21:87 · Learning · إِلَٰه                         │  ← Metadata (dim)
 │                                                   │
 │              ⏮    ▶    ⏭                          │  ← Controls
 │                                                   │
 │  ━━━━━━━━━━━░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  │  ← Progress bar
 │                                                   │
-│        [All]   [Learn]   [Practice]               │  ← Role filter buttons
+│            [All]   [Learning]                      │  ← Role filter buttons
 │                                                   │
 │              3 / 21 sentences                     │  ← Counter
 │                                                   │

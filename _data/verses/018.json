@@ -17,13 +17,12 @@
       "surah_familiarity": 1,
       "completeness": 1,
       "emotion": 1,
-      "fit_learn": 0,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "Surah Al-Kahf — retranslated to 'great' not 'grave' to keep root connection visible.",
     "lesson_use": {
       "lesson": 1,
-      "section": "practice",
+      "section": "learning",
       "is_anchor": false,
       "order": 2,
       "heading": "9 · كَبُرَتْ (how great)",
@@ -52,8 +51,7 @@
       "surah_familiarity": 1,
       "completeness": 1,
       "emotion": 1,
-      "fit_learn": 0,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "Closing of Surah Al-Kahf — recited every Friday. Too long for Learn but good for Practice. Audio already downloaded.",
     "lesson_use": {

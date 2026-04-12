@@ -17,13 +17,12 @@
       "surah_familiarity": 1,
       "completeness": 1,
       "emotion": 1,
-      "fit_learn": 1,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "Short, iconic, contains إِلَٰه at the heart. Student memorises this one phrase.",
     "lesson_use": {
       "lesson": 1,
-      "section": "learn",
+      "section": "learning",
       "is_anchor": true,
       "order": 1,
       "heading": "⭐ · 1 Anchor Phrase",

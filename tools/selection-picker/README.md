@@ -34,7 +34,7 @@ A single self-contained HTML file that renders a picker UI in the browser:
      ref: "3:18",                        // surah:ayah
      group: "shahida",                   // must match a group.key in current_groups or recall_groups
      form: "شَهِدَ",                     // Arabic form being taught
-     score: 12,                          // total_learn score from docs/SCORING.md
+     score: 12,                          // final score from docs/SCORING.md
      defaultSection: "learn",            // learn | practice | recall | pipeline | none
      arabic: "شَهِدَ ٱللَّهُ ...",      // the arabic_fragment (trimmed if needed)
      english: "Allah bears witness...",  // teacher-style simple English

@@ -28,7 +28,7 @@
     },
     "learn-shahida-01": {
       "id": "learn-shahida-01",
-      "role": "learn",
+      "role": "learning",
       "ref": "3:18",
       "root": "شَهِدَ",
       "form": "شَهِدَ",
@@ -43,7 +43,7 @@
     },
     "learn-shahida-02": {
       "id": "learn-shahida-02",
-      "role": "learn",
+      "role": "learning",
       "ref": "6:19",
       "root": "شَهِدَ",
       "form": "شَهَادَة + شَهِيد",
@@ -58,7 +58,7 @@
     },
     "learn-shahida-03": {
       "id": "learn-shahida-03",
-      "role": "learn",
+      "role": "learning",
       "ref": "4:79",
       "root": "شَهِدَ",
       "form": "شَهِيد",
@@ -73,7 +73,7 @@
     },
     "learn-shahida-04": {
       "id": "learn-shahida-04",
-      "role": "learn",
+      "role": "learning",
       "ref": "5:117",
       "root": "شَهِدَ",
       "form": "شَهِيد",
@@ -88,7 +88,7 @@
     },
     "learn-shahida-05": {
       "id": "learn-shahida-05",
-      "role": "learn",
+      "role": "learning",
       "ref": "2:185",
       "root": "شَهِدَ",
       "form": "شَهِدَ",
@@ -103,7 +103,7 @@
     },
     "practice-01": {
       "id": "practice-01",
-      "role": "practice",
+      "role": "learning",
       "ref": "3:53",
       "root": "شَهِدَ",
       "form": "الشَّاهِدِينَ",
@@ -118,7 +118,7 @@
     },
     "practice-02": {
       "id": "practice-02",
-      "role": "practice",
+      "role": "learning",
       "ref": "63:1",
       "root": "شَهِدَ",
       "form": "نَشْهَدُ + يَشْهَدُ",
@@ -133,7 +133,7 @@
     },
     "practice-03": {
       "id": "practice-03",
-      "role": "practice",
+      "role": "learning",
       "ref": "41:20",
       "root": "شَهِدَ",
       "form": "شَهِدَ",
@@ -148,7 +148,7 @@
     },
     "practice-04": {
       "id": "practice-04",
-      "role": "practice",
+      "role": "learning",
       "ref": "3:81",
       "root": "شَهِدَ",
       "form": "اشْهَدُوا + الشَّاهِدِينَ",
@@ -163,7 +163,7 @@
     },
     "practice-05": {
       "id": "practice-05",
-      "role": "practice",
+      "role": "learning",
       "ref": "4:69",
       "root": "شَهِدَ",
       "form": "شُهَدَاء",

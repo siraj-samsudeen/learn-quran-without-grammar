@@ -21,7 +21,7 @@ When the teacher says "let's create a new lesson", "start lesson N", "prepare fo
 2. **Check that previous lessons' roots also have complete JSONs.** These are needed for Recall candidates. If any are thin, run the builder for them too — all candidate data is generated from local files, so there is no cost to rebuilding.
 3. **Generate the picker HTML** by copying `tools/selection-picker/template.html` to `.claude/tmp/lesson-NN-picker.html` and replacing the `LESSON_CONFIG` block with data drawn from the root JSONs:
    - `verses` array = all candidate verses (current-lesson root + previous-lesson roots for Recall), filtering out verses already `status: "used"` in earlier lessons.
-   - Pre-assign `defaultSection` based on the AI's best guess (top-scored verses → `learn`, next tier → `practice`, existing recall picks → `recall`, rest → `none` or `pipeline`).
+   - Pre-assign `defaultSection` based on the AI's best guess (top-scored verses → `learning`, existing recall picks → `recall`, rest → `none` or `pipeline`).
 4. **Open the picker** with `open .claude/tmp/lesson-NN-picker.html`.
 5. **Tell the teacher what you did in 2 sentences** and let them work in the picker. Wait for them to paste the JSON back.
 
@@ -33,13 +33,13 @@ When the teacher says "let's create a new lesson", "start lesson N", "prepare fo
 **Skill:** `.claude/skills/verse-selection.md`
 **Tool:** `tools/selection-picker/template.html`
 **Input:** Anchor phrase from teacher + pre-populated picker
-**Output:** JSON selections pasted back from picker UI (learn / practice / recall / pipeline)
+**Output:** JSON selections pasted back from picker UI (learning / recall / pipeline)
 **Gate:** Teacher pastes the final JSON
 
 ### Phase 2: Lesson Writing
 **Skill:** `.claude/skills/add-lesson.md` (Steps 1–4)
 **Template:** `.claude/skills/templates/lesson-template.md`
-**Input:** 12 approved phrases with reciter assignments
+**Input:** Approved phrases (1 anchor + up to 9 learning = 10 phrases / 100 words + 5 recall / 50 words) with reciter assignments
 **Output:** `lessons/lesson-NN-slug.md` draft
 **Gate:** Teacher reviews draft on live site
 

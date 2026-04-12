@@ -22,25 +22,20 @@ This is more intuitive for students and teachers than abstract three-letter comb
 
 ---
 
-## Lesson Structure (v2 — revised 2025-06-04)
+## Lesson Structure (v3 — revised 2026-04-12)
 
-Each lesson contains **2 anchor phrases + 5 learning phrases + 5 practice phrases = 12 total**.
+Each lesson contains **1 anchor + up to 9 learning phrases = 10 phrases / 100 words** (whichever limit hits first). Recall adds up to 5 phrases / 50 words from previous lessons.
 
 ### Anchor Phrases (1 per root, separate from the 5 learning phrases)
 - Each root gets **one anchor phrase** — the key phrase the student must memorize
 - Anchor phrases should be **short** — even weaker students must be able to commit them to memory
 - Can be Qur'anic or teacher-made (teaching phrases, clearly labelled as non-Qur'anic)
 
-### Learn Section (5 phrases total, split across roots)
-- Each learning phrase introduces a **form from the root table** that is NOT already covered by the anchor phrases
-- Learning phrases should be **as short as possible** while retaining story context (see Story Context Principle below)
-- The split between roots depends on how many uncovered forms each root has (e.g., 2 + 3, or 3 + 2)
-
-### Practice Section (5 phrases, mixed order)
-- **No notes or explanations** — audio flashcard style only (shuffle player)
-- Words from **both roots mixed** in random order
-- Practice phrases **can be longer** than learning phrases
-- **Lesson 2+:** mix in phrases from previous lessons' roots for spaced review
+### Learning Section (up to 9 phrases, budget: 10 phrases / 100 words total with anchor)
+- Each learning phrase introduces a **form from the root table** that is NOT already covered by the anchor phrase
+- Learning phrases are ordered **shortest → longest** (progressive difficulty)
+- The automated scoring system selects and ranks verses; there is no separate practice section — all selected verses become learning phrases
+- The split between roots depends on how many uncovered forms each root has
 
 ### Summary Table
 - One combined table at the bottom: all words + all phrases
@@ -130,17 +125,9 @@ This distinction matters: when a future agent reads the selection log, bolded re
 
 ### Step 5: Repeat for the second root
 
-Same process. The result is **5 forms × 1 sentence × 2 roots = 10 Learn sentences**.
+Same process. All selected verses become Learning phrases, ordered shortest → longest.
 
-### Step 6: Select 10 Practice sentences — one per form/pattern
-
-Each form or pattern that has a Learn sentence also gets exactly **one Practice sentence**. This gives a clean 1:1 pairing — the student sees the form introduced in Learn, then reinforced with a different verse in Practice.
-
-**5 forms × 1 practice sentence × 2 roots = 10 Practice sentences.**
-
-For Lesson 2+: additionally mix in sentences from previous lessons' roots for spaced review.
-
-### Step 7: Feed the pipeline
+### Step 6: Feed the pipeline
 
 After completing a lesson's selections, update `docs/selections/pipeline.md` with:
 - **Ready to place** — verses the teacher approved for a specific future lesson
@@ -168,7 +155,8 @@ The Arabic context shown for each sentence should follow these rules:
 1. **Must make sense on its own** — a student memorizes the fragment with its meaning; it should be a coherent thought
 2. **Not too short** — a bare phrase like وَلَا أَكْبَرَ is meaningless without context
 3. **Not too long** — keep to the meaningful clause or sentence, not the entire ayah if it runs very long
-4. **Examples of good fragments:**
+4. **Fragment penalty** — the scoring system applies a ×0.7 multiplier to verses that require fragmentation. Full ayahs are strongly preferred; only fragment when the full ayah exceeds the word budget or is incoherent as a standalone phrase.
+5. **Examples of good fragments:**
    - وَلَذِكْرُ ٱللَّهِ أَكْبَرُ — complete thought, makes full sense
    - كَبُرَ مَقْتًا عِندَ اللَّهِ أَن تَقُولُوا مَا لَا تَفْعَلُونَ — full sentence
    - يَسْأَلُونَكَ عَنِ الْخَمْرِ وَالْمَيْسِرِ ۖ قُلْ فِيهِمَا إِثْمٌ كَبِيرٌ — needs the opening clause for context, so include it
@@ -183,8 +171,7 @@ These patterns guide sentence selection. This list grows as new preferences emer
 2. **Complete self-contained sentences preferred** — the fragment must be memorizable with its meaning. If the key word sits in a clause that doesn't stand alone, include more context.
 3. **Emotional resonance matters** — verses that hit the heart (Ibrāhīm's duʿā, the parents verse, warnings that make you stop) are preferred over dry or technical ones.
 4. **Daily-practice connection** — verses tied to things the student already does (adhān, ṣalāh, post-prayer dhikr, Ramaḍān) anchor the learning in lived experience.
-5. **Stories for Learn, practical/famous verses for Practice** — Learn sentences favour narrative verses (prophets' stories — Ibrāhīm, Mūsā, Nūḥ, Iblīs) because stories are easier to remember and emotionally engaging. Practice sentences favour well-known rulings, famous āyāt, or verses from frequently-recited surahs.
-6. **Learn and Practice are paired by form/pattern** — each form or pattern has exactly one Learn sentence and one Practice sentence. No pattern should appear in Practice without first appearing in Learn. No duplication of patterns across the two sections.
+5. **Narrative and emotional verses preferred** — favour narrative verses (prophets' stories — Ibrāhīm, Mūsā, Nūḥ, Iblīs) because stories are easier to remember and emotionally engaging. Well-known rulings, famous āyāt, and verses from frequently-recited surahs are also strong choices.
 
 > This list is updated whenever a new preference pattern is identified during lesson selection. See `docs/selections/` for per-lesson decision logs.
 

@@ -4,8 +4,14 @@
     "arabic": "أَحَبُّ الْكَلَامِ إِلَى اللَّهِ أَرْبَعٌ: سُبْحَانَ اللَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا اللَّهُ، وَاللهُ أَكْبَرُ",
     "english": "The most beloved words to Allah are four: SubhanAllah, Alhamdulillah, La ilaha illallah, Allahu Akbar.",
     "source": "Sahih Muslim",
-    "roots": ["ilah", "kabura"],
-    "forms": ["إِلَٰه", "أَكْبَرُ"],
+    "roots": [
+      "ilah",
+      "kabura"
+    ],
+    "forms": [
+      "إِلَٰه",
+      "أَكْبَرُ"
+    ],
     "scores": {
       "curriculum": 2,
       "length": 1,
@@ -14,8 +20,7 @@
       "surah_familiarity": 0,
       "completeness": 1,
       "emotion": 2,
-      "fit_learn": 0,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "Bridges both roots — la ilaha illa Allah and Allahu Akbar together. Dropped when hadith section removed in v2.",
     "lesson_use": {
@@ -34,8 +39,12 @@
     "arabic": "لَا يَدْخُلُ الْجَنَّةَ مَنْ كَانَ فِي قَلْبِهِ مِثْقَالُ ذَرَّةٍ مِنْ كِبْرٍ",
     "english": "No one will enter Paradise who has an atom's weight of arrogance in his heart.",
     "source": "Sahih Muslim",
-    "roots": ["kabura"],
-    "forms": ["كِبْر"],
+    "roots": [
+      "kabura"
+    ],
+    "forms": [
+      "كِبْر"
+    ],
     "scores": {
       "curriculum": 2,
       "length": 1,
@@ -44,8 +53,7 @@
       "surah_familiarity": 0,
       "completeness": 1,
       "emotion": 2,
-      "fit_learn": 0,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "Unforgettable definition of kibr — connects to istakbara.",
     "lesson_use": {
@@ -64,8 +72,12 @@
     "arabic": "الْكِبْرِيَاءُ رِدَائِي وَالْعَظَمَةُ إِزَارِي",
     "english": "Greatness is My cloak and majesty is My garment.",
     "source": "Hadith Qudsi",
-    "roots": ["kabura"],
-    "forms": ["كِبْرِيَاء"],
+    "roots": [
+      "kabura"
+    ],
+    "forms": [
+      "كِبْرِيَاء"
+    ],
     "scores": {
       "curriculum": 2,
       "length": 2,
@@ -74,8 +86,7 @@
       "surah_familiarity": 0,
       "completeness": 1,
       "emotion": 2,
-      "fit_learn": 0,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "kibriya' belongs to Allah exclusively — powerful.",
     "lesson_use": {
@@ -94,8 +105,13 @@
     "arabic": "اللهُ أَكْبَرُ كَبِيرًا وَالْحَمْدُ لِلَّهِ كَثِيرًا",
     "english": "Allah is the Greatest, greatly, and all praise to Allah, abundantly.",
     "source": "Sahih Muslim",
-    "roots": ["kabura"],
-    "forms": ["أَكْبَرُ", "كَبِير"],
+    "roots": [
+      "kabura"
+    ],
+    "forms": [
+      "أَكْبَرُ",
+      "كَبِير"
+    ],
     "scores": {
       "curriculum": 2,
       "length": 2,
@@ -104,8 +120,7 @@
       "surah_familiarity": 0,
       "completeness": 1,
       "emotion": 2,
-      "fit_learn": 0,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "akbar + kabiran together — twelve angels rushed to record it, gates of heaven opened. Beautiful story.",
     "lesson_use": {
@@ -124,8 +139,12 @@
     "arabic": "مَنْ سَبَّحَ اللهَ...وَكَبَّرَ اللهَ",
     "english": "Whoever glorifies Allah... and magnifies Allah — sins forgiven like foam of the sea.",
     "source": "Sahih Muslim",
-    "roots": ["kabura"],
-    "forms": ["كَبَّرَ"],
+    "roots": [
+      "kabura"
+    ],
+    "forms": [
+      "كَبَّرَ"
+    ],
     "scores": {
       "curriculum": 2,
       "length": 1,
@@ -134,8 +153,7 @@
       "surah_familiarity": 0,
       "completeness": 1,
       "emotion": 2,
-      "fit_learn": 0,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "Has kabbara (Form II) — powerful reward image.",
     "lesson_use": {

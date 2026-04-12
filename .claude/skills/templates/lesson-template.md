@@ -17,8 +17,6 @@ audio_download: /assets/audio/lessons/lesson-{{NN}}/lesson-{{NN}}-full.mp3
   <span class="map-arrow">→</span>
   <a href="#root-{{root2-slug}}">{{Root2 Arabic}} <span class="map-detail">({{N}} words)</span></a>
   <span class="map-arrow">→</span>
-  <a href="#practice">Practice</a>
-  <span class="map-arrow">→</span>
   <a href="#review-in-order">Review</a>
   <span class="map-arrow">→</span>
   <a href="#summary">Summary</a>
@@ -90,24 +88,9 @@ Root letters: **{{أ ل ه}}** ({{alif lām hā}})
 ---
 [↑ Back to top](#lesson-map)
 
-## Practice — Can You Spot the Roots? {#practice}
-
-You've met all the words. Now see if you can spot them on your own — try to predict the meaning of the highlighted word before reading the English.
-
-### 6 · {{form}} ({{english}})
-{{Shortest practice phrase first}}
-
-### 7 · {{form}} ({{english}})
-{{...}}
-
-### 8 · {{form}} ({{english}})
-{{...}}
-
-### 9 · {{form}} ({{english}})
-{{...}}
-
-### 10 · {{form}} ({{english}})
-{{Longest practice phrase last}}
+{{Continue with more learning phrases as needed — up to 9 total across both roots.
+  Number sequentially after the root sections above.
+  Budget: 10 phrases / 100 words for new content (including anchor).}}
 
 ---
 [↑ Back to top](#lesson-map)
@@ -143,7 +126,7 @@ You've met all the words. Now see if you can spot them on your own — try to pr
     <div class="phrase-arabic">{{Arabic}} · ({{SS:AA}})</div>
     <div class="phrase-english">{{English}}</div>
   </div>
-  {{Repeat for all 12 phrases in section order (1→12)}}
+  {{Repeat for all phrases in section order}}
 </div>
 
 ---

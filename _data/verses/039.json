@@ -3,8 +3,14 @@
     "ref": "39:46",
     "arabic": "قُلِ ٱللَّهُمَّ فَاطِرَ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ عَـٰلِمَ ٱلْغَيْبِ وَٱلشَّهَـٰدَةِ أَنتَ تَحْكُمُ بَيْنَ عِبَادِكَ",
     "english": "Say: O Allah, Creator of the heavens and earth, Knower of the unseen and the witnessed — You judge between Your servants.",
-    "roots": ["ilah", "shahida"],
-    "forms": ["اللَّهُمَّ", "الشَّهَادَة"],
+    "roots": [
+      "ilah",
+      "shahida"
+    ],
+    "forms": [
+      "اللَّهُمَّ",
+      "الشَّهَادَة"
+    ],
     "scores": {
       "curriculum": 2,
       "length": 0,
@@ -13,8 +19,7 @@
       "surah_familiarity": 0,
       "completeness": 1,
       "emotion": 1,
-      "fit_learn": 0,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "The bridge verse par excellence. Contains both Allahumma (L1 recall) and al-shahada (L2 — the seen as opposite of the unseen).",
     "lesson_use": {

@@ -8,7 +8,7 @@ Single source of truth for verses queued for future lessons. The future agent sh
 
 Verses already approved by the teacher, assigned to a specific future lesson or context.
 
-*(Empty — 3:18 was used in Lesson 2 as Learn phrase 1.)*
+*(Empty — 3:18 was used in Lesson 2 as Learning phrase 1.)*
 
 ---
 
@@ -18,11 +18,11 @@ Verses that were seriously considered for Lesson 2 but moved to pipeline during 
 
 | Ref | Arabic (key part) | Root word | Form | Why deferred | Flagged in |
 |-----|-------------------|-----------|------|-------------|------------|
-| 12:26 | وَ**شَهِدَ** **شَاهِدٌ** مِّنْ أَهْلِهَا | شَهِدَ | شَهِدَ + شَاهِد | Yusuf story — initially picked for Practice but Practice already had enough شَاهِد coverage. HIGH priority for future Practice/Recall. | Lesson 2 |
-| 36:65 | وَ**تَشْهَدُ** أَرْجُلُهُم بِمَا كَانُوا۟ يَكْسِبُونَ | شَهِدَ | تَشْهَدُ | Surah Yasin — frequently recited. Considered for Learn 5 but teacher preferred 5:117 (ʿĪsā). HIGH priority for Lesson 3+ Practice. | Lesson 2 |
-| 22:17 | إِنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍ **شَهِيدٌ** | شَهِدَ | شَهِيد | Short declarative — saved for future Practice. | Lesson 2 |
+| 12:26 | وَ**شَهِدَ** **شَاهِدٌ** مِّنْ أَهْلِهَا | شَهِدَ | شَهِدَ + شَاهِد | Yusuf story — initially picked for Learning but Learning already had enough شَاهِد coverage. HIGH priority for future Learning/Recall. | Lesson 2 |
+| 36:65 | وَ**تَشْهَدُ** أَرْجُلُهُم بِمَا كَانُوا۟ يَكْسِبُونَ | شَهِدَ | تَشْهَدُ | Surah Yasin — frequently recited. Considered for Learning 5 but teacher preferred 5:117 (ʿĪsā). HIGH priority for Lesson 3+ Learning. | Lesson 2 |
+| 22:17 | إِنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍ **شَهِيدٌ** | شَهِدَ | شَهِيد | Short declarative — saved for future Learning. | Lesson 2 |
 | 3:98 | وَٱللَّهُ **شَهِيدٌ** عَلَىٰ مَا تَعْمَلُونَ | شَهِدَ | شَهِيد | Parallel to 22:17. Short warning. | Lesson 2 |
-| 7:172 | وَ**أَشْهَدَهُمْ** عَلَىٰٓ أَنفُسِهِمْ ... بَلَىٰ **شَهِدْنَا** | شَهِدَ | أَشْهَدَ (Form IV) | Primordial covenant verse. Introduces Form IV. Teacher preferred 5:117 as Learn 5. **HIGHEST-priority future Learn** — it's the only verse that introduces Form IV alongside a new 1st-person conjugation. | Lesson 2 |
+| 7:172 | وَ**أَشْهَدَهُمْ** عَلَىٰٓ أَنفُسِهِمْ ... بَلَىٰ **شَهِدْنَا** | شَهِدَ | أَشْهَدَ (Form IV) | Primordial covenant verse. Introduces Form IV. Teacher preferred 5:117 as Learning 5. **HIGHEST-priority future Learning** — it's the only verse that introduces Form IV alongside a new 1st-person conjugation. | Lesson 2 |
 
 ---
 
@@ -39,7 +39,7 @@ These were live in Lesson 1 v1 (fully tested with a student). Dropped during the
 | 18:110 | قُلْ إِنَّمَا أَنَا بَشَرٌ مِّثْلُكُمْ يُوحَىٰ إِلَيَّ أَنَّمَا **إِلَٰهُكُمْ** **إِلَٰهٌ** وَاحِدٌ | إِلَٰه | إِلَٰهٌ وَاحِدٌ | The closing words of Surah Al-Kahf — recited every Friday. A powerful ending you already hear weekly. | Too long. Pattern dropped from v2 table. | Lesson 1 v1 |
 | 7:138 | قَالُوا يَا مُوسَى اجْعَل لَّنَا **إِلَٰهًا** كَمَا لَهُمْ **آلِهَةٌ** | إِلَٰه | آلِهَة + إِلَٰه | The Israelites' shocking request — right after being saved from Pharaoh, they pass by idol-worshippers and immediately ask for the same thing. Has both singular and plural in one phrase. | Replaced by shorter 6:74 fragment for آلِهَة. | Lesson 1 v1 |
 | 28:38 | وَقَالَ فِرْعَوْنُ... مَا عَلِمْتُ لَكُم مِّنْ **إِلَٰهٍ** غَيْرِي | إِلَٰه | إِلَٰهٍ غَيْرِي | The anti-version of Nūḥ's call. Every prophet said مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ — Pharaoh flips it: مَا عَلِمْتُ لَكُم مِّنْ إِلَٰهٍ غَيْرِي. Same words, ultimate arrogance. | Very long. Pattern dropped from v2 table. | Lesson 1 v1 |
-| 6:78 | فَلَمَّا رَأَى الشَّمْسَ بَازِغَةً قَالَ هَٰذَا رَبِّي هَٰذَا **أَكْبَرُ** | كَبُرَ | أَكْبَر | Story of Ibrāhīm searching for God — stars, moon, sun. Each time "this is greater" — until they all set and he turns to the One who never sets. | Already have أَكْبَر in anchor phrase and practice (29:45). | Lesson 1 v1 |
+| 6:78 | فَلَمَّا رَأَى الشَّمْسَ بَازِغَةً قَالَ هَٰذَا رَبِّي هَٰذَا **أَكْبَرُ** | كَبُرَ | أَكْبَر | Story of Ibrāhīm searching for God — stars, moon, sun. Each time "this is greater" — until they all set and he turns to the One who never sets. | Already have أَكْبَر in anchor phrase and learning (29:45). | Lesson 1 v1 |
 | 2:219 | يَسْأَلُونَكَ عَنِ الْخَمْرِ وَالْمَيْسِرِ... إِثْمٌ **كَبِيرٌ**... **أَكْبَرُ** مِن نَّفْعِهِمَا | كَبُرَ | كَبِير + أَكْبَر | The famous ruling verse on wine and gambling. Uses both كَبِير and أَكْبَر — two forms from the same root in one sentence. | Very long. Both forms already covered elsewhere. | Lesson 1 v1 |
 | 87:12 | الَّذِي يَصْلَى النَّارَ **الْكُبْرَىٰ** | كَبُرَ | كُبْرَى | From Surah Al-A'lā — one of the most frequently recited surahs in ṣalāh. You already know this by ear. | كُبْرَى already covered by 79:20 in learning. | Lesson 1 v1 |
 
@@ -61,7 +61,7 @@ Verses flagged as good but not yet assigned to a specific lesson. Pick these whe
 | 9:72 | وَرِضْوَانٌ مِّنَ اللَّهِ **أَكْبَرُ** ۚ ذَٰلِكَ هُوَ الْفَوْزُ الْعَظِيمُ | كَبُرَ | أَكْبَر | Allah's pleasure is greater — Surah At-Tawbah | Lesson 1 |
 | 40:57 | لَخَلْقُ السَّمَاوَاتِ وَالْأَرْضِ **أَكْبَرُ** مِنْ خَلْقِ النَّاسِ | كَبُرَ | أَكْبَر | Heavens and earth greater than mankind — mind-expanding | Lesson 1 |
 | 6:19 | قُلْ أَيُّ شَيْءٍ **أَكْبَرُ** شَهَادَةً ۖ قُلِ اللَّهُ | كَبُرَ | أَكْبَر | "What is greatest as testimony?" — rhetorical, powerful | Lesson 1 |
-| 2:219 | وَإِثْمُهُمَا **أَكْبَرُ** مِن نَّفْعِهِمَا | كَبُرَ | أَكْبَر | Sin greater than benefit — wine/gambling (same verse as كَبِير Practice) | Lesson 1 |
+| 2:219 | وَإِثْمُهُمَا **أَكْبَرُ** مِن نَّفْعِهِمَا | كَبُرَ | أَكْبَر | Sin greater than benefit — wine/gambling (same verse as كَبِير Learning) | Lesson 1 |
 | 13:9 | عَالِمُ الْغَيْبِ وَالشَّهَادَةِ **الْكَبِيرُ** الْمُتَعَالِ | كَبُرَ | كَبِير | Two Names of Allah side by side | Lesson 1 |
 | 17:31 | إِنَّ قَتْلَهُمْ كَانَ خِطْئًا **كَبِيرًا** | كَبُرَ | كَبِير | Killing children — powerful moral weight | Lesson 1 |
 | 11:11 | أُولَٰئِكَ لَهُم مَّغْفِرَةٌ وَأَجْرٌ **كَبِيرٌ** | كَبُرَ | كَبِير | Forgiveness and great reward — hopeful | Lesson 1 |
@@ -98,7 +98,7 @@ Verses flagged as good but not yet assigned to a specific lesson. Pick these whe
 
 ## Deferred Forms
 
-Morphological forms from past roots that haven't been introduced yet. Candidates for Learn slots in future lessons.
+Morphological forms from past roots that haven't been introduced yet. Candidates for Learning slots in future lessons.
 
 | Form | Transliteration | Root word | Count | Priority | Notes | Flagged in |
 |------|----------------|-----------|-------|----------|-------|------------|

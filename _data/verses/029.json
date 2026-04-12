@@ -17,13 +17,12 @@
       "surah_familiarity": 1,
       "completeness": 1,
       "emotion": 1,
-      "fit_learn": 0,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "Tiny, punchy. The word from Allahu Akbar. dhikr = salah.",
     "lesson_use": {
       "lesson": 1,
-      "section": "practice",
+      "section": "learning",
       "is_anchor": false,
       "order": 1,
       "heading": "8 · أَكْبَرُ (greater)",

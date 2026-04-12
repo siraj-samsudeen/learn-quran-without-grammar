@@ -18,7 +18,7 @@
     },
     {
       "id": "learn-shahida-01",
-      "role": "learn",
+      "role": "learning",
       "root": "شَهِدَ",
       "form": "شَهِدَ",
       "ref": "3:18",
@@ -29,7 +29,7 @@
     },
     {
       "id": "learn-shahida-02",
-      "role": "learn",
+      "role": "learning",
       "root": "شَهِدَ",
       "form": "شَهَادَة + شَهِيد",
       "ref": "6:19",
@@ -40,7 +40,7 @@
     },
     {
       "id": "learn-shahida-03",
-      "role": "learn",
+      "role": "learning",
       "root": "شَهِدَ",
       "form": "شَهِيد",
       "ref": "4:79",
@@ -51,7 +51,7 @@
     },
     {
       "id": "learn-shahida-04",
-      "role": "learn",
+      "role": "learning",
       "root": "شَهِدَ",
       "form": "شَهِيد",
       "ref": "5:117",
@@ -62,7 +62,7 @@
     },
     {
       "id": "learn-shahida-05",
-      "role": "learn",
+      "role": "learning",
       "root": "شَهِدَ",
       "form": "شَهِدَ",
       "ref": "2:185",
@@ -73,7 +73,7 @@
     },
     {
       "id": "practice-01",
-      "role": "practice",
+      "role": "learning",
       "root": "شَهِدَ",
       "form": "الشَّاهِدِينَ",
       "ref": "3:53",
@@ -84,7 +84,7 @@
     },
     {
       "id": "practice-02",
-      "role": "practice",
+      "role": "learning",
       "root": "شَهِدَ",
       "form": "نَشْهَدُ + يَشْهَدُ",
       "ref": "63:1",
@@ -95,7 +95,7 @@
     },
     {
       "id": "practice-03",
-      "role": "practice",
+      "role": "learning",
       "root": "شَهِدَ",
       "form": "شَهِدَ",
       "ref": "41:20",
@@ -106,7 +106,7 @@
     },
     {
       "id": "practice-04",
-      "role": "practice",
+      "role": "learning",
       "root": "شَهِدَ",
       "form": "اشْهَدُوا + الشَّاهِدِينَ",
       "ref": "3:81",
@@ -117,7 +117,7 @@
     },
     {
       "id": "practice-05",
-      "role": "practice",
+      "role": "learning",
       "root": "شَهِدَ",
       "form": "شُهَدَاء",
       "ref": "4:69",

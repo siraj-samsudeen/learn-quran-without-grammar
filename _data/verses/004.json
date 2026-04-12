@@ -3,8 +3,12 @@
     "ref": "4:79",
     "arabic": "مَا أَصَابَكَ مِنْ حَسَنَةٍ فَمِنَ اللَّهِ وَمَا أَصَابَكَ مِن سَيِّئَةٍ فَمِن نَّفْسِكَ وَأَرْسَلْنَاكَ لِلنَّاسِ رَسُولًا وَكَفَىٰ بِاللَّهِ شَهِيدًا",
     "english": "Whatever good reaches you is from Allah; whatever ill befalls you is from yourself. And We have sent you to mankind as a messenger. And Allah is sufficient as Witness.",
-    "roots": ["shahida"],
-    "forms": ["شَهِيد"],
+    "roots": [
+      "shahida"
+    ],
+    "forms": [
+      "شَهِيد"
+    ],
     "scores": {
       "curriculum": 2,
       "length": 2,
@@ -13,13 +17,12 @@
       "surah_familiarity": 1,
       "completeness": 1,
       "emotion": 1,
-      "fit_learn": 1,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "Famous short phrase. كَفَىٰ بِاللَّهِ شَهِيدًا appears 4x in the Quran — ideal for teaching shahid in isolation.",
     "lesson_use": {
       "lesson": 2,
-      "section": "learn",
+      "section": "learning",
       "is_anchor": false,
       "order": 3,
       "arabic": "وَكَفَىٰ بِاللَّهِ شَهِيدًا",
@@ -32,8 +35,12 @@
     "ref": "4:69",
     "arabic": "وَمَن يُطِعِ اللَّهَ وَالرَّسُولَ فَأُولَٰئِكَ مَعَ الَّذِينَ أَنْعَمَ اللَّهُ عَلَيْهِم مِّنَ النَّبِيِّينَ وَالصِّدِّيقِينَ وَالشُّهَدَاءِ وَالصَّالِحِينَ وَحَسُنَ أُولَٰئِكَ رَفِيقًا",
     "english": "Whoever obeys Allah and the Messenger — those will be with the ones whom Allah has blessed: the prophets, the truthful, the witnesses, and the righteous. And excellent are those as companions.",
-    "roots": ["shahida"],
-    "forms": ["شُهَدَاء"],
+    "roots": [
+      "shahida"
+    ],
+    "forms": [
+      "شُهَدَاء"
+    ],
     "scores": {
       "curriculum": 2,
       "length": 0,
@@ -42,13 +49,12 @@
       "surah_familiarity": 2,
       "completeness": 1,
       "emotion": 2,
-      "fit_learn": 0,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "The four ranks — prophets, truthful, witnesses, righteous. Famous and widely known. Teacher moved from pipeline to practice.",
     "lesson_use": {
       "lesson": 2,
-      "section": "practice",
+      "section": "learning",
       "is_anchor": false,
       "order": 5,
       "arabic": "مَعَ الَّذِينَ أَنْعَمَ اللَّهُ عَلَيْهِم مِّنَ النَّبِيِّينَ وَالصِّدِّيقِينَ وَالشُّهَدَاءِ وَالصَّالِحِينَ",

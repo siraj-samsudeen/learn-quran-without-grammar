@@ -6,7 +6,7 @@ When the teacher provides an anchor phrase and you need to find and present vers
 ## Step 0 — Check Existing Data
 1. Read `docs/selections/pipeline.md` — pull any **Ready to Place** verses first
 2. Check if `docs/roots/{root}.json` already exists — if so, use the cached inventory instead of re-fetching
-3. If the root JSON exists, look at verses sorted by `total_learn` or `total_practice` score
+3. If the root JSON exists, look at verses sorted by `final` score
 
 ## Step 1 — Extract Roots from Anchor
 Extract root words from the anchor phrase in **word order**.
@@ -56,8 +56,8 @@ but this is optional — the vendored file is authoritative for the pipeline.
 
 ## Step 4 — Score Each Verse
 Apply the scoring algorithm from `docs/SCORING.md`:
-- 8 dimensions: curriculum, length, story, worship, surah_familiarity, completeness, emotion, fit
-- Compute `total_learn` and `total_practice` scores
+- 7 dimensions: length, form_freq, form_dominance, curriculum, story, familiarity, teaching_fit
+- Compute `final` score
 - Sort candidates by score (highest first)
 
 ## Step 5 — Present Candidates

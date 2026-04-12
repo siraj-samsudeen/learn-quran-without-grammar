@@ -529,10 +529,8 @@
         "surah_familiarity": 0,
         "completeness": 1,
         "emotion": 2,
-        "fit_learn": 0,
-        "fit_practice": 1,
-        "total_learn": 8,
-        "total_practice": 9
+        "teaching_fit": 1,
+        "final": 9
       },
       "score_notes": "Unforgettable definition of kibr — connects to istakbara"
     },
@@ -552,10 +550,8 @@
         "surah_familiarity": 0,
         "completeness": 1,
         "emotion": 2,
-        "fit_learn": 0,
-        "fit_practice": 1,
-        "total_learn": 8,
-        "total_practice": 9
+        "teaching_fit": 1,
+        "final": 9
       },
       "score_notes": "kibriya' belongs to Allah exclusively — powerful"
     },
@@ -575,10 +571,8 @@
         "surah_familiarity": 0,
         "completeness": 1,
         "emotion": 2,
-        "fit_learn": 0,
-        "fit_practice": 1,
-        "total_learn": 12,
-        "total_practice": 13
+        "teaching_fit": 1,
+        "final": 13
       },
       "score_notes": "akbar + kabiran together — twelve angels rushed to record it, gates of heaven opened. Beautiful story."
     },
@@ -598,10 +592,8 @@
         "surah_familiarity": 0,
         "completeness": 1,
         "emotion": 2,
-        "fit_learn": 0,
-        "fit_practice": 1,
-        "total_learn": 9,
-        "total_practice": 10
+        "teaching_fit": 1,
+        "final": 10
       },
       "score_notes": "Has kabbara (Form II) — powerful reward image"
     }

@@ -647,10 +647,8 @@
         "surah_familiarity": 0,
         "completeness": 1,
         "emotion": 2,
-        "fit_learn": 0,
-        "fit_practice": 1,
-        "total_learn": 9,
-        "total_practice": 10
+        "teaching_fit": 1,
+        "final": 10
       },
       "score_notes": "Bridges both roots — la ilaha illa Allah and Allahu Akbar together. Dropped when hadith section removed in v2."
     }

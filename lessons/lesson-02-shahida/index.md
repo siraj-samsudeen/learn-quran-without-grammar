@@ -29,7 +29,7 @@ The second line of the adhān opens with one of the most powerful statements a p
   <span class="map-arrow">→</span>
   <a href="#root-shahida">شَهِدَ <span class="map-detail">(4 words)</span></a>
   <span class="map-arrow">→</span>
-  <a href="#practice">Practice</a>
+  <a href="#learning-practice">Spot the Root</a>
   <span class="map-arrow">→</span>
   <a href="#recall">Recall</a>
   <span class="map-arrow">→</span>
@@ -182,8 +182,8 @@ The base verb again — but now شَهِدَ doesn't mean "testify in court." It
 
 ---
 
-## Practice — Can You Spot the Root?
-{: #practice}
+## Learning — Can You Spot the Root?
+{: #learning-practice}
 
 <div class="lang-en" markdown="1">
 You have met all four word-forms. Now see if you can spot them — try to predict the meaning of the highlighted word before reading the English.

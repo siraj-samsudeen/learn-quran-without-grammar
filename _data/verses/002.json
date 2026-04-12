@@ -17,13 +17,12 @@
       "surah_familiarity": 0,
       "completeness": 1,
       "emotion": 2,
-      "fit_learn": 1,
-      "fit_practice": 0
+      "teaching_fit": 1
     },
     "score_notes": "Full origin story of Iblis — far more memorable than a trimmed fragment. Story context principle.",
     "lesson_use": {
       "lesson": 1,
-      "section": "learn",
+      "section": "learning",
       "is_anchor": false,
       "order": 7,
       "heading": "7 · اسْتَكْبَرَ (was arrogant)",
@@ -52,13 +51,12 @@
       "surah_familiarity": 0,
       "completeness": 1,
       "emotion": 1,
-      "fit_learn": 0,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "Triple إِلَٰه in one verse — the complete tawhid statement. Pattern: إِلَٰهٌ وَاحِدٌ + لَا إِلَٰهَ إِلَّا.",
     "lesson_use": {
       "lesson": 1,
-      "section": "practice",
+      "section": "learning",
       "is_anchor": false,
       "order": 4,
       "heading": "11 · إِلَٰه (god)",
@@ -87,13 +85,12 @@
       "surah_familiarity": 2,
       "completeness": 1,
       "emotion": 1,
-      "fit_learn": 1,
-      "fit_practice": 0
+      "teaching_fit": 1
     },
     "score_notes": "Ramadan verse. Extends shahida — here it means to be present during / to witness (the month), not legal testimony. Short and connected to a practice every Muslim does.",
     "lesson_use": {
       "lesson": 2,
-      "section": "learn",
+      "section": "learning",
       "is_anchor": false,
       "order": 5,
       "arabic": "فَمَن شَهِدَ مِنكُمُ الشَّهْرَ فَلْيَصُمْهُ",
@@ -121,8 +118,7 @@
       "surah_familiarity": 0,
       "completeness": 1,
       "emotion": 1,
-      "fit_learn": 0,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "Famous ruling verse on wine/gambling. Uses both kabir and akbar — two forms in one sentence. Very long.",
     "lesson_use": {

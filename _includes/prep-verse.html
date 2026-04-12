@@ -37,16 +37,14 @@ Parameters:
 <tr><th>Forms taught</th><td dir="rtl" lang="ar">{{ include.verse.forms | join: "، " }}</td></tr>
 <tr><th>Score notes</th><td>{{ include.verse.score_notes | default: "—" }}</td></tr>
 {%- if include.verse.scores %}
-<tr><th>Scores (8-dim)</th><td>
+<tr><th>Scores</th><td>
 curriculum: {{ include.verse.scores.curriculum }},
 length: {{ include.verse.scores.length }},
 story: {{ include.verse.scores.story }},
-worship: {{ include.verse.scores.worship }},
-surah_familiarity: {{ include.verse.scores.surah_familiarity }},
-completeness: {{ include.verse.scores.completeness }},
-emotion: {{ include.verse.scores.emotion }},
-fit_learn: {{ include.verse.scores.fit_learn }},
-fit_practice: {{ include.verse.scores.fit_practice }}
+familiarity: {{ include.verse.scores.familiarity }},
+teaching_fit: {{ include.verse.scores.teaching_fit }},
+base: {{ include.verse.scores.base }},
+final: {{ include.verse.scores.final }}
 </td></tr>
 {%- endif %}
 {%- if include.verse.lesson_use.rejection_reason %}

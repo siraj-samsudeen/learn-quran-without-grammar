@@ -2,7 +2,7 @@
 # Root: شَهِدَ (shahida)
 # Anchor: أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ
 #
-# Structure: 1 anchor (TTS) + 5 learn + 5 practice + 5 recall = 16 total
+# Structure: 1 anchor (TTS) + 10 learning + 5 recall = 16 total
 # Each Quranic phrase uses a DIFFERENT reciter (see ADR-005).
 # Recall phrases 3-5 reuse reciters from learn/practice pool (teacher-approved).
 # See docs/selections/lesson-02.md for selection rationale.
@@ -38,11 +38,11 @@ sentences:
     tamil: ""
 
   # ============================================================
-  # LEARN — 5 phrases (shahida forms)
+  # LEARNING — 5 phrases (shahida forms)
   # ============================================================
 
   - id: learn-shahida-01
-    role: learn
+    role: learning
     root: شَهِدَ
     form: "شَهِدَ"
     ref: "3:18"
@@ -60,7 +60,7 @@ sentences:
     tamil: ""
 
   - id: learn-shahida-02
-    role: learn
+    role: learning
     root: شَهِدَ
     form: "شَهَادَة + شَهِيد"
     ref: "6:19"
@@ -79,7 +79,7 @@ sentences:
     tamil: ""
 
   - id: learn-shahida-03
-    role: learn
+    role: learning
     root: شَهِدَ
     form: "شَهِيد"
     ref: "4:79"
@@ -98,7 +98,7 @@ sentences:
     tamil: ""
 
   - id: learn-shahida-04
-    role: learn
+    role: learning
     root: شَهِدَ
     form: "شَهِيد"
     ref: "5:117"
@@ -117,7 +117,7 @@ sentences:
     tamil: ""
 
   - id: learn-shahida-05
-    role: learn
+    role: learning
     root: شَهِدَ
     form: "شَهِدَ"
     ref: "2:185"
@@ -136,11 +136,11 @@ sentences:
     tamil: ""
 
   # ============================================================
-  # PRACTICE — 5 phrases (shahida forms, shortest to longest)
+  # LEARNING (continued) — 5 phrases (shahida forms, shortest to longest)
   # ============================================================
 
   - id: practice-01
-    role: practice
+    role: learning
     root: شَهِدَ
     form: "الشَّاهِدِينَ"
     ref: "3:53"
@@ -154,7 +154,7 @@ sentences:
     tamil: ""
 
   - id: practice-02
-    role: practice
+    role: learning
     root: شَهِدَ
     form: "نَشْهَدُ + يَشْهَدُ"
     ref: "63:1"
@@ -168,7 +168,7 @@ sentences:
     tamil: ""
 
   - id: practice-03
-    role: practice
+    role: learning
     root: شَهِدَ
     form: "شَهِدَ"
     ref: "41:20"
@@ -182,7 +182,7 @@ sentences:
     tamil: ""
 
   - id: practice-04
-    role: practice
+    role: learning
     root: شَهِدَ
     form: "اشْهَدُوا + الشَّاهِدِينَ"
     ref: "3:81"
@@ -201,7 +201,7 @@ sentences:
     tamil: ""
 
   - id: practice-05
-    role: practice
+    role: learning
     root: شَهِدَ
     form: "شُهَدَاء"
     ref: "4:69"

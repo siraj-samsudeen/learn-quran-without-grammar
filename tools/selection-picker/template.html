@@ -12,10 +12,8 @@
     --ink: #1a1a1a;
     --muted: #6b6b6b;
     --border: #e5e5e5;
-    --learn: #0f766e;
-    --learn-bg: #ccfbf1;
-    --practice: #9333ea;
-    --practice-bg: #f3e8ff;
+    --learning: #0f766e;
+    --learning-bg: #ccfbf1;
     --recall: #d97706;
     --recall-bg: #fef3c7;
     --pipeline: #6b7280;
@@ -105,10 +103,8 @@
     font-weight: 600;
     font-variant-numeric: tabular-nums;
   }
-  .nav-link.learn.filled { color: var(--learn); border-left-color: var(--learn); }
-  .nav-link.learn.filled .nav-count { background: var(--learn-bg); color: var(--learn); }
-  .nav-link.practice.filled { color: var(--practice); border-left-color: var(--practice); }
-  .nav-link.practice.filled .nav-count { background: var(--practice-bg); color: var(--practice); }
+  .nav-link.learning.filled { color: var(--learning); border-left-color: var(--learning); }
+  .nav-link.learning.filled .nav-count { background: var(--learning-bg); color: var(--learning); }
   .nav-link.recall.filled { color: var(--recall); border-left-color: var(--recall); }
   .nav-link.recall.filled .nav-count { background: var(--recall-bg); color: var(--recall); }
 
@@ -150,8 +146,7 @@
   }
   .counter .label { color: var(--muted); }
   .counter .count { font-variant-numeric: tabular-nums; }
-  .counter.learn.filled { background: var(--learn-bg); border-color: var(--learn); color: var(--learn); }
-  .counter.practice.filled { background: var(--practice-bg); border-color: var(--practice); color: var(--practice); }
+  .counter.learning.filled { background: var(--learning-bg); border-color: var(--learning); color: var(--learning); }
   .counter.recall.filled { background: var(--recall-bg); border-color: var(--recall); color: var(--recall); }
   .btn-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
   .action-btn {
@@ -164,7 +159,7 @@
     font-family: inherit;
     color: white;
   }
-  .action-btn.copy { background: var(--learn); }
+  .action-btn.copy { background: var(--learning); }
   .action-btn.download { background: #2563eb; }
   .action-btn:hover { opacity: 0.9; }
   .action-btn .change-count {
@@ -197,8 +192,7 @@
     color: var(--ink);
     scroll-margin-top: 5rem;
   }
-  .section-header.learn { color: var(--learn); }
-  .section-header.practice { color: var(--practice); }
+  .section-header.learning { color: var(--learning); }
   .section-header.recall { color: var(--recall); }
   .section-header.pipeline { color: var(--pipeline); }
   .section-header.none { color: var(--muted); }
@@ -211,8 +205,7 @@
     padding: 1rem 1.25rem;
     transition: border-color 0.15s;
   }
-  .card.learn { border-left-color: var(--learn); }
-  .card.practice { border-left-color: var(--practice); }
+  .card.learning { border-left-color: var(--learning); }
   .card.recall { border-left-color: var(--recall); }
   .card.pipeline { border-left-color: var(--pipeline); }
   .card-top {
@@ -257,8 +250,7 @@
     transition: all 0.1s;
   }
   .section-buttons button:hover { border-color: var(--ink); color: var(--ink); }
-  .section-buttons button.active.learn { background: var(--learn); border-color: var(--learn); color: white; }
-  .section-buttons button.active.practice { background: var(--practice); border-color: var(--practice); color: white; }
+  .section-buttons button.active.learning { background: var(--learning); border-color: var(--learning); color: white; }
   .section-buttons button.active.recall { background: var(--recall); border-color: var(--recall); color: white; }
   .section-buttons button.active.pipeline { background: var(--pipeline); border-color: var(--pipeline); color: white; }
   .section-buttons button.active.none { background: var(--none); border-color: var(--none); color: white; }
@@ -301,18 +293,18 @@
   }
   .why:focus {
     outline: none;
-    border-color: var(--learn);
+    border-color: var(--learning);
     background: white;
     color: var(--ink);
   }
   .why.edited {
-    border-color: var(--learn);
-    background: var(--learn-bg);
+    border-color: var(--learning);
+    background: var(--learning-bg);
     color: var(--ink);
   }
   .why.edited::before {
     content: "✎ ";
-    color: var(--learn);
+    color: var(--learning);
     font-weight: 700;
   }
 
@@ -364,8 +356,7 @@
   <main>
     <div class="top-bar">
       <div class="counters">
-        <div class="counter learn" id="counter-learn"><span class="label">Learn</span> <span class="count">0/5</span></div>
-        <div class="counter practice" id="counter-practice"><span class="label">Practice</span> <span class="count">0/5</span></div>
+        <div class="counter learning" id="counter-learning"><span class="label">Learning</span> <span class="count">0/10</span></div>
         <div class="counter recall" id="counter-recall"><span class="label">Recall</span> <span class="count">0/5</span></div>
         <div class="counter" id="counter-pipeline"><span class="label">Pipeline</span> <span class="count">0</span></div>
       </div>
@@ -387,7 +378,7 @@
 const LESSON_CONFIG = {
   lesson_number: 2,
   anchor: "أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ",
-  targets: { learn: 5, practice: 5, recall: 5 },
+  targets: { learning: 10, recall: 5 },
   current_groups: [
     { key: "shahida", arabic: "شَهِدَ", title: "شَهِدَ — This lesson" }
   ],
@@ -397,43 +388,43 @@ const LESSON_CONFIG = {
   ],
   verses: [
     // ---- SHAHIDA root (current lesson) ----
-    { ref: "3:18", group: "shahida", form: "شَهِدَ", score: 12, defaultSection: "learn",
+    { ref: "3:18", group: "shahida", form: "شَهِدَ", score: 12, defaultSection: "learning",
       arabic: "شَهِدَ ٱللَّهُ أَنَّهُۥ لَآ إِلَٰهَ إِلَّا هُوَ",
       english: "Allah bears witness that there is no god but He (trimmed)",
       why: "Allah Himself bearing witness. Bridges إِلَٰه from L1. Teacher: use trimmed form only." },
-    { ref: "6:19", group: "shahida", form: "شَهَادَة (+أَشْهَدُ)", score: 12, defaultSection: "learn",
+    { ref: "6:19", group: "shahida", form: "شَهَادَة (+أَشْهَدُ)", score: 12, defaultSection: "learning",
       arabic: "قُلْ أَيُّ شَىْءٍ أَكْبَرُ شَهَٰدَةً ۖ قُلِ ٱللَّهُ شَهِيدٌۢ",
       english: "Say: What is greatest as testimony? Say: Allah is Witness",
       why: "GOLDMINE — contains أَكْبَرُ from L1 + شَهَادَة + شَهِيد + أَشْهَدُ in one verse." },
-    { ref: "4:79", group: "shahida", form: "شَهِيد", score: 10, defaultSection: "learn",
+    { ref: "4:79", group: "shahida", form: "شَهِيد", score: 10, defaultSection: "learning",
       arabic: "وَكَفَىٰ بِٱللَّهِ شَهِيدًا",
       english: "Allah is sufficient as Witness",
       why: "Famous short phrase. Appears 4x in the Qur'an." },
-    { ref: "5:117", group: "shahida", form: "شَهِيد", score: 10, defaultSection: "learn",
+    { ref: "5:117", group: "shahida", form: "شَهِيد", score: 10, defaultSection: "learning",
       arabic: "وَكُنتُ عَلَيْهِمْ شَهِيدًا مَّا دُمْتُ فِيهِمْ",
       english: "I was a witness over them while I was among them",
       why: "ʿĪsā addressing Allah on Judgment Day. Trimmed to first half — personal voice, story-driven." },
-    { ref: "2:185", group: "shahida", form: "شَهِدَ", score: 6, defaultSection: "learn",
+    { ref: "2:185", group: "shahida", form: "شَهِدَ", score: 6, defaultSection: "learning",
       arabic: "فَمَن شَهِدَ مِنكُمُ ٱلشَّهْرَ فَلْيَصُمْهُ",
       english: "Whoever witnesses the month (of Ramadan) should fast it",
       why: "Ramadan verse — witness = 'be present during'. Teaches the root's other shade." },
-    { ref: "3:53", group: "shahida", form: "شَاهِد", score: 10, defaultSection: "practice",
+    { ref: "3:53", group: "shahida", form: "شَاهِد", score: 10, defaultSection: "learning",
       arabic: "رَبَّنَآ ءَامَنَّا بِمَآ أَنزَلْتَ وَٱتَّبَعْنَا ٱلرَّسُولَ فَٱكْتُبْنَا مَعَ ٱلشَّٰهِدِينَ",
       english: "Our Lord, we believe... write us among the witnesses",
       why: "Disciples of Isa — emotional duʿā with story context." },
-    { ref: "63:1", group: "shahida", form: "نَشْهَدُ + يَشْهَدُ", score: 10, defaultSection: "practice",
+    { ref: "63:1", group: "shahida", form: "نَشْهَدُ + يَشْهَدُ", score: 10, defaultSection: "learning",
       arabic: "إِذَا جَآءَكَ ٱلْمُنَٰفِقُونَ قَالُوا۟ نَشْهَدُ إِنَّكَ لَرَسُولُ ٱللَّهِ ۗ وَٱللَّهُ يَشْهَدُ إِنَّ ٱلْمُنَٰفِقِينَ لَكَٰذِبُونَ",
       english: "The hypocrites said: 'We testify you are Allah's Messenger.' But Allah testifies they are liars",
       why: "Dramatic exposé — two forms in dramatic opposition." },
-    { ref: "41:20", group: "shahida", form: "شَهِدَ", score: 8, defaultSection: "practice",
+    { ref: "41:20", group: "shahida", form: "شَهِدَ", score: 8, defaultSection: "learning",
       arabic: "شَهِدَ عَلَيْهِمْ سَمْعُهُمْ وَأَبْصَٰرُهُمْ وَجُلُودُهُم بِمَا كَانُوا۟ يَعْمَلُونَ",
       english: "Their hearing, sight, and skins testified against them",
       why: "Day of Judgment — body parts testify. Short and powerful." },
-    { ref: "3:81", group: "shahida", form: "اشْهَدُوا + الشَّاهِدِينَ", score: 9, defaultSection: "practice",
+    { ref: "3:81", group: "shahida", form: "اشْهَدُوا + الشَّاهِدِينَ", score: 9, defaultSection: "learning",
       arabic: "قَالَ فَٱشْهَدُوا۟ وَأَنَا۠ مَعَكُم مِّنَ ٱلشَّٰهِدِينَ",
       english: "He said: Bear witness, and I am with you among the witnesses",
       why: "Prophets' covenant — Allah to the prophets." },
-    { ref: "4:69", group: "shahida", form: "شُهَدَاء", score: 7, defaultSection: "practice",
+    { ref: "4:69", group: "shahida", form: "شُهَدَاء", score: 7, defaultSection: "learning",
       arabic: "مَعَ ٱلَّذِينَ أَنْعَمَ ٱللَّهُ عَلَيْهِم مِّنَ ٱلنَّبِيِّـۧنَ وَٱلصِّدِّيقِينَ وَٱلشُّهَدَآءِ وَٱلصَّٰلِحِينَ",
       english: "With those Allah blessed: prophets, truthful, witnesses, righteous",
       why: "The famous four ranks verse. Teacher override: too well-known to defer." },
@@ -527,7 +518,7 @@ function renderSidebar() {
     const section = document.createElement("div");
     section.className = "nav-section";
     section.innerHTML = `<div class="nav-header">This lesson</div><div class="nav-root">${g.arabic}</div>`;
-    const sections = ["learn", "practice", "pipeline", "none"];
+    const sections = ["learning", "pipeline", "none"];
     sections.forEach(sec => {
       const count = counts[g.key]?.[sec] || 0;
       const target = LESSON_CONFIG.targets[sec];
@@ -557,7 +548,7 @@ function renderSidebar() {
 function sectionCountsByGroup() {
   const counts = {};
   LESSON_CONFIG.verses.forEach(v => {
-    if (!counts[v.group]) counts[v.group] = { learn: 0, practice: 0, recall: 0, pipeline: 0, none: 0 };
+    if (!counts[v.group]) counts[v.group] = { learning: 0, recall: 0, pipeline: 0, none: 0 };
     counts[v.group][state[v.ref]]++;
   });
   return counts;
@@ -575,7 +566,7 @@ function renderCards() {
     h.textContent = g.title;
     container.appendChild(h);
 
-    const sections = ["learn", "practice", "pipeline", "none"];
+    const sections = ["learning", "pipeline", "none"];
     for (const sec of sections) {
       const versesInSec = LESSON_CONFIG.verses.filter(v => v.group === g.key && state[v.ref] === sec);
       if (versesInSec.length === 0) continue;
@@ -637,8 +628,7 @@ function makeCard(v, kind) {
   // Buttons depend on kind: current-lesson gets Learn/Practice; recall groups get Recall only
   const buttons = kind === "current"
     ? `<button data-sec="none">None</button>
-       <button data-sec="learn">Learn</button>
-       <button data-sec="practice">Practice</button>
+       <button data-sec="learning">Learning</button>
        <button data-sec="pipeline">Pipeline</button>`
     : `<button data-sec="none">None</button>
        <button data-sec="recall">Recall</button>
@@ -692,10 +682,10 @@ function setSection(ref, sec) {
 }
 
 function updateCounters() {
-  const counts = { learn: 0, practice: 0, recall: 0, pipeline: 0, none: 0 };
+  const counts = { learning: 0, recall: 0, pipeline: 0, none: 0 };
   for (const ref in state) counts[state[ref]]++;
   const t = LESSON_CONFIG.targets;
-  ["learn", "practice", "recall"].forEach(sec => {
+  ["learning", "recall"].forEach(sec => {
     const el = document.getElementById("counter-" + sec);
     el.querySelector(".count").textContent = `${counts[sec]}/${t[sec]}`;
     el.classList.toggle("filled", counts[sec] === t[sec]);
@@ -756,7 +746,7 @@ function downloadDiffJson() {
 
 // ============ COPY JSON ============
 function buildPayload() {
-  const selections = { learn: [], practice: [], recall: [], pipeline: [] };
+  const selections = { learning: [], recall: [], pipeline: [] };
   LESSON_CONFIG.verses.forEach(v => {
     const sec = state[v.ref];
     if (sec !== "none") {

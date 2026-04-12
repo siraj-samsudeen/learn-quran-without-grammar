@@ -13,12 +13,12 @@ Root words: **إِلَٰه** (ilāh) · **كَبُرَ** (kabura)
 |---------|-------|---------|
 | Anchor phrase: اللهُ أَكْبَرُ | — | Context-setter, adhān audio |
 | Preview | — | "Tell them what you'll tell them" |
-| Root 1 (إِلَٰه): flowing description → centered table → anchor phrase → 2 learning phrases | 1 anchor + 2 | Introduce root family |
-| Root 2 (كَبُرَ): flowing description → centered table → anchor phrase → 3 learning phrases | 1 anchor + 3 | Introduce root family |
-| Practice: shuffle player, no notes, mixed order | 5 | Reinforcement through repetition |
+| Root 1 (إِلَٰه): flowing description → centered table → anchor phrase → learning phrases | 1 anchor + 2 | Introduce root family |
+| Root 2 (كَبُرَ): flowing description → centered table → anchor phrase → learning phrases | 1 anchor + 3 | Introduce root family |
+| Learning (mixed): shuffle player, no notes, mixed order | 5 | Reinforcement through repetition |
 | Summary table: combined words + phrases | — | "Tell them what you told them" |
 | Closing | — | Adhān replay + reflection |
-| **Total phrases** | **2 anchor + 5 learn + 5 practice = 12** | |
+| **Total phrases** | **1 anchor + 11 learning = 12** | |
 
 **Dropped from v1:** Hadith section, all grammar terminology, occurrence counts, 10 phrases moved to pipeline.
 
@@ -79,7 +79,7 @@ Root words: **إِلَٰه** (ilāh) · **كَبُرَ** (kabura)
 
 ---
 
-## Practice phrases (5, mixed order, no notes)
+## Learning phrases — mixed practice (5, mixed order, no notes)
 
 | # | Ref | Arabic | Form | English | Why chosen |
 |---|-----|--------|------|---------|-----------|
@@ -102,7 +102,7 @@ Root words: **إِلَٰه** (ilāh) · **كَبُرَ** (kabura)
 | 12 | 18:110 | قُلْ إِنَّمَا أَنَا بَشَرٌ مِّثْلُكُمْ يُوحَىٰ إِلَيَّ أَنَّمَا إِلَٰهُكُمْ إِلَٰهٌ وَاحِدٌ | إِلَٰهٌ وَاحِدٌ | Too long. Pattern dropped from v2 table. | The closing words of Surah Al-Kahf — recited every Friday. A powerful ending you already hear weekly. |
 | 13 | 7:138 | قَالُوا يَا مُوسَى اجْعَل لَّنَا إِلَٰهًا كَمَا لَهُمْ آلِهَةٌ | آلِهَة | Replaced by shorter 6:74 fragment for آلِهَة. | The Israelites' shocking request — right after being saved from Pharaoh, they pass by idol-worshippers and immediately ask for the same thing. |
 | 14 | 28:38 | وَقَالَ فِرْعَوْنُ... مَا عَلِمْتُ لَكُم مِّنْ إِلَٰهٍ غَيْرِي | إِلَٰهٍ غَيْرِي | Very long. Pattern dropped from v2 table. | The anti-version of Nūḥ's call. Pharaoh flips the prophet's formula: مَا عَلِمْتُ لَكُم مِّنْ إِلَٰهٍ غَيْرِي. Same words, ultimate arrogance. |
-| 17 | 6:78 | فَلَمَّا رَأَى الشَّمْسَ بَازِغَةً قَالَ هَٰذَا رَبِّي هَٰذَا أَكْبَرُ | أَكْبَر | Already have أَكْبَر in anchor phrase and practice (29:45). | Story of Ibrāhīm searching for God — stars, moon, sun. Each time "this is greater" — until they all set and he turns to the One who never sets. |
+| 17 | 6:78 | فَلَمَّا رَأَى الشَّمْسَ بَازِغَةً قَالَ هَٰذَا رَبِّي هَٰذَا أَكْبَرُ | أَكْبَر | Already have أَكْبَر in anchor phrase and learning (29:45). | Story of Ibrāhīm searching for God — stars, moon, sun. Each time "this is greater" — until they all set and he turns to the One who never sets. |
 | 18 | 2:219 | يَسْأَلُونَكَ عَنِ الْخَمْرِ وَالْمَيْسِرِ... إِثْمٌ كَبِيرٌ... أَكْبَرُ | كَبِير + أَكْبَر | Very long. Both forms already covered elsewhere. | The famous ruling verse on wine and gambling. Uses both كَبِير and أَكْبَر — two forms from the same root in one sentence. |
 | 19 | 87:12 | الَّذِي يَصْلَى النَّارَ الْكُبْرَىٰ | كُبْرَى | كُبْرَى already covered by 79:20 in learning. | From Surah Al-A'lā — one of the most frequently recited surahs in ṣalāh. You already know this by ear. |
 | — | Hadith (Muslim) | أَحَبُّ الْكَلَامِ إِلَى اللَّهِ أَرْبَعٌ... | both roots | Hadith section dropped entirely in v2. | Bridges both root words — لَا إِلَٰهَ إِلَّا اللّٰه and اللهُ أَكْبَرُ together in one sentence. |

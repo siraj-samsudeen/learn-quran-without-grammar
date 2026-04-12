@@ -17,13 +17,12 @@
       "surah_familiarity": 0,
       "completeness": 1,
       "emotion": 3,
-      "fit_learn": 0,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "Day of Judgment — body parts testify against their owners. Short, vivid, shocking imagery.",
     "lesson_use": {
       "lesson": 2,
-      "section": "practice",
+      "section": "learning",
       "is_anchor": false,
       "order": 3,
       "arabic": "شَهِدَ عَلَيْهِمْ سَمْعُهُمْ وَأَبْصَارُهُمْ وَجُلُودُهُم بِمَا كَانُوا يَعْمَلُونَ",
@@ -50,13 +49,12 @@
       "surah_familiarity": 0,
       "completeness": 1,
       "emotion": 2,
-      "fit_learn": 0,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "Aad's arrogant boast + Allah's comeback — punchy despite length.",
     "lesson_use": {
       "lesson": 1,
-      "section": "practice",
+      "section": "learning",
       "is_anchor": false,
       "order": 5,
       "heading": "12 · اسْتَكْبَرُوا (were arrogant)",

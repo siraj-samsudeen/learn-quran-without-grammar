@@ -3,8 +3,12 @@
     "ref": "54:53",
     "arabic": "وَكُلُّ صَغِيرٍ وَكَبِيرٍ مُّسْتَطَرٌ",
     "english": "And every small and great thing is recorded.",
-    "roots": ["kabura"],
-    "forms": ["كَبِير"],
+    "roots": [
+      "kabura"
+    ],
+    "forms": [
+      "كَبِير"
+    ],
     "scores": {
       "curriculum": 2,
       "length": 2,
@@ -13,8 +17,7 @@
       "surah_familiarity": 1,
       "completeness": 1,
       "emotion": 2,
-      "fit_learn": 0,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "Ultra-short (4 words). From Surah Al-Qamar. Pairs kabir with its opposite saghir — reinforces the form in the sharpest possible contrast.",
     "lesson_use": {

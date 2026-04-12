@@ -67,10 +67,10 @@ def extract_page_audio_refs(md_text: str) -> list[dict]:
     )
 
     # Track which section we're in
-    section = "learn"
+    section = "learning"
     for line in md_text.split('\n'):
         if re.match(r'^#{1,3}.*[Pp]ractice', line):
-            section = "practice"
+            section = "learning"
 
         m = pattern.search(line)
         if m:
@@ -149,32 +149,32 @@ def extract_yaml_sentences(lesson: dict) -> list[dict]:
 
 # ── Checks ─────────────────────────────────────────────────────────────
 
-def check_practice_order(yaml_sentences: list, page_refs: list) -> list[str]:
-    """Check that YAML practice order matches lesson page order."""
+def check_learning_order(yaml_sentences: list, page_refs: list) -> list[str]:
+    """Check that YAML learning order matches lesson page order."""
     errors = []
 
-    yaml_practice = [s["ref"] for s in yaml_sentences if s["role"] == "practice"]
-    page_practice = [r["ref"] for r in page_refs if r["section"] == "practice"]
+    yaml_learning = [s["ref"] for s in yaml_sentences if s["role"] == "learning"]
+    page_learning = [r["ref"] for r in page_refs if r["section"] == "learning"]
 
-    if not page_practice:
-        errors.append("⚠  No practice audio refs found on lesson page")
+    if not page_learning:
+        errors.append("⚠  No learning audio refs found on lesson page")
         return errors
 
-    if yaml_practice != page_practice:
-        errors.append("✗ PRACTICE ORDER MISMATCH")
-        errors.append(f"  YAML:  {yaml_practice}")
-        errors.append(f"  Page:  {page_practice}")
+    if yaml_learning != page_learning:
+        errors.append("✗ LEARNING ORDER MISMATCH")
+        errors.append(f"  YAML:  {yaml_learning}")
+        errors.append(f"  Page:  {page_learning}")
         errors.append("")
         errors.append("  Suggested YAML order (to match page):")
-        # Map practice refs to YAML sentences
-        yaml_by_ref = {s["ref"]: s for s in yaml_sentences if s["role"] == "practice"}
-        for i, ref in enumerate(page_practice, 1):
+        # Map learning refs to YAML sentences
+        yaml_by_ref = {s["ref"]: s for s in yaml_sentences if s["role"] == "learning"}
+        for i, ref in enumerate(page_learning, 1):
             if ref in yaml_by_ref:
-                errors.append(f"    practice-{i:02d}: {ref} ({yaml_by_ref[ref]['id']})")
+                errors.append(f"    learning-{i:02d}: {ref} ({yaml_by_ref[ref]['id']})")
             else:
-                errors.append(f"    practice-{i:02d}: {ref} (NOT IN YAML)")
+                errors.append(f"    learning-{i:02d}: {ref} (NOT IN YAML)")
     else:
-        errors.append("✓ Practice order matches")
+        errors.append("✓ Learning order matches")
 
     return errors
 
@@ -280,8 +280,8 @@ def main():
     all_errors = []
 
     # Run checks
-    print("── Practice Order ──")
-    results = check_practice_order(yaml_sentences, page_refs)
+    print("── Learning Order ──")
+    results = check_learning_order(yaml_sentences, page_refs)
     for r in results:
         print(f"  {r}")
     all_errors.extend(r for r in results if r.startswith("✗"))

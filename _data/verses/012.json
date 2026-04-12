@@ -3,8 +3,13 @@
     "ref": "12:26",
     "arabic": "قَالَ هِيَ رَاوَدَتْنِي عَن نَّفْسِي وَشَهِدَ شَاهِدٌ مِّنْ أَهْلِهَا",
     "english": "He said: She tried to seduce me. And a witness from her own family testified.",
-    "roots": ["shahida"],
-    "forms": ["شَهِدَ", "شَاهِد"],
+    "roots": [
+      "shahida"
+    ],
+    "forms": [
+      "شَهِدَ",
+      "شَاهِد"
+    ],
     "scores": {
       "curriculum": 2,
       "length": 2,
@@ -13,8 +18,7 @@
       "surah_familiarity": 1,
       "completeness": 1,
       "emotion": 2,
-      "fit_learn": 0,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "Yusuf story — shahida + shahid in one phrase. Two forms in natural narrative context. Strong future candidate.",
     "lesson_use": {

@@ -17,13 +17,12 @@
       "surah_familiarity": 1,
       "completeness": 1,
       "emotion": 1,
-      "fit_learn": 1,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "Introduces the prayer-address form. Trimmed to keep short.",
     "lesson_use": {
       "lesson": 1,
-      "section": "learn",
+      "section": "learning",
       "is_anchor": false,
       "order": 3,
       "heading": "3 · اللَّهُمَّ (O Allah)",
@@ -54,13 +53,12 @@
       "surah_familiarity": 1,
       "completeness": 1,
       "emotion": 2,
-      "fit_learn": 1,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "Allah Himself bearing witness — perfect for shahada lesson. Cross-root with shahida + ilah.",
     "lesson_use": {
       "lesson": 2,
-      "section": "learn",
+      "section": "learning",
       "is_anchor": false,
       "order": 1,
       "arabic": "شَهِدَ اللَّهُ أَنَّهُ لَا إِلَٰهَ إِلَّا هُوَ",
@@ -87,13 +85,12 @@
       "surah_familiarity": 1,
       "completeness": 1,
       "emotion": 3,
-      "fit_learn": 0,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "Dua of Isa's disciples — story-bearing. Gives shahid in plural form (al-shahidin).",
     "lesson_use": {
       "lesson": 2,
-      "section": "practice",
+      "section": "learning",
       "is_anchor": false,
       "order": 1,
       "arabic": "رَبَّنَا آمَنَّا بِمَا أَنزَلْتَ وَاتَّبَعْنَا الرَّسُولَ فَاكْتُبْنَا مَعَ الشَّاهِدِينَ",
@@ -121,13 +118,12 @@
       "surah_familiarity": 0,
       "completeness": 1,
       "emotion": 2,
-      "fit_learn": 0,
-      "fit_practice": 1
+      "teaching_fit": 1
     },
     "score_notes": "Prophets covenant — Allah commands the prophets to bear witness. Two forms in one trimmed clause.",
     "lesson_use": {
       "lesson": 2,
-      "section": "practice",
+      "section": "learning",
       "is_anchor": false,
       "order": 4,
       "arabic": "قَالَ فَاشْهَدُوا وَأَنَا مَعَكُم مِّنَ الشَّاهِدِينَ",

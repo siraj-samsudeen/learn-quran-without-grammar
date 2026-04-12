@@ -2,7 +2,7 @@
   "lesson": 2,
   "anchor": "أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ",
   "selections": {
-    "learn": [
+    "learning": [
       {
         "ref": "3:18",
         "form": "شَهِدَ",
@@ -27,9 +27,7 @@
         "ref": "2:185",
         "form": "شَهِدَ",
         "group": "shahida"
-      }
-    ],
-    "practice": [
+      },
       {
         "ref": "3:53",
         "form": "شَاهِد",

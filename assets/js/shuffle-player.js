@@ -10,7 +10,7 @@
  *   - Play / Pause / Next / Previous controls
  *   - Shows current sentence info (Arabic text, English, reference)
  *   - Continuous loop through all loaded sentences
- *   - Filter by role (learn / practice / all)
+ *   - Filter by role (learning / all)
  *
  * Usage:
  *   <div id="shuffle-player"></div>
@@ -34,7 +34,7 @@ const ShufflePlayer = (() => {
   let containerEl = null;   // DOM container
   let baseUrls = [];        // base URLs for resolving audio file paths
   let isPlaying = false;
-  let roleFilter = 'all';   // 'all', 'learn', 'practice'
+  let roleFilter = 'all';   // 'all', 'learning'
   let activeLang = 'en';    // 'en' or 'ta' — which translation to show/play
 
   // ── Shuffle (Fisher-Yates) ───────────────────────────────────────────
@@ -152,8 +152,7 @@ const ShufflePlayer = (() => {
         </div>
         <div class="sp-filters">
           <button class="sp-filter-btn" data-role="all">All</button>
-          <button class="sp-filter-btn" data-role="learn">Learn</button>
-          <button class="sp-filter-btn" data-role="practice">Practice</button>
+          <button class="sp-filter-btn" data-role="learning">Learning</button>
         </div>
         <div class="sp-counter"></div>
       </div>

@@ -168,8 +168,8 @@ Support two modes:
 
    - **If `len(scored) >= targets.learn + targets.practice`** (i.e., the
      teacher has scored enough verses to make meaningful defaults):
-     - Sort `scored` by `scores.total_learn` desc (for current roots) or
-       `scores.total_practice` desc (for recall roots)
+     - Sort `scored` by `scores.final` desc (for current roots) or
+       `scores.final` desc (for recall roots)
      - Top `targets.learn` → `defaultSection: "learn"`
      - Next `targets.practice` → `defaultSection: "practice"`
      - Rest → `defaultSection: "none"`
@@ -184,7 +184,7 @@ Support two modes:
      - Verses with existing `status: "pipeline"` still keep
        `defaultSection: "pipeline"`.
 
-   - For **recall roots**, same logic but keyed on `total_practice`.
+   - For **recall roots**, same logic but keyed on `scores.final`.
      Target per recall root = `targets.recall // len(recall_roots)`
      (e.g., 5 recall slots across 3 roots → ~1–2 per root).
 
@@ -201,7 +201,7 @@ Support two modes:
      group: "shahida",
      form: "<form_arabic from root JSON>",
      lemma: "<form_arabic — same as form, kept for filter UI>",
-     score: <max(total_learn || 0, total_practice || 0)>,
+     score: <scores.final || 0>,
      defaultSection: "learn" | "practice" | "recall" | "pipeline" | "none",
      arabic: "<arabic_fragment if set, else arabic_full>",
      english: "<translation if set, else empty string>",

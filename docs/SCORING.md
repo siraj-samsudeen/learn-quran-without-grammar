@@ -131,33 +131,49 @@ The LLM's overall assessment of how good this verse is for teaching this root. T
 | 4–6 | Root is relevant, verse mostly works, decent teaching value |
 | 7–10 | Root is central, verse is self-contained, excellent teaching value |
 
-### Tier 3 — Teacher Adjustment
+### Tier 3 — Teacher Modifiers
 
-#### 8. Teacher Adjustment (−5 to +5)
+#### 8. Fragment Penalty (×0.7 multiplier)
 
-Applied in the picker UI. The teacher sees computed scores and nudges:
+Verses must be used as **full ayahs** — no extracting word fragments from longer verses. Fragments cause compounding problems: approximate audio timestamps, translation misalignment across languages (EN + Tamil), and manual correction effort.
 
-| Adjustment | Meaning |
-|------------|---------|
-| +5 | "I love this verse, must include" |
-| +3 | "Stronger than the score suggests" |
-| 0 | "Score looks right" (default) |
-| −3 | "Weaker than the score suggests" |
-| −5 | "Skip this, score is misleading" |
+If a verse is too long to use whole and would require trimming to a fragment, its score is multiplied by **0.7**:
+
+```
+fragment_score = base_score × 0.7
+```
+
+| Verse type | Multiplier | Effect |
+|------------|------------|--------|
+| Full ayah (used whole) | ×1.0 | No penalty |
+| Fragment (needs trimming) | ×0.7 | Must score ~30% higher to compete with full ayahs |
+
+This is binary — either the full ayah is used, or it isn't. A fragment must be genuinely outstanding to survive the penalty.
+
+#### 9. Teacher Star (+5 additive)
+
+The teacher can **star** a verse to give it a small priority boost. This is a simple flag, not a sliding scale:
+
+| Star | Modifier | Effect |
+|------|----------|--------|
+| Unstarred | +0 | Default |
+| ⭐ Starred | +5 | Floats above unstarred verses of similar quality |
+
+The star is additive so the boost is consistent regardless of base score. It's enough to break ties and nudge a verse into the top N, without overriding the scoring system.
 
 ---
 
 ## Total Score Calculation
 
 ```
-tier1 = length + form_freq + form_dominance
-tier1_late = curriculum
-tier2 = story + familiarity + teaching_fit
-total = tier1 + tier1_late + tier2 + teacher_adj
+base = length + form_freq + form_dominance + curriculum + story + familiarity + teaching_fit
+starred = base + (5 if starred, else 0)
+final = starred × (0.7 if fragment, else 1.0)
 ```
 
-**Maximum possible:** 75 (7 × 10 + 5)
-**Minimum possible:** −5 (all zeros, teacher pushes down)
+**Maximum possible (full ayah, starred):** 75 (7 × 10 + 5)
+**Maximum possible (full ayah, unstarred):** 70 (7 × 10)
+**Fragment ceiling:** 52.5 (75 × 0.7) — even a perfect fragment can't reach "Excellent"
 
 ---
 
@@ -169,6 +185,56 @@ total = tier1 + tier1_late + tier2 + teacher_adj
 | 35–54 | 🟢 Good | Solid candidate |
 | 18–34 | 🟡 Acceptable | Present if no better options |
 | 0–17 | 🔴 Weak | Skip unless teacher asks |
+
+---
+
+## Automated Role Assignment
+
+Three roles: **Anchor**, **Learning**, **Recall**. Assigned automatically based on score and verse length — the teacher no longer picks them manually.
+
+### Lesson Budgets
+
+| Budget | Phrases | Words | Rule |
+|--------|---------|-------|------|
+| **New content** (Anchor + Learning) | 10 | 100 | Whichever limit hits first |
+| **Recall** (previous lessons) | 5 | 50 | 50% of new content budget |
+| **Total lesson ceiling** | 15 | 150 | |
+
+### Roles
+
+| Role | Purpose |
+|------|---------|
+| **Anchor** | 1st phrase — shortest, root meaning clicks. The seed everything builds on. |
+| **Learning** | All remaining new content — ordered short→long, natural difficulty curve |
+| **Recall** | Review from previous lessons — separate budget, never crowds out new content |
+| **Pipeline** | Overflow verses below budget — queued for future use |
+
+No Learn/Practice distinction. The length ordering *is* the easy→hard progression — short phrases are inherently easier, long phrases inherently harder. Labels on a gradient that already exists naturally are unnecessary.
+
+### Process
+
+1. **Score** all verses for a root (Tier 1 + Tier 2)
+2. **Apply** fragment penalty (×0.7) and teacher star (+5)
+3. **Rank** by final score — take verses until the new content budget is exhausted (10 phrases or 100 words, whichever hits first)
+4. **Sort** the selected verses by word count (shortest first)
+5. Within same word count, starred verses float above unstarred
+6. **Assign**: 1st = Anchor, rest = Learning, overflow = Pipeline
+
+### Recall (from previous lessons)
+
+Recall has its own budget (5 phrases / 50 words) and never competes with new content:
+
+1. Gather verses from all previous lessons
+2. Score by **curriculum connection** (Tier 1-late) — exact form match scores highest
+3. Rank by score, take until Recall budget is exhausted
+4. Sort by word count (shortest first)
+5. Assign as Recall phrases
+
+### Teacher's reduced workload
+
+Before: teacher manually selected role for every verse, found timestamps for fragments, corrected translations across languages.
+
+After: teacher reviews scores, stars a few favorites, and the system handles role assignment and ordering. Full ayahs eliminate timestamp and translation problems entirely.
 
 ---
 
@@ -187,8 +253,10 @@ Scores are stored per verse in `docs/roots/{root}.json`:
     "story": { "score": 9, "reason": "Ibrahim confronting his father about idols — iconic story every Muslim knows" },
     "familiarity": { "score": 2, "reason": "Al-An'am — Tier D surah, not commonly recited" },
     "teaching_fit": { "score": 8, "reason": "aliha (gods) is central to Ibrahim's challenge; complete standalone question" },
-    "teacher_adj": 0,
-    "total": 26
+    "starred": false,
+    "fragment": true,
+    "base": 27,
+    "final": 18.9
   }
 }
 ```
@@ -200,17 +268,17 @@ Scores are stored per verse in `docs/roots/{root}.json`:
 - **Tier 1** — during `build-root-inventory.py`, computed automatically from verse text and form data
 - **Tier 1-late** — after each lesson finalization; recalculated when lesson content changes
 - **Tier 2** — on-demand LLM scoring pass before presenting candidates to the teacher
-- **Tier 3** — in the picker UI during verse selection
+- **Tier 3** — in the picker/review UI: teacher sets star flags, fragment status is determined by verse word count
 - **All scores are written to the root JSON** so they persist across sessions
 
 ---
 
 ## Origin
 
-v1 was derived from the teacher's actual selection decisions in Lesson 1. v2 (this document) restructured the flat 8-dimension system into a three-tier pipeline:
-- Separated deterministic signals (computable from data) from subjective judgments (requiring LLM)
-- Added form frequency and dominance signals to leverage morphological data
-- Merged overlapping dimensions (Worship + Surah Familiarity; Emotional Impact into Story)
-- Moved Role Fit out of scoring into picker-level classification
-- Normalized all dimensions to 0–10 for direct comparison
-- Added Teacher Adjustment as an explicit Tier 3 override
+v1 was derived from the teacher's actual selection decisions in Lesson 1. v2 restructured the flat 8-dimension system into a three-tier pipeline. v3 (this document) added:
+- Fragment penalty (×0.7 multiplier) to discourage partial-verse extraction
+- Teacher star (+5 additive) replacing the −5 to +5 adjustment slider
+- Simplified roles to three: Anchor, Learning, Recall (dropped Learn/Practice distinction — length ordering provides the difficulty gradient)
+- Lesson budgets: 10 phrases / 100 words for new content, 5 phrases / 50 words for Recall (50% rule), whichever limit hits first
+- Automated role assignment based on score rank + length sort
+- Automated Recall with separate budget so it never crowds out new content

@@ -12,10 +12,10 @@
 
 **Use the verse selection skill:** `.claude/skills/verse-selection.md`
 
-This is the most important and interactive step. Do NOT skip to file creation until all 12 phrases are locked in:
-- 2 anchor phrases (1 per root)
-- 5 learning phrases (split across roots)
-- 5 practice phrases (mixed roots, shortest → longest)
+This is the most important and interactive step. Do NOT skip to file creation until phrases are locked in:
+- 1 anchor phrase
+- Up to 9 learning phrases (10 phrases / 100 words budget for new content)
+- Up to 5 recall phrases (50 words budget for spaced review from previous lessons)
 
 ---
 
@@ -150,7 +150,7 @@ Full checklist: `.claude/skills/lesson-review-checklist.md`
 - [ ] `layout: lesson` in front matter
 - [ ] No grammar terminology
 - [ ] All headings single-word form
-- [ ] Practice phrases shortest → longest
+- [ ] Learning phrases ordered appropriately (shorter early, longer later)
 - [ ] Each phrase uses a different reciter
 - [ ] All `<audio>` tags have `preload="none"`
 - [ ] YAML `english:` fields are plain ASCII

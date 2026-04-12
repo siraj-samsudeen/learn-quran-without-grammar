@@ -143,7 +143,7 @@ roots:
             தவ்ஹீதின் முழுச் செய்தியும் ஆறு வார்த்தைகளில்.
 
       - id: learn-ilah-01
-        role: learn
+        role: learning
         form: "آلِهَة"
         ref: "6:74"
         reciter: Abu_Bakr_Ash-Shaatree_128kbps
@@ -161,7 +161,7 @@ roots:
             குர்ஆனின் மிகத் துணிச்சலான கேள்விகளில் ஒன்று.
 
       - id: learn-ilah-02
-        role: learn
+        role: learning
         form: "اللَّهُمَّ"
         ref: "3:26"
         reciter: Hudhaify_128kbps
@@ -272,7 +272,7 @@ roots:
             நீங்கள் ஒவ்வொரு தொழுகையிலும் சொல்லும் வார்த்தை.
 
       - id: learn-kabura-01
-        role: learn
+        role: learning
         form: "كُبْرَى"
         ref: "79:20"
         reciter: Husary_128kbps
@@ -290,7 +290,7 @@ roots:
             அளவுக்கு — *மிகப் பெரிய*.
 
       - id: learn-kabura-02
-        role: learn
+        role: learning
         form: "كَبُرَ"
         ref: "61:3"
         reciter: Alafasy_128kbps
@@ -308,7 +308,7 @@ roots:
             கேட்கலாம்: காஃப், பா, ரா.
 
       - id: learn-kabura-03
-        role: learn
+        role: learning
         form: "اسْتَكْبَرَ"
         ref: "2:34"
         reciter: Abdul_Basit_Mujawwad_128kbps
@@ -328,10 +328,10 @@ roots:
             கொண்டாடினான் — இந்த வார்த்தையின் பொருள் அதுதான்.
 
 # ============================================================
-# PRACTICE SECTION
+# LEARNING-PRACTICE SECTION (merged into Learning flow)
 # ============================================================
 
-practice:
+learning_practice:
   intro:
     en: >
       You've met all 8 words. Now see if you can spot them on your own —

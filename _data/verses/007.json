@@ -3,8 +3,12 @@
     "ref": "7:59",
     "arabic": "لَقَدْ أَرْسَلْنَا نُوحًا إِلَىٰ قَوْمِهِۦ فَقَالَ يَـٰقَوْمِ ٱعْبُدُوا۟ ٱللَّهَ مَا لَكُم مِّنْ إِلَـٰهٍ غَيْرُهُۥٓ",
     "english": "We sent Nuh to his people, and he said: O my people, worship Allah — you have no god other than Him.",
-    "roots": ["ilah"],
-    "forms": ["إِلَٰه"],
+    "roots": [
+      "ilah"
+    ],
+    "forms": [
+      "إِلَٰه"
+    ],
     "scores": {
       "curriculum": 2,
       "length": 1,
@@ -13,8 +17,7 @@
       "surah_familiarity": 0,
       "completeness": 1,
       "emotion": 2,
-      "fit_learn": 1,
-      "fit_practice": 0
+      "teaching_fit": 1
     },
     "score_notes": "Nuh's call — the same words repeated by every prophet. Pattern dropped from v2 table. Audio already downloaded.",
     "lesson_use": {
@@ -32,8 +35,13 @@
     "ref": "7:138",
     "arabic": "قَالُوا۟ يَـٰمُوسَى ٱجْعَل لَّنَآ إِلَـٰهًا كَمَا لَهُمْ ءَالِهَةٌ",
     "english": "They said: O Musa, make for us a god like the gods they have.",
-    "roots": ["ilah"],
-    "forms": ["إِلَٰه", "آلِهَة"],
+    "roots": [
+      "ilah"
+    ],
+    "forms": [
+      "إِلَٰه",
+      "آلِهَة"
+    ],
     "scores": {
       "curriculum": 2,
       "length": 2,
@@ -42,8 +50,7 @@
       "surah_familiarity": 0,
       "completeness": 1,
       "emotion": 2,
-      "fit_learn": 1,
-      "fit_practice": 0
+      "teaching_fit": 1
     },
     "score_notes": "Israelites' shocking request — right after being saved from Pharaoh. Both singular and plural in one phrase. Audio already downloaded.",
     "lesson_use": {

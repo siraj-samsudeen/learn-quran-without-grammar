@@ -2,7 +2,7 @@
 # Root: إِلَٰه (ilāh) + ك ب ر (kabura)
 # Anchor: اللهُ أَكْبَرُ
 #
-# Structure: 2 anchor phrases + 5 learning phrases + 5 practice phrases = 12 total
+# Structure: 2 anchor phrases + 10 learning phrases = 12 total
 # Each Quranic phrase uses a DIFFERENT reciter (see ADR-005).
 # See docs/selections/lesson-01.md for selection rationale.
 #
@@ -40,7 +40,7 @@ sentences:
     tamil: "அவன் அல்லாஹ் — அவனைத் தவிர வேறு இறைவன் இல்லை"
 
   - id: learn-ilah-01
-    role: learn
+    role: learning
     root: إِلَٰه
     form: "آلِهَة"
     ref: "6:74"
@@ -58,7 +58,7 @@ sentences:
     tamil: "இப்ராஹீம் தன் தந்தை ஆஸரிடம் கூறியபோது: நீர் சிலைகளைத் தெய்வங்களாக எடுத்துக்கொள்கிறீரா?"
 
   - id: learn-ilah-02
-    role: learn
+    role: learning
     root: إِلَٰه
     form: "اللَّهُمَّ"
     ref: "3:26"
@@ -91,7 +91,7 @@ sentences:
     tamil: "அவன் பெரியவன். நான் அவனை விடப் பெரியவன். அல்லாஹ் நம்மை விட — இல்லை, எல்லாவற்றையும் விடப் பெரியவன்."
 
   - id: learn-kabura-01
-    role: learn
+    role: learning
     root: كَبُرَ
     form: كُبْرَى
     ref: "79:20"
@@ -104,7 +104,7 @@ sentences:
     tamil: "அவனுக்கு மிகப் பெரிய அத்தாட்சியைக் காட்டினான்"
 
   - id: learn-kabura-02
-    role: learn
+    role: learning
     root: كَبُرَ
     form: كَبُرَ
     ref: "61:3"
@@ -117,7 +117,7 @@ sentences:
     tamil: "நீங்கள் செய்யாததைச் சொல்வது அல்லாஹ்விடம் மிகவும் வெறுப்புக்குரியது"
 
   - id: learn-kabura-03
-    role: learn
+    role: learning
     root: كَبُرَ
     form: اسْتَكْبَرَ
     ref: "2:34"
@@ -131,12 +131,12 @@ sentences:
     tamil: "மலக்குகளிடம் ஆதமுக்கு சஜ்தா செய்யுங்கள் என்று நாம் கூறியபோது — இப்லீஸைத் தவிர அனைவரும் சஜ்தா செய்தார்கள். அவன் மறுத்தான், ஆணவம் கொண்டான், நிராகரிப்பவர்களில் ஒருவனானான்."
 
   # ============================================================
-  # PRACTICE — 5 phrases, mixed roots, no notes
+  # LEARNING (continued) — 5 phrases, mixed roots, no notes
   # Order matches the lesson page: shortest first, longest last
   # ============================================================
 
   - id: practice-01
-    role: practice
+    role: learning
     root: كَبُرَ
     form: أَكْبَرُ
     ref: "29:45"
@@ -155,7 +155,7 @@ sentences:
     tamil: "அல்லாஹ்வின் நினைவே மிகப் பெரியது"
 
   - id: practice-02
-    role: practice
+    role: learning
     root: كَبُرَ
     form: كَبُرَ
     ref: "18:5"
@@ -173,7 +173,7 @@ sentences:
     tamil: "அவர்களின் வாயிலிருந்து வரும் வார்த்தை எவ்வளவு பெரியது — அவர்கள் பொய்யைத் தவிர வேறு எதையும் பேசுவதில்லை"
 
   - id: practice-03
-    role: practice
+    role: learning
     root: كَبُرَ
     form: كَبِير
     ref: "21:63"
@@ -186,7 +186,7 @@ sentences:
     tamil: "அவர் கூறினார்: இல்லை, அவர்களின் தலைவன் இதைச் செய்தான் — அவர்கள் பேச முடியுமானால் அவர்களிடமே கேளுங்கள்"
 
   - id: practice-04
-    role: practice
+    role: learning
     root: إِلَٰه
     form: "إِلَٰه (×3)"
     ref: "2:163"
@@ -199,7 +199,7 @@ sentences:
     tamil: "உங்கள் இறைவன் ஒரே இறைவன் — அவனைத் தவிர வேறு இறைவன் இல்லை, மிக்க அருளாளன், நிரந்தர அருளாளன்"
 
   - id: practice-05
-    role: practice
+    role: learning
     root: كَبُرَ
     form: اسْتَكْبَرَ
     ref: "41:15"

@@ -7,20 +7,20 @@ Root word: **شَهِدَ** (shahida)
 
 ## Lesson Structure — single-root lesson with Recall
 
-Lesson 2 uses a **single root** structure (vs. Lesson 1's two roots). The 5 Learn / 5 Practice slots all teach forms of **شَهِدَ**. A new **Recall** section adds 5 verses from Lesson 1's roots (إِلَٰه, كَبُرَ) for spaced review. Recall is **structurally separate** from Practice — Practice is always current-root only; Recall is always previous-lesson material only.
+Lesson 2 uses a **single root** structure (vs. Lesson 1's two roots). The 10 Learning slots all teach forms of **شَهِدَ**. A new **Recall** section adds 5 verses from Lesson 1's roots (إِلَٰه, كَبُرَ) for spaced review. Recall is **structurally separate** from Learning — Learning is always current-root only; Recall is always previous-lesson material only.
 
 | Section | Count | Purpose |
 |---------|-------|---------|
 | Anchor phrase: أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ | — | Context-setter, adhān audio |
 | Preview | — | "Tell them what you'll tell them" |
 | Root: شَهِدَ — flowing description → centered table → anchor → 5 learning phrases | 1 anchor + 5 | Introduce the root family |
-| Practice: shuffle player, no notes, mixed order | 5 | Reinforcement through repetition (current root only) |
+| Learning (mixed): shuffle player, no notes, mixed order | 5 | Reinforcement through repetition (current root only) |
 | **Recall** (new section from Lesson 2 onwards) | 5 | Spaced review of earlier roots (إِلَٰه + كَبُرَ) |
 | Summary table: combined words + phrases | — | "Tell them what you told them" |
 | Closing | — | Adhān replay + reflection |
-| **Total phrases** | **1 anchor + 5 learn + 5 practice + 5 recall = 16** | |
+| **Total phrases** | **1 anchor + 10 learning + 5 recall = 16** | |
 
-**New for Lesson 2:** separate Recall section. Practice was previously going to handle spaced review of earlier material, but the teacher clarified that Practice should always stay pure to the current root, and Recall should be a distinct structural slot.
+**New for Lesson 2:** separate Recall section. The mixed-practice portion of Learning was previously going to handle spaced review of earlier material, but the teacher clarified that Learning should always stay pure to the current root, and Recall should be a distinct structural slot.
 
 ---
 
@@ -64,12 +64,12 @@ Lesson 2 uses a **single root** structure (vs. Lesson 1's two roots). The 5 Lear
 | 1 | 3:18 (trimmed) | **شَهِدَ** ٱللَّهُ أَنَّهُۥ لَآ **إِلَٰهَ** إِلَّا هُوَ | شَهِدَ | Allah bears witness that there is no god but He | **Bridges Lesson 1.** Allah Himself is the subject of شَهِدَ — "Allah bears witness that there is no god but He." Contains لَا إِلَٰهَ إِلَّا from L1's anchor, so the student immediately recognises half the verse. Trimmed aggressively: dropped the angels + knowledge clause to keep the phrase tight. |
 | 2 | 6:19 | قُلْ أَيُّ شَىْءٍ أَكْبَرُ **شَهَٰدَةً** ۖ قُلِ ٱللَّهُ **شَهِيدٌۢ** بَيْنِى وَبَيْنَكُمْ | شَهَادَة | Say: What is greatest as testimony? Say: Allah is Witness between me and you | **Multi-form goldmine.** Contains **شَهَادَة + شَهِيد + أَكْبَرُ** (L1 recall!) + later in the verse **أَشْهَدُ** — four forms from two roots in one verse. The أَكْبَرُ creates an explicit handoff from L1 to L2. |
 | 3 | 4:79 | وَكَفَىٰ بِٱللَّهِ **شَهِيدًا** | شَهِيد | Allah is sufficient as Witness | **Famous ultra-short phrase.** The exact phrase وَكَفَىٰ بِٱللَّهِ شَهِيدًا appears 4× in the Qur'an, making it a kind of refrain. Only 3 words — ideal for teaching شَهِيد in isolation. |
-| 4 | 5:117 (trimmed — first part) | وَكُنتُ عَلَيْهِمْ **شَهِيدًا** مَّا دُمْتُ فِيهِمْ | شَهِيد | And I was a witness over them while I was among them | **ʿĪsā addressing Allah on Judgment Day.** Trimmed to the first half of the verse — the personal-voice portion where ʿĪsā says "I was a witness over them while I was among them." Deeply emotional, story-driven, puts شَهِيد in first-person. Pairs with Learn 3 (4:79) — same form, very different mood: 4:79 is Allah's universal witness, 5:117 is a prophet's personal witness at the end of his ministry. |
+| 4 | 5:117 (trimmed — first part) | وَكُنتُ عَلَيْهِمْ **شَهِيدًا** مَّا دُمْتُ فِيهِمْ | شَهِيد | And I was a witness over them while I was among them | **ʿĪsā addressing Allah on Judgment Day.** Trimmed to the first half of the verse — the personal-voice portion where ʿĪsā says "I was a witness over them while I was among them." Deeply emotional, story-driven, puts شَهِيد in first-person. Pairs with Learning 3 (4:79) — same form, very different mood: 4:79 is Allah's universal witness, 5:117 is a prophet's personal witness at the end of his ministry. |
 | 5 | 2:185 | فَمَن **شَهِدَ** مِنكُمُ ٱلشَّهْرَ فَلْيَصُمْهُ | شَهِدَ | Whoever witnesses the month (of Ramadan) should fast it | **Ramadan verse.** Extends the meaning of شَهِدَ — here it's not legal testimony but "to be present during / to witness (the month)." Teaches that the same root carries multiple shades of "witnessing." Short and connected to a practice every Muslim does annually. |
 
 ---
 
-## Practice phrases (5, mixed order, no notes)
+## Learning phrases — mixed practice (5, mixed order, no notes)
 
 | # | Ref | Arabic | Form | English | Why chosen |
 |---|-----|--------|------|---------|-----------|
@@ -99,16 +99,16 @@ Recall is a **new section** starting Lesson 2. These verses are all from Lesson 
 
 | # | Ref | Arabic (key part) | Form | Why deferred | Note |
 |---|-----|-------------------|------|-------------|------|
-| — | 12:26 | وَ**شَهِدَ** **شَاهِدٌ** مِّنْ أَهْلِهَا | شَهِدَ + شَاهِد | Initially picked for Practice but dropped — Practice already has 3:53 + 3:81 covering شَاهِد. Too much overlap. | Yusuf story — strong candidate for a future lesson's Practice or Recall. |
-| — | 36:65 | وَ**تَشْهَدُ** أَرْجُلُهُم بِمَا كَانُوا۟ يَكْسِبُونَ | تَشْهَدُ | From Surah Yasin — considered as a Learn 5 candidate but teacher preferred 5:117 (ʿĪsā). | Very high value: frequently-recited surah, vivid imagery (body parts testify). Priority for Lesson 3+ Practice. |
-| — | 22:17 | إِنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍ **شَهِيدٌ** | شَهِيد | Short and powerful but Practice already reinforces شَهِيد via other verses. | Good short reinforcer — save for future Practice. |
+| — | 12:26 | وَ**شَهِدَ** **شَاهِدٌ** مِّنْ أَهْلِهَا | شَهِدَ + شَاهِد | Initially picked for Learning but dropped — Learning already has 3:53 + 3:81 covering شَاهِد. Too much overlap. | Yusuf story — strong candidate for a future lesson's Learning or Recall. |
+| — | 36:65 | وَ**تَشْهَدُ** أَرْجُلُهُم بِمَا كَانُوا۟ يَكْسِبُونَ | تَشْهَدُ | From Surah Yasin — considered as a Learning 5 candidate but teacher preferred 5:117 (ʿĪsā). | Very high value: frequently-recited surah, vivid imagery (body parts testify). Priority for Lesson 3+ Learning. |
+| — | 22:17 | إِنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍ **شَهِيدٌ** | شَهِيد | Short and powerful but Learning already reinforces شَهِيد via other verses. | Good short reinforcer — save for future Learning. |
 | — | 3:98 | وَٱللَّهُ **شَهِيدٌ** عَلَىٰ مَا تَعْمَلُونَ | شَهِيد | Same reason as 22:17 — clean short warning, deferred for balance. | — |
 
 ### Deferred forms (from corpus, not introduced in this lesson)
 
 | Form | Transliteration | Count | Priority | Notes |
 |------|----------------|-------|----------|-------|
-| أَشْهَدَ | ashhada (Form IV) | 7 | **High** | Used in 7:172 (primordial covenant) — strong future Learn candidate. |
+| أَشْهَدَ | ashhada (Form IV) | 7 | **High** | Used in 7:172 (primordial covenant) — strong future Learning candidate. |
 | اسْتَشْهَدَ | istashhada (Form X) | 2 | Low | "Call to witness" — only 2 occurrences. |
 | مَشْهُود | mashhūd (passive ptcp) | 3 | Medium | Appears in 85:3 (وَشَاهِدٍ وَمَشْهُودٍ) — Juz' 30. |
 | مَشْهَد | mashhad | 1 | Low | Only one occurrence. |
@@ -126,10 +126,10 @@ Each phrase needs a distinct reciter from the pool in `docs/decisions/ADR-005-re
 
 Phrases needing text trims that affect audio timing:
 
-- **3:18 (Learn 1):** use first clause only — شَهِدَ اللَّهُ أَنَّهُ لَا إِلَٰهَ إِلَّا هُوَ. Drop everything from وَالْمَلَائِكَةُ onward.
-- **5:117 (Learn 4):** use first half only — وَكُنتُ عَلَيْهِمْ شَهِيدًا مَّا دُمْتُ فِيهِمْ. Drop everything from فَلَمَّا تَوَفَّيْتَنِي onward.
-- **3:81 (Practice 4):** use only the closing clause — قَالَ فَاشْهَدُوا وَأَنَا مَعَكُم مِّنَ الشَّاهِدِينَ. Drop the long preamble.
-- **4:69 (Practice 5):** use middle clause only — مَعَ الَّذِينَ أَنْعَمَ اللَّهُ عَلَيْهِم مِّنَ النَّبِيِّينَ وَالصِّدِّيقِينَ وَالشُّهَدَاءِ وَالصَّالِحِينَ. Drop the opening وَمَن يُطِعِ conditional.
+- **3:18 (Learning 1):** use first clause only — شَهِدَ اللَّهُ أَنَّهُ لَا إِلَٰهَ إِلَّا هُوَ. Drop everything from وَالْمَلَائِكَةُ onward.
+- **5:117 (Learning 4):** use first half only — وَكُنتُ عَلَيْهِمْ شَهِيدًا مَّا دُمْتُ فِيهِمْ. Drop everything from فَلَمَّا تَوَفَّيْتَنِي onward.
+- **3:81 (Learning 4):** use only the closing clause — قَالَ فَاشْهَدُوا وَأَنَا مَعَكُم مِّنَ الشَّاهِدِينَ. Drop the long preamble.
+- **4:69 (Learning 5):** use middle clause only — مَعَ الَّذِينَ أَنْعَمَ اللَّهُ عَلَيْهِم مِّنَ النَّبِيِّينَ وَالصِّدِّيقِينَ وَالشُّهَدَاءِ وَالصَّالِحِينَ. Drop the opening وَمَن يُطِعِ conditional.
 - **39:46 (Recall 1):** first clause only — قُلِ اللَّهُمَّ فَاطِرَ السَّمَاوَاتِ وَالْأَرْضِ عَالِمَ الْغَيْبِ وَالشَّهَادَةِ. Drop the أَنتَ تَحْكُمُ clause.
 
 ---
@@ -137,6 +137,6 @@ Phrases needing text trims that affect audio timing:
 ## Notes on selection process
 
 - **Single-root lesson.** Teacher's choice to focus Lesson 2 on شَهِدَ alone (vs. the two-root Lesson 1). This makes the lesson pedagogically simpler and leaves room for the Recall section.
-- **Recall is a new structural slot.** Started in Lesson 2 onwards. Teacher was explicit: *"we have a recall section for items from previous lesson. practice has to be from this lesson."* Recall candidates must come strictly from previous lessons' roots.
-- **Teacher rejected 7:172** (the primordial covenant — ālastu bi-rabbikum verse), which was my strongest Learn 5 recommendation. Chose 5:117 (ʿĪsā's personal testimony) instead. **Pattern to remember:** teacher consistently prefers first-person narrative voice (a prophet speaking) over third-person abstract scenes, even when the abstract scene is theologically foundational.
-- **Teacher moved 4:69 from Pipeline → Practice** after initially accepting it for Pipeline. Reason: the four-ranks verse (prophets, truthful, witnesses, righteous) is "too well-known to defer." **Pattern:** famous/widely-heard verses beat less-known ones for Practice, even if scoring is identical.
+- **Recall is a new structural slot.** Started in Lesson 2 onwards. Teacher was explicit: *"we have a recall section for items from previous lesson. learning has to be from this lesson."* Recall candidates must come strictly from previous lessons' roots.
+- **Teacher rejected 7:172** (the primordial covenant — ālastu bi-rabbikum verse), which was my strongest Learning 5 recommendation. Chose 5:117 (ʿĪsā's personal testimony) instead. **Pattern to remember:** teacher consistently prefers first-person narrative voice (a prophet speaking) over third-person abstract scenes, even when the abstract scene is theologically foundational.
+- **Teacher moved 4:69 from Pipeline → Learning** after initially accepting it for Pipeline. Reason: the four-ranks verse (prophets, truthful, witnesses, righteous) is "too well-known to defer." **Pattern:** famous/widely-heard verses beat less-known ones for Learning, even if scoring is identical.

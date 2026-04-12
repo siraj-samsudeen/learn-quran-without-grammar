@@ -361,7 +361,7 @@ def build_lesson(yaml_path: str, output_dir: str, lang: str = "en") -> None:
 
             entry = {
                 "id": sid,
-                "role": sentence.get("role", "learn"),
+                "role": sentence.get("role", "learning"),
                 "root": sentence.get("root", ""),
                 "form": sentence.get("form", ""),
                 "ref": ref,
