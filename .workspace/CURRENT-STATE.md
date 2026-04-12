@@ -65,11 +65,23 @@ While Session 3 was running through design questions, a parallel Sonnet session 
 
 10. **Deferred: minimal redesign docs** under `docs/redesign/`. Still deferred per Session 2 plan — write after Lesson 1 migration is visually validated, informed by real experience rather than speculation.
 
-### Parked (unchanged from Session 2)
+### Parked for future consideration
 
 - **Three-tier scoring (Q6)** — revisit when Lesson 3 starts. Flat 8-dim scoring unchanged for L1 migration.
-- **Tamil translation storage** — revisit at render time. Lesson 1 copy keeps Tamil prose inline (via `picker-config.{opening,closing,whats_next}.tamil` per D31, plus `_data/roots` notes fields when authored).
+- **Tamil translation storage** — superseded by D33 (sidecar architecture, tool TBD). See "Parked item 'Tamil translation storage'" note in D33 body.
 - ~~**2 orphan `sentence_patterns`**~~ — **resolved this session**: both discarded.
+- **Site chrome + lesson nav redesign** (captured session 3.1, 2026-04-12). Teacher raised this after seeing the lesson-map layout on phone. The current design has three zones of permanent chrome that can eat ~20% of a phone screen: the `.site-header` logo bar, the top-of-page `lesson-map` with 7 horizontal links including two Arabic root glyphs, and the bottom-right `translation-toggle` + `language-toggle` fixed buttons. The `[↑ Back to top]` links scattered through lessons exist because the map isn't persistent, but they are visual clutter and don't help mid-scroll orientation. **Teacher's lean: Option A — sticky-after-scroll lesson nav.** When the student scrolls past the top-of-page map, a thin condensed version fades in at the top; fades out when scrolling back up. Implemented via IntersectionObserver + CSS (~20 lines).
+  - **Required simplifications to do alongside (teacher's notes):**
+    1. **Simplify the section list** from 7 items to 3–5 (e.g., Anchor | Learn | Practice | Review | Summary, or even tighter). 7 horizontal items is too many on a phone sticky bar.
+    2. **Remove Arabic root names from the sticky nav** (currently `إ ل ه (3 words) → ك ب ر (5 words)`). They take disproportionate horizontal space on narrow phones. Use English-only labels in the sticky version; the full Arabic map can stay at the top of the page for first-impression orientation.
+    3. **Merge `site-header` + lesson nav + footer content into a unified persistent chrome** instead of adding a NEW sticky nav on top of the existing site-header. Total permanent chrome should *shrink*, not grow. Footer content (the footer Arabic verse 29:45 + translation) may move into this unified header as a small accent, or migrate elsewhere.
+  - **Scope when picked up:**
+    - Design: consolidate `site-header` + `lesson-map` + `site-footer` into one unified component; decide how it behaves on home page vs lesson page vs teacher prep page
+    - CSS: sticky-after-scroll with IntersectionObserver trigger; z-index coordination with existing bottom-right floats
+    - Content: simplify lesson map items + drop Arabic labels from the sticky version
+    - Refactor: remove the scattered `[↑ Back to top]` links from every lesson MD (content churn across L1 production + L1 copy + L2 + any future lessons)
+    - Test on phone across Safari iOS + Chrome Android for sticky quirks
+  - **Do not pick up until:** L1 copy visual parity is validated against production (so there's a stable baseline for regression testing).
 
 ### Branch + commits
 
