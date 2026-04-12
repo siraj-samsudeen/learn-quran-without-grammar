@@ -14,7 +14,7 @@ You don't need to study grammar to begin understanding the Qur'an — you need t
 
 Children don't learn their mother tongue from rules. They absorb it through **repeated exposure** — hearing the same sounds in different situations until meaning clicks on its own. This course does the same for Qur'anic Arabic: audio immersion, phrases you already recite in the Adhān and Ṣalāh, and the same roots appearing again and again until your ears start to catch them.
 
-The method builds on ideas from the classic **Assimil** course from Paris, adapted for the Qur'an.
+The method builds on ideas from the classic [**Assimil**](https://www.assimil.com/en/) course (Paris, founded 1929) and its modern digital equivalent [**Glossika**](https://www.glossika.com/), adapted for the Qur'an.
 
 [Read the full course introduction →]({{ '/course_intro' | relative_url }})
 
