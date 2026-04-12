@@ -39,8 +39,7 @@
   .adj-input { width:40px; text-align:center; border:1px solid #cbd5e1; border-radius:4px; padding:2px; font-size:0.8rem; }
   .badge { font-size:0.65rem; padding:1px 6px; border-radius:8px; font-weight:600; }
   .badge-anchor { background:#7c3aed22; color:#6d28d9; }
-  .badge-learn { background:#16a34a18; color:#15803d; }
-  .badge-practice { background:#2563eb18; color:#1d4ed8; }
+  .badge-learning { background:#16a34a18; color:#15803d; }
   .badge-candidate { background:#ea580c18; color:#c2410c; }
   .trans { max-width:220px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:#64748b; font-size:0.78rem; }
   .arabic { font-family:'Noto Sans Arabic',serif; direction:rtl; }
@@ -57,6 +56,10 @@
   .detail-bar.t2 { background:#7c3aed; }
   .detail-reason { font-size:0.75rem; color:#64748b; margin-top:2px; line-height:1.3; }
 
+  tr.candidate-row td { opacity:0.7; }
+  tr.candidate-row:hover td { opacity:1; }
+  .v1-tag { font-size:0.6rem; background:#fef3c7; color:#92740a; padding:1px 4px; border-radius:3px; font-weight:600; vertical-align:middle; margin-left:2px; }
+  .count-badge { font-size:0.75rem; color:#64748b; margin-left:8px; }
   .tooltip { position:absolute; background:#1e293b; color:#fff; padding:6px 10px; border-radius:6px; font-size:0.75rem; max-width:280px; z-index:100; pointer-events:none; line-height:1.4; }
 </style>
 </head>
@@ -72,6 +75,11 @@
   <button class="pill" data-root="kabura" onclick="filterRoot('kabura')">L1 kabura</button>
   <button class="pill" data-root="shahida" onclick="filterRoot('shahida')">L2 shahida</button>
   <button class="pill" data-root="rasul" onclick="filterRoot('rasul')">L3 rasul</button>
+  <div class="sep"></div>
+  <label>View:</label>
+  <button class="pill" data-view="all" onclick="filterView('all')">All</button>
+  <button class="pill active" data-view="selected" onclick="filterView('selected')">Selected</button>
+  <button class="pill" data-view="candidate" onclick="filterView('candidate')">Candidates</button>
 </div>
 
 <div class="legend">
@@ -93,21 +101,21 @@ const DATA = [
    notes:{len:"10-8 words",frq:"ilah=89",dom:"89/2851=3.1%",
      sto:"No story. Pure declaration of tawhid.",fam:"Last 3 ayat of Hashr — universal morning/evening dhikr.",
      fit:"'No god but He' — the definition of ilah. Perfectly self-contained."}},
-  {ref:"6:74",root:"ilah",rootAr:"إِلَٰه",form:"آلِهَة",formEn:"aliha",role:"learn",lesson:1,
+  {ref:"6:74",root:"ilah",rootAr:"إِلَٰه",form:"آلِهَة",formEn:"aliha",role:"learning",lesson:1,
    arabic:"وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ أَتَتَّخِذُ أَصْنَامًا آلِهَةً",
    trans:"Ibrahim said to his father: Do you take idols as gods?",
    t1:{len:1,frq:6,dom:0}, t2:{sto:9,fam:2,fit:8},
    notes:{len:"10-9",frq:"aliha=30",dom:"30/2851=1.1%",
      sto:"Ibrahim confronting his father — iconic story.",fam:"Al-An'am — Tier D.",
      fit:"aliha (gods) is the crux. Standalone question, complete thought."}},
-  {ref:"3:26",root:"ilah",rootAr:"إِلَٰه",form:"اللَّهُمَّ",formEn:"Allahumma",role:"learn",lesson:1,
+  {ref:"3:26",root:"ilah",rootAr:"إِلَٰه",form:"اللَّهُمَّ",formEn:"Allahumma",role:"learning",lesson:1,
    arabic:"قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ",
    trans:"Say: O Allah, Owner of sovereignty",
    t1:{len:6,frq:2,dom:0}, t2:{sto:2,fam:4,fit:8},
    notes:{len:"10-4",frq:"Allahumma=3",dom:"3/2851=0.1%",
      sto:"No narrative. Command to invoke Allah.",fam:"Allahumma used daily in du'a.",
      fit:"Prayer-address form — connects root to daily practice. Trimmed but stands as du'a opening."}},
-  {ref:"2:163",root:"ilah",rootAr:"إِلَٰه",form:"إِلَٰه",formEn:"ilah",role:"practice",lesson:1,
+  {ref:"2:163",root:"ilah",rootAr:"إِلَٰه",form:"إِلَٰه",formEn:"ilah",role:"learning",lesson:1,
    arabic:"وَإِلَـٰهُكُمْ إِلَـٰهٌ وَٰحِدٌ ۖ لَّآ إِلَـٰهَ إِلَّا هُوَ",
    trans:"Your God is one God — there is no god but He",
    t1:{len:0,frq:8,dom:0}, t2:{sto:3,fam:5,fit:10},
@@ -116,49 +124,49 @@ const DATA = [
      fit:"Contains ilah THREE times — max teaching density. Complete theological statement."}},
 
   // ---- L1 kabura ----
-  {ref:"79:20",root:"kabura",rootAr:"كَبُرَ",form:"كُبْرَى",formEn:"kubra",role:"learn",lesson:1,
+  {ref:"79:20",root:"kabura",rootAr:"كَبُرَ",form:"كُبْرَى",formEn:"kubra",role:"learning",lesson:1,
    arabic:"فَأَرَاهُ الْآيَةَ الْكُبْرَىٰ",
    trans:"He showed him the greatest sign",
    t1:{len:6,frq:4,dom:1}, t2:{sto:7,fam:8,fit:8},
    notes:{len:"10-4",frq:"kubra=8",dom:"8/161=5%",
      sto:"Musa and Pharaoh — the staff/serpent miracle.",fam:"An-Nazi'at — Juz' 30, Tier A.",
      fit:"kubra (greatest) is the entire point. Short and punchy."}},
-  {ref:"61:3",root:"kabura",rootAr:"كَبُرَ",form:"كَبُرَ",formEn:"kabura",role:"learn",lesson:1,
+  {ref:"61:3",root:"kabura",rootAr:"كَبُرَ",form:"كَبُرَ",formEn:"kabura",role:"learning",lesson:1,
    arabic:"كَبُرَ مَقْتًا عِندَ اللَّهِ أَن تَقُولُوا مَا لَا تَفْعَلُونَ",
    trans:"Greatly hateful in the sight of Allah that you say what you do not do",
    t1:{len:2,frq:4,dom:1}, t2:{sto:5,fam:5,fit:9},
    notes:{len:"10-8",frq:"kabura=8",dom:"8/161=5%",
      sto:"Universal moral challenge.",fam:"As-Saff — well-known verse.",
      fit:"kabura opens and carries the force. Perfectly self-contained moral statement."}},
-  {ref:"2:34",root:"kabura",rootAr:"كَبُرَ",form:"اسْتَكْبَرَ",formEn:"istakbara",role:"learn",lesson:1,
+  {ref:"2:34",root:"kabura",rootAr:"كَبُرَ",form:"اسْتَكْبَرَ",formEn:"istakbara",role:"learning",lesson:1,
    arabic:"وَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ فَسَجَدُوا إِلَّا إِبْلِيسَ أَبَىٰ وَاسْتَكْبَرَ",
    trans:"When We said to the angels: Prostrate to Adam — except Iblis. He refused and was arrogant.",
    t1:{len:0,frq:6,dom:2}, t2:{sto:10,fam:5,fit:9},
    notes:{len:"10-14",frq:"istakbara=38",dom:"38/161=24%",
      sto:"THE iconic story — Iblis refusing to prostrate. The moment arrogance entered creation.",fam:"Al-Baqarah Tier D, but narrative universal.",
      fit:"istakbara IS the defining act of Iblis. Complete narrative unit."}},
-  {ref:"21:63",root:"kabura",rootAr:"كَبُرَ",form:"كَبِير",formEn:"kabir",role:"practice",lesson:1,
+  {ref:"21:63",root:"kabura",rootAr:"كَبُرَ",form:"كَبِير",formEn:"kabir",role:"learning",lesson:1,
    arabic:"قَالَ بَلْ فَعَلَهُ كَبِيرُهُمْ هَٰذَا فَاسْأَلُوهُمْ",
    trans:"He said: Rather, their chief did it — ask them, if they can speak",
    t1:{len:1,frq:6,dom:2}, t2:{sto:9,fam:3,fit:7},
    notes:{len:"10-9",frq:"kabir=36",dom:"36/161=22%",
      sto:"Ibrahim's wit after smashing idols. Beloved story.",fam:"Al-Anbiya — Tier D.",
      fit:"kabir used playfully — 'their big one.' Works alone, context adds delight."}},
-  {ref:"29:45",root:"kabura",rootAr:"كَبُرَ",form:"أَكْبَرُ",formEn:"akbar",role:"practice",lesson:1,
+  {ref:"29:45",root:"kabura",rootAr:"كَبُرَ",form:"أَكْبَرُ",formEn:"akbar",role:"learning",lesson:1,
    arabic:"وَلَذِكْرُ اللَّهِ أَكْبَرُ",
    trans:"And the remembrance of Allah is greater",
    t1:{len:7,frq:5,dom:1}, t2:{sto:3,fam:6,fit:10},
    notes:{len:"10-3",frq:"akbar=23",dom:"23/161=14%",
      sto:"No narrative. Pure spiritual declaration.",fam:"Connects to 'Allahu akbar' — most repeated phrase in worship.",
      fit:"akbar IS the lesson — Allahu Akbar. Three words, perfectly self-contained."}},
-  {ref:"18:5",root:"kabura",rootAr:"كَبُرَ",form:"كَبُرَ",formEn:"kabura",role:"practice",lesson:1,
+  {ref:"18:5",root:"kabura",rootAr:"كَبُرَ",form:"كَبُرَ",formEn:"kabura",role:"learning",lesson:1,
    arabic:"كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ",
    trans:"How great (terrible) is the word that comes from their mouths",
    t1:{len:5,frq:4,dom:1}, t2:{sto:4,fam:7,fit:8},
    notes:{len:"10-5",frq:"kabura=8",dom:"8/161=5%",
      sto:"Condemning 'Allah has a son' claim.",fam:"Al-Kahf — Tier B (Friday reading).",
      fit:"kabura carries the punch. Fragment works as expression of outrage."}},
-  {ref:"41:15",root:"kabura",rootAr:"كَبُرَ",form:"اسْتَكْبَرَ",formEn:"istakbara",role:"practice",lesson:1,
+  {ref:"41:15",root:"kabura",rootAr:"كَبُرَ",form:"اسْتَكْبَرَ",formEn:"istakbara",role:"learning",lesson:1,
    arabic:"فَأَمَّا عَادٌ فَاسْتَكْبَرُوا فِي الْأَرْضِ بِغَيْرِ الْحَقِّ",
    trans:"As for Aad, they were arrogant on earth without right: 'Who is mightier than us?'",
    t1:{len:0,frq:6,dom:2}, t2:{sto:7,fam:2,fit:8},
@@ -167,70 +175,70 @@ const DATA = [
      fit:"istakbara — same form as Iblis, now a nation. Complete narrative beat."}},
 
   // ---- L2 shahida ----
-  {ref:"3:18",root:"shahida",rootAr:"شَهِدَ",form:"شَهِدَ",formEn:"shahida",role:"learn",lesson:2,
+  {ref:"3:18",root:"shahida",rootAr:"شَهِدَ",form:"شَهِدَ",formEn:"shahida",role:"learning",lesson:2,
    arabic:"شَهِدَ اللَّهُ أَنَّهُ لَا إِلَٰهَ إِلَّا هُوَ",
    trans:"Allah bears witness that there is no god but He",
    t1:{len:3,frq:7,dom:3}, t2:{sto:5,fam:4,fit:10},
    notes:{len:"10-7",frq:"shahida=44",dom:"44/160=28%",
      sto:"Allah Himself testifying — the Qur'anic shahādah.",fam:"Aal-e-Imran Tier D, but well-known verse.",
      fit:"shahida IS the verb and concept. Definition verse. Perfectly self-contained."}},
-  {ref:"6:19",root:"shahida",rootAr:"شَهِدَ",form:"شَهَادَة",formEn:"shahada",role:"learn",lesson:2,
+  {ref:"6:19",root:"shahida",rootAr:"شَهِدَ",form:"شَهَادَة",formEn:"shahada",role:"learning",lesson:2,
    arabic:"قُلْ أَيُّ شَيْءٍ أَكْبَرُ شَهَادَةً",
    trans:"Say: What is greatest as testimony? Say: Allah is Witness",
    t1:{len:0,frq:5,dom:1}, t2:{sto:6,fam:2,fit:8},
    notes:{len:"10-11",frq:"shahada=23",dom:"23/160=14%",
      sto:"Dialogue — challenged, responds 'Allah is Witness.'",fam:"Al-An'am — Tier D.",
      fit:"'What is greatest as testimony?' — directly teaches the noun. Q&A stands alone."}},
-  {ref:"4:79",root:"shahida",rootAr:"شَهِدَ",form:"شَهِيد",formEn:"shahid",role:"learn",lesson:2,
+  {ref:"4:79",root:"shahida",rootAr:"شَهِدَ",form:"شَهِيد",formEn:"shahid",role:"learning",lesson:2,
    arabic:"وَكَفَىٰ بِاللَّهِ شَهِيدًا",
    trans:"Allah is sufficient as Witness",
    t1:{len:7,frq:7,dom:4}, t2:{sto:3,fam:3,fit:10},
    notes:{len:"10-3",frq:"shahid=56",dom:"56/160=35%",
      sto:"No narrative. Pure assertion with finality.",fam:"An-Nisa' Tier D, but 'kafa billahi shahida' is recognized formula.",
      fit:"shahīd is the climactic word. Three words, perfectly complete."}},
-  {ref:"5:117",root:"shahida",rootAr:"شَهِدَ",form:"شَهِيد",formEn:"shahid",role:"learn",lesson:2,
+  {ref:"5:117",root:"shahida",rootAr:"شَهِدَ",form:"شَهِيد",formEn:"shahid",role:"learning",lesson:2,
    arabic:"وَكُنتُ عَلَيْهِمْ شَهِيدًا مَّا دُمْتُ فِيهِمْ",
    trans:"And I was a witness over them while I was among them",
    t1:{len:4,frq:7,dom:4}, t2:{sto:8,fam:4,fit:9},
    notes:{len:"10-6",frq:"shahid=56",dom:"56/160=35%",
      sto:"Isa speaking on Judgment Day. Iconic, deeply emotional.",fam:"Al-Ma'idah Tier D, Isa narrative universal.",
      fit:"shahīd is Isa's role — powerful concept handoff. Works well alone."}},
-  {ref:"2:185",root:"shahida",rootAr:"شَهِدَ",form:"شَهِدَ",formEn:"shahida",role:"learn",lesson:2,
+  {ref:"2:185",root:"shahida",rootAr:"شَهِدَ",form:"شَهِدَ",formEn:"shahida",role:"learning",lesson:2,
    arabic:"فَمَن شَهِدَ مِنكُمُ الشَّهْرَ فَلْيَصُمْهُ",
    trans:"Whoever witnesses the month (of Ramadan) should fast it",
    t1:{len:4,frq:7,dom:3}, t2:{sto:4,fam:7,fit:7},
    notes:{len:"10-6",frq:"shahida=44",dom:"44/160=28%",
      sto:"The Ramadan fasting verse. Deeply personal.",fam:"THE Ramadan verse — every khutbah.",
      fit:"shahida = 'is present' — different shade. Self-contained ruling."}},
-  {ref:"3:53",root:"shahida",rootAr:"شَهِدَ",form:"شَاهِد",formEn:"shahid",role:"practice",lesson:2,
+  {ref:"3:53",root:"shahida",rootAr:"شَهِدَ",form:"شَاهِد",formEn:"shahid",role:"learning",lesson:2,
    arabic:"فَاكْتُبْنَا مَعَ الشَّاهِدِينَ",
    trans:"Write us among the witnesses",
    t1:{len:0,frq:5,dom:1}, t2:{sto:6,fam:3,fit:7},
    notes:{len:"10-11",frq:"shahid=21",dom:"21/160=13%",
      sto:"Disciples of Isa declaring faith.",fam:"Aal-e-Imran Tier D.",
      fit:"shahidin is the climax of the du'a. Works as standalone prayer."}},
-  {ref:"63:1",root:"shahida",rootAr:"شَهِدَ",form:"شَهِدَ",formEn:"shahida",role:"practice",lesson:2,
+  {ref:"63:1",root:"shahida",rootAr:"شَهِدَ",form:"شَهِدَ",formEn:"shahida",role:"learning",lesson:2,
    arabic:"قَالُوا نَشْهَدُ إِنَّكَ لَرَسُولُ اللَّهِ وَاللَّهُ يَشْهَدُ إِنَّ الْمُنَافِقِينَ لَكَاذِبُونَ",
    trans:"'We testify you are Allah's Messenger.' But Allah testifies the hypocrites are liars",
    t1:{len:0,frq:7,dom:3}, t2:{sto:8,fam:5,fit:10},
    notes:{len:"10-17",frq:"shahida=44",dom:"44/160=28%",
      sto:"Dramatic irony — false vs divine testimony.",fam:"Al-Munafiqun — Juz' 28.",
      fit:"shahida TWICE — max teaching density. Complete dramatic unit."}},
-  {ref:"41:20",root:"shahida",rootAr:"شَهِدَ",form:"شَهِدَ",formEn:"shahida",role:"practice",lesson:2,
+  {ref:"41:20",root:"shahida",rootAr:"شَهِدَ",form:"شَهِدَ",formEn:"shahida",role:"learning",lesson:2,
    arabic:"شَهِدَ عَلَيْهِمْ سَمْعُهُمْ وَأَبْصَارُهُمْ وَجُلُودُهُمْ",
    trans:"Their hearing, sight, and skins testified against them",
    t1:{len:1,frq:7,dom:3}, t2:{sto:8,fam:2,fit:8},
    notes:{len:"10-9",frq:"shahida=44",dom:"44/160=28%",
      sto:"Day of Judgment — body parts testify. Vivid, unsettling.",fam:"Fussilat — Tier D.",
      fit:"shahida in startling context — your own body witnesses. Self-contained scene."}},
-  {ref:"3:81",root:"shahida",rootAr:"شَهِدَ",form:"شَاهِد",formEn:"shahid",role:"practice",lesson:2,
+  {ref:"3:81",root:"shahida",rootAr:"شَهِدَ",form:"شَاهِد",formEn:"shahid",role:"learning",lesson:2,
    arabic:"قَالَ فَاشْهَدُوا وَأَنَا مَعَكُم مِّنَ الشَّاهِدِينَ",
    trans:"Then bear witness, and I am with you among the witnesses",
    t1:{len:2,frq:5,dom:1}, t2:{sto:6,fam:3,fit:8},
    notes:{len:"10-8",frq:"shahid=21",dom:"21/160=13%",
      sto:"Allah's covenant with the prophets.",fam:"Aal-e-Imran Tier D.",
      fit:"Two forms — command + noun. Double exposure in one verse."}},
-  {ref:"4:69",root:"shahida",rootAr:"شَهِدَ",form:"شُهَدَاء",formEn:"shuhada",role:"practice",lesson:2,
+  {ref:"4:69",root:"shahida",rootAr:"شَهِدَ",form:"شُهَدَاء",formEn:"shuhada",role:"learning",lesson:2,
    arabic:"مِنَ النَّبِيِّينَ وَالصِّدِّيقِينَ وَالشُّهَدَاءِ وَالصَّالِحِينَ",
    trans:"The prophets, the truthful, the witnesses/martyrs, and the righteous",
    t1:{len:0,frq:7,dom:4}, t2:{sto:5,fam:4,fit:7},
@@ -309,14 +317,152 @@ const DATA = [
    notes:{len:"10-3",frq:"rasul=332",dom:"332/513=65%",
      sto:"Fragment of oath passage. Abstract.",fam:"Al-Mursalat — Juz' 30, same root in surah name!",
      fit:"Contains rusul but verse isn't about messengers. Mid-sentence fragment."}},
+
+  // ---- L1 ilah candidates (from root inventory) ----
+  {ref:"21:87",root:"ilah",rootAr:"إِلَٰه",form:"إِلَٰه",formEn:"ilah",role:"candidate",lesson:1,
+   arabic:"وَذَا ٱلنُّونِ إِذ ذَّهَبَ مُغَـٰضِبًا فَظَنَّ أَن لَّن نَّقْدِرَ عَلَيْهِ فَنَادَىٰ فِى ٱلظُّلُمَـٰتِ أَن لَّآ إِلَـٰهَ إِلَّآ أَنتَ سُبْحَـٰنَكَ إِنِّى كُنتُ مِنَ ٱلظَّـٰلِمِينَ",
+   trans:"He called out in the darkness: There is no god but You — I was among the wrongdoers",
+   t1:{len:0,frq:0,dom:0}, t2:{sto:8,fam:0,fit:3},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"Yunus in the whale — one of the most beloved du\u2019as. Too long for L1 beginner.",fam:"v1",fit:"v1"}},
+  {ref:"7:59",root:"ilah",rootAr:"إِلَٰه",form:"إِلَٰه",formEn:"ilah",role:"candidate",lesson:1,
+   arabic:"يَا قَوْمِ اعْبُدُوا اللَّهَ مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ",
+   trans:"O my people, worship Allah — you have no god other than Him",
+   t1:{len:1,frq:0,dom:0}, t2:{sto:8,fam:0,fit:3},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"Nuh\u2019s call — same words repeated by every prophet.",fam:"v1",fit:"v1"}},
+  {ref:"114:1-3",root:"ilah",rootAr:"إِلَٰه",form:"إِلَٰه",formEn:"ilah",role:"candidate",lesson:1,
+   arabic:"قُلْ أَعُوذُ بِرَبِّ النَّاسِ · مَلِكِ النَّاسِ · إِلَٰهِ النَّاسِ",
+   trans:"Say: I seek refuge in the Lord of mankind, the King of mankind, the God of mankind",
+   t1:{len:1,frq:0,dom:0}, t2:{sto:1,fam:6,fit:3},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"Surah An-Nas — recited daily in salah.",fam:"v1",fit:"v1"}},
+  {ref:"47:19",root:"ilah",rootAr:"إِلَٰه",form:"إِلَٰه",formEn:"ilah",role:"candidate",lesson:1,
+   arabic:"فَٱعْلَمْ أَنَّهُۥ لَآ إِلَـٰهَ إِلَّا ٱللَّهُ وَٱسْتَغْفِرْ لِذَنۢبِكَ",
+   trans:"Know that there is no god but Allah, and ask forgiveness for your sins",
+   t1:{len:1,frq:0,dom:0}, t2:{sto:4,fam:0,fit:3},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"Direct command to the Prophet — concise tawhid + istighfar.",fam:"v1",fit:"v1"}},
+  {ref:"18:110",root:"ilah",rootAr:"إِلَٰه",form:"إِلَٰه",formEn:"ilah",role:"candidate",lesson:1,
+   arabic:"قُلْ إِنَّمَآ أَنَا۠ بَشَرٌ مِّثْلُكُمْ يُوحَىٰٓ إِلَىَّ أَنَّمَآ إِلَـٰهُكُمْ إِلَـٰهٌ وَٰحِدٌ",
+   trans:"Say: I am only a human like you — your God is one God",
+   t1:{len:0,frq:0,dom:0}, t2:{sto:3,fam:3,fit:0},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"Closing of Al-Kahf — recited every Friday. Too long for Learn.",fam:"v1",fit:"v1"}},
+  {ref:"7:138",root:"ilah",rootAr:"إِلَٰه",form:"إِلَٰه",formEn:"ilah",role:"candidate",lesson:1,
+   arabic:"قَالُوا۟ يَـٰمُوسَى ٱجْعَل لَّنَآ إِلَـٰهًا كَمَا لَهُمْ ءَالِهَةٌ",
+   trans:"They said: O Musa, make for us a god like the gods they have",
+   t1:{len:2,frq:0,dom:0}, t2:{sto:8,fam:0,fit:3},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"Israelites\u2019 shocking request — both singular and plural in one phrase.",fam:"v1",fit:"v1"}},
+  {ref:"28:38",root:"ilah",rootAr:"إِلَٰه",form:"إِلَٰه",formEn:"ilah",role:"candidate",lesson:1,
+   arabic:"وَقَالَ فِرْعَوْنُ يَـٰٓأَيُّهَا ٱلْمَلَأُ مَا عَلِمْتُ لَكُم مِّنْ إِلَـٰهٍ غَيْرِى",
+   trans:"Pharaoh said: I know of no god for you other than myself",
+   t1:{len:1,frq:0,dom:0}, t2:{sto:8,fam:0,fit:3},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"Anti-version of Nuh\u2019s call — Pharaoh flips the prophet\u2019s formula.",fam:"v1",fit:"v1"}},
+  {ref:"21:22",root:"ilah",rootAr:"إِلَٰه",form:"آلِهَة",formEn:"aliha",role:"candidate",lesson:1,
+   arabic:"لَوْ كَانَ فِيهِمَآ ءَالِهَةٌ إِلَّا ٱللَّهُ لَفَسَدَتَا",
+   trans:"Had there been gods other than Allah, they would have been ruined",
+   t1:{len:2,frq:0,dom:0}, t2:{sto:1,fam:0,fit:0},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"Famous logical argument for tawhid — short.",fam:"v1",fit:"v1"}},
+  {ref:"20:14",root:"ilah",rootAr:"إِلَٰه",form:"إِلَٰه",formEn:"ilah",role:"candidate",lesson:1,
+   arabic:"إِنَّنِىٓ أَنَا ٱللَّهُ لَآ إِلَـٰهَ إِلَّآ أَنَا۠ فَٱعْبُدْنِى وَأَقِمِ ٱلصَّلَوٰةَ لِذِكْرِىٓ",
+   trans:"I am Allah — there is no god but Me, so worship Me and establish prayer",
+   t1:{len:0,frq:0,dom:0}, t2:{sto:8,fam:0,fit:3},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"Allah speaking to Musa at the burning bush — connects to salah.",fam:"v1",fit:"v1"}},
+  {ref:"37:35",root:"ilah",rootAr:"إِلَٰه",form:"إِلَٰه",formEn:"ilah",role:"candidate",lesson:1,
+   arabic:"إِنَّهُمْ كَانُوٓا۟ إِذَا قِيلَ لَهُمْ لَآ إِلَـٰهَ إِلَّا ٱللَّهُ يَسْتَكْبِرُونَ",
+   trans:"When it was said to them: There is no god but Allah — they were arrogant",
+   t1:{len:1,frq:0,dom:0}, t2:{sto:4,fam:0,fit:3},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"Bridges both roots — la ilaha illa Allah + arrogance.",fam:"v1",fit:"v1"}},
+  {ref:"38:5",root:"ilah",rootAr:"إِلَٰه",form:"إِلَٰه",formEn:"ilah",role:"candidate",lesson:1,
+   arabic:"أَجَعَلَ ٱلْـَٔالِهَةَ إِلَـٰهًا وَٰحِدًا ۖ إِنَّ هَـٰذَا لَشَىْءٌ عُجَابٌ",
+   trans:"Has he made the gods into one God? This is truly astonishing!",
+   t1:{len:2,frq:0,dom:0}, t2:{sto:6,fam:0,fit:3},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"Quraysh mocking \u2018One God?!\u2019 — both singular and plural.",fam:"v1",fit:"v1"}},
+  {ref:"39:46",root:"ilah",rootAr:"إِلَٰه",form:"اللَّهُمَّ",formEn:"Allahumma",role:"candidate",lesson:1,
+   arabic:"قُلِ ٱللَّهُمَّ فَاطِرَ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ عَـٰلِمَ ٱلْغَيْبِ وَٱلشَّهَـٰدَةِ أَنتَ تَحْكُمُ بَيْنَ عِبَادِكَ",
+   trans:"O Allah, Creator of the heavens and earth, Knower of the unseen — You judge between Your servants",
+   t1:{len:0,frq:0,dom:0}, t2:{sto:1,fam:0,fit:0},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"Beautiful du\u2019a — Creator + Knower + Judge. Long.",fam:"v1",fit:"v1"}},
+
+  // ---- L1 kabura candidates (from root inventory) ----
+  {ref:"6:78",root:"kabura",rootAr:"كَبُرَ",form:"أَكْبَرُ",formEn:"akbar",role:"candidate",lesson:1,
+   arabic:"فَلَمَّا رَأَى ٱلشَّمْسَ بَازِغَةً قَالَ هَـٰذَا رَبِّى هَـٰذَآ أَكْبَرُ",
+   trans:"When he saw the sun rising, he said: This is my Lord — this is greater",
+   t1:{len:2,frq:0,dom:0}, t2:{sto:8,fam:3,fit:3},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"Ibrahim searching for God — stars, moon, sun. Iconic story.",fam:"v1",fit:"v1"}},
+  {ref:"87:12",root:"kabura",rootAr:"كَبُرَ",form:"كُبْرَى",formEn:"kubra",role:"candidate",lesson:1,
+   arabic:"ٱلَّذِى يَصْلَى ٱلنَّارَ ٱلْكُبْرَىٰ",
+   trans:"The one who will burn in the greatest Fire",
+   t1:{len:2,frq:0,dom:0}, t2:{sto:1,fam:6,fit:3},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"Surah Al-A\u2019la — frequently recited in salah.",fam:"v1",fit:"v1"}},
+  {ref:"2:219",root:"kabura",rootAr:"كَبُرَ",form:"كَبِير+أَكْبَرُ",formEn:"kabir+akbar",role:"candidate",lesson:1,
+   arabic:"يَسْـَٔلُونَكَ عَنِ ٱلْخَمْرِ وَٱلْمَيْسِرِ ۖ قُلْ فِيهِمَآ إِثْمٌ كَبِيرٌ وَمَنَـٰفِعُ لِلنَّاسِ وَإِثْمُهُمَآ أَكْبَرُ مِن نَّفْعِهِمَا",
+   trans:"They ask about wine and gambling: In them is great sin — their sin is greater than their benefit",
+   t1:{len:0,frq:0,dom:0}, t2:{sto:1,fam:0,fit:0},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"Famous ruling verse. Uses both kabir and akbar. Very long.",fam:"v1",fit:"v1"}},
+  {ref:"40:35",root:"kabura",rootAr:"كَبُرَ",form:"كَبُرَ",formEn:"kabura",role:"candidate",lesson:1,
+   arabic:"كَبُرَ مَقْتًا عِندَ ٱللَّهِ وَعِندَ ٱلَّذِينَ ءَامَنُوا۟",
+   trans:"Greatly hateful in the sight of Allah and of those who believe",
+   t1:{len:2,frq:0,dom:0}, t2:{sto:1,fam:0,fit:0},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"Nearly identical to 61:3 — same phrase, different context.",fam:"v1",fit:"v1"}},
+  {ref:"9:72",root:"kabura",rootAr:"كَبُرَ",form:"أَكْبَرُ",formEn:"akbar",role:"candidate",lesson:1,
+   arabic:"وَرِضْوَٰنٌ مِّنَ ٱللَّهِ أَكْبَرُ ۚ ذَٰلِكَ هُوَ ٱلْفَوْزُ ٱلْعَظِيمُ",
+   trans:"And approval from Allah is greater — that is the great triumph",
+   t1:{len:2,frq:0,dom:0}, t2:{sto:2,fam:0,fit:0},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"Allah\u2019s pleasure is greater — beautiful concept.",fam:"v1",fit:"v1"}},
+
+  // ---- L2 shahida candidates (from root inventory) ----
+  {ref:"12:26",root:"shahida",rootAr:"شَهِدَ",form:"شَهِدَ+شَاهِد",formEn:"shahida+shahid",role:"candidate",lesson:2,
+   arabic:"وَشَهِدَ شَاهِدٌ مِّنْ أَهْلِهَا",
+   trans:"And a witness from her family testified",
+   t1:{len:2,frq:0,dom:0}, t2:{sto:8,fam:0,fit:3},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"Yusuf story — two forms in one phrase. High priority for future.",fam:"v1",fit:"v1"}},
+  {ref:"36:65",root:"shahida",rootAr:"شَهِدَ",form:"تَشْهَدُ",formEn:"tashhadu",role:"candidate",lesson:2,
+   arabic:"ٱلْيَوْمَ نَخْتِمُ عَلَىٰٓ أَفْوَٰهِهِمْ وَتُكَلِّمُنَآ أَيْدِيهِمْ وَتَشْهَدُ أَرْجُلُهُم",
+   trans:"Today We seal their mouths, their hands speak, their feet testify",
+   t1:{len:1,frq:0,dom:0}, t2:{sto:4,fam:3,fit:3},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"Surah Yasin — body parts testify. High priority for future Practice.",fam:"v1",fit:"v1"}},
+  {ref:"22:17",root:"shahida",rootAr:"شَهِدَ",form:"شَهِيد",formEn:"shahid",role:"candidate",lesson:2,
+   arabic:"إِنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍ شَهِيدٌ",
+   trans:"Indeed Allah is Witness over everything",
+   t1:{len:2,frq:0,dom:0}, t2:{sto:1,fam:0,fit:0},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"Short declarative. Deferred — Practice had enough shahid coverage.",fam:"v1",fit:"v1"}},
+  {ref:"3:98",root:"shahida",rootAr:"شَهِدَ",form:"شَهِيد",formEn:"shahid",role:"candidate",lesson:2,
+   arabic:"وَٱللَّهُ شَهِيدٌ عَلَىٰ مَا تَعْمَلُونَ",
+   trans:"Allah is Witness over what you do",
+   t1:{len:2,frq:0,dom:0}, t2:{sto:1,fam:0,fit:0},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"Short warning. Parallel to 22:17.",fam:"v1",fit:"v1"}},
+  {ref:"7:172",root:"shahida",rootAr:"شَهِدَ",form:"أَشْهَدَ+شَهِدْنَا",formEn:"ashhada+shahidna",role:"candidate",lesson:2,
+   arabic:"وَأَشْهَدَهُمْ عَلَىٰٓ أَنفُسِهِمْ أَلَسْتُ بِرَبِّكُمْ ۖ قَالُوا۟ بَلَىٰ شَهِدْنَآ",
+   trans:"He made them testify: \u2018Am I not your Lord?\u2019 They said: \u2018Yes \u2014 we bear witness.\u2019",
+   t1:{len:1,frq:0,dom:0}, t2:{sto:9,fam:0,fit:3},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"Primordial covenant \u2014 origin of the shahādah. Highest-priority future Learn.",fam:"v1",fit:"v1"}},
+  {ref:"85:3",root:"shahida",rootAr:"شَهِدَ",form:"شَاهِد+مَشْهُود",formEn:"shahid+mashhud",role:"candidate",lesson:2,
+   arabic:"وَشَاهِدٍۢ وَمَشْهُودٍ",
+   trans:"By the witness and the witnessed",
+   t1:{len:2,frq:0,dom:0}, t2:{sto:2,fam:6,fit:3},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"Ultra-short \u2014 two forms (active + passive participle). Juz\u2019 30.",fam:"v1",fit:"v1"}},
+  {ref:"2:143",root:"shahida",rootAr:"شَهِدَ",form:"شُهَدَاء+شَهِيد",formEn:"shuhada+shahid",role:"candidate",lesson:2,
+   arabic:"لِّتَكُونُوا۟ شُهَدَآءَ عَلَى ٱلنَّاسِ وَيَكُونَ ٱلرَّسُولُ عَلَيْكُمْ شَهِيدًا",
+   trans:"So you may be witnesses over mankind, and the Messenger a witness over you",
+   t1:{len:1,frq:0,dom:0}, t2:{sto:4,fam:0,fit:3},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"This ummah\u2019s mission. Good future Practice.",fam:"v1",fit:"v1"}},
+  {ref:"16:89",root:"shahida",rootAr:"شَهِدَ",form:"شَهِيد",formEn:"shahid",role:"candidate",lesson:2,
+   arabic:"وَجِئْنَا بِكَ شَهِيدًا عَلَىٰ هَٰٓؤُلَآءِ",
+   trans:"And We brought you as a witness over these",
+   t1:{len:2,frq:0,dom:0}, t2:{sto:4,fam:0,fit:3},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"Prophet as witness over his ummah.",fam:"v1",fit:"v1"}},
+  {ref:"41:53",root:"shahida",rootAr:"شَهِدَ",form:"شَهِيد",formEn:"shahid",role:"candidate",lesson:2,
+   arabic:"أَوَلَمْ يَكْفِ بِرَبِّكَ أَنَّهُۥ عَلَىٰ كُلِّ شَىْءٍ شَهِيدٌ",
+   trans:"Is it not enough that your Lord is Witness over everything?",
+   t1:{len:1,frq:0,dom:0}, t2:{sto:2,fam:0,fit:0},
+   notes:{len:"v1",frq:"—",dom:"—",sto:"Powerful rhetorical \u2014 signs in horizons and in yourselves.",fam:"v1",fit:"v1"}},
 ];
 
 // State
 const adj = {};
 DATA.forEach(v => adj[v.ref] = 0);
 let currentRoot = 'all';
+let currentView = 'selected';
 let sortCol = 'total';
 let sortDir = 'desc';
+const SELECTED_ROLES = ['anchor','learn','practice'];
 
 // Helpers
 function t1(v) { return v.t1.len + v.t1.frq + v.t1.dom; }
@@ -345,7 +491,10 @@ function showTip(e,text) { tip.style.display='block'; tip.textContent=text; tip.
 function hideTip() { tip.style.display='none'; }
 
 function render() {
-  const filtered = currentRoot==='all' ? DATA : DATA.filter(v=>v.root===currentRoot);
+  let filtered = currentRoot==='all' ? DATA : DATA.filter(v=>v.root===currentRoot);
+  // Apply view filter
+  if (currentView==='selected') filtered = filtered.filter(v=>SELECTED_ROLES.includes(v.role));
+  else if (currentView==='candidate') filtered = filtered.filter(v=>v.role==='candidate');
   const useGroups = sortCol==='total' && sortDir==='desc' && currentRoot==='all';
 
   let sorted;
@@ -395,8 +544,9 @@ function headerRow() {
 
 function verseRow(v) {
   const total = tot(v); const c = cls(total);
-  const rid = v.ref.replace(':','-');
-  let html = `<tr class="data-row" onclick="toggleDetail('${rid}')">`;
+  const rid = v.ref.replace(/[:\/]/g,'-');
+  const rowCls = v.role==='candidate' ? 'data-row candidate-row' : 'data-row';
+  let html = `<tr class="${rowCls}" onclick="toggleDetail('${rid}')">`;
   html += `<td class="num">${v.lesson}</td>`;
   html += `<td class="arabic" style="font-size:0.85rem">${v.rootAr}</td>`;
   html += `<td><strong>${v.ref}</strong></td>`;
@@ -469,6 +619,12 @@ function doSort(col) {
 function filterRoot(root) {
   currentRoot = root;
   document.querySelectorAll('[data-root]').forEach(b => b.classList.toggle('active', b.dataset.root===root));
+  render();
+}
+
+function filterView(view) {
+  currentView = view;
+  document.querySelectorAll('[data-view]').forEach(b => b.classList.toggle('active', b.dataset.view===view));
   render();
 }
 
