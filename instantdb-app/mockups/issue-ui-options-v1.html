@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Issue UI Options — Mockup Comparison</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf8f3;
+    --card: #ffffff;
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --border: #e5e5e5;
+    --learning: #0f766e;
+    --learning-bg: #ccfbf1;
+    --recall: #d97706;
+    --recall-bg: #fef3c7;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    padding: 2rem;
+    line-height: 1.5;
+  }
+
+  h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .subtitle { color: var(--muted); font-size: 0.9rem; margin-bottom: 2rem; }
+
+  .option-label {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 2.5rem 0 0.3rem;
+    color: var(--learning);
+  }
+  .option-desc {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    max-width: 700px;
+  }
+
+  /* ============ SHARED CARD STYLES ============ */
+  .card {
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-left: 6px solid var(--learning);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    max-width: 780px;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.3rem;
+  }
+  .card-refs {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .ref { font-weight: 700; font-size: 1rem; }
+  .badge {
+    padding: 0.15rem 0.55rem;
+    border-radius: 5px;
+    font-size: 0.74rem;
+    font-weight: 500;
+  }
+  .badge.form { background: #e0e7ff; color: #4338ca; }
+  .badge.score-high { background: #dcfce7; color: #16a34a; }
+  .section-buttons { display: flex; gap: 0.3rem; }
+  .section-buttons button {
+    background: white;
+    border: 1.5px solid var(--border);
+    color: var(--muted);
+    padding: 0.3rem 0.65rem;
+    border-radius: 6px;
+    font-size: 0.76rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .section-buttons button.active.learning { background: var(--learning); border-color: var(--learning); color: white; }
+  .arabic {
+    font-family: 'Amiri', 'Traditional Arabic', serif;
+    font-size: 1.4rem;
+    line-height: 2;
+    direction: rtl;
+    text-align: right;
+    margin: 0.7rem 0 0.4rem;
+  }
+  .english {
+    font-style: italic;
+    color: #374151;
+    margin: 0 0 0.5rem;
+    font-size: 0.9rem;
+  }
+  .remark-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    margin-top: 0.3rem;
+  }
+  .remark-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+  .remark-text {
+    color: var(--muted);
+    font-size: 0.85rem;
+    padding: 0.3rem 0.5rem;
+    border: 1.5px dashed transparent;
+    border-radius: 6px;
+    flex: 1;
+    min-height: 1.5rem;
+    cursor: text;
+  }
+  .remark-text:hover { border-color: var(--border); background: #fafafa; }
+  .remark-text:focus { outline: none; border-color: var(--learning); background: white; color: var(--ink); }
+
+  hr.divider {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 3rem 0;
+  }
+
+  /* ============ OPTION A: Inline chip toggle row ============ */
+  .issue-row-a {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px dashed var(--border);
+  }
+  .issue-label-a {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-right: 0.2rem;
+    flex-shrink: 0;
+  }
+  .issue-chip-a {
+    padding: 0.2rem 0.6rem;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: white;
+    font-size: 0.72rem;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    color: var(--muted);
+    transition: all 0.15s;
+  }
+  .issue-chip-a:hover { border-color: #9ca3af; color: var(--ink); }
+  .issue-chip-a.active[data-type="Arabic"] { background: #e8f5ee; border-color: #1a6b3a; color: #1a6b3a; }
+  .issue-chip-a.active[data-type="Eng"]    { background: #e8f0fe; border-color: #1a56db; color: #1a56db; }
+  .issue-chip-a.active[data-type="Audio"]  { background: #fef3c7; border-color: #b8930a; color: #92740a; }
+  .issue-chip-a.active[data-type="Hook"]   { background: #fce7f3; border-color: #be185d; color: #be185d; }
+  .issue-chip-a.active[data-type="Other"]  { background: #f3f4f6; border-color: #636366; color: #636366; }
+  .issue-note-a {
+    flex: 1;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.78rem;
+    font-family: inherit;
+    color: var(--ink);
+    background: white;
+    min-width: 120px;
+  }
+  .issue-note-a:focus { outline: none; border-color: var(--learning); }
+  .issue-note-a::placeholder { color: #c0c0c0; }
+
+  /* Card with active issue — amber right border */
+  .card.has-issue-a { border-right: 4px solid #f59e0b; }
+
+  /* ============ OPTION B: Expandable flag button ============ */
+  .flag-btn-b {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    background: #f3f4f6;
+    border: 1px solid var(--border);
+    font-size: 0.75rem;
+    cursor: pointer;
+    color: var(--muted);
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    font-family: inherit;
+    font-weight: 500;
+    transition: all 0.15s;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  .flag-btn-b:hover { color: #dc2626; background: #fef2f2; border-color: #fca5a5; }
+  .flag-btn-b.flagged { color: #dc2626; background: #fef2f2; border-color: #fca5a5; }
+
+  .issue-dropdown-b {
+    position: absolute;
+    top: 2.4rem;
+    right: 0.6rem;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.75rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    z-index: 10;
+    width: 260px;
+  }
+  .issue-dropdown-b .chips { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.5rem; }
+  .issue-dropdown-b .chip {
+    padding: 0.2rem 0.6rem;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: white;
+    font-size: 0.72rem;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    color: var(--muted);
+  }
+  .issue-dropdown-b .chip.active { background: #fef2f2; border-color: #dc2626; color: #dc2626; }
+  .issue-dropdown-b input {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.35rem 0.5rem;
+    font-size: 0.8rem;
+    font-family: inherit;
+  }
+  .issue-dropdown-b input:focus { outline: none; border-color: var(--learning); }
+
+  /* Summary badge when flagged */
+  .issue-summary-b {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 0.5rem;
+    padding: 0.25rem 0.6rem;
+    background: #fefce8;
+    border-radius: 6px;
+    font-size: 0.78rem;
+  }
+  .issue-summary-b .type-badge {
+    padding: 0.1rem 0.4rem;
+    border-radius: 8px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 1px solid;
+  }
+
+  /* ============ OPTION C: Always-visible inline issue bar ============ */
+  .issue-bar-c {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.5rem;
+    padding: 0.4rem 0.6rem;
+    background: #fafaf9;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: border-color 0.15s;
+  }
+  .issue-bar-c:hover { border-color: var(--border); }
+  .issue-bar-c.has-issue { background: #fefce8; border-color: #fde68a; }
+
+  .issue-icon-c {
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 0.15rem;
+    color: #d1d5db;
+    transition: color 0.15s;
+    flex-shrink: 0;
+  }
+  .issue-icon-c:hover { color: #f59e0b; }
+  .issue-icon-c.active { color: #f59e0b; }
+
+  .issue-chips-c {
+    display: flex;
+    gap: 0.25rem;
+    flex-shrink: 0;
+  }
+  .issue-chip-c {
+    padding: 0.15rem 0.5rem;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    background: white;
+    font-size: 0.68rem;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    color: #9ca3af;
+    transition: all 0.12s;
+    line-height: 1.4;
+  }
+  .issue-chip-c:hover { border-color: #9ca3af; color: var(--ink); }
+  .issue-chip-c.active[data-type="Arabic"] { background: #e8f5ee; border-color: #1a6b3a; color: #1a6b3a; }
+  .issue-chip-c.active[data-type="Eng"]    { background: #e8f0fe; border-color: #1a56db; color: #1a56db; }
+  .issue-chip-c.active[data-type="Audio"]  { background: #fef3c7; border-color: #b8930a; color: #92740a; }
+  .issue-chip-c.active[data-type="Hook"]   { background: #fce7f3; border-color: #be185d; color: #be185d; }
+  .issue-chip-c.active[data-type="Other"]  { background: #f3f4f6; border-color: #636366; color: #636366; }
+
+  .issue-note-c {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 0.78rem;
+    font-family: inherit;
+    color: var(--ink);
+    padding: 0.2rem 0.4rem;
+    min-width: 80px;
+  }
+  .issue-note-c:focus { outline: none; }
+  .issue-note-c::placeholder { color: #d1d5db; font-style: italic; }
+
+  /* ============ PROS/CONS ============ */
+  .pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    max-width: 700px;
+    margin: 1rem 0;
+    font-size: 0.82rem;
+  }
+  .pros-cons h4 {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.4rem;
+  }
+  .pros-cons .pros h4 { color: #16a34a; }
+  .pros-cons .cons h4 { color: #dc2626; }
+  .pros-cons ul {
+    padding-left: 1.2rem;
+    margin: 0;
+    color: var(--muted);
+  }
+  .pros-cons li { margin-bottom: 0.2rem; }
+</style>
+</head>
+<body>
+
+<h1>Issue UI — Three Options</h1>
+<p class="subtitle">Each card below shows the same verse (3:18) with a different issue flagging UI. Click chips to toggle (interactive).</p>
+
+<!-- ═══════════════════════════════════════════════ -->
+<hr class="divider">
+<div class="option-label">Option A — Inline Chip Row</div>
+<p class="option-desc">
+  Issue chips sit in a dedicated row at the bottom of every card, always visible.
+  Click a chip to flag, type a note inline. No extra clicks to open/close.
+</p>
+
+<div class="card has-issue-a">
+  <div class="card-top">
+    <div class="card-refs">
+      <span class="ref">3:18</span>
+      <span class="badge form">شَهِدَ</span>
+      <span class="badge score-high">★ 12</span>
+    </div>
+    <div class="section-buttons">
+      <button class="active learning">Learning</button>
+      <button>Recall</button>
+      <button>Pipeline</button>
+    </div>
+  </div>
+  <div class="arabic">شَهِدَ ٱللَّهُ أَنَّهُۥ لَآ إِلَٰهَ إِلَّا هُوَ</div>
+  <div class="english">"Allah bears witness that there is no god but He"</div>
+
+  <div class="remark-row">
+    <span class="remark-label">Remark</span>
+    <div class="remark-text" contenteditable="true">Allah Himself bearing witness. Bridges إِلَٰه from L1.</div>
+  </div>
+
+  <div class="issue-row-a">
+    <span class="issue-label-a">Issue</span>
+    <button class="issue-chip-a active" data-type="Eng" onclick="toggleChipA(this)">Eng</button>
+    <button class="issue-chip-a" data-type="Arabic" onclick="toggleChipA(this)">Arabic</button>
+    <button class="issue-chip-a" data-type="Audio" onclick="toggleChipA(this)">Audio</button>
+    <button class="issue-chip-a" data-type="Hook" onclick="toggleChipA(this)">Hook</button>
+    <button class="issue-chip-a" data-type="Other" onclick="toggleChipA(this)">Other</button>
+    <input class="issue-note-a" placeholder="What's wrong?" value="Translation feels too academic">
+  </div>
+</div>
+
+<!-- Same card, no issue flagged (default state) -->
+<div class="card">
+  <div class="card-top">
+    <div class="card-refs">
+      <span class="ref">6:19</span>
+      <span class="badge form">شَهَادَة</span>
+      <span class="badge score-high">★ 12</span>
+    </div>
+    <div class="section-buttons">
+      <button class="active learning">Learning</button>
+      <button>Recall</button>
+      <button>Pipeline</button>
+    </div>
+  </div>
+  <div class="arabic">قُلْ أَيُّ شَىْءٍ أَكْبَرُ شَهَٰدَةً ۖ قُلِ ٱللَّهُ شَهِيدٌۢ</div>
+  <div class="english">"Say: What is greatest as testimony? Say: Allah is Witness"</div>
+
+  <div class="remark-row">
+    <span class="remark-label">Remark</span>
+    <div class="remark-text" contenteditable="true" style="color:#c0c0c0;">Click to add remark…</div>
+  </div>
+
+  <div class="issue-row-a">
+    <span class="issue-label-a">Issue</span>
+    <button class="issue-chip-a" data-type="Eng" onclick="toggleChipA(this)">Eng</button>
+    <button class="issue-chip-a" data-type="Arabic" onclick="toggleChipA(this)">Arabic</button>
+    <button class="issue-chip-a" data-type="Audio" onclick="toggleChipA(this)">Audio</button>
+    <button class="issue-chip-a" data-type="Hook" onclick="toggleChipA(this)">Hook</button>
+    <button class="issue-chip-a" data-type="Other" onclick="toggleChipA(this)">Other</button>
+    <input class="issue-note-a" placeholder="What's wrong?">
+  </div>
+</div>
+
+<div class="pros-cons">
+  <div class="pros">
+    <h4>Pros</h4>
+    <ul>
+      <li>Zero-click discovery — always visible</li>
+      <li>One-tap to flag (chip + type note)</li>
+      <li>Remark and issue are separate concerns, clearly labeled</li>
+      <li>Amber right-border on flagged cards for scanability</li>
+    </ul>
+  </div>
+  <div class="cons">
+    <h4>Cons</h4>
+    <ul>
+      <li>Every card has an issue row — adds visual noise even when no issues</li>
+      <li>Row takes vertical space on every card</li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════ -->
+<hr class="divider">
+<div class="option-label">Option B — Corner Flag Button + Dropdown</div>
+<p class="option-desc">
+  Small flag icon in the top-right corner. Click to open a dropdown panel.
+  When flagged, a summary badge appears below the remark. Closest to the old picker's approach.
+</p>
+
+<div class="card" style="border-right: 4px solid #f59e0b;">
+  <button class="flag-btn-b flagged">⚑ Eng</button>
+  <div class="card-top">
+    <div class="card-refs">
+      <span class="ref">3:18</span>
+      <span class="badge form">شَهِدَ</span>
+      <span class="badge score-high">★ 12</span>
+    </div>
+    <div class="section-buttons">
+      <button class="active learning">Learning</button>
+      <button>Recall</button>
+      <button>Pipeline</button>
+    </div>
+  </div>
+  <div class="arabic">شَهِدَ ٱللَّهُ أَنَّهُۥ لَآ إِلَٰهَ إِلَّا هُوَ</div>
+  <div class="english">"Allah bears witness that there is no god but He"</div>
+
+  <div class="remark-row">
+    <span class="remark-label">Remark</span>
+    <div class="remark-text" contenteditable="true">Allah Himself bearing witness. Bridges إِلَٰه from L1.</div>
+  </div>
+
+  <div class="issue-summary-b">
+    <span class="type-badge" style="background:#e8f0fe;color:#1a56db;border-color:#1a56db">ENG</span>
+    <span>Translation feels too academic</span>
+  </div>
+</div>
+
+<!-- Unflagged state + open dropdown shown -->
+<div class="card" style="position:relative; margin-bottom: 4rem;">
+  <button class="flag-btn-b" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'">⚐ Flag</button>
+  <div class="issue-dropdown-b" style="display:block;">
+    <div class="chips">
+      <button class="chip" onclick="toggleChipB(this)">Arabic</button>
+      <button class="chip" onclick="toggleChipB(this)">Eng</button>
+      <button class="chip" onclick="toggleChipB(this)">Audio</button>
+      <button class="chip" onclick="toggleChipB(this)">Hook</button>
+      <button class="chip" onclick="toggleChipB(this)">Other</button>
+    </div>
+    <input placeholder="What's wrong?">
+  </div>
+  <div class="card-top">
+    <div class="card-refs">
+      <span class="ref">6:19</span>
+      <span class="badge form">شَهَادَة</span>
+      <span class="badge score-high">★ 12</span>
+    </div>
+    <div class="section-buttons">
+      <button class="active learning">Learning</button>
+      <button>Recall</button>
+      <button>Pipeline</button>
+    </div>
+  </div>
+  <div class="arabic">قُلْ أَيُّ شَىْءٍ أَكْبَرُ شَهَٰدَةً ۖ قُلِ ٱللَّهُ شَهِيدٌۢ</div>
+  <div class="english">"Say: What is greatest as testimony? Say: Allah is Witness"</div>
+
+  <div class="remark-row">
+    <span class="remark-label">Remark</span>
+    <div class="remark-text" contenteditable="true" style="color:#c0c0c0;">Click to add remark…</div>
+  </div>
+</div>
+
+<div class="pros-cons">
+  <div class="pros">
+    <h4>Pros</h4>
+    <ul>
+      <li>Clean cards when no issues — no visual noise</li>
+      <li>Familiar pattern from old picker</li>
+      <li>Flag button shows category when flagged (⚑ Eng)</li>
+      <li>Summary badge below remark shows issue at a glance</li>
+    </ul>
+  </div>
+  <div class="cons">
+    <h4>Cons</h4>
+    <ul>
+      <li>Two clicks to flag (open dropdown → pick chip)</li>
+      <li>Dropdown can overlap adjacent cards</li>
+      <li>Easy to miss unflagged cards that need review</li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════ -->
+<hr class="divider">
+<div class="option-label">Option C — Subtle Issue Bar (Recommended)</div>
+<p class="option-desc">
+  A quiet grey bar at the bottom of each card with a ⚐ icon and faded chips.
+  Unobtrusive when empty, lights up warmly when an issue is flagged.
+  Single click to flag — no open/close ceremony. Note field appears inline.
+</p>
+
+<div class="card">
+  <div class="card-top">
+    <div class="card-refs">
+      <span class="ref">3:18</span>
+      <span class="badge form">شَهِدَ</span>
+      <span class="badge score-high">★ 12</span>
+    </div>
+    <div class="section-buttons">
+      <button class="active learning">Learning</button>
+      <button>Recall</button>
+      <button>Pipeline</button>
+    </div>
+  </div>
+  <div class="arabic">شَهِدَ ٱللَّهُ أَنَّهُۥ لَآ إِلَٰهَ إِلَّا هُوَ</div>
+  <div class="english">"Allah bears witness that there is no god but He"</div>
+
+  <div class="remark-row">
+    <span class="remark-label">Remark</span>
+    <div class="remark-text" contenteditable="true">Allah Himself bearing witness. Bridges إِلَٰه from L1.</div>
+  </div>
+
+  <!-- Flagged state -->
+  <div class="issue-bar-c has-issue">
+    <span class="issue-icon-c active">⚑</span>
+    <div class="issue-chips-c">
+      <button class="issue-chip-c" data-type="Arabic" onclick="toggleChipC(this)">Arabic</button>
+      <button class="issue-chip-c active" data-type="Eng" onclick="toggleChipC(this)">Eng</button>
+      <button class="issue-chip-c" data-type="Audio" onclick="toggleChipC(this)">Audio</button>
+      <button class="issue-chip-c" data-type="Hook" onclick="toggleChipC(this)">Hook</button>
+      <button class="issue-chip-c" data-type="Other" onclick="toggleChipC(this)">Other</button>
+    </div>
+    <input class="issue-note-c" placeholder="note…" value="Translation feels too academic">
+  </div>
+</div>
+
+<!-- Unflagged state -->
+<div class="card">
+  <div class="card-top">
+    <div class="card-refs">
+      <span class="ref">6:19</span>
+      <span class="badge form">شَهَادَة</span>
+      <span class="badge score-high">★ 12</span>
+    </div>
+    <div class="section-buttons">
+      <button class="active learning">Learning</button>
+      <button>Recall</button>
+      <button>Pipeline</button>
+    </div>
+  </div>
+  <div class="arabic">قُلْ أَيُّ شَىْءٍ أَكْبَرُ شَهَٰدَةً ۖ قُلِ ٱللَّهُ شَهِيدٌۢ</div>
+  <div class="english">"Say: What is greatest as testimony? Say: Allah is Witness"</div>
+
+  <div class="remark-row">
+    <span class="remark-label">Remark</span>
+    <div class="remark-text" contenteditable="true" style="color:#c0c0c0;">Click to add remark…</div>
+  </div>
+
+  <!-- Unflagged — bar is quiet, faded -->
+  <div class="issue-bar-c">
+    <span class="issue-icon-c">⚐</span>
+    <div class="issue-chips-c">
+      <button class="issue-chip-c" data-type="Arabic" onclick="toggleChipC(this)">Arabic</button>
+      <button class="issue-chip-c" data-type="Eng" onclick="toggleChipC(this)">Eng</button>
+      <button class="issue-chip-c" data-type="Audio" onclick="toggleChipC(this)">Audio</button>
+      <button class="issue-chip-c" data-type="Hook" onclick="toggleChipC(this)">Hook</button>
+      <button class="issue-chip-c" data-type="Other" onclick="toggleChipC(this)">Other</button>
+    </div>
+    <input class="issue-note-c" placeholder="note…">
+  </div>
+</div>
+
+<div class="pros-cons">
+  <div class="pros">
+    <h4>Pros</h4>
+    <ul>
+      <li>One click to flag — no open/close, no dropdown</li>
+      <li>Quiet when unused — faded grey blends into the card</li>
+      <li>Lights up warmly (yellow bg) when flagged — scannable</li>
+      <li>Note field is always ready — no extra step</li>
+      <li>No overlap/z-index issues (unlike dropdown)</li>
+    </ul>
+  </div>
+  <div class="cons">
+    <h4>Cons</h4>
+    <ul>
+      <li>Slightly more visual weight than the hidden-flag approach (Option B)</li>
+      <li>Chips are small — may need phone testing if used on mobile</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  // Simple chip toggles for the mockup
+  function toggleChipA(el) {
+    const row = el.closest('.issue-row-a');
+    row.querySelectorAll('.issue-chip-a').forEach(c => c.classList.remove('active'));
+    el.classList.toggle('active');
+  }
+  function toggleChipB(el) {
+    const dd = el.closest('.issue-dropdown-b');
+    dd.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    el.classList.toggle('active');
+  }
+  function toggleChipC(el) {
+    const bar = el.closest('.issue-bar-c');
+    const wasActive = el.classList.contains('active');
+    bar.querySelectorAll('.issue-chip-c').forEach(c => c.classList.remove('active'));
+    if (!wasActive) {
+      el.classList.add('active');
+      bar.classList.add('has-issue');
+      bar.querySelector('.issue-icon-c').textContent = '⚑';
+      bar.querySelector('.issue-icon-c').classList.add('active');
+    } else {
+      bar.classList.remove('has-issue');
+      bar.querySelector('.issue-icon-c').textContent = '⚐';
+      bar.querySelector('.issue-icon-c').classList.remove('active');
+    }
+  }
+</script>
+
+</body>
+</html>

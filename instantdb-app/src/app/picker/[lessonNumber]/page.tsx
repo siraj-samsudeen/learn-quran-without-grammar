@@ -1,17 +1,36 @@
 "use client";
 
-import { use, useState, useMemo } from "react";
+import { use, useState, useMemo, useRef } from "react";
 import { tx, id as iid } from "@instantdb/react";
 import db from "@/lib/instant";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import type { VerseSection } from "@/lib/types";
+import IssueBar from "@/components/IssueBar";
 
-const SECTIONS: { key: VerseSection; label: string; color: string }[] = [
-  { key: "learning", label: "Learning", color: "bg-emerald-100 text-emerald-800 border-emerald-300" },
-  { key: "recall", label: "Recall", color: "bg-blue-100 text-blue-800 border-blue-300" },
-  { key: "pipeline", label: "Pipeline", color: "bg-amber-100 text-amber-800 border-amber-300" },
-  { key: "none", label: "Skip", color: "bg-gray-100 text-gray-500 border-gray-300" },
+const SECTIONS: { key: VerseSection; label: string }[] = [
+  { key: "learning", label: "Learning" },
+  { key: "recall", label: "Recall" },
+  { key: "pipeline", label: "Pipeline" },
 ];
+
+const RECITERS = [
+  { name: "Alafasy", folder: "Alafasy_128kbps" },
+  { name: "Husary", folder: "Husary_128kbps" },
+  { name: "Abdul Basit (Murattal)", folder: "Abdul_Basit_Murattal_192kbps" },
+  { name: "Abdul Basit (Mujawwad)", folder: "Abdul_Basit_Mujawwad_128kbps" },
+  { name: "Hani Ar-Rifai", folder: "Hani_Rifai_192kbps" },
+  { name: "Hudhaifi", folder: "Hudhaify_128kbps" },
+  { name: "Ash-Shatri", folder: "Abu_Bakr_Ash-Shaatree_128kbps" },
+  { name: "Al-Juhainy", folder: "Abdullaah_3awwaad_Al-Juhaynee_128kbps" },
+  { name: "Maher Al-Muaiqly", folder: "MaherAlMuaiqly128kbps" },
+  { name: "As-Sudais", folder: "Abdurrahmaan_As-Sudais_192kbps" },
+  { name: "Yasser Ad-Dussary", folder: "Yasser_Ad-Dussary_128kbps" },
+];
+
+function buildAudioUrl(ref: string, reciterFolder: string) {
+  const [surah, ayah] = ref.split(":");
+  return `https://everyayah.com/data/${reciterFolder}/${surah.padStart(3, "0")}${ayah.padStart(3, "0")}.mp3`;
+}
 
 export default function PickerPage({
   params,
@@ -25,6 +44,7 @@ export default function PickerPage({
     lessons: {},
     verses: {},
     selections: {},
+    issues: {},
   });
 
   if (isLoading) {
@@ -35,7 +55,12 @@ export default function PickerPage({
     );
   }
 
-  const lesson = data?.lessons?.find(
+  const lessons = (data?.lessons ?? []).sort(
+    (a: Record<string, unknown>, b: Record<string, unknown>) =>
+      (a.lessonNumber as number) - (b.lessonNumber as number)
+  );
+
+  const lesson = lessons.find(
     (l: Record<string, unknown>) => l.lessonNumber === lessonNumber
   );
 
@@ -43,9 +68,6 @@ export default function PickerPage({
     return (
       <div className="max-w-3xl mx-auto p-6">
         <p className="text-red-600">Lesson {lessonNumber} not found.</p>
-        <Link href="/" className="text-emerald-700 underline text-sm">
-          Back to dashboard
-        </Link>
       </div>
     );
   }
@@ -53,18 +75,19 @@ export default function PickerPage({
   const verses = (data?.verses ?? [])
     .filter((v: Record<string, unknown>) => v.lessonNumber === lessonNumber)
     .sort((a: Record<string, unknown>, b: Record<string, unknown>) => {
-      const sa = (b.scoreFinal as number) ?? 0;
-      const sb = (a.scoreFinal as number) ?? 0;
-      return sa - sb;
+      return ((b.scoreFinal as number) ?? 0) - ((a.scoreFinal as number) ?? 0);
     });
 
   const selections = data?.selections ?? [];
+  const issues = data?.issues ?? [];
 
   return (
     <PickerContent
       lesson={lesson}
+      lessons={lessons}
       verses={verses}
       selections={selections}
+      issues={issues}
       lessonNumber={lessonNumber}
     />
   );
@@ -72,19 +95,26 @@ export default function PickerPage({
 
 function PickerContent({
   lesson,
+  lessons,
   verses,
   selections,
+  issues,
   lessonNumber,
 }: {
   lesson: Record<string, unknown>;
+  lessons: Record<string, unknown>[];
   verses: Record<string, unknown>[];
   selections: Record<string, unknown>[];
+  issues: Record<string, unknown>[];
   lessonNumber: number;
 }) {
+  const router = useRouter();
   const [filter, setFilter] = useState<VerseSection | "all">("all");
   const [groupByRoot, setGroupByRoot] = useState(true);
 
-  // Build a map of verseRef -> selection for this lesson
+  // Track currently playing audio for mutual exclusion
+  const currentAudioRef = useRef<HTMLAudioElement | null>(null);
+
   const selectionMap = useMemo(() => {
     const map: Record<string, Record<string, unknown>> = {};
     for (const s of selections) {
@@ -95,31 +125,34 @@ function PickerContent({
     return map;
   }, [selections, lessonNumber]);
 
+  // Build issue map: verseRef -> issue record
+  const issueMap = useMemo(() => {
+    const map: Record<string, Record<string, unknown>> = {};
+    for (const iss of issues) {
+      if ((iss.lessonNumber as number) === lessonNumber) {
+        map[iss.verseRef as string] = iss;
+      }
+    }
+    return map;
+  }, [issues, lessonNumber]);
+
   function getSection(verseRef: string): VerseSection {
     return (selectionMap[verseRef]?.section as VerseSection) ?? "none";
   }
 
-  // Counts per section
   const counts = useMemo(() => {
-    const c: Record<VerseSection, number> = {
-      learning: 0,
-      recall: 0,
-      pipeline: 0,
-      none: 0,
-    };
+    const c: Record<VerseSection, number> = { learning: 0, recall: 0, pipeline: 0, none: 0 };
     for (const v of verses) {
       c[getSection(v.ref as string)]++;
     }
     return c;
   }, [verses, selectionMap]);
 
-  // Filter verses
   const filtered =
     filter === "all"
       ? verses
       : verses.filter((v) => getSection(v.ref as string) === filter);
 
-  // Group by root
   const groups = useMemo(() => {
     if (!groupByRoot) return { all: filtered };
     const g: Record<string, Record<string, unknown>[]> = {};
@@ -131,25 +164,19 @@ function PickerContent({
     return g;
   }, [filtered, groupByRoot]);
 
-  function setVerseSection(verseRef: string, section: VerseSection, rootKey: string, form: string) {
+  function setVerseSection(verseRef: string, newSection: VerseSection, rootKey: string, form: string) {
+    const current = getSection(verseRef);
+    // Toggle: clicking active button deselects back to none
+    const section = current === newSection ? "none" : newSection;
     const existing = selectionMap[verseRef];
     if (existing) {
       db.transact(
-        tx.selections[existing.id as string].update({
-          section,
-          updatedAt: Date.now(),
-        })
+        tx.selections[existing.id as string].update({ section, updatedAt: Date.now() })
       );
     } else {
       db.transact(
         tx.selections[iid()].update({
-          lessonNumber,
-          verseRef,
-          section,
-          rootKey,
-          form,
-          remark: "",
-          updatedAt: Date.now(),
+          lessonNumber, verseRef, section, rootKey, form, remark: "", updatedAt: Date.now(),
         })
       );
     }
@@ -159,115 +186,68 @@ function PickerContent({
     const existing = selectionMap[verseRef];
     if (existing) {
       db.transact(
-        tx.selections[existing.id as string].update({
-          remark,
-          updatedAt: Date.now(),
-        })
+        tx.selections[existing.id as string].update({ remark, updatedAt: Date.now() })
       );
     } else {
       db.transact(
         tx.selections[iid()].update({
-          lessonNumber,
-          verseRef,
-          section: "none" as VerseSection,
-          rootKey,
-          form,
-          remark,
-          updatedAt: Date.now(),
+          lessonNumber, verseRef, section: "none" as VerseSection, rootKey, form, remark, updatedAt: Date.now(),
         })
       );
     }
   }
 
-  function exportSelections() {
-    const output = {
-      lesson: lessonNumber,
-      anchor: lesson.seedArabic,
-      exported_at: new Date().toISOString(),
-      selections: {
-        learning: [] as { ref: string; form: string; group: string; remark?: string }[],
-        recall: [] as { ref: string; form: string; group: string; remark?: string }[],
-        pipeline: [] as { ref: string; form: string; group: string; remark?: string }[],
-      },
-    };
-
-    for (const s of selections) {
-      if ((s.lessonNumber as number) !== lessonNumber) continue;
-      const sec = s.section as VerseSection;
-      if (sec === "none") continue;
-      const entry: { ref: string; form: string; group: string; remark?: string } = {
-        ref: s.verseRef as string,
-        form: s.form as string,
-        group: s.rootKey as string,
-      };
-      if (s.remark) entry.remark = s.remark as string;
-      output.selections[sec].push(entry);
+  function handlePlay(audioEl: HTMLAudioElement) {
+    if (currentAudioRef.current && currentAudioRef.current !== audioEl) {
+      currentAudioRef.current.pause();
     }
-
-    navigator.clipboard.writeText(JSON.stringify(output, null, 2));
-    alert("Selections JSON copied to clipboard!");
+    currentAudioRef.current = audioEl;
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-6 font-sans">
-      {/* Header */}
-      <div className="flex items-start justify-between mb-4">
-        <div>
-          <Link href="/" className="text-xs text-emerald-700 hover:underline">
-            &larr; Dashboard
-          </Link>
-          <h1 className="text-xl font-bold text-emerald-800 mt-1">
-            L{lessonNumber}. {lesson.title as string} — Verse Picker
-          </h1>
-          <div className="text-lg font-arabic mt-1" dir="rtl">
-            {lesson.seedArabic as string}
-          </div>
-        </div>
-        <button
-          onClick={exportSelections}
-          className="px-4 py-2 bg-emerald-700 text-white rounded-lg text-sm font-medium hover:bg-emerald-800"
+    <div className="px-8 py-6 font-sans max-w-[980px]">
+      {/* Sticky top bar */}
+      <div className="sticky top-0 z-50 bg-[rgba(250,248,243,0.97)] backdrop-blur-sm pb-3 pt-2 -mx-8 px-8 border-b border-[#e5e5e5] mb-4 flex items-center gap-3 flex-wrap">
+        {/* Lesson selector */}
+        <select
+          value={lessonNumber}
+          onChange={(e) => router.push(`/picker/${e.target.value}`)}
+          className="text-[0.82rem] font-semibold px-3 py-[0.4rem] border-2 border-[#0f766e] rounded-lg bg-white text-[#0f766e] cursor-pointer"
         >
-          Copy JSON
-        </button>
-      </div>
+          {lessons.map((l: Record<string, unknown>) => (
+            <option key={l.lessonNumber as number} value={l.lessonNumber as number}>
+              L{l.lessonNumber as number} — {l.title as string}
+            </option>
+          ))}
+        </select>
 
-      {/* Counters */}
-      <div className="flex gap-3 mb-4 flex-wrap">
-        <CounterPill
-          label="All"
-          count={verses.length}
-          active={filter === "all"}
-          onClick={() => setFilter("all")}
-          color="bg-gray-200 text-gray-700"
-        />
-        {SECTIONS.map((s) => (
-          <CounterPill
-            key={s.key}
-            label={s.label}
-            count={counts[s.key]}
-            active={filter === s.key}
-            onClick={() => setFilter(filter === s.key ? "all" : s.key)}
-            color={s.color}
-          />
-        ))}
-        <div className="flex-1" />
-        <label className="flex items-center gap-1 text-xs text-gray-500">
-          <input
-            type="checkbox"
-            checked={groupByRoot}
-            onChange={(e) => setGroupByRoot(e.target.checked)}
-          />
-          Group by root
-        </label>
+        {/* Counter pills */}
+        <div className="flex gap-2 flex-wrap">
+          <CounterPill label="All" count={verses.length} active={filter === "all"} onClick={() => setFilter("all")} />
+          {SECTIONS.map((s) => (
+            <CounterPill
+              key={s.key}
+              label={s.label}
+              count={counts[s.key]}
+              active={filter === s.key}
+              onClick={() => setFilter(filter === s.key ? "all" : s.key)}
+              variant={s.key}
+            />
+          ))}
+        </div>
+
+        <div className="ml-auto">
+          <label className="flex items-center gap-1 text-[0.72rem] text-[#6b6b6b] cursor-pointer">
+            <input type="checkbox" checked={groupByRoot} onChange={(e) => setGroupByRoot(e.target.checked)} />
+            Group by root
+          </label>
+        </div>
       </div>
 
       {/* No verses */}
       {verses.length === 0 && (
         <div className="text-center py-12 text-gray-400">
           <p className="text-lg mb-2">No verses loaded for Lesson {lessonNumber}</p>
-          <Link href="/seed" className="text-emerald-700 underline text-sm">
-            Go to Seed page to load verse data
-          </Link>
         </div>
       )}
 
@@ -275,23 +255,30 @@ function PickerContent({
       {Object.entries(groups).map(([rootKey, rootVerses]) => (
         <div key={rootKey} className="mb-6">
           {groupByRoot && rootKey !== "all" && (
-            <h2 className="text-sm font-semibold text-gray-600 mb-2 uppercase tracking-wider">
+            <h2
+              id={`group-${rootKey}`}
+              className="text-[1rem] font-bold text-[#6b6b6b] mb-1 uppercase tracking-wider pb-2 border-b border-[#e5e5e5]"
+              style={{ scrollMarginTop: "5rem" }}
+            >
               {rootKey} ({rootVerses.length} verses)
             </h2>
           )}
-          <div className="space-y-3">
+          <div className="grid gap-[0.9rem] mt-3">
             {rootVerses.map((v) => (
               <VerseCard
                 key={v.id as string}
                 verse={v}
                 section={getSection(v.ref as string)}
                 remark={(selectionMap[v.ref as string]?.remark as string) ?? ""}
+                issue={issueMap[v.ref as string] ?? null}
+                lessonNumber={lessonNumber}
                 onSetSection={(sec) =>
                   setVerseSection(v.ref as string, sec, v.rootKey as string, v.form as string)
                 }
                 onSetRemark={(r) =>
                   updateRemark(v.ref as string, r, v.rootKey as string, v.form as string)
                 }
+                onPlay={handlePlay}
               />
             ))}
           </div>
@@ -305,133 +292,168 @@ function VerseCard({
   verse,
   section,
   remark,
+  issue,
+  lessonNumber,
   onSetSection,
   onSetRemark,
+  onPlay,
 }: {
   verse: Record<string, unknown>;
   section: VerseSection;
   remark: string;
+  issue: Record<string, unknown> | null;
+  lessonNumber: number;
   onSetSection: (s: VerseSection) => void;
   onSetRemark: (r: string) => void;
+  onPlay: (audio: HTMLAudioElement) => void;
 }) {
-  const [editingRemark, setEditingRemark] = useState(false);
-  const [remarkDraft, setRemarkDraft] = useState(remark);
-  const sectionStyle = SECTIONS.find((s) => s.key === section);
+  const [reciter, setReciter] = useState("Alafasy_128kbps");
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const remarkRef = useRef<HTMLDivElement>(null);
+  const [remarkEdited, setRemarkEdited] = useState(false);
+
+  const score = verse.scoreFinal as number | null;
+  const scoreClass =
+    score != null && score >= 10
+      ? "bg-[#dcfce7] text-[#16a34a]"
+      : score != null && score >= 6
+      ? "bg-[#fef9c3] text-[#854d0e]"
+      : "bg-[#f3f4f6] text-[#6b6b6b]";
+
+  const borderColor =
+    section === "learning"
+      ? "border-l-[#0f766e]"
+      : section === "recall"
+      ? "border-l-[#d97706]"
+      : section === "pipeline"
+      ? "border-l-[#6b7280]"
+      : "border-l-[#e5e5e5]";
+
+  function handleReciterChange(folder: string) {
+    setReciter(folder);
+    if (audioRef.current) {
+      audioRef.current.src = buildAudioUrl(verse.ref as string, folder);
+      audioRef.current.load();
+    }
+  }
+
+  function handleRemarkBlur() {
+    const text = remarkRef.current?.textContent ?? "";
+    if (text !== remark) {
+      onSetRemark(text);
+      setRemarkEdited(true);
+    }
+  }
 
   return (
     <div
-      className={`border rounded-lg p-4 ${
-        section === "learning"
-          ? "border-emerald-300 bg-emerald-50/50"
-          : section === "recall"
-          ? "border-blue-300 bg-blue-50/50"
-          : section === "pipeline"
-          ? "border-amber-300 bg-amber-50/50"
-          : "border-gray-200 bg-white"
-      }`}
+      data-testid="verse-card"
+      data-section={section}
+      className={`bg-white border border-[#e5e5e5] border-l-[6px] ${borderColor} rounded-[10px] p-4 relative`}
     >
-      <div className="flex gap-4">
-        {/* Score badge */}
-        <div className="flex flex-col items-center justify-start min-w-[48px]">
-          <div className="text-lg font-bold text-emerald-700">
-            {verse.scoreFinal != null
-              ? (verse.scoreFinal as number).toFixed(1)
-              : "--"}
-          </div>
-          <div className="text-[10px] text-gray-400">score</div>
+      {/* Top row: ref + badges + section buttons */}
+      <div className="flex items-start justify-between gap-4 mb-1">
+        <div className="flex gap-2 items-center flex-wrap">
+          <span className="font-bold text-[1rem]">{verse.ref as string}</span>
+          <span className="badge-form">{verse.form as string}</span>
+          <span className={`px-2 py-[0.15rem] rounded text-[0.74rem] font-medium ${scoreClass}`}>
+            &#9733; {score != null ? score.toFixed(1) : "--"}
+          </span>
         </div>
-
-        {/* Content */}
-        <div className="flex-1 min-w-0">
-          {/* Arabic */}
-          <div
-            className="text-lg leading-relaxed font-arabic mb-1"
-            dir="rtl"
-          >
-            {verse.arabicFull as string}
-          </div>
-
-          {/* Translation */}
-          <div className="text-sm text-gray-600 mb-2">
-            {verse.translation as string}
-          </div>
-
-          {/* Meta row */}
-          <div className="flex items-center gap-3 text-xs text-gray-400 mb-2">
-            <span>
-              ({verse.surahName as string} {verse.ref as string})
-            </span>
-            <span>Form: <strong className="text-gray-600 font-arabic">{verse.form as string}</strong></span>
-            <span>{verse.wordCount as number} words</span>
-            {verse.fragment && (
-              <span className="text-amber-600 font-medium">FRAGMENT</span>
-            )}
-          </div>
-
-          {/* Section buttons */}
-          <div className="flex gap-2 mb-2">
-            {SECTIONS.map((s) => (
+        <div className="flex gap-[0.3rem]">
+          {SECTIONS.map((s) => {
+            const isActive = section === s.key;
+            const activeStyle =
+              s.key === "learning"
+                ? "bg-[#0f766e] border-[#0f766e] text-white"
+                : s.key === "recall"
+                ? "bg-[#d97706] border-[#d97706] text-white"
+                : "bg-[#6b7280] border-[#6b7280] text-white";
+            return (
               <button
+                type="button"
                 key={s.key}
                 onClick={() => onSetSection(s.key)}
-                className={`px-3 py-1 rounded border text-xs font-medium transition-colors ${
-                  section === s.key
-                    ? s.color + " border-current"
-                    : "bg-white text-gray-400 border-gray-200 hover:border-gray-400"
+                className={`px-[0.65rem] py-[0.3rem] rounded-[6px] text-[0.76rem] font-semibold border-[1.5px] transition-colors ${
+                  isActive
+                    ? activeStyle
+                    : "bg-white text-[#6b6b6b] border-[#e5e5e5] hover:border-[#1a1a1a] hover:text-[#1a1a1a]"
                 }`}
               >
                 {s.label}
               </button>
-            ))}
-          </div>
-
-          {/* Remark */}
-          {editingRemark ? (
-            <div className="flex gap-2">
-              <input
-                autoFocus
-                value={remarkDraft}
-                onChange={(e) => setRemarkDraft(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    onSetRemark(remarkDraft);
-                    setEditingRemark(false);
-                  }
-                  if (e.key === "Escape") {
-                    setRemarkDraft(remark);
-                    setEditingRemark(false);
-                  }
-                }}
-                className="flex-1 border rounded px-2 py-1 text-sm"
-                placeholder="Why this verse?"
-              />
-              <button
-                onClick={() => {
-                  onSetRemark(remarkDraft);
-                  setEditingRemark(false);
-                }}
-                className="px-2 py-1 bg-emerald-700 text-white rounded text-xs"
-              >
-                Save
-              </button>
-            </div>
-          ) : (
-            <button
-              onClick={() => {
-                setRemarkDraft(remark);
-                setEditingRemark(true);
-              }}
-              className={`text-xs ${
-                remark
-                  ? "text-emerald-700"
-                  : "text-gray-400 hover:text-gray-600"
-              }`}
-            >
-              {remark || "+ Add remark"}
-            </button>
-          )}
+            );
+          })}
         </div>
       </div>
+
+      {/* Arabic */}
+      <div className="font-arabic text-[1.4rem] leading-[2] mt-2 mb-1" dir="rtl" style={{ textAlign: "right" }}>
+        {verse.arabicFull as string}
+      </div>
+
+      {/* Audio player */}
+      <div className="flex items-center gap-2 my-1">
+        <audio
+          ref={audioRef}
+          controls
+          preload="none"
+          src={buildAudioUrl(verse.ref as string, reciter)}
+          onPlay={() => audioRef.current && onPlay(audioRef.current)}
+          className="h-7 flex-1 max-w-[320px] rounded"
+        />
+        <select
+          value={reciter}
+          onChange={(e) => handleReciterChange(e.target.value)}
+          className="text-[0.72rem] px-1 py-[0.2rem] border border-[#e5e5e5] rounded bg-white text-[#6b6b6b] cursor-pointer focus:outline-none focus:border-[#0f766e]"
+        >
+          {RECITERS.map((r) => (
+            <option key={r.folder} value={r.folder}>{r.name}</option>
+          ))}
+        </select>
+      </div>
+
+      {/* Translation */}
+      <div className="italic text-[0.9rem] text-[#374151] mb-1">
+        {verse.translation as string}
+      </div>
+
+      {/* Meta row */}
+      <div className="flex items-center gap-2 text-[0.72rem] text-[#6b6b6b] mb-1 flex-wrap">
+        <span>({verse.surahName as string} {verse.ref as string})</span>
+        <span>
+          Form: <strong className="font-arabic text-[#1a1a1a]">{verse.form as string}</strong>
+        </span>
+        <span>{verse.wordCount as number} words</span>
+        {verse.fragment && (
+          <span className="text-[#d97706] font-semibold">FRAGMENT</span>
+        )}
+      </div>
+
+      {/* Remark — always visible, inline editable */}
+      <div className="text-[0.7rem] font-semibold text-[#6b6b6b] uppercase tracking-wider mt-2 mb-1">
+        Remark
+      </div>
+      <div
+        ref={remarkRef}
+        contentEditable
+        suppressContentEditableWarning
+        onBlur={handleRemarkBlur}
+        className={`text-[0.85rem] px-2 py-1 rounded-[6px] min-h-[1.5rem] transition-colors ${
+          remark || remarkEdited
+            ? "border-[1.5px] border-dashed border-[#0f766e] bg-[#ccfbf1] text-[#1a1a1a]"
+            : "border-[1.5px] border-dashed border-transparent text-[#6b6b6b] hover:border-[#e5e5e5] hover:bg-[#fafafa]"
+        } focus:outline-none focus:border-[#0f766e] focus:bg-white focus:text-[#1a1a1a]`}
+      >
+        {remark || "Click to add remark..."}
+      </div>
+
+      {/* Issue bar */}
+      <IssueBar
+        verseRef={verse.ref as string}
+        lessonNumber={lessonNumber}
+        existingIssue={issue}
+      />
     </div>
   );
 }
@@ -441,19 +463,31 @@ function CounterPill({
   count,
   active,
   onClick,
-  color,
+  variant,
 }: {
   label: string;
   count: number;
   active: boolean;
   onClick: () => void;
-  color: string;
+  variant?: string;
 }) {
+  const filledStyle =
+    variant === "learning"
+      ? "bg-[#ccfbf1] border-[#0f766e] text-[#0f766e]"
+      : variant === "recall"
+      ? "bg-[#fef3c7] border-[#d97706] text-[#d97706]"
+      : variant === "pipeline"
+      ? "bg-[#f3f4f6] border-[#6b7280] text-[#6b7280]"
+      : "bg-[#e5e5e5] border-[#999] text-[#6b6b6b]";
+
   return (
     <button
+      type="button"
       onClick={onClick}
-      className={`px-3 py-1 rounded-full text-xs font-medium border transition-all ${
-        active ? color + " border-current ring-2 ring-offset-1 ring-current/20" : "bg-white text-gray-500 border-gray-200"
+      className={`px-[0.7rem] py-[0.35rem] rounded-full text-[0.75rem] font-semibold border-2 transition-all ${
+        active
+          ? `${filledStyle} shadow-[0_0_0_2px_rgba(15,118,110,0.15)]`
+          : "bg-white text-[#6b6b6b] border-[#e5e5e5] hover:border-[#999]"
       }`}
     >
       {label} <span className="font-bold">{count}</span>

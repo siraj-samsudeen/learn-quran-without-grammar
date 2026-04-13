@@ -172,15 +172,6 @@ export default function Dashboard() {
         </div>
       )}
 
-      {/* Navigation */}
-      <div className="flex gap-3 text-sm">
-        <Link
-          href="/seed"
-          className="text-emerald-700 hover:underline"
-        >
-          Seed Data
-        </Link>
-      </div>
     </div>
   );
 }

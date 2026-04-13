@@ -1,8 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f9fafb;
+  --background: #faf8f3;
   --foreground: #171717;
+  --color-learning: #0f766e;
+  --color-learning-bg: #ccfbf1;
+  --color-recall: #d97706;
+  --color-recall-bg: #fef3c7;
+  --color-pipeline: #6b7280;
+  --color-pipeline-bg: #f3f4f6;
+  --color-border: #e5e5e5;
 }
 
 @theme inline {
@@ -19,5 +26,5 @@ body {
 }
 
 .font-arabic {
-  font-family: "Noto Sans Arabic", "Amiri", serif;
+  font-family: "Amiri", "Noto Sans Arabic", serif;
 }

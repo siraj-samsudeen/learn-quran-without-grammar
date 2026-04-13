@@ -80,3 +80,14 @@ export interface SelectionData {
   form: string;
   updatedAt: number;
 }
+
+export type IssueType = "Arabic" | "Eng" | "Audio" | "Hook" | "Other";
+
+export interface IssueData {
+  id: string;
+  verseRef: string;
+  lessonNumber: number;
+  type: IssueType;
+  note: string;
+  createdAt: number;
+}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import AppSidebar from "@/components/AppSidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,11 +30,16 @@ export default function RootLayout({
     >
       <head>
         <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@400;700&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-full flex flex-col bg-gray-50">{children}</body>
+      <body className="min-h-full bg-[#faf8f3]">
+        <div className="min-h-screen max-[900px]:block grid grid-cols-[240px_1fr]">
+          <AppSidebar />
+          <main className="max-[900px]:pt-12">{children}</main>
+        </div>
+      </body>
     </html>
   );
 }
