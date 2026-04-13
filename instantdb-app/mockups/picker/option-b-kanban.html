@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Option B — Form-First Columns (Kanban)</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf8f3;
+    --card: #ffffff;
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --border: #e5e5e5;
+    --learning: #0f766e;
+    --learning-bg: #ccfbf1;
+    --pipeline: #6b7280;
+    --pipeline-bg: #f3f4f6;
+    --accent: #4338ca;
+    --accent-bg: #e0e7ff;
+    --good: #16a34a;
+    --warn: #d97706;
+    --danger: #dc2626;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  /* ============ HEADER ============ */
+  .header {
+    background: white;
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+  .header h1 { font-size: 1.1rem; font-weight: 700; }
+  .header .sub { font-size: 0.82rem; color: var(--muted); margin-top: 0.15rem; }
+  .header-right { display: flex; gap: 0.75rem; align-items: center; }
+  .counter-pill {
+    display: flex; align-items: center; gap: 0.3rem;
+    padding: 0.35rem 0.75rem; border-radius: 999px;
+    font-size: 0.8rem; font-weight: 600;
+    border: 2px solid var(--border); background: white;
+  }
+  .counter-pill.filled { background: var(--learning-bg); border-color: var(--learning); color: var(--learning); }
+
+  /* ============ COVERAGE BAR ============ */
+  .coverage-strip {
+    background: white;
+    border-bottom: 1px solid var(--border);
+    padding: 0.6rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+  }
+  .coverage-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .coverage-chips {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+  .coverage-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.76rem;
+    font-weight: 600;
+    border: 1.5px solid var(--border);
+    background: white;
+  }
+  .coverage-chip.covered {
+    background: #dcfce7;
+    border-color: var(--good);
+    color: #166534;
+  }
+  .coverage-chip.empty {
+    background: #fef3c7;
+    border-color: var(--warn);
+    color: #92400e;
+  }
+  .coverage-chip.uncovered {
+    background: #f3f4f6;
+    border-color: var(--border);
+    color: var(--muted);
+  }
+  .coverage-chip .chip-arabic {
+    font-family: 'Amiri', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+  .coverage-chip .chip-check { font-size: 0.8rem; }
+  .coverage-summary {
+    margin-left: auto;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  /* ============ COLUMNS AREA ============ */
+  .columns-area {
+    flex: 1;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 1rem 1rem 0;
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .column {
+    min-width: 280px;
+    max-width: 320px;
+    flex-shrink: 0;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+  }
+  .column.has-selection .col-header { background: var(--learning-bg); }
+
+  .col-header {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border);
+    border-radius: 12px 12px 0 0;
+    background: #f9fafb;
+  }
+  .col-header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .col-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .col-title .form-arabic {
+    font-family: 'Amiri', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  .col-title .form-trans {
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .col-count {
+    background: #e5e7eb;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--muted);
+  }
+  .col-meta {
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-top: 0.25rem;
+  }
+  .col-gloss {
+    font-style: italic;
+  }
+
+  .col-cards {
+    padding: 0.5rem;
+    overflow-y: auto;
+    flex: 1;
+  }
+
+  /* Column cards — compact */
+  .col-card {
+    background: var(--bg);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 0.65rem 0.75rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: all 0.12s;
+  }
+  .col-card:hover { border-color: var(--accent); }
+  .col-card.selected {
+    border-color: var(--learning);
+    background: #f0fdfa;
+    border-width: 2px;
+  }
+  .col-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.3rem;
+  }
+  .col-ref { font-weight: 700; font-size: 0.88rem; }
+  .col-score {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+  }
+  .col-score.high { background: #dcfce7; color: var(--good); }
+  .col-score.mid { background: #fef9c3; color: #854d0e; }
+  .col-score.low { background: #f3f4f6; color: var(--muted); }
+  .col-arabic {
+    font-family: 'Amiri', serif;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    direction: rtl;
+    text-align: right;
+    margin: 0.3rem 0;
+  }
+  .col-english {
+    font-size: 0.78rem;
+    font-style: italic;
+    color: #374151;
+    margin-bottom: 0.3rem;
+  }
+  .col-meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.3rem;
+  }
+  .col-words {
+    font-size: 0.68rem;
+    color: var(--muted);
+  }
+  .col-select-btn {
+    border: 1.5px solid var(--learning);
+    background: white;
+    color: var(--learning);
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .col-card.selected .col-select-btn {
+    background: var(--learning);
+    color: white;
+  }
+  .col-select-btn:hover { opacity: 0.85; }
+
+  /* Empty column state */
+  .col-empty {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+  .col-empty .empty-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
+    opacity: 0.4;
+  }
+
+  /* ============ ORDER STRIP ============ */
+  .order-strip {
+    background: white;
+    border-top: 2px solid var(--learning);
+    padding: 0.75rem 1.5rem;
+    flex-shrink: 0;
+  }
+  .order-strip-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+  .order-strip-header h3 {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--learning);
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+  .order-count {
+    background: var(--learning-bg);
+    color: var(--learning);
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  .order-hint {
+    font-size: 0.72rem;
+    color: var(--muted);
+  }
+  .order-items {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  .order-items::-webkit-scrollbar { height: 4px; }
+  .order-items::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
+  .order-chip {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--learning-bg);
+    border: 1.5px solid var(--learning);
+    border-radius: 8px;
+    padding: 0.4rem 0.65rem;
+    cursor: grab;
+    font-size: 0.78rem;
+  }
+  .order-chip:active { cursor: grabbing; }
+  .order-chip .order-num {
+    background: var(--learning);
+    color: white;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    font-size: 0.65rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .order-chip .chip-ref { font-weight: 700; }
+  .order-chip .chip-form {
+    font-family: 'Amiri', serif;
+    font-size: 0.95rem;
+  }
+  .order-chip .chip-words { color: var(--muted); font-size: 0.7rem; }
+  .order-arrow {
+    color: var(--muted);
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div>
+    <h1>Lesson 2 — Selection Picker</h1>
+    <div class="sub">Root: <span style="font-family:Amiri;font-size:1.1rem;font-weight:700">شَهِدَ</span> (shahida) &middot; Anchor: أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ</div>
+  </div>
+  <div class="header-right">
+    <div class="counter-pill filled">
+      <span class="label">Learning</span>
+      <span class="count">10 / 10</span>
+    </div>
+  </div>
+</div>
+
+<!-- COVERAGE STRIP -->
+<div class="coverage-strip">
+  <span class="coverage-label">Form Coverage</span>
+  <div class="coverage-chips">
+    <span class="coverage-chip covered"><span class="chip-check">&#10003;</span> <span class="chip-arabic">شَهِدَ</span></span>
+    <span class="coverage-chip covered"><span class="chip-check">&#10003;</span> <span class="chip-arabic">شَهَادَة</span></span>
+    <span class="coverage-chip covered"><span class="chip-check">&#10003;</span> <span class="chip-arabic">شَهِيد</span></span>
+    <span class="coverage-chip covered"><span class="chip-check">&#10003;</span> <span class="chip-arabic">شَاهِد</span></span>
+    <span class="coverage-chip covered"><span class="chip-check">&#10003;</span> <span class="chip-arabic">شُهَدَاء</span></span>
+    <span class="coverage-chip empty"><span class="chip-check">!</span> <span class="chip-arabic">أَشْهَدَ</span></span>
+    <span class="coverage-chip uncovered"><span class="chip-arabic">مَشْهُود</span></span>
+    <span class="coverage-chip uncovered"><span class="chip-arabic">اسْتَشْهَدَ</span></span>
+    <span class="coverage-chip uncovered"><span class="chip-arabic">شَهَادَات</span></span>
+  </div>
+  <span class="coverage-summary">5 / 9</span>
+</div>
+
+<!-- COLUMNS -->
+<div class="columns-area">
+
+  <!-- Column 1: shahida -->
+  <div class="column has-selection">
+    <div class="col-header">
+      <div class="col-header-top">
+        <div class="col-title">
+          <span class="form-arabic">شَهِدَ</span>
+          <span class="form-trans">shahida</span>
+        </div>
+        <span class="col-count">3 selected</span>
+      </div>
+      <div class="col-meta">
+        <span class="col-gloss">to testify, to bear witness</span> &middot; 44 in Qur'an
+      </div>
+    </div>
+    <div class="col-cards">
+      <div class="col-card selected">
+        <div class="col-card-top">
+          <span class="col-ref">3:18</span>
+          <span class="col-score high">22.4</span>
+        </div>
+        <div class="col-arabic">شَهِدَ ٱللَّهُ أَنَّهُۥ لَآ إِلَٰهَ إِلَّا هُوَ</div>
+        <div class="col-english">"Allah bears witness that there is no god but He"</div>
+        <div class="col-meta-row">
+          <span class="col-words">7 words</span>
+          <button class="col-select-btn">&#10003; Selected</button>
+        </div>
+      </div>
+
+      <div class="col-card selected">
+        <div class="col-card-top">
+          <span class="col-ref">2:185</span>
+          <span class="col-score high">22.4</span>
+        </div>
+        <div class="col-arabic">فَمَن شَهِدَ مِنكُمُ ٱلشَّهْرَ فَلْيَصُمْهُ</div>
+        <div class="col-english">"Whoever witnesses the month should fast it"</div>
+        <div class="col-meta-row">
+          <span class="col-words">6 words</span>
+          <button class="col-select-btn">&#10003; Selected</button>
+        </div>
+      </div>
+
+      <div class="col-card selected">
+        <div class="col-card-top">
+          <span class="col-ref">41:20</span>
+          <span class="col-score mid">20.3</span>
+        </div>
+        <div class="col-arabic">شَهِدَ عَلَيْهِمْ سَمْعُهُمْ وَأَبْصَٰرُهُمْ وَجُلُودُهُم</div>
+        <div class="col-english">"Their hearing, sight, and skins testified against them"</div>
+        <div class="col-meta-row">
+          <span class="col-words">9 words</span>
+          <button class="col-select-btn">&#10003; Selected</button>
+        </div>
+      </div>
+
+      <div class="col-card">
+        <div class="col-card-top">
+          <span class="col-ref">63:1</span>
+          <span class="col-score high">23.1</span>
+        </div>
+        <div class="col-arabic">نَشْهَدُ إِنَّكَ لَرَسُولُ ٱللَّهِ ۗ وَٱللَّهُ يَشْهَدُ</div>
+        <div class="col-english">"We testify... but Allah testifies they are liars"</div>
+        <div class="col-meta-row">
+          <span class="col-words">17 words</span>
+          <button class="col-select-btn">Select</button>
+        </div>
+      </div>
+
+      <div class="col-card">
+        <div class="col-card-top">
+          <span class="col-ref">36:65</span>
+          <span class="col-score low">7.7</span>
+        </div>
+        <div class="col-arabic">وَتَشْهَدُ أَرْجُلُهُم بِمَا كَانُوا۟ يَكْسِبُونَ</div>
+        <div class="col-english">"Their feet testify for what they used to do"</div>
+        <div class="col-meta-row">
+          <span class="col-words">11 words</span>
+          <button class="col-select-btn">Select</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Column 2: shahada -->
+  <div class="column has-selection">
+    <div class="col-header">
+      <div class="col-header-top">
+        <div class="col-title">
+          <span class="form-arabic">شَهَادَة</span>
+          <span class="form-trans">shahada</span>
+        </div>
+        <span class="col-count">1 selected</span>
+      </div>
+      <div class="col-meta">
+        <span class="col-gloss">testimony; the witnessed</span> &middot; 23 in Qur'an
+      </div>
+    </div>
+    <div class="col-cards">
+      <div class="col-card selected">
+        <div class="col-card-top">
+          <span class="col-ref">6:19</span>
+          <span class="col-score mid">15.4</span>
+        </div>
+        <div class="col-arabic">قُلْ أَيُّ شَىْءٍ أَكْبَرُ شَهَٰدَةً ۖ قُلِ ٱللَّهُ شَهِيدٌۢ</div>
+        <div class="col-english">"What is greatest as testimony? Allah is Witness"</div>
+        <div class="col-meta-row">
+          <span class="col-words">11 words</span>
+          <button class="col-select-btn">&#10003; Selected</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Column 3: shahid -->
+  <div class="column has-selection">
+    <div class="col-header">
+      <div class="col-header-top">
+        <div class="col-title">
+          <span class="form-arabic">شَهِيد</span>
+          <span class="form-trans">shahid</span>
+        </div>
+        <span class="col-count">2 selected</span>
+      </div>
+      <div class="col-meta">
+        <span class="col-gloss">witness; martyr</span> &middot; 56 in Qur'an
+      </div>
+    </div>
+    <div class="col-cards">
+      <div class="col-card selected">
+        <div class="col-card-top">
+          <span class="col-ref">4:79</span>
+          <span class="col-score high">23.8</span>
+        </div>
+        <div class="col-arabic">وَكَفَىٰ بِٱللَّهِ شَهِيدًا</div>
+        <div class="col-english">"Allah is sufficient as Witness"</div>
+        <div class="col-meta-row">
+          <span class="col-words">3 words</span>
+          <button class="col-select-btn">&#10003; Selected</button>
+        </div>
+      </div>
+
+      <div class="col-card selected">
+        <div class="col-card-top">
+          <span class="col-ref">5:117</span>
+          <span class="col-score high">25.2</span>
+        </div>
+        <div class="col-arabic">وَكُنتُ عَلَيْهِمْ شَهِيدًا مَّا دُمْتُ فِيهِمْ</div>
+        <div class="col-english">"I was a witness over them while I was among them"</div>
+        <div class="col-meta-row">
+          <span class="col-words">6 words</span>
+          <button class="col-select-btn">&#10003; Selected</button>
+        </div>
+      </div>
+
+      <div class="col-card">
+        <div class="col-card-top">
+          <span class="col-ref">22:17</span>
+          <span class="col-score low">2.1</span>
+        </div>
+        <div class="col-arabic">إِنَّ ٱللَّهَ عَلَىٰ كُلِّ شَىْءٍ شَهِيدٌ</div>
+        <div class="col-english">"Indeed Allah is Witness over everything"</div>
+        <div class="col-meta-row">
+          <span class="col-words">6 words</span>
+          <button class="col-select-btn">Select</button>
+        </div>
+      </div>
+
+      <div class="col-card">
+        <div class="col-card-top">
+          <span class="col-ref">3:98</span>
+          <span class="col-score low">—</span>
+        </div>
+        <div class="col-arabic">وَٱللَّهُ شَهِيدٌ عَلَىٰ مَا تَعْمَلُونَ</div>
+        <div class="col-english">"Allah is Witness over what you do"</div>
+        <div class="col-meta-row">
+          <span class="col-words">6 words</span>
+          <button class="col-select-btn">Select</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Column 4: shahid (active participle) -->
+  <div class="column has-selection">
+    <div class="col-header">
+      <div class="col-header-top">
+        <div class="col-title">
+          <span class="form-arabic">شَاهِد</span>
+          <span class="form-trans">shahid</span>
+        </div>
+        <span class="col-count">2 selected</span>
+      </div>
+      <div class="col-meta">
+        <span class="col-gloss">eye-witness</span> &middot; 21 in Qur'an
+      </div>
+    </div>
+    <div class="col-cards">
+      <div class="col-card selected">
+        <div class="col-card-top">
+          <span class="col-ref">3:53</span>
+          <span class="col-score high">22.0</span>
+        </div>
+        <div class="col-arabic">فَٱكْتُبْنَا مَعَ ٱلشَّٰهِدِينَ</div>
+        <div class="col-english">"Write us among the witnesses"</div>
+        <div class="col-meta-row">
+          <span class="col-words">11 words</span>
+          <button class="col-select-btn">&#10003; Selected</button>
+        </div>
+      </div>
+
+      <div class="col-card selected">
+        <div class="col-card-top">
+          <span class="col-ref">3:81</span>
+          <span class="col-score mid">17.5</span>
+        </div>
+        <div class="col-arabic">قَالَ فَٱشْهَدُوا۟ وَأَنَا۠ مَعَكُم مِّنَ ٱلشَّٰهِدِينَ</div>
+        <div class="col-english">"Bear witness, and I am with you among the witnesses"</div>
+        <div class="col-meta-row">
+          <span class="col-words">8 words</span>
+          <button class="col-select-btn">&#10003; Selected</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Column 5: shuhada -->
+  <div class="column has-selection">
+    <div class="col-header">
+      <div class="col-header-top">
+        <div class="col-title">
+          <span class="form-arabic">شُهَدَاء</span>
+          <span class="form-trans">shuhada</span>
+        </div>
+        <span class="col-count">1 selected</span>
+      </div>
+      <div class="col-meta">
+        <span class="col-gloss">witnesses / martyrs (pl.)</span>
+      </div>
+    </div>
+    <div class="col-cards">
+      <div class="col-card selected">
+        <div class="col-card-top">
+          <span class="col-ref">4:69</span>
+          <span class="col-score mid">18.9</span>
+        </div>
+        <div class="col-arabic">مِّنَ ٱلنَّبِيِّـۧنَ وَٱلصِّدِّيقِينَ وَٱلشُّهَدَآءِ وَٱلصَّٰلِحِينَ</div>
+        <div class="col-english">"The prophets, truthful, witnesses, righteous"</div>
+        <div class="col-meta-row">
+          <span class="col-words">12 words</span>
+          <button class="col-select-btn">&#10003; Selected</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Column 6: ashhada (deferred - warning) -->
+  <div class="column">
+    <div class="col-header" style="background:#fef3c7">
+      <div class="col-header-top">
+        <div class="col-title">
+          <span class="form-arabic">أَشْهَدَ</span>
+          <span class="form-trans">ashhada</span>
+        </div>
+        <span class="col-count" style="background:#fde68a;color:#92400e">0 selected</span>
+      </div>
+      <div class="col-meta">
+        <span class="col-gloss">to make witness (Form IV)</span> &middot; 7 in Qur'an &middot; <strong>Deferred</strong>
+      </div>
+    </div>
+    <div class="col-cards">
+      <div class="col-card">
+        <div class="col-card-top">
+          <span class="col-ref">7:172</span>
+          <span class="col-score mid">10.0</span>
+        </div>
+        <div class="col-arabic">وَأَشْهَدَهُمْ عَلَىٰٓ أَنفُسِهِمْ أَلَسْتُ بِرَبِّكُمْ</div>
+        <div class="col-english">"He made them testify: Am I not your Lord?"</div>
+        <div class="col-meta-row">
+          <span class="col-words">15 words</span>
+          <button class="col-select-btn">Select</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Column 7: mashhud (empty) -->
+  <div class="column">
+    <div class="col-header">
+      <div class="col-header-top">
+        <div class="col-title">
+          <span class="form-arabic">مَشْهُود</span>
+          <span class="form-trans">mashhud</span>
+        </div>
+        <span class="col-count">0 scored</span>
+      </div>
+      <div class="col-meta">
+        <span class="col-gloss">what is witnessed</span> &middot; 3 in Qur'an
+      </div>
+    </div>
+    <div class="col-cards">
+      <div class="col-empty">
+        <div class="empty-icon">&#128203;</div>
+        No scored verses yet
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ORDER STRIP -->
+<div class="order-strip">
+  <div class="order-strip-header">
+    <h3>
+      Lesson Order
+      <span class="order-hint" style="font-weight:400;color:var(--muted)">(drag to reorder &middot; shortest &rarr; longest)</span>
+    </h3>
+    <span class="order-count">10 / 10</span>
+  </div>
+  <div class="order-items">
+    <div class="order-chip">
+      <span class="order-num">1</span>
+      <span class="chip-ref">4:79</span>
+      <span class="chip-form">شَهِيد</span>
+      <span class="chip-words">3w</span>
+    </div>
+    <span class="order-arrow">&rarr;</span>
+    <div class="order-chip">
+      <span class="order-num">2</span>
+      <span class="chip-ref">5:117</span>
+      <span class="chip-form">شَهِيد</span>
+      <span class="chip-words">6w</span>
+    </div>
+    <span class="order-arrow">&rarr;</span>
+    <div class="order-chip">
+      <span class="order-num">3</span>
+      <span class="chip-ref">2:185</span>
+      <span class="chip-form">شَهِدَ</span>
+      <span class="chip-words">6w</span>
+    </div>
+    <span class="order-arrow">&rarr;</span>
+    <div class="order-chip">
+      <span class="order-num">4</span>
+      <span class="chip-ref">3:18</span>
+      <span class="chip-form">شَهِدَ</span>
+      <span class="chip-words">7w</span>
+    </div>
+    <span class="order-arrow">&rarr;</span>
+    <div class="order-chip">
+      <span class="order-num">5</span>
+      <span class="chip-ref">3:81</span>
+      <span class="chip-form">شَاهِد</span>
+      <span class="chip-words">8w</span>
+    </div>
+    <span class="order-arrow">&rarr;</span>
+    <div class="order-chip" style="opacity:0.6;border-style:dashed">
+      <span class="order-num" style="background:var(--muted)">...</span>
+      <span class="chip-ref" style="color:var(--muted)">+5 more</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

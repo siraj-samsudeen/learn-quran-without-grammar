@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Option C — Enhanced Current + Coverage Bar</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf8f3;
+    --card: #ffffff;
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --border: #e5e5e5;
+    --learning: #0f766e;
+    --learning-bg: #ccfbf1;
+    --pipeline: #6b7280;
+    --pipeline-bg: #f3f4f6;
+    --accent: #4338ca;
+    --accent-bg: #e0e7ff;
+    --good: #16a34a;
+    --warn: #d97706;
+    --none: #cbd5e1;
+    --sidebar-w: 260px;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  /* ============ LAYOUT ============ */
+  .layout {
+    display: grid;
+    grid-template-columns: var(--sidebar-w) 1fr;
+    min-height: 100vh;
+  }
+
+  /* ============ SIDEBAR ============ */
+  .sidebar {
+    background: #ffffff;
+    border-right: 1px solid var(--border);
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  .sidebar-title {
+    padding: 0 1.5rem 1rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1rem;
+  }
+  .sidebar-title h1 { margin: 0; font-size: 1.05rem; font-weight: 700; }
+  .sidebar-title .sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; }
+  .nav-section { margin-bottom: 1.5rem; }
+  .nav-header {
+    padding: 0.25rem 1.5rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.3rem;
+  }
+  .nav-root {
+    padding: 0.4rem 1.5rem;
+    font-family: 'Amiri', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+  .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.45rem 1.5rem 0.45rem 2.2rem;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-left: 3px solid transparent;
+    transition: all 0.12s;
+  }
+  .nav-link:hover { background: #f9fafb; color: var(--ink); }
+  .nav-link.filled { color: var(--learning); border-left-color: var(--learning); }
+  .nav-count {
+    background: #f3f4f6;
+    color: var(--muted);
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 600;
+  }
+
+  /* ============ MAIN ============ */
+  main {
+    padding: 0 2rem 4rem;
+    max-width: 980px;
+  }
+
+  /* ============ COVERAGE DASHBOARD (NEW) ============ */
+  .coverage-dashboard {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(8px);
+  }
+  .coverage-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.6rem;
+  }
+  .coverage-header h2 {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .coverage-bar-wrap {
+    display: flex; align-items: center; gap: 0.5rem;
+    margin-bottom: 0.6rem;
+  }
+  .coverage-bar {
+    flex: 1;
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .coverage-bar-fill {
+    height: 100%;
+    background: var(--good);
+    border-radius: 999px;
+    width: 55%;
+  }
+  .coverage-pct {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .form-tiles {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .form-tile {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.65rem;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    border: 1.5px solid var(--border);
+    background: white;
+    cursor: pointer;
+    transition: all 0.12s;
+  }
+  .form-tile:hover { border-color: var(--accent); }
+  .form-tile.covered {
+    background: #dcfce7;
+    border-color: var(--good);
+    color: #166534;
+  }
+  .form-tile.uncovered {
+    background: #fef3c7;
+    border-color: var(--warn);
+    color: #92400e;
+  }
+  .form-tile.empty {
+    background: #f3f4f6;
+    border-color: var(--border);
+    color: var(--muted);
+  }
+  .form-tile .tile-arabic {
+    font-family: 'Amiri', serif;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  .form-tile .tile-count {
+    font-size: 0.68rem;
+    opacity: 0.7;
+  }
+  .form-tile .tile-check { font-size: 0.75rem; }
+
+  /* ============ TOP BAR ============ */
+  .top-bar {
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .counters { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .counter {
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    background: white;
+    border: 2px solid var(--border);
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+  .counter.filled { background: var(--learning-bg); border-color: var(--learning); color: var(--learning); }
+  .counter .label { color: var(--muted); }
+
+  /* ============ FORM GROUPS (NEW) ============ */
+  .form-group-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 1.5rem 0 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--accent-bg);
+    border-radius: 8px;
+    border-left: 4px solid var(--accent);
+  }
+  .form-group-header .fgh-arabic {
+    font-family: 'Amiri', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .form-group-header .fgh-gloss {
+    font-size: 0.82rem;
+    color: var(--accent);
+    font-style: italic;
+  }
+  .form-group-header .fgh-count {
+    margin-left: auto;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--accent);
+    background: white;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+  }
+
+  /* ============ CARDS ============ */
+  .section-header {
+    margin: 1.5rem 0 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-header.learning { color: var(--learning); }
+  .section-header.pipeline { color: var(--pipeline); }
+  .cards { display: grid; gap: 0.8rem; }
+  .card {
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-left: 6px solid var(--none);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    transition: border-color 0.15s;
+  }
+  .card.learning { border-left-color: var(--learning); }
+  .card.pipeline { border-left-color: var(--pipeline); }
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.3rem;
+    flex-wrap: wrap;
+  }
+  .card-refs { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+  .ref { font-weight: 700; font-size: 1rem; }
+  .badge {
+    background: #f3f4f6;
+    color: var(--muted);
+    padding: 0.15rem 0.55rem;
+    border-radius: 5px;
+    font-size: 0.74rem;
+    font-weight: 500;
+  }
+  .badge.score { background: #fef9c3; color: #854d0e; }
+  .badge.score-high { background: #dcfce7; color: var(--good); }
+  .badge.form { background: var(--accent-bg); color: var(--accent); }
+  .badge.words { background: #f3f4f6; color: var(--muted); }
+  .section-buttons { display: flex; gap: 0.3rem; }
+  .section-buttons button {
+    background: white;
+    border: 1.5px solid var(--border);
+    color: var(--muted);
+    padding: 0.3rem 0.65rem;
+    border-radius: 6px;
+    font-size: 0.76rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .section-buttons button:hover { border-color: var(--ink); color: var(--ink); }
+  .section-buttons button.active-learning { background: var(--learning); border-color: var(--learning); color: white; }
+  .section-buttons button.active-pipeline { background: var(--pipeline); border-color: var(--pipeline); color: white; }
+  .section-buttons button.active-none { background: var(--none); border-color: var(--none); color: white; }
+  .arabic {
+    font-family: 'Amiri', 'Traditional Arabic', serif;
+    font-size: 1.4rem;
+    line-height: 2;
+    direction: rtl;
+    text-align: right;
+    margin: 0.7rem 0 0.4rem;
+  }
+  .english {
+    font-style: italic;
+    color: #374151;
+    margin: 0 0 0.5rem;
+    font-size: 0.9rem;
+  }
+  .score-breakdown {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-top: 0.3rem;
+  }
+  .score-dim {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    background: #f9fafb;
+    color: var(--muted);
+    border: 1px solid #e5e7eb;
+  }
+  .score-dim .dim-label { font-weight: 600; }
+  .score-dim.high { background: #dcfce7; color: #166534; border-color: #bbf7d0; }
+  .score-dim.medium { background: #fef9c3; color: #854d0e; border-color: #fde68a; }
+  .score-dim.low { background: #fef2f2; color: #991b1b; border-color: #fecaca; }
+  .why {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin: 0.3rem 0 0;
+    padding: 0.5rem 0.7rem;
+    border: 1.5px dashed transparent;
+    border-radius: 6px;
+  }
+
+  .delta-label {
+    display: inline-block;
+    margin: 2rem 0 0.5rem;
+    padding: 0.4rem 0.8rem;
+    background: #fef3c7;
+    border: 1.5px solid var(--warn);
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #92400e;
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <!-- SIDEBAR (same as current) -->
+  <div class="sidebar">
+    <div class="sidebar-title">
+      <h1>Lesson 2</h1>
+      <div class="sub">Anchor: أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ</div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-header">This lesson</div>
+      <div class="nav-root">شَهِدَ</div>
+      <a class="nav-link filled" href="#shahida-learning">Learning <span class="nav-count">10/10</span></a>
+      <a class="nav-link" href="#shahida-pipeline">Pipeline <span class="nav-count">5</span></a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-header">Recall</div>
+      <a class="nav-link filled" href="#recall">All recall <span class="nav-count">5/5</span></a>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main>
+    <!-- NEW: Coverage Dashboard -->
+    <div class="coverage-dashboard">
+      <div class="coverage-header">
+        <h2>Form Coverage &mdash; <span style="font-family:Amiri;font-size:1rem">شَهِدَ</span></h2>
+      </div>
+      <div class="coverage-bar-wrap">
+        <div class="coverage-bar"><div class="coverage-bar-fill"></div></div>
+        <span class="coverage-pct">5 / 9 forms covered</span>
+      </div>
+      <div class="form-tiles">
+        <div class="form-tile covered">
+          <span class="tile-check">&#10003;</span>
+          <span class="tile-arabic">شَهِدَ</span>
+          <span class="tile-count">(3)</span>
+        </div>
+        <div class="form-tile covered">
+          <span class="tile-check">&#10003;</span>
+          <span class="tile-arabic">شَهَادَة</span>
+          <span class="tile-count">(1)</span>
+        </div>
+        <div class="form-tile covered">
+          <span class="tile-check">&#10003;</span>
+          <span class="tile-arabic">شَهِيد</span>
+          <span class="tile-count">(2)</span>
+        </div>
+        <div class="form-tile covered">
+          <span class="tile-check">&#10003;</span>
+          <span class="tile-arabic">شَاهِد</span>
+          <span class="tile-count">(2)</span>
+        </div>
+        <div class="form-tile covered">
+          <span class="tile-check">&#10003;</span>
+          <span class="tile-arabic">شُهَدَاء</span>
+          <span class="tile-count">(1)</span>
+        </div>
+        <div class="form-tile uncovered">
+          <span class="tile-check">!</span>
+          <span class="tile-arabic">أَشْهَدَ</span>
+          <span class="tile-count">(0)</span>
+        </div>
+        <div class="form-tile empty">
+          <span class="tile-arabic">مَشْهُود</span>
+          <span class="tile-count">(0)</span>
+        </div>
+        <div class="form-tile empty">
+          <span class="tile-arabic">اسْتَشْهَدَ</span>
+          <span class="tile-count">(0)</span>
+        </div>
+        <div class="form-tile empty">
+          <span class="tile-arabic">شَهَادَات</span>
+          <span class="tile-count">(0)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEARNING SECTION — grouped by form -->
+    <div class="section-header learning" id="shahida-learning">Learning (10)</div>
+
+    <!-- Form group: shahida -->
+    <div class="form-group-header">
+      <span class="fgh-arabic">شَهِدَ</span>
+      <span class="fgh-gloss">to testify, to bear witness</span>
+      <span class="fgh-count">3 selected</span>
+    </div>
+    <div class="cards">
+      <div class="card learning">
+        <div class="card-top">
+          <div class="card-refs">
+            <span class="ref">3:18</span>
+            <span class="badge form">شَهِدَ</span>
+            <span class="badge score-high">&#9733; 22.4</span>
+            <span class="badge words">7 words</span>
+          </div>
+          <div class="section-buttons">
+            <button>None</button>
+            <button class="active-learning">Learning</button>
+            <button>Pipeline</button>
+          </div>
+        </div>
+        <div class="arabic">شَهِدَ ٱللَّهُ أَنَّهُۥ لَآ إِلَٰهَ إِلَّا هُوَ</div>
+        <div class="english">"Allah bears witness that there is no god but He"</div>
+        <div class="score-breakdown">
+          <span class="score-dim high"><span class="dim-label">fit</span> 10</span>
+          <span class="score-dim medium"><span class="dim-label">story</span> 5</span>
+          <span class="score-dim medium"><span class="dim-label">fam</span> 4</span>
+        </div>
+        <div class="why">Allah Himself bearing witness. Bridges L1 via إِلَٰهَ.</div>
+      </div>
+
+      <div class="card learning">
+        <div class="card-top">
+          <div class="card-refs">
+            <span class="ref">2:185</span>
+            <span class="badge form">شَهِدَ</span>
+            <span class="badge score-high">&#9733; 22.4</span>
+            <span class="badge words">6 words</span>
+          </div>
+          <div class="section-buttons">
+            <button>None</button>
+            <button class="active-learning">Learning</button>
+            <button>Pipeline</button>
+          </div>
+        </div>
+        <div class="arabic">فَمَن شَهِدَ مِنكُمُ ٱلشَّهْرَ فَلْيَصُمْهُ</div>
+        <div class="english">"Whoever witnesses the month (of Ramadan) should fast it"</div>
+        <div class="score-breakdown">
+          <span class="score-dim medium"><span class="dim-label">fit</span> 7</span>
+          <span class="score-dim medium"><span class="dim-label">story</span> 4</span>
+          <span class="score-dim high"><span class="dim-label">fam</span> 7</span>
+        </div>
+        <div class="why">Ramadan verse. Teaches شَهِدَ in 'to be present' meaning.</div>
+      </div>
+
+      <div class="card learning">
+        <div class="card-top">
+          <div class="card-refs">
+            <span class="ref">41:20</span>
+            <span class="badge form">شَهِدَ</span>
+            <span class="badge score">&#9733; 20.3</span>
+            <span class="badge words">9 words</span>
+          </div>
+          <div class="section-buttons">
+            <button>None</button>
+            <button class="active-learning">Learning</button>
+            <button>Pipeline</button>
+          </div>
+        </div>
+        <div class="arabic">شَهِدَ عَلَيْهِمْ سَمْعُهُمْ وَأَبْصَٰرُهُمْ وَجُلُودُهُم</div>
+        <div class="english">"Their hearing, sight, and skins testified against them"</div>
+        <div class="score-breakdown">
+          <span class="score-dim high"><span class="dim-label">fit</span> 8</span>
+          <span class="score-dim high"><span class="dim-label">story</span> 8</span>
+          <span class="score-dim low"><span class="dim-label">fam</span> 2</span>
+        </div>
+        <div class="why">Day of Judgment — body parts testify.</div>
+      </div>
+    </div>
+
+    <!-- Form group: shahada -->
+    <div class="form-group-header">
+      <span class="fgh-arabic">شَهَادَة</span>
+      <span class="fgh-gloss">testimony; the witnessed</span>
+      <span class="fgh-count">1 selected</span>
+    </div>
+    <div class="cards">
+      <div class="card learning">
+        <div class="card-top">
+          <div class="card-refs">
+            <span class="ref">6:19</span>
+            <span class="badge form">شَهَادَة</span>
+            <span class="badge score">&#9733; 15.4</span>
+            <span class="badge words">11 words</span>
+          </div>
+          <div class="section-buttons">
+            <button>None</button>
+            <button class="active-learning">Learning</button>
+            <button>Pipeline</button>
+          </div>
+        </div>
+        <div class="arabic">قُلْ أَيُّ شَىْءٍ أَكْبَرُ شَهَٰدَةً ۖ قُلِ ٱللَّهُ شَهِيدٌۢ</div>
+        <div class="english">"What is greatest as testimony? Allah is Witness"</div>
+        <div class="score-breakdown">
+          <span class="score-dim high"><span class="dim-label">fit</span> 8</span>
+          <span class="score-dim medium"><span class="dim-label">story</span> 6</span>
+          <span class="score-dim low"><span class="dim-label">fam</span> 2</span>
+        </div>
+        <div class="why">Multi-form goldmine: شَهَادَة + شَهِيد + أَكْبَرُ from L1.</div>
+      </div>
+    </div>
+
+    <!-- Form group: shahid -->
+    <div class="form-group-header">
+      <span class="fgh-arabic">شَهِيد</span>
+      <span class="fgh-gloss">witness; martyr</span>
+      <span class="fgh-count">2 selected</span>
+    </div>
+    <div class="cards">
+      <div class="card learning">
+        <div class="card-top">
+          <div class="card-refs">
+            <span class="ref">4:79</span>
+            <span class="badge form">شَهِيد</span>
+            <span class="badge score-high">&#9733; 23.8</span>
+            <span class="badge words">3 words</span>
+          </div>
+          <div class="section-buttons">
+            <button>None</button>
+            <button class="active-learning">Learning</button>
+            <button>Pipeline</button>
+          </div>
+        </div>
+        <div class="arabic">وَكَفَىٰ بِٱللَّهِ شَهِيدًا</div>
+        <div class="english">"Allah is sufficient as Witness"</div>
+        <div class="score-breakdown">
+          <span class="score-dim high"><span class="dim-label">fit</span> 10</span>
+          <span class="score-dim low"><span class="dim-label">story</span> 3</span>
+          <span class="score-dim low"><span class="dim-label">fam</span> 3</span>
+        </div>
+        <div class="why">Famous ultra-short phrase. Appears 4x in Qur'an.</div>
+      </div>
+
+      <div class="card learning">
+        <div class="card-top">
+          <div class="card-refs">
+            <span class="ref">5:117</span>
+            <span class="badge form">شَهِيد</span>
+            <span class="badge score-high">&#9733; 25.2</span>
+            <span class="badge words">6 words</span>
+          </div>
+          <div class="section-buttons">
+            <button>None</button>
+            <button class="active-learning">Learning</button>
+            <button>Pipeline</button>
+          </div>
+        </div>
+        <div class="arabic">وَكُنتُ عَلَيْهِمْ شَهِيدًا مَّا دُمْتُ فِيهِمْ</div>
+        <div class="english">"I was a witness over them while I was among them"</div>
+        <div class="score-breakdown">
+          <span class="score-dim high"><span class="dim-label">fit</span> 9</span>
+          <span class="score-dim high"><span class="dim-label">story</span> 8</span>
+          <span class="score-dim medium"><span class="dim-label">fam</span> 4</span>
+        </div>
+        <div class="why">Isa addressing Allah on Judgment Day. First-person prophetic voice.</div>
+      </div>
+    </div>
+
+    <!-- Form group: shahid (active participle) -->
+    <div class="form-group-header">
+      <span class="fgh-arabic">شَاهِد</span>
+      <span class="fgh-gloss">eye-witness</span>
+      <span class="fgh-count">2 selected</span>
+    </div>
+    <div class="cards">
+      <div class="card learning">
+        <div class="card-top">
+          <div class="card-refs">
+            <span class="ref">3:53</span>
+            <span class="badge form">شَاهِد</span>
+            <span class="badge score-high">&#9733; 22.0</span>
+            <span class="badge words">11 words</span>
+          </div>
+          <div class="section-buttons">
+            <button>None</button>
+            <button class="active-learning">Learning</button>
+            <button>Pipeline</button>
+          </div>
+        </div>
+        <div class="arabic">رَبَّنَآ ءَامَنَّا بِمَآ أَنزَلْتَ وَٱتَّبَعْنَا ٱلرَّسُولَ فَٱكْتُبْنَا مَعَ ٱلشَّٰهِدِينَ</div>
+        <div class="english">"Our Lord, we believe... write us among the witnesses"</div>
+        <div class="score-breakdown">
+          <span class="score-dim medium"><span class="dim-label">fit</span> 7</span>
+          <span class="score-dim medium"><span class="dim-label">story</span> 6</span>
+          <span class="score-dim low"><span class="dim-label">fam</span> 3</span>
+        </div>
+        <div class="why">Dua of Isa's disciples. Emotional, story-driven.</div>
+      </div>
+    </div>
+
+    <!-- Form group: shuhada -->
+    <div class="form-group-header">
+      <span class="fgh-arabic">شُهَدَاء</span>
+      <span class="fgh-gloss">witnesses / martyrs (pl.)</span>
+      <span class="fgh-count">1 selected</span>
+    </div>
+    <div class="cards">
+      <div class="card learning">
+        <div class="card-top">
+          <div class="card-refs">
+            <span class="ref">4:69</span>
+            <span class="badge form">شُهَدَاء</span>
+            <span class="badge score">&#9733; 18.9</span>
+            <span class="badge words">12 words</span>
+          </div>
+          <div class="section-buttons">
+            <button>None</button>
+            <button class="active-learning">Learning</button>
+            <button>Pipeline</button>
+          </div>
+        </div>
+        <div class="arabic">مِّنَ ٱلنَّبِيِّـۧنَ وَٱلصِّدِّيقِينَ وَٱلشُّهَدَآءِ وَٱلصَّٰلِحِينَ</div>
+        <div class="english">"The prophets, the truthful, the witnesses, and the righteous"</div>
+        <div class="score-breakdown">
+          <span class="score-dim medium"><span class="dim-label">fit</span> 7</span>
+          <span class="score-dim medium"><span class="dim-label">story</span> 5</span>
+          <span class="score-dim medium"><span class="dim-label">fam</span> 4</span>
+        </div>
+        <div class="why">The four ranks verse. Too well-known to defer.</div>
+      </div>
+    </div>
+
+    <!-- PIPELINE SECTION -->
+    <div class="section-header pipeline" id="shahida-pipeline">Pipeline (5)</div>
+
+    <div class="delta-label">&#9888; What's different from the current picker</div>
+    <div style="margin:0.5rem 0 1.5rem;font-size:0.85rem;color:var(--muted);line-height:1.7">
+      <strong>Added:</strong> Coverage dashboard (sticky top), form group headers within Learning section, score dimension breakdown on each card, word count badge<br>
+      <strong>Kept:</strong> Same sidebar, same card layout, same Learning/Pipeline/None buttons, same editable remarks<br>
+      <strong>Missing:</strong> No lesson ordering panel (would need to be added separately)
+    </div>
+
+    <div class="cards">
+      <div class="card pipeline">
+        <div class="card-top">
+          <div class="card-refs">
+            <span class="ref">12:26</span>
+            <span class="badge form">شَهِدَ + شَاهِد</span>
+            <span class="badge score">&#9733; 9.1</span>
+            <span class="badge words">5 words</span>
+          </div>
+          <div class="section-buttons">
+            <button>None</button>
+            <button>Learning</button>
+            <button class="active-pipeline">Pipeline</button>
+          </div>
+        </div>
+        <div class="arabic">وَشَهِدَ شَاهِدٌ مِّنْ أَهْلِهَا</div>
+        <div class="english">"A witness from her family testified"</div>
+        <div class="why">Yusuf story — two forms in one phrase. High priority for future.</div>
+      </div>
+
+      <div class="card pipeline">
+        <div class="card-top">
+          <div class="card-refs">
+            <span class="ref">36:65</span>
+            <span class="badge form">تَشْهَدُ</span>
+            <span class="badge score">&#9733; 7.7</span>
+            <span class="badge words">11 words</span>
+          </div>
+          <div class="section-buttons">
+            <button>None</button>
+            <button>Learning</button>
+            <button class="active-pipeline">Pipeline</button>
+          </div>
+        </div>
+        <div class="arabic">وَتُكَلِّمُنَآ أَيْدِيهِمْ وَتَشْهَدُ أَرْجُلُهُم</div>
+        <div class="english">"Their hands speak, their feet testify"</div>
+        <div class="why">Surah Yasin — frequently recited. Body parts testify.</div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

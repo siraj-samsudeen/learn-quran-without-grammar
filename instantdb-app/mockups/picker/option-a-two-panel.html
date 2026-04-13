@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Option A — Two-Panel + Order Strip (Lesson 1)</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf8f3;
+    --card: #ffffff;
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --border: #e5e5e5;
+    --learning: #0f766e;
+    --learning-bg: #ccfbf1;
+    --pipeline: #6b7280;
+    --pipeline-bg: #f3f4f6;
+    --accent: #4338ca;
+    --accent-bg: #e0e7ff;
+    --good: #16a34a;
+    --warn: #d97706;
+    --danger: #dc2626;
+    --sidebar-w: 250px;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.5; }
+
+  .layout { display: grid; grid-template-columns: var(--sidebar-w) 1fr; grid-template-rows: auto 1fr; height: 100vh; }
+
+  /* HEADER */
+  .header { grid-column: 1/-1; background: white; border-bottom: 1px solid var(--border); padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+  .header h1 { font-size: 1.1rem; font-weight: 700; }
+  .header .sub { font-size: 0.82rem; color: var(--muted); margin-top: 0.15rem; }
+  .header-right { display: flex; gap: 0.75rem; align-items: center; }
+  .counter-pill { display: flex; align-items: center; gap: 0.3rem; padding: 0.35rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600; border: 2px solid var(--border); background: white; }
+  .counter-pill.filled { background: var(--learning-bg); border-color: var(--learning); color: var(--learning); }
+
+  /* SIDEBAR */
+  .sidebar { background: white; border-right: 1px solid var(--border); padding: 0.75rem 0; overflow-y: auto; }
+  .root-header { padding: 0.6rem 1.25rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; border-left: 3px solid transparent; transition: all 0.12s; }
+  .root-header:hover { background: #f9fafb; }
+  .root-header.active { background: var(--accent-bg); border-left-color: var(--accent); }
+  .root-header .root-arabic { font-family: 'Amiri', serif; font-size: 1.35rem; font-weight: 700; }
+  .root-header .root-trans { font-size: 0.78rem; color: var(--muted); font-weight: 500; }
+  .root-header .collapse-toggle { margin-left: auto; background: none; border: none; color: var(--muted); font-size: 0.85rem; cursor: pointer; padding: 0.15rem 0.35rem; border-radius: 4px; transition: all 0.15s; line-height: 1; }
+  .root-header .collapse-toggle:hover { background: #e5e7eb; color: var(--ink); }
+  .root-header .collapse-toggle.collapsed { transform: rotate(-90deg); }
+  .root-forms-group { overflow: hidden; transition: max-height 0.25s ease; }
+  .root-forms-group.collapsed { max-height: 0 !important; }
+  .root-divider { margin: 0.6rem 1.25rem; border: none; border-top: 1px dashed var(--border); }
+  .form-item { display: flex; align-items: center; gap: 0.5rem; padding: 0.45rem 1.25rem 0.45rem 1.75rem; cursor: pointer; border-left: 3px solid transparent; transition: all 0.12s; font-size: 0.85rem; }
+  .form-item:hover { background: #f9fafb; }
+  .form-item.active { background: var(--accent-bg); border-left-color: var(--accent); }
+  .form-item .status-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+  .form-item .status-dot.covered { background: var(--good); }
+  .form-item .status-dot.uncovered { background: var(--border); border: 2px solid var(--muted); }
+  .form-item .status-dot.empty { background: #fef3c7; border: 2px solid var(--warn); }
+  .form-item .form-arabic { font-family: 'Amiri', serif; font-size: 1.1rem; font-weight: 700; }
+  .all-roots-header { padding: 0.6rem 1.25rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; border-left: 3px solid transparent; transition: all 0.12s; border-bottom: 1px solid var(--border); margin-bottom: 0.25rem; }
+  .all-roots-header:hover { background: #f9fafb; }
+  .all-roots-header.active { background: var(--accent-bg); border-left-color: var(--accent); }
+  .all-roots-header .all-label { font-size: 0.85rem; font-weight: 700; }
+  .all-roots-header .all-count { margin-left: auto; font-size: 0.72rem; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--muted); padding: 0.1rem 0.45rem; border-radius: 4px; background: #f3f4f6; }
+  .all-roots-header .all-count.has-picks { background: var(--learning-bg); color: var(--learning); }
+  .root-header .root-count { margin-left: auto; font-size: 0.72rem; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--muted); padding: 0.1rem 0.45rem; border-radius: 4px; background: #f3f4f6; }
+  .root-header .root-count.has-picks { background: var(--learning-bg); color: var(--learning); }
+  .form-item .form-selection { margin-left: auto; font-size: 0.72rem; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--muted); padding: 0.1rem 0.45rem; border-radius: 4px; background: #f3f4f6; }
+  .form-item .form-selection.has-picks { background: var(--learning-bg); color: var(--learning); }
+  .form-item.active .form-selection { background: var(--accent); color: white; }
+
+  /* MAIN */
+  main { padding: 1.25rem 2rem 2rem; overflow-y: auto; }
+  .main-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+  .main-header h2 { font-size: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+  .main-header h2 .hdr-arabic { font-family: 'Amiri', serif; font-size: 1.3rem; }
+  .main-header .sort-controls { display: flex; gap: 0.4rem; }
+  .sort-btn { border: 1.5px solid var(--border); background: white; padding: 0.3rem 0.65rem; border-radius: 6px; font-size: 0.74rem; font-weight: 600; cursor: pointer; font-family: inherit; color: var(--muted); }
+  .sort-btn.active { background: var(--accent-bg); border-color: var(--accent); color: var(--accent); }
+
+  /* CARDS */
+  .cards { display: grid; gap: 0.8rem; }
+  .card { background: var(--card); border: 1.5px solid var(--border); border-left: 5px solid var(--border); border-radius: 10px; padding: 1rem 1.2rem; transition: all 0.15s; }
+  .card.learning { border-left-color: var(--learning); background: #f0fdfa; }
+  .card.pipeline { border-left-color: var(--pipeline); opacity: 0.7; }
+  .card-top { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.4rem; flex-wrap: wrap; }
+  .card-left { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
+  .ref { font-weight: 700; font-size: 0.95rem; }
+  .badge { padding: 0.12rem 0.5rem; border-radius: 5px; font-size: 0.72rem; font-weight: 600; }
+  .badge.form { background: var(--accent-bg); color: var(--accent); }
+  .badge.score { background: #fef9c3; color: #854d0e; }
+  .badge.score-high { background: #dcfce7; color: var(--good); }
+  .badge.words { background: #f3f4f6; color: var(--muted); }
+  .card-actions { display: flex; gap: 0.3rem; }
+  .card-actions button { border: 1.5px solid var(--border); background: white; padding: 0.3rem 0.6rem; border-radius: 6px; font-size: 0.74rem; font-weight: 600; cursor: pointer; font-family: inherit; color: var(--muted); transition: all 0.1s; }
+  .card-actions button:hover { border-color: var(--ink); color: var(--ink); }
+  .card-actions button.active { background: var(--learning); border-color: var(--learning); color: white; }
+  .card-actions button.active-pipeline { background: var(--pipeline); border-color: var(--pipeline); color: white; }
+  .arabic { font-family: 'Amiri', serif; font-size: 1.35rem; line-height: 2; direction: rtl; text-align: right; margin: 0.5rem 0 0.3rem; }
+  .english { font-style: italic; color: #374151; font-size: 0.88rem; margin-bottom: 0.5rem; }
+  .score-breakdown { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.4rem; }
+  .score-dim { font-size: 0.7rem; padding: 0.15rem 0.4rem; border-radius: 4px; background: #f9fafb; color: var(--muted); border: 1px solid #e5e7eb; }
+  .score-dim .dl { font-weight: 600; }
+  .score-dim.high { background: #dcfce7; color: #166534; border-color: #bbf7d0; }
+  .score-dim.medium { background: #fef9c3; color: #854d0e; border-color: #fde68a; }
+  .score-dim.low { background: #fef2f2; color: #991b1b; border-color: #fecaca; }
+  .why { color: var(--muted); font-size: 0.82rem; margin-top: 0.3rem; padding: 0.4rem 0.6rem; background: #fafafa; border-radius: 6px; border: 1px dashed var(--border); }
+  .no-verses { color: var(--muted); font-size: 0.9rem; font-style: italic; padding: 2rem; text-align: center; }
+
+  /* Form sub-header in "all" view */
+  .form-subheader { background: var(--accent-bg); color: var(--accent); padding: 0.4rem 0.75rem; border-radius: 6px; font-size: 0.82rem; font-weight: 700; margin: 1.25rem 0 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+  .form-subheader:first-child { margin-top: 0; }
+  .form-subheader .fsh-arabic { font-family: 'Amiri', serif; font-size: 1.1rem; }
+
+</style>
+</head>
+<body>
+<div class="layout">
+  <div class="header">
+    <div>
+      <h1>Lesson 1 — Selection Picker</h1>
+      <div class="sub">Anchor: <span style="font-family:Amiri;font-size:1.1rem;font-weight:700">ٱللَّهُ أَكْبَرُ</span></div>
+    </div>
+    <div class="header-right">
+      <div class="counter-pill filled" id="learning-pill">
+        <span class="label">Learning</span>
+        <span class="count" id="learning-count"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar" id="sidebar"></div>
+
+  <main id="main-content"></main>
+
+</div>
+
+<script>
+// ════════════════════════════════════════════════
+// REAL DATA from kabura.json & ilah.json
+// ════════════════════════════════════════════════
+
+const ROOTS = [
+  {
+    key: "kabura", arabic: "كَبُرَ", trans: "kabura",
+    forms: [
+      { arabic: "اسْتَكْبَرَ", trans: "istakbara", gloss: "to be arrogant", count: 38 },
+      { arabic: "كَبِير", trans: "kabir", gloss: "great, big", count: 36 },
+      { arabic: "أَكْبَرُ", trans: "akbar", gloss: "greater, greatest", count: 23 },
+      { arabic: "كَبُرَ", trans: "kabura", gloss: "to be great", count: 8 },
+      { arabic: "كُبْرَى", trans: "kubra", gloss: "greatest (fem.)", count: 8 },
+      { arabic: "مُتَكَبِّر", trans: "mutakabbir", gloss: "the Supreme", count: 7 },
+      { arabic: "كَبِيرَة", trans: "kabirat", gloss: "great sin", count: 7 },
+      { arabic: "كِبَر", trans: "kibar", gloss: "old age", count: 6 },
+      { arabic: "مُسْتَكْبِر", trans: "mustakbir", gloss: "arrogant ones", count: 6 },
+      { arabic: "كَبَّرَ", trans: "kabbara", gloss: "to magnify (takbir)", count: 4 },
+      { arabic: "كِبْر", trans: "kibr", gloss: "pride, arrogance", count: 2 },
+      { arabic: "كِبْرِيَاء", trans: "kibriya", gloss: "supreme majesty", count: 2 },
+      { arabic: "أَكْبَرَ", trans: "akbara", gloss: "to be astonished", count: 1 },
+      { arabic: "تَكْبِير", trans: "takbir", gloss: "magnification", count: 1 },
+    ]
+  },
+  {
+    key: "ilah", arabic: "إِلَٰه", trans: "ilah",
+    forms: [
+      { arabic: "اللّٰه", trans: "Allah", gloss: "Allah", count: 2699 },
+      { arabic: "إِلَٰه", trans: "ilah", gloss: "god, deity", count: 89 },
+      { arabic: "آلِهَة", trans: "aliha", gloss: "gods (plural)", count: 30 },
+      { arabic: "اللَّهُمَّ", trans: "Allahumma", gloss: "O Allah", count: 3 },
+    ]
+  }
+];
+
+// NOTE: This mockup only contains inventoried verses from the root JSONs.
+// The real picker should show ALL Qur'anic occurrences per form (e.g. all 38
+// istakbara verses, not just 2). Requires expanding build-root-inventory.py
+// to emit every verse where each form appears.
+const VERSES = [
+  // ══ KABURA — used in L1 ══
+  { ref:"79:20", root:"kabura", form:"كُبْرَى", score:34.0, words:4, status:"learning",
+    arabic:"فَأَرَىٰهُ ٱلْـَٔايَةَ ٱلْكُبْرَىٰ",
+    english:"He showed him the greatest sign",
+    scores:{story:7,fam:8,fit:8}, why:"Tiny — 4 words. Musa showed Pharaoh the greatest miracle. Juz' 30." },
+  { ref:"2:34", root:"kabura", form:"اسْتَكْبَرَ", score:32.0, words:14, status:"learning",
+    arabic:"وَإِذْ قُلْنَا لِلْمَلَـٰٓئِكَةِ ٱسْجُدُوا۟ لِـَٔادَمَ فَسَجَدُوٓا۟ إِلَّآ إِبْلِيسَ أَبَىٰ وَٱسْتَكْبَرَ وَكَانَ مِنَ ٱلْكَـٰفِرِينَ",
+    english:"When We said to the angels: Prostrate to Adam — they prostrated, except Iblis. He refused and was arrogant",
+    scores:{story:10,fam:5,fit:9}, why:"Full origin story of Iblis — far more memorable than a trimmed fragment." },
+  { ref:"21:63", root:"kabura", form:"كَبِير", score:28.0, words:9, status:"learning",
+    arabic:"قَالَ بَلْ فَعَلَهُۥ كَبِيرُهُمْ هَـٰذَا فَسْـَٔلُوهُمْ إِن كَانُوا۟ يَنطِقُونَ",
+    english:"He said: Rather, their chief did it — ask them, if they can speak",
+    scores:{story:9,fam:3,fit:7}, why:"Ibrahim's wit when questioned about smashing the idols." },
+  { ref:"61:3", root:"kabura", form:"كَبُرَ", score:26.0, words:8, status:"learning",
+    arabic:"كَبُرَ مَقْتًا عِندَ ٱللَّهِ أَن تَقُولُوا۟ مَا لَا تَفْعَلُونَ",
+    english:"Greatly hateful in the sight of Allah that you say what you do not do",
+    scores:{story:5,fam:5,fit:9}, why:"Base verb form. Saying and not doing — deeply hated by Allah." },
+  { ref:"41:15", root:"kabura", form:"اسْتَكْبَرَ", score:25.0, words:19, status:"learning",
+    arabic:"فَأَمَّا عَادٌ فَٱسْتَكْبَرُوا۟ فِى ٱلْأَرْضِ بِغَيْرِ ٱلْحَقِّ وَقَالُوا۟ مَنْ أَشَدُّ مِنَّا قُوَّةً",
+    english:"As for Aad, they were arrogant on earth without right and said: Who is mightier than us?",
+    scores:{story:7,fam:2,fit:8}, why:"Aad's arrogant boast + Allah's comeback." },
+  { ref:"29:45", root:"kabura", form:"أَكْبَرُ", score:22.4, words:3, status:"learning",
+    arabic:"وَلَذِكْرُ ٱللَّهِ أَكْبَرُ",
+    english:"And the remembrance of Allah is greater",
+    scores:{story:3,fam:6,fit:10}, why:"Tiny, punchy. The word from Allahu Akbar." },
+  { ref:"18:5", root:"kabura", form:"كَبُرَ", score:20.3, words:5, status:"learning",
+    arabic:"كَبُرَتْ كَلِمَةً تَخْرُجُ مِنْ أَفْوَاهِهِمْ",
+    english:"How great (terrible) is the word that comes from their mouths",
+    scores:{story:4,fam:7,fit:8}, why:"Surah Al-Kahf — retranslated to 'great' to keep root connection visible." },
+  // ══ KABURA — pipeline ══
+  { ref:"6:78", root:"kabura", form:"أَكْبَرُ", score:16.0, words:8, status:"pipeline",
+    arabic:"فَلَمَّا رَأَى ٱلشَّمْسَ بَازِغَةً قَالَ هَـٰذَا رَبِّى هَـٰذَآ أَكْبَرُ",
+    english:"When he saw the sun rising, he said: This is my Lord — this is greater",
+    scores:{story:8,fam:3,fit:3}, why:"Ibrahim searching for God — stars, moon, sun. Iconic story." },
+  { ref:"87:12", root:"kabura", form:"كُبْرَى", score:12.0, words:5, status:"pipeline",
+    arabic:"ٱلَّذِى يَصْلَى ٱلنَّارَ ٱلْكُبْرَىٰ",
+    english:"The one who will burn in the greatest Fire",
+    scores:{story:1,fam:6,fit:3}, why:"Surah Al-A'la — very frequently recited in salah." },
+  { ref:"9:72", root:"kabura", form:"أَكْبَرُ", score:4.0, words:7, status:"pipeline",
+    arabic:"وَرِضْوَٰنٌ مِّنَ ٱللَّهِ أَكْبَرُ",
+    english:"And approval from Allah is greater",
+    scores:{story:2,fam:0,fit:0}, why:"Allah's pleasure is greater — beautiful concept." },
+  { ref:"40:35", root:"kabura", form:"كَبُرَ", score:3.0, words:7, status:"pipeline",
+    arabic:"كَبُرَ مَقْتًا عِندَ ٱللَّهِ وَعِندَ ٱلَّذِينَ ءَامَنُوا۟",
+    english:"Greatly hateful in the sight of Allah and of those who believe",
+    scores:{story:1,fam:0,fit:0}, why:"Nearly identical to 61:3 — same phrase, different context." },
+  { ref:"2:219", root:"kabura", form:"كَبِير + أَكْبَرُ", score:1.0, words:16, status:"pipeline",
+    arabic:"قُلْ فِيهِمَآ إِثْمٌ كَبِيرٌ وَمَنَـٰفِعُ لِلنَّاسِ وَإِثْمُهُمَآ أَكْبَرُ مِن نَّفْعِهِمَا",
+    english:"In them is great sin and benefit — but their sin is greater",
+    scores:{story:1,fam:0,fit:0}, why:"Famous ruling verse on wine/gambling. Two forms in one sentence. Very long." },
+
+  // ══ ILAH — used in L1 ══
+  { ref:"2:163", root:"ilah", form:"إِلَٰه", score:26.0, words:10, status:"learning",
+    arabic:"وَإِلَـٰهُكُمْ إِلَـٰهٌ وَٰحِدٌ ۖ لَّآ إِلَـٰهَ إِلَّا هُوَ ٱلرَّحْمَـٰنُ ٱلرَّحِيمُ",
+    english:"Your God is one God — there is no god but He, the Most Merciful",
+    scores:{story:3,fam:5,fit:10}, why:"Triple إِلَٰه in one verse — the complete tawhid statement." },
+  { ref:"59:22", root:"ilah", form:"إِلَٰه", score:19.6, words:8, status:"learning",
+    arabic:"هُوَ اللَّهُ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ",
+    english:"He is Allah — there is no god but He",
+    scores:{story:3,fam:7,fit:8}, why:"Short, iconic, contains إِلَٰه at the heart. Anchor phrase." },
+  { ref:"6:74", root:"ilah", form:"آلِهَة", score:18.2, words:9, status:"learning",
+    arabic:"وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ آزَرَ أَتَتَّخِذُ أَصْنَامًا آلِهَةً",
+    english:"When Ibrahim said to his father Azar: Do you take idols as gods?",
+    scores:{story:9,fam:2,fit:8}, why:"Ibrahim confronting his father about idols — iconic story." },
+  { ref:"3:26", root:"ilah", form:"اللَّهُمَّ", score:15.4, words:4, status:"learning",
+    arabic:"قُلِ اللَّهُمَّ مَالِكَ الْمُلْكِ",
+    english:"Say: O Allah, Owner of sovereignty",
+    scores:{story:2,fam:4,fit:8}, why:"Introduces the prayer-address form. Trimmed to keep short." },
+  // ══ ILAH — pipeline ══
+  { ref:"7:138", root:"ilah", form:"إِلَٰه", score:13.0, words:8, status:"pipeline",
+    arabic:"قَالُوا۟ يَـٰمُوسَى ٱجْعَل لَّنَآ إِلَـٰهًا كَمَا لَهُمْ ءَالِهَةٌ",
+    english:"They said: O Musa, make for us a god like the gods they have",
+    scores:{story:8,fam:0,fit:3}, why:"Israelites' shocking request — right after being saved from Pharaoh." },
+  { ref:"28:38", root:"ilah", form:"إِلَٰه", score:12.0, words:10, status:"pipeline",
+    arabic:"وَقَالَ فِرْعَوْنُ يَـٰٓأَيُّهَا ٱلْمَلَأُ مَا عَلِمْتُ لَكُم مِّنْ إِلَـٰهٍ غَيْرِى",
+    english:"Pharaoh said: O chiefs, I know of no god for you other than myself",
+    scores:{story:8,fam:0,fit:3}, why:"Pharaoh flips the prophet's formula — ultimate arrogance." },
+  { ref:"21:87", root:"ilah", form:"إِلَٰه", score:11.0, words:22, status:"pipeline",
+    arabic:"فَنَادَىٰ فِى ٱلظُّلُمَـٰتِ أَن لَّآ إِلَـٰهَ إِلَّآ أَنتَ سُبْحَـٰنَكَ إِنِّى كُنتُ مِنَ ٱلظَّـٰلِمِينَ",
+    english:"He called out in the darkness: There is no god but You — I was among the wrongdoers",
+    scores:{story:8,fam:0,fit:3}, why:"Yunus in the whale — one of the most beloved du'as. Too long for beginner." },
+  { ref:"114:1-3", root:"ilah", form:"إِلَٰه", score:11.0, words:9, status:"pipeline",
+    arabic:"قُلْ أَعُوذُ بِرَبِّ النَّاسِ · مَلِكِ النَّاسِ · إِلَٰهِ النَّاسِ",
+    english:"I seek refuge in the Lord, King, God of mankind",
+    scores:{story:1,fam:6,fit:3}, why:"Surah An-Nas — recited daily. Could revisit in surah-based lesson." },
+  { ref:"20:14", root:"ilah", form:"إِلَٰه", score:11.0, words:12, status:"pipeline",
+    arabic:"إِنَّنِىٓ أَنَا ٱللَّهُ لَآ إِلَـٰهَ إِلَّآ أَنَا۠ فَٱعْبُدْنِى وَأَقِمِ ٱلصَّلَوٰةَ لِذِكْرِىٓ",
+    english:"I am Allah — no god but Me — so worship Me and establish prayer",
+    scores:{story:8,fam:0,fit:3}, why:"Allah speaking directly to Musa at the burning bush." },
+  { ref:"7:59", root:"ilah", form:"إِلَٰه", score:8.4, words:9, status:"pipeline",
+    arabic:"يَا قَوْمِ اعْبُدُوا اللَّهَ مَا لَكُم مِّنْ إِلَٰهٍ غَيْرُهُ",
+    english:"O my people, worship Allah — you have no god other than Him",
+    scores:{story:8,fam:0,fit:3}, why:"Nuh's call — same words repeated by every prophet." },
+  { ref:"37:35", root:"ilah", form:"إِلَٰه", score:8.0, words:9, status:"pipeline",
+    arabic:"إِنَّهُمْ كَانُوٓا۟ إِذَا قِيلَ لَهُمْ لَآ إِلَـٰهَ إِلَّا ٱللَّهُ يَسْتَكْبِرُونَ",
+    english:"When told: There is no god but Allah — they were arrogant",
+    scores:{story:4,fam:0,fit:3}, why:"Bridges both roots — la ilaha illa Allah + arrogance (istakbara)." },
+  { ref:"47:19", root:"ilah", form:"إِلَٰه", score:8.0, words:9, status:"pipeline",
+    arabic:"فَٱعْلَمْ أَنَّهُۥ لَآ إِلَـٰهَ إِلَّا ٱللَّهُ وَٱسْتَغْفِرْ لِذَنۢبِكَ",
+    english:"Know that there is no god but Allah, and ask forgiveness",
+    scores:{story:4,fam:0,fit:3}, why:"Direct command to the Prophet — concise tawhid + istighfar." },
+  { ref:"18:110", root:"ilah", form:"إِلَٰه", score:6.0, words:12, status:"pipeline",
+    arabic:"قُلْ إِنَّمَآ أَنَا۠ بَشَرٌ مِّثْلُكُمْ يُوحَىٰٓ إِلَىَّ أَنَّمَآ إِلَـٰهُكُمْ إِلَـٰهٌ وَٰحِدٌ",
+    english:"I am only a human like you — your God is one God",
+    scores:{story:3,fam:3,fit:0}, why:"Closing of Surah Al-Kahf — recited every Friday. Too long for Learn." },
+  { ref:"21:22", root:"ilah", form:"آلِهَة", score:3.0, words:7, status:"pipeline",
+    arabic:"لَوْ كَانَ فِيهِمَآ ءَالِهَةٌ إِلَّا ٱللَّهُ لَفَسَدَتَا",
+    english:"Had there been gods besides Allah, both would have been ruined",
+    scores:{story:1,fam:0,fit:0}, why:"Famous logical argument for tawhid." },
+];
+
+// ════════════════════════════════════════════════
+// STATE & RENDERING
+// ════════════════════════════════════════════════
+
+let activeFilter = { type: "all" };
+let sortBy = "words";
+
+function getVersesForForm(rootKey, formArabic) {
+  return VERSES.filter(v => v.root === rootKey && v.form === formArabic);
+}
+function getVersesForRoot(rootKey) {
+  return VERSES.filter(v => v.root === rootKey);
+}
+function getSelectedVerses() {
+  return VERSES.filter(v => v.status === "learning").sort((a,b) => a.words - b.words);
+}
+
+function computeFormStats() {
+  const stats = {};
+  ROOTS.forEach(r => {
+    r.forms.forEach(f => {
+      const key = r.key + "|" + f.arabic;
+      const verses = VERSES.filter(v => v.root === r.key && v.form === f.arabic);
+      const selected = verses.filter(v => v.status === "learning").length;
+      stats[key] = { total: f.count, selected };
+    });
+  });
+  return stats;
+}
+
+function renderSidebar() {
+  const stats = computeFormStats();
+  let html = "";
+
+  // All roots header
+  const allSelected = VERSES.filter(v => v.status === "learning").length;
+  const allTotal = ROOTS.reduce((s, r) => s + r.forms.reduce((s2, f) => s2 + f.count, 0), 0);
+  const allClass = activeFilter.type === "all" ? "active" : "";
+  const allCountClass = allSelected > 0 ? "has-picks" : "";
+  html += `<div class="all-roots-header ${allClass}" onclick="clickAll()">
+    <span class="all-label">All roots</span>
+    <span class="all-count ${allCountClass}">${allSelected}/${allTotal}</span>
+  </div>`;
+
+  ROOTS.forEach((root, ri) => {
+    if (ri > 0) html += '<hr class="root-divider">';
+
+    // Root-level count
+    const rootSelected = VERSES.filter(v => v.root === root.key && v.status === "learning").length;
+    const rootTotal = root.forms.reduce((s, f) => s + f.count, 0);
+    const isRootActive = activeFilter.type === "root" && activeFilter.rootKey === root.key;
+    const rootCountClass = rootSelected > 0 ? "has-picks" : "";
+
+    html += `<div class="root-header ${isRootActive ? 'active' : ''}" onclick="clickRoot('${root.key}')">
+      <span class="root-arabic">${root.arabic}</span>
+      <span class="root-trans">${root.trans}</span>
+      <span class="root-count ${rootCountClass}">${rootSelected}/${rootTotal}</span>
+      <button class="collapse-toggle" onclick="toggleRoot(event, '${root.key}')" title="Collapse">&#9660;</button>
+    </div>`;
+    html += `<div class="root-forms-group" id="root-${root.key}">`;
+
+    root.forms.forEach(f => {
+      const key = root.key + "|" + f.arabic;
+      const s = stats[key] || { total: 0, selected: 0 };
+      const isActive = activeFilter.type === "form" && activeFilter.rootKey === root.key && activeFilter.formArabic === f.arabic;
+      const pickerVerses = VERSES.filter(v => v.root === root.key && v.form === f.arabic).length;
+      let dotClass = "uncovered";
+      if (s.selected > 0) dotClass = "covered";
+      else if (pickerVerses > 0) dotClass = "empty";
+      const selClass = s.selected > 0 ? "has-picks" : "";
+
+      html += `<div class="form-item ${isActive ? 'active' : ''}" onclick="clickForm('${root.key}','${f.arabic}')">
+        <span class="status-dot ${dotClass}"></span>
+        <span class="form-arabic">${f.arabic}</span>
+        <span class="form-selection ${selClass}">${s.selected}/${s.total}</span>
+      </div>`;
+    });
+
+    html += '</div>';
+  });
+
+  document.getElementById("sidebar").innerHTML = html;
+}
+
+function renderMain() {
+  let verses;
+  let title, gloss, countBadge;
+
+  if (activeFilter.type === "form") {
+    verses = getVersesForForm(activeFilter.rootKey, activeFilter.formArabic);
+    const root = ROOTS.find(r => r.key === activeFilter.rootKey);
+    const form = root.forms.find(f => f.arabic === activeFilter.formArabic);
+    title = form.arabic;
+    gloss = form.gloss;
+    const sel = verses.filter(v => v.status === "learning").length;
+    countBadge = sel + "/" + form.count;
+  } else if (activeFilter.type === "root") {
+    verses = getVersesForRoot(activeFilter.rootKey);
+    const root = ROOTS.find(r => r.key === activeFilter.rootKey);
+    title = root.arabic;
+    gloss = "all forms";
+    const sel = verses.filter(v => v.status === "learning").length;
+    const total = root.forms.reduce((s,f) => s + f.count, 0);
+    countBadge = sel + "/" + total;
+  } else {
+    // all
+    verses = [...VERSES];
+    title = "All roots";
+    gloss = "";
+    const sel = verses.filter(v => v.status === "learning").length;
+    const total = ROOTS.reduce((s, r) => s + r.forms.reduce((s2, f) => s2 + f.count, 0), 0);
+    countBadge = sel + "/" + total;
+  }
+
+  // Sort
+  if (sortBy === "score") verses.sort((a,b) => b.score - a.score);
+  else if (sortBy === "words") verses.sort((a,b) => a.words - b.words);
+
+  let html = `<div class="main-header">
+    <h2><span class="hdr-arabic">${title}</span>
+      ${gloss ? `<span style="color:var(--muted);font-size:0.82rem">— ${gloss}</span>` : ''}
+      <span class="badge form">${countBadge}</span>
+    </h2>
+    <div class="sort-controls">
+      <button class="sort-btn ${sortBy==='score'?'active':''}" onclick="setSort('score')">Score</button>
+      <button class="sort-btn ${sortBy==='words'?'active':''}" onclick="setSort('words')">Words</button>
+    </div>
+  </div>`;
+
+  if (verses.length === 0) {
+    html += '<div class="no-verses">No verses available for this form yet</div>';
+  } else if (activeFilter.type === "root" || activeFilter.type === "all") {
+    // Group by root then form
+    const rootOrder = activeFilter.type === "all" ? ROOTS : [ROOTS.find(r => r.key === activeFilter.rootKey)];
+    rootOrder.forEach(root => {
+      const rootVerses = verses.filter(v => v.root === root.key);
+      if (rootVerses.length === 0) return;
+      if (activeFilter.type === "all") {
+        const rSel = rootVerses.filter(v => v.status === "learning").length;
+        const rTotal = root.forms.reduce((s, f) => s + f.count, 0);
+        html += `<div class="form-subheader" style="background:#f0f9ff;color:#1e40af;font-size:0.9rem;margin-top:1.5rem"><span class="fsh-arabic" style="font-size:1.2rem">${root.arabic}</span> ${root.trans} <span style="margin-left:auto;font-size:0.75rem">${rSel}/${rTotal}</span></div>`;
+      }
+      const grouped = {};
+      rootVerses.forEach(v => {
+        if (!grouped[v.form]) grouped[v.form] = [];
+        grouped[v.form].push(v);
+      });
+      root.forms.forEach(f => {
+        const gv = grouped[f.arabic];
+        if (!gv || gv.length === 0) return;
+        const sel = gv.filter(v => v.status === "learning").length;
+        html += `<div class="form-subheader"><span class="fsh-arabic">${f.arabic}</span> ${f.gloss} <span style="margin-left:auto;font-size:0.75rem">${sel}/${f.count}</span></div>`;
+        html += '<div class="cards">';
+        if (sortBy === "score") gv.sort((a,b) => b.score - a.score);
+        else gv.sort((a,b) => a.words - b.words);
+        gv.forEach(v => { html += renderCard(v); });
+        html += '</div>';
+      });
+    });
+  } else {
+    html += '<div class="cards">';
+    verses.forEach(v => { html += renderCard(v); });
+    html += '</div>';
+  }
+
+  document.getElementById("main-content").innerHTML = html;
+}
+
+function renderCard(v) {
+  const cls = v.status === "learning" ? "learning" : v.status === "pipeline" ? "pipeline" : "";
+  const scoreClass = v.score >= 20 ? "score-high" : "score";
+  const s = v.scores;
+
+  function dimClass(val) { return val >= 7 ? "high" : val >= 4 ? "medium" : val <= 2 ? "low" : ""; }
+
+  return `<div class="card ${cls}">
+    <div class="card-top">
+      <div class="card-left">
+        <span class="ref">${v.ref}</span>
+        <span class="badge form">${v.form}</span>
+        <span class="badge ${scoreClass}">&#9733; ${v.score}</span>
+        <span class="badge words">${v.words} words</span>
+      </div>
+      <div class="card-actions">
+        <button class="${v.status==='none'?'active':''}" onclick="setStatus('${v.ref}','none')">None</button>
+        <button class="${v.status==='learning'?'active':''}" onclick="setStatus('${v.ref}','learning')">Learning</button>
+        <button class="${v.status==='pipeline'?'active-pipeline':''}" onclick="setStatus('${v.ref}','pipeline')">Pipeline</button>
+      </div>
+    </div>
+    <div class="arabic">${v.arabic}</div>
+    <div class="english">"${v.english}"</div>
+    <div class="score-breakdown">
+      <span class="score-dim ${dimClass(s.story)}"><span class="dl">story</span> ${s.story}</span>
+      <span class="score-dim ${dimClass(s.fam)}"><span class="dl">fam</span> ${s.fam}</span>
+      <span class="score-dim ${dimClass(s.fit)}"><span class="dl">fit</span> ${s.fit}</span>
+    </div>
+    <div class="why">${v.why}</div>
+  </div>`;
+}
+
+// ════════════════════════════════════════════════
+// EVENT HANDLERS
+// ════════════════════════════════════════════════
+
+function clickAll() {
+  activeFilter = { type: "all" };
+  render();
+}
+function clickForm(rootKey, formArabic) {
+  activeFilter = { type: "form", rootKey, formArabic };
+  render();
+}
+function clickRoot(rootKey) {
+  activeFilter = { type: "root", rootKey };
+  render();
+}
+function toggleRoot(e, rootKey) {
+  e.stopPropagation();
+  const group = document.getElementById('root-' + rootKey);
+  const btn = e.currentTarget;
+  group.classList.toggle('collapsed');
+  btn.classList.toggle('collapsed');
+}
+function setSort(s) {
+  sortBy = s;
+  renderMain();
+}
+function setStatus(ref, status) {
+  const v = VERSES.find(v => v.ref === ref);
+  if (v) v.status = status;
+  render();
+}
+function render() {
+  renderSidebar();
+  renderMain();
+  // Update header pill
+  const sel = VERSES.filter(v => v.status === "learning").length;
+  document.getElementById("learning-count").textContent = sel + " / 10";
+  document.getElementById("learning-pill").classList.toggle("filled", sel >= 10);
+}
+
+// Initial render
+render();
+</script>
+</body>
+</html>
