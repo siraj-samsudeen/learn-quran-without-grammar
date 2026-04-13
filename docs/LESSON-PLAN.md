@@ -1,5 +1,7 @@
 # Lesson Plan & Organisation
 
+> **Status (2026-04-14):** Pedagogical framework (anchor phrase → roots → forms → sentences, selection criteria, translation style) is **still authoritative**. Storage and tooling details (references to `docs/roots/*.json`, the static picker HTML) are **superseded** by the Era 3 architecture — see [CURRENT-STATE.md](CURRENT-STATE.md) and [DATA-MODEL.md](DATA-MODEL.md).
+
 This document defines how each lesson is structured, how sentences are selected, and how the curriculum builds over time.
 
 ---

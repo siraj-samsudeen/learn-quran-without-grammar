@@ -1,5 +1,7 @@
 # Scoring v2 Review — Lessons 1–3
 
+> **Status (2026-04-14):** April 2025 L1–L3 scoring review. Methodology (dimensions, tiers) still valid per [SCORING.md](SCORING.md). Underlying data has since moved from per-root JSONs into the Era 3 SQLite + InstantDB model — see [CURRENT-STATE.md](CURRENT-STATE.md).
+
 All dimensions normalized to 0–10. Tier 1 = deterministic. Tier 2 = LLM-scored with reasons. Tier 3 = teacher adjustment (blank, for you to fill).
 
 **Dimension key:** Len = Verse Length | Frq = Form Frequency | Dom = Form Dominance | Cur = Curriculum | Sto = Story/Memorability/Emotion | Fam = Familiarity/Worship | Cmp = Completeness | Fit = Teaching Fit | Adj = Teacher Adjustment

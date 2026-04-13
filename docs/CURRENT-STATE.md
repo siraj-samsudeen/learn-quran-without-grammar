@@ -29,6 +29,23 @@ _Last updated: 2026-04-14_
 
 ---
 
+## Why this rewrite (motivation)
+
+Every step in the current (Era 1) file-based workflow creates friction:
+
+| Pain point | Current workflow | v2 workflow |
+|------------|-----------------|-------------|
+| **Root inventory** | Run Python script → get JSON → copy to docs/roots/ → git commit | Click "New root" in dashboard → system builds inventory → saved to DB |
+| **Verse scoring** | LLM pass writes to JSON → teacher reviews in picker HTML → edits JSON | LLM scores in background → teacher reviews in dashboard → click to approve |
+| **Lesson authoring** | Edit YAML + Markdown + JSON → run validators → git push → wait for deploy | Fill in forms in dashboard → real-time validation → publish instantly |
+| **Audio** | Edit YAML → run build script → download from CDN + generate TTS → copy MP3s → git push | Qur'anic audio streams from CDN at runtime. TTS generated on teacher's machine, uploaded via dashboard. |
+| **Student experience** | Static page, same for everyone | Dynamic, personalized per student profile |
+| **Multi-device** | Desktop only (needs terminal + git) | Dashboard works on phone too |
+
+(Extracted from the former `docs/system-v2-real-backend.md` before it was archived.)
+
+---
+
 ## Active work streams
 
 ### Stream 1: Architecture rewrite (DESIGN COMPLETE, IMPLEMENTATION NOT STARTED)
@@ -50,6 +67,25 @@ Migrating from per-root JSON files to SQLite + InstantDB. Consolidating teacher 
 | 2 | `instantdb-app/instant.schema.ts` (full schema per DATA-MODEL.md) + `tools/seed-instantdb-from-sqlite.py` | Query InstantDB; compare counts against SQLite |
 | 3 | Picker evolution: normalized queries, inline score editing, multi-form verse display; dashboard + role-aware routing | Teacher workflow end-to-end |
 | 4 | Port `merge-t2-scores.py` + `generate-lesson-summary.py` to SQLite. Retire `generate-picker.py` + `build-dashboard.py`. Archive `docs/roots/*.json`. Update `lesson-pipeline.md` skill. | Clean cutover |
+
+**Phase 1 acceptance criteria** — `tools/build-quran-db.py` + `migrate-json-to-sqlite.py` must produce SQLite rows that match these per-root counts from the existing JSONs:
+
+| Root | Forms | Verses |
+|---|---:|---:|
+| ilah | 4 | 17 |
+| kabura | 14 | 12 |
+| shahida | 9 | 20 |
+| rasul | 7 | 429 |
+| hayiya | 13 | 166 |
+| salah | 4 | 90 |
+| falaha | 2 | 40 |
+| khayr | 5 | 178 |
+| nawm | 3 | 9 |
+| qama | 22 | 597 |
+
+Byte-for-byte match on verse text and translations; score dimensions (Tier 1 + Tier 2) preserved.
+
+**Pedagogical reference:** the "root word" naming convention (each root identified by a representative word, typically the Form I verb or basic noun) is defined in [docs/LESSON-PLAN.md](LESSON-PLAN.md#root-word-convention) — complements FORMS-LEMMAS-ROOTS.md.
 
 ### Stream 2: Lesson production (BLOCKED on Stream 1)
 
@@ -155,6 +191,18 @@ cc26656e  feat: picker redesign mockups — form-aware two-panel layout
 2aebfe80  feat: picker UI rework — app sidebar, card redesign, issue flagging
 456dd0d3  seed data + Playwright E2E tests for dashboard and picker
 ```
+
+---
+
+## Archived references
+
+Pre-Era-3 docs (Era 1 Jekyll + Era 2 InstantDB-prototype research) now live under [docs/archive/](archive/). They are retained for history but **are not authoritative** — always prefer the Era 3 canonical docs above. Key archived items:
+
+- [archive/ARCHITECTURE.md](archive/ARCHITECTURE.md) — Era 1 Jekyll site architecture (still governs live Lessons 1-2)
+- [archive/AUDIO-SYSTEM.md](archive/AUDIO-SYSTEM.md) — Era 1 audio pipeline (TTS + EveryAyah); most still valid as reference
+- [archive/system-v2-real-backend.md](archive/system-v2-real-backend.md) — April 12 draft; motivation preserved in "Why this rewrite" section above
+- [archive/session-history-2026-04-11.md](archive/session-history-2026-04-11.md) — April 11 session handoff
+- [archive/app/](archive/app/) — July 2025 platform research (PLATFORM-PRD, APP-REQUIREMENTS, RESEARCH-SYNTHESIS, 5× research-\*.md) — Expo-first assumptions superseded by ADR-011 two-track strategy
 
 ---
 
