@@ -488,37 +488,40 @@ When communicating with students or other teachers familiar with Quran Corpus, w
 The student MVP (ADR-011 Phase 1) uses:
 - `selections` — which verses are in which lesson.
 - `forms` and `form_lemma_bindings` — to show what word-shape each verse card teaches.
-- `verse_roots` — to highlight where in the Arabic text the taught form appears.
+- `verse_roots` — to show which roots are in a verse at a glance.
+- `verse_words` — to highlight the exact word positions in the Arabic text (see §14 Q1).
 
 Specifically, when rendering a verse card for a lesson, the SRS engine:
-1. Fetches the `selection` row → gets `verse_id`, `form_id` assigned to this card.
+1. Fetches the `studentCards` row → gets `verse_ref`, `form_id` assigned to this card.
 2. Fetches `form_lemma_bindings` for that form → gets the (lemma, feature) set.
-3. Fetches `verse_words` for that verse — **in SQLite only**, not InstantDB — to find word positions where the form matches. (This is why Root Explorer is a future feature: it needs `verse_words`, which is local-only today.)
-4. Bolds those word positions in the Arabic text on the card.
+3. Fetches `verse_words` rows for that verse from InstantDB to find word positions where `(lemma_id, tense, number, gender)` matches any binding.
+4. Bolds those exact word positions in the Arabic text on the card.
 
-For the MVP, the web app can work without `verse_words` by doing fuzzy string matching on the form's `arabic_canonical` against the verse text. This is approximate but fine for well-behaved cases. True word-level highlighting waits for a later phase.
+**Root Explorer (future phase)** becomes straightforward: query `verse_roots` for any verse the student is looking at → join with `form_lemma_bindings` for the student's enrolled course → render which forms the teacher has taught (or noted as not-yet-taught) for words in this verse. No backend API needed.
 
 ---
 
 ## 14. Open questions
 
-**Q1: Lemma vs form in InstantDB for the student app.**
-Options:
-- Seed only forms to InstantDB (students never see lemmas).
-- Seed both. Lemmas are 4,000 rows — cheap. But students don't need them for MVP.
+**Q1: What's seeded to InstantDB? (DECIDED 2026-04-14)**
 
-**Recommendation:** MVP seeds only forms. Lemmas stay in SQLite only until Root Explorer arrives.
+Everything from Layer 1 is seeded: `roots` (1,651), `lemmas` (~4,000), `verses` (6,236), `verse_roots` (~45,000), `verse_words` (~130,000), `surahs` (114). Plus all Layer 2 tables per course and per student.
+
+Earlier drafts of this doc and ADR-010 kept `verse_words` local-only. That was reversed: seeding it enables exact word-level highlighting from MVP day one, clean form-resolution joins, and unblocks Root Explorer. See ADR-010 Revisions for full reasoning.
 
 **Q2: What if the teacher adds a binding that doesn't match any actual Qur'anic word?**
 E.g., teacher defines a form with `tense=imperfect` but the lemma has no imperfect occurrences in the Qur'an. This binding is valid but produces zero matches. The picker should surface a warning: "This form has no verses." The teacher can delete or adjust.
 
 **Q3: Root Explorer — do we expose raw lemmas, or only curated forms?**
+
 Tension: a student exploring Surah Yāsīn on their own may hit words whose lemma is not yet covered by any form in their enrolled course. Do we:
 - (a) Hide such words (only show curated forms).
 - (b) Show them as "uncurated — lemma X, no lesson yet."
 - (c) Auto-create a "raw lemma" form at display time.
 
 **Recommendation:** defer until Root Explorer is designed. But flag (b) as the likely answer — honesty is better than hiding.
+
+**Note (2026-04-14):** The data-layer blocker for Root Explorer is now removed — `verse_words` is in InstantDB. Feature is still deferred from Phase 1 MVP per ADR-011 scope, but implementation is unblocked.
 
 **Q4: Inherited forms across courses (future).**
 A second course might want to start from the first course's forms and diverge. Worth considering a "fork course" flow in the future. Out of scope for v1.

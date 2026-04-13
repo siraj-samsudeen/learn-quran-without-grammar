@@ -1,7 +1,7 @@
 ---
 layout: lesson
 title: "Lesson 1: Allāhu Akbar"
-description: "Two root words behind Allāhu Akbar — إِلَٰه (god) and كَبُرَ (greatness) — 8 words through 12 Qur'anic phrases."
+description: "Two roots behind Allāhu Akbar — إِلَٰه (god) and كَبُرَ (greatness) — 8 word-forms through 12 Qur'anic phrases."
 audio_manifest: /assets/audio/lessons/lesson-01/manifest.json
 audio_download: /assets/audio/lessons/lesson-01/lesson-01-full.mp3
 audio_download_tamil: /assets/audio/lessons/lesson-01/lesson-01-full-ta.mp3

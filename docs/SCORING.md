@@ -1,6 +1,6 @@
 # Verse Scoring Algorithm (v2)
 
-This document defines the scoring system used to rank Qur'anic verse candidates for lesson inclusion. Scores are computed per verse and stored in `docs/roots/{root}.json`.
+This document defines the scoring system used to rank Qur'anic verse candidates for lesson inclusion. Scores are computed per verse and **per (verse, root) pair** — see the verse-level vs verse-root-level split in ADR-010. **Storage is migrating from per-root JSON files to SQLite + InstantDB** (ADR-010): `verse_scores` holds verse-level dimensions (story, familiarity, fragment) scored once; `verse_root_scores` holds per-root dimensions (teaching_fit, form_freq, form_dominance, final_score) scored per (verse, root, course).
 
 ---
 

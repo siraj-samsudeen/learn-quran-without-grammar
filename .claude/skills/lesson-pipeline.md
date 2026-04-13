@@ -7,25 +7,21 @@ When the teacher says "let's create a new lesson", "start lesson N", "prepare fo
 
 **This happens automatically on "prepare for lesson N" — do not wait for teacher input.**
 
+**AS OF 2026-04-14 (ADR-010 in flight):** the data pipeline is migrating from per-root JSON files to SQLite + InstantDB. During transition the steps below apply; after migration completes the workflow is simpler:
+1. Verify `tools/data/quran.db` exists and is current (rebuild with `python3 tools/build-quran-db.py` if not).
+2. Teacher opens the InstantDB picker for this lesson; candidate verses are already populated via a per-root query (no manual HTML generation needed). Teacher assigns learning/recall/pipeline and adjusts scores inline.
+3. Claude reads finalized selections via the InstantDB query (or from an exported JSON the teacher pastes).
+
+**Transition-state workflow (still uses root JSONs while `docs/roots/*.json` remains the source of truth):**
+
 1. **Check which root(s) the anchor phrase introduces.** For each root:
    - If `docs/roots/{root}.json` already exists and has `verses` populated with > 20 entries → reuse. No building.
-   - Otherwise → run **`tools/build-root-inventory.py`** (see ADR-009). It reads local vendored morphology + Tanzil text + draft translations and produces a complete JSON in under a second — no HTML scraping, no per-verse API calls. Example:
-     ```bash
-     python3 tools/build-root-inventory.py \
-       --root رسل --root-word رَسُول --root-transliteration rasul \
-       --three-letter "ر س ل" --three-letter-en "ra sin lam" \
-       --corpus-key rsl --introduced-in-lesson 3 \
-       --output docs/roots/rasul.json
-     ```
-     The builder is idempotent: re-running it preserves scored/`used` entries byte-for-byte and only appends any newly-discovered candidates. **Do NOT use `WebFetch` on corpus.quran.com or the old `docs/prompts/batch_completion.md` flow** — both are obsoleted by the local builder.
-2. **Check that previous lessons' roots also have complete JSONs.** These are needed for Recall candidates. If any are thin, run the builder for them too — all candidate data is generated from local files, so there is no cost to rebuilding.
-3. **Generate the picker HTML** by copying `tools/selection-picker/template.html` to `.claude/tmp/lesson-NN-picker.html` and replacing the `LESSON_CONFIG` block with data drawn from the root JSONs:
-   - `verses` array = all candidate verses (current-lesson root + previous-lesson roots for Recall), filtering out verses already `status: "used"` in earlier lessons.
-   - Pre-assign `defaultSection` based on the AI's best guess (top-scored verses → `learning`, existing recall picks → `recall`, rest → `none` or `pipeline`).
-4. **Open the picker** with `open .claude/tmp/lesson-NN-picker.html`.
-5. **Tell the teacher what you did in 2 sentences** and let them work in the picker. Wait for them to paste the JSON back.
+   - Otherwise → run **`tools/build-root-inventory.py`** (see ADR-009). Reads local vendored morphology + Tanzil text + draft translations, produces a complete JSON in under a second. **Do NOT use `WebFetch` on corpus.quran.com** — the vendored morphology file is authoritative.
+2. **Check that previous lessons' roots also have complete JSONs** for Recall candidates.
+3. **Generate the picker HTML** from `tools/selection-picker/template.html` with data drawn from root JSONs. (This step is retired post-migration — the InstantDB app replaces the static picker. See ADR-010.)
+4. **Open the picker** and wait for the teacher to paste selections.
 
-**The point:** the teacher should never have to wait for you to fetch verses one-by-one while they're staring at a blank UI. Do all fetching upfront, once, and cache it in the root JSON.
+**Terminology note:** every mention of "form" in this skill refers to the pedagogical unit defined in [`docs/FORMS-LEMMAS-ROOTS.md`](../../docs/FORMS-LEMMAS-ROOTS.md). A form is built from one or more Kais Dukes lemmas with optional tense/number/gender filters — it is NOT synonymous with lemma.
 
 ## Pipeline Phases
 

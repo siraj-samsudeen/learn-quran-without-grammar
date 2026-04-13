@@ -49,7 +49,7 @@ Root letters: **{{أ ل ه}}** ({{alif lām hā}})
 
 ### ⭐ · Anchor Phrase
 
-{{Arabic text with **root word** bolded}}
+{{Arabic text with **the taught form** bolded}}
 
 <p class="audio-label">🔊 {{ref}} · {{Arabic excerpt}}</p>
 <audio controls preload="none" src="{{audio URL}}"></audio>
@@ -62,7 +62,7 @@ Root letters: **{{أ ل ه}}** ({{alif lām hā}})
 
 ### 1 · {{form}} ({{english}})
 
-{{Arabic text with **root word** bolded}}
+{{Arabic text with **the taught form** bolded}}
 
 ({{Surah Name SS:AA}}) · <audio controls preload="none" src="https://everyayah.com/data/{{RECITER}}/{{SSSAAA}}.mp3#t={{START}},{{END}}"></audio>
 

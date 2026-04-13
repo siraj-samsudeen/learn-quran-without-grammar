@@ -212,11 +212,12 @@ learn-quran-without-grammar/
 │   │   ├── quran-morphology.txt     ← mustafa0x/quran-morphology (GPL) — roots + lemmas
 │   │   ├── quran-uthmani.txt        ← Tanzil full Uthmani text (matches our arabic_full)
 │   │   └── quran-trans-en-sahih.txt ← Saheeh International draft translations
-│   ├── build-root-inventory.py      ← ⭐ Builds docs/roots/*.json from local data (replaces corpus scraping)
-│   ├── generate-picker.py           ← Generates picker HTML from root JSONs
-│   ├── merge-t2-scores.py           ← Merges LLM Tier 2 scores into root JSONs
-│   ├── generate-lesson-summary.py   ← Generates lesson-summary.json from root data
-│   ├── build-dashboard.py           ← Rebuilds teacher/local.html with embedded data
+│   ├── build-quran-db.py            ← ⭐ Builds tools/data/quran.db (SQLite, all 1,651 roots, ADR-010) — planned, replaces build-root-inventory.py
+│   ├── build-root-inventory.py      ← [TRANSITIONING] Builds docs/roots/*.json from local data (ADR-009) — will be retired after ADR-010 migration
+│   ├── merge-t2-scores.py           ← [PORTING] Merges LLM Tier 2 scores (JSON today → SQLite per ADR-010)
+│   ├── generate-lesson-summary.py   ← [PORTING] Generates lesson-summary.json (JSON today → SQLite per ADR-010)
+│   ├── [RETIRED] generate-picker.py           ← Static HTML picker replaced by InstantDB app (ADR-010)
+│   ├── [RETIRED] build-dashboard.py           ← Static teacher dashboard replaced by InstantDB app (ADR-010)
 │   ├── auto-timestamps.py           ← Word-level timestamps from Quran Foundation API
 │   ├── find-audio-fragment.py       ← Silence-based timestamp fallback (5 reciters)
 │   ├── build-lesson-audio.py        ← Builds MP3s + manifest from YAML

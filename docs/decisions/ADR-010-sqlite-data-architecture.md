@@ -2,6 +2,26 @@
 
 ## Status: Proposed (2026-04-14)
 
+## Revisions
+
+**2026-04-14 (same day) — amendments after brainstorming session.** The following refinements were captured before implementation began. They supersede the corresponding portions of the original proposal below.
+
+1. **Forms are NOT the same as lemmas.** The original schema had a `form_curriculum` table keyed on `(lemma_ar, root_ar)`, treating one lemma as one pedagogical form. This is wrong — a form is finer-grained than a lemma (e.g., past vs imperfect of the same verb = 2 forms). The authoritative model is defined in [`docs/FORMS-LEMMAS-ROOTS.md`](../FORMS-LEMMAS-ROOTS.md). Schema effect:
+   - Keep `lemmas` as Kais Dukes truth (unchanged).
+   - **Replace `form_curriculum`** with two tables: `forms` (per-course pedagogical units) + `form_lemma_bindings` (many-to-many with optional tense/number/gender filters).
+
+2. **Multi-course schema now, single-course UX now.** Add a `courses` table. Add `course_id` FK (NOT NULL) to every Layer 2 table: `root_curriculum`, `forms`, `form_lemma_bindings`, `verse_scores`, `verse_root_scores`, `selections`, `sentence_patterns`, `lessons`. Seed one default course `"lqwg-v1"` and migrate all existing teacher data under it. The picker UI operates on the default course for now; multi-course UX is additive later.
+
+3. **`verse_words` (130K rows) WILL be seeded to InstantDB.** The original proposal kept it local-only. Changed: seeding enables exact word-level highlighting in student cards, clean form-resolution queries, and unblocks Root Explorer (future ADR-011 feature) from needing a backend API. Scope cost is modest (~65MB); client sync is scoped by query (~5k rows for a student's enrolled lessons, not 130k).
+
+4. **`roots` and `lemmas` are also seeded to InstantDB** (already covered by the "What goes to InstantDB" section, but made explicit for form-resolution joins).
+
+5. **Verse-level vs verse-root-level score separation** (already in original schema) is confirmed correct.
+
+6. **Multi-lemma verses are common and pedagogically valuable** (e.g., 7:138 contains both إِلَٰه sg and آلِهَة pl of the same root). The `verse_roots.all_lemmas` field is first-class data, not an edge case. The picker UI renders "multi-form verse" explicitly.
+
+Sections below that contradict these amendments are retained for historical context but superseded. When implementing, follow the amendments and the [FORMS-LEMMAS-ROOTS.md](../FORMS-LEMMAS-ROOTS.md) spec.
+
 ## Context
 
 The project currently stores Qur'anic root data as individual JSON files (`docs/roots/*.json`) — one per root. A Python script (`build-root-inventory.py`) reads three raw text files and produces these JSONs. Six scripts consume them. This was a bootstrapping decision (ADR-009) that worked for 10 curated roots.
@@ -69,7 +89,9 @@ CREATE TABLE lemmas (
     PRIMARY KEY (lemma_ar, root_ar)
 );
 
--- Word-level morphology (130K rows, LOCAL ONLY — never sent to cloud)
+-- Word-level morphology (130K rows)
+-- REVISED 2026-04-14: previously marked "local only". Decision reversed: verse_words IS seeded to InstantDB
+-- to enable exact word-level highlighting and clean form-resolution queries. Client sync is scoped by query.
 CREATE TABLE verse_words (
     surah_num    INTEGER NOT NULL,
     ayah_num     INTEGER NOT NULL,
@@ -268,15 +290,16 @@ LEFT JOIN selections sel ON v.surah_num = sel.surah_num AND v.ayah_num = sel.aya
 | Selections, remarks | InstantDB | Teacher authors via UI |
 | Form curriculum (gloss, category) | InstantDB | Teacher authors via UI |
 
-### What stays local-only
+### What stays local-only (REVISED 2026-04-14)
 
-- `verse_words` (130K rows of word-level morphology) — only Python tools need this granularity
-- The three raw text files — immutable, vendored in git
+- The three raw text files (`quran-morphology.txt`, `quran-uthmani.txt`, `quran-trans-en-sahih.txt`) — immutable, vendored in git
+- That's it. All structured tables are seeded to InstantDB.
 
-### What goes to InstantDB
+### What goes to InstantDB (REVISED 2026-04-14)
 
-- `verses` (6,236 rows), `roots` (1,651), `lemmas` (~4,000), `verse_roots` (~45,000)
-- All Layer 2 tables (scores, selections, curriculum, lessons)
+- Layer 1: `verses` (6,236), `roots` (1,651), `lemmas` (~4,000), `verse_roots` (~45,000), `verse_words` (~130,000), `surahs` (114)
+- Layer 2 (per course): `courses`, `root_curriculum`, `forms`, `form_lemma_bindings`, `verse_scores`, `verse_root_scores`, `selections`, `sentence_patterns`, `lessons`
+- Layer 2 (per student, per course): `students`, `studentCards`, `reviewSessions`, `streaks` — see ADR-011
 
 ## Row Count Estimates
 
@@ -321,13 +344,15 @@ LEFT JOIN selections sel ON v.surah_num = sel.surah_num AND v.ayah_num = sel.aya
 
 - **Positive:** Full Qur'anic coverage from day one. Cross-root queries. No data duplication. Clean score separation (verse-level vs verse-root-level).
 - **Positive:** The picker can show ALL 38 اسْتَكْبَرَ verses, not just the 2 that were curated.
-- **Negative:** `quran.db` is a binary file (gitignored, built locally). Lose the ability to `git diff` root data. Mitigated by the fact that teacher data lives in InstantDB with its own history.
+- **Note:** `quran.db` is committed to git (~15-20 MB). Layer 1 is immutable (Qur'anic text never changes), so there's no binary diff churn. Layer 2 (teacher data) lives in InstantDB, not in the committed file. This means zero-friction for new clones — no build step needed.
 - **Negative:** Migration effort for existing scripts that read JSON. Estimated at 2-3 hours per script (6 scripts total).
-- **Trade-off:** Word-level morphology stays local-only. If the app ever needs "highlight the exact word in the verse" (which it likely will for the student UI), we'll need to sync `verse_words` to InstantDB or provide an API endpoint.
+- **REVISED 2026-04-14:** Word-level morphology IS synced to InstantDB. Exact word highlighting works client-side from MVP day one. Root Explorer (ADR-011 future phase) is unblocked on the data layer.
 
 ## References
 
+- **[docs/FORMS-LEMMAS-ROOTS.md](../FORMS-LEMMAS-ROOTS.md) — authoritative spec for the three-concept data model** (read this first when implementing Layer 2)
 - ADR-009: Local Root Inventory Pipeline (the JSON-based approach this supersedes)
+- ADR-011: InstantDB Teacher + Student Experience (downstream consumer of this data architecture)
 - `tools/data/quran-morphology.txt` source: mustafa0x/quran-morphology (GPL, v0.4)
 - `tools/data/quran-uthmani.txt` source: Tanzil.net
 - `tools/data/quran-trans-en-sahih.txt` source: Saheeh International (draft)
