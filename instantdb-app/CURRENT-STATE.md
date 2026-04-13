@@ -18,15 +18,26 @@ These are used in:
 
 ---
 
-## What Exists
+## Architecture
 
-### Three pages (Next.js App Router):
+### App-Level Sidebar (`src/components/AppSidebar.tsx`)
+
+Route-aware sidebar using `usePathname()` + direct InstantDB queries (not React Context injection). The sidebar queries InstantDB directly — since `useQuery` is a reactive subscription, it stays in sync automatically.
+
+Three modes:
+- **`/`** (Dashboard) — clean lesson list (number + title), clickable to open picker
+- **`/picker/N`** (Picker) — lesson info + Arabic seed + root groups with live section counts + jump links
+- **`/seed`** (Seed) — DB status counts (Lessons, Verses, Selections)
+
+Responsive: desktop shows 240px sidebar, mobile (<=900px) hides it behind hamburger button + overlay.
+
+### Three Pages (Next.js App Router):
 
 | Route | What it does | File |
 |-------|-------------|------|
-| `/` | **Pipeline Dashboard** — all 7 lessons, phase dots (click to cycle status), expandable notes | `src/app/page.tsx` |
-| `/picker/[lessonNumber]` | **Verse Picker** — assign verses to Learning/Recall/Pipeline/Skip, add remarks, export JSON | `src/app/picker/[lessonNumber]/page.tsx` |
-| `/seed` | **Seed UI** — browser-based buttons to load lessons + verses (uses API route) | `src/app/seed/page.tsx` |
+| `/` | **Pipeline Dashboard** — 7 lessons, phase dots (click to cycle), expandable notes | `src/app/page.tsx` |
+| `/picker/[lessonNumber]` | **Verse Picker** — assign verses to Learning/Recall/Pipeline, audio player, issue flagging | `src/app/picker/[lessonNumber]/page.tsx` |
+| `/seed` | **Seed UI** — browser-based buttons to load lessons + verses | `src/app/seed/page.tsx` |
 
 ### API route:
 
@@ -44,81 +55,77 @@ node scripts/seed.mjs --lessons-only   # metadata only, no verses
 node scripts/seed.mjs --status         # show DB state
 ```
 
-Features: exponential backoff (1s/2s/4s/8s/16s), 5 retries per chunk, idempotent dedup by `ref|rootKey`, progress saved to `scripts/.seed-progress.json`, resumable on interrupt.
-
 ### InstantDB entities (schema-less):
 
 | Entity | Key fields | Count |
 |--------|-----------|-------|
 | `lessons` | `lessonNumber`, `slug`, `title`, `seedArabic`, `currentPhase`, `phaseScoring`..`phasePublished`, `notes` | 7 |
 | `verses` | `ref`, `rootKey`, `form`, `arabicFull`, `translation`, `surahName`, `wordCount`, `scoreFinal`..`scoreTeachingFit`, `fragment`, `lessonNumber` | ~1,558 |
-| `selections` | `lessonNumber`, `verseRef`, `section` (learning/recall/pipeline/none), `remark`, `rootKey`, `form`, `updatedAt` | 0 (created by teacher in picker) |
-
-### Supporting files:
-
-| File | Purpose |
-|------|---------|
-| `src/lib/instant.ts` | InstantDB client init |
-| `src/lib/types.ts` | TypeScript types for phases, sections, data shapes |
+| `selections` | `lessonNumber`, `verseRef`, `section` (learning/recall/pipeline/none), `remark`, `rootKey`, `form`, `updatedAt` | teacher-created |
+| `issues` | `verseRef`, `lessonNumber`, `type` (Arabic/Eng/Audio/Hook/Other), `note`, `createdAt` | teacher-created |
 
 ---
 
-## Data Flow
+## UI Rework (April 2026)
 
-```
-docs/roots/*.json  ──→  scripts/seed.mjs  ──→  InstantDB cloud
-                         (admin SDK)            ↕ real-time sync
-                                            Browser (useQuery)
-                                                ↓
-                                        Dashboard + Picker
-                                                ↓
-                                    Teacher clicks → tx.selections[id()].update()
-                                                ↓
-                                        "Copy JSON" → clipboard
-                                    (same format as existing picker.html)
-```
+The picker UI was redesigned from the original plain InstantDB prototype:
+
+### Visual Changes
+- **Warm parchment background** (`#faf8f3`) instead of grey
+- **Amiri font** for Arabic text (1.4rem, line-height 2)
+- **6px left-border color coding** on cards (green=learning, amber=recall, grey=pipeline)
+- **Solid active section buttons** (white text on colored bg)
+- **Color-coded score badges** (green >=10, yellow >=6, grey <6)
+- **Always-visible inline remark field** with dashed border (not click-to-reveal)
+
+### New Features
+- **App-level sidebar** with route-aware contextual content
+- **Audio player** per verse card with 11 reciters (EveryAyah CDN), mutual exclusion
+- **Lesson selector dropdown** in sticky top bar for quick navigation
+- **Issue flagging bar** (Option C — subtle grey bar with category chips: Arabic/Eng/Audio/Hook/Other, persisted to InstantDB)
+- **Responsive mobile sidebar** (hamburger + overlay at <=900px)
+
+### Removed (InstantDB makes redundant)
+- "Copy JSON" button (selections are in InstantDB cloud)
+- "Skip" section button (unassigned = none by default)
+
+### Design Mockups
+HTML mockups in `mockups/`:
+- `issue-ui-options.html` — 3 issue UI options (Option C chosen)
+- `sidebar-all-pages.html` — full app sidebar across all 3 pages
+- `picker/option-a-two-panel.html` — redesigned picker with form-level sidebar (NOT YET IMPLEMENTED)
 
 ---
 
-## Data Seeded
+## Next Steps / Pending Work
 
-Seed script has been run successfully with `--clear`:
-- **7 lessons** loaded with full pipeline metadata
-- **1,558 verses** loaded across all 10 root JSONs
-- Seed script fix: `import.meta.dirname` replaced with `fileURLToPath` + `dirname` for Node 20 compatibility
+1. **Form-level picker redesign** (`mockups/picker/option-a-two-panel.html`) — sidebar navigation by root→form with coverage dots, score dimension breakdown, sort by words/score. On hold pending system rearchitecture.
+2. **feather-testing-core DSL** — rewrite Playwright tests using chainable DSL (rule saved in Obsidian vault + memory). Currently using vanilla Playwright.
+3. **System rearchitecture** — major changes planned that will affect the picker and data model. See `docs/decisions/ADR-010-sqlite-data-architecture.md`.
 
 ---
 
 ## Playwright E2E Tests
 
-Tests added in `tests/` using `@playwright/test`. Run with `npx playwright test`.
+13 tests in `tests/` using `@playwright/test`. Run with `npx playwright test`.
 
 | Test | What it verifies |
 |------|-----------------|
-| Dashboard: 7 lessons | All lesson rows render with titles and Arabic text |
-| Dashboard: phase dots cycle | Clicking a phase dot changes its status |
-| Dashboard: row expand | Clicking a lesson row shows slug, roots, notes |
-| Dashboard: picker links | "Open" links appear for lessons with scoring done |
-| Picker: verse count | Lesson 5 shows 40 falaha verses with scores |
-| Picker: assign Learning | Clicking "Learning" highlights card, updates counter |
-| Picker: assign Recall | Clicking "Recall" highlights card with blue styling |
-| Picker: add remarks | Type remark, save, text persists on card |
-| Picker: persist on refresh | Selections survive page reload (InstantDB sync) |
-| Picker: Copy JSON | Clipboard contains valid JSON with lesson/selections structure |
-| Picker: back nav | Dashboard link navigates to `/` |
+| Dashboard: 7 lessons | Sidebar + pipeline table render with all lessons |
+| Dashboard: phase dots | Clicking a dot cycles its status |
+| Dashboard: row expand | Click row → shows slug + roots |
+| Dashboard: sidebar nav | Click sidebar lesson → navigates to picker |
+| Picker: verses + audio | Lesson 5 shows 40 verses, audio elements present |
+| Picker: assign Learning | Click Learning → card section updates, counter increments |
+| Picker: toggle deselect | Click active button again → back to none |
+| Picker: remark visible | Remark label + contenteditable always shown |
+| Picker: issue chips | Click Eng → issue bar activates (data-has-issue=true) |
+| Picker: lesson selector | Change dropdown → navigates to different lesson |
+| Picker: persist refresh | Assign Pipeline → refresh → counter still shows it |
+| Picker: sidebar context | Sidebar shows lesson title + root nav counts |
+| Picker: dashboard nav | Click Dashboard in sidebar → navigates to / |
 
-**All 11 tests passing.**
-
----
-
-## What's NOT Done Yet
-
-1. **No auth** — anyone with the URL can edit. Fine for prototype.
-2. **No schema enforcement** — InstantDB is schema-less by default. Can add `instant.schema.ts` later.
-3. **No score breakdown** — picker shows `scoreFinal` but not the 7-dimension breakdown. The data is there in the verse records.
-4. **No recall root grouping** — picker groups by `rootKey` within the current lesson but doesn't separate current vs recall roots (would need `picker-config.json` data).
-5. **Verse score reasons** — T2 score reasons (story/familiarity/teaching_fit text) are not loaded, only the numeric scores. Could add if useful.
-6. **Real-time multi-tab test** — not automated (InstantDB platform guarantee), but works manually.
+**All 13 tests passing.**
 
 ---
 
@@ -130,4 +137,35 @@ npm install
 node scripts/seed.mjs --clear    # load all data (needs internet)
 npm run dev                       # http://localhost:3000
 npx playwright test               # run E2E tests (needs dev server or auto-starts it)
+```
+
+---
+
+## File Structure
+
+```
+instantdb-app/
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx                    # Root layout — grid with sidebar
+│   │   ├── globals.css                   # Tailwind + color tokens + Amiri font
+│   │   ├── page.tsx                      # Dashboard
+│   │   ├── picker/[lessonNumber]/page.tsx # Verse picker (reworked)
+│   │   ├── seed/page.tsx                 # Seed utility
+│   │   └── api/roots/route.ts            # API: reads root JSONs from disk
+│   ├── components/
+│   │   ├── AppSidebar.tsx                # Route-aware sidebar (dashboard/picker/seed modes)
+│   │   └── IssueBar.tsx                  # Subtle issue flagging bar with category chips
+│   └── lib/
+│       ├── instant.ts                    # InstantDB client init
+│       └── types.ts                      # TypeScript types (phases, sections, issues)
+├── tests/
+│   ├── dashboard.spec.ts                 # 4 dashboard tests
+│   └── picker.spec.ts                    # 9 picker tests
+├── mockups/
+│   ├── issue-ui-options.html             # Issue UI comparison (3 options)
+│   ├── sidebar-all-pages.html            # Sidebar mockup (all pages)
+│   └── picker/option-a-two-panel.html    # Form-level picker redesign (pending)
+├── scripts/seed.mjs                      # CLI seed script
+└── playwright.config.ts
 ```
