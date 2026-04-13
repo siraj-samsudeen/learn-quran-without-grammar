@@ -17,3 +17,6 @@ assets/audio/lessons/*/.cache/
 assets/audio/lessons/test-*/
 tools/__pycache__/
 tools/.venv/
+
+# Playwright MCP debug artifacts
+.playwright-mcp/
