@@ -24,8 +24,9 @@ _Shared vocabulary for talking about lesson structure. Established 2026-04-11._
 | Term | Meaning | Code field |
 |---|---|---|
 | **Seed phrase** | The daily-prayer / adhān / ṣalāh phrase the lesson grows from. Level 0. Exactly one per lesson. The whole lesson is sprouted from this phrase — roots identified in it drive form selection, which drives verse selection. | `seed_phrase` |
-| **Root** | Triliteral Arabic root (e.g., أ ل ه). | `root` |
-| **Form** | A specific word derived from a root (e.g., إِلَٰه). One or more per root per lesson. | `form` |
+| **Root** | Triliteral Arabic root (e.g., أ ل ه). Linguistic fact, shared with Quran Corpus. See `docs/FORMS-LEMMAS-ROOTS.md` for the full data-model definition. | `root` |
+| **Lemma** | Canonical dictionary headword tagged by Kais Dukes morphology (e.g., `rasūl`, `kabura`). Linguistic fact, shared with Quran Corpus. Do not confuse with **form** — a form is finer-grained pedagogical. Full spec: `docs/FORMS-LEMMAS-ROOTS.md`. | `lemma` |
+| **Form** | A specific word-shape derived from a root (e.g., إِلَٰه) that the student learns to recognize. **Per-course pedagogical unit**, built from one or more lemmas + feature filters. Not a Quran Corpus concept. Full spec: `docs/FORMS-LEMMAS-ROOTS.md`. | `form` |
 | **Anchor phrase** | The iconic phrase chosen to introduce a **root** (not a form). Exactly one per root being taught. Level 1. Displayed with ⭐. | `is_anchor: true` on a learning phrase |
 | **Learning phrases** | All new content phrases for this lesson, ordered shortest→longest. Anchors are a subset. Replaces old learn + practice sections. | section: `learning` |
 | **Recall phrases** | Phrases in this lesson using forms from *earlier* lessons. | section: `recall` |
