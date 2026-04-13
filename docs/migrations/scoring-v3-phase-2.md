@@ -133,11 +133,11 @@ After all changes, run these verification steps (can be delegated to a separate 
 
 ### V1. Grep sweep — zero remaining old terms in active files
 ```bash
-# Should return ZERO matches (excluding docs/current_state.md and session-history)
-grep -rn '"learn"' --include='*.json' --include='*.yaml' --include='*.yml' --include='*.py' --include='*.js' --include='*.html' . | grep -v current_state | grep -v session-history
-grep -rn '"practice"' --include='*.json' --include='*.yaml' --include='*.yml' --include='*.py' --include='*.js' --include='*.html' . | grep -v current_state | grep -v session-history
-grep -rn 'practice' --include='*.md' . | grep -v current_state | grep -v session-history | grep -v SCORING.md
-grep -rn 'fit_learn\|fit_practice\|total_learn\|total_practice' . | grep -v current_state | grep -v session-history
+# Should return ZERO matches (excluding docs/migrations/scoring-v3-phase-2.md and session-history)
+grep -rn '"learn"' --include='*.json' --include='*.yaml' --include='*.yml' --include='*.py' --include='*.js' --include='*.html' . | grep -v scoring-v3-phase-2 | grep -v session-history
+grep -rn '"practice"' --include='*.json' --include='*.yaml' --include='*.yml' --include='*.py' --include='*.js' --include='*.html' . | grep -v scoring-v3-phase-2 | grep -v session-history
+grep -rn 'practice' --include='*.md' . | grep -v scoring-v3-phase-2 | grep -v session-history | grep -v SCORING.md
+grep -rn 'fit_learn\|fit_practice\|total_learn\|total_practice' . | grep -v scoring-v3-phase-2 | grep -v session-history
 ```
 
 ### V2. Audio file existence check
