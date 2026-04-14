@@ -17,7 +17,7 @@ This document defines the complete data model for the Learn Qur'an Without Gramm
 
 ## Entity overview
 
-**21 entities** across 4 logical groups:
+**24 entities** across 5 logical groups:
 
 | Group | Entities | Rows at launch |
 |---|---|---|
@@ -26,6 +26,7 @@ This document defines the complete data model for the Learn Qur'an Without Gramm
 | **Layer 2: Teacher curriculum + scores + selections** (per course) | rootCurriculum, forms, formLemmaBindings, sentencePatterns, lessons, verseScores, verseRootScores, selections | Scales with course |
 | **Layer 2: Student state** (per student, per course) | studentCards, reviewSessions, streaks | Scales with usage |
 | **Layer 2: Interaction** | issues | Sporadic |
+| **Layer 2: Operations** (ops cache + audit) | audioFragments, audioJobs, llmDrafts | Grows with teacher activity |
 
 **Layer 1** is immutable reference data built deterministically from three vendored text files (Kais Dukes morphology, Tanzil Uthmani, Saheeh International draft). Seeded into both SQLite (`tools/data/quran.db`) and InstantDB. Shared across all courses.
 
@@ -483,6 +484,119 @@ Flags from testers or students to teachers.
 
 ---
 
+## Layer 2: Operations
+
+Tables that capture operational state: computed audio timings (cached per reciter), background build jobs (visibility into TTS/audio queues), and LLM draft + teacher-correction audit trail (training signal for future scoring passes).
+
+### audioFragments
+
+Cached word-level audio timings per (verse, reciter, word-range). Decoupled from `selections` so switching a selection's reciter never discards previously computed timings — the old entry stays, and the new entry is computed (or looked up) on demand. Populated by [tools/auto-timestamps.py](../tools/auto-timestamps.py) or silence-detect fallback ([find-audio-fragment.py](../tools/find-audio-fragment.py)), surfaced via `audioJobs`.
+
+| Attribute | Type | Index | Notes |
+|---|---|---|---|
+| `verseRef` | string | indexed | "29:45" |
+| `reciter` | string | indexed | EveryAyah folder, e.g. "Abdul_Basit_Murattal_192kbps" |
+| `startWord` | number | indexed | 1-based word index into the verse |
+| `endWord` | number | | Inclusive; = verse.wordCount for full ayah |
+| `startMs` | number | | Cue-in, milliseconds from audio start |
+| `endMs` | number | | Cue-out |
+| `source` | string | | "api" \| "silence-detect" \| "manual" |
+| `confidence` | number | | 0–1; API = 1.0, silence-detect ~0.7, manual = 1.0 |
+| `computedAt` | number | | |
+
+**Links:**
+- `audioFragment.verse → verses`
+
+**Unique constraint:** (verseRef, reciter, startWord, endWord) — full-ayah fragments share a canonical row per reciter regardless of which course/selection references them.
+
+**Why no `course` link:** timings are a property of (verse, reciter), not a course choice. A fragment computed for one course's selection is automatically reusable by any other course or lesson that picks the same word range.
+
+### audioJobs
+
+Queue + status surface for background audio builds (TTS batch, fragment timestamping, full-lesson audio assembly). Replaces the "blind shell script" feel of [rebuild-lesson-audio.sh](../tools/rebuild-lesson-audio.sh) — teacher sees queued/running/failed per row instead of waiting for terminal output.
+
+| Attribute | Type | Index | Notes |
+|---|---|---|---|
+| `jobType` | string | indexed | "tts" \| "fragment_timing" \| "lesson_assembly" |
+| `status` | string | indexed | "queued" \| "running" \| "done" \| "failed" |
+| `target` | string | | Human label, e.g. "Lesson 3 — full audio" or "TTS Tamil sentence #4" |
+| `params` | string | | JSON payload (verseRef, reciter, text, lang, etc.) |
+| `progress` | number | | 0–100 or count `done/total` encoded |
+| `errorMessage` | string | | Populated when status = "failed" |
+| `logUrl` | string | | Optional link to full log (S3 / local path) |
+| `startedAt` | number | | |
+| `completedAt` | number | | null while queued/running |
+
+**Links:**
+- `audioJob.course → courses`
+- `audioJob.lesson → lessons` (nullable — some jobs are course-wide)
+- `audioJob.triggeredBy → users`
+
+**Retention:** keep last 30 days of `done` jobs; `failed` jobs stay until manually dismissed so the teacher can triage.
+
+### llmDrafts
+
+Every piece of text drafted by the LLM (score reasons, hook text, translations, glosses, category labels) is logged here. When the teacher edits and saves, the edited text lands in `acceptedText` and `acceptedAt` fires — producing a `(draft, accepted)` pair. Future LLM scoring passes use these pairs as few-shot examples so the model progressively sounds like the teacher instead of generic.
+
+| Attribute | Type | Index | Notes |
+|---|---|---|---|
+| `draftType` | string | indexed | "score_reason" \| "hook" \| "translation" \| "root_gloss" \| "form_gloss" \| "pattern_gloss" |
+| `targetAttribute` | string | | The field this drafts, e.g. "teachingFitReason", "translationOverride", "gloss" |
+| `draftText` | string | | Raw LLM output |
+| `acceptedText` | string | | Final teacher-approved version; null while unreviewed |
+| `rejected` | boolean | indexed | True if teacher discarded the draft entirely (wrote their own without using it) |
+| `model` | string | | "claude-opus-4-6" etc. |
+| `promptHash` | string | indexed | SHA of the prompt used; lets us group drafts from the same prompt version |
+| `contextJson` | string | | JSON: surrounding signals the LLM was given (verse text, root, scores, teacher rules) — reproducibility |
+| `createdAt` | number | indexed | |
+| `acceptedAt` | number | | null while unreviewed |
+
+**Links:**
+- `llmDraft.course → courses`
+- `llmDraft.verseScore → verseScores` (nullable)
+- `llmDraft.verseRootScore → verseRootScores` (nullable)
+- `llmDraft.selection → selections` (nullable)
+- `llmDraft.form → forms` (nullable)
+- `llmDraft.rootCurriculum → rootCurriculum` (nullable)
+- `llmDraft.sentencePattern → sentencePatterns` (nullable)
+- `llmDraft.acceptedBy → users` (nullable)
+
+**Invariant (application-enforced):** exactly one of the target links is non-null per draft.
+
+**Training-signal queries:**
+
+```ts
+// Recent accepted edits on teachingFitReason for Lesson 3 — few-shot examples
+db.useQuery({
+  llmDrafts: {
+    $: {
+      where: {
+        "course.courseId": "lqwg-v1",
+        draftType: "score_reason",
+        targetAttribute: "teachingFitReason",
+        rejected: false,
+        acceptedAt: { $not: null },
+      },
+      order: { acceptedAt: "desc" },
+      limit: 20,
+    },
+    verseRootScore: { verse: { }, root: { } },
+  },
+});
+```
+
+```ts
+// Which prompt versions produce the most rejected drafts? (Prompt-quality regression signal)
+db.useQuery({
+  llmDrafts: {
+    $: { where: { "course.courseId": "lqwg-v1", rejected: true } },
+  },
+});
+// Aggregate by promptHash client-side.
+```
+
+---
+
 ## Permissions model
 
 Authoritative InstantDB perms will be in `instantdb-app/instant.perms.ts`. Sketch (InstantDB rule DSL semantics):
@@ -533,6 +647,17 @@ issues:
   create → isTester or student
   read   → reporter + isAssistant of the course
   write  → isAssistant (resolve / reply)
+
+// Layer 2 operations:
+audioFragments:
+  read  → any authenticated user (timings are not sensitive; reused across courses)
+  write → isAssistant of any course that triggered the compute, or admin token (batch seeds)
+audioJobs:
+  read  → isAssistant of the course
+  write → isAssistant (enqueue); runner updates status via admin token
+llmDrafts:
+  read  → isAssistant of the course
+  write → isAssistant (accept / reject / edit); create → isAssistant or admin token (batch LLM pass)
 ```
 
 ---
