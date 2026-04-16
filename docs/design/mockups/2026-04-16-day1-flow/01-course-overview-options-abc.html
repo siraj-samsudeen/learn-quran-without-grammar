@@ -1,0 +1,98 @@
+<h2>Hanzala's first screen — Adhān course overview</h2>
+<p class="subtitle">Three flavors of "course overview." Which fits a 10-year-old opening a Qur'an app for the first time?</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#f5efe4; padding:28px; display:flex; flex-direction:column; justify-content:space-between; min-height:340px;">
+      <div style="text-align:center;">
+        <div style="font-size:11px; letter-spacing:2px; color:#8a7960; margin-bottom:12px;">COURSE 1 OF 12</div>
+        <div style="font-size:32px; font-family:serif; margin-bottom:6px;">Adhān</div>
+        <div style="font-size:14px; color:#6b5d4a; font-style:italic;">The Call to Prayer</div>
+      </div>
+      <div style="text-align:center; padding:16px 0;">
+        <div style="font-size:40px; font-family:'Amiri',serif; direction:rtl; color:#2d2620;">أَللَّهُ أَكْبَر</div>
+        <div style="font-size:11px; color:#8a7960; margin-top:8px;">The first words you'll learn</div>
+      </div>
+      <div>
+        <button class="mock-button" style="width:100%; padding:14px; font-size:15px;">Begin Lesson 1 →</button>
+        <div style="text-align:center; font-size:11px; color:#8a7960; margin-top:10px;">
+          7 lessons · ~2 weeks at 10 min/day
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A · Book cover</h3>
+      <p>Minimal, ceremonial. One CTA. Lesson list tucked away. Feels like opening a book. Matches Day-1 specialness.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#fafaf7; padding:16px; min-height:340px; font-size:11px;">
+      <div style="font-size:13px; font-weight:600; margin-bottom:4px;">Adhān · The Call to Prayer</div>
+      <div style="color:#8a7960; font-size:10px; margin-bottom:14px;">Theme: Daily Worship · 3 modules · 7 lessons</div>
+
+      <div style="background:#f0e9db; border-radius:6px; padding:10px; margin-bottom:10px;">
+        <div style="font-weight:600; font-size:11px; margin-bottom:6px;">Module 1 · The Opening Call</div>
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          <div style="background:white; padding:7px 10px; border-left:4px solid #2d7a3e; border-radius:3px; display:flex; justify-content:space-between;">
+            <span>▶ Lesson 1 · Allāhu Akbar</span><span style="color:#2d7a3e; font-weight:600;">Start</span>
+          </div>
+          <div style="background:white; padding:7px 10px; border-left:4px solid #d0c9bb; border-radius:3px; display:flex; justify-content:space-between; color:#8a7960;">
+            <span>Lesson 2 · Shahida</span><span>Locked</span>
+          </div>
+          <div style="background:white; padding:7px 10px; border-left:4px solid #d0c9bb; border-radius:3px; display:flex; justify-content:space-between; color:#8a7960;">
+            <span>Lesson 3 · Rasul</span><span>Locked</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#f0e9db; border-radius:6px; padding:10px; margin-bottom:10px; opacity:0.55;">
+        <div style="font-weight:600; font-size:11px; margin-bottom:6px;">Module 2 · The Witness</div>
+        <div style="color:#8a7960;">3 lessons · after Module 1</div>
+      </div>
+
+      <div style="background:#f0e9db; border-radius:6px; padding:10px; opacity:0.55;">
+        <div style="font-weight:600; font-size:11px; margin-bottom:6px;">Module 3 · Standing in Prayer</div>
+        <div style="color:#8a7960;">1 lesson</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B · Curriculum map</h3>
+      <p>Shows the 4-deep hierarchy (Theme → Module → Pass → Lesson). Full roadmap visible. More info-dense, but teacher-feel, not child-feel.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:linear-gradient(180deg,#faf4e6 0%,#f0e9db 100%); padding:16px; min-height:340px; font-size:11px;">
+      <div style="text-align:center; font-size:13px; font-weight:600; margin-bottom:4px;">Adhān</div>
+      <div style="text-align:center; color:#8a7960; font-size:10px; margin-bottom:16px;">Your path · 7 steps</div>
+
+      <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+        <div style="background:#2d7a3e; color:white; padding:10px 14px; border-radius:20px; font-size:11px; font-weight:600; box-shadow:0 2px 6px rgba(45,122,62,0.3);">
+          ⭐ Start here · Lesson 1
+        </div>
+        <div style="font-size:10px; color:#2d7a3e; font-style:italic; margin:2px 0 4px;">Allāhu Akbar</div>
+        <div style="color:#b8ad94; font-size:14px;">│</div>
+        <div style="background:white; padding:7px 12px; border-radius:18px; font-size:10px; color:#8a7960; border:1px dashed #c9bfa7;">Lesson 2 · Shahida</div>
+        <div style="color:#b8ad94; font-size:14px;">│</div>
+        <div style="background:white; padding:7px 12px; border-radius:18px; font-size:10px; color:#8a7960; border:1px dashed #c9bfa7;">Lesson 3 · Rasul</div>
+        <div style="color:#b8ad94; font-size:14px;">│</div>
+        <div style="background:white; padding:7px 12px; border-radius:18px; font-size:10px; color:#8a7960; border:1px dashed #c9bfa7;">Lesson 4 · Ṣalāh</div>
+        <div style="color:#b8ad94; font-size:14px;">│</div>
+        <div style="color:#b8ad94; font-size:10px;">3 more...</div>
+      </div>
+
+      <div style="text-align:center; margin-top:14px; padding-top:10px; border-top:1px solid #e3d9c1;">
+        <div style="font-size:10px; color:#8a7960;">Finish the path · call to prayer</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C · Path / ladder</h3>
+      <p>Duolingo-style progression. Current step spotlit, future locked. Feels game-like. Hides hierarchy but shows motion.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:20px">Click your pick in the browser, or tell me in terminal. I want your gut reaction first — then we'll iterate the winner.</p>

@@ -1,0 +1,78 @@
+<h2>Dashboard v2 — N with O's PACE panel at the bottom</h2>
+<p class="subtitle">Streak hero + continue + time-of-day kept. ETA tiles replaced with the warmer PACE panel.</p>
+
+<div style="display:flex; justify-content:center; padding:20px 0;">
+  <div style="width:380px; background:linear-gradient(180deg,#faf4e6 0%,#f0e9db 100%); border-radius:16px; padding:18px; display:flex; flex-direction:column; gap:14px; font-size:12px; box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+
+    <div style="text-align:center;">
+      <div style="font-size:11px; color:#8a7960;">Assalamu alaikum, Hanzala</div>
+      <div style="font-size:34px; margin:6px 0;">🔥 3</div>
+      <div style="font-size:10px; color:#2d7a3e; font-weight:600; letter-spacing:1px;">3-DAY STREAK · KEEP IT ALIVE</div>
+    </div>
+
+    <div style="background:white; border-radius:12px; padding:14px; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+        <div style="font-size:10px; color:#8a7960; letter-spacing:1px;">WHERE YOU LEFT OFF</div>
+        <div style="font-size:10px; color:#8a7960;">4 min to finish</div>
+      </div>
+      <div style="font-weight:600; margin-bottom:6px;">Lesson 1 · Allāhu Akbar</div>
+      <div style="background:#e3d9c1; height:6px; border-radius:3px; overflow:hidden;">
+        <div style="background:#2d7a3e; height:100%; width:43%;"></div>
+      </div>
+      <button class="mock-button" style="width:100%; margin-top:12px;">Continue →</button>
+    </div>
+
+    <div style="background:white; border-radius:12px; padding:14px;">
+      <div style="font-size:10px; color:#8a7960; letter-spacing:1px; margin-bottom:10px;">THIS WEEK · WHEN YOU STUDY</div>
+      <div style="display:flex; align-items:flex-end; gap:3px; height:48px; padding:0 2px;">
+        <div style="flex:1; background:#e3d9c1; height:20%; border-radius:2px;"></div>
+        <div style="flex:1; background:#e3d9c1; height:10%; border-radius:2px;"></div>
+        <div style="flex:1; background:#e3d9c1; height:40%; border-radius:2px;"></div>
+        <div style="flex:1; background:#2d7a3e; height:75%; border-radius:2px;"></div>
+        <div style="flex:1; background:#e3d9c1; height:15%; border-radius:2px;"></div>
+        <div style="flex:1; background:#2d7a3e; height:60%; border-radius:2px;"></div>
+        <div style="flex:1; background:#e3d9c1; height:25%; border-radius:2px;"></div>
+      </div>
+      <div style="display:flex; justify-content:space-between; font-size:8px; color:#8a7960; margin-top:4px;">
+        <span>12am</span><span>6am</span><span>noon</span><span>6pm</span><span>12am</span>
+      </div>
+    </div>
+
+    <div style="background:#f5efe4; border-radius:12px; padding:14px;">
+      <div style="font-size:10px; color:#8a7960; letter-spacing:1px; margin-bottom:10px;">PACE</div>
+      <div style="font-size:12px; line-height:1.9;">
+        <div>📖 <strong>Lesson 1</strong> in <span style="color:#2d7a3e; font-weight:600;">~1 day</span> at your pace</div>
+        <div>📚 <strong>Module 1</strong> in <span style="color:#2d7a3e; font-weight:600;">~9 days</span></div>
+        <div>🕌 <strong>Adhān course</strong> in <span style="color:#2d7a3e; font-weight:600;">~18 days</span></div>
+      </div>
+      <div style="border-top:1px dashed #c9bfa7; margin-top:10px; padding-top:8px; font-size:10px; color:#8a7960;">
+        This week: 25 min · 12 words · 3 days · best time: after Fajr
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="options" style="margin-top:10px">
+  <div class="option" data-choice="looks-good" onclick="toggleSelect(this)">
+    <div class="letter">✓</div>
+    <div class="content">
+      <h3>Looks right</h3>
+      <p>Lock dashboard v2 and move on.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="trim-histogram" onclick="toggleSelect(this)">
+    <div class="letter">−</div>
+    <div class="content">
+      <h3>Drop the histogram</h3>
+      <p>The "best time: after Fajr" text line in the PACE panel already conveys the insight. Remove the bar chart — less chart-y.</p>
+    </div>
+  </div>
+  <div class="option" data-choice="iterate" onclick="toggleSelect(this)">
+    <div class="letter">~</div>
+    <div class="content">
+      <h3>Something else</h3>
+      <p>Tell me in terminal what to change.</p>
+    </div>
+  </div>
+</div>

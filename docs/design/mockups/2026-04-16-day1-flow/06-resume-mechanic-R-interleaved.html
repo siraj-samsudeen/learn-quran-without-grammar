@@ -1,0 +1,77 @@
+<h2>Tap Continue — which card appears?</h2>
+<p class="subtitle">Day 3 · Hanzala has 3 due reviews from yesterday and is paused at Lesson 1 card 6.</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="p" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#fafaf7; padding:16px; min-height:380px; display:flex; flex-direction:column; gap:10px;">
+      <div style="font-size:10px; color:#8a7960; letter-spacing:1px;">BEFORE WE CONTINUE</div>
+      <div style="background:#f5efe4; border-radius:10px; padding:18px; flex:1; display:flex; flex-direction:column; justify-content:center; gap:12px;">
+        <div style="text-align:center; font-size:24px;">👋</div>
+        <div style="text-align:center; font-size:15px; font-weight:600;">3 words from yesterday</div>
+        <div style="text-align:center; font-size:11px; color:#6b5d4a; line-height:1.5;">Let's make sure they stuck before we learn new ones.</div>
+        <div style="display:flex; justify-content:center; gap:4px; margin-top:6px;">
+          <div style="font-family:'Amiri',serif; font-size:18px; direction:rtl; background:white; padding:4px 10px; border-radius:6px;">إِلَٰه</div>
+          <div style="font-family:'Amiri',serif; font-size:18px; direction:rtl; background:white; padding:4px 10px; border-radius:6px;">كَبُرَ</div>
+          <div style="font-family:'Amiri',serif; font-size:18px; direction:rtl; background:white; padding:4px 10px; border-radius:6px;">أَكْبَر</div>
+        </div>
+        <button class="mock-button" style="margin-top:10px;">Review first →</button>
+        <div style="text-align:center; font-size:10px; color:#8a7960; text-decoration:underline;">Skip reviews (not recommended)</div>
+      </div>
+      <div style="font-size:10px; color:#8a7960;">Then: continue Lesson 1 · card 6</div>
+    </div>
+    <div class="card-body">
+      <h3>P · Review-first</h3>
+      <p>Anki-style. Reviews before new content. Announces itself. Pedagogically strongest, but feels like chores before progress.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="q" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#fafaf7; padding:16px; min-height:380px; display:flex; flex-direction:column; gap:10px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; font-size:10px; color:#8a7960;">
+        <span>LESSON 1 · CARD 6 / 14</span>
+        <span style="background:#ffd9a8; color:#a05200; padding:2px 6px; border-radius:10px; font-size:9px;">3 reviews waiting</span>
+      </div>
+      <div style="background:#f5efe4; border-radius:10px; padding:20px; flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px;">
+        <div style="font-family:'Amiri',serif; font-size:40px; direction:rtl;">آلِهَة</div>
+        <div style="font-size:11px; color:#6b5d4a; font-style:italic;">ālihah</div>
+        <button class="mock-button">▶ Play</button>
+        <div style="background:white; border:1px dashed #c9bfa7; border-radius:8px; padding:10px 18px; margin-top:6px; font-size:11px; color:#8a7960;">tap to reveal</div>
+      </div>
+      <div style="display:flex; gap:6px;">
+        <button class="mock-button" style="flex:1;">Got it →</button>
+      </div>
+      <div style="font-size:9px; color:#8a7960; text-align:center;">Reviews tab ↗ (tap when ready)</div>
+    </div>
+    <div class="card-body">
+      <h3>Q · Resume-at-last-card</h3>
+      <p>Kindle-style. Straight into card 6 where he left off. Review queue is a separate tab badge. Feels book-like. Risk: reviews pile up unreviewed.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="r" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#fafaf7; padding:16px; min-height:380px; display:flex; flex-direction:column; gap:10px;">
+      <div style="display:flex; justify-content:space-between; font-size:10px; color:#8a7960;">
+        <span>LESSON 1</span>
+        <span>4 min left</span>
+      </div>
+      <div style="background:#f5efe4; border-radius:10px; padding:20px; flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px;">
+        <div style="font-family:'Amiri',serif; font-size:40px; direction:rtl;">إِلَٰه</div>
+        <div style="font-size:11px; color:#6b5d4a; font-style:italic;">ilāh</div>
+        <button class="mock-button">▶ Play</button>
+        <div style="background:white; border:1px dashed #c9bfa7; border-radius:8px; padding:10px 18px; margin-top:6px; font-size:11px; color:#8a7960;">tap to reveal</div>
+      </div>
+      <div style="display:flex; gap:6px;">
+        <button class="mock-button" style="flex:1;">Got it →</button>
+      </div>
+      <div style="font-size:9px; color:#8a7960; text-align:center; font-style:italic;">(this happens to be a review — Hanzala doesn't know)</div>
+    </div>
+    <div class="card-body">
+      <h3>R · Interleaved seamlessly</h3>
+      <p>Duolingo-style. FSRS decides the card order behind the scenes. No "review" label. Hanzala just learns. Simplest UX. Reviews visible only in your teacher view.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:16px">My recommendation: <strong>R for Hanzala, P surfaced in your teacher view</strong>. He sees pure flow; you see the breakdown. Agree, or pick another?</p>

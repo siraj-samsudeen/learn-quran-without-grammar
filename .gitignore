@@ -20,3 +20,6 @@ tools/.venv/
 
 # Playwright MCP debug artifacts
 .playwright-mcp/
+
+# Superpowers brainstorming companion
+.superpowers/
