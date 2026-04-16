@@ -10,7 +10,7 @@
 
 ## Step 0 — Content Selection
 
-**Use the verse selection skill:** `.claude/skills/verse-selection.md`
+**Use the InstantDB picker workflow:** `.claude/skills/instantdb-picker-workflow.md` (Era 3 — PRD §5.F0-F4 + ADR-010). The picker drives F0.1 add-root, F0.2 Tier-1 auto-scoring, F0.3 Tier-2 LLM `hookScore`, F0.6 job status, and F1 form-first verse selection.
 
 This is the most important and interactive step. Do NOT skip to file creation until phrases are locked in:
 - 1 anchor phrase
@@ -118,9 +118,13 @@ Fix any warnings before proceeding.
 
 ## Step 8 — Record selections
 
-1. Create `docs/selections/lesson-NN.md` — see Lesson 1 for format
-2. Update `docs/roots/{root}.json` — set verse statuses and lesson assignments
-3. Update `docs/selections/pipeline.md` — add deferred items
+Selections, per-form decisions, and pipeline items all live in InstantDB now (per PRD §5.F0-F4 + ADR-010). The picker writes `selections`, `formLessonDecision`, and `verseScores` / `verseRootScores` transactionally; there is no longer a JSON file to update by hand.
+
+- `selections` — teacher picks + remark + translation (student-audible)
+- `formLessonDecision` — per `(course, lesson, form)` taught / skipped / unassigned audit log
+- Pipeline items stay in InstantDB tagged `status: pipeline` on their `selections` row
+
+The Era-1 flow (create `docs/selections/lesson-NN.md`, update `docs/roots/{root}.json`, update `docs/selections/pipeline.md`) is archived under `docs/archive/selections/` and `docs/archive/skills/verse-selection-era1.md`.
 
 ---
 
@@ -157,9 +161,8 @@ Full checklist: `.claude/skills/lesson-review-checklist.md`
 - [ ] Summary: Words table + Phrases list
 - [ ] Review sections: "Review in Order" + "Review Shuffled"
 - [ ] Lesson card added to `index.md`
-- [ ] Root JSONs updated in `docs/roots/`
-- [ ] Selection log created
-- [ ] `pipeline.md` updated
+- [ ] Selections recorded in InstantDB via the picker (per `.claude/skills/instantdb-picker-workflow.md`)
+- [ ] `formLessonDecision` log populated for every form (taught / skipped / unassigned)
 - [ ] Tamil translations for all verse cards, hooks, root explanations, tables, quiz, summary, closing
 - [ ] Tamil `tamil:` field in YAML for all sentences
 - [ ] Audio built with `--lang all` (EN + Tamil MP3 pairs)
