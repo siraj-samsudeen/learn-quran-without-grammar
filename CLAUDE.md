@@ -276,7 +276,7 @@ open teacher/local.html
 # Deploy
 git add . && git commit -m "message" && git push   # Live in ~1 minute
 
-# Generate picker for a lesson
+# [RETIRED] Generate picker for a lesson — replaced by InstantDB app per ADR-010
 python3 tools/generate-picker.py --lesson 3 \
   --anchor "أَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ ٱللَّهِ" \
   --current-root rasul \
@@ -289,7 +289,7 @@ python3 tools/merge-t2-scores.py --root rasul --scores /tmp/rasul-scores.json
 # Regenerate lesson summary stats
 python3 tools/generate-lesson-summary.py --output teacher/lesson-summary.json
 
-# Rebuild dashboard with latest data
+# [RETIRED] Rebuild dashboard with latest data — replaced by InstantDB app per ADR-010
 python3 tools/build-dashboard.py
 
 # Audio timestamps (primary — 7 reciters)
@@ -335,7 +335,7 @@ python3 tools/build-root-inventory.py \
 | **Starting a new lesson** | Check `docs/selections/pipeline.md` FIRST, then `docs/roots/` for existing inventory |
 | **Building a new root inventory** | `docs/decisions/ADR-009-local-root-pipeline.md` + `tools/build-root-inventory.py` (offline, local data only — do NOT scrape corpus.quran.com) |
 | **Scoring verses** | `docs/SCORING.md` + `.claude/rules/scoring-t2-guidelines.md` |
-| **Generating a picker** | `tools/generate-picker.py --help` + `tools/selection-picker/README.md` |
+| **Generating a picker** | `[RETIRED]` `tools/generate-picker.py` — use the InstantDB picker per `.claude/skills/instantdb-picker-workflow.md` |
 | **Teacher dashboard** | `open teacher/local.html` — pipeline governance for all 7 lessons |
 | **Pipeline status** | `teacher/pipeline-status.json` — phase tracking (scoring→picking→writing→…→published) |
 | **Adding Tamil to a lesson** | `CLAUDE.md` → "Multi-Language Support" section above |
