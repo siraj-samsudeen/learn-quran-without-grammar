@@ -1,10 +1,12 @@
 # LQWG Current State
 
-_Last updated: 2026-04-16_
+_Last updated: 2026-04-17_
 
 > **Read this first** when resuming work in a new session. Gives you everything needed to pick up where we stopped.
 
-> ⚠️ **2026-04-16 UPDATE — pedagogy-first redesign brainstorm in flight.** Before starting implementation, read [docs/design/2026-04-16-pedagogy-first-redesign.md](design/2026-04-16-pedagogy-first-redesign.md). It captures a workflow-first, fresh-eyes pass that surfaced structural gaps in the 24-entity [DATA-MODEL.md](DATA-MODEL.md): the flat `lessons` list, one-axis "known" state, and implicit explorer-vs-course split. **Phase 1 is on hold pending v1 scope cut** (three candidate slices in the design doc). See "Where we stopped in the brainstorm (2026-04-16)" below.
+> ✅ **2026-04-17 UPDATE — PRD synthesized; ready for Slice 1.** The 2026-04-16 brainstorms (teacher workflow + Day-1 student workflow) have been synthesized into a single authoritative product spec: **[docs/PRD.md](PRD.md)**. It consolidates 6 product principles · 3-level hierarchy (Course → Module → Lesson) · 14 feature buckets (F0-F14) · schema deltas · roadmap. **Next step: Slice 1 = greenfield Lesson 1 end-to-end through the new stack.** Phase 1 (ADR-010 SQLite foundation) is the prerequisite; Slice 1 narrows Layer 1 to data reachable from ilāh + kabura (~1,500-2,500 rows) rather than the full 186K corpus, so it iterates in seconds. Live Jekyll Lesson 1 stays untouched throughout. See [PRD.md §8 Roadmap & Slices](PRD.md) for full scope. Supporting docs (LESSON-PLAN.md, SCORING.md) were cleaned up in the same commit to remove stale JSON/pipeline references.
+
+> ⚠️ **2026-04-16 UPDATE — pedagogy-first redesign brainstorm in flight.** Before starting implementation, read [docs/design/2026-04-16-pedagogy-first-redesign.md](design/2026-04-16-pedagogy-first-redesign.md). It captures a workflow-first, fresh-eyes pass that surfaced structural gaps in the 24-entity [DATA-MODEL.md](DATA-MODEL.md): the flat `lessons` list, one-axis "known" state, and implicit explorer-vs-course split. **2026-04-17: PRD above resolves all of this** — scope cut = Slice 1 (greenfield Lesson 1), see PRD §8.
 
 ---
 

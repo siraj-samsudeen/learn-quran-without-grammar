@@ -1,8 +1,8 @@
 # Verse Scoring Algorithm (v2)
 
-> **Status (2026-04-14):** Scoring dimensions, formulas, and LLM guidelines remain **authoritative**. JSON storage examples near the end of this doc are **superseded** — see [ADR-010](decisions/ADR-010-sqlite-data-architecture.md) and [DATA-MODEL.md](DATA-MODEL.md) for the SQLite + InstantDB split (`verse_scores` vs `verse_root_scores`).
+> **Status (2026-04-17):** Scoring dimensions, formulas, and LLM guidelines remain **authoritative**. Per the 2026-04-17 PRD synthesis ([PRD.md §6](PRD.md)), **Tier 2's three LLM dimensions (story + familiarity + teaching_fit) collapse into a single `hookScore` (0-10) with a single `hookReason`**. Tier 1 (deterministic) and Tier 3 (teacher star + fragment penalty) stay untouched. JSON storage examples in this doc are **superseded** — see [ADR-010](decisions/ADR-010-sqlite-data-architecture.md) and [DATA-MODEL.md](DATA-MODEL.md) for the SQLite + InstantDB split (`verseScores` vs `verseRootScores`). Score-range rescaling (new max = 55 vs former 75 under the three-dimension Tier 2) is a known open question tracked in [PRD.md §10.6](PRD.md); the range labels (Excellent / Good / Acceptable / Weak) below were NOT rescaled in this commit.
 
-This document defines the scoring system used to rank Qur'anic verse candidates for lesson inclusion. Scores are computed per verse and **per (verse, root) pair** — see the verse-level vs verse-root-level split in ADR-010. **Storage is migrating from per-root JSON files to SQLite + InstantDB** (ADR-010): `verse_scores` holds verse-level dimensions (story, familiarity, fragment) scored once; `verse_root_scores` holds per-root dimensions (teaching_fit, form_freq, form_dominance, final_score) scored per (verse, root, course).
+This document defines the scoring system used to rank Qur'anic verse candidates for lesson inclusion. Scores are computed per verse and **per (verse, root) pair** — see the verse-level vs verse-root-level split in ADR-010. Storage lives in SQLite + InstantDB (ADR-010): `verseScores` holds verse-level dimensions (the collapsed `hookScore` + `hookReason`, plus `fragment`) scored once per verse per course; `verseRootScores` holds per-root dimensions (form_freq, form_dominance, length_score, curriculum_score, final_score) scored per (verse, root, course).
 
 ---
 
@@ -242,36 +242,22 @@ After: teacher reviews scores, stars a few favorites, and the system handles rol
 
 ## Where Scores Live
 
-Scores are stored per verse in `docs/roots/{root}.json`:
+Scores live in InstantDB across two entities (see [DATA-MODEL.md](DATA-MODEL.md)):
 
-```json
-{
-  "ref": "6:74",
-  "scores": {
-    "length": 1,
-    "form_freq": 6,
-    "form_dominance": 1,
-    "curriculum": 0,
-    "story": { "score": 9, "reason": "Ibrahim confronting his father about idols — iconic story every Muslim knows" },
-    "familiarity": { "score": 2, "reason": "Al-An'am — Tier D surah, not commonly recited" },
-    "teaching_fit": { "score": 8, "reason": "aliha (gods) is central to Ibrahim's challenge; complete standalone question" },
-    "starred": false,
-    "fragment": true,
-    "base": 27,
-    "final": 18.9
-  }
-}
-```
+- **`verseScores`** — one row per `(course, verse)`. Holds verse-level dimensions: `hookScore` (0-10, collapsed Tier 2) · `hookReason` (LLM justification) · `fragment` (boolean) · `updatedAt`. Scored once per verse per course; reused across every (verse, root) pairing.
+- **`verseRootScores`** — one row per `(course, verse, root)`. Holds per-root dimensions: `lengthScore` · `formFreq` · `formDominance` · `curriculumScore` · `starBonus` · `baseScore` · `finalScore` (= base × fragment_multiplier) · `scoreNotes` · `updatedAt`.
+
+Historical note: Era-1 stored all scores in per-root JSON files under `docs/roots/*.json`. Those files are retained in git history for reference but are no longer the source of truth. The legacy JSON example that used to appear here (three-dimension Tier 2: `story` + `familiarity` + `teaching_fit`, each with its own reason) has been collapsed to a single `hookScore` + `hookReason` pair per the 2026-04-17 PRD synthesis.
 
 ---
 
 ## When to Score
 
-- **Tier 1** — during `build-root-inventory.py`, computed automatically from verse text and form data
-- **Tier 1-late** — after each lesson finalization; recalculated when lesson content changes
-- **Tier 2** — on-demand LLM scoring pass before presenting candidates to the teacher
-- **Tier 3** — in the picker/review UI: teacher sets star flags, fragment status is determined by verse word count
-- **All scores are written to the root JSON** so they persist across sessions
+- **Tier 1** — during `build-quran-db.py` (or equivalent seed/LLM pipeline), computed automatically from Layer 1 verse text + form data + current lesson order
+- **Tier 1-late (curriculum_score)** — recomputed after lesson order changes or when a new root joins the course
+- **Tier 2** — on-demand LLM scoring job (`audioJobs` queue pattern extended to scoring); produces `hookScore` + `hookReason` per `(course, verse)`. `hookReason` is offered — not auto-applied — as a starting draft when the teacher writes `selection.remark` (see [PRD.md §5.F0.3](PRD.md))
+- **Tier 3** — in the picker UI: teacher sets `starBonus` via a star toggle; `fragment` is determined by verse word count + teacher's keep-whole-or-trim choice
+- **All scores persist to InstantDB** via transactional writes; SQLite syncs down for offline tools (`sync-from-cloud.py`)
 
 ---
 

@@ -1,6 +1,6 @@
 # Lesson Plan & Organisation
 
-> **Status (2026-04-14):** Pedagogical framework (anchor phrase → roots → forms → sentences, selection criteria, translation style) is **still authoritative**. Storage and tooling details (references to `docs/roots/*.json`, the static picker HTML) are **superseded** by the Era 3 architecture — see [CURRENT-STATE.md](CURRENT-STATE.md) and [DATA-MODEL.md](DATA-MODEL.md).
+> **Status (2026-04-17):** Pedagogical framework (anchor phrase → roots → forms → sentences, selection criteria, translation style, learning-science conventions) is **still authoritative**. Storage and tooling details (`docs/roots/*.json`, the static picker HTML, corpus.quran.com scraping) are **superseded** by the Era-3 architecture — see [PRD.md](PRD.md), [DATA-MODEL.md](DATA-MODEL.md), [ADR-009](decisions/ADR-009-local-root-pipeline.md), and [ADR-010](decisions/ADR-010-sqlite-data-architecture.md). The old-pipeline references below were cleaned up 2026-04-17 as part of the PRD synthesis.
 
 This document defines how each lesson is structured, how sentences are selected, and how the curriculum builds over time.
 
@@ -50,9 +50,9 @@ Each lesson contains **1 anchor + up to 9 learning phrases = 10 phrases / 100 wo
 
 ## Form Selection Process
 
-### Step 1: Pull the full inventory from the Qur'anic Arabic Corpus
+### Step 1: Pull the full inventory from the local morphology dataset
 
-For each root, retrieve all derived forms with their occurrence counts from [corpus.quran.com/qurandictionary.jsp](https://corpus.quran.com/qurandictionary.jsp). Present them in the **exact order and grouping the Corpus uses** (verbs by form number, then nominals, then verbal nouns and participles).
+For each root, retrieve all derived forms with their occurrence counts from the vendored Kais Dukes morphology file (`tools/data/quran-morphology.txt`, via the mustafa0x fork — see [ADR-009](decisions/ADR-009-local-root-pipeline.md)). In the Era-3 architecture this is served from SQLite Layer 1 + InstantDB (`roots`, `lemmas`, `verseRoots` entities — see [DATA-MODEL.md](DATA-MODEL.md)). No live scraping of corpus.quran.com. Present forms in an order the teacher can scan — Form I verbs first, then higher form-numbers, then nominals, then verbal nouns and participles.
 
 Example for ك ب ر:
 
@@ -131,12 +131,7 @@ Same process. All selected verses become Learning phrases, ordered shortest → 
 
 ### Step 6: Feed the pipeline
 
-After completing a lesson's selections, update `docs/selections/pipeline.md` with:
-- **Ready to place** — verses the teacher approved for a specific future lesson
-- **Strong candidates** — good verses not yet assigned
-- **Deferred forms** — forms from this root not covered in this lesson
-
-The pipeline is the **single source of truth** for queued material. When starting a new lesson, the agent should **check pipeline.md first** before pulling fresh from the corpus.
+In the Era-3 architecture, the "pipeline" is the `pipeline` value of the `selections.section` field (or equivalently, verses marked as `pipeline` in the 3-state verse selector — see [PRD.md](PRD.md) §5.F1). The `formLessonDecision` entity captures per-form outcomes (taught / skipped / unassigned) with reasons and history. Historical note: Era-1 used `docs/selections/pipeline.md` as a markdown pipeline document — that file is retained for reference but is no longer the source of truth.
 
 ---
 
@@ -246,8 +241,10 @@ These conventions were established through a 4-lens learning science review of L
 
 ## Verification
 
-All verse references must be verified against:
-- **[corpus.quran.com](https://corpus.quran.com/qurandictionary.jsp)** — for form inventory and occurrence counts
-- **[api.alquran.cloud](https://api.alquran.cloud)** — for Arabic text verification of specific verses
+Verse references and occurrence counts are verified against the **local SQLite + InstantDB** built from the three vendored source files ([ADR-009](decisions/ADR-009-local-root-pipeline.md)):
 
-Occurrence counts in the lesson must match the Corpus exactly (no approximations like "~34").
+- `tools/data/quran-morphology.txt` — Kais Dukes morphology (roots, lemmas, word segments, occurrence counts) via mustafa0x fork
+- `tools/data/quran-uthmani.txt` — Tanzil Uthmani (full Arabic text, verified byte-for-byte against prior `arabic_full` fields)
+- `tools/data/quran-trans-en-sahih.txt` — Saheeh International (English translation drafts)
+
+Occurrence counts in a lesson must match the morphology dataset exactly (no approximations like "~34"). Optional sanity check: `api.alquran.cloud` for ad-hoc Arabic text verification of a specific verse, but it is **not** required for pipeline correctness — the vendored Uthmani file is authoritative.
