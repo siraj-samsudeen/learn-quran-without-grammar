@@ -1,8 +1,10 @@
 # LQWG Current State
 
-_Last updated: 2026-04-14_
+_Last updated: 2026-04-16_
 
 > **Read this first** when resuming work in a new session. Gives you everything needed to pick up where we stopped.
+
+> ⚠️ **2026-04-16 UPDATE — pedagogy-first redesign brainstorm in flight.** Before starting implementation, read [docs/design/2026-04-16-pedagogy-first-redesign.md](design/2026-04-16-pedagogy-first-redesign.md). It captures a workflow-first, fresh-eyes pass that surfaced structural gaps in the 24-entity [DATA-MODEL.md](DATA-MODEL.md): the flat `lessons` list, one-axis "known" state, and implicit explorer-vs-course split. **Phase 1 is on hold pending v1 scope cut** (three candidate slices in the design doc). See "Where we stopped in the brainstorm (2026-04-16)" below.
 
 ---
 
@@ -48,7 +50,9 @@ Every step in the current (Era 1) file-based workflow creates friction:
 
 ## Active work streams
 
-### Stream 1: Architecture rewrite (DESIGN COMPLETE, IMPLEMENTATION NOT STARTED)
+### Stream 1: Architecture rewrite (DESIGN ON HOLD — redesign brainstorm in progress)
+
+**Status 2026-04-16:** Design previously marked "complete" is being re-examined. A workflow-first fresh-eyes pass (see [design/2026-04-16-pedagogy-first-redesign.md](design/2026-04-16-pedagogy-first-redesign.md)) surfaced structural deltas vs [DATA-MODEL.md](DATA-MODEL.md) — multi-level curriculum hierarchy, two-axis known state, explorer as base product, pre-existing-memorization as a first-class entity. v1 scope cut required before implementation can proceed.
 
 Migrating from per-root JSON files to SQLite + InstantDB. Consolidating teacher and student experience in one app. Adding multi-role support (owner / assistant / tester / student) and multi-course support.
 
@@ -129,6 +133,39 @@ UI was reworked April 2026: warm parchment background, Amiri Arabic font, 6px le
 
 ---
 
+## Where we stopped in the brainstorm (2026-04-16)
+
+**Pedagogy-first redesign brainstorm.** Applied workflow-first design + fresh eyes (see [vault: workflow-first-design](~/Dropbox/Siraj/Projects/siraj-claude-vault/cross-project/workflow-first-design.md)) to the 24-entity schema committed 2026-04-14. Full writeup: [docs/design/2026-04-16-pedagogy-first-redesign.md](design/2026-04-16-pedagogy-first-redesign.md). Prototype: [docs/design/mockups/knowledge-map-prototype.html](design/mockups/knowledge-map-prototype.html).
+
+**Decisions locked:**
+
+- **Explorer is the base product.** Any authenticated user can navigate the Qur'an without joining a course. Courses are opinionated overlays on top. (Full rationale: [vault decision](~/Dropbox/Siraj/Projects/siraj-claude-vault/projects/learn-quran-without-grammar/decisions/explorer-as-base-product.md))
+- **Pedagogical hierarchy is four-deep:** Theme → Module → Pass → Lesson. The flat `lessons.lessonNumber` in DATA-MODEL.md is insufficient.
+- **Source-text chunk** is the anchor primitive, not "phrase" specifically. Generalizes across course types (LQWG Adhān, book-reading, grammar, creedal).
+- **"Known" is two axes:** recitation fluency vs meaning comprehension. Conflating them destroys honesty in coverage metrics.
+- **Pre-existing memorization** is a Day-1 first-class entity — drives onboarding, personalization, and knowledge-map baseline state.
+- **Pass (root/synonym/antonym/story)** is teacher-pedagogy metadata on a lesson, not its own entity. Adoptable by other teachers as a named pattern.
+- **Knowledge map has 4 drill-down layers:** Dashboard (coverage + milestones) → Macro (surah heatmap OR Juz' grid, toggleable) → Surah word-map → Root family tree.
+
+**Parked for the real app build:**
+
+- **Proportional treemap** macro view (most volume-honest of all three macro options — 114 surahs sized by word-count).
+- Forgetting as pedagogical event (v2).
+- Teacher live-class presence (post-v1 optional overlay).
+- Contextual shades of roots (belongs in explanatory notes content, not schema).
+
+**Open questions (unresolved — tackle before spec):**
+
+1. **Metric definition for "known"** — FSRS review state? first-seen? teacher-vetted? All coverage % honesty hinges on this.
+2. **Teacher authoring flow click-by-click** — we picked the spine workflow then broadened away from it. No verbs yet.
+3. **Synonym/antonym mechanics** — teacher-curated, LLM-suggested, or corpus-derived?
+4. **Reconciliation with DATA-MODEL.md** — amend in place, write successor, or keep separate. Load-bearing: a new session will follow whichever pointer exists.
+5. **v1 scope cut** — three candidate slices (A: knowledge-map + onboarding atop current picker; B: new Adhān 3-pass authoring tools; C: explorer-only, no course concept).
+
+**Implications for Phase 1 (see Stream 1):** the byte-for-byte migration from root JSONs is still valid under any scope, but may not be the *right starting* work under Scope A or C. On hold until v1 scope is picked.
+
+---
+
 ## Where we stopped in the brainstorm (2026-04-14)
 
 **Design phase complete.** The brainstorming session produced four new/updated canonical docs plus amendments:
@@ -161,19 +198,20 @@ UI was reworked April 2026: warm parchment background, Amiri Arabic font, 6px le
 Paste this into a fresh Claude session to pick up cleanly:
 
 ```
-Continue the LQWG architecture rewrite from where we stopped.
+Continue the LQWG pedagogy-first redesign from where we stopped on 2026-04-16.
 
 Read these in order, then summarize what you understand before touching anything:
-1. docs/CURRENT-STATE.md — where we stopped and what's next
-2. docs/FORMS-LEMMAS-ROOTS.md — root/lemma/form conceptual foundation
-3. docs/DATA-MODEL.md — complete 21-entity schema spec (authoritative)
-4. docs/decisions/ADR-010-sqlite-data-architecture.md + its 2026-04-14 revisions
-5. docs/decisions/ADR-011-instantdb-student-experience.md + its 2026-04-14 revisions
+1. docs/CURRENT-STATE.md — where we stopped (this file)
+2. docs/design/2026-04-16-pedagogy-first-redesign.md — the brainstorm that sits between the committed 24-entity schema and the next spec. Five open questions unresolved at its end.
+3. docs/design/mockups/knowledge-map-prototype.html — open in a browser; it's the four-layer student-facing prototype that emerged from the brainstorm.
+4. docs/FORMS-LEMMAS-ROOTS.md — root/lemma/form conceptual foundation (unchanged).
+5. docs/DATA-MODEL.md — the prior 24-entity schema. Treat as reference, not authoritative — the 2026-04-16 doc supersedes parts of it pending reconciliation.
 
-The design is complete. We agreed on Approach B (Layered Build, 4 phases).
-Phase 1 is the starting point: build `tools/build-quran-db.py` + `tools/migrate-json-to-sqlite.py` so `tools/data/quran.db` contains full Layer 1 (from raw files in tools/data/*.txt) and Layer 2 (migrated from the 10 existing docs/roots/*.json files).
+Before writing any new spec or code, we need to tackle the five open questions in the brainstorm doc — at minimum:
+  (#1) how do we define "known" for coverage % honesty?
+  (#5) which v1 scope slice are we picking (A, B, or C)?
 
-Use /feather:workflow and show me the implementation plan for Phase 1 step by step before writing any code. I want to review and question your approach.
+Once scope is picked, the next step is to write a successor spec (or amend DATA-MODEL.md) that reconciles the brainstorm with the prior schema for the chosen v1 slice. Only then does implementation planning start.
 
 Rules from CLAUDE.md still apply: ask questions one at a time, push back with critique, show URLs for unfamiliar concepts, don't over-engineer.
 ```

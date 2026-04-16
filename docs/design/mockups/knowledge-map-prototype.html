@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LQWG — Knowledge Map Prototype</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf3e0;
+    --bg-elev: #fff9ec;
+    --ink: #3a2d1a;
+    --ink-soft: #6b5a3e;
+    --ink-faint: #a08f72;
+    --accent: #8b5a2b;
+    --known: #2f7a3b;
+    --known-soft: #c9e4c9;
+    --learn: #c4892a;
+    --learn-soft: #f3e0bc;
+    --unknown: #d4c8ab;
+    --recite: #5b8fc4;
+    --recite-soft: #dbe7f4;
+    --border: #d8c9a8;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+  .arabic { font-family: 'Amiri', serif; direction: rtl; }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 28px 24px 80px; }
+  header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+  }
+  h1 { font-size: 22px; font-weight: 700; margin: 0; color: var(--ink); }
+  .student-tag { font-size: 13px; color: var(--ink-soft); margin-top: 4px; }
+  .breadcrumb { font-size: 13px; color: var(--ink-soft); margin-bottom: 18px; }
+  .breadcrumb a { color: var(--accent); cursor: pointer; text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb .sep { margin: 0 8px; color: var(--ink-faint); }
+
+  .view { display: none; }
+  .view.active { display: block; }
+
+  /* ========== CARDS ========== */
+  .card {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 6px;
+    padding: 18px 20px;
+    margin-bottom: 18px;
+  }
+  .card h2 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+    margin: 0 0 12px;
+    font-weight: 600;
+  }
+
+  /* ========== DASHBOARD BARS ========== */
+  .bar-row { margin: 10px 0; }
+  .bar-label {
+    display: flex; justify-content: space-between;
+    font-size: 13px; margin-bottom: 4px;
+  }
+  .bar-label .lhs { font-weight: 600; color: var(--ink); }
+  .bar-label .rhs { color: var(--ink-soft); }
+  .bar { height: 16px; background: #e8dcc0; border-radius: 4px; overflow: hidden; }
+  .bar .fill { height: 100%; transition: width 0.4s ease; }
+  .bar .fill.recite { background: var(--recite); }
+  .bar .fill.understand { background: var(--known); }
+  .hint {
+    font-size: 13px; color: var(--ink-soft); font-style: italic;
+    margin-top: 10px; padding: 8px 12px;
+    background: var(--learn-soft); border-radius: 4px;
+    border-left: 3px solid var(--learn);
+  }
+
+  /* ========== MILESTONES ========== */
+  .milestone {
+    display: flex; align-items: baseline;
+    padding: 8px 0; border-bottom: 1px dashed #e2d5b3;
+    font-size: 14px;
+  }
+  .milestone:last-child { border-bottom: none; }
+  .milestone .icon { width: 24px; font-size: 16px; flex-shrink: 0; }
+  .milestone.done .label { color: var(--known); font-weight: 500; }
+  .milestone.progress .label { color: var(--ink); }
+  .milestone.locked .label { color: var(--ink-soft); }
+  .milestone .tail { margin-left: auto; font-size: 12px; color: var(--ink-faint); }
+  .milestone.progress .tail { color: var(--learn); font-weight: 500; }
+
+  .cta {
+    display: inline-block; margin-top: 6px;
+    padding: 9px 16px;
+    background: var(--accent); color: var(--bg);
+    font-size: 13px; font-weight: 500;
+    border: none; border-radius: 4px; cursor: pointer;
+  }
+  .cta:hover { background: #6e4620; }
+
+  /* ========== MACRO TOGGLE ========== */
+  .toggle {
+    display: inline-flex;
+    background: #ecdfbf;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 3px;
+    margin-bottom: 14px;
+  }
+  .toggle button {
+    background: none; border: none;
+    padding: 7px 18px;
+    font-size: 13px; font-weight: 500;
+    color: var(--ink-soft);
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  .toggle button.active {
+    background: var(--bg-elev);
+    color: var(--ink);
+    box-shadow: 0 1px 3px rgba(58, 45, 26, 0.1);
+  }
+
+  /* ========== SURAH HEATMAP ========== */
+  .heatmap {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 6px;
+  }
+  .cell {
+    aspect-ratio: 1;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    font-size: 10px; color: var(--ink-soft);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+  }
+  .cell:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(58, 45, 26, 0.15);
+    z-index: 1;
+  }
+  .cell .num { font-weight: 600; font-size: 11px; color: var(--ink); }
+  .cell .name { font-size: 9px; margin-top: 2px; color: var(--ink-faint); }
+  .cell.u0 { background: var(--bg-elev); }
+  .cell.u1 { background: #ecdba3; }
+  .cell.u2 { background: #d6c07a; }
+  .cell.u3 { background: #b39849; }
+  .cell.u4 { background: #8ab44a; color: white; }
+  .cell.u4 .num, .cell.u4 .name { color: white; }
+  .cell.u3 .num, .cell.u3 .name { color: var(--bg); }
+  .cell.recited {
+    border: 2px dashed var(--recite);
+    box-shadow: inset 0 0 0 1px var(--bg-elev);
+  }
+
+  /* ========== JUZ' GRID ========== */
+  .juzgrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+  .juzcell {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--unknown);
+    border-radius: 5px;
+    padding: 12px 12px 10px;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    position: relative;
+  }
+  .juzcell:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(58, 45, 26, 0.12);
+  }
+  .juzcell.recite-heavy { border-left-color: var(--recite); }
+  .juzcell.recite-some { border-left-color: var(--recite-soft); }
+  .juzcell .juznum { font-size: 11px; color: var(--ink-faint); font-weight: 600; letter-spacing: 0.05em; }
+  .juzcell .juzname {
+    font-family: 'Amiri', serif;
+    font-size: 18px; color: var(--ink);
+    margin: 2px 0 8px;
+    direction: rtl;
+    text-align: right;
+  }
+  .juzcell .juzsurahs { font-size: 10px; color: var(--ink-soft); margin-bottom: 8px; }
+  .juzcell .minibar-row { display: flex; align-items: center; gap: 6px; font-size: 10px; color: var(--ink-soft); margin-top: 3px; }
+  .juzcell .minibar-row .label { width: 12px; }
+  .juzcell .minibar { flex: 1; height: 5px; background: #e8dcc0; border-radius: 3px; overflow: hidden; }
+  .juzcell .minibar .fill { height: 100%; }
+  .juzcell .minibar .fill.recite { background: var(--recite); }
+  .juzcell .minibar .fill.understand { background: var(--known); }
+  .juzcell .minibar-row .pct { font-variant-numeric: tabular-nums; width: 30px; text-align: right; }
+
+  .legend {
+    display: flex; gap: 20px; flex-wrap: wrap;
+    margin-top: 16px; font-size: 12px; color: var(--ink-soft);
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-swatch {
+    width: 16px; height: 16px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+  }
+  .legend-swatch.dashed { border: 2px dashed var(--recite); }
+
+  /* ========== SURAH DETAIL ========== */
+  .surah-title {
+    font-family: 'Amiri', serif;
+    font-size: 32px;
+    text-align: center;
+    margin: 4px 0 2px;
+  }
+  .surah-sub {
+    text-align: center;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+  }
+  .surah-coverage-row {
+    display: flex; gap: 18px; justify-content: center;
+    margin: 12px 0 20px;
+    font-size: 13px;
+  }
+  .cov-stat {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 2px;
+  }
+  .cov-stat .pct { font-size: 20px; font-weight: 600; color: var(--known); font-variant-numeric: tabular-nums; }
+  .cov-stat.recite .pct { color: var(--recite); }
+  .cov-stat .lbl { font-size: 11px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.05em; }
+
+  .root-chips {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin: 12px 0 18px;
+    padding: 12px;
+    background: #f5ead0;
+    border-radius: 5px;
+    border: 1px dashed var(--border);
+  }
+  .root-chips .chip-label {
+    font-size: 11px; color: var(--ink-soft);
+    text-transform: uppercase; letter-spacing: 0.04em;
+    margin-right: 6px; align-self: center;
+  }
+  .chip {
+    font-family: 'Amiri', serif; font-size: 15px;
+    padding: 3px 10px; border-radius: 12px;
+    cursor: pointer;
+    border: 1px solid;
+    letter-spacing: 0.1em;
+  }
+  .chip.mastered { background: var(--known-soft); border-color: var(--known); color: var(--known); }
+  .chip.learning { background: var(--learn-soft); border-color: var(--learn); color: var(--learn); }
+  .chip.unseen { background: var(--bg-elev); border-color: var(--border); color: var(--ink-faint); }
+  .chip-translit {
+    font-family: 'Inter', sans-serif; font-size: 11px;
+    margin-left: 4px;
+  }
+
+  .ayah {
+    display: flex; flex-wrap: wrap; gap: 10px 14px;
+    justify-content: flex-end;
+    direction: rtl;
+    padding: 14px 18px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+  .ayah-num {
+    background: var(--accent); color: var(--bg);
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 11px; font-family: 'Inter', sans-serif;
+    flex-shrink: 0;
+  }
+  .word {
+    font-family: 'Amiri', serif;
+    font-size: 26px;
+    padding: 5px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+    position: relative;
+  }
+  .word.known { background: var(--known-soft); color: var(--known); }
+  .word.learning { background: var(--learn-soft); color: var(--learn); }
+  .word.unknown { background: #f0e5cb; color: var(--ink-soft); }
+  .word:hover { filter: brightness(0.95); }
+  .word::after {
+    content: attr(data-translit);
+    position: absolute;
+    bottom: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    color: var(--ink-faint);
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.15s;
+    pointer-events: none;
+  }
+  .word:hover::after { opacity: 1; }
+
+  .nextstep {
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: var(--learn-soft);
+    border-left: 3px solid var(--learn);
+    border-radius: 4px;
+    font-size: 13px;
+  }
+  .nextstep strong { color: var(--learn); }
+  .nextstep.victory { border-left-color: var(--known); background: var(--known-soft); color: var(--known); }
+  .nextstep.victory strong { color: var(--known); }
+
+  .lesson-strip {
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: var(--recite-soft);
+    border-left: 3px solid var(--recite);
+    border-radius: 4px;
+    font-size: 13px;
+  }
+  .lesson-strip strong { color: var(--recite); }
+
+  /* ========== ROOT TREE ========== */
+  .root-head {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .root-ar {
+    font-family: 'Amiri', serif;
+    font-size: 36px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+  }
+  .root-en { font-size: 14px; color: var(--ink-soft); margin-top: 4px; }
+  .root-stats { margin-top: 12px; font-size: 13px; color: var(--ink); }
+  .form-row {
+    display: flex; align-items: center;
+    padding: 12px 16px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 6px;
+    gap: 16px;
+  }
+  .form-row .status { width: 20px; font-size: 16px; flex-shrink: 0; }
+  .form-row.mastered .status { color: var(--known); }
+  .form-row.learning .status { color: var(--learn); }
+  .form-row.unseen .status { color: var(--ink-faint); }
+  .form-row .ar {
+    font-family: 'Amiri', serif; font-size: 22px;
+    min-width: 120px; text-align: right;
+  }
+  .form-row.unseen .ar { color: var(--ink-faint); }
+  .form-row .gloss { flex: 1; font-size: 14px; color: var(--ink); }
+  .form-row .meta { font-size: 12px; color: var(--ink-soft); }
+
+  .back {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--ink-soft);
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-bottom: 14px;
+  }
+  .back:hover { background: var(--bg-elev); color: var(--ink); }
+
+  .student-note {
+    background: var(--recite-soft);
+    border-left: 3px solid var(--recite);
+    padding: 10px 14px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--ink);
+    margin-bottom: 18px;
+  }
+
+  /* ========== JUZ' → SURAH LIST (modal inline) ========== */
+  .juz-surahs-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+  }
+  .juz-surah-item {
+    display: flex; flex-direction: column; gap: 6px;
+    padding: 12px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .juz-surah-item.recited { border: 2px dashed var(--recite); }
+  .juz-surah-item:hover { box-shadow: 0 2px 8px rgba(58, 45, 26, 0.1); }
+  .juz-surah-item .name-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+  }
+  .juz-surah-item .n { font-size: 11px; color: var(--ink-faint); }
+  .juz-surah-item .nm { font-weight: 500; }
+  .juz-surah-item .mini { height: 5px; background: #e8dcc0; border-radius: 3px; overflow: hidden; }
+  .juz-surah-item .mini .fill { height: 100%; background: var(--known); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>My Qur'an — Knowledge Map</h1>
+    <div class="student-tag">Hanzala · age 10 · memorized Juz' 30 + Al-Fātiḥa · studying LQWG Module 1</div>
+  </header>
+
+  <div class="breadcrumb" id="breadcrumb"></div>
+
+  <!-- ========== DASHBOARD ========== -->
+  <div class="view active" id="view-dashboard">
+    <div class="student-note">
+      You memorize <strong>16 surahs</strong> by recitation. That's a powerful head start — every word you already say is a word we can give meaning to.
+    </div>
+
+    <div class="card">
+      <h2>Your Qur'an · two layers</h2>
+      <div class="bar-row">
+        <div class="bar-label">
+          <span class="lhs">You can recite</span>
+          <span class="rhs">22% — 17,116 of 77,798 word-tokens</span>
+        </div>
+        <div class="bar"><div class="fill recite" style="width: 22%"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">
+          <span class="lhs">You understand</span>
+          <span class="rhs">6% — 4,668 of 77,798 word-tokens</span>
+        </div>
+        <div class="bar"><div class="fill understand" style="width: 6%"></div></div>
+      </div>
+      <div class="hint">
+        💡 You recite <strong>12,448 words</strong> you don't yet understand. LQWG targets these first — every lesson turns sound into meaning.
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Milestones</h2>
+      <div class="milestone done">
+        <span class="icon">✓</span>
+        <span class="label">Decode Sūrat An-Nās without translation</span>
+        <span class="tail">all 19 words</span>
+      </div>
+      <div class="milestone done">
+        <span class="icon">✓</span>
+        <span class="label">Decode Sūrat Al-Ikhlāṣ without translation</span>
+        <span class="tail">all 15 words</span>
+      </div>
+      <div class="milestone progress">
+        <span class="icon">◐</span>
+        <span class="label">Understand 50% of Juz' 'Amma</span>
+        <span class="tail">37% · 2 lessons away</span>
+      </div>
+      <div class="milestone locked">
+        <span class="icon">○</span>
+        <span class="label">Decode Āyat al-Kursī</span>
+        <span class="tail">1 form away</span>
+      </div>
+      <div class="milestone locked">
+        <span class="icon">○</span>
+        <span class="label">Understand 100% of the Adhān</span>
+        <span class="tail">7 forms away</span>
+      </div>
+    </div>
+
+    <button class="cta" onclick="go('heatmap')">Explore the Qur'an →</button>
+  </div>
+
+  <!-- ========== MACRO HEATMAP (with toggle) ========== -->
+  <div class="view" id="view-heatmap">
+    <button class="back" onclick="go('dashboard')">← Dashboard</button>
+    <div class="card">
+      <div class="toggle">
+        <button id="tog-surah" class="active" onclick="setMacro('surah')">Surahs (114)</button>
+        <button id="tog-juz" onclick="setMacro('juz')">Juz' (30)</button>
+      </div>
+
+      <!-- Surah grid -->
+      <div id="macro-surah">
+        <h2>114 Surahs · your coverage map</h2>
+        <p style="font-size: 13px; color: var(--ink-soft); margin: 0 0 16px;">
+          Dashed blue border = you recite it fluently. Inner green fill = meaning comprehension.
+          <strong>Note:</strong> cells are equal-sized but surahs are wildly different lengths (Al-Baqara has 6,140 words; Al-Kawthar has 10). For a volume-honest view, switch to Juz' above.
+        </p>
+        <div class="heatmap" id="heatmap-grid"></div>
+        <div class="legend">
+          <div class="legend-item"><div class="legend-swatch dashed"></div> recite fluently</div>
+          <div class="legend-item"><div class="legend-swatch" style="background: var(--bg-elev)"></div> 0–19% meaning</div>
+          <div class="legend-item"><div class="legend-swatch" style="background: #ecdba3"></div> 20–39%</div>
+          <div class="legend-item"><div class="legend-swatch" style="background: #d6c07a"></div> 40–59%</div>
+          <div class="legend-item"><div class="legend-swatch" style="background: #b39849"></div> 60–79%</div>
+          <div class="legend-item"><div class="legend-swatch" style="background: #8ab44a"></div> 80–100%</div>
+        </div>
+      </div>
+
+      <!-- Juz' grid -->
+      <div id="macro-juz" style="display: none;">
+        <h2>30 Juz' · equal-weight view</h2>
+        <p style="font-size: 13px; color: var(--ink-soft); margin: 0 0 16px;">
+          Each juz' is roughly 1/30 of the Qur'an by reading time. Cell size here matches "how much Qur'an this is." Click any juz' to see the surahs inside it.
+        </p>
+        <div class="juzgrid" id="juz-grid"></div>
+        <div class="legend" style="margin-top: 14px;">
+          <div class="legend-item"><span style="width:12px">R</span> recitation layer</div>
+          <div class="legend-item"><span style="width:12px">U</span> understanding layer</div>
+          <div class="legend-item"><div class="legend-swatch" style="background: var(--recite)"></div> recite fluently</div>
+          <div class="legend-item"><div class="legend-swatch" style="background: var(--known)"></div> understand</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== JUZ' → SURAH LIST ========== -->
+  <div class="view" id="view-juz-detail">
+    <button class="back" onclick="go('heatmap')">← Juz' grid</button>
+    <div class="card" id="juz-detail-body"></div>
+  </div>
+
+  <!-- ========== SURAH DETAIL ========== -->
+  <div class="view" id="view-surah">
+    <button class="back" onclick="backFromSurah()">← Back</button>
+    <div id="surah-body"></div>
+  </div>
+
+  <!-- ========== ROOT DETAIL ========== -->
+  <div class="view" id="view-root">
+    <button class="back" onclick="go('surah')">← Back to surah</button>
+    <div id="root-body"></div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// SAMPLE DATA
+// Student: Hanzala (10y/o), memorized Juz' 30 + Al-Fātiḥa
+// Has studied: LQWG Lesson 1 (ilah, kabura), Lesson 2 (shahida)
+// ============================================================
+
+const RECITED = new Set([1, ...Array.from({length: 37}, (_, i) => 78 + i)]);
+
+const UNDERSTAND = {
+  1: 42,
+  2: 3, 112: 100, 113: 80, 114: 100,
+  97: 65, 108: 75, 109: 35, 110: 55, 111: 40,
+  78: 18, 79: 12, 80: 15, 81: 22, 82: 28, 83: 20,
+  84: 25, 85: 30, 86: 25, 87: 35, 88: 30, 89: 22,
+  90: 40, 91: 50, 92: 40, 93: 60, 94: 70, 95: 55,
+  96: 45, 98: 25, 99: 40, 100: 30, 101: 35, 102: 45,
+  103: 70, 104: 55, 105: 65, 106: 60, 107: 55,
+};
+
+const SURAH_NAMES = [
+  '', 'Al-Fātiḥa','Al-Baqara','Āl-ʿImrān','An-Nisāʾ','Al-Māʾida','Al-Anʿām','Al-Aʿrāf','Al-Anfāl','At-Tawba','Yūnus',
+  'Hūd','Yūsuf','Ar-Raʿd','Ibrāhīm','Al-Ḥijr','An-Naḥl','Al-Isrāʾ','Al-Kahf','Maryam','Ṭāhā',
+  'Al-Anbiyāʾ','Al-Ḥajj','Al-Muʾminūn','An-Nūr','Al-Furqān','Ash-Shuʿarāʾ','An-Naml','Al-Qaṣaṣ','Al-ʿAnkabūt','Ar-Rūm',
+  'Luqmān','As-Sajda','Al-Aḥzāb','Sabaʾ','Fāṭir','Yāsīn','Aṣ-Ṣāffāt','Ṣād','Az-Zumar','Ghāfir',
+  'Fuṣṣilat','Ash-Shūrā','Az-Zukhruf','Ad-Dukhān','Al-Jāthiya','Al-Aḥqāf','Muḥammad','Al-Fatḥ','Al-Ḥujurāt','Qāf',
+  'Adh-Dhāriyāt','Aṭ-Ṭūr','An-Najm','Al-Qamar','Ar-Raḥmān','Al-Wāqiʿa','Al-Ḥadīd','Al-Mujādila','Al-Ḥashr','Al-Mumtaḥana',
+  'Aṣ-Ṣaff','Al-Jumuʿa','Al-Munāfiqūn','At-Taghābun','Aṭ-Ṭalāq','At-Taḥrīm','Al-Mulk','Al-Qalam','Al-Ḥāqqa','Al-Maʿārij',
+  'Nūḥ','Al-Jinn','Al-Muzzammil','Al-Muddaththir','Al-Qiyāma','Al-Insān','Al-Mursalāt','An-Nabaʾ','An-Nāziʿāt','ʿAbasa',
+  'At-Takwīr','Al-Infiṭār','Al-Muṭaffifīn','Al-Inshiqāq','Al-Burūj','Aṭ-Ṭāriq','Al-Aʿlā','Al-Ghāshiya','Al-Fajr','Al-Balad',
+  'Ash-Shams','Al-Layl','Aḍ-Ḍuḥā','Ash-Sharḥ','At-Tīn','Al-ʿAlaq','Al-Qadr','Al-Bayyina','Az-Zalzala','Al-ʿĀdiyāt',
+  'Al-Qāriʿa','At-Takāthur','Al-ʿAṣr','Al-Humaza','Al-Fīl','Quraysh','Al-Māʿūn','Al-Kawthar','Al-Kāfirūn','An-Naṣr',
+  'Al-Masad','Al-Ikhlāṣ','Al-Falaq','An-Nās',
+];
+
+// ============================================================
+// JUZ' TABLE
+// juz' num → { nameAr, surahs: [list of surah numbers], startRef, endRef }
+// Standard Hafs juz' boundaries.
+// ============================================================
+const JUZ = [
+  null,
+  { nameAr: 'الٓمٓ',                name: 'Alif Lām Mīm',     surahs: [1,2],                                    span: '1:1 – 2:141' },
+  { nameAr: 'سَيَقُولُ',              name: 'Sayaqūl',          surahs: [2],                                      span: '2:142 – 2:252' },
+  { nameAr: 'تِلْكَ الرُّسُلُ',         name: 'Tilka r-rusul',    surahs: [2,3],                                    span: '2:253 – 3:92' },
+  { nameAr: 'لَن تَنَالُوا',           name: 'Lan tanālū',       surahs: [3,4],                                    span: '3:93 – 4:23' },
+  { nameAr: 'وَٱلْمُحْصَنَٰتُ',          name: 'Wal-muḥṣanāt',     surahs: [4],                                      span: '4:24 – 4:147' },
+  { nameAr: 'لَا يُحِبُّ ٱللَّهُ',       name: 'Lā yuḥibbu',       surahs: [4,5],                                    span: '4:148 – 5:81' },
+  { nameAr: 'وَإِذَا سَمِعُوا',         name: 'Wa-idhā samiʿū',   surahs: [5,6],                                    span: '5:82 – 6:110' },
+  { nameAr: 'وَلَوْ أَنَّنَا',          name: 'Wa-law annanā',    surahs: [6,7],                                    span: '6:111 – 7:87' },
+  { nameAr: 'قَالَ ٱلْمَلَأُ',         name: 'Qāla l-malaʾ',     surahs: [7,8],                                    span: '7:88 – 8:40' },
+  { nameAr: 'وَٱعْلَمُوا',             name: 'Wa-ʿlamū',         surahs: [8,9],                                    span: '8:41 – 9:92' },
+  { nameAr: 'يَعْتَذِرُونَ',           name: 'Yaʿtadhirūn',      surahs: [9,10,11],                                span: '9:93 – 11:5' },
+  { nameAr: 'وَمَا مِن دَابَّةٍ',       name: 'Wa-mā min dābba',  surahs: [11,12],                                  span: '11:6 – 12:52' },
+  { nameAr: 'وَمَا أُبَرِّئُ',          name: 'Wa-mā ubarriʾu',   surahs: [12,13,14],                               span: '12:53 – 14:52' },
+  { nameAr: 'رُبَمَا',                 name: 'Rubamā',           surahs: [15,16],                                  span: '15:1 – 16:128' },
+  { nameAr: 'سُبْحَٰنَ ٱلَّذِى',        name: 'Subḥāna lladhī',   surahs: [17,18],                                  span: '17:1 – 18:74' },
+  { nameAr: 'قَالَ أَلَمْ',            name: 'Qāla alam',        surahs: [18,19,20],                               span: '18:75 – 20:135' },
+  { nameAr: 'ٱقْتَرَبَ',               name: 'Iqtaraba',         surahs: [21,22],                                  span: '21:1 – 22:78' },
+  { nameAr: 'قَدْ أَفْلَحَ',            name: 'Qad aflaḥa',       surahs: [23,24,25],                               span: '23:1 – 25:20' },
+  { nameAr: 'وَقَالَ ٱلَّذِينَ',        name: 'Wa-qāla lladhīna', surahs: [25,26,27],                               span: '25:21 – 27:55' },
+  { nameAr: 'أَمَّنْ خَلَقَ',           name: 'Amman khalaqa',    surahs: [27,28,29],                               span: '27:56 – 29:45' },
+  { nameAr: 'ٱتْلُ',                   name: 'Utlū',             surahs: [29,30,31,32,33],                         span: '29:46 – 33:30' },
+  { nameAr: 'وَمَن يَقْنُتْ',           name: 'Wa-man yaqnut',    surahs: [33,34,35,36],                            span: '33:31 – 36:27' },
+  { nameAr: 'وَمَا لِىَ',              name: 'Wa-mā liya',       surahs: [36,37,38,39],                            span: '36:28 – 39:31' },
+  { nameAr: 'فَمَنْ أَظْلَمُ',           name: 'Fa-man aẓlamu',    surahs: [39,40,41],                               span: '39:32 – 41:46' },
+  { nameAr: 'إِلَيْهِ يُرَدُّ',         name: 'Ilayhi yuraddu',   surahs: [41,42,43,44,45],                         span: '41:47 – 45:37' },
+  { nameAr: 'حمٓ',                     name: 'Ḥā Mīm',           surahs: [46,47,48,49,50,51],                      span: '46:1 – 51:30' },
+  { nameAr: 'قَالَ فَمَا خَطْبُكُمْ',    name: 'Qāla fa-mā',       surahs: [51,52,53,54,55,56,57],                   span: '51:31 – 57:29' },
+  { nameAr: 'قَدْ سَمِعَ ٱللَّهُ',       name: 'Qad samiʿa',       surahs: [58,59,60,61,62,63,64,65,66],             span: '58:1 – 66:12' },
+  { nameAr: 'تَبَارَكَ',               name: 'Tabāraka',         surahs: [67,68,69,70,71,72,73,74,75,76,77],       span: '67:1 – 77:50' },
+  { nameAr: 'عَمَّ',                   name: 'ʿAmma',            surahs: [78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114], span: '78:1 – 114:6' },
+];
+
+// Per-juz' recite/understand %s for Hanzala
+// (Hanzala recites Al-Fātiḥa and Juz' 30 only; understand is sparse)
+const JUZ_STATS = {
+  1:  { recite: 3,   understand: 4  },   // Fatiha + tiny start of Baqara
+  2:  { recite: 0,   understand: 2  },
+  3:  { recite: 0,   understand: 2  },
+  4:  { recite: 0,   understand: 2  },
+  5:  { recite: 0,   understand: 2  },
+  6:  { recite: 0,   understand: 2  },
+  7:  { recite: 0,   understand: 2  },
+  8:  { recite: 0,   understand: 2  },
+  9:  { recite: 0,   understand: 2  },
+  10: { recite: 0,   understand: 2  },
+  11: { recite: 0,   understand: 2  },
+  12: { recite: 0,   understand: 3  },
+  13: { recite: 0,   understand: 3  },
+  14: { recite: 0,   understand: 3  },
+  15: { recite: 0,   understand: 3  },
+  16: { recite: 0,   understand: 3  },
+  17: { recite: 0,   understand: 3  },
+  18: { recite: 0,   understand: 3  },
+  19: { recite: 0,   understand: 3  },
+  20: { recite: 0,   understand: 3  },
+  21: { recite: 0,   understand: 3  },
+  22: { recite: 0,   understand: 4  },
+  23: { recite: 0,   understand: 4  },
+  24: { recite: 0,   understand: 4  },
+  25: { recite: 0,   understand: 4  },
+  26: { recite: 0,   understand: 4  },
+  27: { recite: 0,   understand: 4  },
+  28: { recite: 0,   understand: 4  },
+  29: { recite: 0,   understand: 5  },
+  30: { recite: 100, understand: 37 },
+};
+
+function classifyUnderstand(pct) {
+  if (pct >= 80) return 'u4';
+  if (pct >= 60) return 'u3';
+  if (pct >= 40) return 'u2';
+  if (pct >= 20) return 'u1';
+  return 'u0';
+}
+
+// ============================================================
+// DEMO SURAHS
+// Al-Fatiha (1) — partial demo (most relevant)
+// An-Nas (114) — victory demo (fully green)
+// ============================================================
+const SURAH_WORDS = {
+  1: {
+    arTitle: 'الْفَاتِحَة',
+    sub: 'Sūrat Al-Fātiḥa · 7 āyāt · 29 words · Hanzala recites this fluently',
+    reciteCov: 100,
+    rootChips: [
+      { ar: 'إ ل ه', tr: 'ilāh',   status: 'mastered', click: 'ilh' },
+      { ar: 'ر ح م', tr: 'raḥima', status: 'learning' },
+      { ar: 'ح م د', tr: 'ḥamida', status: 'unseen' },
+      { ar: 'ر ب ب', tr: 'rabba',  status: 'unseen' },
+      { ar: 'م ل ك', tr: 'malaka', status: 'unseen' },
+      { ar: 'ي و م', tr: 'yawm',   status: 'unseen' },
+      { ar: 'د ي ن', tr: 'dīn',    status: 'unseen' },
+      { ar: 'ع ب د', tr: 'ʿabada', status: 'unseen' },
+      { ar: 'ه د ي', tr: 'hadā',   status: 'unseen' },
+      { ar: 'ص ر ط', tr: 'ṣirāṭ',  status: 'unseen' },
+      { ar: 'ق و م', tr: 'qāma',   status: 'unseen' },
+    ],
+    ayat: [
+      { n: 1, words: [
+        { ar: 'بِسْمِ',       tr: 'bismi',       status: 'known' },
+        { ar: 'اللَّهِ',       tr: 'allāh',       status: 'known',    click: 'ilh' },
+        { ar: 'الرَّحْمَٰنِ',    tr: 'ar-raḥmān',   status: 'learning' },
+        { ar: 'الرَّحِيمِ',      tr: 'ar-raḥīm',    status: 'learning' },
+      ]},
+      { n: 2, words: [
+        { ar: 'الْحَمْدُ',       tr: 'al-ḥamdu',    status: 'unknown' },
+        { ar: 'لِلَّهِ',         tr: 'lillāhi',     status: 'known',    click: 'ilh' },
+        { ar: 'رَبِّ',          tr: 'rabbi',       status: 'unknown' },
+        { ar: 'الْعَالَمِينَ',     tr: 'al-ʿālamīn',  status: 'unknown' },
+      ]},
+      { n: 3, words: [
+        { ar: 'الرَّحْمَٰنِ',    tr: 'ar-raḥmān',   status: 'learning' },
+        { ar: 'الرَّحِيمِ',      tr: 'ar-raḥīm',    status: 'learning' },
+      ]},
+      { n: 4, words: [
+        { ar: 'مَالِكِ',        tr: 'māliki',      status: 'unknown' },
+        { ar: 'يَوْمِ',         tr: 'yawmi',       status: 'unknown' },
+        { ar: 'الدِّينِ',        tr: 'ad-dīni',     status: 'unknown' },
+      ]},
+      { n: 5, words: [
+        { ar: 'إِيَّاكَ',        tr: 'iyyāka',      status: 'unknown' },
+        { ar: 'نَعْبُدُ',        tr: 'naʿbudu',     status: 'unknown' },
+        { ar: 'وَإِيَّاكَ',       tr: 'wa-iyyāka',   status: 'unknown' },
+        { ar: 'نَسْتَعِينُ',      tr: 'nastaʿīnu',   status: 'unknown' },
+      ]},
+      { n: 6, words: [
+        { ar: 'اهْدِنَا',        tr: 'ihdinā',      status: 'unknown' },
+        { ar: 'الصِّرَاطَ',      tr: 'aṣ-ṣirāṭa',   status: 'unknown' },
+        { ar: 'الْمُسْتَقِيمَ',    tr: 'al-mustaqīm', status: 'unknown' },
+      ]},
+      { n: 7, words: [
+        { ar: 'صِرَاطَ',        tr: 'ṣirāṭa',      status: 'unknown' },
+        { ar: 'الَّذِينَ',        tr: 'al-ladhīna',  status: 'unknown' },
+        { ar: 'أَنْعَمْتَ',       tr: 'anʿamta',     status: 'unknown' },
+        { ar: 'عَلَيْهِمْ',       tr: 'ʿalayhim',    status: 'unknown' },
+        { ar: 'غَيْرِ',          tr: 'ghayri',      status: 'unknown' },
+        { ar: 'الْمَغْضُوبِ',     tr: 'al-maghḍūbi', status: 'unknown' },
+        { ar: 'عَلَيْهِمْ',       tr: 'ʿalayhim',    status: 'unknown' },
+        { ar: 'وَلَا',           tr: 'wa-lā',       status: 'unknown' },
+        { ar: 'الضَّالِّينَ',     tr: 'aḍ-ḍāllīn',   status: 'unknown' },
+      ]},
+    ],
+    nextstep: `💡 <strong>Next lesson will unlock:</strong> the root <span class="arabic">ر ح م</span> (raḥima, "mercy") — that's 4 more words in this surah.`,
+    victory: false,
+    lessons: '<strong>Lessons that unlocked words here:</strong> Lesson 1 (root <span class="arabic">إ ل ه</span> → <span class="arabic">اللَّهِ</span>, <span class="arabic">لِلَّهِ</span>).',
+  },
+  114: {
+    arTitle: 'النَّاس',
+    sub: 'Sūrat An-Nās · 6 āyāt · 19 words · Hanzala recites this fluently',
+    reciteCov: 100,
+    rootChips: [
+      { ar: 'ق و ل', tr: 'qāla',    status: 'mastered' },
+      { ar: 'ع و ذ', tr: 'ʿādha',   status: 'mastered' },
+      { ar: 'ر ب ب', tr: 'rabba',   status: 'mastered' },
+      { ar: 'ن و س', tr: 'nās',     status: 'mastered' },
+      { ar: 'م ل ك', tr: 'malaka',  status: 'mastered' },
+      { ar: 'إ ل ه', tr: 'ilāh',    status: 'mastered', click: 'ilh' },
+      { ar: 'ش ر ر', tr: 'sharra',  status: 'mastered' },
+      { ar: 'و س و س', tr: 'waswasa', status: 'mastered' },
+      { ar: 'خ ن س', tr: 'khanasa', status: 'mastered' },
+      { ar: 'ص د ر', tr: 'ṣadr',    status: 'mastered' },
+      { ar: 'ج ن ن', tr: 'janna',   status: 'mastered' },
+    ],
+    ayat: [
+      { n: 1, words: [
+        { ar: 'قُلْ',           tr: 'qul',        status: 'known' },
+        { ar: 'أَعُوذُ',         tr: 'aʿūdhu',     status: 'known' },
+        { ar: 'بِرَبِّ',          tr: 'bi-rabbi',   status: 'known' },
+        { ar: 'النَّاسِ',        tr: 'an-nāsi',    status: 'known' },
+      ]},
+      { n: 2, words: [
+        { ar: 'مَلِكِ',         tr: 'maliki',     status: 'known' },
+        { ar: 'النَّاسِ',        tr: 'an-nāsi',    status: 'known' },
+      ]},
+      { n: 3, words: [
+        { ar: 'إِلَٰهِ',          tr: 'ilāhi',      status: 'known', click: 'ilh' },
+        { ar: 'النَّاسِ',        tr: 'an-nāsi',    status: 'known' },
+      ]},
+      { n: 4, words: [
+        { ar: 'مِنْ',           tr: 'min',        status: 'known' },
+        { ar: 'شَرِّ',          tr: 'sharri',     status: 'known' },
+        { ar: 'الْوَسْوَاسِ',      tr: 'al-waswāsi', status: 'known' },
+        { ar: 'الْخَنَّاسِ',       tr: 'al-khannāsi',status: 'known' },
+      ]},
+      { n: 5, words: [
+        { ar: 'الَّذِي',          tr: 'alladhī',    status: 'known' },
+        { ar: 'يُوَسْوِسُ',       tr: 'yuwaswisu',  status: 'known' },
+        { ar: 'فِي',           tr: 'fī',         status: 'known' },
+        { ar: 'صُدُورِ',        tr: 'ṣudūri',     status: 'known' },
+        { ar: 'النَّاسِ',        tr: 'an-nāsi',    status: 'known' },
+      ]},
+      { n: 6, words: [
+        { ar: 'مِنَ',           tr: 'mina',       status: 'known' },
+        { ar: 'الْجِنَّةِ',       tr: 'al-jinnati', status: 'known' },
+        { ar: 'وَالنَّاسِ',       tr: 'wa-n-nāsi',  status: 'known' },
+      ]},
+    ],
+    nextstep: `🎉 <strong>You've decoded this surah.</strong> Every word you recite, you now understand. Try reciting it slowly — the meaning should arrive with the sound.`,
+    victory: true,
+    lessons: '<strong>This took:</strong> Module 1 Lessons 1, 5, 6, and 7 combined — every root in An-Nās was covered once the module finished.',
+  },
+};
+
+// ============================================================
+// Root: kabura
+// ============================================================
+const ROOT_KABURA = {
+  ar: 'ك ب ر',
+  en: 'kabura — "greatness, bigness"',
+  stats: 'Seen 18× across 12 verses · covered in Lesson 1',
+  forms: [
+    { ar: 'كَبِير',   tr: 'kabīr',     gloss: 'great, elder',                    status: 'mastered', meta: '7 verses · FSRS stability 28d' },
+    { ar: 'أَكْبَر',   tr: 'akbar',     gloss: 'greater',                         status: 'mastered', meta: '14 verses · FSRS stability 21d' },
+    { ar: 'كُبْرَىٰ',   tr: 'kubrā',     gloss: 'greatest (feminine)',             status: 'mastered', meta: '3 verses · FSRS stability 14d' },
+    { ar: 'تَكْبِير',   tr: 'takbīr',    gloss: 'magnification (Allāhu akbar)',    status: 'learning', meta: '1 verse · learning' },
+    { ar: 'كِبْر',     tr: 'kibr',      gloss: 'arrogance',                       status: 'unseen',   meta: '5 verses · not yet met' },
+    { ar: 'اسْتَكْبَرَ', tr: 'istakbara', gloss: 'became arrogant',                 status: 'unseen',   meta: '48 verses · not yet met' },
+  ],
+};
+
+// ============================================================
+// NAVIGATION
+// ============================================================
+let currentView = 'dashboard';
+let currentSurah = null;
+let currentJuz = null;
+let macroMode = 'surah';
+
+function go(view, arg) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById('view-' + view).classList.add('active');
+  currentView = view;
+  if (view === 'surah') {
+    currentSurah = arg || currentSurah || 1;
+    renderSurah(currentSurah);
+  }
+  if (view === 'root') {
+    renderRoot(arg);
+  }
+  if (view === 'juz-detail') {
+    currentJuz = arg;
+    renderJuzDetail(arg);
+  }
+  updateBreadcrumb();
+  window.scrollTo(0, 0);
+}
+
+function backFromSurah() {
+  if (currentJuz) go('juz-detail', currentJuz);
+  else go('heatmap');
+}
+
+function setMacro(mode) {
+  macroMode = mode;
+  document.getElementById('macro-surah').style.display = mode === 'surah' ? '' : 'none';
+  document.getElementById('macro-juz').style.display = mode === 'juz' ? '' : 'none';
+  document.getElementById('tog-surah').classList.toggle('active', mode === 'surah');
+  document.getElementById('tog-juz').classList.toggle('active', mode === 'juz');
+}
+
+function updateBreadcrumb() {
+  const bc = document.getElementById('breadcrumb');
+  const parts = [];
+  parts.push(`<a onclick="go('dashboard')">Dashboard</a>`);
+  if (['heatmap','surah','root','juz-detail'].includes(currentView)) {
+    parts.push(`<a onclick="go('heatmap')">Map</a>`);
+  }
+  if (currentView === 'juz-detail' && currentJuz) {
+    parts.push(`<a onclick="go('juz-detail', ${currentJuz})">Juz' ${currentJuz}</a>`);
+  }
+  if (['surah','root'].includes(currentView) && currentJuz) {
+    parts.push(`<a onclick="go('juz-detail', ${currentJuz})">Juz' ${currentJuz}</a>`);
+  }
+  if (['surah','root'].includes(currentView) && currentSurah) {
+    parts.push(`<a onclick="go('surah', ${currentSurah})">Sūrat ${SURAH_NAMES[currentSurah]}</a>`);
+  }
+  if (currentView === 'root') {
+    parts.push(`<span>Root tree</span>`);
+  }
+  bc.innerHTML = parts.join('<span class="sep">›</span>');
+}
+
+// ============================================================
+// SURAH HEATMAP
+// ============================================================
+function renderHeatmap() {
+  const grid = document.getElementById('heatmap-grid');
+  grid.innerHTML = '';
+  for (let n = 1; n <= 114; n++) {
+    const cell = document.createElement('div');
+    const pct = UNDERSTAND[n] || 0;
+    cell.className = `cell ${classifyUnderstand(pct)}${RECITED.has(n) ? ' recited' : ''}`;
+    cell.title = `Sūra ${n} ${SURAH_NAMES[n]} — ${pct}% meaning${RECITED.has(n) ? ' · recited' : ''}`;
+    cell.innerHTML = `<div class="num">${n}</div><div class="name">${SURAH_NAMES[n].slice(0, 8)}</div>`;
+    cell.onclick = () => { currentJuz = null; go('surah', n); };
+    grid.appendChild(cell);
+  }
+}
+
+// ============================================================
+// JUZ' GRID
+// ============================================================
+function renderJuzGrid() {
+  const grid = document.getElementById('juz-grid');
+  grid.innerHTML = '';
+  for (let j = 1; j <= 30; j++) {
+    const info = JUZ[j];
+    const stats = JUZ_STATS[j] || { recite: 0, understand: 0 };
+    const cls = stats.recite >= 80 ? 'recite-heavy' : (stats.recite > 0 ? 'recite-some' : '');
+    const surahLabel = info.surahs.length === 1
+      ? `Sūra ${info.surahs[0]}`
+      : `${info.surahs.length} sūras · ${info.span}`;
+    const cell = document.createElement('div');
+    cell.className = `juzcell ${cls}`;
+    cell.innerHTML = `
+      <div class="juznum">JUZ' ${j}</div>
+      <div class="juzname">${info.nameAr}</div>
+      <div class="juzsurahs">${surahLabel}</div>
+      <div class="minibar-row">
+        <span class="label">R</span>
+        <div class="minibar"><div class="fill recite" style="width:${stats.recite}%"></div></div>
+        <span class="pct">${stats.recite}%</span>
+      </div>
+      <div class="minibar-row">
+        <span class="label">U</span>
+        <div class="minibar"><div class="fill understand" style="width:${stats.understand}%"></div></div>
+        <span class="pct">${stats.understand}%</span>
+      </div>
+    `;
+    cell.onclick = () => go('juz-detail', j);
+    grid.appendChild(cell);
+  }
+}
+
+// ============================================================
+// JUZ' → SURAH LIST
+// ============================================================
+function renderJuzDetail(j) {
+  const info = JUZ[j];
+  const stats = JUZ_STATS[j];
+  const body = document.getElementById('juz-detail-body');
+  let html = `
+    <div style="font-size: 11px; color: var(--ink-faint); font-weight: 600; letter-spacing: 0.05em;">JUZ' ${j}</div>
+    <div style="font-family: 'Amiri', serif; font-size: 26px; direction: rtl; text-align: right; margin-bottom: 4px;">${info.nameAr}</div>
+    <div style="font-size: 13px; color: var(--ink-soft); margin-bottom: 18px;">
+      ${info.span} · <strong>${stats.recite}%</strong> recite · <strong>${stats.understand}%</strong> understand
+    </div>
+    <h2>Surahs in this juz'</h2>
+    <div class="juz-surahs-list">
+  `;
+  info.surahs.forEach(s => {
+    const pct = UNDERSTAND[s] || 0;
+    const recited = RECITED.has(s);
+    html += `
+      <div class="juz-surah-item ${recited ? 'recited' : ''}" onclick="go('surah', ${s})">
+        <div class="name-row">
+          <span class="n">Sūra ${s}</span>
+          <span class="nm">${SURAH_NAMES[s]}</span>
+        </div>
+        <div class="mini"><div class="fill" style="width:${pct}%"></div></div>
+        <div style="font-size: 11px; color: var(--ink-soft);">${pct}% meaning${recited ? ' · recited' : ''}</div>
+      </div>
+    `;
+  });
+  html += `</div>`;
+  body.innerHTML = html;
+}
+
+// ============================================================
+// SURAH DETAIL
+// ============================================================
+function renderSurah(n) {
+  const body = document.getElementById('surah-body');
+  const data = SURAH_WORDS[n];
+
+  if (!data) {
+    const pct = UNDERSTAND[n] || 0;
+    body.innerHTML = `
+      <div class="card">
+        <div class="surah-title">Sūrat ${SURAH_NAMES[n]}</div>
+        <div class="surah-sub">Meaning coverage: ${pct}% ${RECITED.has(n) ? '· you recite this fluently' : ''}</div>
+        <p style="text-align:center; color: var(--ink-soft); padding: 24px 0;">
+          (Word-by-word map not in this prototype — try <a onclick="go('surah', 1)" style="color: var(--accent); cursor: pointer;">Sūrat Al-Fātiḥa</a>
+          for a partial-coverage demo, or <a onclick="go('surah', 114)" style="color: var(--accent); cursor: pointer;">Sūrat An-Nās</a> for a fully-decoded demo.)
+        </p>
+      </div>`;
+    return;
+  }
+
+  const total = data.ayat.reduce((a, ay) => a + ay.words.length, 0);
+  const known = data.ayat.reduce((a, ay) => a + ay.words.filter(w => w.status === 'known').length, 0);
+  const learning = data.ayat.reduce((a, ay) => a + ay.words.filter(w => w.status === 'learning').length, 0);
+  const pct = Math.round(((known + learning * 0.5) / total) * 100);
+
+  let html = `
+    <div class="card">
+      <div class="surah-title arabic">${data.arTitle}</div>
+      <div class="surah-sub">${data.sub}</div>
+      <div class="surah-coverage-row">
+        <div class="cov-stat recite">
+          <div class="pct">${data.reciteCov}%</div>
+          <div class="lbl">Recitation</div>
+        </div>
+        <div class="cov-stat">
+          <div class="pct">${pct}%</div>
+          <div class="lbl">Meaning</div>
+        </div>
+      </div>
+
+      <div class="root-chips">
+        <span class="chip-label">Roots in this surah:</span>`;
+  data.rootChips.forEach(c => {
+    const onClick = c.click ? ` onclick="go('root', '${c.click}')"` : '';
+    html += `<span class="chip ${c.status}"${onClick} title="${c.tr} — ${c.status}"><span>${c.ar}</span><span class="chip-translit">${c.tr}</span></span>`;
+  });
+  html += `</div>`;
+
+  data.ayat.forEach(ay => {
+    html += `<div class="ayah"><div class="ayah-num">${ay.n}</div>`;
+    ay.words.forEach(w => {
+      const click = w.click ? ` onclick="go('root', '${w.click}')"` : '';
+      html += `<span class="word ${w.status}" data-translit="${w.tr}"${click}>${w.ar}</span>`;
+    });
+    html += `</div>`;
+  });
+
+  html += `
+      <div class="nextstep ${data.victory ? 'victory' : ''}">${data.nextstep}</div>
+      <div class="lesson-strip">${data.lessons}</div>
+    </div>
+  `;
+
+  // Cross-link to the other demo surah
+  const other = n === 1 ? 114 : 1;
+  const otherName = n === 1 ? 'An-Nās (fully decoded)' : 'Al-Fātiḥa (partial)';
+  html += `<p style="text-align:center; font-size: 13px; color: var(--ink-soft); margin-top: 16px;">
+    Compare with <a onclick="go('surah', ${other})" style="color: var(--accent); cursor: pointer;">Sūrat ${otherName}</a>.
+  </p>`;
+
+  body.innerHTML = html;
+}
+
+// ============================================================
+// ROOT DETAIL
+// ============================================================
+function renderRoot(rootKey) {
+  const r = ROOT_KABURA;
+  const body = document.getElementById('root-body');
+  let html = `
+    <div class="root-head">
+      <div class="root-ar arabic">${r.ar}</div>
+      <div class="root-en">${r.en}</div>
+      <div class="root-stats">${r.stats}</div>
+    </div>
+    <p style="font-size: 13px; color: var(--ink-soft); margin: 0 0 10px;">
+      Each form is a distinct word-shape built from this root. You've mastered ${r.forms.filter(f => f.status === 'mastered').length} of ${r.forms.length}.
+    </p>
+  `;
+  r.forms.forEach(f => {
+    const icon = f.status === 'mastered' ? '✓' : f.status === 'learning' ? '◐' : '○';
+    html += `
+      <div class="form-row ${f.status}">
+        <div class="status">${icon}</div>
+        <div class="ar arabic">${f.ar}</div>
+        <div class="gloss"><em>${f.tr}</em> — ${f.gloss}</div>
+        <div class="meta">${f.meta}</div>
+      </div>
+    `;
+  });
+  body.innerHTML = html;
+}
+
+// ============================================================
+// INIT
+// ============================================================
+renderHeatmap();
+renderJuzGrid();
+updateBreadcrumb();
+</script>
+</body>
+</html>
