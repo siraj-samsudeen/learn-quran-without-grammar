@@ -1,6 +1,6 @@
 # Verse Scoring Algorithm (v2)
 
-> **Status (2026-04-17):** Scoring dimensions, formulas, and LLM guidelines remain **authoritative**. Per the 2026-04-17 PRD synthesis ([PRD.md §6](PRD.md)), **Tier 2's three LLM dimensions (story + familiarity + teaching_fit) collapse into a single `hookScore` (0-10) with a single `hookReason`**. Tier 1 (deterministic) and Tier 3 (teacher star + fragment penalty) stay untouched. JSON storage examples in this doc are **superseded** — see [ADR-010](decisions/ADR-010-sqlite-data-architecture.md) and [DATA-MODEL.md](DATA-MODEL.md) for the SQLite + InstantDB split (`verseScores` vs `verseRootScores`). Score-range rescaling (new max = 55 vs former 75 under the three-dimension Tier 2) is a known open question tracked in [PRD.md §10.6](PRD.md); the range labels (Excellent / Good / Acceptable / Weak) below were NOT rescaled in this commit.
+> **Status (2026-04-17):** Scoring dimensions, formulas, and LLM guidelines remain **authoritative**. Per the 2026-04-17 PRD synthesis ([PRD.md §6](PRD.md)), **Tier 2's three LLM dimensions (story + familiarity + teaching_fit) collapse into a single `hookScore` (0-10) with a single `hookReason`**. Tier 1 (deterministic) and Tier 3 (teacher star + fragment penalty) stay untouched. JSON storage examples in this doc are **superseded** — see [ADR-010](decisions/ADR-010-sqlite-data-architecture.md) and [DATA-MODEL.md](DATA-MODEL.md) for the SQLite + InstantDB split (`verseScores` vs `verseRootScores`). Score-range thresholds below were **rescaled 2026-04-17** to reflect the new maximum of 55 (was 75 under three-dimension Tier 2).
 
 This document defines the scoring system used to rank Qur'anic verse candidates for lesson inclusion. Scores are computed per verse and **per (verse, root) pair** — see the verse-level vs verse-root-level split in ADR-010. Storage lives in SQLite + InstantDB (ADR-010): `verseScores` holds verse-level dimensions (the collapsed `hookScore` + `hookReason`, plus `fragment`) scored once per verse per course; `verseRootScores` holds per-root dimensions (form_freq, form_dominance, length_score, curriculum_score, final_score) scored per (verse, root, course).
 
@@ -168,14 +168,14 @@ The star is additive so the boost is consistent regardless of base score. It's e
 ## Total Score Calculation
 
 ```
-base = length + form_freq + form_dominance + curriculum + story + familiarity + teaching_fit
+base = lengthScore + formFreq + formDominance + curriculumScore + hookScore
 starred = base + (5 if starred, else 0)
 final = starred × (0.7 if fragment, else 1.0)
 ```
 
-**Maximum possible (full ayah, starred):** 75 (7 × 10 + 5)
-**Maximum possible (full ayah, unstarred):** 70 (7 × 10)
-**Fragment ceiling:** 52.5 (75 × 0.7) — even a perfect fragment can't reach "Excellent"
+**Maximum possible (full ayah, starred):** 55 (5 × 10 + 5)
+**Maximum possible (full ayah, unstarred):** 50 (5 × 10)
+**Fragment ceiling:** 38.5 (55 × 0.7) — even a perfect fragment can't reach "Excellent"
 
 ---
 
@@ -183,10 +183,10 @@ final = starred × (0.7 if fragment, else 1.0)
 
 | Range | Label | Action |
 |-------|-------|--------|
-| 55–75 | ⭐ Excellent | Present first, strongly recommend |
-| 35–54 | 🟢 Good | Solid candidate |
-| 18–34 | 🟡 Acceptable | Present if no better options |
-| 0–17 | 🔴 Weak | Skip unless teacher asks |
+| 40–55 | ⭐ Excellent | Present first, strongly recommend |
+| 26–39 | 🟢 Good | Solid candidate |
+| 13–25 | 🟡 Acceptable | Present if no better options |
+| 0–12 | 🔴 Weak | Skip unless teacher asks |
 
 ---
 
@@ -270,3 +270,4 @@ v1 was derived from the teacher's actual selection decisions in Lesson 1. v2 res
 - Lesson budgets: 10 phrases / 100 words for new content, 5 phrases / 50 words for Recall (50% rule), whichever limit hits first
 - Automated role assignment based on score rank + length sort
 - Automated Recall with separate budget so it never crowds out new content
+- 2026-04-17: Tier 2 collapsed to single hookScore per PRD §6; maximum rescaled 75→55 and range thresholds rescaled proportionally.
