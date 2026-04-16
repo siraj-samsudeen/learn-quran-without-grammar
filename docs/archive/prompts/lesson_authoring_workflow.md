@@ -1,3 +1,5 @@
+> **Status (2026-04-17):** Archived. Era-1 lesson-authoring workflow; superseded by [PRD §5.F1-F4](../../PRD.md) and the InstantDB picker. Content preserved for historical reference.
+
 # Lesson Authoring Workflow — Findings, Architecture & Implementation Prompt
 
 This document captures the vision for the end-to-end lesson authoring experience, the analysis of how the current system falls short of that vision, the proposed architecture, and a concrete implementation prompt for a future session. It is long because the decisions here will shape every lesson going forward.

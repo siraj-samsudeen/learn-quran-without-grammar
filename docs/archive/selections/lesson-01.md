@@ -1,3 +1,5 @@
+> **Status (2026-04-17):** Archived. Era-1 lesson-authoring workflow; superseded by [PRD §5.F1-F4](../../PRD.md) and the InstantDB picker. Content preserved for historical reference.
+
 # Lesson 1 — Selection Log: اللهُ أَكْبَرُ
 
 Anchor phrase: **اللهُ أَكْبَرُ**
