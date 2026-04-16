@@ -238,17 +238,183 @@ Three options (open question #4 above). Recommended default: **(c) keep this bra
 
 ---
 
+## Part 2 — Continued session (2026-04-16 evening)
+
+_Same day, second pass after the initial brainstorm doc + prototype were committed as c405e7be. Resolved four of five open questions and refined the picker UX down to a buildable specification. All decisions captured with the **"why"** so the design doc stands alone as a record of both outcome and reasoning._
+
+### Resolved open questions — summary
+
+| # | Question | Resolution | Why |
+|---|---|---|---|
+| 1 | Metric definition for "known" | Headline = FSRS `review` (full credit) + `learning` (×0.5). "Mastered" = stability ≥ **21 days** (Anki "mature" standard). | Honest but motivating; 21d prevents the ✓ from being gameable via cramming; weighted counting matches prototype and feels fair |
+| 2 | Teacher authoring flow | Form-first picker + 3-phase workflow (picker → lesson notes → audio). Full UI specification below. | Lesson 1 walkthrough showed *forms are the planning unit, verses are the material unit* — today's picker collapses the planning step |
+| 3 | Synonym / antonym mechanics | LLM suggests + teacher accepts/rejects + teacher can add custom. Semantic not morphological. No rationale stored on accepted pairs. | LLM gives speed, teacher gives taste; `llmDrafts` audit already covers "why" if needed |
+| 4 | Reconciliation with DATA-MODEL.md | **Amend in place** at end of design pass. | Single canonical doc; avoids split-brain schema |
+| 5 | v1 scope cut | **Deferred** until rest of design is captured. | Scope decisions benefit from knowing the full aspirational design first; don't cut before you know what you're cutting |
+
+---
+
+### New decisions, with the reasoning preserved
+
+#### Picker UX: form-first navigation
+
+Today's picker groups verses by root, with forms shown as inline metadata. This collapses the *planning step* in the teacher's mental model: "which forms to teach" is the **strategic** decision, "which verses under each form" is the **material** decision. The current UI merges them.
+
+New picker layout:
+- **Top nav bar**: Dashboard / Seed Data / other app-level nav (moved off sidebar)
+- **Sidebar (dedicated to picking)**: "All roots" → roots → forms under each root (one line per form, clickable to **filter** main area)
+- **Main area**: form sections, each with a header (Arabic + translit + gloss + occurrence count + selection status) and verse cards grouped beneath
+- **Lesson Budget card** at top of main: Forms 5-7 · Phrases 10-12 · Words 100-120 · Anchors 1-per-root — all shown as **ranges** (honest about soft targets, never hard caps)
+- **Form header actions** always available: `+ teaching phrase` · `+ ḥadīth` · `+ duʿā'` · `✗ skip form`
+- **Sidebar click = filter** (not scroll). Clicking a form filters main to that form only; clicking "All roots" clears the filter.
+
+_Why_: Teacher's Lesson 1 walkthrough showed "pick forms first (strategic), then pick verses within each picked form (material)." Today's picker forces reconstructing the plan from scattered verses. Form-first surfaces the plan.
+
+#### Form counts: 5-7 per lesson (revised from 3-5 per root)
+
+Target: **5-7 forms per lesson**, regardless of root count (1, 2, or 3 roots).
+
+_Why_: Lesson 1 ended with 8 forms (ilah 3 + kabura 5) — overstuffed in retrospect. "3-5 per root" multiplied uncomfortably with multi-root lessons. Lesson-level cap keeps cognitive load bounded.
+
+#### 3-state verse selector: not-picked / picked / pipeline
+
+Tri-state segmented control (exactly one active) replaces today's two separate buttons `[pick]` + `[pipeline]`.
+
+_Why_: Today's two-button design leaves "a verse could be both" as a possible (incoherent) state. Tri-state enforces mutual exclusivity as a visible invariant.
+
+#### Hidden scores, visible rankings
+
+Scores (hookScore, per-verse) are stored and used to rank forms + verses, but **never displayed** in the UI.
+
+_Why_: Teacher operates on relative order (top-ranked appears first), not absolute numbers. "Is 24.6 a good score?" is cognitive tax that doesn't serve authoring. Keep the scoring machinery; remove the visual noise.
+
+#### Collapsed scoring → `hookScore`
+
+Three Tier 2 subjective scores (`story`, `familiarity`, `teaching_fit`) collapse into one: **hookScore** (0-10).
+
+_Why_: Since scoring details are hidden in the UI, carrying three separate dimensions costs complexity without UI benefit. A single "how sticky/hooky is this verse?" ranks just as well and simplifies the LLM prompt. "Hook" matches the project's established vocabulary (root-as-hook, Adhān-as-hook, "hooks to get into the Quran").
+
+#### `hookReason` stays with the score, not with remark
+
+LLM-produced justification of hookScore lives in `verseScores.hookReason`. Teacher's `selection.remark` is a **separate** artifact (student-audible note, TTS-rendered in SRS).
+
+_Why_: These serve different audiences. `hookReason` is **teacher audit** ("why did LLM rate this 8?"). `remark` is **student consumption** ("here's the note you'll hear about this verse in review"). Conflating them merged a justification document with a teaching artifact. Splitting preserves the honesty of each.
+
+#### TTS preview on every writable field
+
+Every audio-destined field (root note, form note, phrase remark, translation) gets a `[▶ preview audio]` button that plays current text as TTS.
+
+_Why_: Write → preview → edit-if-dry → write again. Catches clinical LLM drafts before they ship to the student's ear. The existing `audioJobs` entity already queues TTS; every text save invalidates + re-queues. This is the "audio-worthiness" quality bar as a tight authoring loop.
+
+#### Phase model: hybrid (cards + tabs + dedicated audio phase)
+
+- **Per-selection work** (remark, anchor flag, picked/pipeline state) lives *inside the verse card* — one card holds that selection's lifecycle.
+- **Lesson-level work** (root notes, form notes, lesson hook, publish) lives in **tabs** atop the lesson view.
+- **Audio** is its **own top-level phase** with dedicated tools (waveforms, fragment timestamps, translation-boundary matching).
+
+_Why_: Three different cognitive modes. Picker = strategic scanning. Notes = deliberate writing. Audio = technical verification. Cramming audio into cards or tabs would crowd the specialized tools it needs.
+
+#### Skip-form is a first-class action (every form, not just 0-verse)
+
+The `✗ skip form` button is on every form header, regardless of verse count. Skipping with reason is as easy for a 200-verse form as for an empty one.
+
+_Why_: Skip isn't an edge case. Lesson 1 skipped "Allah" with reason "too obvious, student already knows" — that's a real authoring decision. The ilah JSON already captured it via `taught_in_lesson: null` + `notes`. The new UI surfaces skipping as a uniform gesture, not an absence.
+
+#### `formLessonDecision` entity (new)
+
+```
+formLessonDecision
+  course       → courses
+  lesson       → lessons
+  form         → forms
+  decision     enum     "taught" | "skipped" | "unassigned"
+  role         enum     "anchor" | "learning" | null
+  reason       string   (optional — for skip)
+  updatedBy    → users
+  updatedAt    number
+```
+
+Unique constraint: (course, lesson, form).
+
+_Why_: Today's `forms.taughtInLesson` is a single number — can't express "taught in L1, then skipped in L8 review." Per-(lesson, form) decision auditing gives the full history, including *why* each skip happened.
+
+#### Rename: `verses` → `phrases` with `type` field
+
+Rename the central text entity. Add `phrases.type` enum: `quranic_verse | teaching_phrase | hadith | dua | ...`
+
+_Why_: Lesson 1 already used a synthetic "teaching phrase" (`site.data.verses.teaching.*`) as a hack on top of the verses namespace. The current schema treats everything as a verse. Renaming makes ḥadīth and duʿā' first-class; `phraseWords` stays linked only to `type = quranic_verse` rows (Kais Dukes morphology doesn't exist for non-Qur'anic text). Long-term: LLM-generated morphology overlay for non-Qur'anic rows is a future-option this rename preserves.
+
+#### `rootRelations` entity (new)
+
+```
+rootRelations
+  rootA       → roots             the already-taught root
+  rootB       → roots             the related root
+  type        enum                "synonym" | "antonym"
+  source      enum                "llm" | "teacher"
+  accepted    boolean             teacher's accept/reject state
+  course      → courses
+  updatedBy   → users
+  updatedAt   number
+```
+
+No `note` field.
+
+_Why_: Synonym pass (Lesson 8+) needs to persist "khayr ≈ kabura" so antonym pass (Lesson 9+) can auto-suggest the inverse. Storage is cheap; re-suggesting every time is expensive + inconsistent. Omitting `note` is YAGNI — `llmDrafts` already captures the LLM's original suggestion rationale; if the teacher accepted without editing, that rationale is retrievable.
+
+#### Synonym relation is semantic, not morphological
+
+`rootRelation.type = "synonym"` means **English-meaning neighbor as the teacher declares** (akbar / khayr / akthar), not Arabic-morphology derivative.
+
+_Why_: The user's pedagogy is about meaning, not linguistic kinship. Morphological synonyms of kabura are other kabura-root forms — already in that root's form list. Teacher's pedagogical groupings (e.g., "all the words for 'more' or 'better'") are what matters.
+
+#### Platform generalization — parking lot (for future pass)
+
+The entire workflow is language-agnostic. The *vocabulary* ("root", "surah") is Semitic-Qur'an-specific; the *workflow* (pick forms, select phrases, mark anchors, SRS memory) works for any language learning through a source corpus.
+
+Future vision:
+- Tamil-speaker-learning-English could use the same platform with different primitives ("word families" instead of roots, "chapters" instead of surahs)
+- `phrases.type` enum already opens this door
+- `roots` entity stays generic ("morphological grouping the course teaches by"); each course populates with whatever fits — Arabic roots / English etymological roots / Mandarin radicals / Romance conjugation families
+- `surahs` would generalize to "corpus-chapter structure"
+
+_Why_: Future-proofing without over-engineering. The `verses` → `phrases` rename is a down payment on this generalization. Full platform generalization waits until after v1 ships — record as parking lot, don't design it now.
+
+---
+
+### Additional parked items (appended to the initial list)
+
+| Idea | Reason parked | Where to find again |
+|---|---|---|
+| **Platform generalization** (language-agnostic) | Schema down payment already made via `phrases.type`; full generalization post-v1 | This doc, Part 2 |
+| **Phase transition UI specifics** (wizard vs tabs inline vs hybrid transitions) | Hybrid chosen; exact transition gestures (e.g., publish button location) deferred to implementation | This doc, Part 2 |
+| **LLM-generated morphology for non-Qur'anic text** | Long-term; required for ḥadīth / spoken-Arabic passes | This doc, Part 2 |
+| **Target counts for syn/ant passes** | Current targets (5-7 forms / 10-12 phrases) sized for root-pass lessons; syn/ant passes may need different numbers | This doc, Part 2 |
+
+---
+
+### The "why" trail
+
+Every decision in this doc now carries:
+- **What** was decided
+- **Why** it was decided (often user's own words preserved)
+- **What it implies** for the schema
+
+A future Claude session (or future-you) opening this doc can trace any entity/attribute/flag back to the pedagogical reason behind it. That's the workflow-first + captured-reasoning deliverable.
+
+---
+
 ## Next steps
 
-This is a brainstorm doc, not a spec. To move forward:
+_Updated 2026-04-16 evening._
 
-1. **Resolve the five open questions** — at minimum #1 (metric definition) and #5 (v1 scope). The other three can be tackled incrementally.
-2. **Pick a v1 scope slice** (A, B, or C above, or a hybrid).
-3. **Write a successor spec** that reconciles this brainstorm with DATA-MODEL.md for the chosen v1 scope.
-4. **Invoke the writing-plans skill** on that spec to produce an implementation plan.
-5. **Execute** — then Phase 1 (or whatever replaces it) begins.
+1. **Pivot to student-side workflow** next session (after compaction) — Day 1 onboarding verbs, explorer detail, knowledge-map schema, milestones, SRS card mechanics.
+2. **Resolve Q#5 (v1 scope cut)** once student-side is captured.
+3. **Amend DATA-MODEL.md in place** — one consolidating sweep across all deltas from this brainstorm + Part 2, scoped to the chosen v1 slice.
+4. **Invoke writing-plans skill** on the amended schema to produce an implementation plan.
+5. **Execute** — first phase of the new scope begins.
 
-Until #2 is picked, Phase 1 as currently described in [CURRENT-STATE.md](../CURRENT-STATE.md) is **on hold** — its acceptance criteria (byte-for-byte migration of 10 root JSONs) is still valid under any scope, but may not be the right *starting* work under Scope A or C.
+Phase 1 as previously described in [CURRENT-STATE.md](../CURRENT-STATE.md) remains **on hold** until v1 scope is picked. Its byte-for-byte migration acceptance criteria is still valid under any scope but may not be the right *starting* work depending on which slice is chosen.
 
 ---
 

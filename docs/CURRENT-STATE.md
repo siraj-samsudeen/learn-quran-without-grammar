@@ -133,34 +133,46 @@ UI was reworked April 2026: warm parchment background, Amiri Arabic font, 6px le
 
 ---
 
-## Where we stopped in the brainstorm (2026-04-16)
+## Where we stopped in the brainstorm (2026-04-16, evening update)
 
-**Pedagogy-first redesign brainstorm.** Applied workflow-first design + fresh eyes (see [vault: workflow-first-design](~/Dropbox/Siraj/Projects/siraj-claude-vault/cross-project/workflow-first-design.md)) to the 24-entity schema committed 2026-04-14. Full writeup: [docs/design/2026-04-16-pedagogy-first-redesign.md](design/2026-04-16-pedagogy-first-redesign.md). Prototype: [docs/design/mockups/knowledge-map-prototype.html](design/mockups/knowledge-map-prototype.html).
+**Pedagogy-first redesign brainstorm — continued session.** Applied workflow-first design + fresh eyes (see [vault: workflow-first-design](~/Dropbox/Siraj/Projects/siraj-claude-vault/cross-project/workflow-first-design.md)) to the 24-entity schema committed 2026-04-14. Full writeup with **why-trail** per decision: [docs/design/2026-04-16-pedagogy-first-redesign.md](design/2026-04-16-pedagogy-first-redesign.md) — see **Part 2** for continued-session decisions. Prototype: [docs/design/mockups/knowledge-map-prototype.html](design/mockups/knowledge-map-prototype.html).
 
-**Decisions locked:**
+### Conceptual decisions locked (initial session)
 
-- **Explorer is the base product.** Any authenticated user can navigate the Qur'an without joining a course. Courses are opinionated overlays on top. (Full rationale: [vault decision](~/Dropbox/Siraj/Projects/siraj-claude-vault/projects/learn-quran-without-grammar/decisions/explorer-as-base-product.md))
-- **Pedagogical hierarchy is four-deep:** Theme → Module → Pass → Lesson. The flat `lessons.lessonNumber` in DATA-MODEL.md is insufficient.
+- **Explorer is the base product.** Any authenticated user can navigate the Qur'an without joining a course. Courses are opinionated overlays. (Full rationale: [vault decision](~/Dropbox/Siraj/Projects/siraj-claude-vault/projects/learn-quran-without-grammar/decisions/explorer-as-base-product.md))
+- **Pedagogical hierarchy is four-deep:** Theme → Module → Pass → Lesson. The flat `lessons.lessonNumber` is insufficient.
 - **Source-text chunk** is the anchor primitive, not "phrase" specifically. Generalizes across course types (LQWG Adhān, book-reading, grammar, creedal).
-- **"Known" is two axes:** recitation fluency vs meaning comprehension. Conflating them destroys honesty in coverage metrics.
-- **Pre-existing memorization** is a Day-1 first-class entity — drives onboarding, personalization, and knowledge-map baseline state.
+- **"Known" is two axes:** recitation fluency vs meaning comprehension.
+- **Pre-existing memorization** is a Day-1 first-class entity — drives onboarding, personalization, and knowledge-map baseline.
 - **Pass (root/synonym/antonym/story)** is teacher-pedagogy metadata on a lesson, not its own entity. Adoptable by other teachers as a named pattern.
-- **Knowledge map has 4 drill-down layers:** Dashboard (coverage + milestones) → Macro (surah heatmap OR Juz' grid, toggleable) → Surah word-map → Root family tree.
+- **Knowledge map has 4 drill-down layers:** Dashboard → Macro (surah heatmap OR Juz' grid) → Surah word-map → Root family tree.
 
-**Parked for the real app build:**
+### UX + schema decisions locked (continued session)
 
-- **Proportional treemap** macro view (most volume-honest of all three macro options — 114 surahs sized by word-count).
+- **Q#1 resolved — metric:** Headline coverage = FSRS `review` (full) + `learning` (×0.5). "Mastered" (✓) = stability ≥ **21 days** (Anki "mature" standard).
+- **Q#2 resolved — teacher authoring flow:** Form-first picker with sidebar form navigation, 3-state verse selector (not-picked / picked / pipeline), hidden scores visible as rankings only, budget card with Forms/Phrases/Words/Anchors ranges. Three authoring phases: picker (cards) + lesson-level notes (tabs) + audio (dedicated phase).
+- **Q#3 resolved — synonym/antonym:** LLM suggests + teacher accepts/rejects + teacher can add custom. Semantic not morphological. No rationale stored on accepted pairs (`llmDrafts` already captures LLM suggestion text for audit).
+- **Q#4 resolved — reconciliation:** **Amend DATA-MODEL.md in place** at end of design pass. One consolidating sweep.
+- **Collapsed scoring → `hookScore`** (0-10) replaces story + familiarity + teaching_fit. `hookReason` (LLM justification) stays attached to the score, separate from `selection.remark` (teacher note, student-audible).
+- **Rename `verses` → `phrases`** with `type` enum: `quranic_verse | teaching_phrase | hadith | dua | ...`. Kais-Dukes morphology stays tied to `type = quranic_verse` rows.
+- **New entities added to queue:** `formLessonDecision` (per-lesson taught/skipped audit with reason) · `rootRelations` (synonym/antonym pairs) · `studentRecitation` (user-declared memorized surahs/ranges) · `hookReason` field on scores.
+- **Form target:** 5-7 per lesson (revised from 3-5 per root). Lesson 1's 8 forms was over-stuffed in retrospect.
+- **TTS preview button** on every writable field (root note, form note, phrase remark, translation) — catches clinical LLM drafts before they ship to student audio.
+
+### Parked for real-app build / post-v1
+
+- **Proportional treemap** macro view (most volume-honest of the three macro options).
+- **Platform generalization** (language-agnostic — Tamil→English etc.) — schema down payment already via `phrases.type`; full generalization post-v1.
+- **Phase transition UI specifics** (exact gestures between picker/notes/audio) — hybrid chosen; details deferred to implementation.
+- **LLM-generated morphology for non-Qur'anic text** — long-term; required for ḥadīth / spoken-Arabic passes.
 - Forgetting as pedagogical event (v2).
-- Teacher live-class presence (post-v1 optional overlay).
-- Contextual shades of roots (belongs in explanatory notes content, not schema).
+- Teacher live-class presence (optional overlay).
+- Contextual shades of roots (explanatory-notes content, not schema).
 
-**Open questions (unresolved — tackle before spec):**
+### Still open
 
-1. **Metric definition for "known"** — FSRS review state? first-seen? teacher-vetted? All coverage % honesty hinges on this.
-2. **Teacher authoring flow click-by-click** — we picked the spine workflow then broadened away from it. No verbs yet.
-3. **Synonym/antonym mechanics** — teacher-curated, LLM-suggested, or corpus-derived?
-4. **Reconciliation with DATA-MODEL.md** — amend in place, write successor, or keep separate. Load-bearing: a new session will follow whichever pointer exists.
-5. **v1 scope cut** — three candidate slices (A: knowledge-map + onboarding atop current picker; B: new Adhān 3-pass authoring tools; C: explorer-only, no course concept).
+- **Q#5 — v1 scope cut.** Three candidate slices (A: knowledge-map + onboarding atop current picker; B: new Adhān 3-pass authoring tools; C: explorer-only, no course concept). Deferred until student-side workflow is captured.
+- **Student-side workflow** — Day 1 onboarding (what-have-you-memorized granularity), explorer verbs, knowledge-map schema, milestones, SRS card mechanics. **NEXT SESSION starts here.**
 
 **Implications for Phase 1 (see Stream 1):** the byte-for-byte migration from root JSONs is still valid under any scope, but may not be the *right starting* work under Scope A or C. On hold until v1 scope is picked.
 
@@ -198,22 +210,42 @@ UI was reworked April 2026: warm parchment background, Amiri Arabic font, 6px le
 Paste this into a fresh Claude session to pick up cleanly:
 
 ```
-Continue the LQWG pedagogy-first redesign from where we stopped on 2026-04-16.
+Continue the LQWG pedagogy-first redesign from where we stopped on 2026-04-16 (evening).
+
+The brainstorm is in two parts — initial + continued session. Four of five open questions
+are resolved; the remaining scope cut (Q#5) + full student-side workflow is next session's
+work. Every decision carries a "why" in the design doc.
 
 Read these in order, then summarize what you understand before touching anything:
-1. docs/CURRENT-STATE.md — where we stopped (this file)
-2. docs/design/2026-04-16-pedagogy-first-redesign.md — the brainstorm that sits between the committed 24-entity schema and the next spec. Five open questions unresolved at its end.
-3. docs/design/mockups/knowledge-map-prototype.html — open in a browser; it's the four-layer student-facing prototype that emerged from the brainstorm.
+
+1. docs/CURRENT-STATE.md — where we stopped (this file). The "Where we stopped in the
+   brainstorm (2026-04-16, evening update)" section has the full decision inventory.
+2. docs/design/2026-04-16-pedagogy-first-redesign.md — full brainstorm doc with Part 2
+   (continued session) at the end. Every decision has a "why" paragraph you can quote back.
+3. docs/design/mockups/knowledge-map-prototype.html — open in a browser; four-layer
+   student-facing prototype (Dashboard / Map / Surah / Root) with synthetic student data.
 4. docs/FORMS-LEMMAS-ROOTS.md — root/lemma/form conceptual foundation (unchanged).
-5. docs/DATA-MODEL.md — the prior 24-entity schema. Treat as reference, not authoritative — the 2026-04-16 doc supersedes parts of it pending reconciliation.
+5. docs/DATA-MODEL.md — prior 24-entity schema. Treat as reference — new decisions in the
+   brainstorm override parts of it pending the final amend-in-place sweep.
 
-Before writing any new spec or code, we need to tackle the five open questions in the brainstorm doc — at minimum:
-  (#1) how do we define "known" for coverage % honesty?
-  (#5) which v1 scope slice are we picking (A, B, or C)?
+Pick up by pivoting to the student side. Workflow-first method — ask me to walk through
+Day 1 for a new student (e.g., my son Hanzala, age 10, memorized Juz' 30 + Al-Fātiḥa),
+one step at a time. From landing screen to first SRS card to closing the app. Let
+entities/verbs emerge from what I describe.
 
-Once scope is picked, the next step is to write a successor spec (or amend DATA-MODEL.md) that reconciles the brainstorm with the prior schema for the chosen v1 slice. Only then does implementation planning start.
+Topics to cover in this next session (roughly in order):
+  - Day 1 onboarding (what-have-you-memorized granularity: surah / verse-range / verse / hybrid?)
+  - Explorer verbs (tap ayah → tap word → root → back)
+  - Knowledge-map schema (what queries power the dashboard)
+  - Milestones entity (% of Qur'an covered claims, decodable-surah checkpoints)
+  - First SRS card experience (the Day-1 moment of delight)
 
-Rules from CLAUDE.md still apply: ask questions one at a time, push back with critique, show URLs for unfamiliar concepts, don't over-engineer.
+After student side is captured, Q#5 v1 scope cut, then amend DATA-MODEL.md in place,
+then writing-plans skill, then implementation.
+
+Rules from CLAUDE.md still apply: ask questions one at a time, push back with critique,
+show URLs for unfamiliar concepts, don't over-engineer. Match my communication style:
+fast decisions, clear options, why-behind-each-choice.
 ```
 
 ---
