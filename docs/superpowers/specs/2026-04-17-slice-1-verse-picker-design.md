@@ -51,12 +51,12 @@ D2 (Total Coverage %) was dropped as redundant — its signal is already capture
 | Dimension | What it measures | Formula | Range |
 |---|---|---|---|
 | **D1: Avg Word Frequency** | How common are the words in the Qur'an? | Σ(all token freqs) / word count | 0-10 normalized |
-| **D3: Content Coverage %** | What % of new vocabulary does this sentence unlock? | Σ(unique content-lemma freqs) / total Qur'an words | 0-10 normalized |
-| **D4: Length Sweet Spot** | Is the sentence an ideal learning size? | 5-8w=10, 9-12w=9, 4w=7, 13-15w=6, 16-20w=3, 21+=1 | 0-10 |
+| **D2: Content Coverage %** | What % of new vocabulary does this sentence unlock? | Σ(unique content-lemma freqs) / total Qur'an words | 0-10 normalized |
+| **D3: Length Sweet Spot** | Is the sentence an ideal learning size? | 5-8w=10, 9-12w=9, 4w=7, 13-15w=6, 16-20w=3, 21+=1 | 0-10 |
 
-**Recommended weights:** D1=35, D3=25, D4=40 (teacher-adjustable via sliders).
+**Recommended weights:** D1=35, D2=25, D3=40 (teacher-adjustable via sliders).
 
-**Composite score** = (D1n × w1 + D3n × w3 + D4 × w4) / (w1 + w3 + w4)
+**Composite score** = (D1n × w1 + D2n × w2 + D3 × w3) / (w1 + w2 + w3)
 
 ### 2.4 Four-phase scoring architecture
 
@@ -64,7 +64,7 @@ Scoring is layered by when it can be computed:
 
 | Phase | When computed | Dimensions | Varies by |
 |---|---|---|---|
-| **A1: Universal objective** | Once, after Layer 1 seed | D1, D3, D4 | Nothing — same for every teacher, every lesson, forever |
+| **A1: Universal objective** | Once, after Layer 1 seed | D1, D2, D3 | Nothing — same for every teacher, every lesson, forever |
 | **A2: Universal subjective** | After LLM scoring run | hookScore (story + familiarity + teaching fit) | Nothing (scored once per verse per course) |
 | **B: Authoring-time** | When teacher creates a lesson | Curriculum overlap (which roots are already taught?) | Lesson order |
 | **C: Student-time** | Live, per student | Memorized this surah? Student affinity? | Per student |
@@ -136,7 +136,7 @@ Three cooperating processes, one cloud:
 ┌─ Header ──────────────────────────────────────────────────────────────┐
 │ Sentence Picker · Lesson 1                                           │
 ├─ Controls ────────────────────────────────────────────────────────────┤
-│ [D1 slider 35] [D3 slider 25] [D4 slider 40] [Decay slider 0.70]    │
+│ [D1 slider 35] [D2 slider 25] [D3 slider 40] [Decay slider 0.70]    │
 │ Root: [All] [ilāh] [kabura]  Show: [30▾]  ☑ Diversity               │
 │ Presets: [★Recommended] [Short] [Frequency]                         │
 ├─ Sticky Selection Bar ────────────────────────────────────────────────┤
@@ -174,7 +174,7 @@ Three cooperating processes, one cloud:
 - **Dashed gray right-border** = waqf sentence (fragment of longer verse)
 - **Green row highlight** = selected
 - **Gold rank badge** = top 10, **blue** = 11-20, **gray** = 21+
-- **Stacked color bar** shows D1/D3/D4 contribution to score
+- **Stacked color bar** shows D1/D2/D3 contribution to score
 - **Form chips** colored by root: blue = ilāh, pink = kabura
 
 ### 4.4 formLessonDecision gate
@@ -222,7 +222,7 @@ Build order B (thin-slice vertical): build a trivial end-to-end first, then wide
 |---|---|
 | 1-2 | P1: `build-quran-db.py` with waqf fragmentation + root-closure narrowing |
 | 3 | P3: seed InstantDB + `seedPhrases` (7 Adhān phrases) |
-| 4-5 | F0.1: Add root → form partition. F0.2: Phase A1 scoring (D1/D3/D4) |
+| 4-5 | F0.1: Add root → form partition. F0.2: Phase A1 scoring (D1/D2/D3) |
 | 6-8 | F1: Picker UI (sentence list + sliders + diversity + selection + summary bar) |
 | 9-10 | F0.3: Tier-2 scoring kit export + import. Picker re-ranks with hookScore |
 | 11-12 | F2: Annotation (remark, root/form notes, inline translation) |
@@ -265,7 +265,7 @@ sentences {
 }
 ```
 
-Pre-computed during P1 build. Scoring dimensions (D1, D3, D4) stored on `verseRootScores` keyed by sentence (not verse).
+Pre-computed during P1 build. Scoring dimensions (D1, D2, D3) stored on `verseRootScores` keyed by sentence (not verse).
 
 ---
 
@@ -276,7 +276,7 @@ See [SCORING.md](../../SCORING.md) for the full algorithm. Summary of changes fr
 | Aspect | Previous (SCORING.md v3) | New (this spec) |
 |---|---|---|
 | Scoring unit | Full verse | Waqf sentence |
-| Dimensions (Tier 1) | 4: length, formFreq, formDominance, curriculumScore | 3: D1 (avg freq), D3 (content coverage), D4 (length sweet spot) |
+| Dimensions (Tier 1) | 4: length, formFreq, formDominance, curriculumScore | 3: D1 (avg freq), D2 (content coverage), D3 (length sweet spot) |
 | Form partitioning | All forms including اللَّه | اللَّه excluded |
 | Diversity | None (implicit in form-first navigation) | Diminishing returns decay (default 0.7) |
 | Fragment penalty | ×0.7 multiplier for long verses | Eliminated — waqf fragmentation handles long verses |

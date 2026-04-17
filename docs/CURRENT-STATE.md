@@ -9,14 +9,14 @@ _Last updated: 2026-04-17 (evening)_
 > The Slice 1 verse picker design is complete with interactive mockups validated by the teacher. **Next step: invoke `/superpowers:writing-plans` to create the implementation plan from the spec.**
 >
 > **Read these docs in order:**
-> 1. **[Slice 1 Picker Spec](superpowers/specs/2026-04-17-slice-1-verse-picker-design.md)** — ⭐ START HERE. Full design: architecture (3 processes + InstantDB cloud), sentence-level scoring (waqf fragmentation), 3-dimension model (D1/D3/D4), picker UX with selection + summary, thin-slice build order, schema additions, acceptance criteria.
+> 1. **[Slice 1 Picker Spec](superpowers/specs/2026-04-17-slice-1-verse-picker-design.md)** — ⭐ START HERE. Full design: architecture (3 processes + InstantDB cloud), sentence-level scoring (waqf fragmentation), 3-dimension model (D1/D2/D3), picker UX with selection + summary, thin-slice build order, schema additions, acceptance criteria.
 > 2. **[SCORING.md](SCORING.md)** — v4 algorithm: waqf sentences as scoring unit, four-phase A1/A2/B/C architecture, اللَّه excluded from forms, diminishing-returns diversity.
 > 3. **[PRD.md §8](PRD.md)** — Slice 1 section updated with design shifts + spec reference.
 > 4. **[Interactive mockups](design/mockups/picker-scoring/)** — open `verse-picker-explorer-v4.html` in a browser to see the final picker prototype with real data from ilāh + kabura (290 sentences, checkboxes, selection summary, form coverage detail panel).
 >
 > **Key design decisions locked (2026-04-17 brainstorm):**
 > - Scoring unit = waqf sentence (not full verse). Qur'an's waqf marks produce 3-9 word teaching units.
-> - 3 dimensions: D1 (avg word freq 35%), D3 (content coverage 25%), D4 (length sweet spot 40%). D2 dropped.
+> - 3 dimensions: D1 (avg word freq 35%), D2 (content coverage 25%), D3 (length sweet spot 40%). Renumbered sequentially after dropping original D2 (total coverage).
 > - اللَّه excluded from form partitioning (92% of candidates, no teaching value). Pool: 290 sentences.
 > - Score-first picker (not form-first). Diversity via diminishing returns decay (0.7).
 > - DB-only deliverable. No LLM API — export kit + separate CC session.
@@ -241,7 +241,7 @@ The design is complete. Read these in order, then create the implementation plan
 2. docs/superpowers/specs/2026-04-17-slice-1-verse-picker-design.md — ⭐ THE SPEC.
    Full design: architecture, scoring, picker UX, all decisions, build order, schema,
    acceptance criteria. This is authoritative.
-3. docs/SCORING.md — v4 scoring algorithm (sentence-level, 3-dimension D1/D3/D4,
+3. docs/SCORING.md — v4 scoring algorithm (sentence-level, 3-dimension D1/D2/D3,
    four-phase A1/A2/B/C).
 4. docs/PRD.md §8 — Slice 1 section with scope summary.
 5. Open docs/design/mockups/picker-scoring/verse-picker-explorer-v4.html in a browser —
