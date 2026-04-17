@@ -15,4 +15,22 @@ test.describe("Picker data hook (/picker/:n minimal shell)", () => {
     await session(page).visit("/picker/99");
     await expect(page.getByText(/Lesson 99 not found/i)).toBeVisible();
   });
+
+  test("loads lesson 3 and renders preset pills + ranked count", async ({ page }) => {
+    await session(page).visit("/picker/3");
+    await expect(page.locator("text=Loading...")).not.toBeVisible();
+    await expect(page.getByRole("combobox", { name: "Lesson" })).toHaveValue("3");
+    await expect(page.getByText("★ Recommended")).toBeVisible();
+    const count = await page.locator("[data-testid='picker-ranked-count']").getAttribute("data-count");
+    expect(Number(count)).toBeGreaterThan(0);
+  });
+
+  test("switching preset pills changes the ranked composite value", async ({ page }) => {
+    await session(page).visit("/picker/3");
+    const before = await page.locator("[data-testid='picker-ranked-count']").textContent();
+    await page.getByRole("button", { name: "Short" }).click();
+    await expect
+      .poll(async () => page.locator("[data-testid='picker-ranked-count']").textContent())
+      .not.toBe(before);
+  });
 });
