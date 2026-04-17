@@ -17,7 +17,11 @@ def init_db(db_path: Path) -> None:
 
 
 def connect(db_path: Path) -> sqlite3.Connection:
-    """Open a connection with foreign_keys ON + row_factory dict-like."""
+    """Open a connection with foreign_keys ON + row_factory = sqlite3.Row.
+
+    Caller is responsible for closing the connection (or using it as a
+    context manager, which commits/rolls back but does not close).
+    """
     conn = sqlite3.connect(db_path)
     conn.execute("PRAGMA foreign_keys = ON")
     conn.row_factory = sqlite3.Row
