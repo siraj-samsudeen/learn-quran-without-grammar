@@ -1,93 +1,38 @@
-// Mirrors the data in teacher/pipeline-status.json and docs/roots/*.json
+// App-wide types that aren't auto-derivable from instant.schema.ts.
+//
+// Phase model matches the audit spec §1 (5 phases). Each phase on a lesson
+// is stored as a string: "blocked" | "ready" | "wip" | "done".
 
-export type PhaseStatus = "done" | "ready" | "blocked" | "wip";
-
-export type PhaseName =
-  | "scoring"
-  | "picking"
-  | "writing"
-  | "tamil"
-  | "audio"
-  | "review"
-  | "published";
-
-export const PHASE_ORDER: PhaseName[] = [
-  "scoring",
-  "picking",
-  "writing",
-  "tamil",
+export const PHASE_ORDER = [
+  "selection",
+  "annotation",
   "audio",
-  "review",
+  "qa",
   "published",
-];
+] as const;
+export type PhaseName = (typeof PHASE_ORDER)[number];
 
 export const PHASE_LABELS: Record<PhaseName, string> = {
-  scoring: "Score",
-  picking: "Pick",
-  writing: "Write",
-  tamil: "Tamil",
+  selection: "Selection",
+  annotation: "Annotation",
   audio: "Audio",
-  review: "Review",
-  published: "Live",
+  qa: "QA",
+  published: "Publish",
 };
 
-export type VerseSection = "learning" | "recall" | "pipeline" | "none";
+// Matches the string union stored on lessons.phaseXxx fields.
+export const PHASE_STATUSES = ["blocked", "ready", "wip", "done"] as const;
+export type PhaseStatus = (typeof PHASE_STATUSES)[number];
 
-export interface LessonData {
-  id: string;
-  lessonNumber: number;
-  slug: string;
-  title: string;
-  seedArabic: string;
-  seedEnglish: string;
-  roots: string; // JSON array stored as string
-  currentPhase: PhaseName;
-  notes: string;
-  // Phase statuses stored as individual fields
-  phaseScoring: PhaseStatus;
-  phasePicking: PhaseStatus;
-  phaseWriting: PhaseStatus;
-  phaseTamil: PhaseStatus;
-  phaseAudio: PhaseStatus;
-  phaseReview: PhaseStatus;
-  phasePublished: PhaseStatus;
-}
+// Schema field name on `lessons` entity for each phase.
+export const PHASE_FIELD: Record<PhaseName, string> = {
+  selection: "phaseSelection",
+  annotation: "phaseAnnotation",
+  audio: "phaseAudio",
+  qa: "phaseQA",
+  published: "phasePublished",
+};
 
-export interface VerseData {
-  id: string;
-  ref: string;
-  arabicFull: string;
-  translation: string;
-  form: string;
-  rootKey: string;
-  surahName: string;
-  wordCount: number;
-  scoreFinal: number | null;
-  scoreStory: number | null;
-  scoreFamiliarity: number | null;
-  scoreTeachingFit: number | null;
-  fragment: boolean;
-  lessonNumber: number; // which lesson this verse is a candidate for
-}
-
-export interface SelectionData {
-  id: string;
-  lessonNumber: number;
-  verseRef: string;
-  section: VerseSection;
-  remark: string;
-  rootKey: string;
-  form: string;
-  updatedAt: number;
-}
-
-export type IssueType = "Arabic" | "Eng" | "Audio" | "Hook" | "Other";
-
-export interface IssueData {
-  id: string;
-  verseRef: string;
-  lessonNumber: number;
-  type: IssueType;
-  note: string;
-  createdAt: number;
+export function isPhaseStatus(v: unknown): v is PhaseStatus {
+  return typeof v === "string" && (PHASE_STATUSES as readonly string[]).includes(v);
 }
