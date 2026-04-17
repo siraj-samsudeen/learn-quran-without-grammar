@@ -50,3 +50,13 @@ def test_split_ayat_al_kursi_9_sentences() -> None:
     # Contiguity: each fragment starts right after the previous one ended
     for prev, nxt in zip(fragments, fragments[1:]):
         assert nxt["start_word"] == prev["end_word"] + 1
+
+
+def test_non_split_three_dots_mark_skipped() -> None:
+    """ۛ U+06DB is stripped from output text and NOT counted as a word.
+    Verse 2:2 has 7 real words with two ۛ pause marks interleaved."""
+    text = "ذَٰلِكَ ٱلْكِتَٰبُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِّلْمُتَّقِينَ"
+    fragments = split_verse_at_waqf(text)
+    assert len(fragments) == 1  # no splitting mark
+    assert fragments[0]["word_count"] == 7, fragments[0]
+    assert "ۛ" not in fragments[0]["arabic"]
