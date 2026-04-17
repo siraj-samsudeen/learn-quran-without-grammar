@@ -16,4 +16,10 @@ test.describe("Login (/login)", () => {
     await session(page).visit("/login");
     await expect(page).toHaveURL(/\/$/);
   });
+
+  test("unauthenticated visit to / redirects to /login", async ({ page }) => {
+    // Needs server started without NEXT_PUBLIC_DEV_USER_EMAIL
+    await session(page).visit("/");
+    await expect(page).toHaveURL(/\/login$/);
+  });
 });

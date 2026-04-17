@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useCurrentUser, sendMagicCode, signInWithCode } from "@/lib/auth";
 
@@ -13,10 +13,11 @@ export default function LoginPage() {
   const [err, setErr] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
-  if (user) {
-    router.replace("/");
-    return null;
-  }
+  useEffect(() => {
+    if (user) router.replace("/");
+  }, [user, router]);
+
+  if (user) return null;
 
   async function handleSend(e: React.FormEvent) {
     e.preventDefault();
