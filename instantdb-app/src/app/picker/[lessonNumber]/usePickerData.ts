@@ -54,33 +54,73 @@ export type PickerData = {
   currentMemberId: string | null;
 };
 
+/**
+ * Two-phase query so we don't pull all 10,493 sentences on every picker visit.
+ *
+ * Phase 1 (tiny): lessons + roots scoped to `introducedInLesson <= lessonNumber`.
+ *   Cumulative so earlier-lesson roots still show for recall/diversity.
+ *
+ * Phase 2 (scoped): sentenceForms filtered by the root keys from Phase 1, with
+ *   their sentences + verses + scoreA1 + all-forms-on-the-sentence + selections.
+ *   This is 1-2 orders of magnitude smaller than the "all sentences" approach.
+ */
 export function usePickerData(lessonNumber: number): PickerData {
   const member = useCurrentCourseMember();
 
-  // Query everything the picker needs in one shot — InstantDB dedupes.
-  const { isLoading, error, data } = db.useQuery({
+  // Phase 1 — small. Gets all 7 lessons and the roots in scope for this lesson.
+  const phase1 = db.useQuery({
     lessons: {},
-    roots: {},
-    forms: {},
-    sentences: {
-      verse: { translation: {} },
-      forms: {},
-      scoreA1: {},
-      selectedIn: { lesson: {} },
+    roots: {
+      $: { where: { introducedInLesson: { $lte: lessonNumber } } },
     },
   });
 
-  const { lessons, lesson, sentences, candidates, selections, roots, forms } = useMemo(() => {
-    const lessons = ((data?.lessons ?? []) as unknown as LessonRow[]).slice().sort((a, b) => a.lessonNumber - b.lessonNumber);
-    const lesson = lessons.find((l) => l.lessonNumber === lessonNumber) ?? null;
-    const rawSentences = (data?.sentences ?? []) as unknown as SentenceRow[];
+  const rootKeys = useMemo(
+    () => ((phase1.data?.roots ?? []) as unknown as RootRow[]).map((r) => r.key),
+    [phase1.data],
+  );
 
-    // A sentence is a *candidate* for this lesson if it has >=1 form whose
-    // root is among the lesson's in-scope roots. The "in-scope" list lives
-    // on the seed (the 10-root picker-minimal set), so for Plan 3 we simply
-    // include any sentence that has forms AND has a scoreA1 record —
-    // whether it's relevant to this lesson is determined downstream by
-    // the root-filter chips in the selection bar.
+  // Phase 2 — scoped to rootKeys. null until phase 1 returns a non-empty set.
+  const phase2 = db.useQuery(
+    rootKeys.length > 0
+      ? {
+          forms: {
+            $: { where: { rootKey: { $in: rootKeys } } },
+          },
+          sentenceForms: {
+            $: { where: { rootKey: { $in: rootKeys } } },
+            sentence: {
+              verse: { translation: {} },
+              forms: {},
+              scoreA1: {},
+              selectedIn: { lesson: {} },
+            },
+          },
+        }
+      : null,
+  );
+
+  const derived = useMemo(() => {
+    const lessons = ((phase1.data?.lessons ?? []) as unknown as LessonRow[])
+      .slice()
+      .sort((a, b) => a.lessonNumber - b.lessonNumber);
+    const lesson = lessons.find((l) => l.lessonNumber === lessonNumber) ?? null;
+    const roots = (phase1.data?.roots ?? []) as unknown as RootRow[];
+    const forms = (phase2.data?.forms ?? []) as unknown as FormRow[];
+
+    // Dedupe sentences across the scoped sentenceForms
+    type SFWithSentence = { sentence?: SentenceRow };
+    const sfRows = (phase2.data?.sentenceForms ?? []) as unknown as SFWithSentence[];
+    const seen = new Set<string>();
+    const rawSentences: SentenceRow[] = [];
+    for (const sf of sfRows) {
+      const s = sf.sentence;
+      if (!s || seen.has(s.id)) continue;
+      seen.add(s.id);
+      rawSentences.push(s);
+    }
+
+    // Candidate pool: sentences that have forms + an A1 score
     const candidatePool: SentenceRow[] = rawSentences.filter(
       (s) => (s.forms?.length ?? 0) > 0 && s.scoreA1 !== undefined,
     );
@@ -93,7 +133,7 @@ export function usePickerData(lessonNumber: number): PickerData {
       forms: (s.forms ?? []).map((f) => f.lemmaArabic),
     }));
 
-    // Map sentenceId → selection row, filtered to this lesson.
+    // Map sentenceId → selection row for THIS lesson only
     const sel = new Map<string, SelectionRow>();
     for (const s of rawSentences) {
       for (const sIn of s.selectedIn ?? []) {
@@ -106,24 +146,18 @@ export function usePickerData(lessonNumber: number): PickerData {
     return {
       lessons,
       lesson,
+      roots,
+      forms,
       sentences: candidatePool,
       candidates,
       selections: sel,
-      roots: (data?.roots ?? []) as unknown as RootRow[],
-      forms: (data?.forms ?? []) as unknown as FormRow[],
     };
-  }, [data, lessonNumber]);
+  }, [phase1.data, phase2.data, lessonNumber]);
 
   return {
-    isLoading,
-    error,
-    lesson,
-    lessons,
-    roots,
-    forms,
-    sentences,
-    candidates,
-    selections,
+    isLoading: phase1.isLoading || phase2.isLoading,
+    error: phase1.error ?? phase2.error,
+    ...derived,
     currentMemberId: member?.id ?? null,
   };
 }

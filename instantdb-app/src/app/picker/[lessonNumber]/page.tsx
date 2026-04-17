@@ -98,6 +98,24 @@ export default function PickerPage({
   if (data.isLoading) {
     return <div className="flex items-center justify-center h-screen text-gray-500">Loading...</div>;
   }
+  if (data.error) {
+    return (
+      <div className="max-w-3xl mx-auto p-6">
+        <p className="text-red-600 font-semibold mb-2">Error syncing from InstantDB</p>
+        <p className="text-sm text-gray-700 mb-3">{data.error.message}</p>
+        <button
+          type="button"
+          onClick={() => location.reload()}
+          className="inline-block px-3 py-1 bg-emerald-700 text-white rounded text-sm font-medium"
+        >
+          Retry
+        </button>
+        <Link href="/" className="ml-3 text-emerald-700 underline text-sm">
+          ← Back to dashboard
+        </Link>
+      </div>
+    );
+  }
   if (!data.lesson) {
     return (
       <div className="max-w-3xl mx-auto p-6">
