@@ -9,6 +9,7 @@ from tools.quran_db.parse import (
     parse_sahih_file,
     parse_uthmani_file,
 )
+from tools.quran_db.waqf import split_verse_at_waqf
 
 
 def load_layer1(
@@ -60,4 +61,24 @@ def load_layer1(
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 buf,
             )
+        conn.commit()
+
+
+def populate_sentences(db_path: Path) -> None:
+    """Read every verse, split at waqf, insert into sentences table."""
+    with connect(db_path) as conn:
+        rows = list(conn.execute("SELECT ref, arabic FROM verses"))
+        inserts: list[tuple] = []
+        for row in rows:
+            ref = row["ref"]
+            fragments = split_verse_at_waqf(row["arabic"])
+            for f in fragments:
+                inserts.append(
+                    (ref, f["start_word"], f["end_word"], f["arabic"], f["word_count"])
+                )
+        conn.executemany(
+            "INSERT INTO sentences (verse_ref, start_word, end_word, arabic, word_count) "
+            "VALUES (?, ?, ?, ?, ?)",
+            inserts,
+        )
         conn.commit()
