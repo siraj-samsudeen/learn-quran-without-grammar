@@ -1030,10 +1030,13 @@ describe("compositeScore", () => {
 
 describe("autoSelectTopK diversity decay", () => {
   it("prefers new forms when decay < 1", () => {
+    // All three candidates have the same raw dims so they tie on base
+    // composite. Decay then selects the one covering a new form over a
+    // duplicate-form candidate.
     const pool = [
       c("same1", 10, 10, 10, ["A"]),
       c("same2", 10, 10, 10, ["A"]),
-      c("newB", 8, 8, 8, ["B"]),
+      c("newB", 10, 10, 10, ["B"]),
     ];
     const weights = PRESETS.recommended.weights;
     const picked = autoSelectTopK(pool, 2, 0.5, weights);
