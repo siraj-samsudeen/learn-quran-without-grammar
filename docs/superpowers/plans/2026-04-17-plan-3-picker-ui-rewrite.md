@@ -353,7 +353,7 @@ test.describe("Login (/login)", () => {
     await session(page)
       .visit("/login")
       .assertText("Teacher Login")
-      .fillField("Email", "mailsiraj@gmail.com")
+      .fillIn("Email", "mailsiraj@gmail.com")
       .clickButton("Send magic code");
     await expect(page.getByText("Enter the 6-digit code")).toBeVisible();
   });
