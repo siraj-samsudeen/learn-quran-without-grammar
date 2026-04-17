@@ -268,3 +268,77 @@ def v19_verse_cross_reference(db_path: Path) -> tuple[bool, str]:
             "WHERE s.id IS NULL OR v.ref IS NULL"
         ).fetchone()
     return (orphans == 0, f"orphan sentence_forms = {orphans}")
+
+
+# ── Step 4: Phase A1 scoring ──────────────────────────────────────────────
+
+def v20_score_completeness(db_path: Path) -> tuple[bool, str]:
+    """Every sentence has a row in sentence_scores_a1."""
+    with connect(db_path) as conn:
+        (missing,) = conn.execute(
+            "SELECT COUNT(*) FROM sentences s "
+            "WHERE NOT EXISTS ("
+            "  SELECT 1 FROM sentence_scores_a1 a WHERE a.sentence_id = s.id"
+            ")"
+        ).fetchone()
+    return (missing == 0, f"sentences without A1 scores = {missing}")
+
+
+def v21_score_ranges(db_path: Path) -> tuple[bool, str]:
+    """D3 ∈ {1, 3, 4, 6, 7, 9, 10} per SCORING.md piecewise."""
+    expected = {1.0, 3.0, 4.0, 6.0, 7.0, 9.0, 10.0}
+    with connect(db_path) as conn:
+        rows = conn.execute(
+            "SELECT DISTINCT d3 FROM sentence_scores_a1"
+        ).fetchall()
+    actual = {r[0] for r in rows}
+    unexpected = actual - expected
+    return (not unexpected, f"d3 values outside piecewise set: {unexpected}")
+
+
+def v22_d3_determinism(db_path: Path) -> tuple[bool, str]:
+    """Recompute d3 from word_count — no mismatches."""
+    from tools.quran_db.score_a1 import compute_d3
+    with connect(db_path) as conn:
+        rows = conn.execute(
+            "SELECT s.word_count, a.d3 FROM sentences s "
+            "JOIN sentence_scores_a1 a ON a.sentence_id = s.id"
+        ).fetchall()
+    mismatches = sum(1 for r in rows if compute_d3(r["word_count"]) != r["d3"])
+    return (mismatches == 0, f"d3 mismatches = {mismatches}")
+
+
+def v23_d1_raw_non_negative(db_path: Path) -> tuple[bool, str]:
+    """D1/D2 raw values are >= 0."""
+    with connect(db_path) as conn:
+        (bad,) = conn.execute(
+            "SELECT COUNT(*) FROM sentence_scores_a1 WHERE d1_raw < 0 OR d2_raw < 0"
+        ).fetchone()
+    return (bad == 0, f"negative raw scores = {bad}")
+
+
+def v24_composite_spot_check(db_path: Path) -> tuple[bool, str]:
+    """For 50 random sentences, recompute composite with D1/D2 normalised
+    to [0, 10] via min-max. composite = (D1n*35 + D2n*25 + D3*40)/100.
+    Verifies the scoring pipeline produces non-trivial variance."""
+    import random
+    with connect(db_path) as conn:
+        rows = conn.execute(
+            "SELECT d1_raw, d2_raw, d3 FROM sentence_scores_a1"
+        ).fetchall()
+    if not rows:
+        return (False, "no scored sentences")
+    d1s = [r["d1_raw"] for r in rows]
+    d2s = [r["d2_raw"] for r in rows]
+    d1_min, d1_max = min(d1s), max(d1s)
+    d2_min, d2_max = min(d2s), max(d2s)
+    if d1_max == d1_min or d2_max == d2_min:
+        return (False, "D1 or D2 raw has zero variance — normalisation would fail")
+    sample = random.Random(42).sample(rows, min(50, len(rows)))
+    for r in sample:
+        d1n = 10 * (r["d1_raw"] - d1_min) / (d1_max - d1_min)
+        d2n = 10 * (r["d2_raw"] - d2_min) / (d2_max - d2_min)
+        composite = (d1n * 35 + d2n * 25 + r["d3"] * 40) / 100
+        if not (0.0 <= composite <= 10.0):
+            return (False, f"composite out of range: {composite}")
+    return (True, "composite spot-check: 50/50 in [0, 10], variance OK")

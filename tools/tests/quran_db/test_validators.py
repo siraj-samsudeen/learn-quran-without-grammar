@@ -7,6 +7,7 @@ import pytest
 from tools.quran_db.db import init_db
 from tools.quran_db.loader import load_layer1, populate_sentences
 from tools.quran_db.narrow import populate_sentence_forms
+from tools.quran_db.score_a1 import score_all_sentences
 from tools.quran_db import validators as V
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
@@ -107,4 +108,27 @@ def forms_db(sentences_db: Path, tmp_path_factory: pytest.TempPathFactory) -> Pa
 ])
 def test_step3_validator(forms_db: Path, fn_name: str) -> None:
     ok, detail = getattr(V, fn_name)(forms_db)
+    assert ok, detail
+
+
+# ── Step 4 validator tests ────────────────────────────────────────────────
+
+@pytest.fixture(scope="module")
+def scored_db(forms_db: Path, tmp_path_factory: pytest.TempPathFactory) -> Path:
+    import shutil
+    p = tmp_path_factory.mktemp("dbs4") / "scored.db"
+    shutil.copy(forms_db, p)
+    score_all_sentences(p)
+    return p
+
+
+@pytest.mark.parametrize("fn_name", [
+    "v20_score_completeness",
+    "v21_score_ranges",
+    "v22_d3_determinism",
+    "v23_d1_raw_non_negative",
+    "v24_composite_spot_check",
+])
+def test_step4_validator(scored_db: Path, fn_name: str) -> None:
+    ok, detail = getattr(V, fn_name)(scored_db)
     assert ok, detail
