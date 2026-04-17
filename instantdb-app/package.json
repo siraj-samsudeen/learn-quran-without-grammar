@@ -12,7 +12,8 @@
     "seed:clear": "node scripts/seed-from-sqlite.mjs --clear",
     "seed:status": "node scripts/seed-from-sqlite.mjs --status",
     "seed:dry": "node scripts/seed-from-sqlite.mjs --dry-run",
-    "reset:phases": "node scripts/reset-lesson-phases.mjs"
+    "reset:phases": "node scripts/reset-lesson-phases.mjs",
+    "test:unit": "vitest run"
   },
   "dependencies": {
     "@instantdb/admin": "^1.0.1",
@@ -32,6 +33,7 @@
     "eslint-config-next": "16.2.3",
     "feather-testing-core": "^0.1.2",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.1.4"
   }
 }
