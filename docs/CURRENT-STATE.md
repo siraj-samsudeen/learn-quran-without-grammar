@@ -1,12 +1,33 @@
 # LQWG Current State
 
-_Last updated: 2026-04-17_
+_Last updated: 2026-04-17 (evening)_
 
 > **Read this first** when resuming work in a new session. Gives you everything needed to pick up where we stopped.
 
-> ✅ **2026-04-17 UPDATE — PRD synthesized; ready for Slice 1.** The 2026-04-16 brainstorms (teacher workflow + Day-1 student workflow) have been synthesized into a single authoritative product spec: **[docs/PRD.md](PRD.md)**. It consolidates 6 product principles · 3-level hierarchy (Course → Module → Lesson) · 14 feature buckets (F0-F14) · schema deltas · roadmap. **Next step: Slice 1 = greenfield Lesson 1 end-to-end through the new stack.** Phase 1 (ADR-010 SQLite foundation) is the prerequisite; Slice 1 narrows Layer 1 to data reachable from ilāh + kabura (~1,500-2,500 rows) rather than the full 186K corpus, so it iterates in seconds. Live Jekyll Lesson 1 stays untouched throughout. See [PRD.md §8 Roadmap & Slices](PRD.md) for full scope. Supporting docs (LESSON-PLAN.md, SCORING.md) were cleaned up in the same commit to remove stale JSON/pipeline references.
+> ✅ **2026-04-17 (evening) — Slice 1 picker + scoring fully designed; ready for implementation planning.**
+>
+> The Slice 1 verse picker design is complete with interactive mockups validated by the teacher. **Next step: invoke `/superpowers:writing-plans` to create the implementation plan from the spec.**
+>
+> **Read these docs in order:**
+> 1. **[Slice 1 Picker Spec](superpowers/specs/2026-04-17-slice-1-verse-picker-design.md)** — ⭐ START HERE. Full design: architecture (3 processes + InstantDB cloud), sentence-level scoring (waqf fragmentation), 3-dimension model (D1/D3/D4), picker UX with selection + summary, thin-slice build order, schema additions, acceptance criteria.
+> 2. **[SCORING.md](SCORING.md)** — v4 algorithm: waqf sentences as scoring unit, four-phase A1/A2/B/C architecture, اللَّه excluded from forms, diminishing-returns diversity.
+> 3. **[PRD.md §8](PRD.md)** — Slice 1 section updated with design shifts + spec reference.
+> 4. **[Interactive mockups](design/mockups/picker-scoring/)** — open `verse-picker-explorer-v4.html` in a browser to see the final picker prototype with real data from ilāh + kabura (290 sentences, checkboxes, selection summary, form coverage detail panel).
+>
+> **Key design decisions locked (2026-04-17 brainstorm):**
+> - Scoring unit = waqf sentence (not full verse). Qur'an's waqf marks produce 3-9 word teaching units.
+> - 3 dimensions: D1 (avg word freq 35%), D3 (content coverage 25%), D4 (length sweet spot 40%). D2 dropped.
+> - اللَّه excluded from form partitioning (92% of candidates, no teaching value). Pool: 290 sentences.
+> - Score-first picker (not form-first). Diversity via diminishing returns decay (0.7).
+> - DB-only deliverable. No LLM API — export kit + separate CC session.
+> - Worker daemon for audio jobs. InstantDB $files for audio storage. Magic-link auth.
+> - `seedPhrases` entity (7 Adhān phrases → roots). Soft budget warnings (never hard caps).
+>
+> **Previous updates (superseded by above):**
 
-> ⚠️ **2026-04-16 UPDATE — pedagogy-first redesign brainstorm in flight.** Before starting implementation, read [docs/design/2026-04-16-pedagogy-first-redesign.md](design/2026-04-16-pedagogy-first-redesign.md). It captures a workflow-first, fresh-eyes pass that surfaced structural gaps in the 24-entity [DATA-MODEL.md](DATA-MODEL.md): the flat `lessons` list, one-axis "known" state, and implicit explorer-vs-course split. **2026-04-17: PRD above resolves all of this** — scope cut = Slice 1 (greenfield Lesson 1), see PRD §8.
+> ✅ **2026-04-17 (morning) — PRD synthesized.** The 2026-04-16 brainstorms synthesized into [PRD.md](PRD.md). 6 product principles · 3-level hierarchy · 14 feature buckets · schema deltas · roadmap.
+
+> ⚠️ **2026-04-16 — pedagogy-first redesign brainstorm.** See [design/2026-04-16-pedagogy-first-redesign.md](design/2026-04-16-pedagogy-first-redesign.md). **Resolved in PRD above.**
 
 ---
 
@@ -212,38 +233,32 @@ UI was reworked April 2026: warm parchment background, Amiri Arabic font, 6px le
 Paste this into a fresh Claude session to pick up cleanly:
 
 ```
-Continue the LQWG pedagogy-first redesign from where we stopped on 2026-04-16 (evening).
+Implement Slice 1 of LQWG — the teacher verse picker.
 
-The brainstorm is in two parts — initial + continued session. Four of five open questions
-are resolved; the remaining scope cut (Q#5) + full student-side workflow is next session's
-work. Every decision carries a "why" in the design doc.
+The design is complete. Read these in order, then create the implementation plan:
 
-Read these in order, then summarize what you understand before touching anything:
+1. docs/CURRENT-STATE.md — where we stopped (this file). Read the top banner.
+2. docs/superpowers/specs/2026-04-17-slice-1-verse-picker-design.md — ⭐ THE SPEC.
+   Full design: architecture, scoring, picker UX, all decisions, build order, schema,
+   acceptance criteria. This is authoritative.
+3. docs/SCORING.md — v4 scoring algorithm (sentence-level, 3-dimension D1/D3/D4,
+   four-phase A1/A2/B/C).
+4. docs/PRD.md §8 — Slice 1 section with scope summary.
+5. Open docs/design/mockups/picker-scoring/verse-picker-explorer-v4.html in a browser —
+   this is the functional picker prototype with real data. The implementation should
+   match this UX.
 
-1. docs/CURRENT-STATE.md — where we stopped (this file). The "Where we stopped in the
-   brainstorm (2026-04-16, evening update)" section has the full decision inventory.
-2. docs/design/2026-04-16-pedagogy-first-redesign.md — full brainstorm doc with Part 2
-   (continued session) at the end. Every decision has a "why" paragraph you can quote back.
-3. docs/design/mockups/knowledge-map-prototype.html — open in a browser; four-layer
-   student-facing prototype (Dashboard / Map / Surah / Root) with synthetic student data.
-4. docs/FORMS-LEMMAS-ROOTS.md — root/lemma/form conceptual foundation (unchanged).
-5. docs/DATA-MODEL.md — prior 24-entity schema. Treat as reference — new decisions in the
-   brainstorm override parts of it pending the final amend-in-place sweep.
+The spec has a thin-slice build order (§6) — use it as a starting point for the
+implementation plan. Key tech decisions already locked:
+  - Next.js 16 + InstantDB + Tailwind (existing instantdb-app/ scaffold)
+  - Python worker daemon (tools/worker.py) for audio jobs
+  - InstantDB magic-link auth
+  - InstantDB $files for audio storage
+  - feather-testing-core DSL for all tests
+  - No LLM API — Tier-2 via export kit + import
 
-Pick up by pivoting to the student side. Workflow-first method — ask me to walk through
-Day 1 for a new student (e.g., my son Hanzala, age 10, memorized Juz' 30 + Al-Fātiḥa),
-one step at a time. From landing screen to first SRS card to closing the app. Let
-entities/verbs emerge from what I describe.
-
-Topics to cover in this next session (roughly in order):
-  - Day 1 onboarding (what-have-you-memorized granularity: surah / verse-range / verse / hybrid?)
-  - Explorer verbs (tap ayah → tap word → root → back)
-  - Knowledge-map schema (what queries power the dashboard)
-  - Milestones entity (% of Qur'an covered claims, decodable-surah checkpoints)
-  - First SRS card experience (the Day-1 moment of delight)
-
-After student side is captured, Q#5 v1 scope cut, then amend DATA-MODEL.md in place,
-then writing-plans skill, then implementation.
+Invoke /superpowers:writing-plans to create the implementation plan from the spec.
+```
 
 Rules from CLAUDE.md still apply: ask questions one at a time, push back with critique,
 show URLs for unfamiliar concepts, don't over-engineer. Match my communication style:
