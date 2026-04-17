@@ -51,4 +51,22 @@ test.describe("Picker data hook (/picker/:n minimal shell)", () => {
     await chip.click();
     await expect(page.getByRole("button", { name: /Clear filter/i })).not.toBeVisible();
   });
+
+  test("clicking a table row toggles its selected state", async ({ page }) => {
+    await session(page).visit("/picker/3");
+    await expect(page.locator("text=Loading...")).not.toBeVisible();
+    const firstRow = page.locator("[data-testid='candidate-row']").first();
+    await firstRow.click();
+    await expect(firstRow).toHaveAttribute("data-selected", "true");
+    await firstRow.click();
+    await expect(firstRow).toHaveAttribute("data-selected", "false");
+  });
+
+  test("Show count cap limits table rows", async ({ page }) => {
+    await session(page).visit("/picker/3");
+    await expect(page.locator("text=Loading...")).not.toBeVisible();
+    await page.getByLabel("Show count").selectOption("20");
+    const count = await page.locator("[data-testid='candidate-row']").count();
+    expect(count).toBeLessThanOrEqual(20);
+  });
 });

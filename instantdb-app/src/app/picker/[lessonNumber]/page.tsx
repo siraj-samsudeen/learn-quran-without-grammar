@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePickerData } from "./usePickerData";
 import { ControlsBar, DEFAULT_CONTROLS, type ControlsState } from "./ControlsBar";
 import { SelectionBar, type FilterState } from "./SelectionBar";
+import { CandidateTable } from "./CandidateTable";
 import { rankCandidates, autoSelectTopK } from "./scoring";
 
 export default function PickerPage({
@@ -22,6 +23,21 @@ export default function PickerPage({
   const [filter, setFilter] = useState<FilterState>({ kind: "none" });
 
   const ranked = useMemo(() => rankCandidates(data.candidates, controls.weights), [data.candidates, controls.weights]);
+
+  const rankById = useMemo(() => {
+    const m = new Map<string, { rank: number; score: number }>();
+    ranked.forEach((r, i) => {
+      m.set(r.id, { rank: i + 1, score: r.composite });
+    });
+    return m;
+  }, [ranked]);
+
+  const [localSelection, setLocalSelection] = useState<Set<string>>(() => new Set());
+  const selectedIds = useMemo(() => {
+    const s = new Set<string>(data.selections.keys());
+    for (const id of localSelection) s.add(id);
+    return s;
+  }, [data.selections, localSelection]);
 
   // Auto-select Top-10 on first load when no selections exist for this lesson.
   // Full wire-up to DB lands in Task 13.
@@ -88,7 +104,22 @@ export default function PickerPage({
         onFilterChange={setFilter}
       />
 
-      {/* CandidateTable lands in Task 12 */}
+      <CandidateTable
+        sentences={data.sentences}
+        rankById={rankById}
+        selectedIds={selectedIds}
+        filter={filter}
+        maxRows={controls.showCount}
+        onToggleSelect={(id) => {
+          setLocalSelection((cur) => {
+            const next = new Set(cur);
+            if (next.has(id)) next.delete(id);
+            else next.add(id);
+            return next;
+          });
+        }}
+      />
+
       <div
         data-testid="picker-ranked-count"
         data-count={ranked.length}
