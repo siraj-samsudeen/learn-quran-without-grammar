@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useState, useMemo } from "react";
+import { useEffect, useRef, useState, useMemo, use } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { id as iid, tx } from "@instantdb/react";
@@ -63,6 +63,32 @@ export default function PickerPage({
     if (data.selections.size > 0) return [];
     return autoSelectTopK(data.candidates, 10, controls.diversity, controls.weights);
   }, [data.candidates, data.selections, controls.diversity, controls.weights]);
+
+  const autoFiredRef = useRef(false);
+
+  useEffect(() => {
+    if (autoFiredRef.current) return;
+    if (data.isLoading) return;
+    if (!data.lesson || !data.currentMemberId) return;
+    if (data.selections.size > 0) return;
+    if (autoTop10.length === 0) return;
+    autoFiredRef.current = true;
+
+    const txs = autoTop10
+      .map((sentenceId) => {
+        const newId = iid();
+        return [
+          tx.selections[newId].update({ starred: false, pickedAt: Date.now() }),
+          tx.selections[newId].link({
+            lesson: data.lesson!.id,
+            sentence: sentenceId,
+            pickedBy: data.currentMemberId!,
+          }),
+        ];
+      })
+      .flat();
+    db.transact(txs);
+  }, [data.isLoading, data.lesson, data.currentMemberId, data.selections.size, autoTop10]);
 
   const selected = useMemo(
     () => data.sentences.filter((s) => data.selections.has(s.id)),
