@@ -6,11 +6,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "schema:push": "bash scripts/push-schema.sh",
+    "seed": "node scripts/seed-from-sqlite.mjs",
+    "seed:clear": "node scripts/seed-from-sqlite.mjs --clear",
+    "seed:status": "node scripts/seed-from-sqlite.mjs --status",
+    "seed:dry": "node scripts/seed-from-sqlite.mjs --dry-run"
   },
   "dependencies": {
     "@instantdb/admin": "^1.0.1",
     "@instantdb/react": "^1.0.1",
+    "better-sqlite3": "^12.9.0",
     "next": "16.2.3",
     "react": "19.2.4",
     "react-dom": "19.2.4"
