@@ -206,7 +206,9 @@ learn-quran-without-grammar/
 │   │   ├── quran-morphology.txt     ← mustafa0x/quran-morphology (GPL) — roots + lemmas
 │   │   ├── quran-uthmani.txt        ← Tanzil full Uthmani text (matches our arabic_full)
 │   │   └── quran-trans-en-sahih.txt ← Saheeh International draft translations
-│   ├── build-quran-db.py            ← ⭐ Builds tools/data/quran.db (SQLite, all 1,651 roots, ADR-010) — planned, replaces build-root-inventory.py
+│   ├── build-quran-db.py            ← ⭐ Builds tools/data/quran.db (SQLite, ADR-012). Runs all 5 pipeline steps.
+│   ├── validate-quran-db.py         ← Runs all 24 validators from audit spec §7; exits 0 iff ALL PASS
+│   ├── quran_db/                    ← Python package: parse / waqf / narrow / score_a1 / validators
 │   ├── build-root-inventory.py      ← [TRANSITIONING] Builds docs/roots/*.json from local data (ADR-009) — will be retired after ADR-010 migration
 │   ├── merge-t2-scores.py           ← [PORTING] Merges LLM Tier 2 scores (JSON today → SQLite per ADR-010)
 │   ├── generate-lesson-summary.py   ← [PORTING] Generates lesson-summary.json (JSON today → SQLite per ADR-010)
@@ -269,6 +271,10 @@ open teacher/local.html
 
 # Deploy
 git add . && git commit -m "message" && git push   # Live in ~1 minute
+
+# Build quran.db (SQLite data layer — ADR-012)
+tools/.venv/bin/python tools/build-quran-db.py --all
+tools/.venv/bin/python tools/validate-quran-db.py    # should print ALL PASS
 
 # [RETIRED] Generate picker for a lesson — replaced by InstantDB app per ADR-010
 python3 tools/generate-picker.py --lesson 3 \
