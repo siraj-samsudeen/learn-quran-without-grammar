@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { usePickerData } from "./usePickerData";
 import { ControlsBar, DEFAULT_CONTROLS, type ControlsState } from "./ControlsBar";
+import { SelectionBar } from "./SelectionBar";
 import { rankCandidates, autoSelectTopK } from "./scoring";
 
 export default function PickerPage({
@@ -27,6 +28,11 @@ export default function PickerPage({
     if (data.selections.size > 0) return [];
     return autoSelectTopK(data.candidates, 10, controls.diversity, controls.weights);
   }, [data.candidates, data.selections, controls.diversity, controls.weights]);
+
+  const selected = useMemo(
+    () => data.sentences.filter((s) => data.selections.has(s.id)),
+    [data.sentences, data.selections],
+  );
 
   if (data.isLoading) {
     return <div className="flex items-center justify-center h-screen text-gray-500">Loading...</div>;
@@ -72,7 +78,16 @@ export default function PickerPage({
 
       <ControlsBar state={controls} onChange={setControls} />
 
-      {/* SelectionBar + CandidateTable land in Tasks 10-12 */}
+      <SelectionBar
+        selectedSentences={selected}
+        coverageByRoot={new Map()}
+        lessonRoots={data.roots.map((r) => ({ key: r.key, transliteration: r.transliteration }))}
+        lessonForms={data.forms.map((f) => ({ rootKey: f.rootKey, lemmaArabic: f.lemmaArabic }))}
+        activeFilter={{ kind: "none" }}
+        onFilterChange={() => {}}
+      />
+
+      {/* CandidateTable lands in Task 12 */}
       <div
         data-testid="picker-ranked-count"
         data-count={ranked.length}

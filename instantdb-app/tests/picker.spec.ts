@@ -33,4 +33,12 @@ test.describe("Picker data hook (/picker/:n minimal shell)", () => {
       .poll(async () => page.locator("[data-testid='picker-ranked-count']").textContent())
       .not.toBe(before);
   });
+
+  test("selection bar shows three zero-valued gauges when nothing is selected", async ({ page }) => {
+    await session(page).visit("/picker/3");
+    await expect(page.locator("text=Loading...")).not.toBeVisible();
+    await expect(page.getByText("Sentences", { exact: true })).toBeVisible();
+    await expect(page.getByText("Words", { exact: true })).toBeVisible();
+    await expect(page.getByText("Forms", { exact: true })).toBeVisible();
+  });
 });
