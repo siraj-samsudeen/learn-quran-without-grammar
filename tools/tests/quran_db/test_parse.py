@@ -1,5 +1,15 @@
 """Tests for parsing raw morphology / uthmani / sahih lines."""
-from tools.quran_db.parse import parse_morphology_line
+from pathlib import Path
+
+from tools.quran_db.parse import (
+    parse_morphology_file,
+    parse_morphology_line,
+    parse_sahih_file,
+    parse_uthmani_file,
+)
+
+REPO_ROOT = Path(__file__).resolve().parents[3]
+DATA_DIR = REPO_ROOT / "tools" / "data"
 
 
 def test_parse_particle_with_prefix() -> None:
@@ -43,3 +53,31 @@ def test_parse_no_lemma() -> None:
     result = parse_morphology_line("1:6:1:2\tنَا\tN\tPRON|SUFF|1P")
     assert result["lemma"] is None
     assert result["root"] is None
+
+
+def test_parse_morphology_file_full_count() -> None:
+    """The canonical file should have ~128K-131K morphology segments."""
+    rows = list(parse_morphology_file(DATA_DIR / "quran-morphology.txt"))
+    assert 128_000 <= len(rows) <= 131_000, f"got {len(rows)}"
+    # Spot check first row
+    assert rows[0]["surah"] == 1 and rows[0]["verse"] == 1 and rows[0]["word"] == 1
+    assert rows[0]["lemma"] == "ب"
+
+
+def test_parse_uthmani_file_full_count() -> None:
+    rows = list(parse_uthmani_file(DATA_DIR / "quran-uthmani.txt"))
+    assert len(rows) == 6236
+    first = rows[0]
+    assert first["surah"] == 1 and first["verse"] == 1
+    # Byte-exact Arabic is covered by v6_uthmani_byte_match in Task 5.
+    # Here we assert structural shape only (Arabic diacritic byte-ordering
+    # between NFC/NFD forms trips up literal comparison).
+    assert first["arabic"].startswith("بِسْمِ")
+    assert len(first["arabic"]) > 20
+
+
+def test_parse_sahih_file_full_count() -> None:
+    rows = list(parse_sahih_file(DATA_DIR / "quran-trans-en-sahih.txt"))
+    assert len(rows) == 6236
+    assert rows[0]["surah"] == 1 and rows[0]["verse"] == 1
+    assert "In the name of Allah" in rows[0]["english"]

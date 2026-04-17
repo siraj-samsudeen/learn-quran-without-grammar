@@ -1,7 +1,8 @@
 """Parsers for the three raw input files."""
 from __future__ import annotations
 
-from typing import Optional, TypedDict
+from pathlib import Path
+from typing import Iterator, Optional, TypedDict
 
 
 class MorphRow(TypedDict):
@@ -14,6 +15,18 @@ class MorphRow(TypedDict):
     features: str
     root: Optional[str]
     lemma: Optional[str]
+
+
+class VerseRow(TypedDict):
+    surah: int
+    verse: int
+    arabic: str
+
+
+class TranslationRow(TypedDict):
+    surah: int
+    verse: int
+    english: str
 
 
 def parse_morphology_line(line: str) -> MorphRow:
@@ -42,3 +55,36 @@ def parse_morphology_line(line: str) -> MorphRow:
         "root": root,
         "lemma": lemma,
     }
+
+
+def parse_morphology_file(path: Path) -> Iterator[MorphRow]:
+    """Stream-parse quran-morphology.txt. Skips the copyright/header lines
+    (any line not starting with a digit)."""
+    with path.open(encoding="utf-8") as f:
+        for line in f:
+            if not line or not line[0].isdigit():
+                continue
+            yield parse_morphology_line(line)
+
+
+def parse_uthmani_file(path: Path) -> Iterator[VerseRow]:
+    """Stream-parse quran-uthmani.txt. Format: `surah|verse|text`.
+    Skips blank lines and any line starting with '#' (Tanzil footer)."""
+    with path.open(encoding="utf-8") as f:
+        for line in f:
+            line = line.rstrip("\n")
+            if not line or line.startswith("#"):
+                continue
+            surah_s, verse_s, arabic = line.split("|", 2)
+            yield {"surah": int(surah_s), "verse": int(verse_s), "arabic": arabic}
+
+
+def parse_sahih_file(path: Path) -> Iterator[TranslationRow]:
+    """Stream-parse quran-trans-en-sahih.txt. Same pipe format as Uthmani."""
+    with path.open(encoding="utf-8") as f:
+        for line in f:
+            line = line.rstrip("\n")
+            if not line or line.startswith("#"):
+                continue
+            surah_s, verse_s, english = line.split("|", 2)
+            yield {"surah": int(surah_s), "verse": int(verse_s), "english": english}
