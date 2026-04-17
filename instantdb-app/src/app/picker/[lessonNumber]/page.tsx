@@ -3,6 +3,8 @@
 import { use, useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { id as iid, tx } from "@instantdb/react";
+import db from "@/lib/instant";
 import { usePickerData } from "./usePickerData";
 import { ControlsBar, DEFAULT_CONTROLS, type ControlsState } from "./ControlsBar";
 import { SelectionBar, type FilterState } from "./SelectionBar";
@@ -32,12 +34,28 @@ export default function PickerPage({
     return m;
   }, [ranked]);
 
-  const [localSelection, setLocalSelection] = useState<Set<string>>(() => new Set());
-  const selectedIds = useMemo(() => {
-    const s = new Set<string>(data.selections.keys());
-    for (const id of localSelection) s.add(id);
-    return s;
-  }, [data.selections, localSelection]);
+  const selectedIds = useMemo(() => new Set(data.selections.keys()), [data.selections]);
+
+  async function toggleSelect(sentenceId: string) {
+    if (!data.lesson || !data.currentMemberId) return;
+    const existing = data.selections.get(sentenceId);
+    if (existing) {
+      await db.transact(tx.selections[existing.id].delete());
+      return;
+    }
+    const newId = iid();
+    await db.transact([
+      tx.selections[newId].update({
+        starred: false,
+        pickedAt: Date.now(),
+      }),
+      tx.selections[newId].link({
+        lesson: data.lesson.id,
+        sentence: sentenceId,
+        pickedBy: data.currentMemberId,
+      }),
+    ]);
+  }
 
   // Auto-select Top-10 on first load when no selections exist for this lesson.
   // Full wire-up to DB lands in Task 13.
@@ -110,14 +128,7 @@ export default function PickerPage({
         selectedIds={selectedIds}
         filter={filter}
         maxRows={controls.showCount}
-        onToggleSelect={(id) => {
-          setLocalSelection((cur) => {
-            const next = new Set(cur);
-            if (next.has(id)) next.delete(id);
-            else next.add(id);
-            return next;
-          });
-        }}
+        onToggleSelect={toggleSelect}
       />
 
       <div

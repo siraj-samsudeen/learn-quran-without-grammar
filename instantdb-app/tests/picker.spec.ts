@@ -69,4 +69,22 @@ test.describe("Picker data hook (/picker/:n minimal shell)", () => {
     const count = await page.locator("[data-testid='candidate-row']").count();
     expect(count).toBeLessThanOrEqual(20);
   });
+
+  test("selecting a row persists across page reload", async ({ page }) => {
+    await session(page).visit("/picker/3");
+    await expect(page.locator("text=Loading...")).not.toBeVisible();
+    const firstRow = page.locator("[data-testid='candidate-row']").first();
+    const sid = await firstRow.getAttribute("data-sentence-id");
+    await firstRow.click();
+    await expect(firstRow).toHaveAttribute("data-selected", "true");
+
+    await page.reload();
+    await expect(page.locator("text=Loading...")).not.toBeVisible();
+    const same = page.locator(`[data-sentence-id='${sid}']`);
+    await expect(same).toHaveAttribute("data-selected", "true");
+
+    // Cleanup — unselect so the test is idempotent
+    await same.click();
+    await expect(same).toHaveAttribute("data-selected", "false");
+  });
 });
