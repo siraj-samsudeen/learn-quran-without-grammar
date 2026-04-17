@@ -1,55 +1,67 @@
 import { test, expect } from "@playwright/test";
+import { session } from "./support/session";
 
-test.describe("Pipeline Dashboard (/)", () => {
-  test("shows 7 lessons with sidebar and pipeline table", async ({ page }) => {
-    await page.goto("/");
-    await expect(page.locator("text=Loading...")).not.toBeVisible();
-
-    // Sidebar should show app title
-    await expect(page.locator("aside h1")).toBeVisible();
-
-    // Sidebar lesson list
-    await expect(page.locator("aside").locator("text=Allahu Akbar")).toBeVisible();
-
-    // Main content — "Teacher Dashboard" heading and 7 lesson rows
-    await expect(page.locator("text=Teacher Dashboard")).toBeVisible();
-    const lessonRows = page.locator("tbody tr").filter({ hasText: /^L\d\./ });
-    await expect(lessonRows).toHaveCount(7);
+test.describe("Dashboard (/)", () => {
+  test("shows 7 lessons and the 5 phase columns", async ({ page }) => {
+    await session(page)
+      .visit("/")
+      .assertText("Teacher Dashboard");
+    const rows = page.locator("tbody tr").filter({ hasText: /^L\d\./ });
+    await expect(rows).toHaveCount(7);
+    for (const label of ["Selection", "Annotation", "Audio", "QA", "Publish"]) {
+      await expect(page.locator("thead")).toContainText(label);
+    }
   });
 
-  test("phase dots cycle on click", async ({ page }) => {
-    await page.goto("/");
-    await expect(page.locator("text=Loading...")).not.toBeVisible();
-
-    const lessonRow = page.locator("tbody tr").filter({ hasText: "Messenger of Allah" }).first();
-    const firstDot = lessonRow.locator("td button").first();
-    await expect(firstDot).toBeVisible();
-
-    const titleBefore = await firstDot.getAttribute("title");
-    await firstDot.click();
-    const titleAfter = await firstDot.getAttribute("title");
-    expect(titleAfter).not.toEqual(titleBefore);
+  test("none of the retired 7-phase labels appear in the header", async ({ page }) => {
+    // Regression guard: if someone reverts to the old 7-phase model or
+    // forgets to rename PHASE_LABELS, these strings would leak back in.
+    await session(page).visit("/");
+    const thead = page.locator("thead");
+    for (const retired of ["Scoring", "Picking", "Writing", "Tamil", "Review"]) {
+      await expect(thead).not.toContainText(retired);
+    }
   });
 
-  test("lesson row expands to show details", async ({ page }) => {
-    await page.goto("/");
-    await expect(page.locator("text=Loading...")).not.toBeVisible();
-
-    const lessonRow = page.locator("tbody tr").filter({ hasText: "Allahu Akbar" }).first();
-    await lessonRow.click();
-
-    await expect(page.locator("text=lesson-01-allahu-akbar")).toBeVisible();
-    await expect(page.locator("text=ilah, kabura")).toBeVisible();
+  test("every lesson starts ready for selection (post-reset invariant)", async ({ page }) => {
+    // After Pre-flight P3 every lesson has phaseSelection=ready.
+    // The first dot in each row is the Selection dot; its title must
+    // include "ready" (or whatever non-blocked state a prior test left,
+    // but never "blocked"). This catches the specific regression where
+    // the seed reverts to all-blocked defaults.
+    await session(page).visit("/");
+    const rows = page.locator("tbody tr").filter({ hasText: /^L\d\./ });
+    await expect(rows).toHaveCount(7);
+    for (let i = 0; i < 7; i++) {
+      const firstDotTitle = await rows.nth(i).locator("td button").first().getAttribute("title");
+      expect(firstDotTitle, `row ${i} Selection phase`).not.toContain("blocked");
+    }
   });
 
-  test("sidebar lesson links navigate to picker", async ({ page }) => {
-    await page.goto("/");
-    await expect(page.locator("text=Loading...")).not.toBeVisible();
+  test("clicking the Annotation phase dot on L1 cycles its status and restores", async ({ page }) => {
+    // Target the Annotation dot (2nd button), NOT Selection (1st), so
+    // cycling doesn't flip L1's picker-link visibility for later tests.
+    // Cycle 4 times to land back on the starting state (4-state cycle:
+    // blocked → ready → wip → done → blocked).
+    await session(page).visit("/");
+    const row = page.locator("tbody tr").filter({ hasText: "Allahu Akbar" }).first();
+    const dot = row.locator("td button").nth(1);
+    const before = await dot.getAttribute("title");
+    await dot.click();
+    const afterOne = await dot.getAttribute("title");
+    expect(afterOne).not.toEqual(before);
+    await dot.click();
+    await dot.click();
+    await dot.click();
+    await expect(dot).toHaveAttribute("title", before!);
+  });
 
-    // Click lesson in sidebar
-    const sidebarLesson = page.locator("aside a").filter({ hasText: "I Bear Witness" }).first();
-    await sidebarLesson.click();
-
-    await expect(page).toHaveURL(/\/picker\/2/);
+  test("Open picker link navigates to /picker/3 (L3 is untouched by prior tests)", async ({ page }) => {
+    // Use L3 ("Messenger of Allah") — no earlier test in this file clicks it,
+    // so Selection stays at "ready" and the link is guaranteed visible.
+    await session(page).visit("/");
+    const row = page.locator("tbody tr").filter({ hasText: "Messenger of Allah" }).first();
+    await row.getByRole("link", { name: /Open picker/i }).click();
+    await expect(page).toHaveURL(/\/picker\/3$/);
   });
 });
