@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Three Scoring Metrics — Final Comparison</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #f0f2f5; padding: 24px; color: #1a1a1a; max-width: 1400px; margin: 0 auto; }
+h1 { font-size: 1.4rem; margin-bottom: 4px; }
+.sub { color: #666; font-size: 0.85rem; margin-bottom: 24px; }
+
+.metric-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+.m-card { padding: 16px; border-radius: 8px; border: 2px solid; }
+.m-card h3 { font-size: 0.9rem; margin-bottom: 6px; }
+.m-card p { font-size: 0.8rem; line-height: 1.5; color: #475569; }
+.m-card .formula { font-family: monospace; font-size: 0.75rem; background: rgba(0,0,0,0.05); padding: 4px 8px; border-radius: 4px; display: inline-block; margin: 4px 0; }
+.m1-card { border-color: #3b82f6; background: #eff6ff; }
+.m2-card { border-color: #059669; background: #ecfdf5; }
+.m3-card { border-color: #ec4899; background: #fdf2f8; }
+
+table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 24px; }
+thead { background: #1e293b; color: #fff; }
+th { padding: 10px 8px; text-align: left; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500; }
+th.r { text-align: right; }
+td { padding: 8px; border-bottom: 1px solid #f1f5f9; font-size: 0.82rem; }
+td.r { text-align: right; font-variant-numeric: tabular-nums; }
+td.ar { direction: rtl; font-family: 'Amiri', serif; font-size: 0.95rem; max-width: 280px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+tr:hover { background: #f8fafc; }
+.sort-btn { cursor: pointer; user-select: none; }
+.sort-btn:hover { text-decoration: underline; }
+
+.bar { height: 10px; border-radius: 5px; display: inline-block; vertical-align: middle; min-width: 2px; }
+.bar-m1 { background: #3b82f6; }
+.bar-m2 { background: #059669; }
+.bar-m3 { background: #ec4899; }
+.bar-func { background: #94a3b8; opacity: 0.5; }
+.stacked { display: flex; gap: 1px; width: 140px; }
+
+.insight { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 16px 20px; font-size: 0.85rem; line-height: 1.7; }
+.insight h3 { margin-bottom: 8px; }
+.rec { background: #f0fdf4; border: 2px solid #86efac; border-radius: 8px; padding: 16px 20px; margin-top: 16px; }
+.rec h3 { color: #059669; margin-bottom: 8px; }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<h1>Three Scoring Metrics — Which to Keep?</h1>
+<p class="sub">All use unique lemmas (your fix applied). No metric exceeds 100%.</p>
+
+<div class="metric-cards">
+  <div class="m-card m1-card">
+    <h3>M1: Avg Frequency</h3>
+    <div class="formula">Σ(token freqs) / word count</div>
+    <p><strong>Answers:</strong> "How common are the words?"<br><strong>Length bias:</strong> None (normalized)<br><strong>Includes:</strong> All words incl. function</p>
+  </div>
+  <div class="m-card m2-card">
+    <h3>M2: Total Coverage %</h3>
+    <div class="formula">Σ(unique ALL lemma freqs) / total</div>
+    <p><strong>Answers:</strong> "What % of the Qur'an can the student recognize?"<br><strong>Length bias:</strong> Favors longer<br><strong>Includes:</strong> All words incl. function</p>
+  </div>
+  <div class="m-card m3-card">
+    <h3>M3: Content Coverage %</h3>
+    <div class="formula">Σ(unique CONTENT lemma freqs) / total</div>
+    <p><strong>Answers:</strong> "How much new vocabulary unlocked?"<br><strong>Length bias:</strong> Favors longer<br><strong>Includes:</strong> Content words only</p>
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Verse</th>
+      <th>Arabic</th>
+      <th class="r">Words</th>
+      <th class="r">Uniq<br>Lem</th>
+      <th class="r">Cont<br>Lem</th>
+      <th class="r sort-btn" onclick="sortTable('m1_avg')">M1<br>Avg ↕</th>
+      <th class="r sort-btn" onclick="sortTable('m2_total_cov')">M2<br>TotCov% ↕</th>
+      <th class="r sort-btn" onclick="sortTable('m3_content_cov')">M3<br>ContCov% ↕</th>
+      <th>Coverage breakdown (green=func, pink=content)</th>
+    </tr>
+  </thead>
+  <tbody id="tbody"></tbody>
+</table>
+
+<div class="insight">
+  <h3>What the stacked bars show</h3>
+  <p>Each row's bar has two segments: <span style="color:#059669">■ green = function-word coverage</span> and <span style="color:#ec4899">■ pink = content-word coverage</span>. Together they equal M2 (Total Coverage).</p>
+  <p>Notice how function words (green) are nearly constant across verses (~15-33%) while content words (pink) vary dramatically. This means <strong>M2 is mostly noise from function words + a content signal</strong>. M3 isolates just the signal.</p>
+  <p><strong>But for Lesson 1</strong> (Hanzala's first-ever Arabic exposure), that "noise" IS signal — he doesn't know و or ال yet. By Lesson 5+, function words are fully memorized and M3 becomes the better metric.</p>
+</div>
+
+<div class="rec">
+  <h3>Recommendation: Keep all three, weight by lesson number</h3>
+  <p><strong>Early lessons (1-3):</strong> M2 (Total Coverage) gets full weight — every word matters, including particles.<br>
+  <strong>Mid lessons (4-7):</strong> Blend M2 and M3 — function words partially known, content matters more.<br>
+  <strong>Later lessons (8+):</strong> M3 (Content Coverage) dominates — function words are fully known by now.<br>
+  <strong>M1 (Avg Frequency)</strong> stays as a length-neutral tiebreaker at every stage — prevents the picker from always favoring long verses.</p>
+</div>
+
+<script>
+const DATA = [{"tokens": 66, "unique_all": 38, "unique_content": 29, "m1_avg": 2819.257575757576, "m2_total_cov": 41.83667616297967, "m3_content_cov": 8.579185866427027, "func_cov": 33.257490296552646, "label": "Ayat al-Kursi", "ref": "2:255", "text": "ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ ۚ لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَ ۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ ۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَا ۚ وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ"}, {"tokens": 58, "unique_all": 37, "unique_content": 27, "m1_avg": 2275.0862068965516, "m2_total_cov": 43.84141794611958, "m3_content_cov": 7.959694843310835, "func_cov": 35.88172310280874, "label": "Al-Baqarah last ayah", "ref": "2:286", "text": "لَا يُكَلِّفُ ٱللَّهُ نَفْسًا إِلَّا وُسْعَهَا ۚ لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا ٱكْتَسَبَتْ ۗ رَبَّنَا لَا تُؤَاخِذْنَآ إِن نَّسِينَآ أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَآ إِصْرًا كَمَا حَمَلْتَهُۥ عَلَى ٱلَّذِينَ مِن قَبْلِنَا ۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِۦ ۖ وَٱعْفُ عَنَّا وَٱغْفِرْ لَنَا وَٱرْحَمْنَآ ۚ أَنتَ مَوْلَىٰنَا فَٱنصُرْنَا عَلَى ٱلْقَوْمِ ٱلْكَٰفِرِينَ"}, {"tokens": 15, "unique_all": 12, "unique_content": 8, "m1_avg": 3338.866666666667, "m2_total_cov": 23.854228408634633, "m3_content_cov": 4.378501367086671, "func_cov": 19.475727041547962, "label": "Al-Hashr 59:22", "ref": "59:22", "text": "هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَٰهَ إِلَّا هُوَ ۖ عَٰلِمُ ٱلْغَيْبِ وَٱلشَّهَٰدَةِ ۖ هُوَ ٱلرَّحْمَٰنُ ٱلرَّحِيمُ"}, {"tokens": 26, "unique_all": 18, "unique_content": 14, "m1_avg": 3075.1153846153848, "m2_total_cov": 17.796026844611003, "m3_content_cov": 5.0400565954761865, "func_cov": 12.755970249134815, "label": "Al-Hashr 59:23", "ref": "59:23", "text": "هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَٰهَ إِلَّا هُوَ ٱلْمَلِكُ ٱلْقُدُّوسُ ٱلسَّلَٰمُ ٱلْمُؤْمِنُ ٱلْمُهَيْمِنُ ٱلْعَزِيزُ ٱلْجَبَّارُ ٱلْمُتَكَبِّرُ ۚ سُبْحَٰنَ ٱللَّهِ عَمَّا يُشْرِكُونَ"}, {"tokens": 11, "unique_all": 8, "unique_content": 4, "m1_avg": 2672.090909090909, "m2_total_cov": 19.810328674403934, "m3_content_cov": 0.33460163285596833, "func_cov": 19.475727041547962, "label": "2:163 — لا إلاه إلا هو", "ref": "2:163", "text": "وَإِلَٰهُكُمْ إِلَٰهٌ وَٰحِدٌ ۖ لَّآ إِلَٰهَ إِلَّا هُوَ ٱلرَّحْمَٰنُ ٱلرَّحِيمُ"}, {"tokens": 7, "unique_all": 6, "unique_content": 4, "m1_avg": 3172.714285714286, "m2_total_cov": 13.22345653046787, "m3_content_cov": 2.782929580696354, "func_cov": 10.440526949771515, "label": "Bismillah", "ref": "1:1", "text": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"}, {"tokens": 3, "unique_all": 3, "unique_content": 3, "m1_avg": 1463.6666666666667, "m2_total_cov": 4.197816485344449, "m3_content_cov": 4.197816485344449, "func_cov": 0.0, "label": "Al-Ikhlas v1", "ref": "112:1", "text": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ قُلْ هُوَ ٱللَّهُ أَحَدٌ"}, {"tokens": 3, "unique_all": 3, "unique_content": 2, "m1_avg": 3692.3333333333335, "m2_total_cov": 10.589663677558747, "m3_content_cov": 2.5812125963174704, "func_cov": 8.008451081241276, "label": "Al-Ikhlas v2", "ref": "112:2", "text": "ٱللَّهُ ٱلصَّمَدُ"}, {"tokens": 11, "unique_all": 11, "unique_content": 7, "m1_avg": 1657.7272727272727, "m2_total_cov": 17.43274507179595, "m3_content_cov": 2.2504349821227128, "func_cov": 15.182310089673237, "label": "Ya-Sin 36:83", "ref": "36:83", "text": "فَسُبْحَٰنَ ٱلَّذِى بِيَدِهِۦ مَلَكُوتُ كُلِّ شَىْءٍ وَإِلَيْهِ تُرْجَعُونَ"}, {"tokens": 6, "unique_all": 6, "unique_content": 4, "m1_avg": 1157.5, "m2_total_cov": 6.639452400527715, "m3_content_cov": 1.3384065314238733, "func_cov": 5.301045869103841, "label": "Ar-Rahman 55:13", "ref": "55:13", "text": "فَبِأَىِّ ءَالَآءِ رَبِّكُمَا تُكَذِّبَانِ"}, {"tokens": 15, "unique_all": 14, "unique_content": 11, "m1_avg": 1816.8, "m2_total_cov": 24.649624290166535, "m3_content_cov": 4.38519339974379, "func_cov": 20.264430890422748, "label": "Al-Baqarah 2:21", "ref": "2:21", "text": "يَٰٓأَيُّهَا ٱلنَّاسُ ٱعْبُدُوا۟ رَبَّكُمُ ٱلَّذِى خَلَقَكُمْ وَٱلَّذِينَ مِن قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ"}, {"tokens": 35, "unique_all": 22, "unique_content": 16, "m1_avg": 2247.4, "m2_total_cov": 29.562532265157454, "m3_content_cov": 3.876598917802719, "func_cov": 25.685933347354734, "label": "Aal-Imran 3:26", "ref": "3:26", "text": "قُلِ ٱللَّهُمَّ مَٰلِكَ ٱلْمُلْكِ تُؤْتِى ٱلْمُلْكَ مَن تَشَآءُ وَتَنزِعُ ٱلْمُلْكَ مِمَّن تَشَآءُ وَتُعِزُّ مَن تَشَآءُ وَتُذِلُّ مَن تَشَآءُ ۖ بِيَدِكَ ٱلْخَيْرُ ۖ إِنَّكَ عَلَىٰ كُلِّ شَىْءٍ قَدِيرٌ"}];
+const TOTAL = 104602;
+let currentSort = null;
+let sortAsc = false;
+
+function render(data) {
+  const tbody = document.getElementById('tbody');
+  tbody.innerHTML = '';
+  const maxM2 = Math.max(...data.map(d => d.m2_total_cov));
+  
+  data.forEach(d => {
+    const funcW = Math.round((d.func_cov / maxM2) * 130);
+    const contW = Math.round((d.m3_content_cov / maxM2) * 130);
+    tbody.innerHTML += `<tr>
+      <td><strong>${d.label}</strong><br><span style="color:#94a3b8;font-size:0.7rem">${d.ref}</span></td>
+      <td class="ar">${d.text}</td>
+      <td class="r">${d.tokens}</td>
+      <td class="r">${d.unique_all}</td>
+      <td class="r">${d.unique_content}</td>
+      <td class="r" style="color:#3b82f6;font-weight:600">${d.m1_avg.toLocaleString(undefined, {maximumFractionDigits:0})}</td>
+      <td class="r" style="color:#059669;font-weight:600">${d.m2_total_cov.toFixed(2)}%</td>
+      <td class="r" style="color:#ec4899;font-weight:600">${d.m3_content_cov.toFixed(2)}%</td>
+      <td><div class="stacked">
+        <span class="bar bar-m2" style="width:${funcW}px" title="Function: ${d.func_cov.toFixed(1)}%"></span>
+        <span class="bar bar-m3" style="width:${contW}px" title="Content: ${d.m3_content_cov.toFixed(1)}%"></span>
+      </div></td>
+    </tr>`;
+  });
+}
+
+function sortTable(key) {
+  if (currentSort === key) sortAsc = !sortAsc;
+  else { currentSort = key; sortAsc = false; }
+  DATA.sort((a, b) => sortAsc ? a[key] - b[key] : b[key] - a[key]);
+  render(DATA);
+}
+
+// Initial sort by M2
+DATA.sort((a, b) => b.m2_total_cov - a.m2_total_cov);
+render(DATA);
+</script>
+</body>
+</html>

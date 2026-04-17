@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Verse Scoring Metrics — Comparison</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #f0f2f5; padding: 24px; color: #1a1a1a; max-width: 1200px; margin: 0 auto; }
+h1 { font-size: 1.4rem; margin-bottom: 4px; }
+.sub { color: #666; font-size: 0.85rem; margin-bottom: 20px; }
+.metrics-explain { background: #fff; padding: 16px 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #3b82f6; font-size: 0.85rem; line-height: 1.7; }
+.metrics-explain code { background: #f1f5f9; padding: 2px 6px; border-radius: 3px; font-size: 0.8rem; }
+.highlight { background: #dbeafe; padding: 2px 6px; border-radius: 3px; font-weight: 600; }
+table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+thead { background: #1e293b; color: #fff; }
+th { padding: 10px 12px; text-align: left; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500; }
+th.num { text-align: right; }
+td { padding: 10px 12px; border-bottom: 1px solid #f1f5f9; font-size: 0.85rem; vertical-align: middle; }
+td.num { text-align: right; font-variant-numeric: tabular-nums; }
+td.arabic { direction: rtl; font-family: 'Amiri', serif; font-size: 1rem; max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+tr:hover { background: #f8fafc; }
+.bar-cell { width: 120px; }
+.bar { height: 10px; border-radius: 5px; display: inline-block; vertical-align: middle; transition: width 0.3s; }
+.bar-m1 { background: linear-gradient(90deg, #60a5fa, #3b82f6); }
+.bar-cov { background: linear-gradient(90deg, #34d399, #059669); }
+.bar-cont { background: linear-gradient(90deg, #f472b6, #ec4899); }
+.section-header { background: #f8fafc; }
+.section-header td { font-weight: 700; font-size: 0.8rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; padding: 6px 12px; }
+.problem { color: #dc2626; font-weight: 600; }
+.winner { background: #f0fdf4; }
+.tab-row { display: flex; gap: 8px; margin-bottom: 16px; }
+.tab { padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; border: 1px solid #e2e8f0; background: #fff; }
+.tab.active { background: #1e293b; color: #fff; border-color: #1e293b; }
+.analysis { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 16px 20px; margin-top: 20px; font-size: 0.85rem; line-height: 1.7; }
+.analysis h3 { margin-bottom: 8px; }
+.vs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+.vs-card { background: #fff; padding: 16px; border-radius: 8px; border: 1px solid #e2e8f0; }
+.vs-card h3 { font-size: 0.95rem; margin-bottom: 8px; }
+.vs-card .value { font-size: 1.6rem; font-weight: 700; }
+.vs-card .label { font-size: 0.75rem; color: #64748b; }
+.green { color: #059669; }
+.red { color: #dc2626; }
+.blue { color: #2563eb; }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<h1>Verse Scoring Metrics — Side-by-Side Comparison</h1>
+<p class="sub">Testing your two metrics + a corrected "true coverage" alternative</p>
+
+<div class="metrics-explain">
+  <strong>Your Metric 1 (M1):</strong> <code>Σ(all word freqs) / word count</code> — average frequency per word token. Includes function words.<br>
+  <strong>Your Metric 2 (M2):</strong> <code>Σ(all word freqs) / total Qur'an words</code> — what % of the Qur'an this verse "covers." <span class="problem">⚠ Can exceed 100% (double-counts repeated lemmas).</span><br>
+  <strong>Proposed fix — True Coverage:</strong> <code>Σ(unique lemma freqs) / total</code> — each lemma counted <em>once</em>, regardless of repetition in the verse. <span class="highlight">Cannot exceed 100%.</span><br>
+  <strong>Content Coverage:</strong> Same as True Coverage but excluding function words. <span class="highlight">The purest signal of teaching value.</span>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Verse</th>
+      <th>Arabic</th>
+      <th class="num">Words</th>
+      <th class="num">Unique<br>Lemmas</th>
+      <th class="num">Content<br>Lemmas</th>
+      <th class="num">M1<br>Avg/Word</th>
+      <th class="num" style="color:#fca5a5">M2<br>Cov%Tok</th>
+      <th class="num" style="color:#86efac">True<br>Cov%</th>
+      <th class="num" style="color:#f9a8d4">Content<br>Cov%</th>
+      <th class="bar-cell">Content Coverage</th>
+    </tr>
+  </thead>
+  <tbody id="tbody"></tbody>
+</table>
+
+<div class="analysis">
+  <h3>What the numbers reveal</h3>
+  <p><strong>M2 (your Metric 2) breaks on long verses</strong> — Ayat al-Kursi scores 177.9%, which is meaningless. This happens because و (freq 9,594) appears 6 times, adding 57,564 to the sum. The student only learns و <em>once</em>.</p>
+  <p><strong>M1 (your Metric 1) is dominated by function words</strong> — 2:163 scores M1 = 2,672 (looks great!) but has only 4 content lemmas. The high average comes from ال, و, لا, إلّا — words the student already knows.</p>
+  <p><strong>True Coverage (unique lemma) fixes the >100% bug</strong> — Ayat al-Kursi = 41.8% (learn 38 unique lemmas → recognize 41.8% of all Qur'an word-tokens). That's a real, meaningful number.</p>
+  <p><strong>Content Coverage is the purest signal</strong> — strips function words, counts unique lemmas once. Ayat al-Kursi = 8.58% (29 content lemmas). This is the real teaching value: "how much <em>new vocabulary</em> does this verse unlock?"</p>
+</div>
+
+<div class="vs">
+  <div class="vs-card">
+    <h3>Recommendation: use <em>both</em></h3>
+    <div class="value blue">M1 + Content Cov%</div>
+    <div class="label" style="margin-top:8px; line-height:1.6">
+      <strong>M1 (avg freq/word)</strong> — quality filter: "are the words worth learning?"<br>
+      <strong>Content Coverage %</strong> — value filter: "how much Qur'an does this verse unlock?"<br><br>
+      M1 compares verses of any length fairly.<br>
+      Content Cov% rewards verses that teach <em>more unique content words</em>.
+    </div>
+  </div>
+  <div class="vs-card">
+    <h3>Drop M2 (token coverage)</h3>
+    <div class="value red">M2 ❌</div>
+    <div class="label" style="margin-top:8px; line-height:1.6">
+      M2 double-counts repeated lemmas, can exceed 100%, and is dominated by function words.<br><br>
+      True Coverage (unique-lemma) is strictly better — same idea, mathematically sound.
+    </div>
+  </div>
+</div>
+
+<script>
+const DATA = [{"tokens": 66, "unique_all": 38, "unique_content": 29, "m1_avg": 2819.257575757576, "m2_cov_tok": 177.8847440775511, "cov_unique": 41.83667616297967, "cov_content": 8.579185866427027, "label": "Ayat al-Kursi", "ref": "2:255", "text": "ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ ۚ لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَ ۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ ۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَا ۚ وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ"}, {"tokens": 15, "unique_all": 12, "unique_content": 8, "m1_avg": 3338.866666666667, "m2_cov_tok": 47.87958165235847, "cov_unique": 23.854228408634633, "cov_content": 4.378501367086671, "label": "Al-Hashr 59:22", "ref": "59:22", "text": "هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَٰهَ إِلَّا هُوَ ۖ عَٰلِمُ ٱلْغَيْبِ وَٱلشَّهَٰدَةِ ۖ هُوَ ٱلرَّحْمَٰنُ ٱلرَّحِيمُ"}, {"tokens": 26, "unique_all": 18, "unique_content": 14, "m1_avg": 3075.1153846153848, "m2_cov_tok": 76.43544100495211, "cov_unique": 17.796026844611003, "cov_content": 5.0400565954761865, "label": "Al-Hashr 59:23", "ref": "59:23", "text": "هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَٰهَ إِلَّا هُوَ ٱلْمَلِكُ ٱلْقُدُّوسُ ٱلسَّلَٰمُ ٱلْمُؤْمِنُ ٱلْمُهَيْمِنُ ٱلْعَزِيزُ ٱلْجَبَّارُ ٱلْمُتَكَبِّرُ ۚ سُبْحَٰنَ ٱللَّهِ عَمَّا يُشْرِكُونَ"}, {"tokens": 58, "unique_all": 37, "unique_content": 27, "m1_avg": 2275.0862068965516, "m2_cov_tok": 126.14959561002657, "cov_unique": 43.84141794611958, "cov_content": 7.959694843310835, "label": "Al-Baqarah last ayah", "ref": "2:286", "text": "لَا يُكَلِّفُ ٱللَّهُ نَفْسًا إِلَّا وُسْعَهَا ۚ لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا ٱكْتَسَبَتْ ۗ رَبَّنَا لَا تُؤَاخِذْنَآ إِن نَّسِينَآ أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَآ إِصْرًا كَمَا حَمَلْتَهُۥ عَلَى ٱلَّذِينَ مِن قَبْلِنَا ۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِۦ ۖ وَٱعْفُ عَنَّا وَٱغْفِرْ لَنَا وَٱرْحَمْنَآ ۚ أَنتَ مَوْلَىٰنَا فَٱنصُرْنَا عَلَى ٱلْقَوْمِ ٱلْكَٰفِرِينَ"}, {"tokens": 11, "unique_all": 8, "unique_content": 4, "m1_avg": 2672.090909090909, "m2_cov_tok": 28.099845127244222, "cov_unique": 19.810328674403934, "cov_content": 0.33460163285596833, "label": "2:163 — لا إلاه إلا هو", "ref": "2:163", "text": "وَإِلَٰهُكُمْ إِلَٰهٌ وَٰحِدٌ ۖ لَّآ إِلَٰهَ إِلَّا هُوَ ٱلرَّحْمَٰنُ ٱلرَّحِيمُ"}, {"tokens": 7, "unique_all": 6, "unique_content": 4, "m1_avg": 3172.714285714286, "m2_cov_tok": 21.231907611709143, "cov_unique": 13.22345653046787, "cov_content": 2.782929580696354, "label": "Bismillah", "ref": "1:1", "text": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"}, {"tokens": 3, "unique_all": 3, "unique_content": 3, "m1_avg": 1463.6666666666667, "m2_cov_tok": 4.197816485344449, "cov_unique": 4.197816485344449, "cov_content": 4.197816485344449, "label": "Al-Ikhlas v1", "ref": "112:1", "text": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ قُلْ هُوَ ٱللَّهُ أَحَدٌ"}, {"tokens": 3, "unique_all": 3, "unique_content": 2, "m1_avg": 3692.3333333333335, "m2_cov_tok": 10.589663677558747, "cov_unique": 10.589663677558747, "cov_content": 2.5812125963174704, "label": "Al-Ikhlas v2", "ref": "112:2", "text": "ٱللَّهُ ٱلصَّمَدُ"}, {"tokens": 11, "unique_all": 11, "unique_content": 7, "m1_avg": 1657.7272727272727, "m2_cov_tok": 17.43274507179595, "cov_unique": 17.43274507179595, "cov_content": 2.2504349821227128, "label": "Ya-Sin 36:83", "ref": "36:83", "text": "فَسُبْحَٰنَ ٱلَّذِى بِيَدِهِۦ مَلَكُوتُ كُلِّ شَىْءٍ وَإِلَيْهِ تُرْجَعُونَ"}, {"tokens": 6, "unique_all": 6, "unique_content": 4, "m1_avg": 1157.5, "m2_cov_tok": 6.639452400527715, "cov_unique": 6.639452400527715, "cov_content": 1.3384065314238733, "label": "Ar-Rahman 55:13", "ref": "55:13", "text": "فَبِأَىِّ ءَالَآءِ رَبِّكُمَا تُكَذِّبَانِ"}];
+const maxCov = Math.max(...DATA.map(d => d.cov_content));
+const tbody = document.getElementById('tbody');
+
+// Sort by content coverage descending
+DATA.sort((a, b) => b.cov_content - a.cov_content);
+
+DATA.forEach((d, i) => {
+  const barW = Math.round((d.cov_content / maxCov) * 110);
+  const isWinner = i === 0;
+  const m2problem = d.m2_cov_tok > 100 ? ' class="problem"' : '';
+  tbody.innerHTML += `<tr${isWinner ? ' class="winner"' : ''}>
+    <td><strong>${d.label}</strong><br><span style="color:#94a3b8;font-size:0.75rem">${d.ref}</span></td>
+    <td class="arabic">${d.text}</td>
+    <td class="num">${d.tokens}</td>
+    <td class="num">${d.unique_all}</td>
+    <td class="num">${d.unique_content}</td>
+    <td class="num">${d.m1_avg.toLocaleString(undefined, {maximumFractionDigits:0})}</td>
+    <td class="num"${m2problem}>${d.m2_cov_tok.toFixed(1)}%</td>
+    <td class="num" style="color:#059669;font-weight:600">${d.cov_unique.toFixed(2)}%</td>
+    <td class="num" style="color:#ec4899;font-weight:600">${d.cov_content.toFixed(2)}%</td>
+    <td class="bar-cell"><span class="bar bar-cont" style="width:${barW}px"></span></td>
+  </tr>`;
+});
+</script>
+</body>
+</html>

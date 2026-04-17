@@ -316,22 +316,33 @@ Foundation → Slice 1 (teacher Lesson 1) → Slice 2 (student Lesson 1) → Sli
 
 ### Slice 1 — Lesson 1 greenfield (teacher end-to-end)
 
+> **Detailed design:** [Slice 1 Verse Picker Spec](superpowers/specs/2026-04-17-slice-1-verse-picker-design.md) — covers architecture, scoring algorithm, picker UX, all design decisions, and interactive mockups. The spec below is the summary; the linked doc is authoritative for Slice 1 implementation.
+
 **Goal:** teacher re-authors Lesson 1 from scratch through the new stack.
 
+**Key design shifts (2026-04-17 brainstorm):**
+- **Scoring unit = waqf sentence**, not full verse. All verses pre-split at waqf marks during P1. Long ayahs become 3-9 word teaching units. Eliminates fragment penalty + manual audio timestamp work.
+- **3-dimension Phase A1 scoring**: D1 (avg word frequency), D3 (content coverage %), D4 (length sweet spot). Deterministic, computed from Layer 1. Replaces 4-dimension Tier 1.
+- **Score-first picker, not form-first.** Teacher sees all 290 candidate sentences ranked by composite score, filters by root/form. Diversity via diminishing-returns decay (0.7).
+- **اللَّه excluded from form partitioning.** 92% of candidates contain the proper noun — excluding it reduces noise from 2,512 to 290 clean candidates.
+- **Seed phrases** — new `seedPhrases` entity with 7 Adhān phrase→root mappings. Teacher types phrase → system suggests roots.
+- **DB-only deliverable** — no student surface, no Jekyll export. Publish = phase-state transition.
+- **No LLM API** — Tier-2 scoring via export-kit → separate Claude Code session → import JSON.
+
 **Scope:**
-- Foundation P1 + P3 + P4 (narrowed Layer 1 + InstantDB seed + minimal sync; P2 migration *not* needed)
-- F0.1 · add root (ilāh, kabura)
-- F0.2 · Tier 1 auto-scoring
-- F0.3 · Tier 2 LLM scoring — fresh run, `hookReason` offered as remark seed
-- F0.6 · job status UI (minimal)
-- F1 · full picker (form-first, budget card, 3-state selector, hidden scores, form-header actions, skip-form)
-- F2 · annotation (remark, root/form notes, inline translation — no synonym/antonym yet)
-- F3 · audio production (TTS preview, fragment timestamps, audioJobs queue)
-- F4 · publish + formLessonDecision log + phase-gate UI
+- Foundation P1 + P3 + P4 (narrowed Layer 1 with waqf fragmentation + InstantDB seed + pull-only sync; P2 migration *not* needed)
+- F0.1 · add root (ilāh, kabura) via seed-phrase lookup
+- F0.2 · Phase A1 auto-scoring (D1/D3/D4)
+- F0.3 · Phase A2 LLM scoring — export kit, manual run, import `hookScore`/`hookReason`
+- F0.6 · job status UI (minimal, audio jobs only — no LLM jobs)
+- F1 · sentence picker (score-first ranking, weight sliders, diversity, selection summary, form coverage detail panel, missing-forms indicator)
+- F2 · annotation (remark with hookReason seed, root/form notes, inline translation)
+- F3 · audio production (TTS preview, fragment timestamps via waqf-aligned cuts, audioJobs queue via worker daemon, audio stored in InstantDB $files)
+- F4 · publish + formLessonDecision log (taught/unassigned/skipped, soft gate)
 
 **Out:** F0.4 LLM translation · F0.5 synonym/antonym · F0.7 recompute · `modules` entity · `verses`→`phrases` rename · any student-facing surface · `verseWords` seed (can defer if slow; explorer doesn't ship until Slice 3+)
 
-**Acceptance:** published Lesson 1 in new stack · Jekyll Lesson 1 untouched · teacher produces it without reaching for the old JSONs.
+**Acceptance:** published Lesson 1 in new stack (DB-only) · Jekyll Lesson 1 untouched · teacher produces it without reaching for the old JSONs · full test suite passes (unit + E2E).
 
 ### Slice 2 — Lesson 1 student loop
 
@@ -401,6 +412,8 @@ Captured for future sessions. None of these block Slice 1.
 4. [docs/decisions/ADR-011-instantdb-student-experience.md](decisions/ADR-011-instantdb-student-experience.md) — web-first / Expo-later two-track strategy
 5. [docs/decisions/ADR-009-local-root-pipeline.md](decisions/ADR-009-local-root-pipeline.md) — the 3 vendored text files + local-only pipeline that replaced corpus.quran.com scraping
 6. **This PRD** — product synthesis
+7. [docs/superpowers/specs/2026-04-17-slice-1-verse-picker-design.md](superpowers/specs/2026-04-17-slice-1-verse-picker-design.md) — ⭐ Slice 1 detailed design: picker UX, sentence-level scoring, architecture, all decisions + interactive mockups
+8. [docs/SCORING.md](SCORING.md) — scoring algorithm v4 (waqf sentences, 3-dimension D1/D3/D4, four-phase A1/A2/B/C)
 
 ### Brainstorm input docs (kept for the "why" trail)
 
