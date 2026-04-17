@@ -23,3 +23,6 @@ tools/.venv/
 
 # Superpowers brainstorming companion
 .superpowers/
+
+# Superpowers isolated worktrees
+.worktrees/
