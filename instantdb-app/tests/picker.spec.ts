@@ -41,4 +41,14 @@ test.describe("Picker data hook (/picker/:n minimal shell)", () => {
     await expect(page.getByText("Words", { exact: true })).toBeVisible();
     await expect(page.getByText("Forms", { exact: true })).toBeVisible();
   });
+
+  test("clicking a heatmap chip activates a filter and shows Clear", async ({ page }) => {
+    await session(page).visit("/picker/3");
+    await expect(page.locator("text=Loading...")).not.toBeVisible();
+    const chip = page.locator("[data-testid='heatmap-chip']").first();
+    await chip.click();
+    await expect(page.getByRole("button", { name: /Clear filter/i })).toBeVisible();
+    await chip.click();
+    await expect(page.getByRole("button", { name: /Clear filter/i })).not.toBeVisible();
+  });
 });

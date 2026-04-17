@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { usePickerData } from "./usePickerData";
 import { ControlsBar, DEFAULT_CONTROLS, type ControlsState } from "./ControlsBar";
-import { SelectionBar } from "./SelectionBar";
+import { SelectionBar, type FilterState } from "./SelectionBar";
 import { rankCandidates, autoSelectTopK } from "./scoring";
 
 export default function PickerPage({
@@ -19,6 +19,7 @@ export default function PickerPage({
   const router = useRouter();
 
   const [controls, setControls] = useState<ControlsState>(DEFAULT_CONTROLS);
+  const [filter, setFilter] = useState<FilterState>({ kind: "none" });
 
   const ranked = useMemo(() => rankCandidates(data.candidates, controls.weights), [data.candidates, controls.weights]);
 
@@ -83,8 +84,8 @@ export default function PickerPage({
         coverageByRoot={new Map()}
         lessonRoots={data.roots.map((r) => ({ key: r.key, transliteration: r.transliteration }))}
         lessonForms={data.forms.map((f) => ({ rootKey: f.rootKey, lemmaArabic: f.lemmaArabic }))}
-        activeFilter={{ kind: "none" }}
-        onFilterChange={() => {}}
+        activeFilter={filter}
+        onFilterChange={setFilter}
       />
 
       {/* CandidateTable lands in Task 12 */}
