@@ -67,18 +67,20 @@ export type PickerData = {
 export function usePickerData(lessonNumber: number): PickerData {
   const member = useCurrentCourseMember();
 
-  // Phase 1 — small. Gets all 7 lessons and the roots in scope for this lesson.
+  // Phase 1 — small. Fetch all 7 lessons + all 10 roots (both tiny). Scope
+  // to this lesson client-side (avoids $lte which some InstantDB versions
+  // don't accept yet).
   const phase1 = db.useQuery({
     lessons: {},
-    roots: {
-      $: { where: { introducedInLesson: { $lte: lessonNumber } } },
-    },
+    roots: {},
   });
 
-  const rootKeys = useMemo(
-    () => ((phase1.data?.roots ?? []) as unknown as RootRow[]).map((r) => r.key),
-    [phase1.data],
-  );
+  const rootKeys = useMemo(() => {
+    const allRoots = (phase1.data?.roots ?? []) as unknown as RootRow[];
+    return allRoots
+      .filter((r) => (r.introducedInLesson ?? 0) <= lessonNumber)
+      .map((r) => r.key);
+  }, [phase1.data, lessonNumber]);
 
   // Phase 2 — scoped to rootKeys. null until phase 1 returns a non-empty set.
   const phase2 = db.useQuery(
