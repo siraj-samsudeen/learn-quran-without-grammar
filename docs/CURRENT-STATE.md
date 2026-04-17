@@ -4,24 +4,27 @@ _Last updated: 2026-04-17 (evening)_
 
 > **Read this first** when resuming work in a new session. Gives you everything needed to pick up where we stopped.
 
-> ✅ **2026-04-17 (evening) — Slice 1 picker + scoring fully designed; ready for implementation planning.**
+> ✅ **2026-04-17 (late evening) — UX audit complete, ready for implementation planning.**
 >
-> The Slice 1 verse picker design is complete with interactive mockups validated by the teacher. **Next step: invoke `/superpowers:writing-plans` to create the implementation plan from the spec.**
+> Picker UX has been audited and refined. **Next step: invoke `/superpowers:writing-plans` to create the implementation plan.**
 >
 > **Read these docs in order:**
-> 1. **[Slice 1 Picker Spec](superpowers/specs/2026-04-17-slice-1-verse-picker-design.md)** — ⭐ START HERE. Full design: architecture (3 processes + InstantDB cloud), sentence-level scoring (waqf fragmentation), 3-dimension model (D1/D2/D3), picker UX with selection + summary, thin-slice build order, schema additions, acceptance criteria.
-> 2. **[SCORING.md](SCORING.md)** — v4 algorithm: waqf sentences as scoring unit, four-phase A1/A2/B/C architecture, اللَّه excluded from forms, diminishing-returns diversity.
-> 3. **[PRD.md §8](PRD.md)** — Slice 1 section updated with design shifts + spec reference.
-> 4. **[Interactive mockups](design/mockups/picker-scoring/)** — open `verse-picker-explorer-v4.html` in a browser to see the final picker prototype with real data from ilāh + kabura (290 sentences, checkboxes, selection summary, form coverage detail panel).
+> 1. **[Picker UX Audit](superpowers/specs/2026-04-17-picker-ux-audit-and-validators.md)** — ⭐ START HERE. Amends the original spec with: 5-phase authoring model, collapsible controls, traffic-light heatmap chips, chip-as-filter interaction, 8-column table, direct InstantDB scoring (no export/import), DB prep validators. **When this and the original spec diverge, this doc wins.**
+> 2. **[Slice 1 Picker Spec](superpowers/specs/2026-04-17-slice-1-verse-picker-design.md)** — Original design: architecture (3 processes + InstantDB cloud), sentence-level scoring, thin-slice build order, schema additions, acceptance criteria.
+> 3. **[Picker UI Reference](design/picker-ui-reference.md)** — Visual implementation guide: exact colors, spacing, chip styles, filter states, table columns, stacked bars.
+> 4. **[SCORING.md](SCORING.md)** — v4 algorithm: waqf sentences, D1/D2/D3, four-phase A1/A2/B/C.
+> 5. **[PRD.md §8](PRD.md)** — Slice 1 scope summary.
 >
-> **Key design decisions locked (2026-04-17 brainstorm):**
-> - Scoring unit = waqf sentence (not full verse). Qur'an's waqf marks produce 3-9 word teaching units.
-> - 3 dimensions: D1 (avg word freq 35%), D2 (content coverage 25%), D3 (length sweet spot 40%). Renumbered sequentially after dropping original D2 (total coverage).
-> - اللَّه excluded from form partitioning (92% of candidates, no teaching value). Pool: 290 sentences.
-> - Score-first picker (not form-first). Diversity via diminishing returns decay (0.7).
-> - DB-only deliverable. No LLM API — export kit + separate CC session.
-> - Worker daemon for audio jobs. InstantDB $files for audio storage. Magic-link auth.
-> - `seedPhrases` entity (7 Adhān phrases → roots). Soft budget warnings (never hard caps).
+> **Key design decisions (2026-04-17 brainstorms):**
+> - Scoring unit = waqf sentence. 3 dimensions: D1/D2/D3 (renumbered sequentially).
+> - اللَّه excluded. Pool: 290 sentences. Diversity via decay (0.7).
+> - 5-phase authoring: Selection → Annotation → Audio → QA → Publish.
+> - Traffic-light chips: red ×1 (weak) / yellow ×2 / green ×3+ (strong) / dashed (uncovered).
+> - Chips double as filter controls. No Details panel, no Clear button.
+> - 8-column table (down from 12). hookScore in composite when available.
+> - Tier-2 scoring via separate CC session reading/writing InstantDB directly (no export/import).
+> - formLessonDecision entity retired.
+> - DB prep validators for all 5 pipeline steps.
 >
 > **Previous updates (superseded by above):**
 
@@ -233,31 +236,32 @@ UI was reworked April 2026: warm parchment background, Amiri Arabic font, 6px le
 Paste this into a fresh Claude session to pick up cleanly:
 
 ```
-Implement Slice 1 of LQWG — the teacher verse picker.
+Create the implementation plan for Slice 1 of LQWG — the teacher verse picker.
 
-The design is complete. Read these in order, then create the implementation plan:
+The design is complete. Read these in order, then write the plan:
 
 1. docs/CURRENT-STATE.md — where we stopped (this file). Read the top banner.
-2. docs/superpowers/specs/2026-04-17-slice-1-verse-picker-design.md — ⭐ THE SPEC.
-   Full design: architecture, scoring, picker UX, all decisions, build order, schema,
-   acceptance criteria. This is authoritative.
-3. docs/SCORING.md — v4 scoring algorithm (sentence-level, 3-dimension D1/D2/D3,
-   four-phase A1/A2/B/C).
-4. docs/PRD.md §8 — Slice 1 section with scope summary.
-5. Open docs/design/mockups/picker-scoring/verse-picker-explorer-v4.html in a browser —
-   this is the functional picker prototype with real data. The implementation should
-   match this UX.
+2. docs/superpowers/specs/2026-04-17-picker-ux-audit-and-validators.md — ⭐ THE AUDIT.
+   Amends the original spec: 5-phase authoring, traffic-light chips, chip filtering,
+   8-column table, direct InstantDB scoring, DB validators. WINS over original spec.
+3. docs/superpowers/specs/2026-04-17-slice-1-verse-picker-design.md — original spec.
+   Architecture, scoring, build order, schema, acceptance criteria.
+4. docs/design/picker-ui-reference.md — visual implementation guide (colors, spacing,
+   chip styles, filter states, table columns).
+5. docs/SCORING.md — v4 scoring algorithm (D1/D2/D3, four-phase A1/A2/B/C).
 
-The spec has a thin-slice build order (§6) — use it as a starting point for the
-implementation plan. Key tech decisions already locked:
+The original spec has a thin-slice build order (§6) — use it as a starting point.
+Key tech decisions already locked:
   - Next.js 16 + InstantDB + Tailwind (existing instantdb-app/ scaffold)
   - Python worker daemon (tools/worker.py) for audio jobs
   - InstantDB magic-link auth
   - InstantDB $files for audio storage
   - feather-testing-core DSL for all tests
-  - No LLM API — Tier-2 via export kit + import
+  - Tier-2 scoring: separate CC session reads/writes InstantDB directly (no export/import)
+  - hookScore included in composite when available, not a gate
+  - formLessonDecision entity retired
 
-Invoke /superpowers:writing-plans to create the implementation plan from the spec.
+Invoke /superpowers:writing-plans to create the implementation plan from the specs.
 ```
 
 Rules from CLAUDE.md still apply: ask questions one at a time, push back with critique,
