@@ -55,11 +55,11 @@ const ADHAN_PHRASES = [
 
 const LESSON_SEEDS = [
   { lessonNumber: 1, slug: "lesson-01-allahu-akbar", title: "Allahu Akbar",
-    seedArabic: "اللهُ أَكْبَرُ", seedEnglish: "Allah is Greater", notes: "Live since initial launch",
-    phaseSelection: "done", phaseAnnotation: "done", phaseAudio: "done", phaseQA: "done", phasePublished: "done" },
+    seedArabic: "اللهُ أَكْبَرُ", seedEnglish: "Allah is Greater", notes: "Restarting selection",
+    phaseSelection: "ready", phaseAnnotation: "blocked", phaseAudio: "blocked", phaseQA: "blocked", phasePublished: "blocked" },
   { lessonNumber: 2, slug: "lesson-02-shahida", title: "I Bear Witness",
-    seedArabic: "أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ", seedEnglish: "I bear witness that there is no god but Allah", notes: "Live",
-    phaseSelection: "done", phaseAnnotation: "done", phaseAudio: "done", phaseQA: "done", phasePublished: "done" },
+    seedArabic: "أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا ٱللَّهُ", seedEnglish: "I bear witness that there is no god but Allah", notes: "Restarting selection",
+    phaseSelection: "ready", phaseAnnotation: "blocked", phaseAudio: "blocked", phaseQA: "blocked", phasePublished: "blocked" },
   { lessonNumber: 3, slug: "lesson-03-rasul", title: "Messenger of Allah",
     seedArabic: "أَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ ٱللَّهِ", seedEnglish: "I bear witness that Muhammad is the Messenger of Allah",
     notes: "Picker ready", phaseSelection: "ready", phaseAnnotation: "blocked", phaseAudio: "blocked", phaseQA: "blocked", phasePublished: "blocked" },

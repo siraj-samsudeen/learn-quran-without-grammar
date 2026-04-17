@@ -11,7 +11,8 @@
     "seed": "node scripts/seed-from-sqlite.mjs",
     "seed:clear": "node scripts/seed-from-sqlite.mjs --clear",
     "seed:status": "node scripts/seed-from-sqlite.mjs --status",
-    "seed:dry": "node scripts/seed-from-sqlite.mjs --dry-run"
+    "seed:dry": "node scripts/seed-from-sqlite.mjs --dry-run",
+    "reset:phases": "node scripts/reset-lesson-phases.mjs"
   },
   "dependencies": {
     "@instantdb/admin": "^1.0.1",
