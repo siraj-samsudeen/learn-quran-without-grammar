@@ -171,6 +171,49 @@ export function SelectionBar(props: SelectionBarProps) {
           );
         })}
 
+        {!anyFilter && (
+          <div
+            data-testid="heatmap-hint"
+            className="basis-full text-[9px] text-[#94a3b8] px-3 pb-1"
+          >
+            Click any form or root to filter the table below
+          </div>
+        )}
+
+        <div
+          data-testid="heatmap-legend"
+          className="basis-full flex gap-2 px-3 pb-1 text-[9px] text-[#94a3b8]"
+        >
+          <span className="inline-flex items-center gap-1">
+            <span
+              className="inline-block w-2 h-2 rounded-sm"
+              style={{ border: "1.5px dashed #d1d5db" }}
+            />
+            not picked
+          </span>
+          <span className="inline-flex items-center gap-1">
+            <span
+              className="inline-block w-2 h-2 rounded-sm"
+              style={{ background: "#ef4444" }}
+            />
+            ×1
+          </span>
+          <span className="inline-flex items-center gap-1">
+            <span
+              className="inline-block w-2 h-2 rounded-sm"
+              style={{ background: "#f59e0b" }}
+            />
+            ×2
+          </span>
+          <span className="inline-flex items-center gap-1">
+            <span
+              className="inline-block w-2 h-2 rounded-sm"
+              style={{ background: "#22c55e" }}
+            />
+            ×3+
+          </span>
+        </div>
+
         {anyFilter && (
           <div
             data-testid="filter-status-line"

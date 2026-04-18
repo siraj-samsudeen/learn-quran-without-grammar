@@ -194,4 +194,21 @@ test.describe("Picker data hook (/picker/:n minimal shell)", () => {
     await expect(status).toContainText("sentences");
     if (lemma) await expect(status).toContainText(lemma);
   });
+
+  test("selection bar shows a hint text when no filter is active", async ({ page }) => {
+    await session(page).visit("/picker/1");
+    await expect(page.locator("[data-testid='picker-candidate-count']")).toBeVisible();
+    await expect(page.getByText(/Click any form or root to filter/)).toBeVisible();
+  });
+
+  test("selection bar shows a 4-item traffic-light legend", async ({ page }) => {
+    await session(page).visit("/picker/1");
+    await expect(page.locator("[data-testid='picker-candidate-count']")).toBeVisible();
+    const legend = page.locator("[data-testid='heatmap-legend']");
+    await expect(legend).toBeVisible();
+    await expect(legend).toContainText("not picked");
+    await expect(legend).toContainText("×1");
+    await expect(legend).toContainText("×2");
+    await expect(legend).toContainText("×3");
+  });
 });
