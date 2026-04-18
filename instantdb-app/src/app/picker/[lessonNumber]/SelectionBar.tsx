@@ -44,13 +44,13 @@ function Gauge({ value, min, max, label }: { value: number; min: number; max: nu
   );
 }
 
-function chipState(count: number, hasForm: boolean): {
+function chipState(count: number): {
   border: string;
   bg: string;
   text: string;
   dashed: boolean;
 } {
-  if (!hasForm) {
+  if (count === 0) {
     return { border: "#d1d5db", bg: "#fafafa", text: "#cbd5e1", dashed: true };
   }
   if (count >= 3) return { border: "#22c55e", bg: "#f0fdf4", text: "#1f2937", dashed: false };
@@ -129,7 +129,7 @@ export function SelectionBar(props: SelectionBarProps) {
               </button>
               {forms.map((lemma) => {
                 const count = countsByForm.get(`${root.key}|${lemma}`) ?? 0;
-                const { border, bg, text, dashed } = chipState(count, forms.includes(lemma));
+                const { border, bg, text, dashed } = chipState(count);
                 const active = isFormActive(root.key, lemma);
                 const chipDim = anyFilter && !active && props.activeFilter.kind === "form";
                 const style: React.CSSProperties = active

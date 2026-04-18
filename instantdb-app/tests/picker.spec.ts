@@ -98,6 +98,25 @@ test.describe("Picker data hook (/picker/:n minimal shell)", () => {
     await expect(same).toHaveAttribute("data-selected", "false");
   });
 
+  test("not-picked heatmap chips render dashed gray, not solid red", async ({ page }) => {
+    await session(page).visit("/picker/1");
+    await expect(page.locator("[data-testid='picker-candidate-count']")).toBeVisible();
+
+    const uncovered = page.locator("[data-testid='heatmap-chip'][data-count='0']").first();
+    await expect(uncovered).toBeVisible();
+
+    const borderStyle = await uncovered.evaluate(
+      (el) => getComputedStyle(el).borderStyle,
+    );
+    expect(borderStyle).toBe("dashed");
+
+    const borderColor = await uncovered.evaluate(
+      (el) => getComputedStyle(el).borderTopColor,
+    );
+    // #d1d5db = rgb(209, 213, 219)
+    expect(borderColor).toBe("rgb(209, 213, 219)");
+  });
+
   test("loading a fresh lesson auto-selects 10 candidates", async ({ page }) => {
     // Pre-requisite: the lesson must have zero existing selections.
     // Pre-flight P3 wiped all selections, and earlier tests are self-cleaning,
