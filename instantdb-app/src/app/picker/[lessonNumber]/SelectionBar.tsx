@@ -5,12 +5,12 @@ import type { SentenceRow } from "./usePickerData";
 
 export type SelectionBarProps = {
   selectedSentences: SentenceRow[];
-  /** forms per root-key already covered by selections */
-  coverageByRoot: Map<string, Map<string, number>>;
   lessonRoots: { key: string; transliteration: string }[];
   lessonForms: { rootKey: string; lemmaArabic: string }[];
   activeFilter: FilterState;
   onFilterChange: (next: FilterState) => void;
+  /** Number of sentences remaining after the current filter is applied. */
+  filteredCount: number;
 };
 
 export type FilterState =
@@ -170,6 +170,29 @@ export function SelectionBar(props: SelectionBarProps) {
             </div>
           );
         })}
+
+        {anyFilter && (
+          <div
+            data-testid="filter-status-line"
+            className="basis-full text-[9px] text-[#64748b]"
+          >
+            Showing <strong>{props.filteredCount} sentences</strong>{" "}
+            {props.activeFilter.kind === "form" && (
+              <>
+                containing{" "}
+                <strong className="font-arabic" dir="rtl">
+                  {props.activeFilter.lemmaArabic}
+                </strong>
+              </>
+            )}
+            {props.activeFilter.kind === "root" && (
+              <>
+                from root <strong>{props.activeFilter.rootKey}</strong>
+              </>
+            )}{" "}
+            · click another chip or clear
+          </div>
+        )}
 
         {anyFilter && (
           <button

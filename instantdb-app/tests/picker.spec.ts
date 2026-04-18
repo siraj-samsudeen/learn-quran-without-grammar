@@ -179,4 +179,19 @@ test.describe("Picker data hook (/picker/:n minimal shell)", () => {
       await expect(page.locator("[data-testid='candidate-row']").first()).toBeVisible();
     }
   });
+
+  test("clicking a chip shows a status line with the filtered sentence count", async ({ page }) => {
+    await session(page).visit("/picker/1");
+    await expect(page.locator("[data-testid='picker-candidate-count']")).toBeVisible();
+
+    const chip = page.locator("[data-testid='heatmap-chip']").first();
+    const lemma = await chip.getAttribute("data-lemma");
+    await chip.click();
+
+    const status = page.locator("[data-testid='filter-status-line']");
+    await expect(status).toBeVisible();
+    await expect(status).toContainText("Showing");
+    await expect(status).toContainText("sentences");
+    if (lemma) await expect(status).toContainText(lemma);
+  });
 });

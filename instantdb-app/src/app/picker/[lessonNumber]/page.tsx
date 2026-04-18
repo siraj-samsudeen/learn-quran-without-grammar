@@ -36,6 +36,20 @@ export default function PickerPage({
 
   const selectedIds = useMemo(() => new Set(data.selections.keys()), [data.selections]);
 
+  const filteredCount = useMemo(() => {
+    if (filter.kind === "none") return data.candidates.length;
+    if (filter.kind === "root") {
+      return data.sentences.filter((s) =>
+        (s.forms ?? []).some((f) => f.rootKey === filter.rootKey),
+      ).length;
+    }
+    return data.sentences.filter((s) =>
+      (s.forms ?? []).some(
+        (f) => f.rootKey === filter.rootKey && f.lemmaArabic === filter.lemmaArabic,
+      ),
+    ).length;
+  }, [filter, data.sentences, data.candidates.length]);
+
   async function toggleSelect(sentenceId: string) {
     if (!data.lesson || !data.currentMemberId) return;
     const existing = data.selections.get(sentenceId);
@@ -159,11 +173,11 @@ export default function PickerPage({
 
       <SelectionBar
         selectedSentences={selected}
-        coverageByRoot={new Map()}
         lessonRoots={data.roots.map((r) => ({ key: r.key, transliteration: r.transliteration }))}
         lessonForms={data.forms.map((f) => ({ rootKey: f.rootKey, lemmaArabic: f.lemmaArabic }))}
         activeFilter={filter}
         onFilterChange={setFilter}
+        filteredCount={filteredCount}
       />
 
       <CandidateTable
