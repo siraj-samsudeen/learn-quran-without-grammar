@@ -5,7 +5,7 @@ import type { SentenceRow } from "./usePickerData";
 import type { FilterState } from "./SelectionBar";
 import { surahName } from "./surah-names";
 
-export type SortKey = "score" | "words" | "ref";
+export type SortKey = "score" | "words" | "ref" | "forms" | "arabic" | "english";
 export type SortDir = "asc" | "desc";
 
 export type TableProps = {
@@ -49,6 +49,17 @@ export function CandidateTable(props: TableProps) {
         (props.rankById.get(b.id)?.score ?? 0) - (props.rankById.get(a.id)?.score ?? 0),
       words: (a: SentenceRow, b: SentenceRow) => a.wordCount - b.wordCount,
       ref: (a: SentenceRow, b: SentenceRow) => a.verseRef.localeCompare(b.verseRef, "en", { numeric: true }),
+      forms: (a: SentenceRow, b: SentenceRow) => {
+        const al = a.forms?.[0]?.lemmaArabic ?? "";
+        const bl = b.forms?.[0]?.lemmaArabic ?? "";
+        return al.localeCompare(bl);
+      },
+      arabic: (a: SentenceRow, b: SentenceRow) => a.arabic.localeCompare(b.arabic),
+      english: (a: SentenceRow, b: SentenceRow) => {
+        const ae = a.verse?.translation?.english?.toLowerCase() ?? "";
+        const be = b.verse?.translation?.english?.toLowerCase() ?? "";
+        return ae.localeCompare(be);
+      },
     }[sort.key];
     const sorted = [...filtered].sort(cmp);
     if (sort.dir === "asc") sorted.reverse();
@@ -69,9 +80,15 @@ export function CandidateTable(props: TableProps) {
           <th className="px-2 py-2 text-left w-[100px] cursor-pointer" onClick={() => toggleSort("ref")}>
             Ref
           </th>
-          <th className="px-2 py-2 text-left w-[100px]">Lemmas</th>
-          <th className="px-2 py-2 text-right">Arabic</th>
-          <th className="px-2 py-2 text-left">English</th>
+          <th className="px-2 py-2 text-left w-[100px] cursor-pointer" onClick={() => toggleSort("forms")}>
+            Lemmas
+          </th>
+          <th className="px-2 py-2 text-right cursor-pointer" onClick={() => toggleSort("arabic")}>
+            Arabic
+          </th>
+          <th className="px-2 py-2 text-left cursor-pointer" onClick={() => toggleSort("english")}>
+            English
+          </th>
           <th className="px-2 py-2 text-right w-[40px] cursor-pointer" onClick={() => toggleSort("words")}>
             # Words
           </th>

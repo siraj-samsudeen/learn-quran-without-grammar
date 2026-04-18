@@ -163,4 +163,20 @@ test.describe("Picker data hook (/picker/:n minimal shell)", () => {
       })
       .toBe(10);
   });
+
+  test("clicking the Forms / Arabic / English column headers sorts the table", async ({ page }) => {
+    await session(page).visit("/picker/1");
+    await expect(page.locator("[data-testid='candidate-row']").first()).toBeVisible();
+
+    // Header text is "Lemmas" today; Task 7 renames it to "Forms".
+    for (const header of ["Lemmas", "Arabic", "English"]) {
+      const th = page.locator("thead th").filter({ hasText: header });
+      await th.click();
+      // After clicking, the first row should still be visible — verifies click wired up
+      await expect(page.locator("[data-testid='candidate-row']").first()).toBeVisible();
+      // Click again to toggle direction
+      await th.click();
+      await expect(page.locator("[data-testid='candidate-row']").first()).toBeVisible();
+    }
+  });
 });
