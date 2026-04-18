@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useCurrentUser } from "@/lib/auth";
 
 export default function AuthGate({ children }: { children: React.ReactNode }) {
-  const user = useCurrentUser();
+  const { user } = useCurrentUser();
   const pathname = usePathname();
   const router = useRouter();
 

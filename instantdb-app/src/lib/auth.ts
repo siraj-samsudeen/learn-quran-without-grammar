@@ -21,17 +21,23 @@ export type CurrentUser = {
   isDev: boolean;
 };
 
-export function useCurrentUser(): CurrentUser | null {
+export type CurrentUserState = {
+  user: CurrentUser | null;
+  isLoading: boolean;
+};
+
+export function useCurrentUser(): CurrentUserState {
   if (DEV_EMAIL) {
-    return { email: DEV_EMAIL, isDev: true };
+    return { user: { email: DEV_EMAIL, isDev: true }, isLoading: false };
   }
   const auth = db.useAuth();
-  if (auth.isLoading || auth.error || !auth.user) return null;
-  return { email: auth.user.email, isDev: false };
+  if (auth.isLoading) return { user: null, isLoading: true };
+  if (auth.error || !auth.user) return { user: null, isLoading: false };
+  return { user: { email: auth.user.email ?? "", isDev: false }, isLoading: false };
 }
 
 export function useCurrentCourseMember(courseSlug = "lqwg-adhan") {
-  const user = useCurrentUser();
+  const { user } = useCurrentUser();
   const { data } = db.useQuery(
     user
       ? {

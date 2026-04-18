@@ -6,7 +6,7 @@ import { useCurrentUser, sendMagicCode, signInWithCode } from "@/lib/auth";
 
 export default function LoginPage() {
   const router = useRouter();
-  const user = useCurrentUser();
+  const { user } = useCurrentUser();
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
   const [sent, setSent] = useState(false);
