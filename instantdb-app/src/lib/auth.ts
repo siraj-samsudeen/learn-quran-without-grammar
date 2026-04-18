@@ -32,8 +32,8 @@ export function useCurrentUser(): CurrentUserState {
   }
   const auth = db.useAuth();
   if (auth.isLoading) return { user: null, isLoading: true };
-  if (auth.error || !auth.user) return { user: null, isLoading: false };
-  return { user: { email: auth.user.email ?? "", isDev: false }, isLoading: false };
+  if (auth.error || !auth.user || !auth.user.email) return { user: null, isLoading: false };
+  return { user: { email: auth.user.email, isDev: false }, isLoading: false };
 }
 
 export function useCurrentCourseMember(courseSlug = "lqwg-adhan") {
