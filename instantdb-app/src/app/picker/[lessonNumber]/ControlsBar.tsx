@@ -77,13 +77,15 @@ export function ControlsBar({
           );
         })}
 
-        <button
-          type="button"
-          onClick={() => setExpanded((v) => !v)}
-          className="ml-auto px-[10px] py-[3px] rounded-md bg-[#f1f5f9] border border-[#cbd5e1] text-[11px] text-[#64748b]"
-        >
-          {expanded ? "▲ Collapse" : "⚙ Fine-tune Ranking"}
-        </button>
+        {!expanded && (
+          <button
+            type="button"
+            onClick={() => setExpanded(true)}
+            className="ml-auto px-[10px] py-[3px] rounded-md bg-[#f1f5f9] border border-[#cbd5e1] text-[11px] text-[#64748b]"
+          >
+            ⚙ Fine-tune Ranking
+          </button>
+        )}
       </div>
 
       {expanded && (
@@ -98,6 +100,15 @@ export function ControlsBar({
             onChange={(v) => onChange({ ...state, diversity: v / 100 })}
             max={100}
           />
+          <div className="flex justify-end pt-2 col-span-4">
+            <button
+              type="button"
+              onClick={() => setExpanded(false)}
+              className="px-[10px] py-[3px] rounded-md bg-[#f1f5f9] border border-[#cbd5e1] text-[11px] text-[#64748b]"
+            >
+              ▲ Collapse
+            </button>
+          </div>
         </div>
       )}
     </div>

@@ -37,9 +37,10 @@ test.describe("Picker data hook (/picker/:n minimal shell)", () => {
   test("selection bar shows three zero-valued gauges when nothing is selected", async ({ page }) => {
     await session(page).visit("/picker/3");
     await expect(page.locator("text=Loading...")).not.toBeVisible();
-    await expect(page.getByText("Sentences", { exact: true })).toBeVisible();
-    await expect(page.getByText("Words", { exact: true })).toBeVisible();
-    await expect(page.getByText("Forms", { exact: true })).toBeVisible();
+    const gauges = page.locator(".border-l-4.border-\\[\\#34d399\\]");
+    await expect(gauges.getByText("Sentences", { exact: true })).toBeVisible();
+    await expect(gauges.getByText("Words", { exact: true })).toBeVisible();
+    await expect(gauges.getByText("Forms", { exact: true })).toBeVisible();
   });
 
   test("clicking a heatmap chip activates a filter and shows Clear", async ({ page }) => {
@@ -168,8 +169,8 @@ test.describe("Picker data hook (/picker/:n minimal shell)", () => {
     await session(page).visit("/picker/1");
     await expect(page.locator("[data-testid='candidate-row']").first()).toBeVisible();
 
-    // Header text is "Lemmas" today; Task 7 renames it to "Forms".
-    for (const header of ["Lemmas", "Arabic", "English"]) {
+    // Task 7 renamed "Lemmas" header to "Forms".
+    for (const header of ["Forms", "Arabic", "English"]) {
       const th = page.locator("thead th").filter({ hasText: header });
       await th.click();
       // After clicking, the first row should still be visible — verifies click wired up
@@ -210,5 +211,26 @@ test.describe("Picker data hook (/picker/:n minimal shell)", () => {
     await expect(legend).toContainText("×1");
     await expect(legend).toContainText("×2");
     await expect(legend).toContainText("×3");
+  });
+
+  test("cosmetic polish: header text, widths, and collapse button position", async ({ page }) => {
+    await session(page).visit("/picker/1");
+    await expect(page.locator("[data-testid='picker-candidate-count']")).toBeVisible();
+
+    // 1. "Forms" header, not "Lemmas"
+    await expect(page.locator("thead th").filter({ hasText: "Lemmas" })).toHaveCount(0);
+    await expect(page.locator("thead th").filter({ hasText: /^Forms$/ })).toHaveCount(1);
+
+    // 2. "Words" header, not "# Words"
+    await expect(page.locator("thead th").filter({ hasText: /^# Words/ })).toHaveCount(0);
+    await expect(page.locator("thead th").filter({ hasText: /^Words$/ })).toHaveCount(1);
+
+    // 5. "▲ Collapse" button is INSIDE the expanded slider panel, not in the controls header
+    // When collapsed, only "⚙ Fine-tune Ranking" should be visible
+    await expect(page.getByRole("button", { name: /Fine-tune Ranking/ })).toBeVisible();
+    await expect(page.getByRole("button", { name: /Collapse/ })).toHaveCount(0);
+    // When expanded, "Collapse" appears inside the slider panel
+    await page.getByRole("button", { name: /Fine-tune Ranking/ }).click();
+    await expect(page.getByRole("button", { name: /Collapse/ })).toBeVisible();
   });
 });

@@ -81,7 +81,7 @@ export function CandidateTable(props: TableProps) {
             Ref
           </th>
           <th className="px-2 py-2 text-left w-[100px] cursor-pointer" onClick={() => toggleSort("forms")}>
-            Lemmas
+            Forms
           </th>
           <th className="px-2 py-2 text-right cursor-pointer" onClick={() => toggleSort("arabic")}>
             Arabic
@@ -89,8 +89,8 @@ export function CandidateTable(props: TableProps) {
           <th className="px-2 py-2 text-left cursor-pointer" onClick={() => toggleSort("english")}>
             English
           </th>
-          <th className="px-2 py-2 text-right w-[40px] cursor-pointer" onClick={() => toggleSort("words")}>
-            # Words
+          <th className="px-2 py-2 text-right w-[36px] cursor-pointer" onClick={() => toggleSort("words")}>
+            Words
           </th>
           <th className="px-2 py-2 w-[60px]">Bar</th>
           <th className="px-2 py-2 text-left w-[80px]">Hook</th>
@@ -139,7 +139,7 @@ export function CandidateTable(props: TableProps) {
               <td className="px-2 py-2 text-right">{s.wordCount}</td>
               <td className="px-2 py-2">
                 {s.scoreA1 && (
-                  <div className="flex h-[8px] w-[50px] rounded overflow-hidden">
+                  <div className="flex h-[8px] w-[50px] rounded-sm overflow-hidden">
                     <div style={{ width: `${Math.min(100, s.scoreA1.d1Raw * 10)}%`, background: "#3b82f6" }} />
                     <div style={{ width: `${Math.min(100, s.scoreA1.d2Raw * 10)}%`, background: "#8b5cf6" }} />
                     <div style={{ width: `${s.scoreA1.d3 * 10}%`, background: "#f59e0b" }} />

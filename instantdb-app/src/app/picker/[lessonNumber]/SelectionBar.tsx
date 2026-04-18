@@ -1,6 +1,6 @@
 "use client";
 
-import type React from "react";
+import React from "react";
 import type { SentenceRow } from "./usePickerData";
 
 export type SelectionBarProps = {
@@ -103,14 +103,15 @@ export function SelectionBar(props: SelectionBarProps) {
       </div>
 
       <div className="border-t border-[#e2e8f0] bg-[#f8fdf8] px-3 py-2 flex flex-wrap items-center gap-3">
-        {props.lessonRoots.map((root) => {
+        {props.lessonRoots.map((root, idx) => {
           const forms = formsByRoot.get(root.key) ?? [];
           const covered = forms.filter((l) => (countsByForm.get(`${root.key}|${l}`) ?? 0) > 0).length;
           const rootActive = isRootActive(root.key);
           const dim = anyFilter && !rootActive && props.activeFilter.kind === "root";
 
           return (
-            <div key={root.key} className={`flex items-center gap-1 ${dim ? "opacity-35" : ""}`}>
+            <React.Fragment key={root.key}>
+            <div className={`flex items-center gap-1 ${dim ? "opacity-35" : ""}`}>
               <button
                 type="button"
                 onClick={() =>
@@ -168,6 +169,10 @@ export function SelectionBar(props: SelectionBarProps) {
                 );
               })}
             </div>
+            {idx < props.lessonRoots.length - 1 && (
+              <span className="text-[#d1d5db] text-[10px] self-center">│</span>
+            )}
+            </React.Fragment>
           );
         })}
 
