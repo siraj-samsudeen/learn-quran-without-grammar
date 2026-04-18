@@ -2,7 +2,7 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { useCurrentUser } from "@/lib/auth";
+import { useCurrentUser, useIsAuthorizedMember, signOut } from "@/lib/auth";
 
 function CheckingSessionFrame() {
   return (
@@ -14,17 +14,24 @@ function CheckingSessionFrame() {
 
 export default function AuthGate({ children }: { children: React.ReactNode }) {
   const { user, isLoading } = useCurrentUser();
+  const authz = useIsAuthorizedMember();
   const pathname = usePathname();
   const router = useRouter();
 
   useEffect(() => {
-    if (isLoading) return;
+    if (isLoading || authz === "loading") return;
     if (!user && pathname !== "/login") {
       router.replace("/login");
+      return;
     }
-  }, [user, isLoading, pathname, router]);
+    if (user && authz === "unauthorized" && pathname !== "/login") {
+      signOut();
+      router.replace("/login?reason=unauthorized");
+    }
+  }, [user, isLoading, authz, pathname, router]);
 
-  if (isLoading) return <CheckingSessionFrame />;
+  if (isLoading || authz === "loading") return <CheckingSessionFrame />;
   if (!user && pathname !== "/login") return <CheckingSessionFrame />;
+  if (user && authz === "unauthorized" && pathname !== "/login") return <CheckingSessionFrame />;
   return <>{children}</>;
 }

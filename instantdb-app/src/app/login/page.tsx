@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useCurrentUser, sendMagicCode, signInWithCode } from "@/lib/auth";
 
 export default function LoginPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { user } = useCurrentUser();
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
@@ -13,11 +14,13 @@ export default function LoginPage() {
   const [err, setErr] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
-  useEffect(() => {
-    if (user) router.replace("/");
-  }, [user, router]);
+  const reason = searchParams.get("reason");
 
-  if (user) return null;
+  useEffect(() => {
+    if (user && !reason) router.replace("/");
+  }, [user, reason, router]);
+
+  if (user && !reason) return null;
 
   async function handleSend(e: React.FormEvent) {
     e.preventDefault();
@@ -53,6 +56,12 @@ export default function LoginPage() {
       <p className="text-xs text-gray-500 mb-6">
         Learn Qur&apos;an Without Grammar
       </p>
+
+      {reason === "unauthorized" && (
+        <div className="mb-4 rounded border border-red-200 bg-red-50 text-red-700 text-sm px-3 py-2">
+          <strong>Not authorized.</strong> Only registered teachers can access the picker.
+        </div>
+      )}
 
       {!sent ? (
         <form onSubmit={handleSend} className="space-y-3">

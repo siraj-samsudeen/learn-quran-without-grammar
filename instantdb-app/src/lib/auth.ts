@@ -57,6 +57,31 @@ export function useCurrentCourseMember(courseSlug = "lqwg-adhan") {
   return data?.courseMembers?.[0] ?? null;
 }
 
+export type AuthorizationState = "loading" | "authorized" | "unauthorized";
+
+export function useIsAuthorizedMember(courseSlug = "lqwg-adhan"): AuthorizationState {
+  const { user, isLoading } = useCurrentUser();
+  const { data, error } = db.useQuery(
+    user
+      ? {
+          courseMembers: {
+            $: {
+              where: {
+                "course.slug": courseSlug,
+                "profile.email": user.email,
+              },
+            },
+          },
+        }
+      : null,
+  );
+  if (isLoading) return "loading";
+  if (!user) return "unauthorized";
+  if (error) return "loading"; // treat transient errors as loading, not signOut
+  if (data === undefined) return "loading";
+  return data.courseMembers?.[0] ? "authorized" : "unauthorized";
+}
+
 export async function sendMagicCode(email: string): Promise<void> {
   await db.auth.sendMagicCode({ email });
 }
