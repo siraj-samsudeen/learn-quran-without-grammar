@@ -163,9 +163,9 @@ export default function PickerPage({
         <span
           data-testid="picker-candidate-count"
           data-count={data.candidates.length}
-          className="text-[11px] text-[#64748b]"
+          className="sr-only"
         >
-          {data.candidates.length} candidates · auto-top-10: {autoTop10.length}
+          {data.candidates.length} candidates
         </span>
       </div>
 
@@ -192,9 +192,10 @@ export default function PickerPage({
       <div
         data-testid="picker-ranked-count"
         data-count={ranked.length}
-        className="mt-4 text-[11px] text-[#64748b]"
+        data-top-composite={ranked[0]?.composite.toFixed(2) ?? ""}
+        className="sr-only"
       >
-        Ranked {ranked.length} candidates · top: {ranked[0]?.composite.toFixed(2) ?? "—"}
+        {ranked.length} ranked
       </div>
     </div>
   );

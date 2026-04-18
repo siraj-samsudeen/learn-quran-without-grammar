@@ -6,7 +6,7 @@ test.describe("Picker data hook (/picker/:n minimal shell)", () => {
     await session(page).visit("/picker/3");
     await expect(page.locator("text=Loading...")).not.toBeVisible();
     const probe = page.locator("[data-testid='picker-candidate-count']");
-    await expect(probe).toBeVisible();
+    await expect(probe).toBeAttached();
     const countStr = await probe.getAttribute("data-count");
     expect(Number(countStr)).toBeGreaterThan(0);
   });
@@ -27,10 +27,14 @@ test.describe("Picker data hook (/picker/:n minimal shell)", () => {
 
   test("switching preset pills changes the ranked composite value", async ({ page }) => {
     await session(page).visit("/picker/3");
-    const before = await page.locator("[data-testid='picker-ranked-count']").textContent();
+    const before = await page
+      .locator("[data-testid='picker-ranked-count']")
+      .getAttribute("data-top-composite");
     await page.getByRole("button", { name: "Short" }).click();
     await expect
-      .poll(async () => page.locator("[data-testid='picker-ranked-count']").textContent())
+      .poll(async () =>
+        page.locator("[data-testid='picker-ranked-count']").getAttribute("data-top-composite"),
+      )
       .not.toBe(before);
   });
 
@@ -101,7 +105,7 @@ test.describe("Picker data hook (/picker/:n minimal shell)", () => {
 
   test("not-picked heatmap chips render dashed gray, not solid red", async ({ page }) => {
     await session(page).visit("/picker/1");
-    await expect(page.locator("[data-testid='picker-candidate-count']")).toBeVisible();
+    await expect(page.locator("[data-testid='picker-candidate-count']")).toBeAttached();
 
     const uncovered = page.locator("[data-testid='heatmap-chip'][data-count='0']").first();
     await expect(uncovered).toBeVisible();
@@ -120,7 +124,7 @@ test.describe("Picker data hook (/picker/:n minimal shell)", () => {
 
   test("candidate Ref column shows named surahs for all 114 surahs", async ({ page }) => {
     await session(page).visit("/picker/1");
-    await expect(page.locator("[data-testid='picker-candidate-count']")).toBeVisible();
+    await expect(page.locator("[data-testid='picker-candidate-count']")).toBeAttached();
 
     // Look for any row whose Ref cell starts with "Surah " (unnamed fallback).
     // This asserts the fallback is never used for any surah in the live pool.
@@ -132,7 +136,7 @@ test.describe("Picker data hook (/picker/:n minimal shell)", () => {
 
   test("Arabic text renders in Amiri font", async ({ page }) => {
     await session(page).visit("/picker/1");
-    await expect(page.locator("[data-testid='picker-candidate-count']")).toBeVisible();
+    await expect(page.locator("[data-testid='picker-candidate-count']")).toBeAttached();
 
     const chip = page.locator("[data-testid='heatmap-chip']").first();
     await expect(chip).toBeVisible();
@@ -183,7 +187,7 @@ test.describe("Picker data hook (/picker/:n minimal shell)", () => {
 
   test("clicking a chip shows a status line with the filtered sentence count", async ({ page }) => {
     await session(page).visit("/picker/1");
-    await expect(page.locator("[data-testid='picker-candidate-count']")).toBeVisible();
+    await expect(page.locator("[data-testid='picker-candidate-count']")).toBeAttached();
 
     const chip = page.locator("[data-testid='heatmap-chip']").first();
     const lemma = await chip.getAttribute("data-lemma");
@@ -198,13 +202,13 @@ test.describe("Picker data hook (/picker/:n minimal shell)", () => {
 
   test("selection bar shows a hint text when no filter is active", async ({ page }) => {
     await session(page).visit("/picker/1");
-    await expect(page.locator("[data-testid='picker-candidate-count']")).toBeVisible();
+    await expect(page.locator("[data-testid='picker-candidate-count']")).toBeAttached();
     await expect(page.getByText(/Click any form or root to filter/)).toBeVisible();
   });
 
   test("selection bar shows a 4-item traffic-light legend", async ({ page }) => {
     await session(page).visit("/picker/1");
-    await expect(page.locator("[data-testid='picker-candidate-count']")).toBeVisible();
+    await expect(page.locator("[data-testid='picker-candidate-count']")).toBeAttached();
     const legend = page.locator("[data-testid='heatmap-legend']");
     await expect(legend).toBeVisible();
     await expect(legend).toContainText("not picked");
@@ -213,9 +217,18 @@ test.describe("Picker data hook (/picker/:n minimal shell)", () => {
     await expect(legend).toContainText("×3");
   });
 
+  test("no debug text visible to the teacher", async ({ page }) => {
+    await session(page).visit("/picker/1");
+    await expect(page.locator("[data-testid='picker-candidate-count']")).toBeAttached();
+
+    // User-visible text must NOT contain any of these debug strings
+    await expect(page.getByText(/auto-top-10:/)).toHaveCount(0);
+    await expect(page.getByText(/Ranked \d+ candidates · top:/)).toHaveCount(0);
+  });
+
   test("cosmetic polish: header text, widths, and collapse button position", async ({ page }) => {
     await session(page).visit("/picker/1");
-    await expect(page.locator("[data-testid='picker-candidate-count']")).toBeVisible();
+    await expect(page.locator("[data-testid='picker-candidate-count']")).toBeAttached();
 
     // 1. "Forms" header, not "Lemmas"
     await expect(page.locator("thead th").filter({ hasText: "Lemmas" })).toHaveCount(0);
