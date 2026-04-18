@@ -15,7 +15,8 @@
  *   - schema pushed (`npx instant-cli push schema` from instantdb-app/)
  *   - npm install better-sqlite3
  */
-import { init, id, tx } from "@instantdb/admin";
+import { id, tx } from "@instantdb/admin";
+import { createAdminDb } from "./_admin-client.mjs";
 import Database from "better-sqlite3";
 import { readFileSync } from "fs";
 import { dirname, join } from "path";
@@ -24,9 +25,6 @@ import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(__dirname, "..", "..");
 const QURAN_DB = join(REPO_ROOT, "tools", "data", "quran.db");
-
-const APP_ID = "b1c9a636-2a46-4be6-a055-16d6f2ebd233";
-const ADMIN_TOKEN = "5ca3a1a8-a25e-49e3-bf10-3bc6d70000db";
 
 const SIRAJ_EMAIL = "mailsiraj@gmail.com";
 
@@ -91,7 +89,7 @@ async function chunked(items, fn) {
   console.log();
 }
 
-const db = init({ appId: APP_ID, adminToken: ADMIN_TOKEN });
+const db = createAdminDb();
 
 // ── Pre-flight ───────────────────────────────────────────────────────────
 let qdb;
