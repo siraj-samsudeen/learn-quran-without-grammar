@@ -11,13 +11,10 @@
  *   node scripts/reset-lesson-phases.mjs
  *   INSTANT_APP_ADMIN_TOKEN=<token> node scripts/reset-lesson-phases.mjs   # override token
  */
-import { init, tx } from "@instantdb/admin";
+import { tx } from "@instantdb/admin";
+import { createAdminDb } from "./_admin-client.mjs";
 
-const APP_ID = "b1c9a636-2a46-4be6-a055-16d6f2ebd233";
-const ADMIN_TOKEN =
-  process.env.INSTANT_APP_ADMIN_TOKEN || "5ca3a1a8-a25e-49e3-bf10-3bc6d70000db";
-
-const db = init({ appId: APP_ID, adminToken: ADMIN_TOKEN });
+const db = createAdminDb();
 
 const READY_STATE = {
   phaseSelection: "ready",

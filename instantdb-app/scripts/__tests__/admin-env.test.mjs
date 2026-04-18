@@ -23,15 +23,8 @@ test("seed-from-sqlite.mjs exits 1 when INSTANT_APP_ADMIN_TOKEN is unset", () =>
   assert.match(result.stderr, /Set INSTANT_APP_ADMIN_TOKEN/);
 });
 
-test.skip(
-  "reset-lesson-phases.mjs exits 1 when INSTANT_APP_ADMIN_TOKEN is unset (enabled in Task 5)",
-  () => {
-    // Skipped until Task 5 migrates reset-lesson-phases.mjs to createAdminDb().
-    // While the hardcoded token fallback is in that script, running this test
-    // performs a live mutation against production InstantDB before hitting the
-    // failing assertion.
-    const result = runWithoutToken(RESET_SCRIPT);
-    assert.equal(result.status, 1, `stdout=${result.stdout}\nstderr=${result.stderr}`);
-    assert.match(result.stderr, /Set INSTANT_APP_ADMIN_TOKEN/);
-  },
-);
+test("reset-lesson-phases.mjs exits 1 when INSTANT_APP_ADMIN_TOKEN is unset", () => {
+  const result = runWithoutToken(RESET_SCRIPT);
+  assert.equal(result.status, 1, `stdout=${result.stdout}\nstderr=${result.stderr}`);
+  assert.match(result.stderr, /Set INSTANT_APP_ADMIN_TOKEN/);
+});
