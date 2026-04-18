@@ -26,5 +26,5 @@ body {
 }
 
 .font-arabic {
-  font-family: "Amiri", "Noto Sans Arabic", serif;
+  font-family: var(--font-amiri), "Amiri", "Noto Serif", serif;
 }

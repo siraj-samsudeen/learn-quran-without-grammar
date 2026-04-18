@@ -129,6 +129,20 @@ test.describe("Picker data hook (/picker/:n minimal shell)", () => {
     await expect(unnamed).toHaveCount(0);
   });
 
+  test("Arabic text renders in Amiri font", async ({ page }) => {
+    await session(page).visit("/picker/1");
+    await expect(page.locator("[data-testid='picker-candidate-count']")).toBeVisible();
+
+    const chip = page.locator("[data-testid='heatmap-chip']").first();
+    await expect(chip).toBeVisible();
+
+    const fontFamily = await chip.evaluate(
+      (el) => getComputedStyle(el).fontFamily,
+    );
+    // next/font wraps Amiri in a CSS variable; the computed family resolution includes "Amiri"
+    expect(fontFamily.toLowerCase()).toContain("amiri");
+  });
+
   test("loading a fresh lesson auto-selects 10 candidates", async ({ page }) => {
     // Pre-requisite: the lesson must have zero existing selections.
     // Pre-flight P3 wiped all selections, and earlier tests are self-cleaning,
