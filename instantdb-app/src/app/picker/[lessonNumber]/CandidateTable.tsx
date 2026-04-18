@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import type { SentenceRow } from "./usePickerData";
 import type { FilterState } from "./SelectionBar";
+import { surahName } from "./surah-names";
 
 export type SortKey = "score" | "words" | "ref";
 export type SortDir = "asc" | "desc";
@@ -20,11 +21,6 @@ function rankColor(rank: number): string {
   if (rank <= 10) return "#059669";
   if (rank <= 20) return "#0369a1";
   return "#64748b";
-}
-
-function surahName(surah: number): string {
-  const names = ["Al-Fatiha", "Al-Baqarah", "Ali-Imran", "An-Nisa", "Al-Ma'idah"];
-  return names[surah - 1] ?? `Surah ${surah}`;
 }
 
 function refWithFragment(s: SentenceRow): string {

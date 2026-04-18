@@ -117,6 +117,18 @@ test.describe("Picker data hook (/picker/:n minimal shell)", () => {
     expect(borderColor).toBe("rgb(209, 213, 219)");
   });
 
+  test("candidate Ref column shows named surahs for all 114 surahs", async ({ page }) => {
+    await session(page).visit("/picker/1");
+    await expect(page.locator("[data-testid='picker-candidate-count']")).toBeVisible();
+
+    // Look for any row whose Ref cell starts with "Surah " (unnamed fallback).
+    // This asserts the fallback is never used for any surah in the live pool.
+    const unnamed = page.locator("[data-testid='candidate-row']").filter({
+      hasText: /^Surah \d+/,
+    });
+    await expect(unnamed).toHaveCount(0);
+  });
+
   test("loading a fresh lesson auto-selects 10 candidates", async ({ page }) => {
     // Pre-requisite: the lesson must have zero existing selections.
     // Pre-flight P3 wiped all selections, and earlier tests are self-cleaning,
