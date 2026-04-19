@@ -10,6 +10,7 @@ Usage:
 from __future__ import annotations
 
 import json
+import os
 import sqlite3
 import sys
 import urllib.request
@@ -19,7 +20,10 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 QURAN_DB = REPO_ROOT / "tools" / "data" / "quran.db"
 
 APP_ID = "b1c9a636-2a46-4be6-a055-16d6f2ebd233"
-ADMIN_TOKEN = "5ca3a1a8-a25e-49e3-bf10-3bc6d70000db"
+ADMIN_TOKEN = os.environ.get("INSTANT_APP_ADMIN_TOKEN")
+if not ADMIN_TOKEN:
+    print("Set INSTANT_APP_ADMIN_TOKEN before running admin scripts.", file=sys.stderr)
+    sys.exit(1)
 
 QUERY_URL = f"https://api.instantdb.com/admin/query"
 

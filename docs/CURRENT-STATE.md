@@ -132,7 +132,7 @@ ADR-011 student SRS, magic-link auth, streaks, progress tracking. Schema ready; 
 | Key | Value |
 |-----|-------|
 | **App ID** | `b1c9a636-2a46-4be6-a055-16d6f2ebd233` |
-| **Admin Token** | `5ca3a1a8-a25e-49e3-bf10-3bc6d70000db` |
+| **Admin Token** | Set via `INSTANT_APP_ADMIN_TOKEN` env var (see `instantdb-app/scripts/_admin-client.mjs`) |
 | **Dashboard** | https://instantdb.com/dash?app=b1c9a636-2a46-4be6-a055-16d6f2ebd233 |
 
 Used in `instantdb-app/src/lib/instant.ts` (client, App ID only) and `instantdb-app/scripts/seed.mjs` (server, App ID + Admin Token).
